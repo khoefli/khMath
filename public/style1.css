@@ -42,17 +42,6 @@ html h1
   width:auto;
 }
 
-html h2
-{
-  color:DarkSlateGray;
-  font-size:12pt;
-  text-align:center;
-  padding:0px;
-  margin:0px;
-  padding-top:5px;
-  padding-bottom:10px;
-}
-
 html h3
 {
   color:DarkSlateGray;
@@ -236,7 +225,18 @@ html button
   border: 0pt solid;
 }
 
-content_main div
+.content_main h2
+{
+  color:DarkSlateGray;
+  font-size:12pt;
+  text-align:center;
+  padding:0px;
+  margin:0px;
+  padding-top:5px;
+  padding-bottom:10px;
+}
+
+.content_main div
 {
   min-height:1200px;
 }
