@@ -42,6 +42,17 @@ html h1
   width:auto;
 }
 
+h2
+{
+  color:DarkSlateGray;
+  font-size:12pt;
+  text-align:center;
+  padding:0px;
+  margin:0px;
+  padding-top:5px;
+  padding-bottom:10px;
+}
+
 html h3
 {
   color:DarkSlateGray;
@@ -58,13 +69,11 @@ html li
 
 html body
 {
-//position:relative;
   background-color:white;
   text-align:center;
   width:auto;
   height:100%;
   overflow:scroll;
-//overflow-y:hidden;
 }
 
 html img
@@ -225,20 +234,8 @@ html button
   border: 0pt solid;
 }
 
-.content_main h2
-{
-  color:DarkSlateGray;
-  font-size:12pt;
-  text-align:center;
-  padding:0px;
-  margin:0px;
-  padding-top:5px;
-  padding-bottom:10px;
-}
-
 .content_main div
 {
-  min-height:1200px;
 }
 
 .content_main a, a:hover, a:visited
@@ -309,21 +306,12 @@ html button
 /*----------------------------------------------------------------------------*/
 #header
 {
-/*
-  z-index:10;
-  position:sticky;
-  top:1%;
-*/
 margin:0px;
 padding:0px;
 }
 
 #footer
 {
-/*
-  position:fixed;
-  bottom:1%;
-*/
   font-size:90%;
   text-align:left;
   margin-left:5%;
