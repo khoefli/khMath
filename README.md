@@ -1,1 +1,1 @@
-This is khMath, a project dealing with mathematical analysis.
+This is khMath, a project dealing with functional analysis and related topics.
