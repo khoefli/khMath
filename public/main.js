@@ -75,7 +75,7 @@ function openPage(id)
 /*----------------------------------------------------------------------------*/
 function createTable(title,classname)
 {
-  table = new $('#'+classname+'-table').DataTable({pageLength:8,lengthChange:false});
+  table = new $('#'+classname+'-table').DataTable({pageLength:8});
   if(title != "")
     table.caption('--- ' + title + ' ---','top');
   else
@@ -130,13 +130,13 @@ function createTable(title,classname)
 
   if(classname == 'Grundlehren')
   {
-    table.row.add([' 97','W.Greub','Linear Algebra','1958']);
-    table.row.add(['136','W.Greub','Multilinear Algebra','1967']);
+    table.row.add([' 97','W. Greub','Linear Algebra','1958']);
+    table.row.add(['136','W. Greub','Multilinear Algebra','1967']);
     table.row.add(['111','J.-L. Lions','Équations différentielles opérationnelles et problèmes aux limites','1961']);
-    table.row.add(['116','L.Hörmander','Linear Partial Differential Operators','1963']);
-    table.row.add(['120','L.Collatz','Funktionalanalysis und numerische Mathematik','1964']);
-    table.row.add(['123','K.Yosida','Functional Analysis','1965']);
-    table.row.add(['132','T.Kato',  '<a href=\'https://webhomes.maths.ed.ac.uk/~v1ranick/papers/kato1.pdf\'>Perturbation Theory of Linear Operators</a>','1966']);
+    table.row.add(['116','L. Hörmander','Linear Partial Differential Operators','1963']);
+    table.row.add(['120','L. Collatz','Funktionalanalysis und numerische Mathematik','1964']);
+    table.row.add(['123','K. Yosida','Functional Analysis','1965']);
+    table.row.add(['132','T. Kato',  '<a href=\'https://webhomes.maths.ed.ac.uk/~v1ranick/papers/kato1.pdf\'>Perturbation Theory of Linear Operators</a>','1966']);
     table.row.add(['115','E. Hewitt, K. Ross','Abstract Harmonic Analysis I','1963']);
     table.row.add(['152','E. Hewitt, K. Ross','Abstract Harmonic Analysis II','1970']);
     table.row.add(['181','J.-L. Lions, E. Magenes','Non-Homogeneous Boundary Value Problems I','1972']);
@@ -155,6 +155,7 @@ function createTable(title,classname)
     table.row.add(['<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Sergei_Sobolev\'>Sergei Sobolev</a>','1908','1989','Russia']);
     table.row.add(['<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Laurent_Schwartz\'>Laurent Schwartz</a>','1915','2002','France']);
     table.row.add(['<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Stefan_Banach\'>Stefan Banach</a>','1892','1945','Poland']);
+    table.row.add(['<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Hugo_Steinhaus\'>Hugo Steinhaus</a>','1887','1992','Poland']);
     table.row.add(['<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Felix_Browder\'>Felix E. Browder</a>','1927','2016','U.S.A.']);
     table.row.add(['<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Felix_Browder\'>Nikolai N. Lusin</a>','1883','1950','Russia']);
     table.row.add(['<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Leonidas_Alaoglu\'>Leonidas Alaoglu</a>','1914','1981','Canda']);
