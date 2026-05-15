@@ -1,0 +1,1429 @@
+<!DOCTYPE HTML PUBLIC
+  "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<!--------------------------------------------------------------------------------
+|                                       HEAD                                     |
+--------------------------------------------------------------------------------->
+  <head>
+    <title>Functional Analysis and Related Topics</title>
+    <meta name="google-site-verification" content="Xq2bsD5o5ilSP6JT3q6DDZBoFgceFD3jJO7A9zgUcTw"/>
+    <meta name="author" content="Klaus Höflinger"/>
+    <meta name="description" content="khMath describes the mathematical area of functional analysis and related topics in mathematics"/>
+    <meta name="keywords" content="Functional Analysis, Spectral Theory, Linear Operators"/>
+    <meta name="contact_addr" content="khoeflinger@t-online.de"/>
+    <meta http-equiv="content-type">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <base target='_new'>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/select/3.0.0/js/dataTables.select.min.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+
+<!--------------------------------------------------------------------------------
+|                                     BODY                                       |
+--------------------------------------------------------------------------------->
+  <body>
+
+<!--------------------------------------------------------------------------------
+|                                TITLE & MAIN MENU                               |
+--------------------------------------------------------------------------------->
+    <div id="header">
+      <!--<h1>Functional Analysis and Related Topics</h1>-->
+      <center>
+        <img src='../data/Functional_Analysis_and_Related_Topics.png' height='50px' width='auto' border='1pt solid'>
+      </center>
+
+      <div id="nav">
+        <ul>
+          <li onclick="openPage('home')">Home</li>
+          <li>|</li>
+          <li>MSC-2020
+            <ul style="width:250px">
+              <li><a href="https://msc2020.org/#">MSC-2020 home page</a></li>
+              <li onclick="openPage('msc46')">Entries for 46-XX (functional analysis)</li>
+            </ul>
+          </li>
+          <li>|</li>
+          <li>Links
+            <ul style="width:260px">
+              <li><a href="https://www.bourbaki.fr/index-en.html">Bourbaki</a></li>
+              <li><a href="https://projecteuclid.org">Project Euclid</a></li>
+              <li><a href="https://www.ams.org/#">American Math. Society</a></li>
+              <li><a href="https://www.mfo.de/#">Math. Forschungsinstitut Oberwolfach</a></li>
+              <li><a href="https://mathematik.de">Deutsche Mathematiker-Vereinigung</a></li>
+              <li><a href="https://mathshistory.st-andrews.ac.uk">MacTutor</a></li>
+            </ul>
+          </li>
+          <li>|</li>
+          <li>Resources
+            <ul style="width:205px">
+<!--
+              <li><a href="https://encyclopediaofmath.org/">Encyclopedia of Mathematics</a></li>
+-->
+              <li><a href="https://mathworld.wolfram.com/">Wolfram MathWorld</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Glossary_of_functional_analysis">Glossary of functional analysis</a></li>
+            </ul>
+          </li>
+          <li>|</li>
+          <li>Documents
+            <ul style="width:125px">
+              <li onclick="openPage('textbooks')">Textbooks</li>
+              <li onclick="openPage('lecture_notes')">Lecture Notes</li>
+              <li onclick="openPage('research_articles')">Research Articles</li>
+              <li onclick="openPage('my_documents')" style="border-top:1pt solid;width:125px">my Documents</li>
+            </ul>
+          </li>
+          <li>|</li>
+    <!--  <li onclick="openPage('journals')">Journals</li> -->
+          <li>Seminars
+            <ul style="width:280px">
+              <li onclick="openPage('internet_seminar_evo')">Internet Seminars on Evolution Equations</li>
+            </ul>
+          <li>|</li>
+          <li>Results & Data
+            <ul style="width:115px">
+              <li onclick="openPage('main_theorems')">Main Theorems</li>
+              <li onclick="openPage('key_concepts')">Key Concepts</li>
+              <li onclick="openPage('mathematicians')">Mathematicians</li>
+              <li onclick="openPage('history')">History of F.A.</li>
+            </ul>
+          </li>
+          <li>|</li>
+          <li>Series
+            <ul style="width:260px">
+              <li onclick="openPage('grundlehren')">Grundlehren der math. Wissenschaften&nbsp;</li>
+              <li onclick="openPage('dover')">Dover Publications&nbsp;</li>
+              <li onclick="openPage('lecture_notes')">Lecture Notes in Mathematics&nbsp;</li>
+              <li onclick="openPage('gtm')">Graduate Texts in Mathematics (GTM)&nbsp;</li>
+              <li onclick="openPage('gsm')">Graduate Studies in Mathematics&nbsp;</li>
+              <li onclick="openPage('mass')">Mathematics and its Applications&nbsp;</li>
+            </ul>
+          </li>
+          <li>|</li>
+          <li>Special Books
+            <ul style="width:400px">
+              <li onclick="openPage('Nagy')">Riesz & Sz.-Nagy: Functional Analysis</li>
+              <li onclick="openPage('Dunford_Schwartz')">Dunford & Schwartz: Linear Operators I-III</li>
+              <li onclick="openPage('Kato')">Kato: Perturbation Theory for Linear Operators</li>
+              <li onclick="openPage('Yosida')">Yosida: Functional Analysis</li>
+              <li onclick="openPage('Reed_Simon')">Reed & Simon: Methods of Modern Mathematical Physics I-IV</li>
+              <li onclick="openPage('Fattorini')">Fattorini: The Cauchy Problem</li>
+              <li onclick="openPage('Rudin')">Rudin's Books on Mathematical Analysis</li>
+            </ul>
+          </li>
+          <li>|</li>
+          <li>Subtopics
+            <ul style="width:290px">
+              <li onclick="openPage('topological_linear_spaces')">Topological Linear Spaces</li>
+              <li onclick="openPage('spectral_theory')">Linear Operators and Spectral Theory</li>
+              <li onclick="openPage('self-adjoint_operators')">Self-Adjoint Operators</li>
+              <li onclick="openPage('semigroup_theory')">Semigroup Theory and Evolution Equations</li>
+              <li onclick="openPage('coercive_sesquilinear_forms')">Coercive Sesquilinear Forms</li>
+              <li onclick="openPage('distribution_theory')">Distribution Theory</li>
+         <!-- <li onclick="openPage('nonlinear_functional_analysis')">Nonlinear Functional Analysis</li> -->
+            </ul>
+          </li>
+          <li>|</li>
+          <li>other Topics
+            <ul style="width:220px">
+              <li onclick="openPage('general_topology')">General Topology&nbsp;</li>
+              <li onclick="openPage('linear_algebra')">Linear Algebra&nbsp;</li>
+              <li onclick="openPage('measure_and_integration_theory')">Measure and Integration Theory</li>
+              <li onclick="openPage('complex_analysis')">Complex Analysis</li>
+              <li onclick="openPage('pde_theory')">Partial Differential Equations</li>
+              <li onclick="openPage('abstract_harmonic_analysis')">Abstract Harmonic Analysis</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+<!--------------------------------------------------------------------------------
+|                                    CONTENT                                     |
+--------------------------------------------------------------------------------->
+    <div class="content_main">
+
+      <div id='impressum' style='display:none'>
+        <h2>Impressum</h2>
+        <p>
+          Responsible for these webpages:
+        </p>
+        <p>
+        Klaus Höflinger, Beethovenstraße 11; 73117 Wangen (Germany)
+        </p>
+        <p>
+          Email contact: <i>khoeflinger@t-online.de</i>
+        </p>
+      </div>
+
+      <div id='main_theorems' style='display:none'>
+        <h2>Main Theorems in Functional Analysis</h2>
+        <div class='content_left'>
+          <div style="width:370px">
+            <ul type="square">
+              <li><a href="https://en.wikipedia.org/wiki/Arzelà-Ascoli_theorem">Arzelà-Ascoli theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Atkinson's">Atkinson's theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Bourbaki-Alaoglu_theorem">Bourbaki-Alaoglu theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Closed_graph_theorem">closed graph theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Closed_range_theorem">closed range theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Rellich–Kondrachov_theorem">Rellich-Kondrachov theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Riesz-Fischer_theorem">Fischer-Riesz theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Fredholm_alternative">Fredholm's alternative theorem</a></li>
+            </ul>
+          </div>
+          <div style="width:370px">
+            <ul type="square">
+              <li><a href="https://en.wikipedia.org/wiki/Gelfand–Mazur">Gelfand-Mazur theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Gelfand–Naimark_theorem">Gelfand-Naimark theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Hahn_Banach_theorem">Hahn-Banach theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Hille-Yosida_theorem">Hille-Yosida theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Weak_formulation#The_Lax–Milgram_theorem">Lax-Milgram theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Lumer-Phillips_theorem">Lumer-Phillips theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Milman–Pettis_theorem">Milman-Pettis theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Open_mapping_theorem">open mapping theorem</a></li>
+            </ul>
+          </div>
+          <div style="width:420px">
+            <ul type="square">
+              <li><a href="https://en.wikipedia.org/wiki/Hilbert_projection_theorem">projection theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Riesz–Markov–Kakutani_representation_theorem">Riesz-Markov theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Riesz_representation_theorem">Riesz representation theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Spectral_theory_of_compact_operators#Compact_operators">Riesz-Schauder spectral theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Hilbert-Schmidt_theorem">Hilbert-Schmidt spectral theorem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/spectral_theorem">spectral theorem for self-adjoint operators</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Stone's_theorem_on_one-parameter_unitary_groups">Stone's theorem</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id='key_concepts' style='display:none'>
+        <h2>Key Concepts in Functional Analysis</h2>
+        <div class='content_left'>
+          <div style="width:330px">
+            <ul type="square">
+              <li><a href="https://en.wikipedia.org/wiki/Dissipative_operator">accretive linear operator</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Hermitian_adjoint">adjoint operator</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Banach_algebra">Banach algebra</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Banach_space">Banach space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Bochner_space">Bochner space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Bounded_linear_operator">bounded linear operator</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Cauchy_sequence">Cauchy sequence</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Cauchy_problem">Cauchy problem</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Closed_linear_operator">closed linear operator</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Compact_linear_operator">compact linear operator</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Complemented_subspace">complemented subspace</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Group_algebra_of_a_locally_compact_group#The_convolution_algebra_L1.28G.29">convolution algebra</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/C0-semigroup#Contraction_semigroups">contraction semigroup</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/C*-algebra">C*-algebra</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Differential_operator">differential operator</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Discrete_spectrum">discrete spectrum</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Dual_space">dual space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Essential_spectrum">essential spectrum</a></li>
+            </ul>
+          </div>
+          <div style="width:330px">
+            <ul type="square">
+              <li><a href="https://en.wikipedia.org/wiki/Finite_rank_operator">finite rank operator</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Fourier_transformation">Fourier transformation</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Fourier_Plancherel_transformation">Fourier-Plancherel transformation</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Frechet_space">Fréchet space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Fredholm_operator">Fredholm operator</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Functional_calculus">functional calculus</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Gelfand_representation">Gelfand representation</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Hilbert_space">Hilbert space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Hilbert_Schmidt_operator">Hilbert-Schmidt operator</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Holomorphic_functional_calculus">holomorphic functional calculus</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Holomorphic_semigroup">holomorphic semigroup</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Hoelder_space">Hölder space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/C0-semigroup#Infinitesimal_generator">infinitesimal generator</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Inner_product_space">inner product space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Laplace_transformation">Laplace transformation</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Lp_space">Lebesgue space \(L^p\)</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Linear_functional">linear functional</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Linear_operator">linear operator</a></li>
+            </ul>
+          </div>
+          <div style="width:370px">
+            <ul type="square">
+              <li><a href="https://en.wikipedia.org/wiki/Locally_convex_topological_vector_space">locally convex linear space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Metric_space">metric space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Metrizable_topological_vector_space">metrizable topological linear space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Normal_linear_operator">normal linear operator</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Normed_vector_space">normed linear space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Orthonormal_basis">orthonormal basis</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/point_spectrum">point spectrum</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Reflexive_space">reflexive space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Resolvent_set">resolvent set</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Schauderbasis">Schauder basis</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Self-adjoint_operator">self-adjoint linear operator</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Sesquilinear_form">sesquilinear form</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Sobolev_space">Sobolev space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Spectrum_(functional_analysis)">spectrum</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/C0_semigroup">strongly continuous semigroup</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Topological_vector_space">topological linear space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Uniformly_convex_space">uniformly convex space</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Unitary_operator">unitary linear operator</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id='sitemap' style='display:none'>
+        <h2>Sitemap</h2>
+        <div class='content_left' style='font-size:90%'>
+          <div style="width:450px">
+            <ul type="square">
+              <li onclick="openPage('home')">Home</li>
+              <li onclick="openPage('impressum')">Impressum</li>
+              <li onclick="openPage('about_me')">About me</li>
+              <li onclick="openPage('msc46')">Mathematical Subject Classification for 46-XX</li>
+              <li onclick="openPage('my_documents')">my Documents</li>
+              <li onclick="openPage('lecture_notes')">Lecture Notes</li>
+              <li onclick="openPage('research_articles')">Research Articles</li>
+              <li onclick="openPage('mathematicians')">Mathematicians</li>
+              <li onclick="openPage('history')">History of Functional Analysis</li>
+              <li onclick="openPage('textbooks')">Textbooks</li>
+              <li onclick="openPage('grundlehren')">Grundlehren der math. Wissenschaften (Springer)</li>
+              <li onclick="openPage('gtm')">Graduate Texts in Mathematics (Springer)</li>
+              <li onclick="openPage('mass')">Mathematics and Its Applications (Springer)</li>
+              <li onclick="openPage('lecture_note')">Lecture Notes in Mathematics (Springer)</li>
+              <li onclick="openPage('dover')">Dover Publications</li>
+              <li onclick="openPage('gsm')">Graduate Studies in Mathematics (AMS)</li>
+<!--
+              <li onclick="openPage('journals')">Journals</li>
+              <li onclick="openPage('nonlinear_functional_analysis')">Nonlinear Functional Analysis</li>
+-->
+              <li onclick="openPage('Dunford_Schwartz')">Dunford & Schwartz: Linear Operators I-III</li>
+              <li onclick="openPage('Reed_Simon')">Reed & Simon: Methods of Modern Math. Physics I-IV</li>
+              <li onclick="openPage('Kato')">Kato: Perturbation Theory of Linear Operators</li>
+              <li onclick="openPage('Fattorini')">Fattorini: The Cauchy Problem</li>
+            </ul>
+          </div>
+          <div>
+            <ul type="square">
+              <li onclick="openPage('Rudin')">Rudin's Books on Mathematical Analysis</li>
+              <li onclick="openPage('Yosida')">Yosida: Functional Analysis</li>
+              <li onclick="openPage('Nagy')">Riesz & Sz.-Nagy: Functional Analysis</li>
+              <li onclick="openPage('functional_analysis')">Functional Analysis</li>
+              <li onclick="openPage('topological_linear_spaces')">Topological and Normed Linear Spaces</li>
+              <li onclick="openPage('spectral_theory')">Linear Operators and Spectral Theory</li>
+              <li onclick="openPage('self-adjoint_operators')">Self-Adjoint Operators</li>
+              <li onclick="openPage('semigroup_theory')">Semigroup Theory and Evolution Equations</li>
+              <li onclick="openPage('internet_seminar')">Internet Seminar on Evolution Equations</li>
+              <li onclick="openPage('coercive_sesquilinear_forms')">Coercive Sesquilinear Forms</li>
+              <li onclick="openPage('distribution_theory')">Distribution Theory</li>
+         <!-- <li onclick="nonlinear_functional_analysis')">Nonlinear Functional Analysis</li> -->
+              <li onclick="openPage('key_concepts')">Key Concepts in Functional Analysis</li>
+              <li onclick="openPage('main_theorems')">Main Theorems</li>
+              <li onclick="openPage('linear_algebra')">Linear Algebra</li>
+              <li onclick="openPage('general_topology')">General Topology</li>
+              <li onclick="openPage('measure_and_integration_theory')">Measure and Integration Theory</li>
+              <li onclick="openPage('complex_analysis')">Complex Analysis</li>
+              <li onclick="openPage('pde_theory')">Partial Differential Equations</li>
+              <li onclick="openPage('abstract_harmonic_analysis')">Abstract Harmonic Analysis</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id='home'>
+        <h2>Welcome to my homepage!</h2>
+        <b>Functional analysis</b> is nowadays one of the most important areas in modern mathematics.
+        It deals with the theory of topological linear spaces and the linear rsp. nonlinear mappings between them.
+        The subject was mainly developed in the first half of the 20<sup>th</sup> century,
+        and valuable contributions have been done by
+        <i>I.&nbsp;Fredholm</i>,
+        <i>D.&nbsp;Hilbert</i>,
+        <i>S.&nbsp;Banach</i>,
+        <i>F.&nbsp;Riesz</i>,
+        <i>J.&nbsp;von&nbsp;Neumann</i>,
+        <i>L.&nbsp;Schwartz</i>,
+        <i>F.&nbsp;E.&nbsp;Browder</i>,
+        <i>J.-L.&nbsp;Lions</i> and many others.
+        <p>
+          Meanwhile there are a lot of subtopics within functional analysis,
+          and we want to emphasize a couple of them:
+        </p>
+        <ul>
+          <li><mark class="change_page" onclick="openPage('topological_linear_spaces')">topological and normed linear spaces</mark></li>
+          <li>duality theory (dual pairs, adjoint spaces, adjoint operators)</li>
+          <li>calculus of vector-valued functions</li>
+          <li><mark class="change_page" onclick="openPage('spectral_theory')">linear operators and spectral theory</mark></li>
+          <li><mark class="change_page" onclick="openPage('semigroup_theory')">semigroup theory and evolution equations</mark></li>
+          <li><mark class="change_page" onclick="openPage('distribution_theory')">distribution theory</mark></li>
+          <li>monotone mappings, fixpoint and degree theorems <i>(nonlinear functional analysis)</i></li>
+          <li>applied functional analysis (elliptic boundary value problems, Hilbert space methods, Schrödinger equation, ...)</li>
+        </ul>
+        <p>
+          One can claim without doubt that functional analysis relies
+          on four main columns of other mathematical subjects:
+          <mark class="change_page" onclick="openPage('linear_algebra')">linear&nbsp;algebra</mark>,
+          <mark class="change_page" onclick="openPage('general_topology')">general&nbsp;topology</mark>,
+          <mark class="change_page" onclick="openPage('measure_and_integration_theory')">measure&nbsp;and&nbsp;integration&nbsp;theory</mark> and
+          <mark class="change_page" onclick="openPage('complex_analysis')">complex&nbsp;analysis</mark>.
+        </p>
+        <p>
+          It is my wish that visitors of this website will find inspirating hints and texts for further extended studies.
+        </p>
+      </div>
+
+      <div id='about_me' style='display:none'>
+        <h2>About me</h2>
+        <div class='content_left'>
+          <div style="width:500px">
+            My name is <b>Klaus Höflinger</b> and I was born in 1960 in Wangen,
+            a small village in the south of Germany.
+            My education is that of a mathematician, which I performed from 1980 to 1986 at University of Stuttgart.
+            Mathematics is one of my favourite hobbies during my life,
+            and after my retirement in 2025 I find enough time to setup again many topics
+            that I learned in the past.
+            <p>
+              I wrote this treatise in honour of Prof. Dr. Peter Werner (1932-2018),
+              who conveyed my fascination of these beautiful mathematical topics by his lessons
+              hold in 1984 and 1985 at Mathematical Institute A of University Stuttgart.
+            </p>
+          </div>
+          <div>
+            <img src="../data/Klaus.jpg" alt="this is me" width="150%" height="auto">
+          </div>
+        </div>
+      </div>
+
+      <div id='my_documents' style='display:none'>
+        <h2>my Documents</h2>
+        These are the pdf-documents written by myself.
+        The first block contains survey articles on various subjects,
+        whereas the second one presents a couple of original typewriter texts
+        from other mathematicians in modern LaTex style:
+        <div class='content_left'>
+          <div>
+            <ul style='list-style:none'>
+              <h6>My articles on functional analysis:</h6>
+              <li><a href="../pdf/Functional_Analysis.pdf">Functional Analysis</a> (all topics in one document)
+              <li><a href="../pdf/Topological_and_Normed_Linear_Spaces.pdf">Topological and Normed Linear Spaces</a></li>
+              <li><a href="../pdf/Linear_Operators_and_Spectral_Theory.pdf">Linear Operators and Spectral Theory</a></li>
+              <li><a href="../pdf/Self-Adjoint_Operators.pdf">Self-Adjoint Operators</a></li>
+              <li><a href="../pdf/Hille_Yosida.pdf">Generators of Strongly Continuous Semigroups</a></li>
+              <li><a href="../pdf/Distribution_Theory.pdf">Distribution Theory</a></li>
+              <li><a href="../pdf/Coercive_Sesquilinear_Forms.pdf">Coercive Sesquilinear Forms</a></li>
+              <li>&nbsp;</li>
+              <li><h6>My reprints of articles/books written by other mathematicians:</h6></li>
+              <li><a href="../pdf/Fredholm_Operators_and_the_Essential_Spectrum.pdf">Fredholm Operators and the Essential Spectrum</a> by <i>M.Schechter</i></li>
+              <li><a href="../pdf/Fourier_Analysis_on_Groups.pdf">Abstract Harmonic Analysis</a> based on <i>W.&nbsp;Rudin</i>'s book 'Fourier Analysis on Groups'.</li>
+            </ul>
+          </div>
+          <div>
+            <ul style='list-style:none'>
+              <h6>My articles on other topics:</h6>
+              <li><a href="../pdf/Group_Theory.pdf">Group Theory</a></li>
+              <li><a href="../pdf/Linear_Algebra.pdf">Linear Algebra</a></li>
+              <li><a href="../pdf/General_Topology.pdf">General Topology</a></li>
+              <li><a href="../pdf/Measure_and_Integration_Theory.pdf">Measure and Integration Theory</a></li>
+              <li><a href="../pdf/Abstract_Harmonic_Analysis.pdf">Abstract Harmonic Analysis</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="lecture_notes" style='display:none'>
+        <h2>Lecture Notes</h2>
+        <ul>
+          <li>
+            <a target="_new"
+            href="https://www.math.tecnico.ulisboa.pt/~czaja/ISEM/08internetseminar200405.pdf">
+            Analytic Semigroups and Reactor-Diffusion Problems</a>;&nbsp;8st International Internet Seminar, 2005.
+          </li>
+
+          <li>
+            <a target="_new"
+            href="https://user.math.uni-bremen.de/hvogt/papers/form-methods.pdf">
+            Form Methods for Evolution Equations</a>;&nbsp;18st International Internet Seminar, 2015.
+          </li>
+
+          <li>
+            <a target="_new"
+            href="https://www.mathematik.tu-darmstadt.de/media/analysis/lehrmaterial_anapde/hallerd/ISem21complete.pdf">
+            Lectures on Functional Calculus</a>;
+            &nbsp;21st International Internet Seminar; by <i>Markus&nbsp;Haase</i>, Kiel 2018.
+          </li>
+
+          <li>
+            <a target="_new"
+            href="https://www.math.tecnico.ulisboa.pt/~czaja/ISEM/23internetseminar201920.pdf">
+            Evolutionary Equations</a>;
+            &nbsp;23st Internet Seminar, 2020.
+          </li>
+        </ul>
+
+        <ul>
+          <li>
+            <a target="_new"
+            href="https://www.uni-ulm.de/fileadmin/website_uni_ulm/mawi.inst.020/arendt/downloads/Evolution_Equations_Governed_by_Elliptic_Operators.pdf">
+            Evolution Equations Governed by Elliptic Operators</a>;
+            &nbsp;by <i>Wolfgang&nbsp;Arendt</i>, Ulm University.
+          </li>
+
+          <li>
+            <a target="_new"
+            href="https://www.uni-ulm.de/fileadmin/website_uni_ulm/mawi.inst.010/Evolution/eveqskript-modif.pdf">
+            Lineare Evolutionsgleichungen</a>;
+            &nbsp;by <i>Delio&nbsp;Mugnolo</i>, Universität Ulm.
+          </li>
+
+          <li>
+            <a target="_new"
+            href="https://www.pde.sci.waseda.ac.jp/lab/pdf/frahmen.pdf">
+            From Forms to Semigroups</a>;
+            &nbsp;by <i>Wolfgang&nbsp;Arendt</i>, Lecture Notes Tokyo, Waseda University, 2010.
+          </li>
+
+          <li>
+            <a target="_new"
+            href="https://iana.math.kit.edu/downloads/iana3/schnaubelt/Skripten/evgl-skript.pdf">
+            Lecture Notes Evolution Equations</a>;
+            &nbsp;by <i>Roland&nbsp;Schnaubelt</i>.
+          </li>
+
+          <li>
+            <a target="_new"
+            href="https://iana.math.kit.edu/downloads/iana3/schnaubelt/Skripten/nevgl-skript.pdf">
+            Lecture Notes Nonlinear Evolution Equations</a>;
+            &nbsp;by <i>Roland&nbsp;Schnaubelt</i>.
+          </li>
+
+          <li>
+            <a target="_new"
+            href="https://iana.math.kit.edu/downloads/iana3/schnaubelt/Skripten/st-skript.pdf">
+            Spectral Theory</a>;
+            &nbsp;Lecture Notes of Summer Semester 2025; by <i>Roland&nbsp;Schnaubelt</i>.
+          </li>
+
+          <li>
+            <a target="_new"
+            href="https://ia800906.us.archive.org/12/items/fredholmoperator00sche/fredholmoperator00sche.pdf">
+            Fredholm Operators and the Essential Spectrum</a>;
+            &nbsp;January 1965; by <i>Martin&nbsp;Schechter</i>.
+          </li>
+
+          <li>
+            <a target="_new"
+            href="https://www.math.ru.nl/~koelink/edu/LM-dictaat-scattering.pdf">
+            Scattering Theory</a>;
+            &nbsp;Spring 2008 at Radboud Universiteit; by <i>Eric&nbsp;Koelink</i>.
+          </li>
+
+          <li>
+            <a target="_new"
+            href="https://mathweb.tifr.res.in/Documents/Publications/Lectures/tifr10.pdf">
+            Lectures on Elliptic Partial Differential Equations</a>;
+            &nbsp;by <i>J.-L.&nbsp;Lions</i>, 1958.
+          </li>
+
+          <li>
+            <a target="_new"
+            href="https://raum-brothers.eu/sven/data/teaching/2016-17/AHA/aha-lecture-notes-2017-05-18.pdf">
+            Lecture notes on abstract harmonic analysis</a>;
+            &nbsp;by <i>S.&nbsp;Raum</i>, 2017.
+          </li>
+        </ul>
+      </div>
+
+      <div id="research_articles" style='display:none'>
+        <h2>Research Articles</h2>
+        <ul>
+          <li>
+            <a target="_new"
+            href="https://www.pnas.org/doi/pdf/10.1073/pnas.45.3.365">
+            Estimates and Existence Theorems for Elliptic Boundary Value Problems</a>;
+            &nbsp;by <i>F.E.&nbsp;Browder</i>, 1959.
+          </li>
+        </ul>
+      </div>
+
+      <div id='internet_seminar_evo' style='display:none'>
+        <h2>International Internet Seminars on Evolution Equations</h2>
+        These events are organized once a year by a couple of universities in Europe.
+        <div class='table-content' id='isem'>
+          <table class="compact stripe cell-border" id="isem-table">
+            <thead>
+              <tr>
+                <th width= "5%" align="right">No.</th>
+                <th width="92%" align="center">Title</th>
+                <th width= "3%" align="center">Year</th>
+              </tr>
+            </thead>
+            <tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id='grundlehren' style='display:none'>
+        <h2>Die Grundlehren der mathematischen Wissenschaften in Einzeldarstellung</h2>
+        The following table is an extract of the complete list of publications in this series, see for example
+        <a href="https://de.wikipedia.org/wiki/Grundlehren_der_mathematischen_Wissenschaften">here</a>:
+        <div class='table-content' id='Grundlehren'>
+          <table class="compact stripe cell-border" id="Grundlehren-table">
+            <thead>
+              <tr>
+                <th width= "5%" align="right">Vol.</th>
+                <th width="25%" align="center">Author(s)</th>
+                <th width="65%" align="center">Title</th>
+                <th width= "5%" align="center">Year</th>
+              </tr>
+            </thead>
+            <tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id='dover' style='display:none'>
+        <h2>Dover Publications</h2>
+        The following table lists textbooks in functional analysis and related topics provided by
+        '<a href="https://store.doverpublications.com/pages/math-science?srsltid=AfmBOopIZf_V9yw1vAXY1KNFh69und2_Mx7m1JZ08HFE0wPtcFfVBGmk">Dover Publications</a>':
+        <div class='table-content' id='dover'>
+          <table class="compact stripe cell-border" id="dover-table">
+            <thead>
+              <tr>
+                <th width="30%" align="center">Author(s)</th>
+                <th width="65%" align="center">Title</th>
+                <th width= "5%" align="center">Year</th>
+              </tr>
+            </thead>
+            <tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id='lecture_notes' style='display:none'>
+        <h2>Lecture Notes in Mathematics</h2>
+        The following table partially lists textbooks in functional analysis and related topics provided
+        by Springer's <a href="https://link.springer.com/series/304">
+        Lecture&nbsp;Notes&nbsp;in&nbsp;Mathematics</a> (LNM):
+        <div class='table-content' id='dover'>
+          <table class="compact stripe cell-border" id="lecture_notes-table">
+            <thead>
+              <tr>
+                <th width= "5%" align="center">Vol.</th>
+                <th width="30%" align="center">Author(s)</th>
+                <th width="60%" align="center">Title</th>
+                <th width= "5%" align="center">Year</th>
+              </tr>
+            </thead>
+            <tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id='gtm' style='display:none'>
+        <h2>Graduate Texts in Mathematics</h2>
+        The following table lists textbooks in functional analysis and related topics provided by
+        '<a href="https://link.springer.com/series/0136">Springer GTM Series</a>':
+        <div class='table-content' id='gtm'>
+          <table class="compact stripe cell-border" id="gtm-table">
+            <thead>
+              <tr>
+                <th width= "5%" align="center">Vol.</th>
+                <th width="30%" align="center">Author(s)</th>
+                <th width="60%" align="center">Title</th>
+                <th width= "5%" align="center">Year</th>
+              </tr>
+            </thead>
+            <tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id='gsm' style='display:none'>
+        <h2>Graduate Studies in Mathematics</h2>
+        The following table lists textbooks in functional analysis and related topics provided by
+        '<a href="https://bookstore.ams.org/gsm">GSM</a>':
+        <div class='table-content' id='gtm'>
+          <table class="compact stripe cell-border" id="gsm-table">
+            <thead>
+              <tr>
+                <th width= "5%" align="center">Vol.</th>
+                <th width="30%" align="center">Author(s)</th>
+                <th width="60%" align="center">Title</th>
+                <th width= "5%" align="center">Year</th>
+              </tr>
+            </thead>
+            <tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id='mass' style='display:none'>
+        <h2>Mathematics and its Applications</h2>
+        The following table lists textbooks in functional analysis and related topics provided by
+        '<a href="https://link.springer.com/series/6255">Mathematics and Its Applications</a>':
+        <div class='table-content' id='mass'>
+          <table class="compact stripe cell-border" id="mass-table">
+            <thead>
+              <tr>
+                <th width= "5%" align="center">Vol.</th>
+                <th width="30%" align="center">Author(s)</th>
+                <th width="60%" align="center">Title</th>
+                <th width= "5%" align="center">Year</th>
+              </tr>
+            </thead>
+            <tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id='linear_algebra' style='display:none'>
+        <h2>Linear Algebra</h2>
+        This is a fundamental area in mathematics, which deals with <i> vector spaces</i>
+        and the so-called linear transformations between them.
+        We may divide up the totalities of topics in linear algebra as follows:
+        <ol>
+          <li>the general theory of rings and fields</li>
+          <li>the basic theory of vector spaces (often called <i>linear spaces</i>),
+              including such concepts like linear independency, generator systems, Hamel bases, dimensions, 
+              convex sets and so on</li>
+          <li>the theory of linear transformations between vector spaces rsp. that of (m,n)-matrices</li>
+          <li>the theory of linear functionals, dual spaces and determinants</li>
+          <li>the theory of algebras, subalgebras and ideals</li>
+          <li>the theory of inner product spaces and unitary transformations.</li>
+        </ol>
+        <p>
+          One can for example study <i>Werner Greub</i>'s monograph 'Linear Algebra',
+          which was published in Springer's
+          '<mark class="change_page" onclick="openPage('grundlehren')">Grundlehren der mathematischen Wissenschaften</mark>'
+          as vol. 97 in 1958.
+        </p>
+        <p>
+          Here are my own texts on 
+          <a href="../pdf/Linear_Algebra.pdf">Linear Algebra</a> and also on
+          <a href="../pdf/Group_Theory.pdf">Group Theory</a>.
+        </p>
+      </div>
+
+      <div id='measure_and_integration_theory' style='display:none'>
+        <h2>Measure and Integration Theory</h2>
+        The text behind the link below serves as a comprised review on the essentials
+        of <i>measure and integration theory</i>,
+        a fundamental area in modern mathematics with many applications
+        to functional and harmonic analysis and other fields of importance.
+        The content is presented within three parts:
+        the first one describes abstract measure spaces and different kinds of
+        measures, the second one deals with Lebesgue's integration theory
+        and the final one considers measures on locally compact topological spaces.
+        <p>
+          This is the link to the pdf-document regarding our topic:
+          <a href="../pdf/Measure_and_Integration_Theory.pdf">Measure and Integration Theory</a>
+          consisting of the following three parts:
+        </p>
+        <ol type="I">
+          <li>measure spaces</li>
+          <li>integration theory</li>
+          <li>measures on topological spaces</li>
+        </ol>
+        <p>
+          Good textbooks on the subject are the following ones:
+        </p>
+        <ul>
+          <li>Measure and Integration Theory, by <i>Heinz&nbsp;Bauer</i>, deGruyter, 2001</li>
+          <li>Maß- und Integrationstheorie,   by <i>Jürgen&nbsp;Elstrodt</i>, Springer, 2018</li>
+        </ul>
+      </div>
+
+      <div id='general_topology' style='display:none'>
+        <h2>General Topology</h2>
+        This mathematical theory, often also denoted 'point-set topology',
+        deals with the study of limits, continuity and geometric properties of the underlying sets.
+        Rather topology has meaning in its own right,
+        it mainly serves as foundation of further mathematical areas
+        like <i>functional analysis</i>, <i>differential topology</i>,
+        <i>Riemannian geometry</i> and other ones.
+        <p>
+          Topological concepts are frequently required to understand
+          mathematical analysis on a high and abstract level.
+          One may justly claim
+          that analysis today is unthinkable
+          without including the extremely useful notions provided by point-set topology.
+        </p>
+        <p>
+          <a href="../pdf/General_Topology.pdf">Here</a>
+          is the link to the pdf-document regarding general topology:
+          which consists of three parts:
+        </p>
+        <ol type="I">
+          <li>topological spaces</li>
+          <li>metric spaces</li>
+          <li>topological groups</li>
+        </ol>
+        <p>
+          There are a couple of standard monographs on general topology, for example:
+        </p>
+        <ul>
+          <li>Mengentheoretische Topologie, by <i>Boto&nbsp;von&nbsp;Querenburg</i></li>
+          <li>Topology; by <i>J.&nbsp;Dugundji</i>, 1989</li>
+          <li><a target="_new"
+              href="https://ia800808.us.archive.org/0/items/in.ernet.dli.2015.141658/2015.141658.Introduction-To-Topology-And-Modern-Analysis.pdf">
+              Introduction to Topology and Modern Analysis</a>; by <i>G.&nbsp;Simmons</i>, 1963</li>
+        </ul>
+      </div>
+
+      <div id='complex_analysis' style='display:none'>
+        <h2>Complex Analysis</h2>
+        is the general theory of holomorphic functions \(f: G \to \mathbb{C}\),
+        where \(G\) is a <i>domain</i>,
+        that is,
+        an open and connect subset of the complex plane \(\mathbb{C}\).
+        The function \(f\) is said to be holomorphic in \(G\), if it is complex differentiable in each point of \(G\),
+        or equivalently, if \(f\) can locally be represented by a power series.
+        <p>
+          Complex analysis has important applications in functional analysis, where we want to mention
+        </p>
+        <ol>
+          <li><i>Cauchy's integral formula</i>
+          $$ f(z) = \frac{1}{2 \pi i} \int_{\gamma} \frac{f(\zeta)}{z-\zeta} \, d\zeta $$
+          with useful extension to a similar formula for bounded linear operators \(A: X \to X\)
+          <i>(Riesz-Dunford formula)</i>,</li>
+          <li><i>Liouville's theorem</i>,
+          claiming that a <i>bounded</i> \(\,\) holomorphic function,
+          defined on the entire space \(\mathbb{C}\),
+          is constant.</li>
+        </ol>
+        <p>
+          A highly recommended text containing all these things is Walter Rudin's so-called <i>red book</i>
+          <a href="https://perso.telecom-paristech.fr/decreuse/_downloads/c22155fef582344beb326c1f44f437d2/rudin.pdf">Real and Complex Analysis</a>, especially chapter 10.
+        </p>
+      </div>
+
+      <div id='pde_theory' style='display:none'>
+        <h2>Partial Differential Equations</h2>
+        Applied functional analysis is the subject, which provides functional analytic tools and methods
+        to solve linear and nonlinear partial differential equations.
+        We can divide them up roughly into three categories:
+        <ul>
+          <li>stationary boundary value problems governed by an elliptic differential operator</li>
+          <li>eigenvalue problems</li>
+          <li>evolutional problems</li>
+        </ul>
+        <p>
+         One of my favourite textbooks on PDE theory is
+         <a href="https://d-nb.info/931345596/04">An Introduction to Partial Differential Equations</a>
+         written by <i>Michael&nbsp;Renardy</i> and <i>Robert&nbsp;C.&nbsp;Rogers</i>.
+         Especially the chapters 6-10 provide subjects from functional analysis and its applications
+         to the mentioned kinds of problems.
+        </p>
+        <p>
+          Here are some hints to important textbooks:
+        </p>
+        <ul>
+         <li>Elliptic Boundary Value Problems, by <i>S. Agmon</i>, 1965</li>
+         <li>Partial differential Equations of elliptic type, by <i>C. Miranda</i>, 1970</li>
+         <li>Non-Homogeneous Boundary Value Problems I,II,III, by <i>J.-L. Lions & E.Magenes</i>, 1972-1973</li>
+         <li>Elliptic and Parabolic Equations, by <i>Z. Wu</i>, 2006</li>
+        </ul>
+        <p>
+          Here are some further links to research articles and scripts, respectively, available in the Web:
+        </p>
+        <ul>
+          <li>
+            <a target="_new"
+            href="https://www.pnas.org/doi/pdf/10.1073/pnas.45.3.365">
+            Estimates and Existence Theorems for Elliptic Boundary Value Problems</a>
+            &nbsp; by <i>F.E.&nbsp;Browder</i>, 1959.
+          </li>
+          <li>
+            <a target="_new"
+            href="https://mathweb.tifr.res.in/Documents/Publications/Lectures/tifr10.pdf">
+            Lectures on Elliptic Partial Differential Equations</a>
+            &nbsp;by <i>J.-L.&nbsp;Lions</i>, 1958
+            (but with a lot of type errors).
+          </li>
+        </ul>
+      </div>
+
+      <div id='abstract_harmonic_analysis' style='display:none'>
+        <h2>Abstract Harmonic Analysis</h2>
+        Roughly spoken,
+        <i>abstract harmonic analysis</i> is on the one hand side
+        the theory of Fourier transformation on locally compact Abelian groups
+        and on the other side the representation theory of in general non-Abelian locally compact groups.
+        I wrote an <a href="../pdf/Abstract_Harmonic_Analysis.pdf">article</a> on the first topic,
+        and its content is as follows:
+        <p></p>
+        <ol>
+          <li>Basic Theory of Banach Algebras</li>
+          <li>Gelfand Representation</li>
+          <li>Generalities on Topological Groups</li>
+          <li>Locally Compact Abelian Groups</li>
+          <li>Abstract Fourier Transformation</li>
+          <li>Fourier Transformation in Euclidean Spaces</li>
+        </ol>
+        <p>
+          A useful book on abstract harmonic analysis is Walter Rudin's <i>Fourier Analysis on Groups</i> from 1962.
+          The first chapter deals with the basic theorem on Fourier analysis, and
+          <a href="../pdf/Fourier_Analysis_on_Groups.pdf">here</a>
+          you will find an article reflecting the content of this chapter as well as the appendix of the book. 
+          Further well-known monographs on abstract harmonic analysis are:
+        </p>
+        <ul>
+          <li>Abstract Harmonic Analysis (by Lynn Loomis, 1953)</li>
+          <li>Abstract Harmonic Analysis I (by E.&nbsp;Hewitt and K.&nbsp;Roos, 1963)</li>
+          <li>Abstract Harmonic Analysis II (by E.&nbsp;Hewitt and K.&nbsp;Roos, 1970)</li>
+          <li>A Course in Abstract Harmonic Analysis (by G.&nbsp;Folland, 2015)</li>
+          <li>Principles of Harmonic Analysis (by A.&nbsp;Deitmar, 2014)</li>
+        </ul>
+        <p>
+          The following articles and script can be found in the web:
+        </p>
+        <ul>
+          <li><a href="https://raum-brothers.eu/sven/data/teaching/2016-17/AHA/aha-lecture-notes-2017-05-18.pdf">Lecture notes on abstract harmonic analysis (by Sven Raum, Lausanne 2017)</a></li>
+          <li><a href="https://www.cimat.mx/~moralesjh/remarksSA.pdf">Remarks on history of abstract harmonic analysis</a></li>
+        </ul>
+      </div>
+
+      <div id='functional_analysis' style='display:none'>
+        <h2>Summary of all Topics</h2>
+        The main document of this web-page consists of the following chapters:
+        <ol type="I">
+          <li>&nbsp;Topological and Normed Linear Spaces</li>
+          <li>&nbsp;Linear Operators in Banach Spaces</li>
+          <li>&nbsp;Calculus of Vector-Valued Functions</li>
+          <li>&nbsp;Adjoint Spaces and Operators</li>
+          <li>&nbsp;Normally Solvable Operators</li>
+          <li>&nbsp;General Spectral Theory</li>
+          <li>&nbsp;Commutative Banach Algebras</li>
+          <li>&nbsp;Linear Operators in Hilbert Space</li>
+          <li>&nbsp;Spectral Theory of Self-Adjoint Operators</li>
+          <li>&nbsp;Semigroup Theory and Evolution Equations</li>
+          <li>&nbsp;Coercive Sesquilinear Forms</li>
+          <li>&nbsp;Applications to Linear Differential Operators</li>
+        </ol>
+        <p>
+          <a href="../pdf/Functional_Analysis.pdf">Here</a> is the link to this document.
+        </p>
+      </div>
+
+      <div id='topological_linear_spaces' style='display:none'>
+        <div class='content_left'>
+          <div style="width:500px">
+            <h2>Topological and Normed Linear Spaces</h2>
+            The fundament of functional analysis is the theory of linear spaces endowed with topological structure.
+            One often speaks of topological linear spaces in this case.
+            The most important subclasses of them are <i>locally convex spaces</i>,
+            <i>Fréchet spaces</i> and finally the well-known <i>Banach</i> and <i>Hilbert spaces</i>.
+            <p>
+              Visit this <a href="../pdf/Topological_and_Normed_Linear_Spaces.pdf">text</a>
+              to get a review of these fundamental spaces.
+            </p>
+          </div>
+          <div>
+            <img src="../data/hierarchy.png" alt="hierarchy" width="100%" height="auto">
+          </div>
+        </div>
+      </div>
+
+      <div id='spectral_theory' style='display:none'>
+        <h2>Linear Operators and Spectral Theory</h2>
+        The theory of <i>linear operators</i> lies at the heart of functional analysis.
+        One can study linear operators either in the setting of arbitrary topological vector spaces
+        or in the more specific setting of normed linear spaces and especially Banach and Hilbert spaces.
+        <p>
+          <i>Spectral theory</i> deals with the well-posedness of the linear operator equation
+        </p>
+        <center>\(A x - \lambda x = y\),</center>
+        <p>
+          where \(\lambda\) is a complex parameter.
+          For every linear operator \(A\) the complex plane is splitted into disjoint sets \(\rho(A)\) and \(\sigma(A)\),
+          called the <i>resolvent set</i> and the <i>spectrum</i> of \(A\).
+          The resolvent set contains all numbers \(\lambda\), for which the operator \(A-\lambda\) is bijective
+          and the inverse operator \((A-\lambda)^{-1}\) proves to be continuous.
+        </p>
+        <p>
+          My text on this topic and other ones based on operator and spectral theory is available
+          <a href="../pdf/Linear_Operators_and_Spectral_Theory.pdf">here</a>.
+        </p>
+      </div>
+
+      <div id='self-adjoint_operators' style='display:none'>
+        <h2>Self-Adjoint Operators</h2>
+        The theory of self-adjoint operators in Hilbert space is one of the earliest and well-elaborated topics
+        in functional analysis and constitutes an extension of that of symmetric linear transformations
+        known from linear algebra.
+        <p>
+          A great portion of motivation to develop
+          an abstract theory of self-adjoint linear transformations came
+          from questions and problems arising in mathematical physics.
+          For example,
+          the mathematical formalism for quantum mechanical systems leads
+          in a very natural way to self-adjoint operators acting in \(L^2(\mathbb{R}^d)\),
+          the Hilbert space of all
+          measurable and square-integrable functions \(f:\mathbb{R}^d \to \mathbb{C}\).
+          Other problems,
+          like the Sturm-Liouville eigenvalue problem,
+          the Dirichlet and the Neumann boundary value problem for the negative Laplacian \(-\Delta\),
+          also lead to the theory of self-adjoint operators
+          in the respective Hilbert spaces \(L^2(I)\) and \(L^2(G)\),
+          where \(I \subset \mathbb{R}\) is a finite interval
+          and \(G\) is a bounded domain in some Euclidean space \(\mathbb{R}^d\).
+        </p>
+
+        <p>
+          The linked document below consists of the following chapters:
+        </p>
+        <ol type="I">
+          <li>Functional Analysis</li>
+          <li>Abstract Theory of Self-Adjoint Operators</li>
+          <li>Self-Adjoint Realizations of Differential Expressions</li>
+        </ol>
+        <p>
+          <a href="../pdf/Self-Adjoint_Operators.pdf">Here</a> is the link to this text.
+        </p>
+      </div>
+
+      <div id='semigroup_theory' style='display:none'>
+        <h2>Semigroup Theory and Evolution Equations</h2>
+        Given a complex Banach space \(X\),
+        a strongly continuous semigroup of bounded linear operators is a mapping \(S:[0,\infty) \to B(X)\),
+        where the following conditions must hold:
+        <ol>
+          <li>&nbsp; \(S(0) = Id_X\),</li>
+          <li>&nbsp; \(S(t+s) = S(t) \circ S(s)\) for all \(s,t \geq 0\),</li>
+          <li>&nbsp; \(\lim_{t \downarrow 0} S(t)x = x\) for every \(x \in X\).</li>
+        </ol>
+        <p>
+          To each such semigroup (\S\) there is assigned a densely defined linear operator \(A\),
+          called the <i>infinitesimal operator</i> of \(S\).
+        </p>
+        <p>
+          A great part of semigroup theory deals with the question,
+          under which conditions a given linear operator \(A\) is the infinitesimal generator of a strongly
+          continuous semigroup.
+          In fact, if \(A\) fulfills these conditions,
+          then the related homogeneous <i>Cauchy problem</i> of first order
+        </p>
+          <center>\(\dot{x}(t) + A x(t) = 0\)</center>
+        <p>
+          has one and only one solution \(x:[0,\infty) \to X\) for a given initial value \(x(0) = x_0\).<br>
+          Moreover, in this case the solution functions \(x\) continuously depend on the values \(x_0\).
+          The <i>Hille-Yosida theorem</i> gives the complete answer to this question.
+        </p>
+        <p>
+          My text on this theorem and its proof can be found
+          <a href="../pdf/Hille_Yosida.pdf">here</a>.
+        </p>
+      </div>
+
+      <div id='nonlinear_functional_analysis' style='display:none'>
+        <h2>Nonlinear Functional Analysis</h2>
+      </div>
+
+      <div id='coercive_sesquilinear_forms' style='display:none'>
+        <h2>Coercive Sesquilinear Forms</h2>
+        Besides linear operators acting in a Hilbert space,
+        sesquilinear forms play an important role in the abstract solution theory of stationary and evolutional
+        linear equations.
+        A sesquilinear form is a linear mapping \( \mathfrak{a} : H \times H \to \mathbb{C}\),
+        but can also be understood as a linear operator \( {\cal{A}} : H \to H^* \),
+        where \(H^*\) is the <i>conjugate space</i> of \(H\),
+        that is, the linear space of all antilinear functionals \(f: H \to \mathbb{C}\).
+        <p>
+          Mostly one studies sesquilinear forms, which are continuous and <i>coercive</i> at the same time.
+          The latter property means that there is a real constant \( \theta \geq 0 \) such that
+          $$ Re \; \mathfrak{a}(x,x) \geq \theta {\left\lVert x \right\rVert }^2 \; \mbox{ for all } x \in H.$$
+        </p>
+        <p>
+          See <a href="../pdf/Coercive_Sesquilinear_Forms.pdf">here</a>
+          on my article on coercive sesquilinear forms and their applications
+          to linear partial differential equations.
+          The content of this text is as follows:
+        </p>
+        <ol>
+          <li>Generalities</li>
+          <li>Continuous and Coercive Forms</li>
+          <li>The Variational Approach</li>
+          <li>Operators Associated with H-Ellipic Forms</li>
+          <li>Sectorial Forms and Operators</li>
+          <li>Self-Adjoint Extensions of Half-Bounded Operators</li>
+          <li>Variational Evolution Equations</li>
+          <li>Applications</li>
+        </ol>
+      </div>
+
+      <div id='distribution_theory' style='display:none'>
+        <h2>Distribution Theory</h2>
+        A <i>distribution</i> my be regarded as the generalization of a function.
+        The corresponding subject in functional analysis,
+        called the <i>theory of distributions</i>,
+        was developed by Laurent Schwartz in the midth of the 20th century
+        to describe ideas and concepts of theoretical physics
+        by an exact mathematical formalism.
+        Distribution theory can be seen as a direct application
+        of the previously sketched theory including
+        locally convex spaces, continuous linear functionals and
+        transposed linear operators.
+        <p>
+          <a href="../pdf/Distribution_Theory.pdf">Here</a> is my personal document on the theory of distributions.
+        </p>
+        <p>
+          I also add a fundamental paper from <i>Peter Werner</i> to this site,
+          in which Lebesgue and Sobolev spaces are introduced by means of distribution theory instead of using
+          Lebesgue's integration theory.<br>
+          See
+          '<a href="../pdf/A_Distribution-Theoretical_Approach_to_Certain_Lebesgue_and_Sobolev_Spaces.pdf">
+          A Distribution-Theoretical Approach to Certain Lebesgue and Sobolev Spaces</a>' for this text steaming from 1970.
+        </p>
+      </div>
+
+      <div id='Nagy' style='display:none'>
+        <h2>F. Riesz & B. Szőkefalvi-Nagy: Functional Analysis</h2>
+        This is one of the first monographs on functional analysis and was published in the fifties.
+        The book contains a good presentation of the spectral decomposition of normal rsp. self-adjoint linear operators
+        in Hilbert space.
+        <ul></ul>
+        <div>
+          <ol type="I" start="1"> Part One: <b>MODERN THEORIES OF DIFFERENTIATION AND INTEGRATION</b>
+            <li>Differentiation</li>
+            <li>The Lebesgue Integral</li>
+            <li>The Stieltjes Integral and its Generalizations</li>
+          </ol>
+          <ol type="I" start="4"> Part Two: <b>INTEGRAL EQUATIONS. LINEAR TRANSFORMATIONS</b>
+            <li>Integral Equations</li>
+            <li>Hilbert and Banach Spaces</li>
+            <li>Completely Continuous Symmetric Transformations of Hilbert Space</li>
+            <li>Bounded Symmetric, Unitary, and Normal Transformations of Hilbert Space</li>
+            <li>Unbounded Linear Transformations of Hilbert Space</li>
+            <li>Self-Adjoint Transformations, Functional Calculus, Spectrum, Perturbations</li>
+            <li>Groups and Semigroups of Transformations</li>
+            <li>Special Theories for Linear Transformations of General Type</li>
+          </ol>
+        </div>
+      </div>
+
+      <div id='Rudin' style='display:none'>
+        <h2>Rudin's Books on Mathematical Analysis</h2>
+        <div class='content_left'>
+          <div style='width:500px;font-size:85%'>
+            <h3>Functional Analysis</h3>
+              <ol type="1">Part I: <b>General Theory</b>
+                <li>Topological Vector Spaces
+                <li>Completeness
+                <li>Convexity
+                <li>Duality in Banach Spaces
+                <li>Some Applications
+              </ol>
+              <ol type="1" start="6">Part II: <b>Distributions and Fourier Transformation</b>
+                <li>Test Functions and Distributions
+                <li>Fourier Transforms
+                <li>Applications to Differential Equations
+                <li>Tauberian Theory
+              </ol>
+              <ol type="1" start="10">Part III: <b>Banach Algebras and Spectral Theory</b>
+                <li>Banach Algebras
+                <li>Commutative Banach Algebras
+                <li>Bounded Operators on a Hilbert Space
+                <li>Unbounded Operators
+              </ol>
+          </div>
+          <div style='width:400px;font-size:85%'>
+            <h3><a href="https://perso.telecom-paristech.fr/decreuse/_downloads/c22155fef582344beb326c1f44f437d2/rudin.pdf">Real and Complex Analysis</a></h3>
+            <ol type="1">
+              <li>Abstract Integration</li>
+              <li>Positive Borel Measures</li>
+              <li>\(L^p\) Spaces</li>
+              <li>Elementary Hilbert Space Theory</li>
+              <li>Examples of Banach Space Techniques</li>
+              <li>Complex Measures</li>
+              <li>Differentiation</li>
+              <li>Integration on Product Spaces</li>
+              <li>Fourier Transforms</li>
+              <li>Elementary Properties of Holomorphic Functions</li>
+              <li>Harmonic Functions</li>
+              <li>The Maximum Modulus Principle</li>
+              <li>Approximation by Rational Functions</li>
+              <li>Conformal Mappings</li>
+              <li>Zeros of Holomorphic Functions</li>
+              <li>Analytic Continuation</li>
+              <li>\(H^p\) Spaces</li>
+              <li>Elementary Theory of Banach Algebras</li>
+              <li>Holomorphic Fourier Transforms</li>
+              <li>Uniform Approximation by Polynomials</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div id='Fattorini' style='display:none'>
+        <h2>Hector Fattorini: The Cauchy Problem</h2>
+        <ol type="1" start="0">
+          <li>Elements of Functional Analysis</li>
+          <li>The Cauchy Problem for Some Equations of Mathematical Physics: The Abstract Cauchy Problem</li>
+          <li>Properly Posed Cauchy Problems: General Theory</li>
+          <li>Dissipative Operators and Applications</li>
+          <li>Abstract Parabolic Equations: Applications to Second Order Parabolic Equations</li>
+          <li>Perturbation and Approximation of Abstract Differential Equations</li>
+          <li>Some Improperly Posed Cauchy Problems</li>
+          <li>The Abstract Cauchy Problem for Time-Dependent Equations</li>
+          <li>The Cauchy Problem in the Sense of Vector-Valued Distributions</li>
+        </ol>
+      </div>
+
+      <div id='Yosida' style='display:none'>
+        <h2>K. Yosida: Functional Analysis</h2>
+        Yosida's book was published for the first time in 1965 as volume 123 of Springer's
+        'Grundlehren der mathematischen Wissenschaften in Einzeldarstellung'.
+        The latest edition is the sixth one from 1980.
+        It is referenced from a lot of research articles.
+        But I cannot emphasize this book for self studies --
+        from my point of view, the sections are organized very chaotically.
+        <div class='content_left'>
+          <div>
+            <ol type="I" start="0">
+              <li>Preliminaries</li>
+              <li>Semi-norms</li>
+              <li>Applications of the Baire-Hausdorff Theorem</li>
+              <li>The Orthogonal Projection and F.Riesz' Representation Theorem</li>
+              <li>The Hahn-Banach Theorems</li>
+              <li>Strong Convergence and Weak COnvergence</li>
+              <li>Fourier Transform and Differential Equations</li>
+              <li>Dual Operators</li>
+              <li>Resolvent and Spectrum</li>
+              <li>Analytical Theory of Semi-groups</li>
+              <li>Compact Operators</li>
+              <li>Normed Rings and Spectral Representation</li>
+              <li>Other Representation Theorems in Linear Spaces</li>
+              <li>Ergodic Theory and Diffusion Theory</li>
+              <li>The Integration of the Equation of Evolution</li>
+            </ol>
+          </div>
+          <div style="width:300px">
+            <center>
+              <img src="../data/yosida.png" width="auto" height="auto">
+            </center>
+          </div>
+        </div>
+      </div>
+
+      <div id='Kato' style='display:none'>
+        <h2>T. Kato: Perturbation Theory for Linear Operators</h2>
+        <div class='content_left'>
+          <div>
+            <a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/kato1.pdf">This</a> is <i>Kato</i>'s main book,
+            first published in 1967.
+            Rather its title contains the phrase 'perturbation theory',
+            it covers many topics from classical functional analysis.
+            But the main subjects are spectral and semigroup theory.
+            Chapter VI gives a good account on sesquilinear forms and their relationships to linear operators.
+        
+            <ul></ul>
+            <ol type="I">
+              <li>Operator theory in finite-dimensional vector spaces</li>
+              <li>Perturbation theory in a finite-dimensional space</li>
+              <li>Introduction to the theory of operators in Banach spaces</li>
+              <li>Stability theorems</li>
+              <li>Operators in Hilbert spaces</li>
+              <li>Sesquilinear forms in Hilbert spaces and associated operators</li>
+              <li>Analytic perturbation theory</li>
+              <li>Asymptotic perturbation theory</li>
+              <li>Perturbation theory for semigroups of operators</li>
+              <li>Perturbation of continuous spectra and unitary equivalence</li>
+            </ol>
+          </div>
+          <div>
+            <center>
+              <img src="../data/kato.jpeg" width="250px" height="auto">
+            </center>
+          </div>
+        </div>
+      </div>
+
+      <div id='Dunford_Schwartz' style='display:none'>
+        <h2>N. Dunford &  J.T. Schwartz: Linear Operators I-III</h2>
+        This series consisting of three volumes is one of the fundamental monographs in functional analysis.
+        To publish them needs in total more than ten years.
+        <div class='content_left'>
+          <div style="width:300px">
+            <h3>Part I: General Theory (1957)</h3>
+            <center>
+              <img src="../data/Dunford_Schwartz_I.jpg" width="110px" height="auto">
+            </center>
+            <ul></ul>
+            <ol type="I" style="font-size:10pt">
+              <li>Preliminary Concepts</li>
+              <li>Three Basic Principles of Linear Analysis</li>
+              <li>Integration and Set Functions</li>
+              <li>Special Spaces</li>
+              <li>Convex Sets and Weak Topologies</li>
+              <li>Operators and Their Adjoints</li>
+              <li>General Spectral Theory</li>
+              <li>Applications</li>
+            </ol>
+          </div>
+
+          <div style="width:350px">
+            <h3>Part II: Spectral Theory (1961)</h3>
+            <center>
+              <img src="../data/Dunford_Schwartz_II.jpg" width="154px" height="auto">
+            </center>
+            <ul></ul>
+            <ol type="I" start="9" style="font-size:10pt">
+              <li>B-Algebras</li>
+              <li>Bounded Normal Operators in Hilbert Space</li>
+              <li>Various Special Classes of Operators in \(L^p(\Omega)\)</li>
+              <li>Unbounded Operators in Hilbert Space</li>
+              <li>Ordinary Differential Operators</li>
+              <li>Applications to Partial Differential Operators</li>
+            </ol>
+          </div>
+
+          <div style="width:320px">
+            <h3>Part III: Spectral Operators (1967)</h3>
+            <center>
+              <img src="../data/Dunford_Schwartz_III.jpg" width="110px" height="auto">
+            </center>
+            <ul></ul>
+            <ol type="I" start="15" style="font-size:10pt">
+              <li>Spectral Operators</li>
+              <li>Spectral Operators: Sufficient Conditions</li>
+              <li>Algebras of Spectral Operators</li>
+              <li>Unbounded Spectral Operators</li>
+              <li>Perturbations of Spectral Operators with Discrete Spectra</li>
+              <li>Perturbations of Spectral Operators with Continuous Spectra</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div id='Reed_Simon' style='display:none'>
+        <h2>M. Reed &  B. Simon: Methods of Modern Mathematical Physics I-IV</h2>
+        This is a four-volume work by Michael Reed and Barry Simon done in the eigthies of the last century.
+        Especially the first volume is nearly pure mathematics and seems to be one of the best functional
+        analysis text books. But the other volumes are of interest for mathematicians as well,
+        since they offer applications of functional analysis to problems in quantum mechanics.
+        <ul></ul>
+        <center>
+          <table>
+          <tr><td>I: Functional Analysis</td><td>  I.</td><td>Preliminaries</td></tr>
+          <tr><td></td><td> II.</td><td>Hilbert Spaces</td></tr>
+          <tr><td></td><td>III.</td><td>Banach Spaces</td></tr>
+          <tr><td></td><td> IV.</td><td>Topological Spaces</td></tr>
+          <tr><td></td><td>  V.</td><td>Locally Convex Spaces</td></tr>
+          <tr><td></td><td> VI.</td><td>Bounded Operators</td></tr>
+          <tr><td></td><td>VII.</td><td>The Spectral Theorem</td></tr>
+          <tr><td></td><td>VIII.&nbsp;</td><td>Unbounded Operators</td></tr>
+          <tr><td>II: Fourier Analysis, Self-Adjointness&nbsp;&nbsp;&nbsp;</td><td>IX.</td><td>The Fourier Transform</td></tr>
+          <tr><td></td><td>  X.</td><td>Self-Adjointness and the Existence of Dynamics</td></tr>
+          <tr><td>III: Scattering Theory</td><td> XI.</td><td>Scattering Theory</td></tr>
+          <tr><td>IV: Spectral Analysis</td><td>XII.</td><td>Perturbation of Point Spectra</td></tr>
+          <tr><td></td><td>XII.</td><td>Spectral Analysis</td></tr>
+          </table>
+        </center>
+      </div>
+
+      <div id='mathematicians' style='display:none'>
+        <h2>Mathematicians</h2>
+        This is an enumeration of mathematicians with important contributions to functional analysis.
+        The links are pointing to the corresponding page on 'wikipedia'.
+        <div class='table-content' id='Mathematicians'>
+          <table class="compact stripe cell-border" id="Mathematician-table">
+            <thead>
+              <tr>
+                <th width="60%" align="right">Name</th>
+                <th width="10%" align="center">Born</th>
+                <th width="10%" align="center">Died</th>
+                <th width="20%" align="center">Country</th>
+              </tr>
+            </thead>
+            <tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id='history' style='display:none'>
+        <h2>History of Functional Analysis</h2>
+          <ul><b>Online Articles</b>
+            <li><a href="https://courses.mai.liu.se/GU/TATM85/FA-history.pdf">A Brief History of Functional Analysis</a></li>
+            <li><a href="https://www.diva-portal.org/smash/get/diva2:303480/FULLTEXT01.pdf">On the origin and early history of functional analysis</a>, by J. Lindström</li>
+            <li>The establishment of functional analysis, by G. Birkhoff and E. Kreyszig, 1984</li>
+          </ul>
+          <ul><b>Books</b>
+           <li>History of functional analysis, by J. Dieudonné. North Holland, Vol. 49, 1981</li>
+           <li>History of Banach Spaces and Linear Operators, by A. Pietsch. Birkhäuser Verlag, 2007</li>
+          </ul>
+      </div>
+
+      <div id='textbooks' style='display:none'>
+        <h2>Textbooks</h2>
+        This is an enumeration of textbooks on functional analysis and related topics.
+        <div class='table-content' id='Books'>
+          <table class="compact stripe cell-border" id="Book-table">
+            <thead>
+              <tr>
+                <th width="24%" align="left">Author(s)</th>
+                <th width="56%" align="left">Title</th>
+                <th width="17%" align="left">Publisher</th>
+                <th width= "3%" align="left">Year</th>
+              </tr>
+            </thead>
+            <tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id='msc46' style='display:none'>
+        <h2>Mathematical Subject Classification for 46-XX (Functional Analysis)</h2>
+        The following table forms an extract of the general MSC-2020 catalogue for 'functional analysis'.
+        <div class='table-content' id='msc46-FA'>
+          <table class="compact stripe cell-border" id="msc46-table">
+            <thead>
+              <tr>
+                <th width= "5%" align="left">Code</th>
+                <th width="95%" align="left">Name</th>
+              </tr>
+            </thead>
+            <tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id='journals' style='display:none'>
+        <h2>Journals</h2>
+        This is an enumeration of well-known journals,
+        where mathematical research articles have been published.
+        But notice that this list is not complete.
+        <div class='table-content' id='Journals'>
+          <table class="compact stripe cell-border" id="Journal-table">
+            <thead>
+              <tr>
+                <th width="40%" align="right">Name</th>
+                <th width="60%" align="center">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+<!--------------------------------------------------------------------------------
+|                                      FOOTER                                    |
+--------------------------------------------------------------------------------->
+    <div id="footer">
+      <hr><hr>
+      © Copyright 2026 by K. Höflinger (latest change: 14/05/2026).&nbsp;&nbsp;
+      <button onclick="openPage('about_me')">About me</button>
+      <button onclick="openPage('impressum')">Impressum</button>
+      <button onclick="openPage('sitemap')">Sitemap</button>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
