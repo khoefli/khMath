@@ -328,6 +328,12 @@ function createTable(title,classname)
     table.row.add(['M. Miclavcic','Applied Functional Analysis and Differential Equations','World Scientific Pub.','1998']);
     table.row.add(['W. Rudin','Fourier Analysis on Groups','John Wiley & Sons','1962']);
     table.row.add(['N.I. Akhiezer, I.M. Glazman','Theory of Linear Operators in Hilbert Space','Dover Pub.','1963']);
+
+    table.row.add(['E. Zeidler','Nonlinear Functional Analysis and its Applications. I: Fixpoint Theorems  ','Springer','1985']);
+    table.row.add(['E. Zeidler','Nonlinear Functional Analysis and its Applications. IIA: Linear Monotone Operators  ','Springer','1990']);
+    table.row.add(['E. Zeidler','Nonlinear Functional Analysis and its Applications. IIB: Nonlinear Monotone Operators  ','Springer','1989']);
+    table.row.add(['E. Zeidler','Nonlinear Functional Analysis and its Applications. III: Variational Methods and Optimization  ','Springer','1985']);
+    table.row.add(['E. Zeidler','Nonlinear Functional Analysis and its Applications. IV: Applications to Mathematical Physics  ','Springer','1988']);
   }
 
   if(classname == 'Journal')
