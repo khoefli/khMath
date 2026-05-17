@@ -334,6 +334,7 @@ function createTable(title,classname)
     table.row.add(['E. Zeidler','Nonlinear Functional Analysis and its Applications. IIB: Nonlinear Monotone Operators  ','Springer','1989']);
     table.row.add(['E. Zeidler','Nonlinear Functional Analysis and its Applications. III: Variational Methods and Optimization  ','Springer','1985']);
     table.row.add(['E. Zeidler','Nonlinear Functional Analysis and its Applications. IV: Applications to Mathematical Physics  ','Springer','1988']);
+    table.row.add(['S. Kesavan','Nonlinear Functional Analysis: A First Course','Springer','2022']);
   }
 
   if(classname == 'Journal')
