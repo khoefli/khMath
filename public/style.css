@@ -263,7 +263,7 @@ html button
   color: gray;
 }
 
-.content_main ul li:a:hover
+.content_main ul li a:hover
 {
   color: gray;
 }

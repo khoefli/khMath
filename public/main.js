@@ -231,7 +231,7 @@ function createTable(title,classname)
       { n: 'J.D. Pryce',              t: 'Basic Methods of Linear Functional Analysis',                 y:'2014'},
       { n: 'K. Deimling',             t: 'Nonlinear Functional Analysis',                               y:'2013'},
       { n: 'R. Showalter',            t: 'Hilbert Space Methods in Partial Differential Equations',     y:'2010'},
-      { n: 'A.Friedman',              t: 'Foundations of Modern Analysis',                              y:'2010'},
+      { n: 'A. Friedman',              t: 'Foundations of Modern Analysis',                              y:'2010'},
     ];
 
     var i;
