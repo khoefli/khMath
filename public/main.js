@@ -23,7 +23,7 @@ function closeAllPages()
     'gtm',
     'gsm',
     'mass',
-    'lecture_notes',
+    'lecture_notes_in_mathematics',
 
     'mathematicians',
     'history',
@@ -59,7 +59,7 @@ function closeAllPages()
   var i;
   for(i=0; i < data.length; i++)
   {
-    console.log(data[i]);
+    //console.log(data[i]);
     document.getElementById(data[i]).style.display = 'none';
   }
 }
