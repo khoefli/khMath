@@ -23,8 +23,9 @@
     <script src="https://cdn.datatables.net/buttons/3.2.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/select/3.0.0/js/dataTables.select.min.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.css"/>
     <link rel="stylesheet" type="text/css" href="style.css"/>
@@ -153,7 +154,7 @@
 --------------------------------------------------------------------------------->
     <div class="content_main">
 
-      <div id='impressum' style='display:none'>
+      <div id='impressum' class='container' style='display:none'>
         <h2>Impressum</h2>
         <p>
           Responsible for these webpages:
@@ -166,7 +167,7 @@
         </p>
       </div>
 
-      <div id='main_theorems' style='display:none'>
+      <div id='main_theorems' class='container' style='display:none'>
         <h2>Main Theorems in Functional Analysis</h2>
         <div class='content_left'>
           <div style="width:370px">
@@ -207,7 +208,7 @@
         </div>
       </div>
 
-      <div id='key_concepts' style='display:none'>
+      <div id='key_concepts' class='container' style='display:none'>
         <h2>Key Concepts in Functional Analysis</h2>
         <div class='content_left'>
           <div style="width:330px">
@@ -278,7 +279,7 @@
           </div>
         </div>
       </div>
-      <div id='sitemap' style='display:none'>
+      <div id='sitemap' class='container' style='display:none'>
         <h2>Sitemap</h2>
         <div class='content_left' style='font-size:90%'>
           <div style="width:450px">
@@ -334,9 +335,9 @@
         </div>
       </div>
 
-      <div id='home'>
+      <div id='home' class='container'>
         <h2>Welcome to my homepage!</h2>
-        <b>Functional analysis</b> is nowadays one of the most important areas in modern mathematics.
+        Nowadays <b>functional analysis</b> is one of the most important areas in modern mathematics.
         It deals with the theory of topological linear spaces and the linear rsp. nonlinear mappings between them.
         The subject was mainly developed in the first half of the 20<sup>th</sup> century,
         and valuable contributions have been done by
@@ -375,7 +376,7 @@
         </p>
       </div>
 
-      <div id='about_me' style='display:none'>
+      <div id='about_me' class='container' style='display:none'>
         <h2>About me</h2>
         <div class='content_left'>
           <div style="width:500px">
@@ -397,14 +398,14 @@
         </div>
       </div>
 
-      <div id='my_documents' style='display:none'>
+      <div id='my_documents' class='container' style='display:none'>
         <h2>my Documents</h2>
         These are the pdf-documents written by myself.
         The first block contains survey articles on various subjects,
         whereas the second one presents a couple of original typewriter texts
         from other mathematicians in modern LaTex style:
         <div class='content_left'>
-          <div>
+          <div class='container'>
             <ul style='list-style:none'>
               <h6>My articles on functional analysis:</h6>
               <li><a href="../pdf/Functional_Analysis.pdf">Functional Analysis</a> (all topics in one document)
@@ -415,17 +416,19 @@
               <li><a href="../pdf/Distribution_Theory.pdf">Distribution Theory</a></li>
               <li><a href="../pdf/Coercive_Sesquilinear_Forms.pdf">Coercive Sesquilinear Forms</a></li>
               <li>&nbsp;</li>
-              <li><h6>My reprints of articles/books written by other mathematicians:</h6></li>
+              <li><h6>My reprints of articles/books written by others:</h6></li>
               <li><a href="../pdf/Fredholm_Operators_and_the_Essential_Spectrum.pdf">Fredholm Operators and the Essential Spectrum</a> by <i>M.Schechter</i></li>
               <li><a href="../pdf/Fourier_Analysis_on_Groups.pdf">Abstract Harmonic Analysis</a> based on <i>W.&nbsp;Rudin</i>'s book 'Fourier Analysis on Groups'.</li>
             </ul>
           </div>
-          <div>
+          <div class='container'>
             <ul style='list-style:none'>
               <h6>My articles on other topics:</h6>
               <li><a href="../pdf/Group_Theory.pdf">Group Theory</a></li>
               <li><a href="../pdf/Linear_Algebra.pdf">Linear Algebra</a></li>
               <li><a href="../pdf/General_Topology.pdf">General Topology</a></li>
+              <li>Differential Topology (in preparation)</li>
+              <li>Algebraic Topology (in preparation)</li>
               <li><a href="../pdf/Measure_and_Integration_Theory.pdf">Measure and Integration Theory</a></li>
               <li><a href="../pdf/Abstract_Harmonic_Analysis.pdf">Abstract Harmonic Analysis</a></li>
             </ul>
@@ -433,7 +436,7 @@
         </div>
       </div>
 
-      <div id="lecture_notes" style='display:none'>
+      <div id="lecture_notes" class='container' style='display:none'>
         <h2>Lecture Notes</h2>
         <ul>
           <li>
@@ -536,7 +539,7 @@
         </ul>
       </div>
 
-      <div id="research_articles" style='display:none'>
+      <div id="research_articles" class='container' style='display:none'>
         <h2>Research Articles</h2>
         <ul>
           <li>
@@ -548,7 +551,7 @@
         </ul>
       </div>
 
-      <div id='internet_seminar_evo' style='display:none'>
+      <div id='internet_seminar_evo' class='container' style='display:none'>
         <h2>International Internet Seminars on Evolution Equations</h2>
         These events are organized once a year by a couple of universities in Europe.
         <div class='table-content' id='isem'>
@@ -565,7 +568,7 @@
         </div>
       </div>
 
-      <div id='grundlehren' style='display:none'>
+      <div id='grundlehren' class='container' style='display:none'>
         <h2>Die Grundlehren der mathematischen Wissenschaften in Einzeldarstellung</h2>
         The following table is an extract of the complete list of publications in this series, see for example
         <a href="https://de.wikipedia.org/wiki/Grundlehren_der_mathematischen_Wissenschaften">here</a>:
@@ -584,7 +587,7 @@
         </div>
       </div>
 
-      <div id='dover' style='display:none'>
+      <div id='dover' class='container' style='display:none'>
         <h2>Dover Publications</h2>
         The following table lists textbooks in functional analysis and related topics provided by
         '<a href="https://store.doverpublications.com/pages/math-science?srsltid=AfmBOopIZf_V9yw1vAXY1KNFh69und2_Mx7m1JZ08HFE0wPtcFfVBGmk">Dover Publications</a>':
@@ -602,7 +605,7 @@
         </div>
       </div>
 
-      <div id='lecture_notes_in_mathematics' style='display:none'>
+      <div id='lecture_notes_in_mathematics' class='container' style='display:none'>
         <h2>Lecture Notes in Mathematics</h2>
         The following table partially lists textbooks in functional analysis and related topics provided
         by Springer's <a href="https://link.springer.com/series/304">
@@ -622,7 +625,7 @@
         </div>
       </div>
 
-      <div id='gtm' style='display:none'>
+      <div id='gtm' class='container' style='display:none'>
         <h2>Graduate Texts in Mathematics</h2>
         The following table lists textbooks in functional analysis and related topics provided by
         '<a href="https://link.springer.com/series/0136">Springer GTM Series</a>':
@@ -641,7 +644,7 @@
         </div>
       </div>
 
-      <div id='gsm' style='display:none'>
+      <div id='gsm' class='container' style='display:none'>
         <h2>Graduate Studies in Mathematics</h2>
         The following table lists textbooks in functional analysis and related topics provided by
         '<a href="https://bookstore.ams.org/gsm">GSM</a>':
@@ -660,7 +663,7 @@
         </div>
       </div>
 
-      <div id='mass' style='display:none'>
+      <div id='mass' class='container' style='display:none'>
         <h2>Mathematics and its Applications</h2>
         The following table lists textbooks in functional analysis and related topics provided by
         '<a href="https://link.springer.com/series/6255">Mathematics and Its Applications</a>':
@@ -679,7 +682,7 @@
         </div>
       </div>
 
-      <div id='linear_algebra' style='display:none'>
+      <div id='linear_algebra' class='container' style='display:none'>
         <h2>Linear Algebra</h2>
         This is a fundamental area in mathematics, which deals with <i> vector spaces</i>
         and the so-called linear transformations between them.
@@ -708,7 +711,7 @@
         </p>
       </div>
 
-      <div id='measure_and_integration_theory' style='display:none'>
+      <div id='measure_and_integration_theory' class='container' style='display:none'>
         <h2>Measure and Integration Theory</h2>
         The text behind the link below serves as a comprised review on the essentials
         of <i>measure and integration theory</i>,
@@ -738,7 +741,7 @@
         </ul>
       </div>
 
-      <div id='general_topology' style='display:none'>
+      <div id='general_topology' class='container' style='display:none'>
         <h2>General Topology</h2>
         This mathematical theory, often also denoted 'point-set topology',
         deals with the study of limits, continuity and geometric properties of the underlying sets.
@@ -782,7 +785,7 @@
         </p>
       </div>
 
-      <div id='complex_analysis' style='display:none'>
+      <div id='complex_analysis' class='container' style='display:none'>
         <h2>Complex Analysis</h2>
         is the general theory of holomorphic functions \(f: G \to \mathbb{C}\),
         where \(G\) is a <i>domain</i>,
@@ -809,7 +812,7 @@
         </p>
       </div>
 
-      <div id='pde_theory' style='display:none'>
+      <div id='pde_theory' class='container' style='display:none'>
         <h2>Partial Differential Equations</h2>
         Applied functional analysis is the subject, which provides functional analytic tools and methods
         to solve linear and nonlinear partial differential equations.
@@ -855,7 +858,7 @@
         </ul>
       </div>
 
-      <div id='abstract_harmonic_analysis' style='display:none'>
+      <div id='abstract_harmonic_analysis' class='container' style='display:none'>
         <h2>Abstract Harmonic Analysis</h2>
         Roughly spoken,
         <i>abstract harmonic analysis</i> is on the one hand side
@@ -895,7 +898,7 @@
         </ul>
       </div>
 
-      <div id='functional_analysis' style='display:none'>
+      <div id='functional_analysis' class='container' style='display:none'>
         <h2>Summary of all Topics</h2>
         The main document of this web-page consists of the following chapters:
         <ol type="I">
@@ -917,7 +920,7 @@
         </p>
       </div>
 
-      <div id='topological_linear_spaces' style='display:none'>
+      <div id='topological_linear_spaces' class='container' style='display:none'>
         <div class='content_left'>
           <div style="width:500px">
             <h2>Topological and Normed Linear Spaces</h2>
@@ -946,7 +949,7 @@
         </div>
       </div>
 
-      <div id='spectral_theory' style='display:none'>
+      <div id='spectral_theory' class='container' style='display:none'>
         <h2>Linear Operators and Spectral Theory</h2>
         The theory of <i>linear operators</i> lies at the heart of functional analysis.
         One can study linear operators either in the setting of arbitrary topological vector spaces
@@ -968,7 +971,7 @@
         </p>
       </div>
 
-      <div id='self-adjoint_operators' style='display:none'>
+      <div id='self-adjoint_operators' class='container' style='display:none'>
         <h2>Self-Adjoint Operators</h2>
         The theory of self-adjoint operators in Hilbert space is one of the earliest and well-elaborated topics
         in functional analysis and constitutes an extension of that of symmetric linear transformations
@@ -1004,7 +1007,7 @@
         </p>
       </div>
 
-      <div id='semigroup_theory' style='display:none'>
+      <div id='semigroup_theory' class='container' style='display:none'>
         <h2>Semigroup Theory and Evolution Equations</h2>
         Given a complex Banach space \(X\),
         a strongly continuous semigroup of bounded linear operators is a mapping \(S:[0,\infty) \to B(X)\),
@@ -1037,7 +1040,7 @@
         </p>
       </div>
 
-      <div id='nonlinear_functional_analysis' style='display:none'>
+      <div id='nonlinear_functional_analysis' class='container' style='display:none'>
         <h2>Nonlinear Functional Analysis</h2>
         This subtopic of functional analysis deals with nonlinear mappings \(f:D \subset X \to Y\),
         where \(X,Y\) are Banach spaces and \(D\) is a linear or convex subset of \(X\).
@@ -1065,7 +1068,7 @@
         </ul>
       </div>
 
-      <div id='coercive_sesquilinear_forms' style='display:none'>
+      <div id='coercive_sesquilinear_forms' class='container' style='display:none'>
         <h2>Coercive Sesquilinear Forms</h2>
         Besides linear operators acting in a Hilbert space,
         sesquilinear forms play an important role in the abstract solution theory of stationary and evolutional
@@ -1097,7 +1100,7 @@
         </ol>
       </div>
 
-      <div id='distribution_theory' style='display:none'>
+      <div id='distribution_theory' class='container' style='display:none'>
         <h2>Distribution Theory</h2>
         A <i>distribution</i> my be regarded as the generalization of a function.
         The corresponding subject in functional analysis,
@@ -1131,7 +1134,7 @@
         </ul>
       </div>
 
-      <div id='Nagy' style='display:none'>
+      <div id='Nagy' class='container' style='display:none'>
         <h2>F. Riesz & B. Szőkefalvi-Nagy: Functional Analysis</h2>
         This is one of the first monographs on functional analysis and was published in the fifties.
         The book contains a good presentation of the spectral decomposition of normal rsp. self-adjoint linear operators
@@ -1156,7 +1159,7 @@
         </div>
       </div>
 
-      <div id='Rudin' style='display:none'>
+      <div id='Rudin' class='container' style='display:none'>
         <h2>Rudin's Books on Mathematical Analysis</h2>
         <div class='content_left'>
           <div style='width:500px;font-size:85%'>
@@ -1209,7 +1212,7 @@
         </div>
       </div>
 
-      <div id='Fattorini' style='display:none'>
+      <div id='Fattorini' class='container' style='display:none'>
         <h2>Hector Fattorini: The Cauchy Problem</h2>
         <ol type="1" start="0">
           <li>Elements of Functional Analysis</li>
@@ -1224,7 +1227,7 @@
         </ol>
       </div>
 
-      <div id='Yosida' style='display:none'>
+      <div id='Yosida' class='container' style='display:none'>
         <h2>K. Yosida: Functional Analysis</h2>
         Yosida's book was published for the first time in 1965 as volume 123 of Springer's
         'Grundlehren der mathematischen Wissenschaften in Einzeldarstellung'.
@@ -1260,7 +1263,7 @@
         </div>
       </div>
 
-      <div id='Kato' style='display:none'>
+      <div id='Kato' class='container' style='display:none'>
         <h2>T. Kato: Perturbation Theory for Linear Operators</h2>
         <div class='content_left'>
           <div>
@@ -1293,7 +1296,7 @@
         </div>
       </div>
 
-      <div id='Dunford_Schwartz' style='display:none'>
+      <div id='Dunford_Schwartz' class='container' style='display:none'>
         <h2>N. Dunford &  J.T. Schwartz: Linear Operators I-III</h2>
         This series consisting of three volumes is one of the fundamental monographs in functional analysis.
         To publish them needs in total more than ten years.
@@ -1350,7 +1353,7 @@
         </div>
       </div>
 
-      <div id='Reed_Simon' style='display:none'>
+      <div id='Reed_Simon' class='container' style='display:none'>
         <h2>M. Reed &  B. Simon: Methods of Modern Mathematical Physics I-IV</h2>
         This is a four-volume work by <i>Michael Reed</i> and <i>Barry Simon</i> done in the eigthies of the last century.
         Especially the first volume is nearly pure mathematics and seems to be one of the best functional
@@ -1376,7 +1379,7 @@
         </center>
       </div>
 
-      <div id='mathematicians' style='display:none'>
+      <div id='mathematicians' class='container' style='display:none'>
         <h2>Mathematicians</h2>
         This is an enumeration of mathematicians with important contributions to functional analysis.
         The links are pointing to the corresponding page on 'wikipedia'.
@@ -1395,7 +1398,7 @@
         </div>
       </div>
 
-      <div id='history' style='display:none'>
+      <div id='history' class='container' style='display:none'>
         <h2>History of Functional Analysis</h2>
           <ul><b>Online Articles</b>
             <li><a href="https://courses.mai.liu.se/GU/TATM85/FA-history.pdf">A Brief History of Functional Analysis</a></li>
@@ -1408,7 +1411,7 @@
           </ul>
       </div>
 
-      <div id='textbooks' style='display:none'>
+      <div id='textbooks' class='container' style='display:none'>
         <h2>Textbooks</h2>
         This is an enumeration of textbooks on functional analysis and related topics.
         <div class='table-content' id='Books'>
@@ -1426,7 +1429,7 @@
         </div>
       </div>
 
-      <div id='msc46' style='display:none'>
+      <div id='msc46' class='container' style='display:none'>
         <h2>Mathematical Subject Classification for 46-XX (Functional Analysis)</h2>
         The following table forms an extract of the general MSC-2020 catalogue for 'functional analysis'.
         <div class='table-content' id='msc46-FA'>
@@ -1442,7 +1445,7 @@
         </div>
       </div>
 
-      <div id='journals' style='display:none'>
+      <div id='journals' class='container' style='display:none'>
         <h2>Journals</h2>
         This is an enumeration of well-known journals,
         where mathematical research articles have been published.
