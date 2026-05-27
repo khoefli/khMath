@@ -22,7 +22,7 @@
     <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.2.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/select/3.0.0/js/dataTables.select.min.js"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id=MathJax-script" async></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -39,12 +39,12 @@
 <!--------------------------------------------------------------------------------
 |                                TITLE & MAIN MENU                               |
 --------------------------------------------------------------------------------->
-    <div id="header">
+    <div id='header' class='container'>
       <center>
         <img src='../data/logo.png' height='40px' width='auto' border='0pt solid'>
       </center>
 
-      <div id="nav">
+      <div id="nav" class='container'>
         <ul>
           <li onclick="openPage('home')">Home</li>
           <li>|</li>
@@ -152,7 +152,7 @@
 <!--------------------------------------------------------------------------------
 |                                    CONTENT                                     |
 --------------------------------------------------------------------------------->
-    <div class="content_main">
+    <div class="content-main">
 
       <div id='impressum' class='container' style='display:none'>
         <h2>Impressum</h2>
@@ -169,7 +169,7 @@
 
       <div id='main_theorems' class='container' style='display:none'>
         <h2>Main Theorems in Functional Analysis</h2>
-        <div class='content_left'>
+        <div class='content-left'>
           <div style="width:370px">
             <ul type="square">
               <li><a href="https://en.wikipedia.org/wiki/Arzelà-Ascoli_theorem">Arzelà-Ascoli theorem</a></li>
@@ -210,7 +210,7 @@
 
       <div id='key_concepts' class='container' style='display:none'>
         <h2>Key Concepts in Functional Analysis</h2>
-        <div class='content_left'>
+        <div class='content-left'>
           <div style="width:330px">
             <ul type="square">
               <li><a href="https://en.wikipedia.org/wiki/Dissipative_operator">accretive linear operator</a></li>
@@ -281,7 +281,7 @@
       </div>
       <div id='sitemap' class='container' style='display:none'>
         <h2>Sitemap</h2>
-        <div class='content_left' style='font-size:90%'>
+        <div class='content-left' style='font-size:90%'>
           <div style="width:450px">
             <ul type="square">
               <li onclick="openPage('home')">Home</li>
@@ -354,22 +354,22 @@
           and we want to emphasize a couple of them:
         </p>
         <ul>
-          <li><mark class="change_page" onclick="openPage('topological_linear_spaces')">topological and normed linear spaces</mark></li>
+          <li><mark class="change-page" onclick="openPage('topological_linear_spaces')">topological and normed linear spaces</mark></li>
           <li>duality theory (dual pairs, adjoint spaces, adjoint operators)</li>
           <li>calculus of vector-valued functions</li>
-          <li><mark class="change_page" onclick="openPage('spectral_theory')">linear operators and spectral theory</mark></li>
-          <li><mark class="change_page" onclick="openPage('semigroup_theory')">semigroup theory and evolution equations</mark></li>
-          <li><mark class="change_page" onclick="openPage('distribution_theory')">distribution theory</mark></li>
+          <li><mark class="change-page" onclick="openPage('spectral_theory')">linear operators and spectral theory</mark></li>
+          <li><mark class="change-page" onclick="openPage('semigroup_theory')">semigroup theory and evolution equations</mark></li>
+          <li><mark class="change-page" onclick="openPage('distribution_theory')">distribution theory</mark></li>
           <li>monotone mappings, fixpoint and degree theorems <i>(nonlinear functional analysis)</i></li>
           <li>applied functional analysis (elliptic boundary value problems, Hilbert space methods, Schrödinger equation, ...)</li>
         </ul>
         <p>
           One can claim without doubt that functional analysis relies
           on four main columns of other mathematical subjects:
-          <mark class="change_page" onclick="openPage('linear_algebra')">linear&nbsp;algebra</mark>,
-          <mark class="change_page" onclick="openPage('general_topology')">general&nbsp;topology</mark>,
-          <mark class="change_page" onclick="openPage('measure_and_integration_theory')">measure&nbsp;and&nbsp;integration&nbsp;theory</mark> and
-          <mark class="change_page" onclick="openPage('complex_analysis')">complex&nbsp;analysis</mark>.
+          <mark class="change-page" onclick="openPage('linear_algebra')">linear&nbsp;algebra</mark>,
+          <mark class="change-page" onclick="openPage('general_topology')">general&nbsp;topology</mark>,
+          <mark class="change-page" onclick="openPage('measure_and_integration_theory')">measure&nbsp;and&nbsp;integration&nbsp;theory</mark> and
+          <mark class="change-page" onclick="openPage('complex_analysis')">complex&nbsp;analysis</mark>.
         </p>
         <p>
           It is my wish that visitors of this website will find inspirating hints and texts for further extended studies.
@@ -378,7 +378,7 @@
 
       <div id='about_me' class='container' style='display:none'>
         <h2>About me</h2>
-        <div class='content_left'>
+        <div class='content-left'>
           <div style="width:500px">
             My name is <b>Klaus Höflinger</b> and I was born in 1960 in Wangen,
             a small village in the south of Germany.
@@ -404,7 +404,7 @@
         The first block contains survey articles on various subjects,
         whereas the second one presents a couple of original typewriter texts
         from other mathematicians in modern LaTex style:
-        <div class='content_left'>
+        <div class='container content-left'>
           <div class='container'>
             <ul style='list-style:none'>
               <h6>My articles on functional analysis:</h6>
@@ -415,15 +415,18 @@
               <li><a href="../pdf/Hille_Yosida.pdf">Generators of Strongly Continuous Semigroups</a></li>
               <li><a href="../pdf/Distribution_Theory.pdf">Distribution Theory</a></li>
               <li><a href="../pdf/Coercive_Sesquilinear_Forms.pdf">Coercive Sesquilinear Forms</a></li>
-              <li>&nbsp;</li>
-              <li><h6>My reprints of articles/books written by others:</h6></li>
-              <li><a href="../pdf/Fredholm_Operators_and_the_Essential_Spectrum.pdf">Fredholm Operators and the Essential Spectrum</a> by <i>M.Schechter</i></li>
-              <li><a href="../pdf/Fourier_Analysis_on_Groups.pdf">Abstract Harmonic Analysis</a> based on <i>W.&nbsp;Rudin</i>'s book 'Fourier Analysis on Groups'.</li>
+            </ul>
+            <ul style='list-style:none'>
+              <h6>My reprints of articles/books written by other authors:</h6>
+              <li><a href="../pdf/Fredholm_Operators_and_the_Essential_Spectrum.pdf">Fredholm Operators and the Essential Spectrum</a>,
+              by <i>M.Schechter</i></li>
+              <li><a href="../pdf/Fourier_Analysis_on_Groups.pdf">Abstract Harmonic Analysis</a>,
+              based on <i>W.&nbsp;Rudin</i>'s book 'Fourier Analysis on Groups'.</li>
             </ul>
           </div>
           <div class='container'>
             <ul style='list-style:none'>
-              <h6>My articles on other topics:</h6>
+              <h6>My articles on other fields of mathematics:</h6>
               <li><a href="../pdf/Group_Theory.pdf">Group Theory</a></li>
               <li><a href="../pdf/Linear_Algebra.pdf">Linear Algebra</a></li>
               <li><a href="../pdf/General_Topology.pdf">General Topology</a></li>
@@ -476,16 +479,16 @@
 
           <li>
             <a target="_new"
-            href="https://www.uni-ulm.de/fileadmin/website_uni_ulm/mawi.inst.010/Evolution/eveqskript-modif.pdf">
-            Lineare Evolutionsgleichungen</a>;
-            &nbsp;by <i>Delio&nbsp;Mugnolo</i>, Universität Ulm.
+            href="https://www.pde.sci.waseda.ac.jp/lab/pdf/frahmen.pdf">
+            From Forms to Semigroups</a>;
+            &nbsp;by <i>Wolfgang&nbsp;Arendt</i>, Lecture Notes Tokyo, Waseda University, 2010.
           </li>
 
           <li>
             <a target="_new"
-            href="https://www.pde.sci.waseda.ac.jp/lab/pdf/frahmen.pdf">
-            From Forms to Semigroups</a>;
-            &nbsp;by <i>Wolfgang&nbsp;Arendt</i>, Lecture Notes Tokyo, Waseda University, 2010.
+            href="https://www.uni-ulm.de/fileadmin/website_uni_ulm/mawi.inst.010/Evolution/eveqskript-modif.pdf">
+            Lineare Evolutionsgleichungen</a>;
+            &nbsp;by <i>Delio&nbsp;Mugnolo</i>, Universität Ulm.
           </li>
 
           <li>
@@ -700,7 +703,7 @@
         <p>
           One can for example study <i>Werner Greub</i>'s monograph 'Linear Algebra',
           which was published in Springer's
-          '<mark class="change_page" onclick="openPage('grundlehren')">Grundlehren der mathematischen Wissenschaften</mark>'
+          '<mark class="change-page" onclick="openPage('grundlehren')">Grundlehren der mathematischen Wissenschaften</mark>'
           as vol. 97 in 1958.
         </p>
         <p>
@@ -921,7 +924,7 @@
       </div>
 
       <div id='topological_linear_spaces' class='container' style='display:none'>
-        <div class='content_left'>
+        <div class='content-left'>
           <div style="width:500px">
             <h2>Topological and Normed Linear Spaces</h2>
             The fundament of functional analysis is the theory of linear spaces endowed with topological structure.
@@ -1161,7 +1164,7 @@
 
       <div id='Rudin' class='container' style='display:none'>
         <h2>Rudin's Books on Mathematical Analysis</h2>
-        <div class='content_left'>
+        <div class='content-left'>
           <div style='width:500px;font-size:85%'>
             <h3>Functional Analysis</h3>
               <ol type="1">Part I: <b>General Theory</b>
@@ -1235,7 +1238,7 @@
         It is referenced from a lot of research articles.
         But I cannot emphasize this book for self studies --
         from my point of view, the sections are organized very chaotically.
-        <div class='content_left'>
+        <div class='content-left'>
           <div>
             <ol type="I" start="0">
               <li>Preliminaries</li>
@@ -1265,7 +1268,7 @@
 
       <div id='Kato' class='container' style='display:none'>
         <h2>T. Kato: Perturbation Theory for Linear Operators</h2>
-        <div class='content_left'>
+        <div class='content-left'>
           <div>
             <a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/kato1.pdf">This</a> is <i>Kato</i>'s main book,
             first published in 1967.
@@ -1300,7 +1303,7 @@
         <h2>N. Dunford &  J.T. Schwartz: Linear Operators I-III</h2>
         This series consisting of three volumes is one of the fundamental monographs in functional analysis.
         To publish them needs in total more than ten years.
-        <div class='content_left'>
+        <div class='content-left'>
           <div style="width:300px">
             <h3>Part I: General Theory (1957)</h3>
             <center>
@@ -1471,7 +1474,7 @@
       <p>
       </p>
       <hr><hr>
-      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 26/05/2026).&nbsp;&nbsp;
+      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 27/05/2026).&nbsp;&nbsp;
       <button onclick="openPage('about_me')">About me</button>
       <button onclick="openPage('impressum')">Impressum</button>
       <button onclick="openPage('sitemap')">Sitemap</button>

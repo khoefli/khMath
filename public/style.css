@@ -45,7 +45,7 @@ html h1
 h2
 {
   color:DarkSlateGray;
-  font-size:12pt;
+  font-size:14pt;
   text-align:center;
   padding:0px;
   margin:0px;
@@ -113,23 +113,23 @@ html button
 }
 
 /*----------------------------------------------------------------------------*/
-/* change_page                                                                */
+/* change-page                                                                */
 /*----------------------------------------------------------------------------*/
-.change_page
+.change-page
 {
   color:#505050;
   background-color:white;
   text-decoration:none;
 }
 
-.change_page:hover
+.change-page:hover
 {
   color:gray;
   background-color:white;
   text-decoration:none;
 }
 
-.change_page:visited
+.change-page:visited
 {
   color:#505050;
   background-color:white;
@@ -162,7 +162,6 @@ html button
 {
   display:inline;
   list-style:none;
-  padding-left:5px;
   float:left;
   background-color:#f6f5f4;
 }
@@ -221,9 +220,9 @@ html button
 }
 
 /*----------------------------------------------------------------------------*/
-/* content_main                                                               */
+/* content-main                                                               */
 /*----------------------------------------------------------------------------*/
-.content_main
+.content-main
 {
   z-index:1;
   font-size:12pt;
@@ -237,49 +236,49 @@ html button
   border: 0pt solid;
 }
 
-.content_main div
+.content-main div
 {
 }
 
-.content_main a, a:hover, a:visited
-{
-  color: #505050;
-}
-
-.content_main li a
+.content-main a, a:hover, a:visited
 {
   color: #505050;
 }
 
-.content_main ul li a
+.content-main li a
 {
   color: #505050;
 }
 
-.content_main a:link
+.content-main ul li a
 {
   color: #505050;
 }
 
-.content_main a:hover
+.content-main a:link
+{
+  color: #505050;
+}
+
+.content-main a:hover
 {
   color: gray;
 }
 
-.content_main ul li a:hover
+.content-main ul li a:hover
 {
   color: gray;
 }
 
-.content_main a:focus
+.content-main a:focus
 {
   color: gray;
 }
 
 /*----------------------------------------------------------------------------*/
-/* content_left                                                               */
+/* content-left                                                               */
 /*----------------------------------------------------------------------------*/
-.content_left
+.content-left
 {
   display:flex;
   flex-direction:row;
