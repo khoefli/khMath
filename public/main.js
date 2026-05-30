@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*/
-/* openPage()                                                                 */
+/* displayContainer()                                                         */
 /*----------------------------------------------------------------------------*/
-function closeAllPages()
+function undisplayAllContainers()
 {
   const data =
   [
@@ -64,9 +64,9 @@ function closeAllPages()
   }
 }
 
-function openPage(id)
+function displayContainer(id)
 {
-  closeAllPages();
+  undisplayAllContainers();
   document.getElementById(id).style.display = 'block';
 }
 
@@ -604,5 +604,3 @@ createTable('Internet Seminars on Evolution Equations', 'isem');
 createTable('Monographs in \'Lecture Notes in Mathematics (Springer)\'', 'lecture_notes');
 createTable('Mathematics and its Applications', 'mass');
 createTable('Mathematical Subject Classification for Functional Analysis', 'msc46');
-
-//appendContent();

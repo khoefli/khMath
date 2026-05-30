@@ -30,20 +30,6 @@ html p
 
 html h1
 {
-  background-color:DarkSeaGreen;
-  color:DarkSlateGray;
-  font-size:16pt;
-  font-weight:bold;
-  margin:0px;
-  padding:0px;
-  padding-bottom:8px;
-  padding-top:12px;
-  height:50px;
-  width:auto;
-}
-
-h2
-{
   color:DarkSlateGray;
   font-size:14pt;
   text-align:center;
@@ -53,13 +39,21 @@ h2
   padding-bottom:10px;
 }
 
-html h3
+html h2
 {
   color:DarkSlateGray;
   font-size:12pt;
   text-align:center;
   padding-top:5px;
   padding-bottom:5px;
+}
+
+html h3
+{
+  color:DarkSlateGray;
+  font-size:11pt;
+  padding-top:0px;
+  padding-bottom:0px;
 }
 
 html li
@@ -220,9 +214,9 @@ html button
 }
 
 /*----------------------------------------------------------------------------*/
-/* content-main                                                               */
+/* main-container                                                             */
 /*----------------------------------------------------------------------------*/
-.content-main
+.main-container
 {
   z-index:1;
   font-size:12pt;
@@ -236,49 +230,49 @@ html button
   border: 0pt solid;
 }
 
-.content-main div
+.main-container div
 {
 }
 
-.content-main a, a:hover, a:visited
-{
-  color: #505050;
-}
-
-.content-main li a
+.main-container a, a:hover, a:visited
 {
   color: #505050;
 }
 
-.content-main ul li a
+.main-container li a
 {
   color: #505050;
 }
 
-.content-main a:link
+.main-container ul li a
 {
   color: #505050;
 }
 
-.content-main a:hover
+.main-container a:link
+{
+  color: #505050;
+}
+
+.main-container a:hover
 {
   color: gray;
 }
 
-.content-main ul li a:hover
+.main-container ul li a:hover
 {
   color: gray;
 }
 
-.content-main a:focus
+.main-container a:focus
 {
   color: gray;
 }
 
 /*----------------------------------------------------------------------------*/
-/* content-left                                                               */
+/* left-to-right-container                                                    */
 /*----------------------------------------------------------------------------*/
-.content-left
+.left-to-right-container
 {
   display:flex;
   flex-direction:row;
@@ -289,16 +283,14 @@ html button
 }
 
 /*----------------------------------------------------------------------------*/
-/* datatables                                                                 */
+/* datatables, datatables-content                                             */
 /*----------------------------------------------------------------------------*/
 #datatables
 {
-  font-size:11pt;
   height:100%;
-  font-size:80%;
 }
 
-.table-content
+.datatables-content
 {
   font-size:11pt;
 }
