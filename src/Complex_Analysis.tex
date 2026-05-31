@@ -1,0 +1,338 @@
+%------------------------------------------------------------------------------%
+% COMPLEX ANALYSIS                                                             %
+%------------------------------------------------------------------------------%
+% File  : Complex_Analysis.tex                                                 %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                       DOCUMENT CLASS and INCLUDE FILES                       %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+\input{Titles}
+
+\def\Title{Complex Analysis}
+
+\titleformat{\part}%[display]
+{\normalfont \rmfamily \bfseries \centering}
+{{\thepart.}}{3pt}{}
+
+\titleformat{\section}[runin]
+{\normalfont \bfseries \filcenter}
+{\thesection.\,}{0mm}{}[.]
+
+\titlespacing*{\part}   {5pt}{12pt}{ 4pt}
+\titlespacing*{\section}{0pt}{ 3pt}{ 3pt}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\centerline{\large{\textbf{\Title}}}
+\vspace{4pt}
+\centerline{\small{{\textsc{\Author}}}}
+\vspace{10pt}
+
+\fancyhead[C] {\small{\textsc{\Title}}}
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+
+\myfootnote
+{
+  Version {\Version} from \today;
+  Email:  \textit{khoeflinger@\,t-online.de}
+}
+
+%------------------------------------------------------------------------------%
+%                                 INTRODUCTION                                 %
+%------------------------------------------------------------------------------%
+
+\fancyhead[C] {\small{\textsc{I. Holomorphic Functions}}}
+\part{Holomorphic Functions}
+%------------------------------------------------------------------------------%
+Holomorphic functions are the objects studied in \textit{complex analysis}.
+Let $\openO \xsubset \C$ be an open set and $f \: \openO \xto \C$ a mapping.
+Then
+
+\begin{itemize}
+\item[1.]
+$f$ is called \textit{differentiable} if the following limit exists:
+\[
+\lim_{h \to 0} \frac{f(z+h) - f(z)}{h}
+\]
+\item[2.]
+$f$ is called \textit{holomorphic} in $z \xeof \openO$,
+if $f$ is differentiable in each point $z$.
+\item[3.]
+$f$ is called holomorphic in $\openO$,
+if $f$ is so in each point $z \xeof \openO$.
+\end{itemize}
+
+\subparagraph{}
+Each holomorphic function is continuous in $\openO$.
+If $f_1$ and $f_2$ are holomorphic,
+then the functions $f_1{+}f_2$, $f_1 {\cdot} f_2$ and $f_1 {\circ} f_2$
+are holomorphic,
+too.
+Moreover,
+if $f_2$ does not have any roots in $\openO$,
+then the quotient function $f_1/f_2$ is also holomorph.
+The computation rules to take derivatives of holomorphic functions are the same
+as already known from real analysis.
+
+\subparagraph{}
+For example,
+the monomials $z \mapsto z^n$ are holomorphic functions.
+Hence every polynomial $p$ given by $p(z) := \sum_{k=0}^n a_k\,z^k$
+and each rational function $r \eq p_1 / p_2$ is holomorphic,
+supposed that $p_2$ has not roots in $\openO$.
+
+\subparagraph{}
+The real and imaginary part of a holomorphic function satisfy
+the \textit{Cauchy-Riemann differential equations}:
+if
+\[
+f(x+iy) \= u(x,y) + i \cdot v(x,y)
+\]
+is holomorphic, then
+\[
+u_x = v_y, \quad u_y = - v_x \qquad (x+iy \xeof U).
+\]
+
+\paragraph{}
+There are relationships bewtween holomorphic functions
+and complex power series.
+Let $\{a_n\}$ be a sequence of complex numbers and $z_0 \xeof \C$.
+The for elements $z$ of a sufficiently small neighbourhood $U$
+of $z_0$ the power series is defined by
+\[
+f(z) \eqdef \sum_{k=0}^{\infty} a_k \, (z-z_0)^k.
+\]
+This series is convergent in a circle around $z_0$
+with convergence radius $\rho$,
+which is uniquely defined by the sequence $\{a_n\}$.
+For the radius of convergence the \textit{Cauchy-Hadamard formula} holds:
+\[
+1 / \rho \= {\lim \sup}_{k \in \N} \; \abs{a_k} ^{1/k}.
+\]
+
+\paragraph{}
+A power series is converging absolutely and uniformly in every disk
+$K_r(z_0)$ with $r < \rho$ and is divergent in the exterior of this disk.
+But in general no assertion can be made {\wrt} convergence on the boundary of the disk.
+
+\begin{theorem}
+Every power series is a holomorphic function in the interior of its disk of convergence.
+\end{theorem}
+
+\subparagraph{}
+For example,
+the exponential function
+\[
+\exp(z) := \sum_{k=0}^{\infty} \frac{1}{k!} z^k
+\]
+is defined for all $z \xeof \C$ by means of the power series around $z_0 \eq 0$.
+
+\subparagraph{}
+The derivative of a power series is computed by taking the derivates of the members.
+Since the derivative of a power series is a  power series again,
+power series are arbitrarily differentiable functions.
+
+\paragraph{}
+The following theorem establishes a relationship
+between power series and holomorphic functions:
+
+\begin{theorem}
+Each holomorphic function can locally be represented by a power series.
+\end{theorem}
+
+\begin{theorem}
+Let $\G \subset \C$ be a simply connected domain
+and $f \: \G \xto \C$ a holomorphic function.
+Then for each closed curve $\gamma \:I \xto \G$ we have
+\[
+\int_{\gamma} \, f(z) \, dz \= 0.
+\]
+\end{theorem}
+
+\paragraph{}
+Let $U,V \xsubset \C$ be open sets.
+A function $f \:U \xto V$ is called \textit{biholomorphic},
+if $f$ is bijective and $f$ as well as $f^{-1}$ are holomorphic.
+
+\paragraph{}
+Biholomorphic functions can be described as follows:
+
+\begin{theorem}
+A function $f \: U \xto V$ is biholomorphic
+\iff
+$f$ is holomorphic, bijective and $f'(z) \neq 0$ for all $z \xeof U$.
+\end{theorem}
+
+\subparagraph{}
+The sets $U$ and $V$ are called \textit{conformally equivalent},
+if there is a biholomorphic function $f \: U \xto V$.
+
+\paragraph{}
+Let $z_0 \xeof \C$, $U$ be an open neighbourhood of $z_0$ and
+$f$ be holomorphic on $U \setminus \{z_0\}$.
+Then $z_0$ is denoted an \textit{isolated singularity} of $f$.
+
+\subparagraph{}
+If $\openO \xsubset \C$ is open,
+$\A \xsubset \openO$ a discrete subset
+and $f \: \openO \setminus \A \xto \C$ holomorphic,
+then each point $z \xeof \A$ is an isolated singularity of $f$.
+For example,
+the point $z \eq 0$ is an isolated singularity of the functions
+$f(z) \eq \sin(z)/z$ and $f(z) \eq e^{1/z}$.
+
+\subparagraph{}
+An isolated singularity is either \textit{revocable},
+a \textit{pole of order $n$} or an \textit{essential singularity}.
+
+\begin{theorem}
+An isolated singularity $z_0$ of $f$ is essential
+iff
+to each $w \xeof \C$ there is a sequence $\{z_n\}$
+such that
+$z_n \rightarrow z_0$ and $f(z_n) \rightarrow w$.
+\end{theorem}
+
+\paragraph{}
+The different types of isolated singularities can be derived
+from the \textit{Laurent series} of $f$:
+
+\begin{theorem}
+Let $a$ be an isolated singularity of $f$ and let
+\[
+f(z) \eq \sum_{n \eq -\infty}^{\infty} a_n \, (z-a)^n
+\]
+in the punctured disk $K \eq K_{\epsilon}(a) \setminus \{a\}$.
+Then the following assertions are valid:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$a$ is revocable iff
+$a_n \eq 0$ for all $n < 0$.
+\item[2.]
+$a$ is a pole of order $n$ iff
+$a_{-n} \eq 0$ and $a_k \eq 0$ for all $k < -n$.
+\item[3.]
+$a$ is essential iff
+$a_{-n} \neq 0$ for infinitely many $n \xeof \N$.
+\end{itemize}
+\end{theorem}
+
+\fancyhead[C] {\small{\textsc{II. Meromorphic Functions}}}
+\part{Meromorphic Functions}
+%------------------------------------------------------------------------------%
+The behaviour of a holomorphic function near an isolated singularity
+remains clear,
+provided the singularity is not essential.
+Functions having this property are called \textit{meromorphic}.
+
+\subparagraph{}
+More precisely,
+let $\openO \xsubset \C$ be open,
+$P \xsubset \openO$ be a discrete set and
+$f \: \openO \setminus P \xto \C$ a holomorphic function.
+If all points of $P$ are revocable singularities or poles of $f$,
+then $f$ is said to be \textit{meromorphic} in $\openO$.
+
+\paragraph{}
+Let us consider the following examples:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Each holomorphic function is meromorphic.
+\item[2.]
+If $g$ and $h$ are holomorphic in $\openO$,
+then the quotient $g/h$ is meromorphic,
+provided $h$ does not completely vanish in a path-connected component of $\openO$.
+In this case at most the roots of $h$ are poles of $g/h$.
+\item[3.]
+Each rational function is meromorphic.
+\end{itemize}
+
+\paragraph{}
+Every meromorphic function is locally the quotient of two holomorphic functions:
+if $f$ is meromorphic in $\openO$ and $z \xeof \openO$,
+then there are a neighbourhood $V$ of $z$ and holomorphic functions $g$ and $h$
+such that
+$f \eq g/h$ in $V$.
+
+\begin{theorem}
+The meromorphic functions defined in a domain $\G \xsubset \C$ constitute a field.
+\end{theorem}
+
+\subparagraph{}
+Let $P \xsubset \C$ be a discrete set.
+A textit{root distribution} $V$ is a set of pairs $(a,n_a)$
+such that
+$a \xeof P$ and $n_a \xeof \N$.
+The distribution $V$ is called \textit{solvable}
+if there is a holomorphic function $f$,
+which owns roots exactly in the points $a \xeof P$ with order $n_a$.
+
+\paragraph{}
+The concept of \textit{divisor} generalizes that of root distribution.
+Let $\openO \xsubset \C$ be open.
+A \textit{divisor} $D$ is a mapping $D \: \openO \xto \Z$,
+which adopts values different from $0$
+at most in a discrete set $D \xsubset \openO$.
+
+\subparagraph{}
+A divisor is called \textit{positive},
+if $D(z) \geq 0$ for all $z \xeof \openO$.
+Especially the root distribution of $\openO$ gives rise to a positive divisor.
+The divisors in $\openO$ can be added to each another
+and form an Abelian group $\Delta(\openO)$.
+
+\subparagraph{}
+Let $\G$ be a domain and $K^{\star}(G)$ the multiplicative group
+of the field of meromorphic functions in $\G$.
+Then each $f \xeof K^{\star}(\G)$ has a divisor $D_f$.
+Moreover,
+$f$ is holomorphic \iff $D_f$ is positive.
+The assignment $f \mapsto D_f$ is a group homomorphism 
+between the groups $K^{\star}(\G)$ and $\Delta(U)$.
+
+\subparagraph{}
+A divisor $D \xeof \Delta(\G)$ is called a \textit{principal divisor}
+if there is a meromorphic function $f \xeof K^{\star}(\G)$
+such that
+$D_f \eq D$.
+In this case the following assertion is true:
+
+\begin{theorem}
+Eeach divisor defined in a domain $\G$ is principal.
+\end{theorem}
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\newpage
+\thispagestyle{empty}
+
+\begin{thebibliography}{99}
+\begin{small}
+
+\bibitem{Yo}  W.\,Rudin:
+\textit{Real and Complex Analysis}.
+McGraw \& Hill Inc., 1970.
+
+\end{small}
+\end{thebibliography}
+
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}

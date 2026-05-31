@@ -1,0 +1,4635 @@
+%------------------------------------------------------------------------------%
+% DIFFERENTIAL TOPOLOGY                                                        %
+%------------------------------------------------------------------------------%
+% File  : Differential_Topology.tex                                            %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                       DOCUMENT CLASS and INCLUDE FILES                       %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+%\renewcommand\thesection{\Roman{section}}
+
+\def\Title{Differential Topology}
+
+\titleformat{\part}%[display]
+{\normalfont \rmfamily \bfseries \centering}
+{{\thepart.}}{3pt}{}
+
+\titleformat{\section}[runin]
+{\normalfont \bfseries \filcenter}
+{\thesection.\,}{0mm}{}[.]
+
+\titlespacing*{\part}   {5pt}{12pt}{ 4pt}
+\titlespacing*{\section}{0pt}{ 3pt}{ 3pt}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\centerline{\Large{\textbf{\Title}}}
+\vspace{4pt}
+\centerline{\small{{\textsc{\Author}}}}
+\vspace{10pt}
+
+\fancyhead[C] {\small{\textsc{\Title}}}
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+
+\myfootnote
+{
+  Version {\Version} from \today;
+  Email:  \textit{khoeflinger@\,t-online.de}
+}
+
+%------------------------------------------------------------------------------%
+%                                DEFINITIONS                                   %
+%------------------------------------------------------------------------------%
+\def\Off{\mathcal{O}}          % open Umgebung O
+\def\OffO{\mathcal{O}}         % open Umgebung O
+\def\matrA{A}                  % matrix A
+
+\def\lieG{\mathfrak{G}}        % Lie group G
+\def\lieH{\mathfrak{H}}        % Lie group H
+\def\lieU{\mathcal{U}}         % Lie subgroup U
+
+\def\GL#1 {\mathbf{GL}(#1)}    % linear group
+\def\SL#1 {\mathbf{SL}(#1)}    % special linear group
+\def\OG#1 {\mathbf{O}(#1)}     % orthogonal group
+\def\SOG#1{\mathbf{SO}(#1)}    % orthonormal group
+\def\UG#1 {\mathbf{U}(#1)}     % unitary group U
+\def\SUG#1{\mathbf{SU}(#1)}    % special unitary group SU
+
+\def\gl#1{\mathfrak{gl}(#1)}   % Lie algebra of the linear group
+\def\sl#1{\mathfrak{sl}(#1)}   % Lie algebra of the special linear group
+\def\so#1{\mathfrak{so}(#1)}   % Lie algebra of the orthonormal group
+\def\o#1 {\mathfrak{o }(#1)}   % Lie algebra of the orthogonal group
+\def\su#1{\mathfrak{su}(#1)}   % Lie algebra of the unitary group SU
+\def\u#1 {\mathfrak{u }(#1)}   % Lie algebra of the unitary group U
+
+\def\topM{{M}}        % topological manifold M
+\def\topN{{N}}        % topological manifold M
+
+\def\difM{{M}}        % differential manifold M
+\def\difN{{N}}        % differential manifold N
+\def\difS{{S}}        % differential submanifold S
+
+\def\vecX{X}                   % vector field X
+\def\vecY{Y}                   % vector field Y
+\def\vecZ{Z}                   % vector field Z
+
+\def\g{{\mathfrak{g}}}         % Lie algebra g
+\def\h{{\mathfrak{h}}}         % Lie algebra h
+\def\gebG{\mathcal{G}}         % domain G
+\def\UmgU{\mathcal{U}}         % neighbourhood U
+\def\UmgV{\mathcal{V}}         % neighbourhood V
+
+\def\bracket#1{\left<#1\right>}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C] {\small{\textsc{I. Manifolds}}}
+%------------------------------------------------------------------------------%
+\part{Manifolds}
+%------------------------------------------------------------------------------%
+Manifolds form an important class of topological spaces,
+which look locally like the Euclidean spaces $\Rd$.
+This property enables to transwith many concepts from differential calculus
+of several variables to manifolds.
+
+\section{Topological Manifolds}
+%------------------------------------------------------------------------------%
+A topological space $\topM$ is called \textit{locally Euclidean},
+if for each point $p \xeof \topM$ there is an open neighbourhood $\OffO_p$
+and a \textit{local} homeomorphism
+$\kappa \: \OffO_p \xto \Off' \subseteq \Rd$,
+where the dimension $n \eq n(p)$ may depend from the point $p$.
+
+\subparagraph{} %- topological manifolds
+One is led to the notation of \textit{topological manifold}
+by requiring additional topological features for the space $\topM$.
+More precisely,
+a topological space $\topM$ is said to be a \textit{topological manifold}
+if 
+\begin{itemize}[leftmargin=45pt]
+\item[(M-1)]
+$\topM$ is locally Euclidean;
+\item[(M-2)]
+$\topM$ is Hausdorff;
+\item[(M-3)]
+$\topM$ satisfies the second countability axiom.
+\end{itemize}
+
+\subparagraph{}
+Notice that the Hausdorff property is not a consequence of local Euclidicity,
+but must be explicitly required.
+
+\subparagraph{}
+It is often the case in monographs that a manifold does not have to fulfill
+the second countability axiom.
+All manifolds of interest however own this property,
+hence it makes sense to regard it in the definition of this concept.
+
+\paragraph{} %- charts
+Each local homeomorphism $\kappa \: \OffO \xto \Rd$
+is called a $d$-dimensional \textit{chart} for $\topM$,
+and the numbers $\kappa(p) \eq \{x_1,\ldots,x_n\}$ are denoted
+the \textit{coordinates} of a point $p$ {\wrt} this chart.
+The open set $\OffO$ is said to be the \textit{domain of the chart}.
+Any chart $(\Off,\kappa)$ is called \textit{centered} {\wrt} $p \xeof \topM$,
+if $\kappa(p) \eq (0,\ldots,0) \xeof \Rd$.
+
+\subparagraph{}
+If $\kappa_1 \: \Off_1 \xto \R^{d_1}$ and $\kappa_2 \: \Off_2 \xto \R^{d_2}$
+are two charts in $\topM$ satisfying
+$\Off_1 \cap \Off_2 \neq \emptyset$,
+then $n_1 \eq n_2$ holds.
+This is a consequence of a theorem quoting 
+that the dimensions of two finite-dimensional linear spaces
+being homeomorphic to each other are identical.
+Hence the mapping $p \mapsto n(p)$ is constant on each connected component
+of a topological manifold.
+If all connected components of $\topM$ own one and the same dimension $d$,
+then $d$ is called the \textit{dimension} of $\topM$.
+
+\subparagraph{}
+If the whole manifold $\topM$ is mapped by \textit{one} chart $\kappa$
+to the space $\Rd$,
+then $(M,\kappa)$ is called a \textit{global chart} for $\topM$.
+A collection of $d$-dimensional charts,
+whose domains are covering the manifold $\topM$,
+is denoted a $d$-dimensional \textit{atlas} for $\topM$.
+The validness of the second countability axiom implies
+that every topological manifold owns mostly one countable atlas.
+
+\subparagraph{}
+Topological manifolds are locally path-connected
+due to the local euclidicity.
+Hence the concepts of path-connected and connected are equivalent
+and the path-connection components of a manifold coincide with their connected components.
+Each connected component forms an open set,
+an its complementary set is open, too.
+Moreover,
+the second countability axiom implies
+that a topological manifold owns mostly countable connected components.
+
+\begin{comment}
+\subparagraph{}
+A topological manifold is \textit{semi-locally simple-connected}.
+Aus der \"Uber\-lagerungs\-theorie topological spaces is bekannt,
+dass sie damit a \textit{universelle \"Uberlagerung} besitzt.
+\end{comment}
+
+\subparagraph{}
+Every topological manifold $\topM$ is \textit{locally compact}.
+Since a locally compact Hausdorff space forms the union
+of mostly countable many compact subspaces, 
+the set $\topM$ itself proves to be \textit{paracompact}.
+
+\section{Differentiable Manifolds}
+%------------------------------------------------------------------------------%
+A topological manifold should behave during map changes in a way
+that the transition from one map $(\openO_1,\kappa_1)$
+to the next one $(\openO_2,\kappa_2)$
+within the common domain $\openO_1 \cap \openO_2$ occurs
+in a \textit{differentiable} manner.
+This leads us to the concept of \textit{differentiable structure}.
+
+\subparagraph{}
+Let $\topM$ be a topological manifold and $\cal{A}$ an atlas for $\topM$.
+If $(\Off_1,\kappa_1)$ and $(\Off_2,\kappa_2)$ are two charts in $\cal{A}$
+with non-empty common domain of the charts,
+then on the range $\kappa_1(\Off_1 \cap \Off_2)$ there is defined
+a \textit{transformation of coordinates} rsp. a \textit{change of charts}
+\[
+\tau \eqdef \kappa_2 \circ \kappa_1^{-1}: \kappa_1(\Off_1 \cap \Off_2)
+\subseteq \Rd \xto \Rd.
+\]
+Since $\kappa_1$ and $\kappa_2$ are homeomorphisms,
+the mapping $\tau$ is a homeomorphism,
+too.
+The charts $\kappa_1$ and $\kappa_2$ are called
+\textit{differentiable compatible},
+if $\tau$ is a diffeomorphism (of class $C^k, k \xeof \N$)
+between $\kappa_1(\Off_1 \cap \Off_2)$ and $\kappa_2(\Off_1 \cap \Off_2)$.
+Moreover, 
+two charts are said to be compatible,
+if their domains are disjoint.
+The totality of all differentiable compatible charts
+is distinguished as follows:
+an atlas $\cal{A}$ for a topological manifold $\topM$
+is called \textit{differentiable},
+if each two charts in $\cal{A}$ are differentiable compatible.
+
+\subparagraph{}
+Two differentiable atlases ${\cal{A}}_1$, ${\cal{A}}_2$ for $\topM$
+are called \textit{equivalent},
+if the union ${\cal{A}}_1 \cup {\cal{A}}_2$,
+that is,
+the totality of all charts of ${\cal{A}}_1$ and ${\cal{A}}_2$
+is a differentiable atlas,
+too.
+This is the case
+iff each chart of the first atlas is differentiable compatible
+with all charts of the second atlas and vice versa.
+Obviously we have an equivalence relation on the set
+of all differentiable atlases of the manifold,
+and the union of two atlases in one and the same equivalent class
+forms also an atlas in this class.
+
+\subparagraph{}
+Thus we obtain for each equivalence class $[{\cal{A}}]$ a \textit{maximal}
+rsp. \textit{complete} differentiable atlas ${\cal{A}}_{max}$
+by putting together all atlases of the equivalence class,
+\[
+{\cal{A}}_{max} \eqdef
+\bigcup_{{\cal{A}}_i \in [{\cal{A}}]} {\cal{A}}_i.
+\]
+A complete differentiable atlas $\cal{A}_{max}$ has the property,
+that each chart for $\topM$
+that is differentiable compatible with all other charts of $\cal{A}_{max}$,
+is contained in the atlas itself.
+If a differentiable atlas is complete,
+then it is denoted a \textit{differentiable structure} on $\topM$.
+
+\paragraph{}
+Now we are able to introduce the notion of \textit{differentiable manifold}:
+
+\begin{definition}
+Let $\topM$ be a $d$-dimensional topological manifold
+and $\cal{A}$ be a differentiable structure on $\topM$.
+Then the pair $(\topM,\cal{A})$ is called
+a ($d$-dimensional) differentiable manifold.
+\end{definition}
+
+\subparagraph{}
+Strictly speaking we should call $\topM$ to be a differentiable manifold
+of class $C^k$,
+that is,
+each transformation of coordinates $\tau$ is a diffeomorphism
+in $\Rd$ of the class $C^k(\Omega,\tau(\Omega))$ for $\Omega \xsubset \Rd$.
+A manifold of the class $C^{\infty}$ is called \textit{analytical}.
+When speaking of a differentiable manifold in what follows,
+we shall always assume that it is of the class $C^{\infty}$.
+
+\paragraph{}
+Examples of differentiable manifolds are:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$\difM := \Rd$ is a differentiable manifold.
+The identity $Id \: \Rd \xto \Rd$ is a global chart for $\difM$.
+In general,
+each finite-dimensional real vector space forms a differentiable manifold.
+\item[2.]
+$S^d := \{x \xeof \R^{d+1}\: \norm{x} \, \eq 1\}$.
+The unit sphere in $\R^{d+1}$ is a standard example for
+a $d$-dimensional differentiable manifold.
+Eeach differentiable atlas for $S^d$ consists of at least two charts.
+\item[3.]
+Let $\topM$ be a topological space, endowed with the discrete topology.
+Then $\topM$ is a $0$-dimensional differentiable manifold,
+and each mapping of the singleton $\{p\}$
+to $\{0\}$ for $p \xeof \difM$ forms a chart for $\topM$.
+\item[4.]
+Let $\openO \xsubset \R^2$ be open and $f \: \openO \xto \R$ be differentiable.
+Then the surface
+$F := \{(x,y,f(x,y)) \: (x,y) \xeof \openO\} \xsubset \R^3$
+is a $2$-dimensional differentiable manifold.
+\end{itemize}
+
+\subparagraph{}
+An \textit{open} subset $\difM' \xsubset \difM$ of a $d$-dimensional
+differentiable manifold $\difM$ is
+a differentiable manifold of dimension $d$.
+Its topology is the trace topology of $\difM$ in $\difM'$,
+and the differentiable structure on $\difM'$ is obtained
+by restricition of the charts of $\difM$ on $\difM'$.
+
+\subparagraph{}
+Performing the \textit{topological sum} $\difM_1 + \difM_2$
+of manifolds $\difM_1$ and $\difM_2$,
+the result is again a differentiable manifold,
+supposed their dimensions concide.
+In this case a differentiable atlas is given by the union of charts
+of the differentiable structures of $\difM_1$ and $\difM_2$.
+This construction is also possible
+for countable many topological sums of manifolds.
+
+\subparagraph{}
+Furthermore,
+the \textit{cartesian product} $\cross{M_1}{M_2}$ of two
+manifolds is a differentiable manifold.
+Its topology is the product topology of both manifolds,
+and a differentiable atlas is obtained 
+by the union of charts of the form
+\[
+\cross{\kappa_1}{\kappa_2}: \cross{O_1}{O_2} \xto \cross{O'_1}{O'_2},
+\quad \kappa_1 \xeof \cal{A}(M_1), \, \kappa_2 \xeof \cal{A}(M_2).
+\]
+The product-manifold $\cross{M_1}{M_2}$ owns the Dimension
+$n_1 + n_2$.
+
+\paragraph{}
+Examples of differentiable manifolds are:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$D^n := \{x \xeof \Rd \: \norm{x} \, < 1\}$,
+the open ball in $\Rd$,
+is a $d$-dimensional differentiable manifold,
+when considered as an open set of the Euclidean space $\Rd$.
+
+\item[2.]
+Each connected component of a differentiable manifod $\topM$ is,
+considered as an open subset of $\topM$,
+a differentiable manifold again.
+The manifold $\topM$ itself is the topological sum of all connected components.
+
+\item[3.]
+The open cylinder $S^1 \xtimes \R$ and the torus $\T^2 := S^1 \xtimes S^1$
+are examples of $2$-dimensional product manifolds.
+\end{itemize}
+
+\subparagraph{}
+The quotient $\difM/\sim$ of a differentiable manifold $\difM$
+by a given equivalence relation $\sim$,
+however,
+does not own a differentiable structure any more.
+In fact,
+in most cases the quotient topology is not Hausdorff.
+
+\section{Differentiable Mappings}
+%------------------------------------------------------------------------------%
+Countinuous functions between topological spaces are mappings,
+which are compatible with the topological structures of the spaces.
+Rather similar,
+we are looking for mappings between differentiable manifolds,
+that are compatible with their differentiable structures.
+The concept of differentiability of mappings between such manifolds
+is obtained by pulling back the images and preimages by means of charts
+to subsets of the Euclidean space $\Rd$.
+
+\begin{definition}
+(differentiable mapping).
+Let $\difM,\difN$ be differentiable manifolds.
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+A continuous mapping $f\: \difM \xto \difN$ is called
+\textit{differentiable} in a point $p \xeof \difM$,
+if for each chart $(\Off_1,\kappa_1)$ around $p$
+and each chart $(\Off_2,\kappa_2)$ around $f(p)$ the mapping
+\[
+f'(\kappa_1,\kappa_2) := \kappa_2 \circ f \circ k_1^{-1}:
+\kappa_1(\Off_1) \xto \kappa_2(\Off_2) \subseteq \Rd
+\]
+is differentiable.
+\item[2.]
+The mapping $f$ is called differentiable on $\difM$,
+if $f$ is differentiable in each point $p \xeof \difM$.
+\end{itemize}
+\end{definition}
+
+\paragraph{}
+Examples for differentiable mappings are:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+The inclusion $Id \: \difM' \xto \difM$ of an open subset
+$\difM' \xsubset \difM$ into the manifold $\difM$ is differentiable.
+\item[2.]
+Especially for $\difN \eq \R$,
+a differentiable function $f\: \difM \xto \R$ is called a \textit{scalar field}.
+The set of arbitrarily many differentiable scalar fields is usually
+denoted by $C^{\infty}(\difM,\R)$.
+\end{itemize}
+
+\subparagraph{}
+If $\difM_1,\difM_2,\difM_3$ are differentiable manifolds and
+$f\: \difM_1 \xto \difM_2$ and $g \: \difM_2 \xto \difM_3$ are differentiable,
+then $g \circ f \: \difM_1 \xto \difM_3$ is differentiable,
+too.
+Differentiable manifolds together with the differentiable mappings between them
+form a category.
+
+\subparagraph{}
+The isomorphisms between differentiable manifolds are defined as follows:
+
+\begin{definition}
+Let $\difM,\difN$ be differentiable manifolds.
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+A differentiable mapping $f \: \difM \xto \difN$ is called
+a \textit{diffeomorphism} between $\difM$ and $\difN$,
+if $f$ is bijective and $f^{-1} \: \difN \xto \difM$ is differentiable as well.
+
+\item[2.]
+If there is a diffeomorphism between $\difM$ and $\difN$,
+then $\difM,\difN$ are said to be \textit{diffeomorphic} to each other.
+\end{itemize}
+\end{definition}
+
+\subparagraph{}
+But notice
+that differentiability and bijectivity of $f$ do not imply
+that $f^{-1}$ is differentiable.
+Consider the example $f \: \R \xto \R$ with $f(x) := x^3$.
+The mapping $f$ is merely bijective,
+but $f^{-1}$ is not differentiable in $x \eq 0$.
+
+\begin{example}
+Each differentiable manifold is diffeomorphic
+to the topological sum of its connected components.
+\end{example}
+
+\subparagraph{}
+Let $\cal{A}_1$ and $\cal{A}_2$ be two differentiable structures on $\difM$.
+Then the identity $Id \: \difM \xto  \difM$ is differentiable
+iff $\cal{A}_1 \eq \cal{A}_2$. 
+Hence the property of differentiability of the identity mapping depends
+on the underlying differentiable structures.
+For a topological manifold there is in general more than one
+differentiable structures (or no such structure).
+If $\cal{A}_1$ rsp. $\cal{A}_2$ are two structures,
+then the identity mapping $Id:(\difM,\cal{A}_1) \xto (\difM,\cal{A}_2)$
+is not necessarily diffeomorphic.
+For example,
+the sphere $S^7$ has in total 28 different differentiable
+(exotic) structures (\textsc{J.\,Milnor} 1963).
+
+\paragraph{}
+The notion of \textit{rank} of a differentiable mapping $f$ is based
+on the Jacobi-matrix $J_p f$ within an admissable chart:
+
+
+\begin{definition}
+(Rank of a differentiable mapping).
+
+Let $\difM,\difN$ be differentiable manifolds
+and $f \: \difM \xto \difN$ be differentiable.
+Moreover,
+let $(U,\kappa_1)$ and $(V,\kappa_2)$ be charts around $p \xeof \difM$ rsp.
+$f(p) \xeof \difN$.
+Then the \textit{rank} of $f$ in $p$ is the rank
+of the Jacobi-matrix of $\kappa_2 \circ f \circ \kappa_1^{-1}$ in $\kappa_1(p)$.
+\end{definition}
+
+\subparagraph{}
+The rank of $f$ in $p \xeof \difM$ is independent of the charts
+$\kappa_1$, $\kappa_2$ and thus well-defined.
+If $f$ has maximal rank in a point $p$,
+then half-continuity of the mapping $p \mapsto \operatorname{Rg}_p f$ implies
+that $f$ owns maximal rank in a neighbourhood of $p$ and consequently
+the inverse functions exists.
+This is the quotation of the following theorem,
+generalizing the well-known rank theorem:
+
+\begin{theorem} (Implicit function theorem for manifolds).
+Let $\difM,\difN$ be two $d$-dimensional differentiable manifolds,
+$p \xeof \difM$ and $f \: \difM \xto \difN$ a differentiable mapping
+such that
+$\operatorname{Rg}_p f \eq n$.
+Then is $f$ in $p$ a local diffeomorphism,
+that is,
+there are open set $\Off_p \xsubset \difM$
+and $\Off_{f(p)} \xsubset \difN$
+such that $\Off_p$ and $\Off_{f(p)}$ are diffeomorphic by the mapping $f$.
+\end{theorem}
+
+\begin{theorem} (rank theorem).
+Let $\difM,\difN$ be differentiable manifolds
+such that
+$\operatorname{dim} \difM \eq r+s$ and
+$\operatorname{dim} \difN \eq r+n$.
+If a differentiable mapping $f\: \difM \xto \difN$ has constant rank $r$
+in a neighbourhood $U$ of a point $p \xeof \difM$,
+then there is a chart $\kappa_1$ around $p$
+and a chart $\kappa_2$ around $f(p)$
+such that
+\[
+\kappa_2 \circ f \circ \kappa_1^{-1} \:
+\R^r \times \R^m \xto \R^r \times \Rd
+\]
+with $(x,y) \mapsto (x,\0)$ for $x \xeof \R^r$ and $y \xeof \R^m$.
+\end{theorem}
+
+\section{Regular and Singular Points}
+%------------------------------------------------------------------------------%
+\textit{Regular} and \textit{singular} points
+{\wrt} a differentiable mapping $f\: \difM \xto \difN$
+occur during the classification of the elements in $\difM$ and $\difN$,
+which are determined by the values of the rank of $f$ in these points.
+
+\begin{definition}
+Let $\difM,\difN$ be differentiable manifolds
+and $f\: \difM \xto \difN$ be a differentiable mapping.
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+A point $p \xeof \difM$ is called a \textit{regular point} of $f$,
+if $\operatorname{Rg}_p f \eq dim \, \difN$.
+
+\item[2.]
+The non-regular points of $f$ in $\difM$ are called \textit{singular}
+or \textit{critical}.
+
+\item[3.]
+A point $q \xeof \difN$ is called a \textit{regular value} of $f$,
+if the set $f^{-1}(q)$ is empty or consists of regular points only.
+
+\item[4.]
+A point $q \xeof \difN$ is called a \textit{singular value} of $f$,
+if there is a singular point $p \xeof \difM$ such that $f(p) \eq q$.
+\end{itemize}
+\end{definition}
+
+\paragraph{}
+Example:
+let $f\: \R \xto \R$, $x \mapsto x^2{+}1$.
+Then $x \eq 0$ is a singular point and each point $x \neq 0$
+is a regular point of $f$.
+Moreover,
+$y \eq 1$ is a singular value and $y > 1$ are regular values of $f$.
+
+\begin{theorem}
+(regular point theorem).
+Let $\difM,\difN$ be differentiable manifolds with dimensions
+$d+s$ rsp. $d$ and $f\: \difM \xto \difN$ be differentiable.
+If $p \xeof \difM$ is a regular point of $f$,
+then there is a chart $\kappa_1$ around $p$
+and a chart $\kappa_2$ around $f(p)$
+such that
+$\kappa_2 \circ f \circ \kappa_1^{-1}$ is the canonical projection
+$\pi:\R^{n+s} \xto \R^s$ ist,
+that is,
+\[
+(x_1,\ldots,x_{n+s}) \mapsto (x_{s+1},\ldots,x_{s+n}).
+\]
+\end{theorem}
+
+\paragraph{}
+Sets of \textit{measure zero} on a manifold can be defined 
+by means of those in the manifold $\Rd$.
+
+\begin{definition}
+Let $\difM$ be a $d$-dimensional differentiable manifold
+and $\A \xsubset \difM$.
+Then $\A$ has measure zero,
+if for each chart $(\openO,\kappa)$ the range
+$\kappa(\A \cap \openO) \xsubset \Rd$ is a set of measure zero.
+\end{definition}
+
+\subparagraph{}
+This definition does not depend on the choice of $\kappa$,
+since all changes of charts are diffeomorphic.
+
+\begin{theorem} (\textsc{Sard}'s theorem).
+Let $\difM,\difN$ be differentiable manifolds
+and $f \: \difM \xto \difN$ be differentiable.
+Then set of critical values in $\difN$ has measure zero.
+\end{theorem}
+
+\paragraph{}
+As a consequence of this theorem we have:
+
+\begin{theorem} (\textsc{Brown}'s theorem).
+The set of regular values of a differentiable mapping $f \: \difM \xto \difN$
+is dense in $\difN$.
+\end{theorem}
+
+\section{Immersions and Submersions}
+%------------------------------------------------------------------------------%
+An \textit{immersion} rsp. \textit{submersion} is a differentiable mapping
+between manifolds and distinguishes by the fact
+that its rank is maximal in each point.
+
+\begin{definition}
+Let $\difM,\difN$ be differentiable manifolds.
+A differentiable mapping $f \: \difM \xto \difN$ is called
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+an \textit{immersion},
+if $\operatorname{dim} \difM \leq \operatorname{dim} \difN$
+and the rank of $f$ in each point $p \xeof \difM$ maximal ist,
+that is,
+$\operatorname{Rg}_p f \eq \operatorname{dim} \difM$.
+
+\item[2.]
+a \textit{submersion},
+if $\operatorname{dim} \difM \geq \operatorname{dim} \difN$ and
+$\operatorname{Rg}_p f \eq \operatorname{dim} \difN$.
+\end{itemize}
+\end{definition}
+
+\paragraph{}
+Examples for immersions and submersions are:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Each injection $\difM' \xto \difM$ is an immersion.
+
+\item[2.]
+The mapping $f\: \R^2 \setminus \{0\} \xto S^1$ with
+$f(x,y) := \sqrt{x^2+y^2}^{-1} (x,y)$ is a submersion.
+\end{itemize}
+
+\subparagraph{}
+A differentiable mapping $f$ is a submersion
+iff
+each point $p \xeof \difM$ is regular
+or each point $q \xeof \difN$ is a regular value.
+
+\subparagraph{}
+By the rank theorem,
+an immersion has a local representation 
+{\wrt} a suitable chart of the form
+\[
+(x_1,\ldots,x_m) \mapsto (x_1,\ldots,x_m,0,\ldots,0).
+\]
+However,
+a submersion looks locally like a projection
+\[
+(x_1,\ldots,x_n,0,\ldots,0) \mapsto (x_1,\ldots,x_n).
+\]
+
+\section{Submanifolds}
+%------------------------------------------------------------------------------%
+Given a topological space $\topX$,
+each subset $\topX' \xsubset \topX$ is a topological subspace in a natural way,
+the injection $\iota \: \topX' \xto \topX$ is continuous,
+and $\topX'$ is homeomorphic to the space $\iota(\topX')$.
+The mapping $\iota$ is called an \textit{embedding}.
+
+\subparagraph{}
+In the differentiable category the definition of the concepts
+\textit{submanifold} and \textit{embedding} is a little bit more complicated.
+
+\subparagraph{}
+If $\difM,\difN$ are differentiable manifolds with dimensions $d+s$ and $d$,
+$f\: \difM \xto \difN$ is differentiable
+and $q \xeof \difN$ is a regular value of $f$,
+then to each point $p \xeof f^{-1}(q)$ there is a chart $(\openO,\kappa)$
+such that
+$\kappa(\difM \cap \openO) \eq \R^s \cap \kappa(\openO)$.
+Hence the subset $f^{-1}(q) \xsubset \difM$ lies {\wrt} a suitable chart
+in $\difM$ like the subset $\R^s$ in the manifold $\R^{d+s}$.
+Dies gibt Anla\"ss to folgender definition.
+
+\paragraph{}
+The concept of \textit{submanifold} is defined as follows:
+
+\begin{definition}
+Let $\difM$ be a $d$-dimensional differentiable manifold.
+A subset $\difM' \xsubset \difM$ is called
+a \textit{$k$-dimensional submanifold} of $\difM$,
+if there is a chart $(\openO,\kappa)$ around each point $p$ of $\difM'$
+such that
+\[
+\kappa(\difM' \cap \openO) \eq \R^k \cap \kappa(\openO).
+\]
+The number $d-k$ is called the \textit{codimension} of $\difM'$ in $\difM$.
+\end{definition}
+
+\paragraph{}
+Examples of submanifolds are:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+The $0$-dimensional submanifolds are exactly the discrete subsets of $\difM$.
+
+\item[2.]
+The $d$-dimensional submanifolds of a $d$-dimensional
+manifold $\difM$ are exactly the open subsets of $\difM$.
+\end{itemize}
+
+\subparagraph{}
+The \textit{regular value theorem} enables to construct submanifolds
+in a simple way:
+
+\begin{theorem} (Regular value theorem).
+Let $\difM,\difN$ be differentiable manifolds
+and $f\: \difM \xto \difN$ a differentiable mapping.
+If $q \xeof \difN$ is a regular value of $f$,
+then $f^{-1}(q)$ is a submanifold of $\difM$,
+whose codimension is equal to the dimension of $\difN$.
+\end{theorem}
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+If $\difM$ is a $d$-dimensional differentiable manifold
+and $f \: \difM \xto \R$ is differentiable,
+then for each $c \xeof \R$ the set $f^{-1}(c)$
+is a $(d-1)$-dimensional submanifold of $\difM$.
+
+\subparagraph{}
+Especially for $\difM \eq \R^2$ and $f \: \R^2 \xto \R$
+with $f(x,y) := x^2 {+} y^2{-}1$
+we have $f^{-1}(0) \eq S^1$.
+Hence the circle $S^1$ is a $1$-dimensional submanifold of $\R^2$.
+
+\item[2.]
+Let $\difM$ be the set of $(n,n)$-matrices with real coefficients
+and $\difN$ be the subset of \textit{symmetrc} $(n,n)$-matrices.
+Then the mapping
+$f\: \difM \xto \difN$ with $\matrA \mapsto \matrA \circ \matrA^T$
+is differentiable.
+The unit matrix $I \xeof \difN$ is a regular value of $f$,
+and the preimage $f^{-1}(I)$ is the set $\OG{n}$ of orthogonal $(n,n)$-matrices.
+Due to the last theorem,
+$\OG{n}$ is a submanifold of $\difM$,
+whose dimension is $n(n-1)/2$,
+and the set $\SOG{n} \xsubset \OG{n}$ is a open submanifold of $\OG{n}$.
+\end{itemize}
+
+\section{Embeddings}
+%------------------------------------------------------------------------------%
+In the topological category,
+an embedding of a topological space
+$\topX$ into a further topological space $\topY$ is a homeomorphism
+between $\topX$ and a subset $\topY' \xsubset \topY$.
+
+\subparagraph{}
+In the differentiable category,
+however,
+one defines embeddings as follows:
+
+\begin{definition}
+Let $\difM,\difN$ be differentiable manifolds and
+$f\: \difM \xto \difN$ a differentiable mapping.
+Then $f$ is called an \textit{embedding} of $\difM$ in $\difN$ if
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$f(\difM)$ is a submanifold of $\difN$;
+\item[2.]
+$f$ is a diffeomorphism between $\difM$ and $f(\difM)$.
+\end{itemize}
+\end{definition}
+
+\subparagraph{}
+Hence $\difM$ is embedded into $\difN$,
+if $\difM$ is diffeomorphic to a submanifold of $\difN$.
+For example,
+the mapping $f \: S^1 \xto \R^2$ with $t \mapsto (\cos(t), \sin(t))$
+is an embedding of $S^1$ into $\R^2$.
+
+\paragraph{}
+\textsc{Whitney}\textit{'s embedding theorem} claims
+that each differentiable manifold can be embedded
+into the Euclidean space $\Rd$,
+supppsed the dimension is chosen high enough:
+
+\begin{theorem}
+Each $d$-dimensional differentiable manifold $\difM$ can be embedded
+into the manifold $\R^{2d+1}$.
+If $f$ is such an embedding,
+then $f(\difM) \subseteq \R^{2d+1}$ is even closed.
+\end{theorem}
+
+\subparagraph{}
+But notice that
+there is no canonical embedding of a manifold into one of the spaces $\Rd$.
+
+\section{The Tangential Space}
+%------------------------------------------------------------------------------%
+When speaking of a direction in a point of a differentiable manifold,
+we have to provide vectors,
+which are attached to this point.
+This means
+that to each point there is to assign a vector space,
+whose elements represent all directions of the manifold.
+
+\subparagraph{}
+This leads to the concept of the \textit{tangent vector}
+in a differentiable manifold.
+Its definition should be beared from the manifold itself,
+that is,
+without using any larger manifold, in which the first one is embedded.
+
+\subparagraph{}
+Let $\difM$ be a differentiable manifold,
+$p \xeof \difM$ a point and $F_p(M)$ be the set of
+all differentiable scalar-valued functions
+in a neighbourhood von $p$.
+Then on $F_p(M)$ there is defined an equivalence relation according to
+\[
+f_1 \sim f_2, \quad \mbox{if} \quad
+f_1(q) \eq f_2(q) \quad \mbox{ for all } q \xeof U,
+\]
+where $U$ is a sufficiently small neighbourhood of $p$,
+on which $f_1$ and $f_2$ are well-defined.
+
+\subparagraph{}
+Let $F_p(M)/\sim$ be the set of these equivalence classes.
+They are called the \textit{Funktionskeime} in $p \xeof \difM$.
+The set $F_p(M)/\sim$ owns the algebraic structure of a $\R$-algebra.
+
+\begin{definition}
+A \textit{tangent vector} in a point $p \xeof \difM$
+is an algebra derivative $v \: F_p(M)/\sim \, \xto \R$.
+\end{definition}
+
+\subparagraph{}
+A \textit{geometric} definition of the tangent vector can be done
+by means of differentiable curves.
+A \textit{differentiable curve} $\gamma:I \subseteq \R \xto \difM$ is a mapping
+such that
+for all charts $(U,\kappa) \xeof \cal{A}$
+the mappings $\kappa \circ \gamma: I \xto \R$ are differentiable.
+A \textit{tangent vector} in $p \xeof \difM$ is an equivalence class
+of differentiable curves $\gamma:(-\epsilon,\epsilon) \xto \difM$ fulfilling
+$\gamma(0) \eq p$,
+where
+$\gamma_1 \sim \gamma_2 \Leftrightarrow (\kappa \circ \gamma_1)'(0) =
+(\kappa \circ \gamma_2)'(0)$
+for each chart $(\Off,\kappa)$ with $p \xeof \Off$.
+This definition is equivalent to the algebraic definition.
+
+\subparagraph{}
+The derivation $v$ is also linear on $F_p(M)/\sim$
+and satisfies the product rule
+$v(f \cdot g) \eq v(f) \cdot g(p) + f(p) \cdot v(g)$
+for $[f], [g] \xeof F_p(M)/\sim$.
+
+\subparagraph{}
+For the tangent vectors of a point $p$
+we can define in a usual way the addition and multiplication with numbers
+such that
+the set of all tangent vectors in $p$ forms a $\R$-vector space.
+
+\begin{definition}
+(tangential space, cotangential space).
+Let $\difM$ be a differentiable manifold and $p \xeof \difM$.
+The vector space $T_p \difM$ of tangent vectors in $p$ is called
+the \textit{tangential space} of $\difM$ in $p$.
+
+\subparagraph{}
+The dual space $T_p^{\*} \difM$ of the tangential space in $p$ is called
+the \textit{cotangential space} of $\difM$ in $p$.
+\end{definition}
+
+\subparagraph{}
+Let $\difM$ be a differentiable manifold and $p \xeof \difM$.
+Each chart $(\Off,\kappa)$ with $p \xeof \Off$ induces
+a base of the tangential space $T_p \difM$.
+
+\subparagraph{}
+For any $i \xeof \{1,\ldots,n\}$
+and any function $f \xeof F_p(M)$ the mapping
+$f \circ \kappa^{-1}:\Off \xsubset \Rd \xto \R$ and the mapping
+\[
+\frac{\partial}{\partial x_i}(f) :=
+\frac{\partial (f\circ \kappa^{-1})}{\partial x^i} \mid_{\kappa(p)}
+\]
+is real-valued,
+which assigns to $f$ the derivative {\wrt} the $i$-ten coordinate
+of $f \circ \kappa^{-1}$.
+The mapping $\frac{\partial}{\partial x_i}$ owns all properties
+of a tangent vector.
+Let $B_p$ be the set of tangent vectors defined on this way.
+Then enth\"alt $B_p$ genau $d$ linearly  independent vectors and
+and thus forms a base of the tangential space $T_p \difM$.
+It is called the \textit{induced base} in $p$ of the chart $(\Off,\kappa)$
+The vectors of these bases are denoted as $\partial_i$.
+
+\subparagraph{}
+If a differentiable manifold $\difM$ is $d$-dimensional,
+then the related tangential space $T_p \difM$ in each point $p \xeof \difM$
+is a $d$-dimensional vector space.
+
+\begin{definition}
+A base $B$ of the tangential space $T_p \difM$ in a point $p \xeof \difM$
+is called \textit{natural},
+if there is a chart $(\Off,\kappa)$ with $p \xeof \Off$
+such that
+$B$ is the induced base of $(\Off,\kappa)$.
+\end{definition}
+
+\subparagraph{}
+If a base $B$ of $T_p \difM$ is natural,
+let $dx^i, \ldots, dx^n$ be the covectors of the dual base of $B$
+in the cotangential space.
+They assign to each tangent vector $v \xeof T_p \difM$ its $i$-te coordinate
+{\wrt} the base vector $\partial_i$,
+\[
+dx^i(v) \eq dx^i(v^j \partial_j) \eq v^j \, dx^i(\partial_j) \eq v^i,
+\qquad (i=1,\ldots,n).
+\]
+The covectors $dx^i$ are also called \textit{coordinate differentials}.
+
+\subparagraph{}
+Putting together all tangent vectors,
+which appear in the points of a differentiable manifold,
+we obtain a \textit{bundle} of vectors:
+
+\begin{definition}
+Let $\difM$ be a differentiable manifold
+and $T\,\difM$ be the disjoint union of all tangent vectors,
+\[
+T\,\difM  \eq \bigsqcup_{p \xeof \difM} \cross{\{p\}}{T_p \difM}.
+\]
+Moreover, let
+$\pi: T \, \difM \xto \difM$ with $v \xeof T_p \difM \xsubset T \, \difM \mapsto p$
+be the mapping,
+which assigns to each tangent vector its base point $p$.
+Then the triple $(T\,\difM, \pi, \difM)$ is called
+the \textit{tangent bundle} of $\difM$.
+\end{definition}
+
+\subparagraph{}
+A topology $\topT$ on the tangent bundle is constructed
+by means of the initial topology.
+This is the coarsest topology on $T\,\difM$
+such that the projection $\pi$ is still continuous.
+Endowed with this topology,
+$T\,\difM$ is locally Euclidean to the space $\R^{2d}$,
+fullfills \textsc{Hausdorff}'s separation axiom
+and the second countability axiom.
+Eeach tangent bundle is in a natural way
+a $2d$-dimensional topological manifold.
+
+\subparagraph{}
+Moreover,
+there is a canonical differentiable structure on $T\,\difM$
+inherited from the base manifold $\difM$.
+The bundle $T\,\difM$ is even a differentiable manifold.
+
+\section{The Differential of a Differentiable Map}
+%------------------------------------------------------------------------------%
+Given a point $p \xeof \difM$,
+a differentiable mapping $f$ induces
+in a natural way a vector space homomorphism
+between den tangential spaces $T_p$ and $T_{f(p)}$.
+
+\subparagraph{}
+Let $\difM,\difN$ be differentiable manifolds,
+$f \: \difM \xto \difN$ differentiable and $p \xeof \difM$.
+If $v \xeof T_p \difM$,
+then for each scalar field $\omega \xeof C^{\infty}(N,\R)$
+the mapping $v'(\omega) \eq v(\omega \circ f)$
+forms a tangent vector in $T_{f(p)}(N)$.
+This leads to the following definition:
+
+\begin{definition}
+The \textit{differential} of a differentiable mapping
+$f \: \difM \xto \difN$ in a point $p \xeof \difM$
+is the {linear mapping}
+\[
+\operatorname{d}f_p : T_p \difM \to T_{f(p)} N \quad \mbox{with}
+\quad \operatorname{d}f(v) \eq v', \quad v \xeof T_p \difM.
+\]
+\end{definition}
+
+\subparagraph{}
+Taking the differentials is a functor
+from the category of punctured differentiable manifolds
+to the category of $\R$-vector spaces.
+
+\paragraph{}
+Consider the following example:
+for $\difM$ arbitrary and $\difN \eq \R$
+we obtain as the differential of a scalar field $f$
+in $p \xeof \difM$ the covector $\operatorname{d}f \xeof T_p^\* \difM$,
+that is,
+a linear functional on the space of tangent vectors in $p$,
+which assigns to each $v \xeof T_p \difM$ the directional derivative of $f$
+according to
+\[
+\operatorname{d}f(v) \eqdef v(f) \xeof \R \qquad (v \xeof T_p \difM).
+\]
+
+\section{Transversality}
+%------------------------------------------------------------------------------%
+The concept of \textit{transversality} describes the situation
+that two submanifolds of a given manifold are as orthogonal to each other
+as possible.
+
+\begin{definition}
+Let $\difM$ be a differentiable manifold.
+Two submanifolds $\difM_1,\difM_2$ of $\difM$ are called \textit{transversal}
+to each another,
+if for $p \xeof \difM_1 \cap \difM_2$
+$T_p\,\difM_1 + T_p\,\difM_2 \, \eq \, T_p\,\difM$ holds.
+\end{definition}
+
+\subparagraph{}
+Hence in each point $p$ the tangential spaces of the submanifolds span
+the tangential space in $p$.
+
+\begin{theorem}
+Let $\difM$ be a differentiable manifold.
+If two submanifolds $\difM_1, \difM_2 \subseteq \difM$ are transversal
+to each another,
+then $\difM_1 \cap \difM_2$ is a submanifold of $\difM$.
+\end{theorem}
+
+\subparagraph{}
+The concept of transversal submanifolds is defined as follows:
+
+\begin{definition}
+Let $\difM,\difN$ be differentiable manifolds
+and $f \: \difM \xto \difN$ be a differentiable mapping.
+Then $f$ is called \textit{transversal}
+to a submanifold $\difS \subseteq \difM$,
+if for all $p \xeof f^{-1}(S)$
+\[
+T_{f(p)}\,\difN \= T_{f(p)}\,\difS \, + \, df(T_p\,\difM).
+\]
+\end{definition}
+
+\subparagraph{}
+Let us consider the following examples:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+A mapping $f$ is transversal to $S$,
+if $f(\difM) \cap S \eq \emptyset$.
+\item[2.]
+Each mapping $f\: \difM \xto \difN$ is transveral to $\difN$.
+\item[3.]
+If $S \eq \{q\}$ is a singleton,
+then $f$ is transversal to $\{q\}$ iff $q$ is a regular point of $f$.
+\end{itemize}
+
+\begin{theorem}
+Let $f\: \difM \xto \difN$ be a differentiable mapping,
+which is transveral to the submanifold $\difS \subseteq \difN$.
+Then $f^{-1}(\difS)$ is a submanifold of $\difM$ and
+\[
+\operatorname{dim} f^{-1}(S) \= \operatorname{dim} \difM
+                              - \operatorname{dim} \difN
+                              + \operatorname{dim} \difS.
+\]
+\end{theorem}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C] {\small{\textsc{II. Tensors and Lie-Algebras}}}
+%------------------------------------------------------------------------------%
+\part{Tensors and Lie-Algebras}                                                %
+%------------------------------------------------------------------------------%
+Tensors are the main objects in multilinear algebra.
+The concept of \textit{tensor} unifies notations like \textit{vector},
+\textit{linear form}, \textit{linear mapping}, \textit{bilinear form},
+\textit{multilinear form} and many others by a general formalism.
+Tensors are important objects in differential geometry
+and theoretical physics (relativity theory, classical field theory).
+
+\section{Generalities on Tensors}
+%------------------------------------------------------------------------------%
+In the following we consider the multiple tensor product of a $d$-dimensional
+real vector space $V$ and its dual space $V^\*$.
+Let $r$ factors $V$ and $s$ factors $V^\*$ be given,
+then we obtain the $\R$-vector space $T_{r,s}(V)$ by repeated performing
+the tensor product according to
+\[
+T_{r,s}(V) \eqdef
+\underbrace{{\multitens{V}   {V}   }}_r
+\otimes
+\underbrace{{\multitens{V^\*} {V^\*} }}_s.
+\]
+Especially for $r \eq s \eq 0$ let $T_{0,0}(V) := \R$.
+
+\paragraph{}
+The sets $T_{r,s}(V)$ constitute finite-dimensional vector spaces,
+too,
+having the dimensions $n^{r+s}$.
+The subsequent definitions are fundamental:
+
+\begin{definition}
+Let $r,s \xeof \N$ and $V$ be a $n$-dimensional real vector space.
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+A vector $T \xeof T_{r,s}(V)$ is called a ($r$,$s$)-tensor on $V$ 
+of \textit{level} $r+s$.
+\item[2.]
+The tensor $T \xeof T_{r,s}(V)$ is called $s$\textit{-fold covariant} and 
+$r$\textit{-fold contravariant}.
+Especially for $r \eq 0$, 
+$T$ is a \textit{pure covariant} tensor of level $s$, 
+and for $s \eq 0$
+the vector $T$ is a \textit{pure contravariant} tensor of level $r$.
+\end{itemize}
+\end{definition}
+
+\paragraph{}
+For finite tensor products of vector spaces $V_1,\ldots,V_n$
+there is an isomorphism
+\[
+(V_1 \otimes \ldots \otimes V_n)^\* \cong 
+V_1^\* \otimes \ldots V_n^\*.
+\]
+This isomorphism yields for the spaces $T_{r,s}(V)$
+by usage of $V \cong V^{\*\*}$ and 
+$Hom_{\R}(\tensor{V_1}{V_2},\R) \cong Hom_{\R}(V_1 \times V_2,\R)$
+the isomorphism
+\[
+T_{r,s}(V) \cong
+(\underbrace{V^\* \times \ldots \times V^\*}_r
+ \times
+ \underbrace{V    \times \ldots \times V   }_s)^\*,
+\]
+that is,
+the elements of $T_{r,s}(V)$ can be considered as real-valued multilinear forms
+on finite cartesian products of $V^\*$ and $V$.
+
+\subparagraph{}
+for a finite-dimensional vector space and smal pairs of values $(r,s)$
+the $(r,s)$-tensors can be described explicitely.
+Consider the following examples:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$(r=1, s=0)$.\\
+A simple contravariant tensor of stage $(1,0)$
+is a linear mapping $T \: V^\* \xto \R$
+and hence an element of the bidual space $V^{\*\*}$. 
+Since $V$ may be identified with $V^{\*\*}$, 
+the $(1,0)$-tensors are the elements of the vector space $V$ itself.
+
+\item[2.]
+$(r=0, s=1)$.\\
+A covariant tensor $T$ of stage $(0,1)$ is a linear mapping $T\:V \xto \R$
+and hence a covector rsp. a linear functional.
+
+\item[3.]
+$(r=1, s=1)$.\\
+Let $T$ be a (1,1)-tensor with $T(f,v) \xeof \R$ for $f \xeof V^\*$
+and $v \xeof V$. 
+Varying for a fixed vector $v$ the argument $f$ 
+along $V^\*$, the mapping
+\[
+T_v(f) \: V^\* \xto \R, \qquad T_v(f) := T(f,v)
+\]
+defines a contravariant tensor $T_v$. 
+By identification of $T_v$ with a vector $w \xeof V$, 
+we obtain from $T$ a linear mapping
+\[
+A_T \: V \xto V, \qquad A_T(v) \eq w \quad \for v \xeof V.
+\]
+Hence each (1,1)-tensor$T$ is associated with a linear mapping
+$A_T \: V \xto V$ this way.
+
+\subparagraph{}
+The (1,1)-tensor $\bracket{f,v}$ is of special interest.
+It assigns to each pair $(f,v) \xeof \cross{V^\*}{V}$ the real number $f(v)$.
+The mapping $\bracket{,}$ is called the \textit{inner product}
+in the space $\cross{V^\*}{V}$.
+The associated operator $A_{\bracket{,}}$ is the identity mapping on $V$.
+
+\item[4.]
+$(r=0, s=2)$.\\
+A two-fold covariant tensor on $V$ is nothing but a bilinear form on $V$. 
+\end{itemize}
+
+\paragraph{}
+In the following the tensors $T \xeof T_{r,s}(V)$ are regarded as real-valued
+multilinear mappings.
+Let $T$ a ($r_1$,$s_1$)-tensor and $U$ a ($r_2$,$s_2$)-tensor. 
+Then the \textit{product} $T \otimes U$ is the multilinear mapping given by
+\[
+(T \otimes U)(
+   f_1,\ldots,f_{r1},f_{r1+1},\ldots,f_{r1+r2},
+   v_1,\ldots,v_{s1},v_{s1+1},\ldots,v_{s1+s2}) :=
+\]
+\[
+  T(f_1,\ldots,f_{r1},v_1,\ldots,v_{s1}) 
+\cdot
+  U(f_1,\ldots,f_{r2},v_1,\ldots,v_{s2}),
+\]
+hence $T \otimes U$ is a $(r_1+r_2,s_1+s_2)$-tensor.
+
+\subparagraph{}
+For the product of two tensors, which are sums and products of tensors,
+the distributive laws and the associative law hold:
+\[
+( T_1 + T_2 ) \otimes U \eq T_1 \otimes U + T_2 \otimes U,
+\]
+\[
+U \otimes ( T_1 + T_2 ) \eq U \otimes T_1 + U \otimes T_2,
+\]
+\[
+( \lambda \cdot T ) \otimes U \eq \lambda \cdot ( T \otimes U ), \qquad
+\lambda \xeof \R,
+\]
+\[
+T \otimes ( U \otimes V ) \eq ( T \otimes U ) \otimes V.
+\]
+
+\paragraph{}
+Let $V$ be a $n$-dimensional vector space.
+A base of the vector space $T_{r,s}(V)$ can be setup from a base of the
+vector space $V$ and its cobase in $V^\*$. 
+Let $\{e_1,\ldots,e_n\}$ be base vectors in $V$ and 
+$\{\epsilon^1,\ldots,\epsilon^n\}$ be base covectors in $V^\*$. 
+Then for a ($r$,$s$)-tensor$T$ the following representation holds:
+\[
+T \eq \sum_{1 \leq j,k \leq n} 
+T_{j_1,\ldots,j_r}^{k_1,\ldots,k_s} \cdot 
+\epsilon^{j_1} \otimes \ldots \otimes \epsilon^{j_r} \otimes
+e_{k_1} \otimes \ldots \otimes e_{k_s},
+\]
+
+\begin{definition}
+The coefficients $T_{j_1,\ldots,j_r}^{k_1,\ldots,k_s} \xeof \R$ are called
+the \textit{coordinates} of the tensor {\wrt} the base vectors 
+$e_i \xeof V$ and $\epsilon^j \xeof V^\*$.
+\end{definition}
+
+\subparagraph{}
+This representation implies
+that one may obtain base tensors by repeated performing the product
+of base vectors $e_i$ and base covectors $\epsilon^j$.
+
+\paragraph{}
+In multilinear algebra it is convenient
+to formulate equations in a way
+that for a product of tensors we have to sum over those indices,
+which appear in any factor as uppercase as well as
+in a further factor as lowercase \textit{(Einstein's sum convention)}.
+Consider the following examples:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Let $V$ be a $n$-dimensional vector space, $e_i$ a base of $V$ and 
+$\epsilon^j$ the dual base in $V^\*$.
+Then we briefly write $v \eq v^i \, e_i$ for $v \xeof V$ and
+$f \eq f_i \, \epsilon^i$ for $f \xeof V^\*$.
+
+\item[2.]
+Let $b$ a bilinear form in $V$.
+We briefly write 
+$b(v,w) \eq v^i \, w^j \cdot b_{ij}$ with $b_{ij} := b(e_i,e_j)$.
+\end{itemize}
+
+\paragraph{}
+Performing the \textit{trace} of a given tensor is an operation,
+which assigns to a $(r,s)$-tensor with $r,s \geq 1$
+a $(r-1,s-1)$-tensor.
+
+\begin{definition}
+Let $V$ be a finite-dimensional vector space and
+$T \xeof T_{r,s}(V)$ and $r,s > 0$.
+Then the trace $\operatorname{Spur}(T) \xeof T_{r-1,s-1}(V)$
+is defined according to
+\[
+\operatorname{Spur}(T)(f_1,\ldots,f_{i-1},f_{i+1},\ldots,f_r,
+                       v_1,\ldots,v_{j-1},v_{j+1},\ldots,v_s) \, := 
+\]
+\[
+f_i(v_j) \, \cdot \, T(f_1,\ldots,f_r,v_1,\ldots,v_s).
+\]
+\end{definition}
+
+\subparagraph{}
+Especially for a tensor $T \xeof T_{1,1}(V)$ we define
+$\operatorname{Spur}(T) := f(v) \xeof \R$.
+
+\section{Tensors in Euclidean Vector Spaces}
+%-------------------------------------------
+In the following
+let $(V,g)$ a $n$-dimensional Euclidean vector space 
+and $\iota \: V \xto V^\*$ the isomorphism
+between the spaces $V$ and $V^\*$
+induced by the inner product.
+The pairs of vectors $(v, \iota v) \xeof \cross{V}{V^\*}$ 
+are called \textit{associated to each other} {\wrt} the inner product.
+
+\subparagraph{}
+Chosing a base $\{e_i\}$ in $V$ and
+the corresponding dual base $\{\epsilon^j\}$ in the dual space ${V^\*}$ ,
+for the coordinates of $v$ and $f := \iota v$
+\[
+f(w) \eq f_i w^i \eq g(v^i e_i, w^k e_k) \eq g_{ik} \,
+v^i w^k, \qquad w \xeof V
+\]
+holds,
+where $g_{ik} := g(e_i,e_k)$ for $1 \leq i,k \leq n$.
+By comparisons we obtain the relations
+\[
+f_i \eq g_{ik} \, v^k, \qquad (i=1,\ldots,n).
+\]
+Since an inner product $g$ is regular,
+the matrix $(g_{ik})$ is invertible with inverse matrix
+$g^{ik} := (g_{ik})^{-1}$,
+and reversely
+\[
+v^k \eq g^{kj} f_j, \qquad (k=1,\ldots,n)
+\]
+holds.
+These are the relationships of the coordinates for an associated pair
+of vectors {\wrt} given by dual bases.
+
+\subparagraph{}
+By means of the mapping $\iota$
+it is possible to assign to each ($r$,$s$)-tensor on $V$ a ($r+1$,$s-1$)-tensor
+and a ($r-1$,$s+1$)-tensor,
+supposed $s \geq 1$ and $r \geq 1$.
+In the first case a covariant argument $v_i$ is replaced by
+the contravariant argument $\iota v_i$, 
+whereas in the second case the contravariant argument $f_i$ replaced
+by covariant argument $\iota^{-1} f_i$. 
+In both cases the stage and the function value of the tensor does not change.
+Tensors,
+which are characterized by such substitutions,
+are called \textit{associated with each another}.
+
+\subparagraph{}
+Consider the following examples:
+
+\begin{itemize}[leftmargin=15pt]
+\item [1.]
+to each simple covariant tensor $f \xeof V^\*$
+there is a simple contravariant tensor $v \xeof V^{\*\*}$
+such that
+\[
+f(w) \eq v(\iota w), \qquad w \xeof V.
+\]
+Reversely,
+to each contravariant tensor $v \xeof V^{\*\*}$ 
+there is a covariant tensor $f \xeof V^\*$
+such that
+\[
+v(g) \eq f(\iota^{-1} g), \qquad g \xeof V^\*.
+\]
+The tensors $v$ and $f$ are associated to each another.
+
+\item [2.]
+The (0,2)-tensor $T_1$, the (1,1)-tensor $T_2$ and the (2,0)-tensor $T_3$
+are associated with each another,
+if
+\[
+T_1(v,w) \eq T_2(\iota v, w) \eq T_3(\iota v, \iota w) \qquad
+\fa v,w \xeof V.
+\]
+\end{itemize}
+
+\section{Anti-Symmetric Tensors}
+%------------------------------------------------------------------------------%
+In differential geometry the class of \textit{anti-symmetric}
+tensors on a finite-dimensional $\R$-vector space is of special interest.
+
+\begin{definition}
+Let $V$ be a finite-dimensional $\R$-vector space and
+$T \xeof T_{r,s}(v)$ with $r \geq 2$ or $s \geq 2$. 
+The tensor $T$ is called \textit{anti-symmetric} rsp. \textit{alternating},
+if in case of $s \geq 2$ for any vectors $v_1,v_2 \xeof V$
+\[
+T(\ldots,v_1,\ldots,v_2,\ldots) \eq - \, T(\ldots,v_2,\ldots,v_1,\ldots)
+\]
+and in case of Falle $r \geq 2$ for any covectors $f_1, f_2 \xeof V^\*$
+\[
+T(\ldots,f_1,\ldots,f_2,\ldots) \eq - \, T(\ldots,f_2,\ldots,f_1,\ldots).
+\]
+\end{definition}
+
+\subparagraph{}
+This implies
+that an anti-symmetric tensor adpots the value $0$
+iff
+the set of covariant rsp. contravariant arguments is linearly dependent.
+
+\subparagraph{}
+The concept of anti-symmetry is thus defined for arbitrary $(r,s)$-tensors.
+For applications,
+however,
+tensors are important,
+if they are either purely covariant ($r=0$) or purely contravariant ($s=0$).
+
+\subparagraph{}
+The anti-symmetric and $s$-fold covariant tensors with $s \geq 2$ form
+a \textit{linear subspace} of the vector space $T_{0,s}(V)$, 
+denoted $\Lambda^s \, V$.
+Especially for $s=0$ and $s=1$ let $\Lambda^0 V := \R$ and $\Lambda^1 V := V$.
+
+\subparagraph{}
+Similarly,
+the $r$-fold contravariant anti-symmetric tensors with
+$r \geq 2$ form a \textit{linear subspace} $\Lambda^r \, V^\*$ of
+the vector space $T_{r,0}(V)$. 
+Speziell for $r=0$ and $r=1$ let
+$\Lambda^0 V^\* := \R$ and $\Lambda^1 V^\* := V^{\*\*}$.
+
+\paragraph{}
+Given a $d$-dimensional real vector space $V$,
+a \textit{determinant function} is defined to be as a real-valued
+and alternating $d$-fold multilinear form on $V$. 
+But the following definition is equivalent:
+
+\begin{definition}
+A \textit{determinant function} on a $d$-dimensional vector space $V$
+is an anti-symmetric tensor of level $(0,d)$.
+\end{definition}
+
+\subparagraph{}
+A linear mapping $\phi \: V \xto V$ can be represented for a given base 
+$\{e_i\}$ by means of a $(d,d)$-matrix $A$. 
+The columns of $A$ are the coordinates of the vectors $A(e_i)$ {\wrt} this base.
+The problem,
+whether $\phi$ is an injective mapping,
+is usually solved by computing the \textit{determinant} of $A$.
+In fact, it owns the value $0$
+iff
+the column vectors of $A$ are linear dependent.
+
+\subparagraph{}
+A determinant function is called \textit{trivial}
+if it adopts the value $0$ for arguments $e_1,\ldots,e_n$
+forming a base of $V$.
+Two non-trivial determinant functions $\delta_1, \delta_2$
+differ in their values {\wrt} the arguments 
+$v_1,\ldots,v_n$ by a \textit{constant} factor only, 
+which depends on $\delta_1$ and $\delta_2$ only.
+In this case there is a number $\lambda(\delta_1,\delta_2) \xeof \R$
+such that
+\[
+\delta_1(v_1,v_2,\ldots,v_d) \= \lambda(d_1,d_2) \cdot
+\delta_2(v_1,v_2,\ldots,v_d)
+\]
+for all $v_1,v_2,\ldots,v_d \xeof V$.
+
+\begin{definition}
+Two non-trivial determinant functions $\delta_1,\delta_2 \Lambda^d$
+are called \textit{equivalent},
+if $\lambda(\delta_1,\delta_2) > 0$.
+\end{definition}
+
+\subparagraph{}
+Hence the set of all non-trivial determinant functions 
+splits into two equivalence classes,
+which both are denoted an \textit{orientation} of the underlying vector space.
+
+\subparagraph{}
+If an orientation of a vector space $V$ is given,
+then the totality of bases of $V$ split into two classes: 
+let $d$ be a determinant function of the given orientation,
+then two bases $B$ and $B'$ are called \textit{equivalent to each other},
+if
+$d(b_1,\ldots,b_d) \cdot d(b'_1,\ldots,b'_d) > 0$.
+This implies an equivalence relation on the set of all bases of $V$.
+The bases of the first equivalence class
+are called \textit{positively oriented},
+whereas those  of the second one are called \textit{negatively oriented}.
+
+\subparagraph{}
+The tensor product of two anti-symmetric tensors is in general 
+not an anti-symmetric tensor again.
+Indeed,
+the product of pure covariant tensors $f_1,f_2 \xeof V^\*$ is
+\[
+(f_1 \otimes f_2) (u,v) \eq f_1(u) \cdot f_2(v), \qquad u,v \xeof V,
+\]
+so it fulfills the symmetry condition
+$(f_1 \otimes f_2) (u,v) \eq (f_1 \otimes f_2) (v,u)$
+and is consequently not anti-symmetric.
+Thus for purely covariant anti-symmetric tensors
+one is seeking for a modified tensor product,
+called the \textit{(exterior product)} $\wedge$, 
+which for two anti-symmetric tensors $T_1$, $T_2$ provides 
+an anti-symmetric tensor $T_1 \wedge T_2$ again.
+For example,
+if one defines for $f_1, f_2 \xeof V^\*$
+\[
+(f_1 \wedge f_2) (u,v) := f_1(u) \cdot f_2(v) - f_1(v) \cdot f_2(u),
+\]
+then $f_1 \wedge f_2$ is a two-fold covariant tensor fulfilling
+\[
+(f_1 \otimes f_2)(u,v) \eq - (f_1 \otimes f_2)(v,u).
+\]
+
+\subparagraph{}
+Generalizing this approach,
+the \textit{exterior product} of two purely covariant tensors
+is introduced as follows:
+
+\begin{definition}
+Let $T_1$ be a (0,$s_1$)-tensor,
+$T_2$ be a (0,$s_2$)-tensor and
+$\pi$ be a permutation of the set $\{1,2,\ldots,s_1+s_2\}$.
+Then the tensor $T_1 \wedge T_2\: \cross{V^{s_1}}{V^{s_2}} \xto \R$ with
+\[
+T_1 \wedge T_2(v_1,\ldots,v_{s1+s2}) := 
+\frac{1}{s_1! s_2!} \sum_{\pi} sign(\pi) \,
+(T_1 \otimes T_2) (v_{\pi(1)},\ldots,v_{\pi(s_1+s_2)})
+\]
+is called the \textit{exterior product} of $T_1$ and $T_2$.
+\end{definition}
+
+\subparagraph{}
+The exterior product of purely contravariant tensors is defined
+in a similar way.
+
+\subparagraph{}
+Taking the exterior product of two covariant tensors is consequently a mapping 
+$\wedge \: \cross{\Lambda^{s_1} V}{\Lambda^{s_2} V} \xto \Lambda^{s_1+s_2} V$. 
+Since in case of $s_1 + s_2 > d$ the $d$ arguments of the exterior product
+are linearly dependent,
+we have $T_1 \wedge T_2 \eq 0$
+for each $s_1$-fold covariant tensor $T_1$
+and $s_2$-fold covariant tensor $T_2$ with $s_1 + s_2 > d$.
+
+\subparagraph{}
+As an example,
+let us compute the exterior product of two covectors 
+$f,g \xeof \Lambda^1 \, V$ of a two-dimensional vector spaces $V$.
+Let $\{\epsilon^1,\epsilon^2\}$ be a base of $V^\*$,
+then with $f \eq f_1 \epsilon^1 + f_2 \epsilon^2$ and
+$g \eq g_1 \epsilon^1 + g_2 \epsilon^2$ for the exterior product $f \wedge g$,
+applied to two vectors $u,v \xeof V$ we obtain
+\[
+(f \wedge g)(u,v) \eq f(u)g(v) - f(v)g(u) \eq 
+(f_1 \, g_2 - f_2 \, g_1) \, (v^1 w^2 - v^2 w^1).
+\]
+On the other hand,
+$(\epsilon^1 \wedge \epsilon^2)(u,v) \eq v^1 w^2 - v^2 w^1$ holds
+such that a comparison yields
+\[
+(f \wedge g)(u,v) \eq (f_1 \, g_2 - f_2 \, g_1) \cdot 
+(\epsilon^1 \wedge \epsilon^2)(u,v)
+\]
+and hence
+$f \wedge g \eq (f_1 g_2 - f_2 g_1) \, \cdot \, \epsilon^1 \wedge \epsilon^2$.
+
+\section{The Vector Spaces $\Lambda^s \, V$}
+%------------------------------------------------------------------------------%
+Tensors,
+which are built up by $s$-fold performing the exterior product
+of dual base vectors $\epsilon^i$,
+form a base of the vector spaces $\Lambda^s \, V$, 
+where the products with ascending indication of the factors
+are already sufficient to form this base. 
+The following representation theorem for anti-symmetric tensors is nearby: 
+
+\begin{theorem}
+Let $T \xeof \Lambda^s V$ be an anti-symmetric covariant tensor and
+$\{\epsilon^i\}$ be a base of $V^\*$.
+Then there are real coefficients $t_{l_1 l_2 \ldots l_n}$
+such that
+\[
+T \eq \sum_{l_1 < l_2 < \ldots < l_s} t_{l_1 l_2 \ldots l_s} \cdot
+\epsilon^{l_1} \wedge \epsilon^{l_2} \ldots \wedge \epsilon^{l_s}.
+\]
+\end{theorem}
+
+\subparagraph{}
+This identity is called the \textit{canonic representation}
+of an anti-symmetric tensor {\wrt} the base $\{\epsilon^1,\ldots,\epsilon^d\}$.
+
+\subparagraph{}
+A similar representation for $r$-fold contravariant tensors in the space
+$\Lambda^r \, V^\*$ is valid:
+\[
+T \eq \sum_{l_1 < l_2 < \ldots < l_r} t^{l_1 l_2 \ldots l_r} \cdot
+e_{l_1} \wedge e_{l_2} \ldots \wedge e_{l_r},
+\]
+where the vectors $e_1,\ldots,e_d$ form a base of $V$.
+Since it is possible to elect from a set of $n$ elements exactly $\binom{n}{s}$ 
+ordered $s$-tuples,
+the spaces $\Lambda^s\,V$ and $\Lambda^r\,V^\*$ own the dimensions
+\[
+dim \, \Lambda^s\,V    \, \eq \, \binom{n}{s}, \qquad
+dim \, \Lambda^r\,V^\* \, \eq \, \binom{n}{r}.
+\]
+
+\subparagraph{}
+Let the vector space $\Lambda \, V$
+be the direct sum of the spaces $\Lambda^sV (s=1,\ldots,n)$,
+\[
+\Lambda \, V := 
+\Lambda^0 \, V \oplus \Lambda^1 \, 
+             V \oplus \Lambda^2 \, 
+             V \, \oplus \, \ldots \, \oplus \Lambda^n \, V.
+\]
+Then $\Lambda\,V$ together with the exterior product forms
+a graduated anti-commutative $\R$-Algebra,
+called the \textit{exterior algebra} rsp. \textit{Gra\"ssmann algebra} on $V$.
+For the dimension of the exterior algebra $\Lambda \, V$ we have
+\[
+dim \, \Lambda\,V \, \eq \, \sum_{k=0}^d \binom{n}{k} \, \eq \,
+\sum_{k=0}^d dim \Lambda^k V \, \eq \, 2^d.
+\]
+
+\paragraph{}
+The vector spaces $\Lambda^s\,V$ and $\Lambda^s\,V^{\*}$ are related
+to each other by their dual spaces:
+
+\begin{theorem}
+Let $V$ be a $d$-dimensional vector space.
+Then $(\Lambda^s \, V)^\* \eq \Lambda^s \, V^\*$ for $s \eq 0,\ldots,d$ holds,
+that is,
+the spaces $\Lambda^s \, V$ and $\Lambda^s \, V^\*$ are dual to each other.
+\end{theorem}
+
+\subparagraph{}
+The isomorphism $\iota$ between these spaces is defined in a natural way.
+If $\phi \xeof (\Lambda^s\,V)^\*$, then
+\[
+(\iota \phi)(f_1,\ldots,f_s) := \phi(f_1 \wedge \ldots \wedge f_s),
+\qquad f_i \xeof V^{\*}.
+\]
+The mapping $\iota$ is injective and linear.
+Since both spaces own one and the same dimension,
+$\iota$ actually proves to be surjective.
+
+\paragraph{}
+In the following
+let $(V,b)$ be a $d$-dimensional \textit{Euclidean} vector space. 
+The presence of an inner product enables the construction of inner products
+in the spaces $\Lambda^s\, V$.
+
+\subparagraph{}
+The natural isomorphisms between $V$ and $V^\*$ on the one hand side and
+$\Lambda^s\,V^\*$ and $(\Lambda^s\,V)^\*$ on the other side are crucial.
+Its combination yields a natural isomorphism $\iota$
+between the spaces $(\Lambda^s\,V)^\*$ and $\Lambda^s\,V$.
+The inner product in the space $\Lambda^s\,V$ can be defined for
+$f_1,f_2 \xeof \Lambda^s\,V$ according to
+\[
+\bracket{f_1,f_2} := (\iota^{-1}(f_1))(f_2) \eq (\iota^{-1}(f_2))(f_1).
+\]
+To the end,
+the bilinear form $\bracket{f_1,f_2}$ is symmetric and regular and constitutes
+an inner product on the space $\Lambda^s\,V$.
+
+\subparagraph{}
+It is our final aim to establish a \textit{duality} between the spaces 
+$\Lambda^s\,V$ and $\Lambda^{n-s}\,V$:
+performing for two tensors $f \xeof \Lambda^s\,V$ and
+$g \xeof \Lambda^{n-s}\,V$ the exterior product $f \wedge g$,
+then $f \wedge g \xeof \Lambda^n\,V$.
+The vector space $\Lambda^n\,V$ of the determinant functions on $V$
+is one-dimensional.
+Selecting the \textit{canonical volume form} $\epsilon$ as a base
+of this space and
+assigning to each positive oriented orthonormal base $B \subset V$
+the value $+1$,
+then
+\[
+f \wedge g \= \Delta(f,g) \cdot \epsilon, \quad \Delta(f,g) \xeof \R.
+\]
+
+\begin{theorem}
+Let $(V,b)$ be a $d$-dimensional, oriented and Euclidean vector space.
+Then to each linear form $h \xeof \Lambda^s\,V$
+there is exactly one linear form $h^\* \xeof \Lambda^{n-s}\,V$
+such that
+for arbitrary linear forms $f$
+\[
+f \wedge h^\* \eq g(f,h) \cdot \epsilon.
+\]
+\end{theorem}
+
+\paragraph{}
+This theorem gives rise to the following definition:
+
+\begin{definition}
+Let $(V,b)$ be a $d$-dimensional, oriented and Euclidean vector space.
+The mapping 
+$\* \: \Lambda^s\,V \xto \Lambda^{n-s}\,V, \, \*(h) \eq h^\*$
+is called the \textit{Hodge operator} or the \textit{star operator}
+on the space of linear forms of degree $s$.
+\end{definition}
+
+\subparagraph{}
+The Hodge operator is involutional (up to the sign):
+
+\begin{theorem}
+For a linear form $f \xeof \Lambda^s\,V$ on a $n$-dimensional
+vector space $V$ we have
+$\*\* f \eq (-1)^{s(n-s)} \cdot f$.
+\end{theorem}
+
+\section{Induced Mappings}
+%------------------------------------------------------------------------------%
+Let $V,W$ be $n$-dimensional $\R$-vector spaces and
+$\phi \: V \xto W$ be a linear mapping.
+Then for $i=1,\ldots,n$ the mappings
+\[
+\phi^\*_i \: \Lambda^i \, W \xto \Lambda^i \, V
+\]
+are defined between the spaces $\Lambda^i\,W$ and $\Lambda^i\,V$,
+where the values of $\phi^\*_i$ are given element-wise
+according to
+\[
+\phi^\*_i(f) := f^\* \fa f \in\Lambda^i \, W,
+\]
+\[
+\phi^\*(v_1,\ldots,v_n) := f(\phi(v_1),\ldots,\phi(v_n)). 
+\]
+The operator $\phi$ need not be injective or surjective.
+
+\begin{definition}
+The mappings $\phi^\*_i$ are called the \textit{induced} ones
+by $\phi \xeof Hom_{\R}(V,V)$
+between the vector spaces $\Lambda^i\,W$ and $\Lambda^i\,V$.
+\end{definition}
+
+\section{Lie-Rings}
+%------------------------------------------------------------------------------%
+In applications a special class of rings is of interest,
+whose 
+multiplication is in general not associative.
+
+\begin{definition}
+Let $(L,+)$ be an Abelian group and $[\,] \: L \xtimes L \to L$
+be a further but not necessarily associative operation.
+The triple $(L,+,[\,])$ is called a \textit{Lie ring} if
+
+\begin{itemize}[leftmargin=35pt]
+\item[(L-1)]
+$[x,x] := [\,](x,x) \eq 0$ for all $x \xeof L$
+\item[(L-2)]
+$[x,[y,z]] + [y,[z,x]] + [z,[x,y]] \eq 0$ for all $x,y,z \xeof L$
+(\textit{Jacobi identity}).
+\item[(L-3)]
+$[x,a+b] \eq [x,a] + [x,b]$ and $[a+b,y] \eq [a,y] + [b,y]$ (distribution laws).
+\end{itemize}
+\end{definition}
+
+The operation $[\,]$ is often denoted the \textit{commutator map}.
+Let us mention the following examples of Lie rings:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+the Abelian group $(\R^3,+)$ with the vector product $\times$ 
+as commutator map,
+that is,
+$[a,b] := a \times b$.
+
+\item[2.]
+the Abelian group of real ($n$,$n$)-matrices with the matrix operation
+$[A,B] := A \circ B - B \circ A$.
+\end{itemize}
+
+\paragraph{}
+A textit{Lie ring homomorphism} between the Lie rings $L$ and $M$ is
+a group homomorphism $\phi \: L \xto M$, 
+which respects the commutator map in the sense of
+\[
+\phi([x,y]) \= [ \phi(x) \, ,  \, \phi(y) ]
+\]
+for all $x,y \in L$.
+Moreover,
+if $\phi$ is bijective,
+then $\phi$ is said to be a \textit{Lie Ring isomorphism}.
+Further concepts in ring theory,
+like subrings, ideals and so on can be defined for Lie rings as well.
+
+\section{Lie Algebras}
+%------------------------------------------------------------------------------%
+Lie-algebras are non-associative algebraic structures, 
+which (considered as a ring) form Lie rings.
+Linear operators, differential operators ans vector fields on
+manifolds are mathematical objects
+that can be endowed with the structure of a Lie algebra.
+
+\begin{definition}
+Let $R$ be a unital ring, $L$ a $R$-module and
+$[\,] \: L \xtimes L \xto L$ a not necessarily associative operation.
+The triple $(L,+,[\,])$ is called a \textit{$R$-Lie algebra}
+if $(L,[\,])$ is a Lie ring.
+\end{definition}
+
+\paragraph{}
+Consider the following examples of Lie algebras:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+The $\R$-module $\R^3$ with the vector product $[\,]$ is a $R$-Lie algebra.
+\item[2.]
+The ring of endomorphisms $E(V,V)$ of a $\F$-vector space with the
+commutator map $[\phi,\psi] := \phi \circ \psi - \psi \circ \phi$.
+\item[3.]
+The $\R$-module of ($n$,$n$)-matrices with matrix operation
+$[A,B] := A \circ B - B \circ A$
+is a $R$-Lie algebra.
+\item[4.]
+The set of derivations of a $\F$-algebra with $[D_1,D_2] := D_1D_2-D_2D_1$.
+\end{itemize}
+
+\paragraph{}
+If $L_1$ and $L_2$ are Lie algebras,
+then its cartesian product
+$\cross{L_1}{L_2}$ is a Lie algebra again.
+The mapping $[\,]$ is defined pointwise,
+that is,
+\[
+[(x_1,y_1),(x_2,y_2)] \eqdef ([x_1,x_2], [y_1,y_2])
+\]
+for $x_1,x_2 \xeof L_1$ and $y_1,y_2 \xeof L_2$.
+
+\subparagraph{}
+An element $x \xeof L$ is called \textit{central},
+if it commutes with all other elements of $L$,
+that is,
+$[a,y] \eq 0$ holds for all $y \xeof L$.
+The \textit{center} $Z(L)$ of a Lie algebra $L$ is the set of central elements in $L$.
+A Lie-algebra $L$ is said to be \textit{commutative},
+if all elements are central,
+that is,
+$Z(L) \eq L$.
+
+\subparagraph{}
+A subset $U$ of a Lie algebra $L$ is called a \textit{Lie subalgebra},
+if $U$ is an submodule of $L$ and $[x,y] \xeof U$ for all $x,y \xeof U$.
+Moreover,
+$U$ is denoted an \textit{ideal} in $L$,
+if $[x,y] \xeof L$ for all $x \xeof U$ and all $y \xeof U$.
+
+\paragraph{}
+A \textit{Lie-algebra homomorphism} between two Lie-algebras is
+a module homomorphism and a Lie-ring homomorphism at the same time.
+
+\subparagraph{}
+If $L$ is a Lie-algebra and $I$ is an ideal in $L$,
+the $L/I$ is in a natural way a $R$-module as well as a Lie ring.
+Lie-algebras can be factorized by their ideals,
+and the quotient $L/I$ is a Lie-algebra again.
+The projection $\pi \: L \xto L/I$ constitutes a Lie-epimorphism.
+
+\subparagraph{}
+Let $\phi \:L_1 \xto L_2$ be a Lie-algebra homomorphism between
+Lie-algebras $L_1$ and $L_2$.
+Then $\operatorname{Kern} \phi$ is an ideal in $L_1$,
+and $L_1 / \operatorname{Kern} \phi$ is isomorphic to $\phi(L_1)$.
+
+\subparagraph{}
+Each element $x \xeof L$ of a Lie-algebra $L$ generates
+a Lie-algebra endomorphism $\phi_x \: L \xto L$
+according to $\phi_x(y) := [x,y]$ for all $y \xeof L$.
+
+\paragraph{}
+For finite-dimensional Lie-algebras over fields of characteristics
+$\chi(\F) \neq 2$ the following structure theorem is valid (\textsc{Ado}'s theorem):
+
+\begin{theorem}
+Let $\F$ be a field with $\chi(\F) \neq 2$.
+Then each finite-dimensional Lie-algebr over $\F$ is isomorphic
+to a Lie-subalgebra of $\operatorname{GL}(n,\F)$ for some $n \xeof \N$.
+\end{theorem}
+
+\subparagraph{}
+The Lie-algebras over a ring $R$ form a category denoted by $Lalg_R$.
+
+\paragraph{}
+Let us switch to representations of Lie algebras:
+
+\begin{definition}
+Let $L$ be a Lie algebra.
+A \textit{representation} of $L$ on the $\F$-vector space $V$
+is a
+group homomorphism $\phi \: L \xto Hom_{\F}(V,V)$,
+which is compatible with the commutator map in $L$ in the sense of
+\[
+\phi([x,y]) \= \phi(x) \circ \phi(y) - \phi(y) \circ \phi(x) \quad (x,y \in L).
+\]
+\end{definition}
+
+\subparagraph{}
+A representation $\phi$ is called \textit{faithful}, if $\phi$ is injective.
+If the vector space $V$ owns dimension $n \xeof \N$,
+then $n$ is denoted the \textit{dimension} of the representation.
+
+\subparagraph{}
+Let $\phi \: L \xto Hom_{\F}(V,V)$ be a representation of $L$ on $V$.
+Then each linear operator $\phi(x) \in Hom_{\F}(V,V)$
+gives rise to a representation
+$\phi^T:L \to Hom_{\F}(V^{\*},V^{\*})$ von $L$ on the dual space $V^{\*}$
+by means of the dual operator  $\phi^{\*}(x) \in Hom_{\F}(V^{\*},V^{\*})$,
+where $\phi^T$ is defined by $x \mapsto -\phi^{\*}(x)$.
+
+\begin{definition}
+The mapping $\phi^T$ is called the \textit{dual representation} of $L$ on $V$.
+\end{definition}
+
+\paragraph{}
+Furthermore,
+for each fixed element $x \in L$
+a linear operator
+$\operatorname{ad}_x \in Hom_{\F}(L,L)$ is defined by the operation $[\,]$.
+The assignment $x \mapsto \operatorname{ad}_x$ is a group homomorphism,
+which respects the operation $[\,]$ respektiert,
+and consequently a representation of $L$ on itself.
+
+\begin{definition}
+$\operatorname{ad} \: L \xto Hom_{\F}(L,L)$ with $x \mapsto \operatorname{ad}_x$
+is said to be the \textit{adjoint} representation of $L$.
+\end{definition}
+
+\subparagraph{}
+If $L$ is finite-dimensional (considered as a $\F$-vector space),
+then for each linear operator $\phi \in Hom_{\F}(L,L)$
+the \textit{trace} is well-defined as an element in $\F$.
+Let for $x,y \in L$ the mapping $B \: \cross{L}{L} \xto \F$ be defined according to
+\[
+B(x,y) \eqdef Trace (\operatorname{ad}_x \circ \operatorname{ad}_y) \in \F.
+\]
+Then $B$ is a symmetric bilinear form on the Lie-algebra $L$,
+called the \textit{Killing form} of $L$.
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C] {\small{\textsc{III. Tensor Fields and Differential Forms}}}
+%------------------------------------------------------------------------------%
+\part{Tensor Fields and Differential Forms}                                    %
+%------------------------------------------------------------------------------%
+Continuous mappings between topological spaces are mappings,
+which are compatible with the topological structures of the spaces.
+In the same way one is searching for differentiable manifolds and mappings,
+which are compatible with their differentiable structures.
+To the end we obtain the concept of differentiability
+for mappings between manifolds.
+
+\section{Vector Fields}
+%------------------------------------------------------------------------------%
+Vector and tensor fields are the base objects of \textit{tensor analysis}
+on manifolds.
+
+\subparagraph{}
+A \textit{scalar field} on a differentiable manifold $\difM$ is
+a differentiable mapping $f\:\difM \xto \R$.
+The set $C^{\infty}(\difM,\R)$ of all scalar fields on $\difM$ forms
+with pointwise defined addition rsp. multiplication and
+with scalar multiplication a commutative unital $\R$-algebra.
+
+\subparagraph{}
+If $f\:\difM \xto \difN$ is a differentiable mapping
+between manifolds and $\phi$ is a scalar field on $\difN$,
+then the mapping $\phi \circ f$ is a scalar field on $\difM$,
+called the \textit{pullback} of $\phi$ under $f$.
+The assignment
+$\phi \xeof C^{\infty}(\difN,\R) \mapsto
+ \phi \circ f \xeof C^{\infty}(\difM,\R)$
+is compatible with the inner operations of these algebras
+and thus forms an algebra homomorphism.
+This construction provides a contravariant functor of the
+category of differentiable manifolds to the category of algebras.
+
+\paragraph{}
+A \textit{vector field} assigns to each point $p$ of a differentiable
+manifold a tangent vector of the jeweiligen tangential space.
+Considering the tangential space itself as a differentiable manifold,
+the concept of \textit{differentiable vector field} is meaningful.
+
+\begin{definition}
+Let $\difM$ be a $d$-dimensional differentiable manifold
+and $T \difM$ be the related tangential space.
+Then a (differentiable) \textit{vector field} on $\difM$
+is a (differentiable) mapping $\vecX:\difM \xto T \difM$
+with $\vecX(p) \xeof T_p \difM$.
+\end{definition}
+
+A vector field is often called
+the \textit{contravariant tensor field of first stage}.
+
+\subparagraph{}
+If a vector field $\vecX$ on $\difM$ is differentiable,
+then there is a representation of $\vecX$
+for each chart $(\openO,\kappa) \xeof \cal{A}(\difM)$ according to
+\[
+\vecX(p) \= \sum_{i=1}^n x^i \partial_i(p), \quad p \xeof \openO,
+\]
+where the functions $x^i \: \kappa(\openO) \xto \R$ are differentiable.
+
+\subparagraph{}
+For a scalar field $f$ and a (differentiable) vector field $\vecX$
+the product $f \cdot \vecX$ is a (differentiable) vector field again.
+Thus the set $\cal{V}(\difM,\R)$ of differentiable vector fields on $\difM$
+forms with pointwise defined addition and multiplication
+with scalar fields a module over the ring $C^{\infty}(\difM,\R)$.
+
+\subparagraph{}
+A differentiable \textit{Covector field} on $\difM$ is defined similarly:
+
+\begin{definition}
+A \textit{Covector field} rsp. a \textit{linear form} on a
+differentiable manifold $\difM$ is a differentiable mapping
+$\vecX^\*:\difM \xto T^\*(\difM)$,
+which assigns to each point $p \xeof \difM$ a covector
+in the dual space $T_p^{\*}(\difM)$ of the tangential space.
+\end{definition}
+% xxx
+
+\subparagraph{}
+A linear form wird oft auch as \textit{covariant tensor field erster Stufe}
+bezeichnet.
+The set $\cal{V}^\*(\difM;\R)$ of linear forms on $\difM$ forms with
+pointwise defined addition and multiplication with scalar fields
+also a module over the ring $C^{\infty}(\difM,\R)$.
+
+\section{Lie Products}
+%------------------------------------------------------------------------------%
+Let $\vecX,\vecY$ be two vector fields on a differentiable
+manifold $\difM$.
+The \textit{Lie-product} $[\vecX,\vecY]$ is a mapping,
+which in each point $p \xeof \difM$ den beiden tangent vectors
+$\vecX(p),\vecY(p)$ wieder a tangent vector aus $T_p \difM$ zuordnet,
+and zwar in folgender Weise:
+
+\subparagraph{}
+For a scalar field $f$ on $\difM$
+the mapping
+$f_X: p \xeof \difM \mapsto \vecX(f) \xeof \R$
+is a scalar field on $\difM$ again.
+The erneute mapping $p \xeof \difM \mapsto Y(f_X) \xeof \R$ is demnach the
+Verkettung $(\vecY \circ \vecX)$
+and weist the scalar field $f$ a further scalar field zu.
+$(\vecY \circ \vecX)$ is jedoch im allgemeinen kein vector field,
+da the mapping the geforderte product rule for tangent vectors
+nicht erf\"ullt (and hence no derivative any more).
+The difference after changing the order
+$(\vecY \circ \vecX)(f) - (\vecX \circ \vecY)(f)$
+fulfills all properties of a tangent vector.
+
+\begin{definition}
+The \textit{Lie product} of two vector fields $\vecX,\vecY$
+auf of a differentiable manifold $\difM$ is the vector field
+\[
+[\vecX,\vecY](f) \, := \, (\vecY \circ \vecX)(f) - (\vecX \circ \vecY)(f),
+\quad f \xeof C^{\infty}(\difM,\R).
+\]
+\end{definition}
+
+\subparagraph{}
+The Lie product owns the following properties:
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$[\vecX,\vecY]$ is linear in both arguments and anti-symmetric.
+\item[2.]
+For each scalar field $f$ holds
+$[f\vecX,\vecY] = f [\vecX,\vecY] - \vecY(f) \vecX$.
+\item[3.]
+Je drei vector fields $\vecX,\vecY,\vecZ$ erf\"ullen the \textit{Jacobi-Identit\"at}
+\[
+[\vecX,[\vecY,\vecZ]] + [\vecY,[\vecZ,\vecX]] + [\vecZ,[\vecX,\vecY]] = 0.
+\]
+\end{itemize}
+
+\subparagraph{}
+The set $\cal{V}(\difM,\R)$ of vector fields
+forms with pointwise defined addition
+and the Lie product as multiplication a Lie ring.
+Nimmt man the pointwise defined multiplication of vector fields
+with scalar fields hinzu,
+then $\cal{V}(\difM,\R)$ forms a Lie algebra
+over the ring $C^{\infty}(\difM,\R)$.
+
+\subparagraph{}
+Let $\{\partial_1,\ldots,\partial_n\}$ be a natural base of $T_p \difM$
+and $\vecX^i, \vecY^i$ be the coordinates of the vector fields $\vecX,\vecY$.
+Then gelten for the coordinates of the Lie-product $[\vecX,\vecY]$
+die Gleichungen
+\[
+[\vecX,\vecY]^i
+\, = \,
+X^j \partial_j \vecY^i - \vecY^j \partial_j X^i, \qquad i=1,\ldots,n.
+\]
+
+Especially for natural base vectors we have $[\partial_i,\partial_j] \eq 0$.
+
+\subparagraph{}
+Lie-products play an important role in the coordinate-free description
+of torsion and curvature forms of affine connections.
+wichtige Rolle.
+
+\section{Tensor Fields}
+%------------------------------------------------------------------------------%
+In generalization of the concepts \textit{scalar field}
+and \textit{vector field} tensor fields on a manifold are defined as follows:
+
+\begin{definition}
+Let $\difM$ be a differentiable manifold.
+A $s$-fach covariant and $r$-fach contravariant \textit{tensor field} $T$
+on $\difM$ is a differentiable mapping,
+which assignes to each point $p \xeof \difM$ an $(r,s)$-tensor
+over the tangential space $T_p \difM$.
+\end{definition}
+
+\subparagraph{}
+Differentiability of the tensor field again means
+that for each chart $(\Off,\kappa) \xeof \cal{A}(\difM)$
+the coordinate functions
+\[
+T_{i_1,i_2,\ldots,i_s}^{j_1,j_2,\ldots,j_r} \:
+\kappa(\Off) \subseteq \R^d \xto \R
+\]
+are differentiable.
+
+\subparagraph{}
+The set $\cal{T}_r^s(\difM,\R)$ of $s$-fach covariant and $r$-fach
+contravariant tensor fields on $\difM$ forms a module
+over the ring $C^{\infty}(\difM,\R)$, too.
+
+The Lie-derivative is an extension of the Lie-bracket for tensor fields.
+
+\subparagraph{}
+Let $\vecX$ be a vector field on a differentiable manifold $\difM$.
+For each further vector field $\vecY \xeof \cal{V}(\difM,\R)$ sei the mapping
+$\operatorname{L}_X: \cal{V}(\difM,\R) \xto \cal{V}(\difM,\R)$ erkl\"art gem\"a\"ss
+$\operatorname{L}_X(\vecY) := [\vecX,\vecY]$.
+
+\begin{definition}
+$\operatorname{L}_X$ is called the \textit{Lie-derivative} von
+$\vecY \xeof \cal{V}(\difM,\R)$ {wrt} of the vector field $\vecX$.
+\end{definition}
+
+\subparagraph{}
+For a scalar field $f \xeof C^{\infty}(\difM,\R)$ wird the Lie-derivative
+gem\"a\"ss $\operatorname{L}_X f := \vecX(f) = d \, f(\vecX)$ definiert,
+that is,
+$\operatorname{L}_X f$ stellt wiederum a scalar field dar.
+Damit is the Lie-derivative $\operatorname{L}_X$ jeweils as operator
+auf den modules $\cal{V}(\difM,\R)$ and $C^{\infty}(\difM,\R)$ erkl\"art.
+
+\subparagraph{}
+The Lie-derivative l\"a\"sst sich nun to an operator on den modules der
+$(r,s)$-tensor fields erweitern.
+The Bild of a $(r,s)$-tensor field soll hierbei wiederum
+ein $(r,s)$-tensor field sein.
+Ferner soll $\operatorname{L}_X$ linear on thesen modules operieren.
+
+\begin{theorem}
+Let $\vecX$ be a vector field on a differentiable manifold $\difM$.
+Then there is genau a mapping
+\[
+\operatorname{L}_X:T_s^r(\difM) \xto T_s^r(\difM),
+\]
+welche for $r = s = 0$ the Lie-derivative of a scalar field and f\"ur
+$r=1, s=0$ the Lie-derivative of a vector field ergibt.
+\end{theorem}
+
+\subparagraph{}
+The tensor field $\operatorname{L}_X T$ is called the \textit{Lie-derivative}
+of the tnesor field $T$ {\wrt} the vector field $\vecX$.
+
+\section{Differential Forms}
+%------------------------------------------------------------------------------%
+\textit{Differential forms} play an important role
+especially in integration theory on manifolds.
+
+\begin{definition}
+Let $\difM$ be a $d$-dimensional differentiable manifold.
+A \textit{differential form of degree $s$} or briefly a \textit{$s$-form}
+is a $s$-fach covariant, antisymmetric tensor field on $\difM$.
+\end{definition}
+
+\subparagraph{}
+The following examples of differential forms are known:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+The scalar fields on $\difM$ are the differential forms of degree $0$.
+\item[2.]
+The covariant differential forms of degree $1$ on $\difM$ are
+exactly the covector fields.
+They are called \textit{linear forms} or \textit{Pfaff forms}
+\end{itemize}
+
+\subparagraph{}
+Let for $s \xeof \N$ the set $\Omega^s \difM$
+be the submodule of all differential forms of degree $s$ on $\difM$.
+Especially for $s=0$ let $\Omega^0 \difM := C^{\infty}(\difM,\R)$,
+that is,
+the module of scalar fields.
+Since the tangential spaces of $d$-dimensional differentiable manifolds
+are $d$-dimensional,
+too,
+we obviously have $\Omega^s \difM \eq 0$ for $s > n$.
+
+\subparagraph{}
+If a point $p \xeof \difM$ is in the domain of a chart $(O,\kappa)$,
+then the forms
+\[
+dx^i \wedge dx^j \wedge \ldots \wedge dx^s \qquad (i < j < \ldots < s)
+\]
+constitute a base of the vector space of anti-symmetric tensors of degree $s$
+over $T_p \difM$.
+Hence a differential form $\omega$ in such a domain $O$
+has the representation
+\[
+\omega = \sum_{i < j < \ldots < s} w_{ij\ldots s}
+dx^i \wedge dx^j \wedge \ldots \wedge dx^s.
+\]
+The coefficients $w_{ij\ldots s}$ are differentiable functions
+$w_{ij\ldots s}:\kappa(O) \xto \R$.
+
+\subparagraph{}
+Let $\difM,\difN$ be differentiable manifolds and
+$f\:\difM \xto \difN$ a differentiable mapping.
+Then $f$ induces in a natural way a mapping
+\[
+f^\* : \Omega^s \difN \xto \Omega^s \difM, \qquad s=1,\ldots,n,
+\]
+where $f^\*$ definiert is gem\"a\"ss
+\[
+f^\* \omega(v_1,\ldots,v_n) := \omega(\operatorname{d}\,f(v_1),\ldots,
+                                      \operatorname{d}\,f(v_n))
+\]
+for $v_1,\ldots,v_n \xeof T_p(\difM)$ and each point $p \xeof \difM$.
+The assignment $f^\* : \Omega^s \difN \xto \Omega^s \difM$,
+$\omega \xeof \Omega^s \difN \mapsto f^\* \omega \xeof \Omega^s \difM$
+is called the \textit{pullback} of $f$.
+
+\subparagraph{}
+On the modules of differential forms of a manifold
+one may define a mapping $\operatorname{d}$
+that assignes to each $s$-form a $(s+1)$-form
+such that
+the following properties hold:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$\operatorname{d}^2 \, \omega
+:=
+\operatorname{d} \, (\operatorname{d}\omega ) = 0$
+(Komplexbedingung)
+\item[2.]
+$\operatorname{d}(\lambda \, \omega_1 + \mu \, \omega_2) =
+  \lambda \, \operatorname{d} \omega_1 + \mu \, \operatorname{d} \omega_2$
+(Linearit\"at)
+\item[3.]
+$\operatorname{d} \, f(v) = v(f)$ for a 0-form $f$
+\item[4.]
+$\operatorname{d} (\omega_1 \wedge \omega_2) =
+ \operatorname{d}  \omega_1 \wedge \omega_2  +
+ (-1)^s
+                   \omega_1 \wedge (\operatorname{d} \omega_2)$,
+where $s$ is the degree of $\omega_1$ (product rule).
+\end{itemize}
+
+\subparagraph{}
+The existence of such a mapping
+$\operatorname{d}:\Omega^s \difM \xto \Omega^{s+1} \difM$
+is ensured by the operator
+\[
+\operatorname{d} \, \omega := \sum_{k, \, i < j < \ldots < s}
+\frac{\partial \, \omega_{ij\ldots s}}{\partial x_k} \quad
+dx^i \wedge dx^j \wedge \ldots \wedge dx^s,
+\quad \omega \xeof \Omega^s \difM,
+\]
+since if fulfills all the required properties for $\operatorname{d}$.
+Moreover,
+this is the only mapping fullfilling the just mentioned properties,
+leading to the following definition:
+
+\begin{definition}
+Let $\omega \xeof \Omega^s \difM$ be a differential form of degree $s$
+on $\difM$.
+The durch obige Forderungen eindeutig bestimmte Differentialform
+$\operatorname{d} \omega \xeof \Omega^{s+1} \difM$
+is called the \textit{exterior derivative} rsp. das
+\textit{exterior Differential} of $\omega$.
+\end{definition}
+
+\subparagraph{}
+A representation of the exterior derivative of $\omega$
+without using coordinates can be obtained by means of the Lie product:
+\[
+\operatorname{d} \omega(u,v) \= u(\omega(v)) - v(\omega(u)) - \omega([u,v]),
+\qquad u,v \xeof T_p(\difM).
+\]
+
+\subparagraph{}
+Ist um a point $p \xeof \difM$ a cobase
+gem\"a\"ss $\{\omega^i\}$ gegeben,
+then is notwendigerweise
+$\operatorname{d} \, \omega^i = 0$ for $i=1,\ldots,n$.
+
+\paragraph{}
+Consider the following examples:
+
+Let $\difM = \R^3$ and $\Omega \xsubset \R^3$.
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+A $0$-form is a scalar-valued function $f\:\Omega \xto \R$.
+The exterior differential $\operatorname{d}f$ of $f$ is defined by
+\[
+\operatorname{d}f((v_1,v_2,v_3)) = v(f) =
+\frac{\partial f}{\partial x} v_1 +
+\frac{\partial f}{\partial y} v_2 +
+\frac{\partial f}{\partial z} v_3,
+\]
+hence
+\[
+\operatorname{d}f = \frac{\partial f}{\partial x} dx +
+                    \frac{\partial f}{\partial y} dy +
+                    \frac{\partial f}{\partial z} dz.
+\]
+$\operatorname{d} f$ is called the \textit{gradient} of $f$.
+
+\item[2.]
+The \textit{divergence} of a continuously differentiable vector field
+$A \xeof C^1(\Omega,\R^3)$ is the scalar-valued function
+\[
+\operatorname{div} \, A := \frac{\partial A_1}{\partial x} +
+                           \frac{\partial A_2}{\partial y} +
+                           \frac{\partial A_3}{\partial z}.
+\]
+\item[3.]
+The $1$-forms $\omega$ are covectors of the form
+\[
+\omega = a \, dx + b \, dy + c \, dz,
+\]
+where $a,b,c:\R^3 \xto \R$ are differentiable functions.
+
+\item[4.]
+For a continuously differentiable vector field $A \xeof C^1(\Omega,\R^3)$
+the \textit{rotation} of $A$ is defined as the vector field
+\[
+\operatorname{rot} A :=
+    (\frac{\partial A_3}{\partial y} - \frac{\partial A_2}{\partial z}, \,
+     \frac{\partial A_1}{\partial z} - \frac{\partial A_3}{\partial x}, \,
+     \frac{\partial A_2}{\partial x} - \frac{\partial A_1}{\partial y}).
+\]
+The exterior derivative of a covector is
+\[
+\operatorname{d} \omega =
+(\frac{\partial c}{\partial y} - \frac{\partial b}{\partial z}) dy \wedge dz +
+(\frac{\partial a}{\partial z} - \frac{\partial c}{\partial x}) dz \wedge dx +
+(\frac{\partial b}{\partial x} - \frac{\partial a}{\partial y}) dx \wedge dy.
+\]
+\item[5.]
+Hence the differential operator $\operatorname{grad} \, f$ corresponds to 
+the exterior derivative $\operatorname{d}$,
+applied to the scalar field $f$.
+The operator $\operatorname{rot} \, A$ is the exterior derivative
+applied to a linear form $A$,
+and $\operatorname{div} \, A$ is the exterior derivative
+einer aus $A$ konstruierten 2-form $A'$.
+The complex-property $\operatorname{d} \circ \operatorname{d} = 0$
+der exterior derivative f\"uhrt daher to den Gleichungen
+$\operatorname{rot} \, \operatorname{grad} f = 0$
+(that is, a gradient field is always wirbelfrei) and
+$\operatorname{div} \operatorname{rot}  A = 0$
+(that is, a Wirbel field is always divergence free).
+\end{itemize}
+
+\paragraph{}
+The exterior derivative commutes with the Lie-derivative.
+
+\begin{theorem}
+Let $\difM$ be a differentiable manifold,
+$\vecX$ a vector field and $\omega \xeof \Omega^s \difM$.
+Then holds
+$\operatorname{L}_X (\operatorname{d}   \omega) =
+ \operatorname{d}   (\operatorname{L}_X \omega)$.
+\end{theorem}
+
+\subparagraph{}
+Ferner is the exterior derivative with den Pullbacks
+von differentiable mappings vertauschbar.
+
+\begin{theorem}
+Let $\difM,\difN$ be differentiable manifolds and
+$\omega \xeof \Omega^s \difN$.
+Then holds
+$f^\* (\operatorname{d} \omega) = \operatorname{d} (f^\* \omega)$.
+\end{theorem}
+
+\section{Integration on Manifolds}
+%------------------------------------------------------------------------------%
+differential forms are the \textit{nat\"urlichen} mathematischen Objekte,
+for the a Integrationstheorie on orientierten differentiable
+manifolds entwickelt werden kann.
+
+\subparagraph{}
+Gewisse charts of a Atlanten are in folgender Weise miteinander
+compatible.
+
+\begin{definition}
+Let $\difM$ be a differentiable manifold.
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+For two charts $(\Off_1,\kappa_1),(\Off_2,\kappa_2) \xeof \cal{A}(\difM)$
+is called der Kartenwechsel $\tau = \kappa_2 \circ \kappa_1^{-1}$
+\textit{orientierungserhaltend},
+if for all points $p \xeof \kappa_1(\Off_1) \cap \kappa_2(\Off_2)$ the
+Jacobi-Matrizen $J_p \tau$ den Bedingungen
+$\operatorname{det} J_p \tau > 0$ gen\"ugen.
+\item[2.]
+An atlas $\cal{A}$ on $\difM$ is called a \textit{orientierender atlas},
+if er nur charts enth\"alt,
+deren Kartenwechsel orientierungserhaltend sind.
+\end{itemize}
+\end{definition}
+
+\subparagraph{}
+manifolds, the a orientierenden Atlanten besitzen,
+werden wie folgt ausgezeichnet.
+
+\begin{definition}
+A differentiable manifold is called \textit{orientiert}
+rsp. \textit{orientable},
+if ihre differentiable Struktur a orientierenden Atlanten enth\"alt.
+\end{definition}
+
+Alternativ hierzu l\"a\"sst sich the concept of oriented manifold
+my means of differential forms definieren.
+
+\subparagraph{}
+A \textit{volume form} on a $d$-dimensional manifold $\difM$
+is a differential form of degree $d$ $\omega \xeof \Omega^n \difM$,
+die in keinem point $p \xeof \difM$ verschwindet.
+Falls on $\difM$ a volume form existiert, so is called $\difM$ orientable.
+
+\begin{definition}
+Let $\difM$ be a $d$-dimensional differentiable manifold.
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+A subset $\A \xsubset \difM$ is called \textit{measurable},
+if for each covering of $\A$ by charts $(\Off_i,\kappa_i)$
+the sets $\kappa(\Off \cap \A) \xsubset \R^d$ are measurable.
+\item[2.]
+A set $\A \xsubset \difM$ is called \textit{small},
+if it is contained in the domain $\Off$ a chart $(\Off,\kappa)$.
+\end{itemize}
+\end{definition}
+
+\subparagraph{}
+Each differentiable manifold can be decomposed into mostly countable
+many small, measurable and pairwise disjoint subsets.
+Dies erlaubt the definition of an integral for differential form
+of degree $d$ as integrands.
+
+\begin{definition}
+A $d$-form $\omega$ on an \textit{oriented} $d$-dimensional
+manifold $\difM$ is called \textit{integrable},
+if for a Zerlegung $\{\A_i\}$ of $\difM$ in countable
+many small and measurable subsets and a sequence
+$\{(\Off_i,\kappa_i)\}_{i \xeof \N}$ of
+orientation preserving charts with $\A_i \xsubset \Off_i$ holds:
+for each $i \xeof \N$ we have
+\[
+a_i := \omega \circ \kappa_i^{-1} : \kappa_i(\Off_i) \xto \R
+\]
+is Lebesgue-integrable in the (open) set $\kappa_i(\A_i)$,
+and
+\[
+\sum_{i=1}^{\infty} \int_{\kappa_i(\A_i)} \abs{a_i(x)} \, dx < \infty
+\]
+holds.
+Then
+\[
+\int_{\difM} \omega \, := \,
+\sum_{i=1}^{\infty} \int_{\kappa_i(\A_i)} \abs{a_i(x)} \, dx
+\]
+is denoted the Lebesgue integral of $\omega$.
+\end{definition}
+
+\section{Manifolds with Boundary}
+%------------------------------------------------------------------------------%
+Let the Euclidean half-space be defined according to
+$\R^d_+ := \{x \xeof \R^d \: x_d \geq 0\}$.
+
+\begin{definition}
+A $d$-dimensional differentiable manifold is said to own a \textit{boundary},
+if the domains of defintion of all charts in the differentiable structure
+are homeomorphic to open subsets of $\R^d_+$.
+\end{definition}
+
+\subparagraph{}
+Let $f\:\difM \xto \R$ be a scalar field.
+Then folgt aus the Rangsatz,
+dass for a $a \xeof \R$ the subset $f^{-1}((- \infty, a])$ in
+kanonischer Weise a manifold with boundary is.
+
+\paragraph{}
+These are examples of manifolds with boundary:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Each manifold is a manifold with boundary $\emptyset$.
+\item[2.]
+The closed ball $D^d := \{x \xeof \R^d \: \norm{x} \leq 1\}$ has a boundary.
+\end{itemize}
+
+\begin{definition}
+Let $\difM$ be a $d$-dimensional differentiable manifold with boundary.
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+A point $p \xeof \difM$ is called a \textit{boundary point} of $\difM$,
+if er durch a chart (and damit each chart) $\kappa$
+auf a point $\kappa(p)$ with $x_n \eq 0$ abgebildet wird.
+\item[2.]
+The boundary $\partial \, \difM$ is the set of all Randpunkte of $\difM$.
+\item[3.]
+The set $\difM \setminus \partial \, \difM$ is called the \textit{interior} of $\difM$.
+\end{itemize}
+\end{definition}
+
+\begin{theorem}
+Let $\difM$ be a $d$-dimensional differentiable manifold.
+Then is der boundary a manifold der Dimension $n-1$,
+and the Innere of $\difM$ is a $d$-dimensional manifold.
+\end{theorem}
+
+\begin{definition}
+A differentiable manifold is called \textit{closed},
+if it is compact and its boundary is empty.
+\end{definition}
+
+\section{The Stokes Theorem}
+%------------------------------------------------------------------------------%
+The \textit{Satz of Stokes} f\"uhrt the integration of a differential form
+on a manifold with boundary
+auf the integration ihrer exterior form
+auf the boundary of the manifold zur\"uck.
+
+\begin{theorem}
+Let $\difM$ be a orientierte $d$-dimensional manifold with boundary and
+$\omega \xeof \Omega^{n-1}(\difM)$ a $(n-1)$-form with compact support.
+Then holds
+\[
+\int_{\partial \difM} \omega \, = \, \int_{\difM} \operatorname{d} \omega
+\]
+\end{theorem}
+
+\subparagraph{}
+Im Spezialfall a closed manifold $\difM$ holds f\"ur
+each $(n-1)$-form $\omega \xeof \Omega^{n-1} \difM$
+\[
+\int_{\difM} \operatorname{d} \omega = 0.
+\]
+
+\begin{examples}
+There are some classical variants
+for Stoke's integral theorem being valid on manifolds:
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+\textit{(Gau\"ss's integral theorem)}
+Let $\Omega \subseteq \R^3$ be open
+and $\vecX$ be a differentiable vector field auf $\Omega$.
+Then for each compacte subset $K \subseteq \Omega$ with sufficiently
+smooth boundary we have
+\[
+\int_K \operatorname{div} \, \vecX \, dV \= \int_{\partial K} \vecX \, dF.
+\]
+\item[2.]
+\textit{(Stokes's integral theorem)}.
+Let $\Omega \subseteq \R^3$ be open
+and $\vecX$ be a differentiable vector field auf $\Omega$.
+Then for each oriented compact subset $K \subseteq \Omega$ with
+sufficiently smooth boundary we have
+\[
+\int_{K} \operatorname{rot} \vecX \, dF \= \int_{\partial K} \vecX \, ds.
+\]
+\end{itemize}
+\end{examples}
+
+\section{deRham Complex}
+%------------------------------------------------------------------------------%
+The exterior derivative $d$ of a differential form satisfies
+the complex condition $d \circ d \eq 0$.
+Hence the sequence of the modules $\{\Omega^i \difM\}$ with the
+homomorphisms $d_i \:\Omega^i \difM \mapsto \Omega^{i+1} \difM$
+forms an aufsteigenden chain complex,
+whose homology and cohomology can be studied.
+
+\begin{definition}
+Let $\difM$ be a differentiable manifold.
+The (aufsteigende) chain complex of the modules $\Omega^s \difM$
+with the exterior derivatives as the module-homomorphisms
+\[
+\{0\}
+\stackrel{d}{\longrightarrow} \Omega^0 \difM
+\stackrel{d}{\longrightarrow} \Omega^1 \difM
+\stackrel{d}{\longrightarrow} \ldots
+\stackrel{d}{\longrightarrow} \Omega^n \difM
+\stackrel{d}{\longrightarrow}
+\{0\}
+\]
+is called the \textit{deRham complex} of $\difM$.
+\end{definition}
+
+\begin{definition}
+A differential form $\omega \xeof \Omega^{s+1} \difM$ is called \textit{exact}
+rsp.  \textit{integrable},
+if it is the exterior derivative of a differential form
+$\alpha \xeof \Omega^s \difM$
+that is,
+$\omega \eq d \, \alpha$.
+\end{definition}
+
+\subparagraph{}
+Existiert a differential form $\alpha$ with $d \, \alpha \eq \omega$,
+then holds wegen $d \circ d \eq 0$,
+dass $0 = d (d \, \alpha) \eq d \, \omega$.
+This leads to the following definition:
+
+\begin{definition}
+A differential form $\omega$ is called \textit{closed},
+if $d \, \omega \eq 0$.
+\end{definition}
+
+Ist a differential form exakt, so is sie insbesondere closed.
+Let $\partial \, \Omega^s \difM \subseteq \Omega^s \difM$
+be the submodule of closed differential forms for $s \xeof \N$.
+
+\subparagraph{}
+The Tatsache, dass each closed differential form exakt is,
+ist gleichbedeutend with exactness of the deRham complex.
+Hierzu definiert man the cohomology modules a manifold wie folgt:
+
+\begin{definition}
+Let $\difM$ be a $d$-dimensional differentiable manifold.
+For $k \eq 1,\ldots,n$ is called
+\[
+H^k(\difM,\R) := \frac
+{\operatorname{Kern}\,(d(\Omega^{k} \difM))}
+{\partial \, \Omega^{k-1} \difM}
+\]
+die $k$-th \textit{cohomology module} of the deRham-complex.
+\end{definition}
+
+\subparagraph{}
+Let $H^{\star}(\difM,\R)$ be the total sum of the cohomology modules,
+\[
+H^{\star}(\difM,\R) := \bigoplus_{k=0}^{\infty} H^k(\difM,\R).
+\]
+Then the exterior product of differential forms induces a
+product in $H^{\star}(\difM,\R)$
+such that $H^{\star}(\difM,\R)$ sogar a $\R$-Algebra darstellt.
+Diese is called the \textit{Kohomologie-Algebra} a manifold $\difM$.
+
+\subparagraph{}
+For $d$-dimensional manifolds holds
+obviously $H^k(\difM,\R) = 0$ for $k > n$.
+
+The elements aus $\partial \, \Omega^0 \difM$ are the scalar fields $f$ mit
+$d \, f = 0$,
+that is,
+the constant scalar-valued functions on $\difM$.
+If $\difM$ is even connected,
+then $H^0(\difM,\R)$ is isomorphic to the real line $\R$.
+
+\subparagraph{}
+Es sei daran erinnert, dass each differentiable mapping $f\:\difM \xto \difN$
+zweier $d$-dimensional manifolds a Folge of Pullbacks
+$f^\*_k:\Omega^k \difN \xto \Omega^k \difM \, (k=1,\ldots,n)$
+der related differential form modules induziert.
+The Pullbacks $f^\*_k$ erzeugen selbst wieder mappings $f_k$
+between den deRham-Kohomologie-modules:
+\[
+f_k: H^k(\difN,\R) \xto H^k(\difM,\R), \quad [x] \mapsto [f^\*(x)].
+\]
+For homotope mappings erh\"alt man identische Pullbacks:
+
+\begin{theorem}
+Let $\difM$ and $\difN$ be $d$-dimensional differentiable manifolds
+and $f,g \:\difM \xto \difN$ be differentiable and homotopic mappings.
+Then holds $f_k = g_k$ for all $k=1,\ldots,n$.
+\end{theorem}
+
+\subparagraph{}
+Aus der Tatsache, that a kontrahierbare manifold
+is homotopy-equivalent to a einpunktigen set and its
+deRham cohomology modules are trivial, folgt:
+
+\begin{theorem}
+Let $\difM$ be a kontrahierbare differentiable manifold.
+Then is each in $\difM$ closed $s$-form $\omega$ exakt.
+\end{theorem}
+
+\textit{Sternf\"ormige} sets are contradictable as well.
+
+\begin{definition}
+A subset $\Omega \subseteq \R^d$ is called \textit{star-shaped},
+if es a point $s \xeof \Omega$ gibt
+such that
+for all further points in $\Omega$ the linear Verbindung
+ebenfalls to $\Omega$ geh\"ort.\\
+A subset $G \subseteq \difM$
+of a differentiable manifold $\difM$ is called \textit{star-shaped},
+if there is a chart $(\Off,\kappa)$ with $G \subseteq \Off$
+such that
+$\kappa(G) \xsubset \R^d$ is star-shaped.
+\end{definition}
+
+\subparagraph{}
+Damit is each on a star-shaped set defined, closed
+differential form exact.
+
+\begin{example}
+In a sufficiently small neighbourhood of a point $p \xeof \difM$,
+in which the differential form $\omega$ is closed,
+a star-shaped set can be found.
+In this each closed differential form $\omega$ is exact
+(the local variant of the Poincare's lemma).
+\end{example}
+
+\paragraph{}
+The following and central theorem quotes
+that for manifolds both cohomology theories are one and the same:
+
+\begin{theorem}
+Let $\difM$ be a differentiable manifold.
+Then the deRham-cohomology is isomorphic to the singular cohomology
+of $\difM$ (considered as a topological space).
+\end{theorem}
+
+\paragraph{}
+The \textit{Poincare duality} is a basic result on
+the structure of the homology and cohomology groups of a manifold.
+
+\begin{theorem}
+Let $\difM$ be a compact oriented manifold of dimension $d$.
+Then there is an isomorphism $D_k$ between the groups $H_k(\difM)$
+and $H^{n-k}(\difM)$ for $k=0,\ldots,n$.
+\end{theorem}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C] {\small{\textsc{IV. Lie Groups}}}
+%------------------------------------------------------------------------------%
+\part{Lie Groups}                                                              %
+%------------------------------------------------------------------------------%
+An especially intensively studied and understood family of topological groups
+are the \textit{Lie groups}.
+Its theory is extremely well developed and plays
+in many topics of modern mathematics a central role.
+Hence the knowledge of their topological properties is of principle interest.
+
+\section{Basic Notations}
+%------------------------------------------------------------------------------%
+\begin{definition}
+A topological group $\lieG$ is called a \textit{Lie group},
+if $\lieG$ is a differentiable manifold at the same time 
+and the group operation $(g,h) \mapsto g \circ h^{-1}$ is differentiable.
+\end{definition}
+
+\subparagraph{}
+This definition makes sense,
+sinc the product of two manifolds is a manifold again.
+It is sufficient to require in the 
+definition of a Lie group only the continuity of the group operation.
+In 1952 it was proved by \textsc{Montgomery} and \textsc{Zippin}
+that continuity of the group operation within a Lie group already implies
+differenciability.
+
+\paragraph{}
+Examples of Lie groups are:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+each finite group is a discrete, $0$-dimensional Lie group;
+\item[2.]
+$(\Rd,+)$ and $(\C^d,+)$ are $d$-dimensional Lie groups;
+\item[3.]
+$(\C^{\times} := \C \setminus \{0\}, \cdot)$ is a Lie group;
+\item[4.]
+$\GL{n,\F}$,
+the group of invertible $\cross{n}{n}$-matrices with coefficients
+in $\F=\R$ or $\F=\C$;
+\item[5.]
+finite products of Lie groups are Lie groups again.
+Especially the torus $\T^n$,
+considered as a multiple product of the group $(S^1,\cdot)$ for $n \xeof \N$,
+is a Lie group.
+\end{itemize}
+
+\subparagraph{}
+Let $\lieG$ be a Lie group.
+A subgroup $\lieU \xsubset \lieG$ is called a \textit{Lie-subgroup}
+rsp. a \textit{Liescher Normalteiler} of $\lieG$,
+if $\lieU$ a (algebraische) rsp. normale subgroup of $\lieG$
+and zugleich a submanifold of $\lieG$ is.
+
+\paragraph{}
+Lie-subgroups rsp. Lie normal subgroups can be characterized
+by the following theorem, which however is difficult to prove:
+
+\begin{theorem}
+Let $\lieG$ be a Lie group.
+A subgroup (rsp. a normal subgroup) $\lieU \xsubset \lieG$ is
+a \textit{Lie} subgroup (rsp. a \textit{Lie} normal subgroup),
+iff $\lieU$ is closed in $\lieG$.
+\end{theorem}
+
+\subparagraph{}
+This theorem provides some more examples of Lie groups.
+Especially the orthogonal and unitary subgroups of
+classical groups are Lie groups.
+
+\subparagraph{}
+Rather similar to topological groups the following assertion holds:
+If $\1 \xeof \lieG$ is the unit of a Lie group,
+then its connected component $Z_{\1}$ is a Lie normal subgroup in $\lieG$.
+Each other connected component of $\lieG$ is diffeomorphic to $Z_{\1}$.
+Since $\lieG$ as a manifold satisfies the second countability axiom,
+a Lie group owns mostly countable many connected components.
+
+\begin{definition}
+Let $\lieG,\lieH$ be Lie groups.
+A \textit{Lie homomorphism} between $\lieG$ and $\lieH$
+is a \textit{differentiable} group homomorphism $\phi:\lieG \xto \lieH$.
+\end{definition}
+
+Entsprechend is a \textit{Lie isomorphism} a group isomorphism
+between den (algebraic) groups $\lieG$ and $\lieH$,
+which at the same time is a diffeomorphism
+between den manifolds $\lieG$ and $\lieH$ is.
+Important examples of Lie isomorphisms are the left and right translation
+and the conjugation.
+The Lie groups and their homomorphisms constitute a category.
+
+\subparagraph{}
+The following concept weakens th concept of isomorphy between Lie groups:
+two Lie groups $\lieG,\lieH$ are called \textit{locally isomorphic},
+if there is a neighbourhood $U_{\1}$ of $\1 \xeof \lieG$,
+a neighbourhood $V_{\1}$ of $\1 \xeof \lieH$
+and a diffeomorphism $\phi:U_{\1} \xto V_{\1}$
+such that
+$\phi(g \circ h) \eq \phi(g) \circ \phi(h)$ for all $g,h \xeof U_{\1}$.
+
+\section{Left-Invariant Vector Fields}
+%------------------------------------------------------------------------------%
+For a Lie group $\lieG$ and for a fest gew\"ahltes Element
+$g \xeof \lieG$ sei $L_g:\lieG \xto \lieG$ the Linkstranslation on $\lieG$.
+Since $L_g$ is a diffeomorphism,
+the differential $d\,L_g$ induces
+for each $h \xeof \lieG$ a vector space-isomorphism between den
+tangential spaces $T_h\,\lieG$ and $T_{g \circ h}\,\lieG$.
+Insbesondere for $h=\1$ erh\"alt man durch the Linkstranslation
+einen isomorphism $\phi_{\1}$ between dem
+tangential space $T_{\1}\,\lieG$ and the tangent space $T_g\,\lieG$.
+Hence the tangent bundle of a Lie group owns the simple
+product structure $T\,\lieG \eq \cross{\lieG}{T_{\1}\,\lieG}$.
+By this reaseon Lie groups are always orientable.
+
+\subparagraph{}
+For a fixed given vector $v \xeof T_{\1}\,\lieG$ is ferner
+in each point $g \xeof \lieG$ a vector
+$v_g := d\,L_{\phi_g}(v) \xeof T_g\,\lieG$ definiert.
+Hence certain vector fields distinguish from others by the following
+
+\begin{definition}
+A vector field $V:\lieG \xto \lieG$ is called \textit{left-invariant},
+if for all $g \xeof \lieG$ holds: $dL_g(V(e)) = V(g)$.
+\end{definition}
+
+\subparagraph{}
+If $V,W$ are left-invariant vector fields on a Lie group $\lieG$,
+then each linear combination $\alpha V + \beta W$
+and the Lie product $[V,W]$ are left-invariant,
+too.
+Thus the left-invariant vector fields form a Lie algebra $\g$,
+which forms a subalgebra of the Lie algebra of all vector fields on $\lieG$.
+For the dimension of the Lie algebra we have
+\[
+\dim \g \= \dim T_{\1} \lieG \= \dim \lieG.
+\]
+
+\begin{definition}
+Let $\lieG$ be a Lie group.
+Then the Lie-algebra $\g$ of left-invariant vector fields is denoted
+the the Lie-algebra belonging to $\lieG$.
+\end{definition}
+
+\subparagraph{}
+A left-invariant vector field $V$ on $\lieG$ is already uniquely determined
+by a given vector in the tangential space of the unit element.
+Thus there is a bijective mapping $\Phi: T_{\1}\,\lieG \xto \g$.
+Defining the Lie-product of two vectors $v_1,v_2 \xeof T_{\1}\,\lieG$
+according to
+$[v_1,v_2] := [\Phi(v_1),\Phi(v_2)]$,
+hence $T_{\1}(\lieG)$ can be seen as a Lie-algebra (being isomorphic to $\g$ ) as well.
+
+\subparagraph{}
+Sind $\lieG,\lieH$ Lie groups
+and $\phi:\lieG \xto \lieH$ a Lie-homomorphism,
+so wird for the related Lie-Algebren $\g,\h$ ein
+Lie algebra homomorphism $\phi_L:\g \xto \h$ induziert.
+Falls $\lieG,\lieH$ zueinander Lie-isomorphic sind,
+so stellt $\phi_L$ an isomorphism of Lie-Algebren dar.
+
+\subparagraph{}
+The Zuordnung $\lieG \mapsto \g$ is daher a covariant functor of the
+category der Lie groups into the category of Lie algebras and is called
+the \textit{Lie functor}.
+
+\paragraph{}
+The following table shows an overview of the classical groups and their
+Lie-algebras.
+Let $M(n,\R)$ rsp. $M(n,\C)$ be the set of real rsp. complex $(n,n)$-matrices.
+\vspace{2mm}
+
+\begin{tabular}{|l|c|c|l|}
+\hline
+Lie group   & dimension    & $\g$        & elements of $\g$                                  \\
+\hline
+$\GL{n,\R}$ & $n^2$        & $\gl{n,\R}$ & $M(n,\R)$                                         \\
+$\SL{n,\R}$ & $n^2$        & $\sl{n,\R}$ & $\{A \xeof M(n,\R)\:         \trace{A} \eq 0\}$   \\
+$\OG{n}   $ & $n(n{-}1)/2$ & $\o {n}$    & $\{A \xeof M(n,\R)\:A \eq {-}A^T              \}$   \\
+$\SOG{n}  $ & $n(n{-}1)/2$ & $\so{n}$    & $\{A \xeof M(n,\R)\:A \eq {-}A^T, \trace{A} \eq 0\}$\\
+$\GL{n,\C}$ &              & $\gl{n,\C}$ & $M(n,\C)$                                         \\
+$\SL{n,\C}$ &              & $\sl{n,\C}$ & $\{A \xeof M(n,\C)\:\trace{A} \eq 0\}$            \\
+$\UG{n}   $ &              & $\u {n}$    & $\{A \xeof M(n,\C)\:A \eq {-}A^T            \}$     \\
+$\SUG{n}  $ &              & $\su{n}$    & $\{A \xeof M(n,\C)\:A \eq {-}A^T, \trace{A} \eq 0\}$\\
+\hline
+\end{tabular}\\
+
+\vspace{2mm}
+
+\subparagraph{}
+The Lie algebra of a Lie group is a useful tool
+to study and classify Lie groups.
+Restricting to \textit{local} isomorphy,
+on obtains the following
+
+\begin{theorem}
+Two Lie groups $\lieG,\lieH$ are locally isomorphic
+iff
+their Lie algebras $\g,\h$ are isomorphic to each another
+(in the sense of an isomorphism between Lie algebras).
+\end{theorem}
+
+\subparagraph{}
+Hence Lie algebras are roughly classifying Lie groups.
+The question occurs
+whether for a given Lie algebra $\g$ there is a Lie group $\lieG$
+such that
+$\g$ is the Lie algebra of $\lieG$.
+In the finite-dimensional case we obtain the following result:
+
+\begin{theorem}
+Let $\g$ be a \textit{finite}-dimensional Lie-Algebra and $[\g]$
+be the class of all Lie groups,
+whose Lie algebra is isomorphic to $\g$.
+Then there is (up to Lie isomorphy) exactly one Lie group $\lieG_0 \xeof [\g]$,
+which is \textit{simply connected}.
+\end{theorem}
+
+\subparagraph{}
+This Lie group is called the
+\textit{universal covering group} of the class $[\g]$ and
+from the topological point of view is the simplest representative of this class.
+
+\subparagraph{}
+Each other Lie group $\lieG \xeof [\g]$ is associated
+with the universal covering group $\lieG_0$ as follows:
+
+\begin{theorem}
+Let $\g$ be a finite-dimensional Lie-Algebra
+and $\lieG_0$ a simply connected Lie group with Lie-Algebra $\g$.
+Let $\lieG$ be a further connected Lie group with Lie-Algebra $\g$.
+Then there is a mostly countable, discrete Lie normal subgroup $\difN$
+of $\lieG_0$,
+which lies in the center of $\lieG_0$,
+such that $\lieG \= \lieG_0 / \difN$.
+\end{theorem}
+
+\subparagraph{}
+Hence one obtains all connected Lie groups with given Lie algebra $\g$
+by taking the quotient of the universal covering group $\lieG_0$
+by its Lie normal subgroups.
+
+\section{The Exponential Map}
+%------------------------------------------------------------------------------%
+The exponential map forms a connection between the Lie algebra
+of a Lie group and the Lie group itself:
+
+\begin{definition}
+Let $\lieG$ be a Lie group.
+A differentiable mapping $\Phi:\R \xto \lieG$ is called
+\textit{Einparameter-subgroup} of $\lieG$,
+if $\Phi(t+s) = \Phi(t) \circ \Phi(s)$ for all $s,t \xeof \R$.
+\end{definition}
+
+\subparagraph{}
+Especially if $\Phi$ is a global flow on $\lieG$.
+For a Lie group there is a interessanten connection between
+their one-parameter subgroups
+and the Lie-algebra of left-invariant vector fields.
+
+\begin{theorem}
+Let $\lieG$ be a Lie group, $\g$ the related Lie-Algebra
+and $V \xeof \g$ be a left-invariant vector field on $\lieG$.
+Then there is a unique one-parameter subgroup $\Phi_V$
+such that $V$ the velocity field of $\Phi_V$ is.
+On the other hand,
+there is to each one-parameter subgroup $\Phi$ exactly one
+left-invariant vector field $V$
+such that the orbits of $\Phi$ are the integral curves of $V$.
+\end{theorem}
+
+\subparagraph{}
+Left-invariant vector fields and one-parameter subgroups are
+in a one-to-one relationship to each other.
+This enables the definition of the \textit{exponential map}:
+
+\begin{definition}
+Let $V \xeof \g$ and $\exp:\g \xto \lieG$ be defined according to
+$\exp(V) := \Phi_V(1,e)$.
+Then $\exp: \g \xto \lieG$ is called the \textit{exponential map} of $\lieG$.
+\end{definition}
+
+\begin{example}
+For the classical groups $\GL{d,\R}$ the exponential map
+is given by the power series
+\[
+\exp(\matrA) \= \sum_{k=0}^{\infty} \frac{A^k}{k!},
+\]
+where $\matrA \xeof \sl{d,\R}$ is a $(d,d)$-matrix.
+\end{example}
+
+\section{Transformation Groups}
+%------------------------------------------------------------------------------%
+In many applications a Lie group is operating in a \textit{differentiable} way
+on a manifold.
+
+\begin{definition}
+Let $\difM$ be a differentiable manifold.
+Then a Lie group $\lieG$ is operating \textit{differentiable} on $\difM$,
+if the operation $T: \cross{\lieG}{\difM} \xto \difM$ is differentiable.
+The triple $(\lieG,T,\difM)$ is called a
+\textit{continuous transformation group}.
+\end{definition}
+
+\subparagraph{}
+Hence the transformation groups are the G-spaces $(\lieG,T,\difM)$,
+known from the theory of topological groups,
+for the differentiable case.
+
+\subparagraph{}
+Let $(\lieG,T,\difM)$ be a transformation group,
+where $\lieG$ is operating \textit{transitively} on $\difM$,
+that is,
+there is exactly one orbit of the operation $T$.
+Hence two points $p,q \xeof \difM$ own alsways
+conjugated isotropy groups
+such that
+the homogenneous spaces $\lieG/\lieG_p$ and $\lieG/\lieG_q$
+have identical elements.
+In this case there is a continuous bijection
+$\phi \: \lieG/\lieG_p \xto \difM$.
+
+\subparagraph{}
+If $\lieG$ is compact,
+then $\phi$ is even a homeomorphism.
+In this case the manifold is called a \textit{homogeneous space}.
+
+\paragraph{}
+Let us consider the following examples:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Each Lie group $\lieG$ is operating transitively on its own
+(for example by left translation).
+If $\lieG$ is compact, then $\lieG$ forms a homogeneous space.
+
+\item[2.]
+The Lie group $\SOG{d+1}$ of orthogonal $(d+1,d+1)$-matrices with
+$\det(A) \eq 1$ is operating transitively on $S^d$.
+Since the groups $\SOG{d}$ are compact,
+the spheres $S^d$ prove to be homogeneous spaces.
+\end{itemize}
+
+\subparagraph{}
+If the Lie group $(\R,+)$ is operating on a differentiable manifold $\difM$,
+then we are speaking of a \textit{global flow} on $\difM$.
+
+\begin{definition}
+Let $\difM$ be a differentiable manifold.
+A \textit{global flow} on $\difM$ is a differentiable operation
+of the group $(\R,+)$ on $\difM$,
+that is,
+a differentiable mapping
+$\Phi \: \cross{\R}{\difM} \xto \difM$ having the property
+$\Phi(0,p) \eq p$ and $\Phi(t+s,p) \eq \Phi(t,\Phi(s,p))$
+for all $p \xeof \difM$ and all $t,s \xeof \R$.
+\end{definition}
+
+\subparagraph{}
+Every orbit of the operation $\Phi$ is called a \textit{trajectory}.
+The trajectories on a manifold can be characterized as follows:
+
+\begin{theorem}
+Let $\difM$ be a differentiable manifold and
+$\Phi$ be a global flow on $\difM$.
+Then the trajektories of $\Phi$ are either injektiv and smooth,
+periodically smooth or punctate.
+\end{theorem}
+
+\begin{definition}
+Let $\difM$ be a differentiable manifold and $V$ be a vector field on $\difM$.
+Then each curve $\gamma:(a,b) \xto \difM$ mit
+$(d\gamma/dt)(t_0) = V(\gamma(t_0))$ for $t_0 \xeof (a,b)$
+is called a \textit{integral curve} of $V$ in the point $\gamma(t_0)$.
+\end{definition}
+
+\begin{example}
+The group $S^1$ operiert on $\R^2$.
+The trajectories of the operation are the point $(0,0)$
+and all circles around the center point.
+\end{example}
+
+\subparagraph{}
+A global flow $\Phi$ assignes to each point $p \xeof \difM$ of the orbit space
+a tangent vector according to
+$(\partial \Phi(t,p) / \partial t) \xeof T_p\,\difM$
+In this way a vector field is defined,
+called the \textit{velocity field} of the flow.
+Hence each trajectory is an integral curve of the velocity field of the flow.
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C] {\small{\textsc{V. Connections}}}
+%------------------------------------------------------------------------------%
+\part{Connections}                                                             %
+%------------------------------------------------------------------------------%
+
+\section{Lineare Connections}
+%------------------------------------------------------------------------------%
+Man fordert on a differentiable manifold the \"Anderung
+eines vector field in direction of a tangent vectors \textit{axiomatisch}
+with Hilfe of a linear connection,
+that is,
+a mapping $\nabla$,
+die each vector $\vecY$ im tangential space of a point a \"Anderung
+in a beliebige direction $\vecX$ zuweist.
+Diese mapping soll sowohl for the Argument $\vecY$ as auch for den
+direction vector $\vecX$ linear sein.
+
+\begin{definition}
+Let $\difM$ be a differentiable manifold
+and $T\,\difM$ the tangent bundle on $\difM$.
+A \textit{linear connection} on $\difM$ is a mapping
+$\nabla: \cross{T\,\difM}{T\,\difM} \xto T\,\difM$
+with the following properties:
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+For each point $p \xeof \difM$ is $\nabla$ a mapping
+$\cross{T_p \difM}{T_p \difM} \xto T_p \difM$, $\nabla_X Y \xeof T_p \difM$
+for $X,Y \xeof T_p \difM$,
+\item[2.]
+$\nabla$ is linear {\wrt} the vector $Y$,
+\[
+\nabla_X (Y_1 + Y_2) = \nabla_X Y_1 + \nabla_X Y_2
+\]
+\item[3.]
+$\nabla_X$ is linear {wrt} the direction vector $X$,
+\[
+\nabla_{X_1 + X_2} Y = \nabla_{X_1} Y + \nabla_{X_2} Y,
+\]
+\[
+\nabla_{fX} Y = f \cdot \nabla_X Y,
+\]
+\item[1.]
+for a scalar field $f$ and a vector field $\vecY$ holds the product rule
+\[
+\nabla_X (f \cdot \vecY) = f \cdot \nabla_X \vecY + X(f) \cdot \vecY
+\]
+\end{itemize}
+\end{definition}
+
+\subparagraph{}
+If there is linear connection on $\difM$,
+the the pair $(\difM,\nabla)$ is called a \textit{linear connected manifold}.
+
+\subparagraph{}
+The \textit{\"Ubertragungs forms} and \textit{\"Ubertragungskoeffizienten}
+eines linear connection $\nabla$ im point $p \xeof \difM$ erkl\"art man
+durch Anwendung of $\nabla$ on the (not necessarily natural)
+base vectors $\{e_i\}$,
+\[
+\nabla_X(e_i) =: \gamma^j_i(X) e_j \quad \mbox{rsp. }
+\nabla_{e_k} (e_i) =: \Gamma^j_{ik} e_j.
+\]
+
+\begin{example}
+Im folgenden wird the parallel transport on a Fl\"ache im $\R^3$
+untersucht.
+Let for a open set $\openO \xsubset \R^2$ a mapping be defined by
+\[
+f\: \openO \xto \R, \quad (x,y) \xeof O \mapsto z = f(x,y).
+\]
+The points $\{(x,y,f(x,y)) \: (x,y) \xeof \openO\}$ are the elements of
+two-dimensional manifold $F \xsubset \R^3$ defined by $f$.
+
+\subparagraph{}
+Verschiebt man a tangent vector $v \xeof T_p F$ in a benachbarten
+point $q \xeof F$, so is $v$ im allgemeinen kein tangent vector mehr in $q$,
+since the changes of the base vectors have Anteile in the normal direction
+enthalten.
+Man kann jedoch $v$ on den tangential space of $q$ projizieren and das
+Projektionsergebnis as the \textit{parallel transport} of the Vektors $v$
+vom point $p$ in den point $q$ auffassen.\\
+Es gen\"ugt obviously, these parallel transport nur for base vectors
+$\partial_i$ in $T_p F$ to betrachten.
+For linear combinations of the base vectors the parallel transport
+is the linear combination of the parallel verschobenen base vectors.
+
+\subparagraph{}
+In a point $p \xeof F$ is a nat\"urliche Basis of the tangential space durch
+die vectors
+\[
+\partial_1 := (1,0,f_x)^T, \qquad \partial_2 := (1,0,f_y)^T
+\]
+gegeben, and for den normal vector in $p$ erh\"alt man
+\[
+n = \partial_1 \times \partial_2 = \frac {1}{\omega^2} (-f_x, -f_y, 1)^T,
+\qquad
+\omega^2 = 1 + f_x^2 + f_y^2.
+\]
+Let $e_z := (0,0,1)^T$, then holds the Identit\"at
+\[
+e_z = n + \frac{f_x}{\omega^2} \partial_1 + \frac{f_y}{\omega^2} \partial_2.
+\]
+Let $t = (t_1,t_2)^T \xeof \R^2$ be a direction,
+then erh\"alt man for the directional derivatives of $\partial_1$ and $\partial_2$ {wrt} $t$
+\[
+\frac {d \partial_1}{dt} = f_{xx} \, t_1 \cdot e_z + f_{xy} \, t_2 \cdot e_z,
+\]
+\[
+\frac {d \partial_2}{dt} = f_{yx} \, t_1 \cdot e_z + f_{yy} \, t_2 \cdot e_z.
+\]
+Durch Einsetzen of $e_z$ in the Gleichungen for $d \partial_1/dt$ and
+$d \partial_2/dt$ ergeben sich schlie\"sslich the directional derivatives von
+$\partial_1, \partial_2$ as linear combinations of $\partial_1, \partial_2$
+and $d$.
+
+\subparagraph{}
+In the projection of the directional derivative onto the tangential space
+vernachl\"assigt man the Anteile in direction of the normal vector $n$,
+and hence the result of the projection is
+\[
+\frac {d \partial_1}{dt} =
+\gamma^1_1(t) \, \partial_1 + \gamma^1_2(t) \, \partial_2, \qquad
+\frac {d \partial_2}{dt} =
+\gamma^2_1(t) \, \partial_1 + \gamma^2_2(t) \, \partial_2,
+\]
+where the coefficients $\gamma^i_j$ satisfy the following equations:
+\[
+\gamma^1_1(t) = \frac{1}{\omega^2}
+(f_x \cdot f_{xx}, f_x \cdot f_{xy})^T (t_1,t_2),
+\]
+\[
+\gamma^1_2(t) = \frac{1}{\omega^2}
+(f_y \cdot f_{xx}, f_y \cdot f_{xy})^T (t_1,t_2),
+\]
+\[
+\gamma^2_1(t) = \frac{1}{\omega^2}
+(f_x \cdot f_{yx}, f_x \cdot f_{yy})^T (t_1,t_2),
+\]
+\[
+\gamma^2_2(t) = \frac{1}{\omega^2}
+(f_y \cdot f_{yx}, f_y \cdot f_{yy})^T (t_1,t_2).
+\]
+The so-called \textit{\"Ubertragungs forms} $\gamma^i_j$ legen somit fest,
+wie sich the base vectors beim infinitesimalen \"Ubergang to a neighbourhood
+point \"andern.
+Obviously they are linear {\wrt} the directional vector $t$ and hence
+are linear forms over $\R^2$.
+
+\subparagraph{}
+The coefficients $\Gamma^i_{jk}$ of these linear forms are functions of
+the first and second partial derivatives of $f$ and are called the
+\textit{\"Ubertragungskoeffizienten} {\wrt} the natural base $(dx_1, dx_2)$.
+
+\subparagraph{}
+In this example is the comparison of two tangent vectors in benachbarten
+tangential spaces geometrically motivated and to the end
+given by the partial derivatives of the function $f$.
+\end{example}
+
+\section{Covariant Derivatives}
+%------------------------------------------------------------------------------%
+Mit Hilfe of a linear connection kann a Differentiatonsbegriff f\"ur
+vector fields erkl\"art werden.
+
+\begin{definition}
+Let $(M,\nabla)$ be a linear zusammenh\"angende manifold
+and $\vecX,\vecY$ two zwei vector fields on $\difM$.
+Then is called the vector field $\nabla_{\vecX} \vecY$
+the \textit{covariant derivative}
+of the vector field $\vecY$ {\wrt} the direction $\vecX$.
+\end{definition}
+
+\subparagraph{}
+Since $\nabla_X Y$ in beiden Argumenten linear is,
+stellt $\nabla_X Y$ a (1,1)-tensor field dar.
+Let a nat\"urliche Basis in a neighbourhood of a point $p \xeof \difM$ gegeben,
+then holds with $Y = Y^i \partial_i$ and $X = X^i \partial_i$ for the covariant
+derivative aufgrund the computation rules {\wrt} linear connections
+\[
+\nabla_X Y =
+(\frac{\partial Y^i}{\partial x_j} + \Gamma^i_{jk} \, Y^k) \, X^j \,
+\partial_i \otimes dx^j.
+\]
+
+\subparagraph{}
+For a vorgegebenes vector field $X$ kann the covariant derivative auf
+die Gesamtheit of all tensor fields ausgedehnt werden.
+For a scalar field $f$ we define in allen points $p \xeof \difM$
+\[
+(\nabla_X f)(p) := (X(f))(p) \xeof \R.
+\]
+
+\subparagraph{}
+If two ($r$,$s$)-tensor fields $T_1, T_2$ are given,
+then one requires the linearity of the covariant derivative
+for the sum of the tensor fields,
+\[
+\nabla_X (\lambda_1 T_1 \, + \, \lambda_2 T_2) =
+\lambda_1 \nabla_X T_1 \, + \, \lambda_2 \nabla_X T_2,
+\]
+the validness of the following product rule for the product $T_1 \otimes T_2$
+\[
+ \nabla_X (T_1 \otimes T_2) =
+(\nabla_X T_1 \otimes T_2) + (T_1 \otimes \nabla_X T_2),
+\]
+the Vertauschbarkeit of the covariant derivative with the Spurbildung,
+\[
+\nabla_X \operatorname{Tr}(T) = \operatorname{Tr}(\nabla_X T),
+\]
+and the fact
+that the covariant derivative
+of a $(r,s)$-tensor field provides a tensor field of the type $(r,s+1)$.
+
+\begin{theorem}
+Let $(M,\nabla)$ be a linear zusammenh\"angende manifold.
+Then l\"a\"sst sich the covariant derivative $\nabla$ for vector fields unter
+Ber\"ucksichtigung der obigen Forderungen on genau a Weise to einer
+covariant derivative for tensor fields erweitern.
+\end{theorem}
+
+Existenz.
+The mapping $\nabla: \cross{T\,\difM}{T^r_s \difM} \xto T^r_s \difM$ mit
+\[
+\nabla(u,T)(\alpha_1,\ldots,v_n) := (\nabla_u T)(\alpha_1,\ldots,v_n) =
+\]
+\[
+\nabla_u T(\alpha_1,\ldots, v_n) -
+T(\nabla_u \alpha_1,\ldots,v_n) - \, \ldots \, -
+T(\alpha_1,\ldots, \nabla_u v_n).
+\]
+erf\"ullt all oben genannten Forderungen, stellt also a Erweiterung der
+covariant derivative on beliebige tensor fields dar.
+
+\begin{example}
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+\underline{(r,s) = (0,1)}.
+The covariant derivative a linear form $\omega$ on $\difM$
+ist the linear form
+\[
+(\nabla_X \omega)(v) = \nabla_X (\omega(v)) -  \omega(\nabla_X v).
+\]
+Let a nat\"urliche Basis gegeben mit
+$X = X^i \partial_i$, $v = v^i \partial_i$ and $\omega = \omega_i dx^i$,
+then holds for the coordinates of the covariant derivative of $\omega$
+\[
+(\nabla_X \omega)(v) =
+(\frac {\partial \omega_i}{\partial x_k} - \Gamma^j_{ik} \omega_j) X^k dx^i
+\]
+such that
+\[
+\nabla_X( \omega_i dx^i ) =
+(\frac {\partial \omega_i}{\partial x_k} - \Gamma^j_{ik} \omega_j) X^k \, dx^i.
+\]
+\item[2.]
+\underline{(r,s) = (0,2)}.
+The covariant derivative of a two-fold covariant tensor field $T$ ist
+\[
+(\nabla_X T)(v,w) =
+\nabla_X T(v,w) - T(\nabla_X v,w) - T(v, \nabla_X w).
+\]
+Ist $T = t_{ij} dx^i \otimes dx^j$ the representation {wrt} a chart,
+so holds
+\[
+\nabla_X T = ( \frac { \partial T_{ij}}{\partial X_k} -
+\Gamma^l_{ik} T_{lj} - \Gamma^l_{jk} T_{il} ) X^k \, dx^i \otimes dx^j.
+\]
+\item[3.]
+\underline{(r,s) = (1,1)}.
+The covariant derivative of a gemischten tensor field $T$ zweiter Stufe ist
+\[
+(\nabla_X T)(\alpha,v) =
+\nabla_X T(\alpha,v) - T(\nabla_X \alpha,v) - T(\alpha, \nabla_X v).
+\]
+Ist $T = t^i_j \partial_i \otimes dx^j$ the representation {wrt} a chart,
+so holds
+\[
+\nabla_X T = ( \frac { \partial T^i_j}{\partial x_k} +
+\Gamma^i_{lk} T^l_j - \Gamma^l_{jk} T^i_l ) X^k \, \partial_i \otimes dx^j.
+\]
+\end{itemize}
+\end{example}
+
+\section{Vector-Valued Differential Forms}
+%------------------------------------------------------------------------------%
+The covariant derivative is a Differentiationsproze\"ss,
+der to a directional vector $X$ a tensor field $Y$ im point $p$
+einen further tensor zuweist.
+L\"a\"sst man den directional vector $X$ im tangential space $T_p \difM$ of a point
+variieren,
+so erscheint the covariant derivative as linear form on $T_p \difM$
+with a \textit{tensor-valued resultat}.
+Especially for vector fields erscheint the covariant derivative
+as a linear form with vector-valued result.
+
+\begin{definition}
+A \textit{vector-valued differential form of degree one}
+is a linear mapping
+$\alpha: T\,\difM \xto T\,\difM$ with $\alpha(v) \xeof T_p \difM$
+for $v \xeof T_p \difM$.
+\end{definition}
+
+\subparagraph{}
+If a vector field $Y$ is given,
+then the covariant derivative generates a vector-valued differential form
+of first degree $\operatorname{D}Y$,
+defined by
+\[
+\operatorname{D}Y(v) \eqdef \nabla_v Y \qquad \mbox{ for } v \xeof T_p \difM.
+\]
+It is called the \textit{absolute differential} of the vector field $Y$.
+
+\subparagraph{}
+The absolute differential is damit zun\"achst for vector fields on a
+linear connected manifold $\difM$ erkl\"art.
+For a scalar field $f$ definiert man the absolute differential
+$\operatorname{D}f$ as the already bekannte Differential
+$\operatorname{d}f$ of $f$: $\operatorname{D}f := \operatorname{d}f$.
+
+\subparagraph{}
+Um the concept of absolute differential on tensor fields auszudehnen,
+erkl\"art man a \textit{tensor-valued differential form of first degree}
+as follows:
+
+\begin{definition}
+A \textit{tensor-valued differential form of first degree} is a linear
+mapping
+$\alpha: T\,\difM \xto (T^r_s)\,\difM$ with $\alpha(v) \xeof (T^r_s)_p \difM$
+for $v \xeof T_p \difM$.
+\end{definition}
+
+\subparagraph{}
+If a tensor field $T$ on $\difM$ is given,
+then the tensor-valued differential form of degree $1$ defined by
+\[
+\operatorname{D}T(v) := \nabla_v T \qquad \mbox{ for } v \xeof T_p \difM
+\]
+is called the \textit{absolute differential} of the tensor field $T$.
+
+\subparagraph{}
+The process of taking the exterior derivative can be extended to
+\textit{vector-valued differential forms of degree $d$}.
+The covariant derivative for a vector field hat sich already als
+vector-valued differential form of first degree erwiesen,
+a notation,
+der on h\"oherstufige differential forms erweitert werden kann.
+
+\begin{definition}
+Let $\difM$ be a $d$-dimensional differentiable manifold
+and $1 \leq s \leq n$.
+A \textit{vector-valued differential form of degree $s$} is a
+multilinear and anti-symmetric mapping
+$\vec{\alpha}: T\,\difM^s \xto T\,\difM$ mit
+\[
+\vec{\alpha}(v_1,\ldots,v_n) \xeof T_p \difM \quad
+\mbox{for } v_1,\ldots,v_s \xeof T_p \difM.
+\]
+\end{definition}
+
+\begin{remark}
+Als Erg\"anzung to theser definition erkl\"art man for $s=0$ eine
+vector-valued differerential form of \textit{degree zero} as ein
+gew\"ohnliche vector field $X:\difM \xto T\,\difM$.
+\end{remark}
+
+\subparagraph{}
+If a natural base is given,
+then the target vectors of a vector-valued differential form
+of degree $s$ can be decomposed {\wrt} the base vectors $\partial_i$,
+\[
+\vec{\alpha}(v_1,\ldots,v_s) = \alpha^i(v_1,\ldots,v_s) \, \partial_i.
+\]
+Hierbei are the real-valued and in all arguments linear functions
+$\alpha^i$ obviously ordinary $s$-forms.\\
+This representation can be generalized,
+indem man the natural base vectors $\partial_i$ by $d$ vector fields $X_i$ ersetzt,
+which in each point $p \xeof \difM$ are linearly independent.
+
+\subparagraph{}
+The sum of two vector-valued $s$-forms $\vec{\alpha}$ and $\vec{\beta}$
+and the multiplication a vector-valued $s$-form with a number
+is defined according to
+\[
+(\vec{\alpha} + \vec{\beta}) (v_1,\ldots,v_s) :=
+\vec{\alpha}(v_1,\ldots,v_s) + \vec{\beta}(v_1,\ldots,v_s),
+\]
+\[
+(\lambda \cdot \vec{\alpha}) (v_1,\ldots,v_s) :=
+\lambda \cdot \vec{\alpha}(v_1,\ldots,v_s),
+\]
+that is,
+the set of vector-valued differential forms with degree $s$ form
+a $\R$-vector space.
+Ferner definiert man the \textit{outer product} a real-valued
+differential form $\alpha$ of degree $s_1$
+with a vector-valued differential form $\vec{\beta}$
+of degree $s_2$
+as vector-valued differential form $\alpha \wedge \vec{\beta}$
+of degree $(s_1 + s_2)$,
+\[
+\alpha \wedge \vec{\beta} (v_1,\ldots,v_{s_1+s_2}) :=
+\]
+\[
+\frac{1}{p! q!} \sum_{\pi} sign(\pi) \,
+\alpha(v_{\pi(1)},\ldots,v_{\pi(s_1)} \cdot
+\vec{\beta}(v_{\pi(s_1+1)},\ldots,v_{\pi(s_1+s_2)}.
+\]
+If $\beta^i$ are the coordinates of the $s$-form $\vec{\beta}$,
+then $\alpha \wedge \beta^i$ are the coordinates of the products
+$\alpha \wedge \vec{\beta}$,
+\[
+ \alpha \wedge \vec{\beta} = \alpha \wedge (\beta^i \partial_i) =
+(\alpha \wedge \beta^i) \partial_i.
+\]
+
+\section{Exterior Derivatives of Vector-Valued Forms}
+%------------------------------------------------------------------------------%
+Um nun the exterior derivative $d$ of real-valued $s$-forms
+auf a exterior derivative $d'$ for vector-valued $s$-forms
+zu erweitern, fordert man for $d'$
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Linearity {wrt} the vector-valued differential forms,
+\[
+d'(\vec{\alpha_1} + \vec{\alpha_2}) =
+d'(\vec{\alpha_1}) + d'(\vec{\alpha_2})
+\]
+\item[2.]
+the validness of the product rule
+\[
+d'(\alpha \wedge \vec{\beta}) = d \alpha \wedge \vec{\beta} +
+(-1)^s \alpha \wedge d'(\vec{\beta}),
+\]
+for the product of a vector-valued differential of degree $s$
+with a real-valued differential form.
+\item[3.]
+$d'(\alpha) = d\alpha$ for real-valued differential forms $\alpha$.
+\end{itemize}
+
+\subparagraph{}
+This extension is on differentiable manifolds nicht ohne
+weiteres m\"oglich.
+But if a manifold is linear connected,
+then the extension of the exterior derivative
+on vector-valued differential forms can be performed.
+
+\begin{theorem}
+Let $(M,\nabla$) be a linear connected manifold.
+Then kann the exterior derivative $d$ for real-valued differential forms
+auf genau a Weise to a exterior derivative $d_{\nabla}$
+for vector-valued differential forms erweitert werden,
+die den obigen Forderungen gen\"ugt.
+\end{theorem}
+
+\subparagraph{}
+The existence of such a mapping $d_{\nabla}$ for a
+vector-valued differential form $\vec{\alpha}$ is ensured 
+by the Vorschrift
+\[
+d_{\nabla} \vec{\alpha} :=
+(d \alpha_i + (-1)^n \alpha^j \wedge \gamma_j^i) \, \partial_i.
+\]
+Here the magnitudes $\gamma_j^i$ are denoted 
+the \"Ubertragungs forms of the linear connection.
+
+\subparagraph{}
+Thus the mapping $d_{\nabla}$ depends on the linear connection $\nabla$
+and is uniquely defined by this.
+It is the generalization of the exterior derivative of real-valued $s$-forms
+to vector-valued differential forms.
+
+\subparagraph{}
+The rule {\wrt} vanishing of the second exterior differentials
+l\"a\"sst sich for vector-valued differential forms on manifolds mit
+linearem connection nicht aufrechterhalten.
+Es wird sich zeigen,
+dass denjenigen linear connected manifolds,
+auf denen the zweite exterior differential of a
+vector-valued differential form ausnahmslos verschwindet,
+a special state einzur\"aumen ist.
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C] {\small{\textsc{VI. Riemannian Spaces}}}
+%------------------------------------------------------------------------------%
+\part{Riemannian Spaces}                                                       %
+%------------------------------------------------------------------------------%
+
+\section{Riemannian Metrics}
+%------------------------------------------------------------------------------%
+Riemannian manifolds distinguish by the fact
+that a symmetric, regular and two-fold covariant
+tensor field is defined,
+called the \textit{Riemannian metric} rsp.
+the \textit{metric fundamental tensor}.
+
+\begin{definition}
+Let $\difM$ be a differentiable manifold.
+A \textit{Riemannian metric} on $\difM$ is
+a two-fold covariant tensor field $g$ on $\difM$ having the properties
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$g(v,w) = g(w,v)$ for all $v,w \xeof T_p \difM , \, p \xeof \difM$ (symmetry)
+\item[2.]
+$g(v,v) > 0$ for all $v \neq 0$ (positive definiteness)
+\end{itemize}
+
+Falls on $\difM$ a Riemannian metric existiert,
+so is called the Paar $(\difM,g)$ a \textit{Riemannian manifold}.
+\end{definition}
+
+\subparagraph{}
+A Riemannian metric defines in each point $p \xeof \difM$
+an inner product in the related tangential space $T_p \difM $.
+
+\begin{example}
+Let $\difM$ be a differentiable manifold and
+$\iota:\difM \hookrightarrow \R^d$ be an embedding.
+Then is each tangential space $T_p \difM$ a linear subspace von
+$T_{\iota(p)} \R^d \cong \R^d$,
+and the Einschr\"ankung of the kanonischen Skalarprodukts of the space $\Rd$
+auf $T_p \difM$ for each $p \xeof \difM$
+induziert a Riemannian metric on $\difM$.
+\end{example}
+
+\subparagraph{}
+For differentiable manifolds special decompositions
+of the unit are of interest.
+
+\begin{definition}
+Let $\difM$ be a differentiable manifold.
+A decomposition of the unit on $\difM$ is called \textit{differentiable},
+if sie an open covering of $\difM$ by charts untergeordnet ist
+and the functions $f_i:\difM \xto \R$ of the decomposition are differentiable,
+that is,
+they are scalar fields on $\difM$.
+\end{definition}
+
+\subparagraph{}
+Remember that each differentiable manifold is locally compact
+and also para-compact.
+Hence there is a Zerlegung der Eins on $\difM$,
+which can even be chosen 'differentiable':
+
+\begin{theorem}
+On each differentiable manifold there is a differentiable decomposition
+of the unit.
+\end{theorem}
+
+\subparagraph{}
+This theorem is decisional for the existence of a Riemannian metric
+on manifolds.
+The topological properties, the in der definition a manifold
+verankert are (Hausdorff-property and second countability axiom),
+sind notwendige Voraussetzungen for the existence of differentiable
+Zerlegungen der Eins.
+
+\paragraph{}
+There is the question,
+whether there is a Riemannian metric on a differentiable manifold.
+Hierbei spielt the existence of a differentiable Zerlegung der Eins
+a decicional role.
+Let $\{f_{\alpha}\}_{\alpha \xeof \indI}$ be a solche Zerlegung
+and $\Off_{\alpha}$ the domain
+of a chart $(\Off_{\alpha},\kappa_{\alpha})$ with
+$\operatorname{supp} f_{\alpha} \xsubset \Off_{\alpha}$.
+Man definiert for $p \xeof \operatorname{supp} f_{\alpha}$ a Teil-metric
+gem\"a\"ss
+\[
+\bracket{u,v}_{\alpha} :=
+\bracket{\operatorname{d}f_{\alpha}(u),\operatorname{d}f_{\alpha}(v)},
+\]
+where $u,v \xeof T_p \difM$ and
+$\operatorname{d}f_{\alpha}(u),\operatorname{d}f_{\alpha}(v) \xeof \R^d$.
+Summiert man the Teil-metricen auf,
+\[
+g(u,v) := \sum_{\alpha \xeof \indI} \bracket{u,v}_{\alpha},
+\quad u,v \xeof T_p \difM
+\]
+so erh\"alt man on these Weise a metric on $\difM$.
+Hieraus folgt
+
+\begin{theorem}
+Each differentiable manifold   owns a Riemannian metric.
+\end{theorem}
+
+\section{Riemannian Connections}
+%------------------------------------------------------------------------------%
+If on a Riemannian manifold a connection is given,
+then the question arises,
+whether the parallel transport is consistent
+with the measurement of lengths and angles in tangential spaces,
+as lengths and angles under parallel transport of vectors along a curve
+are not changed.
+To emphasize this fact,
+a linear connection is denoted \textit{compatible} with the metric tensor,
+if the lengths of vectors and the angles between vectors are unchanged
+under parallel transport.
+
+\begin{definition}
+Let $(\difM,\nabla)$ be a linear connected manifold.
+A metric $g$ is called compatible with the connection $\nabla$,
+if for each differentiable curve $\gamma$
+and for all parallel vector fields $X,Y$ we have
+$\bracket{X,Y}(p) \eq \mbox{constant}$
+for all points $p$ on $\gamma$.
+\end{definition}
+
+\subparagraph{}
+This means that the isomporphism given by the parallel transport
+\[
+\tau_c \: T_p \difM \to T_q \difM
+\]
+between the tangential spaces of two points $p$ and $q$
+connected by a curve $\gamma$ is even an \textit{isometry}.
+The following theorem provides a necessary and sufficient criterion for the
+compatibility of a linear connection with a Riemannian metric.
+
+\begin{theorem}
+Let $\difM$ be a Riemannian manifold.
+A connection $\nabla$ is compatible with der metric of $\difM$
+\iff for three arbitrary vector fields $X,Y,Z$:
+\[
+Z(g(X,Y)) \= g(\nabla_Z X,Y) + g(X,\nabla_Z Y).
+\]
+\end{theorem}
+
+\paragraph{}
+The following assertion is denoted the
+\textit{main theorem of Riemannian geometry}:
+
+\begin{theorem}
+On a Riemannian manifold there is exactly one torsion-free
+linear connection being compatible with the metric.
+\end{theorem}
+
+\begin{definition}
+Let $\difM$ be a Riemannian manifold.
+The uniquely defined linear connection $\nabla$ on $\difM$ is called
+the \textit{Riemannian connection} rsp. \textit{Levi-Civita connection}.
+\end{definition}
+
+\subparagraph{}
+The \"Ubertragungskoeffizienten $\Gamma^i_{jk}$ of the Riemannian connection
+are uniquely defined by the metric tensor.
+If $g_{ij}$ are the coordinates of the metric tensor $g$
+{\wrt} a chart $(\Off,\kappa)$,
+then the \"Uber\-tragungs\-koeffizien\-ten are given by
+\[
+\Gamma^i_{jk} \= \frac {1}{2} \, g^{il} \,
+(\frac {\partial g_{lj}}{\partial x_k} +
+ \frac {\partial g_{lk}}{\partial x_j} -
+ \frac {\partial g_{jk}}{\partial x_l} ),
+\]
+where the magnitudes $g^{il}$ are the coordinates
+of the two-fold contravariant tensor $g'$ associated with $g$.
+
+\begin{definition}
+The \"Ubertragungskoeffizienten $\Gamma^i_{jk}$ of a Riemannian connection
+are called the \textit{Chri\-stof\-fel-Symbole 2.Art}.
+The \textit{Christoffel-Symbole 1.Art} are definiert durch
+\[
+\Gamma_{ijk} \eqdef (\partial_i, \nabla_{\partial_k} \partial_j),
+\]
+\end{definition}
+
+\subparagraph{}
+The Christoffel-Symbole 1.Art are with den Christoffel-Symbolen 2.Art gem\"a\"ss
+\[
+\Gamma_{ijk} \= g_{il} \, \Gamma^l_{jk}
+\]
+verkn\"upft.
+Aufgrund der Torsionsfreiheit of a Riemannian connection haben the
+zugeh\"origen Christoffel-Symbole the following symmetry-properties:
+\[
+\Gamma_{ijk}  \= \Gamma_{ikj} \quad \mbox{ rsp. }
+\Gamma^i_{jk} \= \Gamma^i_{kj}.
+\]
+
+\subparagraph{}
+Riemannian connections can be characterized as follows:
+
+\begin{theorem}
+Let $\difM$ be a Riemannian manifold
+and $\nabla$ der Riemannian connection on $\difM$.
+Then metric tensor $g$ is \textit{constant},
+that is,
+for each vector field $\vecX$ on $\difM$ we have $\nabla_{\vecX} g \eq 0$.
+\end{theorem}
+
+\paragraph{}
+Examples of Riemannian manifolds are:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$\R^d$ is a Riemannian manifold.
+\item[2.]
+Each surface $(x,y,f(x,y))$ with $(x,y) \xeof 0 \xsubset \R^2$
+is a Riemannian manifold.
+\item[3.]
+The product manifold of two Riemannian manifolds
+is also a Riemannian manifold.
+\item[4.]
+Open subsets of Riemannian manifolds are Riemannian manifolds again.
+\end{itemize}
+
+\section{Parallel Vector Fields and Geodaesic Curves}
+%------------------------------------------------------------------------------%
+If a manifold is linear connected,
+then concepts like
+parallelity of vector fields, parallelity of vector fields
+along curves and geodetic curves can be introduced.
+
+\begin{definition}
+Two vector fields $X,Y$ are called \textit{parallel}, if $\nabla_X Y \eq 0$.
+A vector field $Y$ is called \textit{parallel} or \textit{constant} on $\difM$,
+if $\nabla_X Y \eq 0$ for each vector field $X$.
+\end{definition}
+
+\subparagraph{}
+For constant vector fields the change of their coordinate
+in each direction and in each point is equal zero.
+If $\kappa$ is a global chart for $\difM$,
+then the coordinates functions of a constant vector field $Y$
+are the solutions of the system of partial differential equations
+\[
+\frac {\partial Y^i}{\partial x_k} + \Gamma^i_{jk} Y^j \= 0,
+\qquad (i,k=1,\ldots,n),
+\]
+
+\subparagraph{}
+In generalization of this concept a \textit{constant tensor field}
+is defined as follows:
+
+\begin{definition}
+A tensor field $T$ is called \textit{constant} on $\difM$,
+if $\nabla_X T \eq 0$ for each vector field $X$.
+\end{definition}
+
+\begin{definition}
+A \textit{regular curve} on $\difM$ is a injektive differentiable
+mapping $\gamma:(a,b) \xsubset \R \xto \difM$.
+A vector field $Y$ is called \textit{parallel along a regular curve} $\gamma$,
+if $\nabla_{\gamma^{\cdot}} Y \eq 0$ for each point $\gamma(t)$ der curve.
+\end{definition}
+
+\subparagraph{}
+Ist a vector field $Y$ parallel along a curve,
+then in each point
+\[
+\frac {dY^i(t)}{dt} + \Gamma^i_{jk} Y^j(t) \frac {dx^k(t)}{dt} \= 0,
+\qquad (i=1,\ldots,n)
+\]
+holds.
+Here $Y^i(t) := Y^i \circ c(t)$ is the $i$-th coordinate of the function
+$Y \circ c:[a,b] \xto T_p(M)$ {wrt} a natural base and
+$x_i(t)$ the $i$-te coordinate of the function $(\kappa \circ c)(t)$.
+The parallel transport of a vector along a curve h\"angt im
+allgemeinen vom Verlauf der curve ab,
+that is,
+sie f\"uhrt to different results for two curves,
+die on verschiedene Weise dieselben points verbinden.
+The Aufgabe,
+umgekehrt a l\"angs $c$ paralleles vector field zu konstruieren,
+indem a vector $v(p_0)$ l\"angs der durch den point
+$p_0$ hindurchgehenden curve $c$ parallel verschoben wird,
+f\"uhrt on daselbe system of differential equations of first order,
+das unter Vorgabe der Anfangswerte and the coordinates
+of the starting vector $v(p_0)$ in a neighbourhood of $p$ uniquely solvable is.
+
+\paragraph{}
+A vector field besonderer Art l\"angs a curve $\gamma$ is dasjenige
+that points in each point in direction of the tangent vector of the curve.
+
+\begin{definition}
+A curve $\gamma$ is called \textit{geodetic},
+if there is a scalar-valued function $\lambda:[a,b] \xto \R$ with
+\[
+\nabla_{\gamma^{\cdot}} \gamma^{\cdot} = \lambda \gamma^{\cdot}.
+\]
+\end{definition}
+
+\subparagraph{}
+An equivalent formulation hierfor ist,
+dass the curve $\gamma$ der Gleichung $\nabla_{\gamma'} \gamma' = 0$ gen\"ugt,
+if $\gamma$ nach der Bogenl\"ange parametrisiert ist.
+
+\subparagraph{}
+Ist a chart $(U,\kappa)$ in a neighbourhood of a point gegeben,
+so f\"uhrt the Ermittlung a geodetic curve to the ordinary
+system of differential equations of second order
+\[
+\ddot{x}^i + \Gamma^i_{jk} \, \dot{x}^i \dot{x}^k = 0, \qquad (i=1,\ldots,n),
+\]
+where the functions $x_i(t)$ are the coordinates of $(\kappa \circ c)(t)$.
+Durch each point $p \xeof \difM$ geht genau a Geod\"atische with vorgegebenem
+tangent vector in $p$.
+
+\begin{definition}
+A Riemannian manifold $\difM$ is called (geodetic) \textit{complete},
+if to each point $p \xeof \difM$ each geodetic curve durch $p$ for all
+parameters  $t \xeof \R$ definiert ist.
+\end{definition}
+
+\subparagraph{}
+Let $p,q$ be two points of a connected space $\difM$,
+so there is a st\"uckweise differentiable Weg $c$ of $p$ nach $q$.
+Summiert man the L\"angen der Teilwege auf,
+so erh\"alt man the concept of distance between two points.
+
+\begin{definition}
+The Abstand $d(p,q)$ zweier points $p,q \xeof \difM$ is the Infimum der L\"angen
+aller st\"uckweise differentiable curves between $p$ and $q$.
+\end{definition}
+
+\subparagraph{}
+Mit theser Abstandsbegriff is $(M,d)$ a metric space.
+The dadurch induzierte topology stimmt with der topology of $\difM$
+as a differentiable manifold \"uberein.
+
+\paragraph{}
+The following Hopf-Rinow theorem macht the concept of completeness of a space interessant.
+
+\begin{theorem}
+Let $\difM$ be a connected Riemannian manifold and $p \xeof \difM$.
+Then the following assertions are equivalent:
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$\exp_p$ is defined on $T_p \difM$.
+\item[2.]
+Closed and begrenzte subsets of $\difM$ are compact.
+\item[3.]
+$\difM$ is complete as a metric space.
+\item[4.]
+$\difM$ is geodetically complete.
+\end{itemize}
+\end{theorem}
+
+\subparagraph{}
+The validness of one of these statements imply
+that to each two points $p,q \xeof \difM$ there is a geodetic curve
+$\gamma$ with $L(\gamma) \eq d(p,q)$.
+Moreover,
+each compact Riemannian manifold is complete.
+
+\section{Co-Derivatives and Harmonic Forms}
+%------------------------------------------------------------------------------%
+Let $\difM$ be a $d$-dimensional Riemannian manifold and for some
+$k < n$
+$\Omega^{n-k} \difM$ be the space of differential forms of degree $(n-k)$.
+For each point $p \xeof \difM$ erh\"alt man den Hodge-operator as a mapping
+between den vector spaces der anti-symmetric, purely covariant tensors.
+Dies erlaubt es, den Hodge-operator on differential forms von
+differentiable manifolds auszudehnen,
+indem man punktweise for $p \xeof \difM$ definiert:
+\[
+\*: \Omega^s \difM \xto \Omega^{n-s} \difM, \quad
+\*(\omega)(p) := \omega^\*(p).
+\]
+
+Mit Hilfe der mapping $\*$ wird aus der exterior derivative $d$
+die \textit{Coableitung} a differential form definiert.
+
+\begin{definition}
+The mapping $\delta_k:\Omega^{n-k} \difM \xto \Omega^{n-k-1} \difM$ mit
+\[
+\delta_k(\omega) := (-1)^k (\* \circ d \circ \*^{-1})(\omega)
+\]
+is called the \textit{Coableitung}
+einer differential form $\omega \xeof \Omega^{n-k} \difM$.
+\end{definition}
+
+The mapping $\*$ \"ubersetzt dabei den im Grad der differential forms
+aufsteigenden \textit{de Rham-Komplex}
+\[
+\{0\}
+  \stackrel{d}{\longrightarrow} \Omega^1 \difM
+  \stackrel{d}{\longrightarrow} \ldots
+  \stackrel{d}{\longrightarrow} \Omega^n \difM
+  \stackrel{d}{\longrightarrow}
+\{0\}
+\]
+in a dazu \"aquivalenten absteigenden Kettenkomplex
+\[
+\{0\}
+  \stackrel{\delta}{\longrightarrow} \Omega^n \difM
+  \stackrel{\delta}{\longrightarrow} \ldots
+  \stackrel{\delta}{\longrightarrow} \Omega^1 \difM
+  \stackrel{\delta}{\longrightarrow}
+\{0\}
+\]
+with the coderivative as the chain homomorphism.
+
+The Kombination der exterior derivative and der Coableitung liefert for each
+$s=0,\ldots,n$ an endomorphism $\Delta$ on the space $\Omega^s \difM$,
+der gem\"a\"ss
+$\Delta := \delta \circ d + d \circ \delta : \Omega^s \difM \xto \Omega^s \difM$
+definiert ist.
+
+\begin{definition}
+The operator
+$\Delta := \delta \circ d + d \circ \delta :\Omega^s \difM \xto \Omega^s \difM$
+is called der \textit{Laplace-Beltrami-operator} on the space $\Omega^s \difM$.
+\end{definition}
+
+Von besonderem Interesse are the differential forms $\omega$ mit
+$\Delta \omega =0$.
+
+\begin{definition}
+A differential form $\omega$ is called \textit{harmonisch} on $\difM$,
+if holds: $\Delta \omega =0$.
+\end{definition}
+
+The harmonic differential forms of degree $s$ obviously constitute
+a vector space, denoted $\cal{H}^s \difM$,
+and can be characterized as follows:
+
+\begin{lemma}
+A differential form $\omega \xeof \Omega^s \difM$ is harmonic
+iff $d \omega \eq 0$ and $\delta \omega \eq 0$.
+\end{lemma}
+
+{\bf Satz 7} (Hodge-Theorem).
+\begin{theorem}
+Each de Rham-cohomology class is represented by exactly one
+harmonic differential form.
+\end{theorem}
+
+{\bf Satz 8} (Zerlegunsssatz of Hodge).
+\begin{theorem}
+If $\omega \xeof \Omega^s \difM$ is a $s$-form with $0 < s < n$,
+then there are differential forms $\phi \xeof \Omega^{s-1} \difM$ and
+$\psi \xeof \Omega^{s+1} \difM$
+as well as a harmonic differential form $\chi \xeof \Omega^s \difM$
+such that
+\[
+\omega = d \phi + \delta \psi + \chi,
+\]
+where the forms $\phi, \psi, \chi$ are uniquely defined by $\omega$.
+\end{theorem}
+
+{\bf Satz 9} ((Poincare-Dualit\"at for the de Rham-Kohomologie).
+\begin{theorem}
+Let $\difM$ be an oriented, closed and $d$-dimensional Riemannian manifold.
+Then by the Hodge operator there is an isomorphism
+$\iota\:\cal{H}^s \difM \xto \cal{H}^{n-s} \difM$
+between the vector spaces of harmonic forms $\cal{H}^s \difM$ and
+$\cal{H}^{n-s} \difM$.
+\end{theorem}
+
+\section{The Riemannian Curvature Tensor}
+%------------------------------------------------------------------------------%
+
+\section{Relationships between Curvature and Topology}
+%------------------------------------------------------------------------------%
+
+\begin{comment}
+\newpage
+\thispagestyle{empty}
+\fancyhead[C] {\small{\textsc{VI. Complex Manifolds}}}
+%------------------------------------------------------------------------------%
+\part{Complex Manifolds}
+%------------------------------------------------------------------------------%
+
+\section{{\KAEHLER} Manifolds}
+%------------------------------------------------------------------------------%
+\section{Riemannian Surfaces}
+%------------------------------------------------------------------------------%
+\end{comment}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C] {\small{\textsc{VII. Fiber Bundels}}}
+%------------------------------------------------------------------------------%
+\part{Fiber Bundles}                                                           %
+%------------------------------------------------------------------------------%
+
+\section{Generalities on Fiber Bundles}
+%------------------------------------------------------------------------------%
+Sind $E,B$ topological spaces and is $\pi:E \xto B$ a surjective
+continuous mapping,
+so is called to each point $p \xeof B$ the Urbild $\pi^{-1}(p)$ a \textit{Faser},
+da $E$ sich zusammensetzt gem\"a\"ss
+\[
+E = \bigsqcup_{p \xeof B} \pi^{-1}(p).
+\]
+The set $E$ is also the Vereinigung of paarweise disjunkten fibers,
+and es gibt a nat\"urliche projection mapping of elements in $E$ auf
+den space $B$.
+
+\subparagraph{}
+Man spricht of a \textit{fiber bundle},
+if all fibers gleich aussehen
+sowie der space $E$ locally homeomorphic to $\cross{F}{B}$ ist.
+
+\begin{definition}
+Let $E,B,F$ be topological spaces sowie
+$\pi:E \xto B$ a continuous surjective mapping.
+The Tripel $(E,\pi,B)$ is called a \textit{fiber bundle} with typischer Faser $F$,
+if es to each point $p \xeof B$ a neighbourhood $U_p \xsubset B$ and eine
+mapping $h_p\: \cross{U_p}{F} \xto \pi^{-1}(U_p)$ gibt
+such that $\pi^{-1}(U_p) \cong \cross{U_p}{F}$
+(\textit{lokale Trivialisierung} of the bundles).
+\end{definition}
+
+Hence the sets $\pi^{-1}(U_p)$ and $\cross{U_p}{F}$ are homeomorphic
+to each another.
+Lokal sieht a fiber bundle also aus wie a product of topological spaces,
+and the concept of fiber bundle forms a generalization of this product.
+
+\subparagraph{}
+The space $B$ is called der \textit{base space}
+and $E$ is called der \textit{total space} rsp. \textit{bundle space}
+of the fiber bundle.
+Each local homeomorphism $h$ between $E$ and $\cross{B}{F}$ is called
+a \textit{bundle chart} of the fiber bundle.
+
+\paragraph{}
+Examples of fiber bundles are:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+For each product $(\cross{B}{F},\pi,B)$ of topological spaces $B,F$
+and the projection mapping $\pi$ we obtain a fiber bundle
+$(\cross{B}{F}i,\pi,B)$ (\textit{product bundle}).
+\item[2.]
+The triple $(S^d,\pi,\R\,P^n)$ with $d \geq 1$ forms a fiber bundle
+with the antipodic mapping $\pi \: x \xto -x$.
+\end{itemize}
+
+\paragraph{}
+A \textit{cut} in a fiber bundle assigns to each point of the base space
+a point of the asscociated fiber.
+
+\begin{definition}
+Let $(E,\pi,B)$ be a fiber bundle.
+A \textit{cut} into the fiber bundle is a continuous mapping $s \:B \xto E$
+with $\pi \circ s \eq id$.
+\end{definition}
+
+\begin{example}
+Let $(\cross{B}{F},\pi,B)$ be a product bundle
+and $f\:B \xto F$ be a continuous mapping.
+Then $f$ induces a cut $s:B \xto \cross{B}{F}$ according to
+$p \mapsto (p,f(p))$.
+\end{example}
+
+\subparagraph{}
+Let $(E_1,\pi_1,B)$ and $(E_2,\pi_2,B)$ be two fiber bundle over dem
+gemeinsamen base space $B$.
+A \textit{bundle-homomorphism} is a fasertreue continuous mapping
+$\phi:E_1 \xto E_2$ between den bundle spaces,
+so the $\pi_1 = \pi_2 \circ \phi$.
+bundle homomorphism f\"uhren also fibers of $E_1$ in fibers
+von $E_2$ \"uber.
+
+\begin{example}
+Let $(S^n, \pi, \R\,P^n$) be the o.a. fiber bundle mit
+$\pi(p) := \{p,-p\}$.
+Then are the mappings $Id:S^n \xto S^n$ and $-Id:S^n \xto S^n$
+(antipode mapping) the einzigen bundle homomorphism on $S^n$.
+\end{example}
+
+\section{Vector Space Bundles}
+%------------------------------------------------------------------------------%
+The tangent bundle of a differentiable manifold is the
+most well-known example of a vector bundle.
+However,
+vector bundles cannot only be defined over differentiable manifolds,
+but also over arbitrary topological spaces:
+
+\begin{definition}
+Let $E,B$ be topological spaces,
+$\pi:E \xto B$ a continuous surjective mapping and $d \xeof \N$.
+The triple $\chi := (E,\pi,B)$ is called a $d$-dimensional
+rsp. complex vector bundle,
+if the following items hold:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+the fiber $\pi^{-1}(p)$ is for each $p \xeof B$ a $d$-dimensional
+rsp. complex vector bundle $V$.
+\item[2.]
+zu each $p \xeof B$ there is a neighbourhood $U_p \xsubset B$
+such that $\pi^{-1}(U_p)$ is homeomorphic to $\cross{U}{V}$
+\textit{(principle of local triviality)}.
+\item[3.]
+The vector bundle is called \textit{smooth} rsp. \textit{differentiable},
+if $E,B$ are differentiable manifolds
+and $\pi$ is a differentiable mapping.
+\end{itemize}
+\end{definition}
+
+\subparagraph{}
+The \textit{total space} $E$ is also locally homeomorphic to $\cross{U}{\R^d}$
+for a certain neighbourhood $U \xsubset B$.
+Each homeoomorphism $h:\pi^{-1}(U) \xto \cross{U}{\R^d}$ is called a
+\textit{bundle chart} of the vector bundle.
+The \textit{bundle atlas} of a vector bundle is the totality of all bundle charts.
+
+\begin{examples}
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+For each topological space $\topX$ and each $n \xeof \N$
+is $\cross{\topX}{\Rd}$ a $d$-dimensional vector bundle.
+Es is called the \textit{kanonische $d$-dimensional vector bundle} over $\topX$.
+Especially for $d=1$ is called a $1$-dimensional vector bundle a
+\textit{line bundle}.
+\item[2.]
+Let $\difM$ be a $d$-dimensional differentiable manifold,
+$T\,\difM$ ihr tangential space and $\pi:T\,\difM \xto \difM$ the mapping,
+die each tangent vector seinen Fu\"sspunkt zuordnet.
+Then is $(T\,\difM,\pi,\difM)$ a es $d$-dimensional vector bundle.
+\item[3.]
+Let $\difM \xsubset \R^d$ be a differentiable manifold.
+The \textit{normal bundle} of $\difM$ is the total space $E := \set{(p,v)}
+{p \xeof \difM, v \xeof T_p \difM}$,
+together with the projection mapping $\pi: E \xto \difM$.
+\end{itemize}
+\end{examples}
+
+\begin{definition}
+Let $\chi_1 \eq (E_1,\pi_1,B)$ and $\chi_2 \eq (E_2,\pi_2,B)$
+be two vector bundles over the base space $B$.
+A mapping $\phi:E_1 \xto E_2$ is called ein
+\textit{vector bundle homomorphism (isomorphism)}
+between $\chi_1$ and $\chi_2$,
+if $\pi_2 \circ \phi \eq \pi_1$
+and the restriction of $\phi$ on each fiber $\pi^{-1}(p)$
+ein vector bundle-homomorphism (isomorphism) ist.
+\end{definition}
+
+\subparagraph{}
+Homomorphisms between vector bundles f\"uhren also fibers wieder in
+fibers \"uber.
+
+\begin{example}
+The tangent bundle and the cotangent bundle over of a differentiable
+manifold are isomorphic to each another.
+\end{example}
+
+\subparagraph{}
+Many constructions from the theory of vector spaces can be carried over
+to vector bundles,
+for example
+taking the direct sum,
+the tensor product and the constructing the dual space.
+
+\subparagraph{}
+Let $\chi_1 = (E_1,\pi_1,B)$ and $\chi_2 = (E_2,\pi_2,B)$ be two
+vector bundle over the same base space $B$.
+Erkl\"art man for each point $p \xeof B$ the vector space $E_p$ als
+\textit{direct sum} der fibers $\pi_1^{-1}(p)$ and $\pi_2^{-1}(p)$,
+so stellt the union $E$ of the vector spaces $E_p$
+einen topological space $E$ dar
+such that the Tripel $\chi_1 + \chi_2 := (E,\pi,B)$
+wiederum a vector bundle ist.
+The bundle $\chi_1 + \chi_2$ is called the \textit{Whitney-sum} of
+the vector bundles $\chi_1$ and $\chi_2$.
+Sind $E_1$ and $E_2$ $n_1$- rsp. $n_2$-dimensional,
+so is $E$ a $n_1+n_2$-dimensional vector bundle over $B$.
+
+\subparagraph{}
+Let $\chi = (E,\pi,B)$ be a vector bundle and $B' \xsubset B$.
+Mit $E' := \pi^{-1}(B')$ and $\pi' := \pi \mid_{B'}$ is the Tripel
+$\chi' := (E',\pi',B')$ ebenfalls a vector bundle,
+called the \textit{restriction} of $\chi$ on $B'$.
+
+\begin{example}
+Let $\difM$ be a differentiable manifold,
+$(T\difM,\pi,\difM)$ the tangent bundle of $\difM$ and
+$\Off \xsubset \difM$ a open subset.
+Then is the tangent bundle of $\Off$
+die Restriktion of the tangent bundle of $\difM$.
+\end{example}
+
+\subparagraph{}
+Let $\chi = (E,\pi,B)$ be a vector bundle,
+$\topX$ a topological space and $fiii \: X \xto B$ a continuous mapping.
+Aufgrund der vorgegebenen mapping $f$ kann man over $\topX$ ein
+vector bundle $f^{\*}\chi$ konstruieren,
+which is said \textit{to be induced} by the vector bundle $\chi$.
+The total space $E^{\*}$ of $f^{\*}\chi$ is the subset
+\[
+E^{\*} := \set{(x,e)}{x \xeof \topX, e \xeof E} \quad \mbox{with } f(x) = \pi(e).
+\]
+The projection mapping is defined according to $\pi^{\*}((x,e)) := x$.
+
+If $\chi_1 \eq (E_1,\pi_1,B_1)$ and $\chi_2 \eq (E_2,\pi_2,B_2)$
+are vector bundles,
+then the cartesian product $\cross{\chi_1}{\chi_2}$ is the vector bundle
+$(\cross{E_1}{E_2}, \pi, \cross{B_1}{B_2})$ with $\pi(e_1,e_2) := (\pi_1(e_1),
+\pi_2(e_2)$ for all $e_1 \xeof E_1$ and all $e_2 \xeof E_2$.
+
+\begin{example}
+For two manifolds $\difM_1,\difM_2$ the cartesian product
+of the tangent bundles of $\difM_1$ and $\difM_2$ is isomorphic
+to the tangent bundle of the product manifold $\cross{\difM_1}{\difM_2}$.
+\end{example}
+
+\subparagraph{}
+Let $\chi_1 \eq (E_1,\pi_1,B)$ and $\chi_2 \eq (E_2,\pi_2,B)$
+be vector bundles over one and the same base space $B$.
+Let for $p \xeof B$ the vector space
+$E_p := \tensor{\pi_1^{-1}(p)}{\pi_2^{-1}(p)}$
+be the tensor product of the fibers in $p$.
+Then the $\tensor{\chi_1}{\chi_2}$ with the total space $\cup E_p$ is also
+a vector bundle,
+called the \textit{tensor product} of $\chi_1$ and $\chi_2$.
+
+\subparagraph{}
+A vector bundle $(E,\pi,B)$ is called \textit{trivial},
+if $E$ is homeomorphic to $\cross{B}{\R^d}$.
+
+\subparagraph{}
+If especially $B$ is a differentiable manifold
+and $E$ the tangential bundle of $B$,
+then the concept of Parallelisierbarkeit of a manifold can be derived:
+
+\begin{definition}
+A differentiable manifold $\difM$ is called \textit{parallelisierbar},
+if the tangent bundle $(T\,\difM,\pi,\difM)$ is trivial.
+\end{definition}
+
+\begin{example}
+$S^1$ is parallelisierbar, but $S^2$ is not so.
+\end{example}
+
+\subparagraph{}
+Let $(E,\pi,B)$ be a vector bundle
+and $\Gamma(B,E)$ the set of all continuous cuts.
+The mapping $s \xeof \Gamma(B,E)$ with $p \mapsto 0 \xeof \pi^{-1}(p)$
+is called der \textit{Nullschnitt} of the vector bundle.
+Dieser bettet den base space in den total space ein.
+
+\subparagraph{}
+If $\chi$ is a $d$-dimensional vector bundle,
+then the $d$ cuts $s_1,\ldots,s_n$ are called \textit{nirgends abh\"angig},
+if for each $p \xeof B$
+the vectors $s_1(b),\ldots,s_n(b)$ are linearly independent.
+
+\begin{theorem}
+A $d$-dimensional vector bundle is trivial
+iff there are $d$ cuts being nirgends abh\"angig.
+\end{theorem}
+
+\begin{definition}
+A vector bundle $\chi$ is called \textit{Euclidean},
+if there is a continuous mapping $b:E \xto \R$
+such that
+the restriction of $b$ on each Faser $\pi^{-1}(p), p \xeof B$
+forms an inner product.
+\end{definition}
+
+\subparagraph{}
+If there is an inner product on a vector bundle,
+then it is called the \textit{Euclidean metric} of the bundle.
+If the base space is a differentiable manifold
+and $E$ its tangent bundle,
+the the inner product $b$ is called a \textit{Riemannian metric}
+and $B$ a \textit{Riemannian manifold}.
+
+\subparagraph{}
+If the base space is \textit{paracompact},
+then to each vector bundle over $B$ an Euclidean metric can be constructed.
+
+\subparagraph{}
+If a vector bundle $\chi$ is Euclidean and trivial,
+then there are $d$ cuts $s_1,\ldots,s_d$,
+which forms an orthonormal system in each fiber of $\chi$.
+
+\subparagraph{}
+If a subvector bundle $\chi$ of the vector bundle $\eta$ is given,
+then there is a further vector bundle $\chi'$
+such that
+$\eta$ is the Whitney sum of $\chi$ and $\chi'$.
+In this case the bundle $\chi'$ is called the \textit{orthogonal complement}
+of $\chi$.
+
+\section{Principal Fiber Bundles}
+%------------------------------------------------------------------------------%
+A principal fiber bundle in its most general form is a fiber bundle
+$(E,\pi,B)$,
+where a topological group $G$ on each fiber transitiv operiert.
+Von besonderem Interesse are thejenigen principal fiber bundle,
+where $E$ and $B$ are differentiable manifolds and $G$ is a Lie group.
+
+\begin{definition}
+Let $(E,\pi,B)$ be a differentiable fiber bundle and $G$ a Lie group.
+The triple $(E,\pi,B)$ is called a \textit{principal fiber bundle}
+with structure group $G$,
+if the following conditions hold:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Let $\set{U_i}{ \xeof \indI}$ be a covering of the base space $B$.
+Then there is to each $i \xeof \indI$ a diffeomorphism
+$\phi_i: \pi^{-1}(U_i) \xto \cross{U_i}{G}$.
+The mapping $\phi$ is called a \textit{bundle chart} of the principal fiber bundle.
+\item[2.]
+Ist $p \xeof U_i \cap U_j$,
+then there is to each $x \xeof \pi^{-1}(p)$
+two bundle coordinates $(p,g_i)$ and $(p,g_j)$,
+and there is an element $g_{ij}(p) \xeof G$
+such that $g_i \eq g_{ij}\cdot g_j$.
+\end{itemize}
+\end{definition}
+
+\begin{examples}
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+For each $d$-dimensional manifold $B$ geh\"ort in a natural way
+a principal fiber bundle with structure group $\GL(n,\R)$.
+Let hierzu $E$ be the set of all $(n+1)$-Tupel $(p,e_1,\ldots,e_n)$,
+where $p \xeof B$ a point and the vectors $e_1,\ldots,e_n$ a base of
+$T_p B$ darstellen.
+Then is called $(E,\pi,B)$ the \textit{Rahmenb\"undel} rsp. \textit{Reper-bundle} der
+manifold $B$.
+\item[2.]
+Each Lie group $G$ with a mapping $\pi:G \xto \{p\}$ in einen
+ein-punktigen space $\{p\}$ is a principal fiber bundle with
+structure group $G$.
+\item[3.]
+Let $(E,\pi,B)$ be a smooth $d$-dimensional vector bundle
+and $\{U_i\}$ a covering of the base manifold $B$.
+If we chose products of the form $\cross{U_i}{\GL(n,\R)}$, $(i \xeof \xeof)$,
+then the Verklebung of these products is a principal fiber bundle
+with structure group $\GL(n,\R)$.
+\end{itemize}
+\end{examples}
+
+\subparagraph{}
+The structure group is acting from the right on $E$.
+\[
+\ldots
+\]
+
+\section{Connections and Curvature on Principal Fiber Bundles}
+%------------------------------------------------------------------------------%
+
+\section{Characteristic Classes}
+%------------------------------------------------------------------------------%
+The characteristic classes of a vector bundle
+over a differentiable manifold $\difM$ are elements of the cohomology algebra
+of $\difM$.
+Sie messen the Nichttrivialit\"at of the bundles.
+Ihre existence stellt Hindernisse for the Vorhandensein of mehreren linear
+independent cuts in the vector bundle dar.
+The most important characteristic classes are \textit{Chern} classes,
+\textit{Pontrjagin} classes, \textit{Euler} classes
+and \textit{Stiefel-Whitney} classes.
+For product bundles of the form $\cross{B}{\R^d}$
+the characteristic classes vanish.
+
+\subparagraph{}
+Let $\difM$ be a $d$-dimensional, compact and oriented manifold.
+Since $H^n(\difM,\R) \neq 0$,
+existiert a $d$-form $\omega \neq 0$ with $d \, \omega \eq 0$ and
+\[
+\int_M \omega \= 1.
+\]
+The related cohomology class $[\omega] \xeof H^n(\difM,\R)$ is called the
+\textit{orientation class} of $\difM$.
+
+\subparagraph{}
+Let $\difM$ be a $d$-dimensional, compact and connected real manifold.
+Then there is a $d$-form $\omega$ with $d\,\omega \eq 0$.
+The related class $[\omega] \xeof H^n(\difM,\R)$ is called
+the \textit{Euler class} $e(T\,M)$ of the tangent bundle of $\difM$.
+
+\paragraph{}
+The Euler class owns the following properties.
+
+\begin{theorem}
+(Satz of Gau\"ss-Bonnet-Chern).
+For each $\omega \xeof e(T\difM)$ holds
+\[
+\chi(\difM) \= \int_{\difM} \omega.
+\]
+If the dimension of the manifold is odd, then $e(T\,\difM) \eq 0$.
+\end{theorem}
+
+\subparagraph{}
+If a manifold owns a non-vanishing Euler class,
+then it is not parallelisierbar,
+that is,
+each continuous vector field on $\difM$  owns at least a root.
+Especially $\chi(\difM) \neq 0$ always implies $e(T\,\difM) \eq 0$.
+
+\begin{example}
+For $\difM \eq S^d$ we have $\chi(S^n) \eq 1 + (-1)^d$.
+\end{example}
+
+\subparagraph{}
+By the \textit{Euler class} of an oriented real manifold is meant
+the Euler class of its tangential bundle.
+
+\paragraph{}
+These characteristic classes have been design nearly at the same time
+by \textsc{E.\,Stiefel} and \textsc{H.\,Whitney}.
+
+\begin{definition}
+Let $\chi\:E \xto B$ be a real $d$-dimensional vector bundle.
+A sequence of cohomology classes $w_i(\chi) \xeof H^i(B,\Z_2)$, $i=0,\ldots$
+are called \textit{Stiefel-Whitney classes} of $\chi$ if
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+If $\eta$ is a further vector bundle over $B$ and $f\:E(\chi) \xto E(\eta)$
+a vector bundle homomorphism,
+so holds $w_i(\chi) = f^{\*} w_i(\eta)$ for all $i \eq 0,\ldots$.
+\item[2.]
+If $\chi,\eta$ are vector bundles over $B$,
+so holds for the Whitney-sum
+\[
+w_k(\chi \oplus \eta) = \sum_{i=0}^k w_i(\eta) \cdot w_{k-i}(\eta).
+\]
+\item[3.]
+For the line bundle $\gamma_1^1$ over the circle $S^1$
+we have $w_1(\gamma_1^1) \eq 0$.
+\end{itemize}
+\end{definition}
+
+Especially for $i \eq 0$ is $w_0(\chi) \eq 1 \xeof H^0(B,\Z_2)$.
+
+\subparagraph{}
+The concept of Stiefel-Whitney class was introduced in 1935
+by \textsc{E.\,Stiefel} and \textsc{H.\,Whitney}.
+Stiefel betrachtete characteristic homology classes for the
+tangential bundle of a differentiable manifold,
+w\"ahrend Whitney the sphere bundle over a simplicial complex
+untersuchte.
+
+\subparagraph{}
+Aus den properties der Stiefel-Whitney classes folgt,
+dass zueinander isomorphe vector bundle identische Stiefel-Whitney classes
+besitzen.
+Moreover,
+if $\epsilon$ is a trivial bundle over $B$,
+then $w_i(\chi) \eq 0$ for $i > 0$ holds.
+In this case we have for each further bundle $\eta$
+\[
+w_i(\epsilon \oplus \eta) = w_i(\eta).
+\]
+If $\chi$ is a $\Rd$-bundle with Euclidean metric having a non-vanishing cut,
+then $w_n(\chi) \eq 0$.
+
+\begin{definition}
+The \textit{total Stiefel-Whitney class} of a $d$-dimensional real
+vector bundle $\chi$ over $B$ is the element
+\[
+w(\chi) = 1 + w_1(\chi) + w_2(\chi) + \ldots + w_n(\chi)
+\]
+of the cohomology algebra $H^{\*}(B)$.
+\end{definition}
+
+\subparagraph{}
+For the total cohomology classes of vector bundles over the base space $B$
+the \textit{product theorem} of Whitney holds:
+\[
+w(\chi \oplus \eta) = w(\chi) \cdot w(\eta).
+\]
+Hierbei is $\cdot \: \cross{H^{\*}}{H^{\*}} \xto H^{\*}$ the cup product
+of the cohomology algebra.
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\newpage
+\thispagestyle{empty}
+
+\begin{thebibliography}{99}
+\begin{small}
+
+\begin{comment}
+\bibitem{Yo}  K.\,Yosida:
+\textit{Functional Analysis}.
+Springer, 1980.
+\end{comment}
+
+\end{small}
+\end{thebibliography}
+
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}

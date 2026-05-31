@@ -1,0 +1,1071 @@
+%------------------------------------------------------------------------------%
+% FREDHOLM OPERATORS AND THE ESSENTIAL SPECTRUM                                %
+%------------------------------------------------------------------------------%
+% File  : Fredholm_Operators_and_the_Essential_Spectrum.tex                    %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                       DOCUMENT CLASS and INCLUDE FILES                       %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+%\renewcommand\thesection{\Roman{section}}
+
+\def\Title {Fredholm Operators and the Essential Spectrum}
+
+\titleformat{\section}
+{\normalfont \bfseries \filcenter}
+{\thesection.\;}{0mm}{}
+
+\titleformat{\subsection}%[runin]
+{\normalfont \itshape}
+{}{}{}
+
+\titlespacing*{\section}   {0pt}{12pt}{4pt}
+\titlespacing*{\subsection}{0pt}{6pt}{0pt}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\centerline{\large{\textbf{\Title}}}
+
+\vspace{4pt}
+\centerline{\footnotesize{{\textsc{Martin Schechter}}}}
+\vspace{6pt}
+
+\fancyhead[C] {\small{\textsc{\Title}}}
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+
+\myfootnote
+{
+  Prepared under contract no. DA31-124-ARO- D-204
+  with the U.S. Army research office.
+  January 1965
+}
+
+\begin{abstract}
+Fredholm operators are defined and their basic properties are proved.
+The essential spectrum of an arbitrary closed operator is considered
+and its invariance under several kinds of perturbation is proved.
+\end{abstract}
+
+%------------------------------------------------------------------------------%
+\section{Introduction}                                                         %
+%------------------------------------------------------------------------------%
+We first give a complete treatment of Fredholm operators.
+Most of the results are found in the literature (e.g., [4,8]),
+but we have been able to substantially simplify proofs in several instances.
+The deepest theorem we make use of is the closed graph theorem.
+We are able to avoid completely the concept of the opening between two subspaces.
+
+\subparagraph*{}
+Next we give a proof of a classical theorem of Weyl [13]
+on the invariance of the essential spectrum under compact perturbations
+and give two definitions for general closed operators in a Banach space,
+one of them due to Wolf [14].
+We then consider more general types of perturbations.
+Further results may be found in [10].
+
+\subparagraph*{}
+Remarks on specific results and methods are given at the end.
+
+%------------------------------------------------------------------------------%
+\section{Fredholm Operators}                                                   %
+%------------------------------------------------------------------------------%
+A linear operator $A$ from a Banach space $X$ to a Banach space $Y$
+will be called a Fredholm operator if
+
+\begin{itemize}
+\item[1.] $A$ is closed;
+\item[2.] the domain $\domain{A}$ of $A$ is dense in $X$;
+\item[3.] $\alpha(A)$, the dimension of the null space $\kernel{A}$ of $A$,
+          is finite;
+\item[4.] $\range{A}$, the range of $A$, is closed in $Y$;
+\item[5.] $\beta(A)$, the codimension of $\range{A}$ in $Y$, is finite.
+\end{itemize}
+
+\paragraph*{}
+The index of a Fredholm operator $A$ is defined as
+\[
+i(A) = \alpha(A) - \beta(A).
+\]
+We now make several observations.
+The set of Fredholm operators from $X$ to $Y$ will be denoted by $\Psi(X,Y)$.
+
+\paragraph*{}
+\begin{itemize}[leftmargin=12mm]
+\item[(O-1)]
+If we decompose $X$ into
+\begin{equation}\tag{1}
+X = N(A) \oplus X',
+\end{equation}
+where $X'$ is a closed subspace of $X$, then
+\begin{equation}\tag{2}
+\norm{x} \, \leq \, \mbox{const.} \norm{A \,x}
+\end{equation}
+holds for all $x \in \domain{A} \cap X'$. 
+This merely expresses the fact
+that $A$ restricted to $\domain{A} \cap X'$
+has an inverse defined everywhere on $\range{A}$,
+which is a Banach space.
+Hence this closed inverse is bounded.
+
+\item[(O-2)]
+If $A$ is closed, $\alpha(A) < \infty$ and (2) holds,
+then $\range{A}$ is closed.
+For if $A x_n \to y$,
+$x_n \in \domain{A} \cap X'$,
+then $x_n \to x \in X'$.
+Thus $x \in \domain{A}$ and $Ax = y$.
+
+\item[(O-3)]
+If $A \in \Psi(X,Y)$,
+there is a bounded operator $A'$ from $Y$ to $\domain{A} \cap X'$ such that
+\begin{equation}\tag{3}
+A'A = I \mbox{ on } \domain{A} \cap X'
+\end{equation}
+\begin{equation}\tag{4}
+AA' = I \mbox{ on } \range{A},
+\end{equation}
+while $A'$ vanishes on any prescribed complement of $\range{A}$ in $Y$.
+(Here $I$ denotes the identity operator.)
+
+\paragraph*{}
+\Proof.
+Obvious.
+
+\item[(O-4)]
+The operator $A'$ also satisfies
+\begin{equation}\tag{5}
+A'A = I +F_1 \mbox{ on } \domain{A}
+\end{equation}
+\begin{equation}\tag{6}
+AA ' = I + F_2 \mbox{ on } Y
+\end{equation}
+where the operators $F_i$ are bounded and have finite dimensional
+ranges.
+In fact $A'A -I$ vanishes on $\domain{A} \cap X'$
+and hence maps $\domain{A}$ into the image of $N(A)$.
+A similar statement holds for $AA' -I$.
+
+\item[(O-5)]
+If $A$ is closed, $\domain{A}$ dense and there are bounded
+operators $A_i$ from $Y$ to $X$ and compact operators $K_i$ on $X$,
+$K_2$ on $Y$
+such that
+\begin{equation}\tag{7}
+A_1 A = I + K_1 \mbox{ on } \domain{A}
+\end{equation}
+\begin{equation}\tag{8}
+A A_2 = I + K_2 \mbox{ on } Y,
+\end{equation}
+then $A \in \Psi(X,Y)$.
+
+\vspace{3mm}
+
+\Proof.
+$\alpha(A) \leq \alpha(I + K_1) < \infty$ and
+$\beta(A)  \leq \beta(I + K_2)  < \infty$
+(F. Riesz).
+We must show that $\range{A}$ is closed.
+Suppose $\{x_n\} \subset \domain{A} \cap X'$,
+$\norm{x_n} \eq 1$ and $A x_n \to 0$.
+Since $A$ is bounded,
+$(I + K_1)x_n \to 0$.
+Since $\{x_n\}$ is bounded,
+there is a subsequence (also denoted by $\{x_n\}$)
+for which $K_1 x_n$ converges to some element $z$.
+Thus $x_n \to -z$.
+Since $A$ is closed, $z \in \domain{A}$ and $Az = 0$,
+i.e. $z \in \kernel{A}$.
+Since $X'$ is closed, $x \in X'$ and hence $z = 0$.
+But $\norm{z} = \lim \norm{x_n} \eq 1$.
+This shows that (2) holds.
+Thus $\range{A}$ is closed by (O-2).
+\end{itemize}
+
+\paragraph*{}
+We shall also need the following important lemma.
+
+\begin{lemma} % lemma 1
+If $A \in \Psi(X,Y)$ and $B \in \Psi(Z,X)$, then $AB \in \Psi(Z,Y)$ and
+\begin{equation}\tag{9}
+i(AB) = i(A) + i(B) .
+\end{equation}
+\end{lemma}
+
+Proof.
+Clearly, $\domain{AB}$ is dense in $Z$ (O-1).
+Set
+\[
+X_0 = \range{B} \cap \kernel{A}
+\]
+\[
+\range{B} = X_0 \oplus X_1
+\]
+\[
+\kernel{A} = X_0 \oplus X_2
+\]
+\[
+X = \range{B} \oplus X_2 \oplus X_3.
+\]
+Then $X_0,X_2,X_3$ are finite dimensional and $X_1$ is closed.
+Since $\domain{A}$ is dense in $X$,
+we can take $X_3$ to be contained in $\domain{A}$.
+Set $d_i = \dim X_i$.
+Then
+\[
+\alpha(AB) = \alpha(B) + d_0
+\]
+\[
+\beta(AB) = \beta(A) + d_3
+\]
+\[
+d_0 + d_2 = \alpha(A)
+\]
+\[
+d_2 + d_3 = \beta(B).
+\]
+These show that $\alpha(AB)$ and $\beta(AB)$ are finite and (9) holds.
+We must also show that $\range{AB}$ is closed.
+Now $\range{AB}$ is the range of $A$ on $\domain{A} \cap X_1$.
+If $A x_n \to f$ for $\{x_n\} \subset \domain{A} \cap X_1$,
+we have by (2)
+\[
+\norm{x_m-x_n} \leq \mbox{ const. } \norm{A(x_m-x_n} \to 0
+\]
+and since $X_1$ is closed, $x_n \to x \in X_1$.
+Since $A$ is closed,
+$x \in \domain{A}$ and $Ax = f$.
+Thus $\range{AB}$ is closed.
+It remains to show that $AB$ is closed.
+Suppose $\{z_n\} \subset \domain{AB}$, $z_n \to z$, $AB z_n \to y$.
+Write
+\[
+Bz_n = x_n^{(0)} + x_n^{(1)}
+\]
+where $x_n^{(0)} \in \kernel{A}$ and $x_n^{(1)} \in X'$.
+Then by (2) $x_n^{(1)} \to x^{1} \in X'$.
+If $\snorm{x_n^{(0)}} \leq \mbox{ const.}$,
+there is a subsequence
+(also denoted by $\{x_n\}$)
+for which $x_n^{(0)} \to x^{(0)} \in \kernel{A}$.
+Thus $Bz_n \to x^{(0)} + x^{(1)}$,
+and since $B$ is closed, $z \in \domain{B}$ and $Bz = x^{(0)}+x^{(1)}$.
+Since $A$ is closed $x^{(0)} + x^{(1)} \in \domain{A}$
+and $A(x^{(0)} + x^{(1)}) = y$.
+Thus $z \in \domain{AB}$ and $ABz=y$.
+We now show that $\{x_n^{(0)}\}$ is bounded.
+For if $\zeta_n = \snorm{x_n^{(0)}} \to \infty$,
+set $u_n = \zeta_n^{-1} x_n^{(0)}$.
+Then $\norm{u_n} \eq 1$ and hence there is a subsequence
+(also denoted by $\{u_n\}$)
+such that $u_n \to u \in \kernel{A}$.
+Moreover
+\[
+B(\zeta_n^{-1} z_n) -u_n = 
+\zeta_n^{-1} (Bz_n - x_n^{(0)}) = 
+\zeta_n^{-1} x_n^{(1)}) \to 0. 
+\]
+Hence $B(\zeta_n^{-1} z_n) \to u$.
+Since $\zeta_n^{-1} z_n \to 0$ and $B$ is closed,
+$u \eq 0$.
+This is impossible since $\norm{u} = \lim \norm{u_n} \eq 1$.
+This completes the proof.
+
+\begin{theorem1} % theorem 1
+If $A \in \Psi(X,Y)$ and $K$ is a compact operator from $X$ to $Y$,
+then $A+K \in \Psi(X,Y)$ and $i(A+K) = i(A)$.
+\end{theorem1}
+
+Proof.
+By (O-4) there is a bounded operator $A'$ such that (5) and (6) hold.
+Now
+\[
+A'(A + K) = I+F_1 +A'K \mbox{ on } \domain{A}
+\]
+\begin{equation}\tag{10}
+(A+K)A' = I +F_2 +KA' \mbox{ on } Y.
+\end{equation}
+Since $A'$ is bounded, the operators $A'K$ and $KA'$ are compact.
+We now apply (O-5) to obtain that $A + X \in \Psi(X,Y)$.
+Now $A'$ is a bounded operator from $Y$ to $\domain{A}$.
+If we equip $\domain{A}$ with the graph norm of $A$,
+it becomes a Banach space $\tilde{X}$
+and $A'$ becomes a Fredholm operator from $Y$ to $\tilde{X}$.
+Also $A \in \Psi(\tilde{X},Y)$ with $\alpha(A)$ and $\beta(A)$ the same.
+Hence by (5)
+\begin{equation}\tag{11}
+i(A) + i(A') = i(I+F_1) = 0 \quad \mbox{(Riesz)}.
+\end{equation}
+But by (10)
+\[
+i(A+K) + i(A') = i(I+F_2 + KA') = 0.
+\]
+Hence $i(A+K) = i(A)$ and the proof is complete.
+
+\begin{theorem1} % theorem 2
+For $A \in \Psi(X,Y)$ there is an $\epsilon > 0$
+such that
+for any bounded operator $T$ from $X$ to $Y$
+with $\norm{T} < \epsilon$ one has
+$A + T \in \Psi(X,Y)$, $i(A+T) \eq i(A)$ and $\alpha(A+T) < \alpha(A)$.
+\end{theorem1}
+
+Proof.
+By (O-4) there is a bounded operator $A'$ satisfying (5) and (6).
+Then
+\[
+A'(A + T) = I +F_1 +A'T
+\]
+\begin{equation}\tag{12}
+(A+T)A' = I+F_2+TA'.
+\end{equation}
+Take $\epsilon = \norm{A'}^{-1}$.
+Then $\norm{A'T} < 1$ and $\norm{TA'} < 1$.
+Thus the operators $I +A'T$ and $I+TA'$ are invertible and
+\[
+(I + A'T)^{-1}A'(A+T) = I + (U+A'T)^{-1}F_1
+\]
+\[
+(A + T)A'(1+TA')^{-1} = I + F_2(I+TA')^{-1}
+\]
+Thus by (O-5), $A+T \in \Psi$.
+By (12) and theorem 1
+\[
+i(A+T) + i(A') = i(I+F_2+TA') = i(1+TA') = 0.
+\]
+Combining this with (11) we see that $i(A+T) = i(A)$.
+It remains to prove $\alpha(A + T) \leq \alpha(A)$.
+By (O-3),
+$A'(A + T) = I + A'T$ on $\domain{A} \cap X'$
+and hence is one-to-one on this manifold.
+Moreover $\kernel{A+T} \cap X' = \{0\}$.
+For if $y$ is in this set,
+it is in $\domain{A} \cap X'$ and $(A+T)y = 0$.
+Thus $(I+A'T)y = 0$ showing that $y = 0$.
+Since 
+\[
+\kernel{A+T} \oplus X' \subseteq X \= \kernel{A} \oplus X',
+\]
+we see that $\dim \kernel{A +T} \leq \dim \kernel{A}$
+and the proof is complete.
+
+\paragraph*{}
+In the sequel we shall make continual use of the following lemma:
+
+\begin{lemma} % lemma 2
+Let $\tilde{X}$ be a Banach space dense in $X$
+and let $A$ be a linear operator from $X$ to $Y$
+with $\domain{A} = \tilde{X}$.
+If $A \in \Psi(\tilde{X},Y)$, then $A \in \Psi(X,Y)$.
+\end{lemma}
+
+Proof.
+Let $E$ be the linear operator from $X$ to $\tilde{X}$ with
+$\domain{E} = \domain{A}$ and $Ex = x$ for $x \in \domain{E}$.
+One checks easily that $E \in \Psi(X,\tilde{X})$.
+Thus $AE \in \Psi(X,Y)$ by lemma 1.
+But $A = AE$ and the conclusion follows.
+
+\paragraph*{}
+An operator $B$ from $X$ to $Y$ is called $A$-compact
+if
+$\domain{B} \supset \domain{A}$ and
+for every sequence $\{x_n\} \subset \domain{A}$ such that
+\[
+\norm{x_n} + \norm{Ax_n} \leq \mbox{const.}
+\]
+the sequence $\{Bx_n\}$ has a convergent subsequence.
+
+\begin{theorem1} % theorem 3
+If $A \in \Psi(X,Y)$ and $B$ is $A$-compact,
+then $A+B \in \Psi(X,Y)$ and $i(A+B) = i(A)$.
+\end{theorem1}
+
+Proof.
+If we equip $\domain{A}$ with the graph norm $\norm{x}+\norm{Ax}$,
+it becomes a Banach space $\tilde{X}$ (since $A$ is closed).
+If we now consider $A$ as an operator from $\tilde{X}$ to $X$,
+we have $A \in \Psi(\tilde{X},Y)$.
+Moreover $B$ is compact from $\tilde{X}$ to $Y$.
+Hence by theorem 1, $(A+B) \in \Psi(\tilde{X},Y)$ with
+$i(A+b) \eq i(A)$.
+We now apply lemma 2 to obtain $(A+B) \in \Psi(X,Y)$.
+
+\begin{theorem1} % theorem 4
+For each $A \in \Psi(X,Y)$ there is an $\epsilon > 0$
+such that
+\[
+\norm{B x} \leq \epsilon (\norm{x} + \norm{A x}), \quad x \in \domain{A},
+\]
+holding for any operator $B$ from $X$ to $Y$
+with $\domain{B} \supset \domain{A}$
+implies that
+$A+B \in \Psi((X,Y)$, $i(A+B) = i(A)$,
+and $\alpha(A + B) \leq \alpha(A)$.
+\end{theorem1}
+
+Proof.
+Similar to that of theorem 3.
+
+\paragraph*{}
+For an arbitrary operator $A$ acting in a Banach space $X$
+the Fredholm set of $A$,
+denoted by $\Phi_A$,
+is the set of those complex $\lambda$
+for which $A-\lambda \in \Psi(X,X)$.
+We have by theorem 1 and 2
+
+\begin{theorem1} % theorem 5
+The set $\Phi_A$ is open and $i(A-\lambda)$ is constant
+on each component.
+\end{theorem1}
+
+\begin{theorem1} % theorem 6
+If $K$ is a compact operator in $X$,
+then $i(A+K-\lambda) = i(A-\lambda)$ there.
+\end{theorem1}
+
+\paragraph*{}
+In addition one also has
+
+\begin{theorem1} % theorem 7
+On each component of $\Phi_A$,
+the quantities
+$\alpha(A - \lambda)$ and $\beta(A - \lambda)$ 
+are constant except possibly on a discrete set of points
+where they take on larger values.
+\end{theorem1}
+
+\paragraph*{}
+The proof of theorem 7 can be made to rest upon lemma 3.
+
+\begin{lemma} % lemma 3
+If $A$ and $B$ are linear operators from $X$ to $Y$
+with $A \in \Psi(X,Y)$ and $B$ bounded,
+then there is an $\epsilon > 0$
+such that
+$\alpha(A-\lambda B)$ is constant for $0 < \abs{\lambda} < \epsilon$.
+\end{lemma}
+
+Proof.
+Assume first that $i(A) = 0$.
+Let $x_1,\ldots,x_k$ be a basis for $\kernel{(A}$ and
+$y_1,\ldots,y_k$ be a basis for some direct complement of $\range{A}$ in $Y$.
+Let $x'_1,\ldots,x'_k$ be a system of bounded linear functionals on $X$
+such that
+\[
+x'_i(x_j) = \delta_{ij} \quad \mbox{(= Kronecker delta)}.
+\]
+One checks easily that the operator defined by
+\[
+\tilde{A}x = Ax + \sum_{j=1}^k x'_j(x) y_j
+\]
+is continuously invertible.
+Now $x$ is a solution of $(A-\lambda B)x =0$
+if and only if
+\[
+(\tilde{A} - \lambda B)x = \sum_{i=1}^k x'_i(x) y_i.
+\]
+For some $\epsilon_1 > 0$, $\tilde{A}- \lambda B$ is continuously invertible
+for $\abs{\lambda} < \epsilon_1$ and hence
+\[
+x = \tilde{A}^{-1} \sum_{j=1}^{\infty} \lambda^j(B \tilde{A}^{-1})^j
+\sum_{i=1}^k x'_i(x) y_i
+\]
+\[
+= \sum_{i=1}^k x'_i(x)
+\cdot \sum_{j=0}^{\infty} \lambda^j (\tilde{A}^{-1}B)^j \, x_i
+\]
+\[
+= \sum_{i=1}^k x'_i(x) f_i(\lambda),
+\]
+where $f_i(\lambda)$ are known vector valued functions in $X$ analytic
+on $\abs{\lambda} < \epsilon_1$.
+Thus
+\[
+x'_m(x) = \sum_{i=1}^k \, x'_i(x) x'_m(f_i(\lambda))
+\]
+\[
+\sum_{i=1}^k \, [\delta_{mi}-x'_i(f_i(\lambda)) ] \, x'_i(x) = 0.
+\]
+Conversely, if $\xi_1,\ldots,\xi_k$ are solutions of
+\begin{equation}\tag{15}
+\sum_{i=1}^k [\delta_{mi}-x'_n(f_i(\lambda)) ] \xi = 0,
+\end{equation}
+then by working back we see that
+\[
+x \= \sum_{i=1}^k \xi_i \, f_i(\lambda)
+\]
+is a solution of $(A-AB)x = 0$.
+Thus $\alpha(A-AB)$ coincides with
+the number of linearly independent solutions of (13).
+If every coefficient in (13) vanishes identically
+in $\abs{\lambda} < \epsilon_1$,
+there are exactly $k$ linearly independent solutions and
+$\alpha(A-AB) = k$ for $\abs{\lambda} < \epsilon_1$.
+Otherwise there is a minor of largest order in the determinant of (13)
+which does not vanish identically.
+Since this minor is analytic in $\lambda$,
+it can vanish at most at isolated points.
+Thus there is an $\epsilon > 0$
+such that this minor is different from $0$ in $0 < \abs{\lambda} < \epsilon$.
+The number of independent solutions of (13) is constant on this set
+and hence the same is true for $\alpha(A-AB)$.
+Thus the lemma is proved for $i(A) = 0$.
+
+\subparagraph*{}
+Next consider the case $i(A) > 0$.
+Let $Z$ be a normed $i(A)$-dimensional space and let $Y_1 =Y + Z$ with norm
+$\abs{y + z} = \abs{y} \oplus \abs{z} $ when $y \in Y$, $z \in Z$.
+Consider $A$ and $B$ operators from $X$ to $Y_1$.
+For these spaces $i(A) = 0$ and the previous case applies.
+But $\alpha(A- \lambda B)$ is not changed when we replace $Y$ by $Y_1$.
+Thus the lemma is proved in this case.
+
+\subparagraph*{}
+If $i(A) < 0$, let $Z$ be an $i(A)$-dimensional space
+and set $X_1 = X \oplus Z$.
+Let $\hat{A}$ and $\hat{B}$ be extensions of $A$ and $B$ to $X$,
+which vanish on $Z$.
+Then $i(\hat{A}) = 0$ and the first case applies.
+We then merely observe that
+$\alpha(\hat{A} - \lambda \hat{B}) = \alpha(A-\lambda B) + i(A)$
+and the proof is complete.
+
+\paragraph*{}
+Proof of theorem 7.
+Let $\Omega$ be a component of $\Phi_A$.
+Let $\lambda_0$ be any point in $\Omega$
+where $\alpha(A-\lambda)$ has its minimum value in $\Omega$.
+Then by lemma 3 there is a neighbourhood about $\lambda_0$
+where $\alpha(A-\lambda)$ has this constant value.
+Let $\lambda_1$ be any other point in $\Omega$.
+It suffices to prove that there is a deleted neighbourhood about
+$\lambda_1$ in which $\alpha(A-\lambda)$ has this minimum value.
+Connect $\lambda_1$ to $\lambda_0$ by a smooth curve in $\Omega$.
+At each point of this curve there is a deleted neighbourhood
+in which $\alpha(A-\lambda)$ is constant (Lemma 3).
+Since the curve is compact,
+there is a finite set of such neighbourhoods covering it.
+Since in each deleted neighbourhood $\alpha(A-\lambda)$ is constant
+and each one overlaps with at least one other,
+they all have the same constant value for $\alpha(A-\lambda)$,
+namely the minimum value.
+Q.E.D.
+
+\paragraph*{}
+In later applications we shall need
+
+\begin{lemma} % lemma 4
+If $B \in \Psi(Z,X)$, $A$ is an operator from $X$ to $Y$
+with $\domain{A}$ dense in $X$,
+and $AB \in \Psi(Z,Y)$, then $A \in \Psi(X,Y)$.
+\end{lemma}
+
+Proof.
+Let $B'$ be the operator corresponding to $B$ described in (O-3).
+One easily checks that $B' \in \Psi(X,\tilde{Z})$
+where $\tilde{Z}$ is $\domain{B}$ under the graph norm of $B$.
+By hypothesis $AB \in \Psi(\tilde{Z},Y)$ and hence $ABB' \in \Psi(X,Y)$.
+But $ABB' \eq A+AF$,
+where $F$ is bounded and of finite rank (O-4).
+Hence $AF$ is a compact operator.
+We now apply theorem 1 to conclude that $A \in \Psi(X,Y)$.
+
+\subparagraph*{}
+\begin{lemma} % lemma 5
+If $A \in \Psi(X,Y)$, $B$ is an operator from $Z$ to $X$
+with $\domain{B}$ dense in $Z$, and $AB \in \Psi(Z,Y)$,
+then $B \in \Psi(Z,X)$.
+\end{lemma}
+
+Proof.
+Following the same procedure as in the proof of lemma 4,
+we have $A'AB \in \Psi(Z,X)$, and hence in $\Psi(\tilde{Z},X)$.
+Since $A'AB = A+FB$,
+where $F$ is of finite rank,
+the operator $FB$ is compact from $\tilde{Z}$ to $X$.
+Hence $B \in \Psi(\tilde{Z},X)$ (theorem 1)
+and we can apply lemma 2 to conclude that $B \in \Psi(Z,X)$.
+
+%------------------------------------------------------------------------------%
+\section{Weyl's Theorem and Generalizations}                                   %
+%------------------------------------------------------------------------------%
+Let $T$ be a self-adjoint operator in a Hilbert space $H$
+and let $K$ be a symmetric, completely continuous operator in $H$.
+Then $T+K$ is also self-adjoint.
+One might ask how $\sigma(T)$ and $\sigma(T+K)$ compare.
+The answer was given by H. Weyl [13]:
+
+\begin{theorem1} % theorem 8
+If $\lambda$ is in $\sigma(T)$ but not in $\sigma(T+K)$,
+it must be an isolated eigenvalue of finite multiplicity.
+\end{theorem1}
+
+Proof.
+We note first that since $Z$ is self-adjoint,
+it is closed, and hence $\rho(T) \subseteq \Phi_T$.
+Thus if $\lambda \in \sigma(T)$ but not in $\sigma(T+K)$,
+it must be in $\Phi_T = \Phi_{T+K}$,
+for otherwise it could not be in $\rho(T+K)$.
+Thus $T - \mu$ is a Fredholm operator for $\mu$ in a neighbourhood of $\lambda$.
+Thus $\alpha(T-\mu)$ is constant in some deleted neighbourhood of $\lambda$
+(lemma 3).
+Since all non-real $\mu$ are in $\rho(T)$,
+we have $\alpha(T-\mu) \eq 0$ in this deleted neighbourhood.
+
+\begin{theorem1} % theorem 9
+If $\lambda \in \sigma(T)$ is an isolated eigenvalue
+of finite multiplicity,
+there is a symmetric, completely continuous operator $K$ in $H$
+such that $\lambda \in \rho(T+K)$.
+\end{theorem1}
+
+Proof.
+We first show that $\lambda \in \Phi_T$.
+Since $\beta(T-A) = \alpha(T- A) < \infty$,
+the only thing which must be verified
+is that $\range{T-A}$ is closed in $H$,
+i.e.,
+that the inequality
+\begin{equation}\tag{14}
+\norm{x} \leq C \, \norm{(T-A)x}
+\end{equation}
+holds for $x \in \domain{T} \cap \kernel{T-A}^{\bot}$ (O-1).
+Now $\lambda$ is the only point of $\sigma(T)$ in some interval $[a,b]$,
+where $a < \lambda < b$.
+If $\{E_{\lambda}\}$ is the spectral family for $T$,
+then the projection $E_b - E_a$ maps into $\kernel{T-A}$.
+But
+\[
+\norm{(T-\lambda)x}
+= \int_{-\infty}^{\infty} (\mu-\lambda)^2 \, d\norm{E_{\mu}x}^2
+\]
+\[
+\geq (b-\lambda)^2 \int_b^{\infty} d\norm{E_{\mu}x}^2
++    (a-\lambda)^2 \int_{-\infty}  d\norm{E_{\mu}x}^2
+\]
+\[
+\= (b-\lambda)^2 \norm{(1-E_b)x}^2 + (a-\lambda)^2 \norm{E_a x}^2.
+\]
+If $x \in \domain{T} \cap \kernel{T-A}^{\bot}$,
+$(E_b - E_a)x = 0$ and hence (14) holds.
+Now let $h_1,\ldots,h_k$ be a basis for $\kernel{T-A}$ satisfying
+\[
+\scalar{h_i}{h_j} = \delta_{ij}
+\]
+and set
+\[
+Kx = \sum_{j=1}^k \scalar{x}{h_j} \, h_j.
+\]
+Then $K$ is bounded, symmetric and of finite rank.
+Thus $T+K-\lambda$ is a Fredholm operator.
+Since $\alpha(T+K-\lambda) = \beta(T+K-\lambda) = 0$,
+$\lambda \in \rho(T+K)$.
+
+\paragraph*{}
+We see from Weyl's theorem that the points of $\sigma(T)$
+which remain invariant under any symmetric, completely continuous
+perturbations are precisely those points which are not isolated
+eigenvalues of finite multiplicity.
+The set of such points is called the essential spectrum of $T$
+and denoted by $\sigma_e(T)$.
+Thus theorems 8 and 9 can be written as
+
+\begin{theorem1} % theorem 10
+If $T$ is self-adjoint and $K$ is symmetric and completely continuous,
+then $\sigma_e(T + K) = \sigma_e(T)$.
+\end{theorem1}
+
+\subparagraph*{}
+From the proofs of theorems 8 and 9 we also have
+
+\begin{corollary} % corollary 1
+$\sigma_e(T)$ is the complement of $\Phi_T$ in the complex plane.
+\end{corollary}
+
+For many applications it is important to generalize to
+arbitrary closed operators in Banach space and arbitrary
+compact perturbations.
+It is no longer true that the invariant points of the spectrum are those
+which are not isolated eigenvalues of finite multiplicity.
+Wolf [14] defines the essential spectrum
+by means of property expressed in Corollary 1.
+We denote the essential spectrum according to this definition by
+$\sigma_{ew}(A)$.
+
+\begin{definition}
+For any closed operator $A$ in a Banach space
+$\sigma_{ew}(A) = \C \setminus \Phi_A$.
+\end{definition}
+
+\subparagraph*{}
+We have immediately by theorem 6:
+
+\begin{theorem1} % theorem 11
+For any completely continuous operator $K$,
+\[
+\sigma_{ew}(A+K) \= \sigma(A).
+\]
+\end{theorem1}
+
+We shall also employ another definition of essential spectrum:
+
+\begin{definition}
+For a closed operator $A$ in a Banach space $X$,
+$\sigma_{em}(A)$ is the largest subset of $\sigma(A)$
+which remains invariant under arbitrary compact perturbations.
+\end{definition}
+
+\begin{theorem1} % theorem 12
+$\sigma_{em}(A)$ consists of all complex $\lambda$
+except of those $\lambda \in \Phi_A$ with $i(A- \lambda) \eq 0$.
+\end{theorem1}
+
+Proof.
+If $\lambda \in \Phi_A$ and $i(A-\lambda) \eq 0$,
+then the example given in the proof of lemma 3 shows
+that there is an operator $F$ of
+finite rank for which $\lambda \in \rho(A + F)$.
+If $i(A - \lambda) \neq 0$,
+then for every compact operator $K$, $i(A+K-\lambda) \neq 0$ (theorem 6)
+and hence $\lambda \in \sigma(A + K)$.
+If $\lambda \notin \Phi_A$,
+then $\lambda \notin \Phi_{A+K}$ and again $\lambda \in \sigma(A+K)$.
+
+\paragraph*{}
+We shall now give some theorems on the invariance of
+$\sigma_{ew}(A)$ and $\sigma_{em}(A)$ under different types of perturbations,
+Throughout we shall assume that $A$ is a closed operator
+with dense domain in a Banach space $X$
+and $B$ an operator in $X$ with $\domain{B} \supset \domain{A}$.
+
+\begin{theorem1} % theorem 13
+If $B$ is $A$-compact, then
+\begin{equation}\tag{15}
+\sigma_{ew}(A+B) \= \sigma_{ew}(A)
+\end{equation}
+and
+\begin{equation}\tag{16}
+\sigma_{em}(A+B) \= \sigma_{em}(A)
+\end{equation}
+\end{theorem1}
+
+Proof.
+We prove the theorem by showing that $\Phi_A = \Phi_{A+B}$
+and that $i(A-\lambda) = i(A+B-\lambda)$ for $\lambda \in \Phi_A$.
+If $\lambda \in \Phi_A$, then
+$\lambda \in \Phi_{A+B}$ and the index relationship holds (theorem 3).
+Hence $\Phi_A \subseteq \Phi_{A+B}$.
+If $\lambda \in \Phi_{A+B}$, it follows, in particular,
+that $A+B$ is closed.
+Since $A$ is closed, we have
+\begin{equation}\tag{17}
+\norm{Ax} \leq C(\norm{x} + \norm{(A+B)x}),
+\end{equation}
+which expresses the fact that $A$ is a closed operator defined everywhere
+on the Banach space $\domain{A+B} \eq \domain{A}$ 
+under the graph norm $\norm{x} + \norm{(A+B)x}$.
+Hence it is bounded on this set.
+From (17) it follows that $B$ is $(A+B)$-compact.
+We now apply theorem 3 to $A+B$ with perturbation $-B$.
+Thus $\lambda \in \Phi_A$.
+Hence $\Phi_{A+B} = \Phi_A$,
+and the theorem is proved.
+
+\begin{theorem1} % theorem 14
+If $\lambda \in \rho(A) \, \cap \, \Phi_{A+B}$ and either
+$(A-\lambda)^{-1}B$ or $(A - \lambda)^{-1}$ is $A$-compact then (15) holds.
+If, In addition,
+$i(A+B-\lambda) = 0$, then (16) holds.
+\end{theorem1}
+
+Proof.
+We employ the identities
+\begin{equation}\tag{18}
+(A+B-\mu) - (A-\mu)(A- \lambda)^{-1}(A+B-\lambda) =
+(\mu -\lambda)(A-\lambda)^{-1}B
+\end{equation}
+\begin{equation}\tag{19}
+(A+B-\mu) - (A+B - \lambda)(A- \mu)(A- \lambda)^{-1} =
+(\mu - \lambda)B(A - \lambda)^{-1}.
+\end{equation}
+Assume that $(A-\lambda)^{-1}B$ is $A$-compact.
+We equip $\domain{A}$ with the norm $\norm{x} + \norm{Ax} + \norm{Bx}$.
+Under it,
+$\domain{A}$ becomes a Banach space $\tilde{X}$.
+For if $x_n \to X$, $Ax_n \to y$, $Bx_n \to z$,
+then $x \in \domain{A}$ and $Ax = y$ since $A$ is closed,
+while $(A+B)x = y+z$ because $A+B$ is closed.
+Therefore $Bx = z$.
+Now if $\mu \in \Phi_{A+B}$, $A+B - \mu$ is a Fredholm operator
+from $\tilde{X}$ to $X$.
+Moreover,
+$(A - \lambda)B$ is a compact operator from $\tilde{X}$ to $X$.
+Thus
+\begin{equation}\tag{20}
+(A- \mu)(A- \lambda)^{-1}(A+B-\lambda)
+\end{equation}
+is a Fredholm operator from $\tilde{X}$ to $X$ (theorem 1).
+Now
+$(A-\lambda)^{-1}(A+B-\lambda) \in \Psi(\tilde{X},\tilde{X})$ (Lemma 1).
+Thus $A-\mu \in \Psi(\tilde{X},X)$ (Lemma 4)
+and hence $A - \mu \in \Psi(X,X)$,
+i.e., $\mu \in \Phi_A$.
+Therefore $\Phi_{A+B} \subseteq \Phi_A$.
+Conversely,
+if $\mu \in \Phi_A$,
+then the operator (20) is in $\Psi(\tilde{X},X)$.
+Hence the same is true of $A+B- \mu$,
+i.e.,
+$\mu \in \Phi_{A+B}$.
+Thus $\Phi_A = \Phi_{A+B}$.
+This proves (15).
+If $i(A+B-\lambda) = 0$,
+w have by (l8)
+\[
+i(A+B-\mu) = i(A-\mu)
+\]
+and hence (l6) holds.
+
+\begin{theorem1} % theorem 15
+If $B$ is $A^2$-compact and $\lambda \in \Phi_A \cap \Phi_{A+B}$,
+then (15) holds.
+If, in addition, $i(A-\lambda) \eq i(A+B-\lambda)$, then (16) holds.
+\end{theorem1}
+
+Proof.
+Consider the norm
+\[
+\norm{x}_1 = \norm{x} + \norm{Ax} + \norm{Bx} + \norm{A^2x} + \norm{BAx}
+\]
+on $\domain{A^2}$.
+We claim that $\domain{A^2}$ equipped with this norm
+becomes a Banach space $\tilde{X}$.
+In fact if
+$x_n \to x$,
+$Ax_n \to y$,
+$Bx_n \to z$,
+$A^2x_n \to u$,
+$BAx_n \to v$,
+then $x \in \domain{A}$ since $A$ is closed
+and $Ax = y$,
+while $y \in \domain{A}$ and $Ay = u$ for the same reason.
+Thus $x \in \domain{A^2}$.
+Since $A+B$ is closed,
+$(A+B)x = y+z$ and hence $Bz = z$.
+The same reasoning gives $(A+B)Ax = u + v$,
+whence $BAx = v$.
+Now suppose $\mu \in \Phi_A$.
+Then the operator $(A + B - \lambda) \in \Psi(X,X)$ by lemma 1
+and hence is in $\Psi(\tilde{X},X)$.
+However,
+when we consider $B$ as an operator from $\tilde{X}$ to $X$,
+it becomes a compact operator.
+Since
+\begin{equation}\tag{21}
+(A+B-\lambda)(A-\mu) - (A+B-\mu)(A-\lambda) = (\lambda-\mu)B,
+\end{equation}
+we see that $(A + B - \mu)(A - \lambda)$ is a Fredholm operator
+from $\tilde{X}$ to $X$ (theorem 1).
+Thus it is in $\Psi(X,X)$ (lemma 2).
+Since
+$(A-\lambda) \in \Psi(X,X)$ we can apply lemma 4 to obtain that
+$(A + B - \mu) \in \Psi(X,X)$.
+Hence $\Phi_A \subset \Phi_{A+B}$.
+The same reasoning applied in the opposite direction gives
+$\Phi_A = \Phi_{A+B}$.
+Moreover,
+for $\mu \in \Phi_A$ we have by (21), lemma 1 and theorem 1
+\[
+i(A+B-\lambda) + i(A-\mu) = i(A+B-\mu) + i(A-\lambda).
+\]
+Hence
+\[
+i(A-\mu) = i(A+B-\mu).
+\]
+Thus $\sigma_{em}(A + B) \eq \sigma_{em}(A)$ and the proof is complete.
+
+\paragraph*{}
+We see from the proof of theorem 15 that the assumption
+that $B$ is $A$-compact can be considerably weakened.
+
+%------------------------------------------------------------------------------%
+\section{Remarks}                                                              %
+%------------------------------------------------------------------------------%
+\begin{itemize}
+\item[(R-1)]
+In the Russian literature operators satisfying
+properties 1, 3-5 are called $\Phi$-operators, with the $\Phi$ standing
+for Fredholm (cf. [4]). The term Fredholm operator seems
+to be reserved for $\Phi$-operators having index 0.
+We have added assumption 2 for convenience and do not differentiate
+on the basis of index.
+
+\item[(R-2)]
+Observations (O-4) and (O-5) are due to Atkinson [1] for bounded operators
+(cf. also [11,12]).
+
+\item[(R-3)]
+Lemma 1 is also due to Atkinson [1] for bounded operators.
+For unbounded operators it is due to Gohberg [3])
+although there seems to be a gap in his proof (cf. A.M.S. translation of [4]).
+The first part of our proof follows that of [4],
+but our proof that $\range{AB}$ is closed is different.
+Our proof that $AB$ is a closed operator was taken from Kato [8].
+Other proofs may be found in [6,8].
+
+\item[(R-4)]
+For the histories of theorems 1 and 2 see [4],
+Our proofs borrow ideas from Seeley [12] .
+Our proof of $\alpha(A+T) < \alpha(A)$ appears to be much simpler
+than any found in the literature.
+
+\item[(R-5)]
+The idea for lemma 2 and its proof came from Kato [8].
+
+\item[(R-6)]
+Theorems 3 and 4 as well as the device employed in
+obtaining them from theorems 1 and 2 are due to Nagy [9].
+
+\item[(R-7)]
+Generalizations of theorems 5-7 can be found in [8,7].
+Our proof of theorem 7 is taken directly from [4].
+
+\item[(R-8)]
+Lemmas 4 and 5 are apparently new.
+
+\item[(R-9)]
+The term essential spectrum originated in [5] where
+it was applied to self-adjoint problems for ordinary differential equations
+on a half-line.
+In this case the essential spectrum is that part of the spectrum
+which remains invariant under changes in the boundary conditions.
+Browder [2] has proposed still another definition.
+
+\item[(R-10)]
+Theorems 12, 14, 15 are apparently new.
+Similar results my be found in [2,14].
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\newpage
+\fancyhead[C] {}
+\fancyhead[OL]{}
+\fancyhead[ER]{}
+\thispagestyle{empty}
+
+\titleformat{\section}
+{\normalfont \bfseries \filcenter}
+{\thesection.\;}{0mm}{}
+
+\newlength{\bibitemsep}\setlength{\bibitemsep}{.5\baselineskip plus .05\baselineskip minus .05\baselineskip}
+\newlength{\bibparskip}\setlength{\bibparskip}{0pt}
+\let\oldthebibliography\thebibliography
+\renewcommand\thebibliography[1]{%
+  \oldthebibliography{#1}%
+  \setlength{\parskip}{\bibitemsep}%
+  \setlength{\itemsep}{\bibparskip}%
+}
+
+\vspace{8mm}
+\begin{thebibliography}{99}
+%\setlength\bibitemsep{3\itemsep}
+\begin{small}
+
+\bibitem{1}
+F.V. Atkinson, Mat. Sb. 28(70) (1951), pp.\,3-14,
+
+\bibitem{2}
+F.E. Browder, Math, Ann. 142 (1961) pp.\,22-130.
+
+\bibitem{3}
+I.C. Gohberg, Mat. Sb. 53(75) (1953) pp.\,193-198.
+
+\bibitem{4}
+I.C. Gohberg and M.G. Krein, Usp. Mat. Nauk 12 (1957) pp.\,43-118;
+Transl. A.M.S., 13(1960) p. 185-204 .
+
+\bibitem{5}
+Philip Hartman and Aurel Wintner, Amer. J. Math. 72 (1950) pp.\,543-552.
+
+\bibitem{6}
+J. T. Joichi, dissertation, Illinois, 1959.
+
+\bibitem{7}
+Shmuel Kaniel and Martin Schechter, Comm. Pure Appl.  Math., 16 (1965) pp.\,423-448.
+
+\bibitem{8}
+Tosio Kato, J. Analyse Math., 6 (1958) pp.\,261-322.
+
+\bibitem{9}
+B\'{e}la Sz.-Nagy, Acta Sci. Math. Szeged 14 (1951) pp.\,125-137.
+
+\bibitem{10}
+Martin Schechter, Invariance of the essential spectrum, to appear.
+
+\bibitem{11}
+J.T. Schwartz, Comm. Pure Appl. Math., 15 (1962), pp.\,75-90.
+
+\bibitem{12}
+R.T. Seeley, J. Math. Ann. Appl., 7 (1965) pp.\,289-309.
+
+\bibitem{13}
+Hermann Weyl, Rend. Circ. Mat. Palermo, 27 (1909) pp.\,373-392.
+
+\end{small}
+\end{thebibliography}
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}
+
+NEW YORK UNIVERSITY
+COURANT INSTITUTE - LIBkARY
+IMM-NYU 335
+JANUARY, 1965
+NEW YORK UNIVERSITY
+COURANT INSTITUTE OF
+MATHEMATICAL SCIENCES
+FREDHOLM OPERATORS AND THE
+ESSENTIAL SPECTRUM
+MARTIN SCHECHTER
+PREPARED UNDER
+CONTRACT NO. DA31-124-AR0- D-204
+WITH THE
+U. S. ARMY RESEARCH OFFICE
+
+TI^™I-NYU 355
+Courant Institute of Mathematical Sciences
+Nev; York Un5.verslty
+PREDHOLM OPERATORS AND THE
+ESSENTIAL SPECTRUI4
+Contract No. DA31-12^-AR0".D-204
+January 1955
+Martin Schechter
+Department of Army Project No. 20011501B70^
+"Request for additional copies by Agencies of the Department
+of Defense, their contractors, and other Government agencies
+should be directed to:
+Defense Documentation Center
+Cameron Station
+Alexandria, Virginia 2231H
+Department of Defense contractors must have established for
+DDC services or have their "need-to-know" certified by the
+cognizant military agencies of their project or contract."
+Reproduction in I'jhole or in part is permitted for any purpose
+of the United States Government.

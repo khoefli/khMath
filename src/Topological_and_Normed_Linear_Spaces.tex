@@ -1,0 +1,2007 @@
+%------------------------------------------------------------------------------%
+% TOPOLOGICAL AND NORMED LINEAR SPACES                                         %
+%------------------------------------------------------------------------------%
+% File  : Topological_and_Normed_Linear_Spaces.tex                             %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                       DOCUMENT CLASS and INCLUDE FILES                       %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+%\renewcommand\thesection{\Roman{section}}
+
+\def\Title{Topological and Normed Linear Spaces}
+
+\titleformat{\section}
+{\normalfont \bfseries \filcenter}
+{\thesection.\;}{0mm}{}
+
+\titleformat{\subsection}[runin]
+{\normalfont \filcenter}
+{}{0mm}{}
+
+\titleformat{\subsubsection}[runin]
+{\itshape \filcenter}
+{}{0mm}{}
+
+\titlespacing*{\section}      {5pt}{12pt}{ 4pt}
+\titlespacing*{\subsection}   {0pt}{ 6pt}{12pt}
+\titlespacing*{\subsubsection}{0pt}{ 6pt}{ 3pt}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\centerline{\large{\textbf{\Title}}}
+\vspace{4pt}
+\centerline{\small{{\textsc{\Author}}}}
+\vspace{10pt}
+
+\fancyhead[C] {\small{\textsc{\Title}}}
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+
+\myfootnote
+{
+  Version {\Version} from \today;
+  Email:  \textit{khoeflinger@\,t-online.de}
+}
+
+%------------------------------------------------------------------------------%
+%                                 INTRODUCTION                                 %
+%------------------------------------------------------------------------------%
+It is our aim in this article
+to review those fundamental classes of topological linear spaces,
+in which the analysis of so-called "linear operators" is usually done.
+These spaces include,
+besides some generic classes like
+{locally convex spaces} and {completely metrizable spaces},
+especially the class of {normed linear spaces} and related subclasses,
+where we want to emphasize
+{Banach} and {Hilbert spaces}.
+
+%------------------------------------------------------------------------------%
+\section{Topological Linear Spaces}                                            %
+%------------------------------------------------------------------------------%
+Basically,
+the scalar field $\F$ of the linear spaces under consideration
+will either be the field $\R$ of real numbers
+or the field $\C$ of complex numbers.
+Notice that these fields are furnished
+with the so-called {standard topology},
+whose subbase is given by the totality of open intervals in the real line
+and by the totality of open disks in the complex plane,
+respectively.
+In general,
+if results on topological or normed linear spaces
+prove to be independent of the choice of the scalar field,
+we shall use the symbol $\F$ instead of $\R$ or $\C$. 
+
+\subparagraph*{}
+By a \textit{topological linear space} is meant an ordinary vector space $\vecV$
+over a topological field $\F$ (usually that of real or complex numbers),
+together with a topology $\topT_{\,\vecV}$ 
+such that addition $(x,y) \mapsto x\,{+}\,y$
+and outer multiplication $(\lambda,x) \mapsto \lambda x$ are continuous.
+Hence a multiplicity of topological concepts,
+like
+the \textit{closure} of a set,
+the \textit{neighbourhood} of a point,
+the \textit{convergence} of a sequence,
+the \textit{continuity} of a mapping and others
+are meaningful in the context of topological linear spaces.
+
+\paragraph*{} %- Hausdorff's separation axiom
+Let us continue with the introduction of a basic property
+that our topological linear spaces under consideration have to own:
+all singletons $\{x\}$ with $x \in \vecV$ are closed sets,
+which is equivalent to say
+that the topology $\topT_{\,\vecV}$
+fulfills \textsc{Hausdorff}'s separation axiom.
+In other words,
+each pair of points $x,y \in \banX$ can be separated
+by open sets $\openO_x, \openO_y$,
+that is,
+there are $\openO_x \subset \vecV$ and $\openO_y \subset \vecV$ with
+$x \in \openO_x$,
+$y \in \openO_y$ and
+$\openO_x \cap \openO_y \eq \emptyset$.
+The validness of this separation axiom,
+in general topology also called the \textit{T2-separation axiom},
+implies not only
+that every singleton $\{x\}$ is closed,
+but also
+that the limit of a convergent sequence of elements in $\vecV$ is unique.
+
+\paragraph*{}
+Among a lot of properties,
+a topological linear space may have,
+there are two special ones
+that are of importance for our purposes:
+
+\begin{itemize}[leftmargin=15pt,itemsep=3pt]
+\item[1.]
+A topological linear space $\vecV$ is said to be \textit{metrizable},
+if there is a function
+$\d\:\vecV \times \vecV \xto [0,\infty)$
+fulfilling the properties of a \textit{metric}\footnote{
+\,Given a non-empty set $\metrS$,
+a mapping $\d\:\cross{\metrS}{\metrS} \xto \R$ is called a \textit{metric}
+on $\metrS$
+iff the following four conditions hold for all $x,y,z \in \metrS$:
+\begin{itemize}[leftmargin=40pt,itemsep=0pt]
+\item[(M-1)]
+$d(x,y) \geq 0$,
+\item[(M-2)]
+$d(x,y) \eq 0$ if and only if $x=y$,
+\item[(M-3)]
+$d(x,y) \eq d(y,x)$;
+\item[(M-4)]
+$d(x,z) \leq d(x,y) + d(y,z)$ \hspace{3mm}(\textit{triangle inequality}).
+\end{itemize}
+Such a function $\d$ gives rise to a topology in $\metrS$,
+called the \textit{metric topology} associated with $\d$,
+and a subbase is given by all open balls
+$B_r(x) \eqdef \{y \in \metrS: \d(x,y) < r\}$
+with center $x \in \metrS$ and radius $r > 0$.
+}
+such that the metric topology associated with $\d$
+resembles the given topology $\topT_{\,\vecV}$.
+
+\item[2.]
+A sequence $\{x_n\}_{n \in \N}$ with values
+in a topological linear space $\vecV$ is said to be Cauchy
+if for each neighbourhood $\U$ of $\0 \in \vecV$
+there is an integer $N_{\U}$
+such that $x_n - x_m \in \U$ for all $m,n > N_{\U}$.
+Then $\vecV$ is called \textit{sequentially complete},
+if every Cauchy sequence converges to a unique element $x \in \vecV$.
+In the setting of metric spaces,
+however,
+the definition of Cauchy sequence may be simplified by means of the metric:
+$\{x_n\}_{n \in \N}$ is Cauchy,
+if for each $\epsilon > 0$ there is an integer $N_{\epsilon}$ 
+such that
+$x_m - x_n \in B_{\epsilon}(\0)$ for all $m,n > N_{\epsilon}$,
+where $B_{\epsilon}(\0) \eqdef \{x \in \vecV: \d(x,0) < \epsilon\}$
+is the open ball with radius $\epsilon$ and center $\0 \in \vecV$.
+\end{itemize}
+
+\subparagraph*{}
+For a topological linear space being metrizable and sequentially complete
+at the same time,
+both concepts of completeness are compatible to each other,
+that is,
+such a space is complete as a metric space
+\iff
+it is sequentially complete as a topological linear space.
+This equivalence is founded by the fact
+that a metric space fulfills the \textit{first countability axiom}.
+
+\subparagraph*{} %- continuous embeddings
+In the sequel we also use the notion of \textit{continuous embedding}
+of a topological linear space $\banX$ into a topological linear space $\banY$,
+which is nothing but a continuous and \textit{injective} linear mapping
+$\iota\:\banX \xto \banY$.
+The linearity of $\iota$ means that 
+$\iota(\alpha x + \beta y) \eq \alpha \iota(x) + \beta \iota(y)$ holds
+for all $\alpha, \beta \in \F$ and $x,y \in \banX$.
+
+\subparagraph*{} %- linear homeomorphisms
+In addition,
+if $\iota$ is surjective and $\iota^{-1}$ is continuous as well,
+then both mappings are called \textit{linear homeomorphisms}
+between $\banX$ and $\banY$.
+By $\banX \cong \banY$ we mean
+that $\banX$ and $\banY$ are linear-homeomorphic to each another.
+
+%------------------------------------------------------------------------------%
+\section{Families of Seminorms}                                                %
+%------------------------------------------------------------------------------%
+The class of \textit{locally convex spaces} can be seen as the most important
+one within all kinds of topological linear spaces.
+The topology $\topT_{\,\vecV}$ of a locally convex topological linear space
+distinguishes by the fact
+that the origin $\0$ in $\vecV$
+(and thus any other element) owns a neighbourhood base
+consisting of \textit{convex}, \textit{balanced} and \textit{absorbing} sets.
+
+\subparagraph*{} %- seminorms
+It turns out
+that each such pair $(\vecV,\topT_{\,\vecV})$ gives rise to
+a family of \textit{seminorms} on the space $\vecV$.
+By the concept of seminorm
+we mean a mapping $\abs{\,\cdot\,} \:\vecV \xto \R$ having the properties
+\begin{itemize}[leftmargin=55pt,itemsep=2pt]
+\item[(SN-1)] \quad
+$\abs{\lambda x} \= \abs{\lambda} \cdot \abs{x} \for \lambda \in \F$
+\textit{(homogenity)},
+\item[(SN-2)] \quad
+$\abs{x+y} \, \leq \, \abs{x} + \abs{x} \for x,y \in \vecV$
+\textit{(subadditivity)},
+\end{itemize}
+which especially implies $\abs{x} \leq 0$ for $x \in \vecV$
+and $\abs{\0} \eq 0$.
+
+\subparagraph*{} %- Minkowski functional
+Moreover,
+if $\U \subset \vecV$ forms a convex, balanced and absorbing neighbourhood
+of the origin $\0$,
+then the \textit{Minkowski functional}
+\[
+\begin{cases}[1.3]
+\quad \abs{\,\cdot\,} _{\,\U}\:\vecV \xto \R_0^+,\\
+\quad x \mapsto \abs{x} _{\,\U} \, \eqdef \,
+\mbox{inf} \, \set{\lambda \geq 0}{ x \in \lambda \, \U} \\
+\end{cases}
+\]
+fulfills all the properties of a seminorm.
+On the other hand,
+a family $\famF$ of seminorms defined on a linear space $\vecV$
+leads in a natural way to a locally convex topology $\topT_{\,\vecV}$:
+it is the coarsest topology on $\vecV$
+such that all seminorms in $\famF$ remain continuous.
+
+\subparagraph*{}
+In summary,
+there is a one-to-one correspondence
+between linear spaces endowed with locally convex topologies
+and those endowed with families of seminorms.
+Notice that a locally convex topology is Hausdorff
+iff
+the family of seminorms is \textit{separating},
+{\ie} for each element $x \neq 0$
+there is at least one seminorm $\abs{\,\cdot\,} _{\alpha}$
+such that $\abs{x} _{\alpha} \neq 0$.
+
+\paragraph*{} %- F-spaces and Frechet spaces
+There are a two subclasses of locally convex spaces,
+which in the following we want to review:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+A topological linear space $\vecV$ is called \textit{F-space},
+if it is also a \textit{complete} metric space with translation-invariant
+metric $\d$,
+{\ie}
+\[
+\d(x,y) \= \d(x+z,y+z) \; \fa x,y,z \in \vecV,
+\]
+and the metric topology coincides with the given topology on $\vecV$.
+
+%\subparagraph*{} %- Frechet space
+\item[2.]
+If the topology of the F-space $\vecV$ is locally convex,
+then $\vecV$ is said to be a \textit{{\FRECHET} space}\footnote{
+A metrizable locally convex space that is not necessarily complete,
+is called a \textit{pre-{\FRECHET} space}.}.
+Alternatively,
+a locally convex space is {\FRECHET}
+\iff
+it is complete and its family of seminorms is mostly countable.
+In this case
+we may define a translation-invariant metric on a {\FRECHET} space $\vecV$
+according to
+\[
+\d(x,y) \, \eqdef \,
+\sum_{n=1}^{\infty} p_n \cdot \frac{\abs{x-y} _n}{1+ \abs{x-y} _n}
+\quad (x,y \in \topV)
+\]
+where $\{p_n\}_{n=1}^{\infty}$ is any sequence of positive real numbers,
+whose infinite sum converges.
+\end{itemize}
+
+\paragraph*{} %- continuous linear functionals and adjoint spaces
+Given a topological $\F$-linear space $\banX$,
+let $\banX^*$ be the set of all continuous linear mappings
+$\phi\:\banX \xto \F$,
+called the \textit{adjoint space} $\banX^*$ of $\banX$,
+which forms a linear space again.
+If the topology of $\banX$ is at least locally convex,
+then a specific version of the celebrated \textsc{Hahn-Banach} \textit{theorem}
+ensures that
+there are non-trivial continuous linear mappings on $\banX$,
+thus we may assume $\banX^* \neq \{\0\}$.
+We denote the elements of the adjoint space $\banX^*$ as
+\textit{continuous linear functionals}.
+
+\subparagraph*{} %- bi-adjoint spaces and weak*-topologies
+It is known from linear algebra
+that an ordinary $\F$-linear space $\vecV$ may be regarded
+as a linear subspace of its (algebraic) bi-adjoint space
+$\vecV^{\#\#} \eqdef (\vecV^{\#})^{\#}$,
+where $\vecV^{\#}$ is the space of linear functionals $\phi\:\vecV \xto \F$.
+More precisely,
+every element $x \in \vecV$ gives rise to a linear functional
+$F_x\:\vecV^{\#} \xto \F$ according to
+$F_x(\phi) \eqdef \phi(x)$ for all $\phi \in \vecV^{\#}$.
+The natural mapping $\iota\:\vecV \xto \vecV^{\#\#}$,
+defined by $\iota(x) \eqdef F_x$ for $x \in \vecV$,
+is linear and injective but in general not surjective.
+
+\subparagraph*{} %- weak*-topologies
+Having these facts in mind,
+we introduce the \textit{weak*}-topology on the adjoint $\banX^*$
+of a locally convex topological linear space $\banX$:
+it is the smallest topology in $\banX^*$
+such that
+for each $x \in \banX$ the linear functional $F_x$ remains continuous.
+
+%------------------------------------------------------------------------------%
+\section{Normed Linear Spaces}                                                 %
+%------------------------------------------------------------------------------%
+Based on the results obtained in the last section,
+a normed linear space is nothing but a pre-{\FRECHET} space,
+whose family of separating seminorms consits of only one element
+$\norm{\,\cdot\,} \eqdef \abs{\,\cdot\,} _0$,
+which of course must be a separating one,
+that is,
+$\norm{x} \eq 0$ implies $x \eq \0$.
+
+\subparagraph*{}
+It is possible to introduce the concepts of norm and normed linear space
+in a direct way, 
+{\ie} without using the theory on families of seminorms
+and locally convex spaces.
+Following this approach,
+a \textit{normed space} $\banX$ is a $\F$-linear space
+that differs from other abstract linear spaces
+by the presence of a particular mapping $\norm{\,\cdot\,}: \banX \xto \R$,
+denoted the \textit{norm} on $\banX$,
+which fulfills for all $x,y \in \banX$ and $\lambda \in \F$
+
+\begin{itemize}[leftmargin=55pt,itemsep=2pt]
+\item[(N-1)] \quad
+$\norm{\lambda \, x} \= \abs{\lambda} \cdot \norm{x}$,
+
+\item[(N-2)] \quad
+$\norm{x+y} \, \leq \, \norm{x} + \norm{y}$
+\; \textit{(triangle inequality)},
+
+\item[(N-3)] \quad
+$\norm{x} \geq 0$ and $\norm{x} \eq 0 \Leftrightarrow x \eq \0$.
+\end{itemize}
+
+\paragraph*{}
+Linear spaces can be furnished with different norms.
+Then two arbitrary norms $\norm{\,\cdot\,}_{\alpha}$
+and $\norm{\,\cdot\,}_{\beta}$ defined on a linear space $\banX$
+are called \textit{equivalent} to each another,
+if there are constants $c_1,c_2 > 0$ such that
+$
+c_1 \norm{x}_{\alpha} \leq \norm{x}_{\beta}  \leq c_2 \norm{x}_{\alpha} 
+$
+for all $x \in \banX$.
+
+\subparagraph*{} %- norm topologies
+Each normed linear space $\banX$ can be equipped
+with a very natural topology $\topT$,
+called the \textit{norm topology} on $\banX$.
+It can be defined either by the assertion
+that $\topT \eqdef \topT_{\norm{\cdot}}$ is the smallest topology on $\banX$
+such that the norm mapping remains continuous,
+or it is defined to be the metric topology $\topT_d$,
+when $\banX$ is considered as a metric space with metric function
+$\d(x,y) \eqdef \norm{x-y}$ for all $x,y \in \banX$.
+In fact,
+both definitions lead to the same collection of open subsets in $\banX$,
+so $\topT \eqdef \topT_{\norm{\cdot}} \eq \topT_d$,
+which justifies to speak of \textit{the} topology of a normed linear space.
+Clearly,
+equivalent norms on $\banX$ own one and the same topology.
+For example,
+if $\banX$ is a finite-dimensional linear space,
+then all norms on $\banX$ are equivalent and each of them
+generates the so-called \textit{standard topology} on $\banX$.
+
+\subparagraph*{} %- norm-isomorphisms
+if $\banX$ and $\banY$ are normed linear spaces
+and $\iota$ is a \textit{norm-preserving} linear homeomorphism
+between $\banX$ and $\banY$,
+that is,
+$\norm{\iota x}_{\banY} \eq \norm{x}_{\banX}$ for all $x \in \banX$,
+we denote this mapping a \textit{norm-isomorphism} between $\banX$ and $\banY$,
+and in this case both spaces are called \textit{norm-isomorphic} to each other
+(we again use the notion $\banX \cong \banY$ in this case).
+
+\subparagraph*{} %- sequentially complete normed spaces, Banach spaces
+A normed linear space $\banX$ is said to be \textit{sequentially complete}
+(or briefly \textit{complete}),
+if for any Cauchy sequence $\{x_n\}_{n \in \N}$ in $\banX$
+there is $x \in \banX$
+such that $\lim_{\,n \xto \infty} \norm{x_n-x} \eq 0$.
+Equivalently,
+the space $\banX$ is complete
+\iff
+for every absolutely convergent series
+$\sum_{n=1}^{\infty} \norm{x_n} < \infty$ there is $x \in \banX$
+such that $\norm{x-x_n} \xto 0$ for $n \xto \infty$.
+Each complete normed space is denoted a \textit{Banach space}.
+Like in the non-complete case,
+a Banach space $\banX$ with norm $\norm{\,\cdot\,}$
+is nothing but a {\FRECHET} space,
+whose separating family of seminorms contains only this norm.
+
+\subparagraph*{}
+Notice that if the space $\banX$ is normed,
+then $\banX^* \eq \BO{\banX,\F}$ is also normed,
+where the norm $\norm{\phi}$ of a functional $\phi \in \banX^*$ is defined by
+\[
+\norm{\phi} \, \eqdef \, \sup_{x \in \banX,\,\norm{x} \leq 1} \, \abs{\phi(x)} .
+\]
+Since the fields $\R$ and $\C$ are complete normed spaces as well,
+the {adjoint space} of a normed linear space is also complete.
+This follows from  a basic theorem in functional analysis claiming
+that the space $\BO{\banX,\banY}$ of continuous linear mappings
+$\phi\:\banX \xto \banY$ endowed with the \textit{operator norm}
+is complete \iff $\banY$ is complete.
+
+\paragraph*{} %- norm convergence
+In the following we want to introduce concepts of convergence
+for sequences in a \textit{normed} linear space $\banX$.
+First of all,
+a sequence $\{x_n\}_{n \in \N}$ in $\banX$
+is called \textit{strongly convergent}
+or simply \textit{norm convergent} to $x \in \banX$,
+if it converges to $x$ {\wrt} the norm topology,
+that is,
+if $\lim_{\,n \xto \infty} \norm{x_n-x} \eq 0$.
+
+\subparagraph*{} %- weak topologies
+But there is a further and useful topology on $\banX$,
+called the \textit{weak topology} $\topT_w$.
+It is the coarsest topology on $\banX$
+such that all continuous linear functionals
+$\phi \in \banX^*$ remain continuous.
+The notion of convergence {\wrt} this topology
+is known as \textit{weak convergence}.
+More precisely,
+a sequence $\{x_n\}_{n \in \N}$ of elements in $\banX$
+is called \textit{weakly convergent} to $x \in \banX$
+(notation: $x_n \rightharpoonup x$),
+if $\lim_{n \xto \infty} \phi(x_n) \eq \phi(x)$ for each $\phi \in \banX^*$.
+
+\subparagraph*{} %- properties of the weak topology
+The weak topology is also Hausdorff.
+But it does not contain more open sets than the norm topology,
+so $\topT_w$ is weaker than $\topT_{\norm{\cdot}}$.
+In other words,
+norm convergence of any sequence in $\banX$ implies weak convergence.
+If $\banX$ is finite-dimensional,
+however,
+both topologies coincide,
+but this is in general not true in arbitrary normed linear spaces.
+
+%------------------------------------------------------------------------------%
+\section{Special Properties of Banach Spaces}                                  %
+%------------------------------------------------------------------------------%
+In this section we briefly review two fundamental properties,
+a Banach space $\banX$ may or may not have.
+The first topic is \textit{uniform} and \textit{strict convexity}
+of real Banach spaces,
+while the second one is \textit{reflexivity}.
+
+\subparagraph*{} %- uniformly convex spaces
+A \textit{uniformly convex space} is a \textit{real} normed space $\banX$
+having the following property:
+for every $\epsilon > 0$ there is $\delta > 0$ 
+such that
+for any elements $x,y$ of the closed unit ball $B_1(\0)$ of $\banX$
+the validness of the inequality $\norm{(x+y)/2} > 1- \delta$
+implies $\norm{x-y} < \epsilon$.
+In other words,
+if the center $(x+y)/2$ of the line segment $[x,y]$
+between elements $x,y$ belonging to the \textit{unit sphere}
+$S_1(\0) \eqdef \partial B_1(\0)$ tends to $S_1(\0)$,
+then the $x$ and $y$ tend together.
+This property is possibly lost
+when switching to another but equivalent norm on $\banX$.
+
+\subparagraph*{} %- strictly convex spaces
+A normed linear space $\banX$ is called \textit{strictly convex},
+if the conditions
+$\norm{x} \leq 1$, $\norm{y} \leq 1$ and $x \neq y$
+imply
+$\norm{x+y}/2< 1$.
+This means,
+that the \textit{inner} line segment $(x,y)$
+between $x,y \in S_1(\0)$ lies completely in the interior of $B_1(\0)$,
+that is
+$\norm{\,\alpha x + (1-\alpha)\,y\,} < 1$ for $0 < \alpha < 1$.
+Each linear subspace of a uniformly convex Banach space owns this feature.
+In the light of the forthcoming theorem \ref{APPROXIMATION_THEOREM},
+it is an important fact
+that uniformly convex spaces are also strictly convex.
+
+\paragraph*{} %- approximation theorem
+Recall that a subset $\convC$ of a linear space is called \textit{convex},
+if the line segment $[x,y]$ of any pair of points $x,y \in \convC$
+belongs to $\convC$ again.
+Then many approximation problems may be formulated as follows:
+it is to find an element $y_0$ in a convex set $\convC \subset \banX$
+such that $y_0$ has minimal distance to a given element $y \notin \convC$.
+The following statement,
+known as the \textit{approximation theorem},
+provides sufficient conditions regarding existence and uniqueness
+of a solution for that problem:
+
+\begin{theorem}\label{APPROXIMATION_THEOREM}
+Let $(\banX,\norm{\,\cdot\,})$ be a real normed linear space,
+let $y \in \banX$ and
+$\convC \subset \banX$ be a \textit{closed} and \textit{convex} subset.
+Then we have:
+
+\begin{itemize}[leftmargin=25pt,itemsep=2pt]
+\item[(a)] \textit{Uniqueness}:
+if $\banX$ is \textit{strictly convex},
+then there is mostly one element $y_0 \in \convC$
+such that $\norm{y_0-y} \eq \inf_{x \in \convC} \norm{y-x}$.
+
+\item[(b)] \textit{Existence}:
+if $\banX$ is a \textit{uniformly convex Banach space}
+then there is a unique element $y_0 \in \vecV$
+such that $\norm{y_0-y} \eq \inf_{x \in \convC} \norm{y-x}$.
+\end{itemize}
+\end{theorem}
+
+\paragraph*{} %- reflexive spaces
+We next introduce the notion of reflexivity of Banach spaces.
+It may happen
+that for a given normed linear space $\banX$
+the natural embedding
+$\iota\: \banX \hookrightarrow \banX^{**}$ is surjective,
+and in this case
+it constitutes a norm-isomorphism between $\banX$ and $\banX^*$.
+Many normed linear spaces considered in functional analysis
+have this remarkable property,
+which is indicated by the concept of \textit{reflexivity}:
+the space $\banX$ is called \textit{reflexive},
+if $\iota$ is onto and consequently $\banX \cong \banX^{**}$.
+
+\paragraph*{} %- properties of reflexive spaces
+We collect some propositions concerning reflexivity:
+
+\begin{itemize}[leftmargin=35pt]
+\item[1.]
+Since adjoint spaces of normed spaces are throughout Banach spaces,
+every reflexive space must be complete.
+
+\item[2.]
+If a Banach space $\banX$ is norm-isomorphic to a reflexive space,
+then $\banX$ must be reflexive, too.
+
+%\item[]
+%All closed linear subspaces $\clU$ of a reflexive Banach space $\banX$
+%and their quotient spaces $\banX / \clU$ prove to be reflexive.
+
+\item[3.]
+Dual spaces of reflexive spaces are reflexive.
+
+\item[4.]
+Reflexivity of a Banach space $\banX$ is strongly related to reflexivity
+of \textit{all} its adjoint spaces,
+that is,
+$\banX$ is reflexive
+iff
+one of the spaces
+$
+\banX^{*}, \banX^{**}, \banX^{***}, \ldots
+$
+is reflexive.
+On the other hand,
+if $\banX$ is not reflexive,
+then all these spaces prove to be pairwise unisomorphic to each other.
+\end{itemize}
+
+\subparagraph*{} %- Milman-Pettis theorem
+Important examples of reflexive Banach spaces are provided
+by the \textsc{Milman-Pettis} \textit{theorem}:
+each \textit{uniformly convex Banach space} proves to be reflexive.
+
+%------------------------------------------------------------------------------%
+\section{Hilbert Spaces}                                                       %
+%------------------------------------------------------------------------------%
+Given a real or complex linear space $\hilH$,
+an \textit{inner product} in $\hilH$ is defined to be a mapping
+$\scalar{\,\cdot\,}{\,\cdot\,}\: \hilH \times \hilH \xto \F$,
+which is
+
+\begin{itemize}[leftmargin=35pt]
+\item[(I-1)]
+linear in the first argument,
+
+\item[(I-2)]
+either linear or antilinear in the second argument (conditional upon,
+whether $\F$ is the real or the complex number field),
+\end{itemize}
+together with the additional properties
+
+\begin{itemize}[leftmargin=35pt]
+\item[(I-3)]
+$\scalar{y}{x} \eq           \scalar{x}{y}$  ($\F=\R$) rsp.
+$\scalar{y}{x} \eq \overline{\scalar{x}{y}}$ ($\F=\C$),
+\item[(I-4)]
+$\scalar{x}{x} \geq 0$ for all $x \neq 0$,
+\item[(I-5)]
+$\scalar{x}{x} \eq 0$ implies $x \eq 0$.
+\end{itemize}
+
+\subparagraph*{}
+Property (I-3) is denoted the \textit{Hermitean symmetry}
+of $\scalar{\,\cdot\,}{\,\cdot\,}$,
+while (I-4) and (I-5) together mean \textit{positive definiteness}.
+The presence of the inner product gives rise to define a norm in $\hilH$
+according to
+\begin{equation}\label{DERIVED_NORM}
+\norm{x} \, \eqdef \, \scalar{x}{x} ^{1/2} \quad \quad (x \in \hilH),
+\end{equation}
+so each linear space furnished with an inner product is normed
+in a natural manner.
+The inner product and the norm are coupled by
+the \textit{Cauchy-Schwarz} \textit{inequality}
+\[
+\abs{\scalar{x}{y}} \, \leq \,
+\norm{x} \cdot \norm{y} \quad \quad (x,y \in \hilH),
+\]
+which implies that the mapping
+$\scalar{\,\cdot\,}{\,\cdot\,}\:\hilH \times \hilH \xto \F$ is continuous.
+An inner product space $\hilH$ is called a \textit{Hilbert space}
+or shortly \textit{Hilbertian},
+if it is complete {\wrt} the norm defined by \eqref{DERIVED_NORM}.
+
+\subparagraph*{} %- parallelogram equation and polarization formula
+The pleasant geometric properties of inner product spaces
+may be attributed to the validness of the \textit{parallelogram equation}
+\begin{equation}\label{PARALLELOGRAM_EQUATION}
+2 \norm{x}^2 + 2 \norm{y}^2 \= \norm{x+y}^2 + \norm{x-y}^2
+\qfa x,y \in \hilH.
+\end{equation}
+In general,
+the norm $\norm{\,\cdot\,}$ on a linear space $\banX$
+can be induced by an inner product
+\iff \eqref{PARALLELOGRAM_EQUATION} holds.
+In this case and if $\banX$ is a complex linear space,
+the inner product can be recovered from the norm
+by the \textit{polarization formula}
+\[
+\scalar{x}{y}
+\=
+\frac{1}{4} \,
+(\,
+\norm{x + y}^2 - \norm{x-y}^2 +i \norm{x+iy}^2 - i \norm{x-iy}^2
+\,).
+\]
+If $\banX$ is a real space,
+however,
+the polarization formula simplifies to
+\[
+\scalar{x}{y} \=
+\frac{1}{4} \,
+(\,
+\norm{x + y}^2 - \norm{x-y}^2
+\,).
+\]
+
+\paragraph*{} %- properties of Hilbert spaces
+In the following we want to point out
+that Hilbert spaces differ from general Banach spaces
+by a couple of desirable properties:
+
+\begin{itemize}[leftmargin=15pt,itemsep=6pt]
+\item[1.] \textit{Orthogonality}.
+Two elements $x,y \in \hilH$ are called \textit{orthogonal} to each other,
+if $\scalar{x}{y} \eq 0$ (notation: $x \bot y$).
+Any subset $\orthO \subset \hilH$ is said to be \textit{orthogonal}
+or an \textit{orthogonal system},
+if all elements in $\orthO$ are orthogonal to each other.
+Finally,
+the \textit{orthogonal space} $\setA^{\bot}$
+of a subset $\setA \subset \hilH$ contains exactly the elements $y \in \hilH$,
+which are orthogonal to all $x \in \setA$.
+Such sets basically form closed linear subspaces of $\hilH$.
+
+\item[2.] \textit{Projection Theorem}.
+Let $\setA \subset \hilH$ be a \textit{closed} linear subspace.
+Then for each $x \in \hilH$ there is exactly one $x_0 \in \setA$
+such that
+\[
+\norm{ x - x_0 } \= \inf \, \{ \, \norm {x-y}: y \in \setA \,\}.
+\]
+The element $x_0$ is called the \textit{projection} of $x$ onto $\setA$
+and minimizes the distance between $\setA$ and $x$.
+The associated linear mapping
+$\pi_{\setA}\:x \in \hilH \mapsto x_0 \in \setA$
+is also denoted the \textit{projection} of $\hilH$ onto $\setA$.
+In general,
+by a \textit{projection} is meant
+any linear mapping $\pi\:\hilH \xto \hilH$ satisfying
+$\pi \circ \pi \eq \pi$ and
+$\scalar{\pi x}{y} \eq \scalar{x}{\pi y}$ for all $x,y \in \hilH$.
+
+\item[3.] \textit{Decomposition Theorem}.
+Using the notation of orthogonal space $\setA^{\bot}$,
+the projection of $x$ onto $\setA$ is characterized as follows:
+$x_0 \eq \pi_{\setA} x$ iff $x-x_0 \in \setA^{\bot}$.
+Hence each $x \in \hilH$ can be uniquely represented by the formula
+$x = x_0 + x^{\bot}$,
+where $x_0 \in \setA$ and $x^{\bot} \in \setA^{\bot}$,
+so the entire space $\hilH$ is isometrically isomorphic
+to the direct sum $\setA \, \oplus \, \setA^{\bot}$
+of the closed subspaces $\setA$ and $\setA^{\bot}$.
+This fact is known as \textit{decomposition theorem} in Hilbert spaces.
+In other words,
+each closed linear subspace $\setA$ of $\hilH$
+is \textit{topologically complementable},
+that is,
+to each closed subspace $\setA$
+there is a second closed subspace $\setB \subset \hilH$
+such that $\setA \cap \setB \eq \{\0\}$ and $[\setA \cup \setB] \eq \hilH$.
+Of course,
+a closed subspace $\A$ is topologically complemented
+by its orthogonal space. %$\setA^{\bot}$.
+
+\item[4.] \textit{Existence of Orthonormal Bases}.
+An orthogonal system $\orthO \subset \hilH$ is denoted
+an \textit{orthonormal system},
+if $\scalar{x}{x} \eq 1$ for all $x \in \orthO$.
+However,
+if $\orthO$ contains only \textit{finitely} many elements,
+then the span $[\orthO]$ forms a \textit{closed} subspace in $\hilH$,
+and the projection $\pi_{[\orthO]}$ of any element $x$ onto $[\orthO]$
+can be expressed by the formula
+\[
+\pi_{[\orthO]} \, x \= \sum_{i=1}^n \, \scalar{x}{e_i} \, e_i.
+\]
+However,
+if $\orthO$ consists of arbitrarily many elements,
+the inequality $\scalar{x}{e_{\alpha}} \neq 0$ can only be valid
+for mostly countable many elements $e_{\alpha} \in \orthO$,
+which in conclusion enables to add the coefficients $\scalar{x}{e_{\alpha}}$
+together about all elements of $\orthO$.
+
+\subparagraph*{} %- orthonormal bases
+An orthonormal system $\orthO$ is called
+an \textit{orthonormal base} in $\hilH$,
+if its span $[ \orthO ]$ lies dense in $\hilH$.
+In this case we may represent each $x \in \hilH$ according to
+\begin{equation}\label{FOURIER_COEFFICIENTS}
+x \= \sum_{e_{\alpha} \in \orthO} \, \scalar{x}{e_{\alpha}} \, e_{\alpha},
+\end{equation}
+which is primarily a formal sum,
+but consists of mostly countable many summands.
+The inner products $\scalar{x}{e_{\alpha}}$ are called
+the \textit{Fourier coefficients} of $x$ {\wrt} $\orthO$.
+The right hand side of \eqref{FOURIER_COEFFICIENTS}
+consists of \textit{mostly countable many} non-zero summands,
+and this series is invariant
+by realignments of the elements $e_{\alpha} \in \orthO$.
+
+\subparagraph*{}
+There is of course the need to determine,
+whether a given orthonormal system $\orthO$ forms an orthonormal base.
+In fact,
+it can be shown that
+the following statements are equivalent:
+
+\begin{itemize}[leftmargin=20pt,itemsep=3pt]
+\item[(a)]
+$\orthO$ is an orthonormal base in $\hilH$.
+
+\item[(b)]
+$\orthO$ is \textit{complete},
+that is,
+$\scalar{x}{e} \eq 0$ for all $e \in \orthO$ implies $x \eq \0$.
+
+\item[(c)]
+$\sum_{e_{\alpha} \in \,\orthO} \;
+\abs{ \scalar{x}{e_{\alpha}} } ^2 \eq \norm{x}^2$ for all $x \in \hilH$
+(\textit{Parseval}\textit{'s equation}).
+\end{itemize}
+
+\paragraph*{} %- existence of orthonormal bases
+It is also nearby to ask for the existence of orthonormal bases.
+First of all,
+the collection of all orthonormal systems in a Hilbert space $\hilH$
+forms a partial ordered set,
+and under the assumption that \textsc{Zorn}{'s lemma}\,\footnote{\,
+\,The \textit{axion of choice} claims that
+if $\cal{F}$ is a disjoint family $F_{\alpha}$ ($\alpha \in \J$)
+of non-empty sets,
+then there is a set $A$ that shares exactly one element
+with each other set $F_{\alpha} \in \cal{F}$.}
+is valid,
+it contains a \textit{maximal} element $\orthO$
+that cannot be increased,
+hence each Hilbert space $\hilH \neq \{\0\}$ owns an orthonormal base.
+%\subparagraph*{} %- Hilbert space dimension
+Furthermore,
+if $\orthO_1$ and $\orthO_2$ are orthonormal bases in $\hilH$,
+then there is a bijective mapping between them,
+thus they own identical cardinal numbers.
+This legitimates us to introduce the notation
+of \textit{Hilbert space dimension} $\abs{\hilH} $
+being the cardinal number of any orthonormal base in $\hilH$.
+
+\subparagraph*{} %- separable Hilbert spaces
+A Hilbert space $\hilH$ is called \textit{separable}
+if there is a mostly countable subset lying dense in $\hilH$.
+It turns out that $\hilH$ is separable
+\iff
+$\abs{ \hilH} \leq \abs{\N} $.
+Indeed,
+each orthonormal base in $\hilH$ forms a mostly countable set in this case,
+and $\hilH$ proves to be norm-isomorphic to the Hilbert space $\ell^2$
+of square summarizable sequences $f\:\N \xto \F$.
+\end{itemize}
+
+\subsubsection*{} %- hierarchy of topological linear spaces
+The following figure shows the inheritance tree
+of topological and normed linear spaces,
+where Banach and Hilbert spaces are positioned at the very end
+of this hierarchy:
+
+\begin{center}
+\scalebox{0.69}{
+
+\begin{tikzpicture}[node distance=4.0cm,auto]
+
+\node[align=center,rectangle,draw](TLS) at (0,-1.0)
+{\;topological linear space\; \\ $(\topV,\topT_V)$};
+
+\node[align=center,rectangle,draw](LCTLS) at (-5,-3.5)
+{locally convex \\ \;topological linear space\; \\ $(\topV,\{ p_{\alpha} \}_{\alpha \in \cal{I}})$};
+
+\node[align=center,rectangle,draw](SCTLS) at (5,-3.5)
+{\textbf{sequentially complete}\\ \; \textbf{topological linear space} \; \\ $(V,\topT_V)$};
+
+\node[align=center,rectangle,draw](MS) at (-3,-5.9)
+{metric space \\ $(\metrS,\topT_d)$};
+
+\node[align=center,thick,rectangle,draw](CMS) at (1,-5.9)
+{\textbf{complete} \\ \; \textbf{metric Space} \; \\ $(\metrS,\topT_d)$};
+
+\node[align=center,thick,rectangle,draw](F-S) at (5,-5.9)
+{\; \textbf{F-space}\; \\ $(F,\topT_V=\topT_d)$};
+
+\node[align=center,rectangle,draw](PFS) at (-5,-8.0)
+{\;pre-{\FRECHET} space\; \\ $(F,\{p_n\}_{n \in \N})$};
+
+\node[align=center,thick,rectangle,draw](FS) at (5,-8.0)
+{\;\textbf{{\FRECHET} space}\; \\ $(F,\{p_n\}_{n \in \N})$};
+
+\node[align=center,rectangle,draw](NS) at (-5,-10.5)
+{\;{normed linear space}\; \\$(\banX,\norm{\cdot})$};
+
+\node[align=center,thick,rectangle,draw](BS) at (5,-10.5)
+{\;\textbf{Banach space}\; \\$(\banX,\norm{\cdot})$};
+
+\node[align=center,thick,rectangle,draw](RBS) at (5,-12.0)
+{\;\textbf{reflexive Banach space}\; \\$(\banX,\norm{\cdot})$};
+
+\node[align=center,thick,rectangle,draw](UCS) at (5,-13.5)
+{\;\textbf{uniformly convex space}\; \\$(\banX,\norm{\cdot})$};
+
+\node[align=center,rectangle,draw](IPS) at (-5,-15)
+{\;{inner product space}\; \\$(\vecH,\scalar{\cdot}{\cdot})$};
+
+\node[align=center,thick,rectangle,draw](HS) at (5,-15)
+{\;\textbf{Hilbert space}\; \\$(\hilH,\scalar{\cdot}{\cdot})$};
+
+\draw[->,>={Stealth}, thick] (MS) to (CMS);
+\draw[->,>={Stealth}, thick] (MS) to (PFS);
+\draw[->,>={Stealth}, thick] (CMS) to (F-S);
+\draw[->,>={Stealth}, thick] (TLS) to (SCTLS);
+\draw[->,>={Stealth}, thick] (TLS) to (LCTLS);
+\draw[->,>={Stealth}, thick] (SCTLS) to (F-S);
+\draw[->,>={Stealth}, thick] (F-S) to (FS);
+\draw[->,>={Stealth}, thick] (LCTLS) to (PFS);
+\draw[->,>={Stealth}, thick] (PFS) to (NS);
+\draw[->,>={Stealth}, thick] (NS) to (IPS);
+\draw[->,>={Stealth}, thick] (PFS) to (FS);
+\draw[->,>={Stealth}, thick] (NS) to (BS);
+\draw[->,>={Stealth}, thick] (IPS) to (HS);
+\draw[->,>={Stealth}, thick] (FS) to (BS);
+\draw[->,>={Stealth}, thick] (BS) to (RBS);
+\draw[->,>={Stealth}, thick] (RBS) to (UCS);
+\draw[->,>={Stealth}, thick] (UCS) to (HS);
+
+\node[align=center](I) at (0,0.4) {\textit{metric and topological linear spaces}};
+\node[align=center](II) at (   0,-16.4) {\textit{normed linear spaces}};
+\draw[dashed,thick]        (-7.8,  0.0) rectangle (8.0,-9.0);
+\draw[dashed,thick]        (-7.8, -9.5) rectangle (8.0,-16.0);
+\end{tikzpicture}
+}
+\end{center}
+
+\begin{center}
+\footnotesize{Figure \thesection.1:
+              The hierarchy of metric and topological linear spaces}
+\end{center}
+
+%------------------------------------------------------------------------------%
+\section{Bochner-Sobolev Spaces}                                               %
+%------------------------------------------------------------------------------%
+This section is preliminary in order to outline the variational approach
+to evolution equations in the Hilbert space setting.
+
+\subparagraph*{} %- Bochner spaces
+The \textit{Bochner spaces} $L^p(\Omega,\banX)$ are nothing but
+Lebesgue spaces for vector-valued functions $f\:\Omega \xto \banX$,
+where $\banX$ is a separable Banach space.
+To define them,
+we first have to introduce a concept of measurability and integration
+for vector-valued functions,
+that forms a generalization of the ordinary Lebesgue integral.
+
+\subparagraph*{} %- measurable functions
+A function $f\:\Omega \xto \banX$ is called \textit{weakly measurable},
+if $\phi \circ f\:\Omega \xto \F$ is measurable for every $\phi \in \banX^*$.
+Then a weakly measurable function $f\:\Omega \xto \banX$
+is called \textit{Bochner-integrable},
+if
+\[
+\int_{\Omega} \norm{f} \,d\mu \, < \, \infty.
+\]
+For any $p \geq 1$
+we denote $L^p(\Omega,\banX)$ the space of functions $f\:\Omega \xto \banX$
+having Bochner-integrable powers $\abs{f} ^{p}$.
+The elements of this space have also to be understood
+as equivalence classes of functions
+being identical almost everywhere in $\Omega$.
+Endowed with the norm
+\[
+f \mapsto \norm{f}_p \eqdef (\int_{\Omega} \, \norm{f} ^p \, d\mu)^{1/p},
+\]
+the Bochner spaces $L^p(\Omega,\banX)$ are complete
+and thus constitute Banach spaces.
+
+\subparagraph*{} %- weak and strong measurability
+It should be mentioned that
+if we suppose the Banach space $\banX$ to be separable,
+then a function $f\:\Omega \xto \banX$ is weakly measurable
+if and only if $f$ is strongly (or Pettis-) measurable.
+The latter notion of measurability uses approximations of $f$ by sequences
+$\{e_n\}_{n \in \N}$ of elementary functions $e_n\:\Omega \xto \banX$,
+and the Bochner integral of $f$ is obtained by taking the limit of the
+Bochner integrals of the functions $e_n$,
+that is,
+\[
+\int_{\Omega} f \,d\mu \eqdef \lim_{n \xto \infty} \int_{\Omega} e_n \, d\mu.
+\]
+This definition proves to be independent of the specific choices
+of the approximating sequences for $f$.
+
+\subparagraph*{} %- specific choice of Omega and X for Bochner spaces
+With respect to applications in partial differential equations,
+Bochner spaces are of interest on the one hand 
+for the choices $\Omega \eq \G$ and $\banX \eq \F \in \{\R,\C\}$,
+where $\G$ is a domain in one of the Euclidean spaces $\Rd$
+and $L^p(\G,\F)$ is nothing but the Lebesgue space $\Lp$.
+On the other hand,
+in the weak solution theory of evolution equations
+we chose $\Omega$ to be a finite or infinite interval $\J \subset \R$,
+and the Banach space $\banX$ may be any complete function space $\mathbb{F}$
+consisting of differentiable mappings $f\:\G \xto \F$,
+so we are dealing with the Bochner spaces $L^p(\J,\mathbb{F})$ in this case.
+
+\paragraph*{} %- Bochner-Sobolev spaces 
+We finally introduce so-called \textit{Bochner-Sobolev spaces},
+which differ by the property
+that their members are at the same time
+Bochner-integrable and \textit{weakly differentiable}.
+Let $\hilH$ be a separable Hilbert space and $L^2(a,b;\hilH)$ be
+the Bochner space consisting of functions $f\:(a,b) \xto \hilH$,
+that is,
+we have
+\[
+\int_a^b \norm{f(t)}^2 \,dt \, < \, \infty
+\]
+for $f \in L^2(a,b,;\hilH)$.
+We endow this space with the inner product
+\[
+\scalar{f}{g} \eqdef \int_a^b \scalar{f(t)}{g(t)} \,dt,
+\quad \quad
+f,g \in L^2(a,b;\hilH)
+\]
+such that the norm is given as usual by
+$\norm{f}_2 \eq \scalar{f}{f}^{1/2}$.
+Thus $L^2(a,b;\hilH)$ is Hilbertian,
+and if $(a,b)$ is a \textit{finite} interval,
+the inclusion $L^2(a,b;\hilH) \subset L^1(a,b;\hilH)$ holds.
+We shall denote $L^2(a,b;\hilH)$ a \textit{Hilbert-Bochner space}.
+
+\subparagraph*{} %- weak derivatives of vector-valued functions
+For $f \in L^2(a,b;\hilH)$,
+a further function $g\:(a,b) \xto \hilH$ is said to be
+the \textit{weak derivative} of $f$,
+if
+\[
+\int_a^b g \phi \,dx \= - \int_a^b f \phi' \,dx
+\]
+holds for each $\phi \in C_c^{\infty}(a,b,\banX)$,
+that is,
+$\phi$ is an indefinitely differentiable function with compact support
+in $(a,b)$.
+If such a function $g$ exists,
+we denote $f' := g$ in this case,
+which should not be confused with the classical derivative of $f$.
+But notice that if the weak derivative of $f$ is present,
+then $f$ is also classical differentiable.
+
+\subparagraph*{} %- Hilbert-Bochner-Sobolev space
+Having the notion of weak derivative available,
+we may introduce the \textit{Hilbert-Bochner-Sobolev space}
+\[
+H^1(a,b;\hilH) :=
+W^{1,2}(a,b,\hilH) :=
+\{f \in L^2(a,b;\hilH): f' \in L^2(a,b;\hilH) \},
+\]
+which is a Hilbert space as well with inner product given by
+\[
+\scalar{f}{g}_1 \eqdef
+\int_a^b \scalar{f}{g} \, dt
+\, + \,
+\int_a^b \scalar{f'}{g'} \, dt\,,
+\quad f,g \in H^1(a,b;\hilH).
+\]
+
+\subparagraph*{} %- mixed Bochner-Sobolev spaces
+Finally,
+let $\hilH_1, \hilH_2$ be \textit{real} Hilbert spaces,
+where $\hilH_1$ is continuously embedded into $\hilH_2$.
+Then there is also a continuous embedding
+\[
+H^1(a,b;\hilH_1) \, \overset{\kappa}{\hookrightarrow} \, H^1(a,b;\hilH_2).
+\]
+Consequently,
+given a Hilbert space triple 
+$
+\vecV \, {\overset{\iota_1}{\hookrightarrow}} \,
+\hilH \, {\overset{\iota_2}{\hookrightarrow}} \vecV^*,
+$
+we may regard the space $H^1(a,b;\vecV)$
+as a linear subspace of $H^1(a,b;\vecV^*)$,
+which enables us to define the \textit{mixed Bochner-Sobolev space}
+\[
+H^1(a,b;\vecV,\vecV^*) \eqdef
+\{ f \in L^2(a,b;\vecV): f' \in L^2(a,b;\vecV^*) \}
+\]
+or equivalently
+\[
+H^1(a,b;\vecV,\vecV^*) \eqdef L^2(a,b;\vecV) \, \cap H^1(a,b;\vecV^*).
+\]
+Then the mapping
+\[
+(f,g) \mapsto \scalar{f}{g}_1 \eqdef
+\int_a^b \, \scalar{f(t)}{g(t)}_{\vecV} \, dt
+\, + \,
+\int_a^b \, \scalar{f'(t)}{g'(t)}_{V^*} \, dt
+\]
+fulfills the properties on an inner product
+and makes $H^1(a,b;\vecV,\vecV^*)$ into a Hilbert space
+having the following properties:
+
+\begin{itemize}[leftmargin=7mm]
+\item[(a)]
+Each $f \in H^1(a,b;\vecV,\vecV^*)$
+is $\lambda$-nearly everywhere identical
+to a continuous function $f_c\:[a,b] \xto \hilH$,
+and by identifying the functions $f$ and $f_c$
+the space $H^1(a,b;\vecV,\vecV^*)$ can continuously be embedded
+into the space $C([a,b],\hilH)$.
+
+\item[(b)]
+The space $C^{\infty}([a,b],\vecV)$ is dense in $H^1(a,b;\vecV,\vecV^*)$.
+
+\item[(c)]
+The following product rule is valid for each $t \in (a,b)$:
+\[
+\frac{d}{dt} \norm{u(t)} ^2
+\=
+2 \re \, \scalar{u'(t)}{u(t)}_1
+\fa u \in H^1(a,b;\vecV,\vecV^*).
+\]
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+\section{Applications}                                                         %
+%------------------------------------------------------------------------------%
+In this section let $\G$ be a \textit{domain} in $\Rd$,
+that is,
+an open and connected set within an Euclidean space $\Rd$,
+which may be bounded, unbounded or even the space $\Rd$ itself.
+The application part of this section consists mainly of an enumeration
+of function spaces having meaning in PDE theory and their adjoints,
+which is followed by some examples of orthonormal bases
+in Hilbert space $L^2(\J)$,
+where $\J \subset \R$ is an interval.
+
+\subparagraph*{} %- multi-indices
+Preliminary,
+we will work in this section with \textit{multi-indices},
+which are nothing but $d$-tuples
+$\alpha \eq (\alpha_1,\ldots,\alpha_d)$
+with values $\alpha_i \in \N_0$
+and modulus $\abs{\alpha} \eqdef \alpha_1 + \ldots + \alpha_d$.
+They are mostly used to shorten multiple partial derivatives
+$
+\PA f \eqdef \partial_1^{\alpha_1}
+         \partial_2^{\alpha_2} \ldots
+         \partial_d^{\alpha_d} f
+$
+of a sufficiently often differentiable and complex-valued function $f$,
+but also to denote the multiple powers
+$\xi^{\alpha} \eqdef \xi_1^{\alpha_1}
+\cdot \xi_2^{\alpha_2} \cdot \ldots \cdot \xi_d^{\alpha_d}$
+of a vector $\,\xi \eq (\xi_1,\xi_2,\ldots,\xi_d) \in \C^d$.
+
+\begin{itemize}[leftmargin=15pt,itemsep=6pt]
+\item[1.] \textit{Spaces of continuous functions}.
+The space $C(\clG)$ consists of functions $f\:\G \xto \F$,
+which are restrictions of continuous functions $\tilde{f}\:\G' \xto \F$,
+where $\G'$ is an open superset of $\G$
+such that $\clG \subset \G'$
+(notation: $\G \Subset \G'$).
+It is a well-known fact that
+$C(\clG)$ is complete {\wrt} the \textit{supremum norm}
+\[
+\norm{f}_{\infty} \, \eqdef \, \sup_{x \in \G} \abs{f(x)} .
+\]
+This is true as well for the linear subspace $C_0(\clG) \subset C(\clG)$,
+consisting of functions that are vanishing at infinity,
+that is,
+for each $\epsilon > 0$
+there is a compact set $C_{f,\epsilon} \subset \G$
+such that
+$\abs{f(x)} < \epsilon$
+for all points $x \in \G \setminus C_{f,\epsilon}$.
+%The space $C(\clG)$ is not reflexive.
+
+\item[2.] \textit{Spaces of continuously differentiable functions}.
+The linear subspace $C^k(\clG) \subset C(\clG)$
+consists of those continuously differentiable functions $f\:\G \xto \F$,
+whose partial derivatives $\partial^{\alpha} f$ are bounded on $\clG$
+for every multi-index $\alpha$ with $\abs{\alpha} \leq k$.
+It is complete if endowed with the norm
+\[
+\norm{f}_k
+\, \eqdef \,
+\sum_{\abs{\alpha} \leq k} \,
+\sup_{x \in \clG } \; \abs{\partial^{\alpha} f(x)} .
+\]
+The spaces $C^k(\clG)$ are not reflexive.
+
+\item[3.] \textit{{\HOELDER} spaces}.
+It has been shown
+that the spaces $C^k(\clG)$ are not very convenient
+for the investigation of partial differential equations,
+but the so-called \textit{{\HOELDER} spaces} $C^{k,\gamma}(\clG)$ are so.
+Preliminary,
+a function $f\:\G \xto \F$ is called \textit{{\HOELDER}-continuous}
+{\wrt} the parameter $\gamma \in (0,1]$,
+if its \textit{{\HOELDER}-norm} is finite,
+that is,
+\[
+\abs{f} _{\,\gamma} \, \eqdef \,
+\sup_{x,y \, \in \, \G, \, x \neq y} \,
+\frac{\abs{f(x) - f(y)} } {\abs{x-y} ^{\gamma}} \, < \, \infty.
+\]
+Let $C^{k,\gamma}(\clG)$ be the linear space
+of functions $f \in C^k(\clG)$,
+whose partial derivatives $\PA f$
+are {\HOELDER}-continuous for all $\abs{\alpha} \eq k$.
+Then the \textit{{\HOELDER} norm} $\abs{f} _{k,\gamma}$
+of a function $f \in C^{k,\gamma}(\clG)$ is defined
+by the sum of the norm $\norm{f}_k$
+and the {\HOELDER} norms of the partial derivatives $\PA f$
+for $\abs{\alpha} \eq k$:
+\[
+\abs{f} _{k,\gamma}
+\, \eqdef \,
+\norm{f}_k
+\, + \,
+\sum_{\abs{\alpha} \eq k} \abs{\,\PA f} _\gamma.
+\]
+The space $C^{k,\gamma}(\clG)$ is complete {\wrt} this norm,
+but it is not a reflexive one.
+For $k=0$ and $\gamma \eq 1$ we obtain the space
+$C^{0,1}(\clG)$ of \textit{Lipschitz-continuous} functions.
+
+\subparagraph*{}
+If $\G$ is a bounded domain, then we have for $0 < \alpha < \beta \leq 1$
+\[
+C^1(\clG) \subsetneq
+C^{0,\beta}(\clG) \subsetneq
+C^{0,\alpha}(\clG) \subsetneq
+C(\clG).
+\]
+
+\item[4.] \textit{Spaces of smooth functions}.
+Next we consider three function spaces
+consisting of indefinitely differentiable functions $f\:\G \xto \F$
+that frequently occure in applied analysis
+and constitute {\FRECHET} spaces respectively
+complete locally convex linear spaces.
+
+\begin{itemize}[leftmargin=20pt]
+\item[(a)]
+The space $\SF$ of functions $f\:\G \xto \F$ being indefinitely differentiable.
+Unfortunately,
+there is no norm that makes $\SF$ into a complete normed space,
+but after all it is possible to define a countable family $\famF$
+of seminorms to make $\SF$ into a {\FRECHET} space.
+For example,
+$\famF$ can be given by the mappings
+\[
+p_{N,n} \, \eqdef \,
+\max_{x \in \compK_n} \;
+\{ \, \abs{\, (\PA \phi)(x) \,} : \abs{\alpha} \leq N \}
+\quad \quad (N,n \in \N)\,,
+\]
+where $(\compK_n)$ is a sequence of compact subsets of $\G$
+such that
+\[
+\compK_1 \subset \compK_2 \ldots \subset \G \, \mbox{ for } \, n \in \N,
+\quad
+\bigcup_{n \in \N} \, \compK_n \= \G,
+\]
+and each $\compK_n$ lies in the interior of $\compK_{n+1}$
+(such a sequence is called a \textit{compact exhaustion} of $\G$).
+The space $\SF$ is often denoted $\E(\G)$,
+when considered in the locally convex topology induced by the totality
+of seminorms $p_{N,n}$.
+It is complete {\wrt} this topology,
+so it forms a {\FRECHET} space.
+
+\item[(b)]
+The subspace $\TF \subset \SF$ of smooth functions
+having \textit{compact} support
+\[
+\supp{\,\phi} \, \eqdef \, \overline{\set{x \in \G}{\phi(x) \neq 0}}\,,
+\]
+usually denoted the \textit{space of test functions}.
+This function space plays an outstanding role in analysis,
+since it lies dense in a multiplicity of other function spaces.
+Unfortunately,
+there is neither a countable family of seminorms
+making $\TF$ into a {\FRECHET} space nor is $\TF$ completely metrizable.
+
+\subparagraph*{}
+But it is still possible to define a locally convex topology $\topT$ on $\TF$
+such that $\TF$ is complete in the sense of a topological linear space.
+Instead of saying how the open sets of this topology $\topT$ look like,
+let us define $\topT$ by means of a suitable notion of convergence,
+known as $\D$-convergence in $\TF$:\,
+a sequence $(\phi_n)$ in $\TF$ is convergent to $\phi \in \TF$,
+if there is a compact set $\compK \subset \G$
+such that
+(i)  $\supp{\phi_n} \subset \compK$ for all $n \in \N$ and
+(ii) for each multi-index $\alpha$ the sequence $(\PA \phi_n)$
+     converges to $\PA \phi$ \textit{uniformly} on $\compK$.
+
+The space $\TF$ equipped with the topology
+induced by $\D$-convergence is usually denoted $\D(\G)$.
+Notice
+that we have $\D(\G) \hookrightarrow \E(\G)$,
+that is,
+the space $\D(\G)$ is continuously embedded into the space $\E(\G)$
+{\wrt} the locally convex topologies of these spaces.
+
+\subparagraph*{}
+We have $\D(\G) \hookrightarrow \E(\G)$,
+that is,
+the space $\D(\G)$ is continuously embedded into the space $\E(\G)$
+{\wrt} their locally convex topologies.
+
+\item[(c)]
+The \textit{Schwartz space} $\SRd$,
+which is the space of all smooth functions $\phi \in C^{\infty}(\Rd)$
+having the additional property
+\[
+\abs{ \PA \phi(x) \cdot x^{\beta}} \xto 0 \,
+\for \norm{x}_d \xto \infty
+\]
+and arbitrary multi-indices $\alpha,\beta$,
+where $\norm{x}_d$ is the Euclidean norm of $x \in \Rd$.
+The elements of $\SRd$ are called \textit{rapidly decreasing}
+or briefly \textit{Schwartz functions}.
+Hence a Schwartz function and all its derivatives vanish at infinity
+faster then the reciprocal of any polynomial.
+The most famous example of a Schwartz function is the Hermite function
+\[
+\cal{H}_0(x) \, \eqdef \, e^{- \frac{\norm{x}^2}{2}} \quad \quad (x \in \Rd).
+\]
+
+\subparagraph*{}
+Rather similar to the space $\SF$,
+it is possible to find for the Schwartz space $\SRd$
+a family of seminorms as follows:
+define for $\phi \in C^{\infty}(\Rd)$ and multi-indices $\alpha, \beta$
+\begin{equation}\label{I_SRN_FAMILY_OF_SEMINORMS}
+p_{\alpha,\beta}(\phi) \, \eqdef \,
+\sup_{x \in \Rd} \abs{ \, x^{\alpha} (D^{\beta} \phi) (x) \, } .
+\end{equation}
+
+\subparagraph*{}
+Then $\phi$ is a Schwartz function
+iff $p_{\alpha,\beta}(\phi) < \infty$
+holds for all indices $\alpha, \beta$.
+The collection of mappings $p_{\alpha,\beta}\:\SRd \xto \R$
+defines a countable family of seminorms,
+which gives rise to a locally convex topology $\topT_{\mathscr{S}}$ on $\SRd$.
+Moreover,
+since the Schwartz space is complete {\wrt} $\topT_{\mathscr{S}}$,
+it actually forms a \textit{{\FRECHET} space}.
+
+\subparagraph*{}
+Comparing the Schwartz space $\SRd$ with the function spaces
+$\D(\Rd)$ and $\E(\Rd)$,
+it is easy to see that there is the chain of inclusions
+\[
+\D(\Rd) \, \hookrightarrow \, \SRd \, \hookrightarrow \, \cal{E}(\Rd).
+\]
+Moreover,
+by comparing the locally convex topologies of these spaces,
+it turns out that these inclusions are continuous.
+\end{itemize}
+
+\item[5.] \textit{Lebesgue spaces}.
+To introduce the spaces $L^p(\G)$ for $p \in [1,\infty)$,
+let $\cal{L}^p(\G)$ be the $\F$-linear space of measurable functions
+$f\:\G \xto \F$
+such that $\abs{f} ^p$ is Lebesgue-integrable.
+
+\subparagraph*{}
+We define for $f,g \in \cal{L}^p(\G)$ the equivalence relation
+$f \sim g$ according to $f=g$ almost everywhere.
+Then the elements of the space $L^p(\G)$
+are the equivalence classes in $\cal{L}^p(\G)$ {\wrt} $\sim$,
+that is,
+$L^p(\G) \eqdef \cal{L}^p(\G) / \sim$.
+The \textit{Lebesgue norm} in $\Lp$ is given by
+\[
+\norm{f}_p
+\, \eqdef \,
+\big( \int_{\,\G} \abs{f} ^p \, d\mu \,\big) \, ^{\frac{1}{p}}.
+\]
+Finally,
+the \textsc{Fischer-Riesz} \textit{theorem} claims
+that the spaces $L^p(\G)$ are complete {\wrt} the Lebesgue norm.
+Moreover,
+they are reflexive for $p >1$,
+but $L^1(\G)$ is not so.
+
+\subparagraph*{} %- Lebesgue space L2
+The case $p \eq 2$ gives rise to a special attention:
+here it is possible to derive the norm of the space $L^2(\G)$
+from the inner product
+\[
+\scalar{f}{g} \, \eqdef \, \int_{\,\G} f \, \overline{g} \; d\mu,
+\]
+thus $\norm{f}_2 \eq \scalar{f}{f} ^{1/2}$
+and $L^2(\G)$ becomes into a Hilbert space.
+
+\subparagraph*{}
+For $p=\infty$ and any measurable function $f\:\G \xto \F$ we define the mapping
+\begin{equation}\label{SUPREMUM_NORM_II}
+\norm{f}_{\infty} \, \eqdef \, \inf
+\{\,a \geq 0: \abs{f} \leq a \,\, \mu \mbox{-almost everywhere}\,\},
+\end{equation}
+taking values in the set $\R^+ \cup \{\infty\}$.
+Let $\cal{L}^{\infty}(\G)$ be the linear space
+of all measurable functions $f\:\G \xto \F$
+with $\norm{f}_{\infty} < \infty$
+and $\Li$ be the linear space of all equivalence classes
+in $\cal{L}^{\infty}(\G)$,
+where $f \sim g$ means $f=g$ $\mu$-almost everywhere.
+Members of these spaces are called \textit{essentially bounded}.
+Similar to the case $p < \infty$,
+$\Li$ is complete {\wrt} \eqref{SUPREMUM_NORM_II}.
+But notice that this space is not reflexive.
+
+\item[6.] \textit{Sobolev spaces}.
+A function $f\:\G \xto \C$ is said to belong to the space $\Lc$,
+if $f$ is Lebesgue-integrable on each compact subset of $\G$.
+This space is useful to define the concept of \textit{weak differentiability}.
+A function $f \in \Lc$ is said to be \textit{weakly differentiable}
+{\wrt} a given multi-index $\alpha$,
+if there is $g \in \Lc$
+such that 
+\[
+\int_{\,\G} g(x) \, \phi(x) \, dx
+=
+(-1)^{ \abs{\alpha} } \,
+\int_{\,\G} f(x) \, \PA \phi(x) \, dx
+\for \phi \in \TF.
+\]
+We denote $\PA f \eqdef g$ in this case,
+and weak differentiability arises as a linear mapping
+$\PA\:D_{\alpha} \subset \Lc \xto \Lc$,
+where each $D_{\alpha}$ is a linear subspace of $\Lc$.
+Notice that
+the concept of weak derivative is compliant
+with that of the classical derivative:
+if $f$ has classical derivative $\PA f$,
+then $f$ is also weakly differentiable,
+and the weak derivative is equal to $\PA f$.
+
+\subparagraph*{}
+The next function spaces under consideration are those,
+whose elements are $p$-integrable and weakly differentiable up to order $k$
+at the same time.
+More precisely,
+for any integer $k$ and real $p \geq 1$,
+the \textit{Sobolev space} $\SobW$ is the set
+of functions $f$ in the Lebesgue space $\Lp$,
+whose weak derivatives $\PA f$ exist and also belong to $\Lp$
+for all multi-indices $\alpha$ with $ \abs{\alpha} \leq k$,
+briefly written
+\[
+\SobW
+\, \eqdef \,
+\{\,f \in \Lp: \PA f \in \Lp, \; \abs{\alpha} \leq k \, \}.
+\]
+Sobolev spaces are of course linear spaces,
+and especially for $k=0$
+the spaces $W^{0,p}(\G)$ are nothing but the Lebesgue spaces $\Lp$ themselves.
+
+\subparagraph*{} %- Sobolev norms
+For functions $f \in \SobW$ let the mapping $f \mapsto \abs{f} _{k,p}$
+be defined according to
+\begin{equation}\label{SOBOLEV_NORM}
+\abs{f} _{k,p} \, \eqdef \,
+\big(
+\sum_{\abs{\alpha } \leq k}
+\int_{\,\G} \, \abs{\PA f} ^p \, dx
+\big) ^{1/p}.
+\end{equation}
+It fulfills all the properties of a norm,
+thus the space $\SobW$ is actually a normed space,
+and the mapping defined by \eqref{SOBOLEV_NORM}
+is usually denoted a \textit{Sobolev norm}.
+With respect to the question of completeness,
+it is not hard to show that
+the spaces $\SobW$ are complete
+and therefore constitute Banach spaces as well.
+
+\subparagraph*{} %- alternative definition of Sobolev space
+There is a second way to define Sobolev space.
+Consider the subspace
+\[
+C_{k,p}^{\infty}(\G) \, \eqdef \, \{\, f \in \SF: \abs{f} _{k,p} < \infty \,\},
+\]
+and since this space is \textit{not} complete
+{\wrt} the norm $\abs{\,\cdot\,} _{k,p}$,
+we set
+\[
+\cal{W}^{k,p}(\G) \, \eqdef \, \overline{C_{k,p}^{\infty}(\G)}.
+\]
+The space $\cal{W}^{k,p}(\G)$ is defined by a purely topological operation,
+that is,
+by taking the closure of a smaller space.
+Thus for elements in this space there is no instrinsic notion of derivative,
+and one introduces the notion of \textit{strong derivative} for
+$u \in \cal{W}^{k,p}(\G)$ as follows: 
+given a multi-index $\alpha$ ($\abs{\alpha} \leq k$),
+a further function $\PA u$ also belonging to $\cal{W}^{k,p}(\G)$
+is said to be the $\alpha$-strong derivative of $u$,
+if there is a sequence $\{\phi_n\} \in C_{k,p}^{\infty}(\G)$
+converging to $u$ such that
+\[
+\abs{\PA u - \PA \phi_n)} _{k,p} \xto 0 \quad \quad (n \xto \infty).
+\]
+Sobolev spaces are reflexive for $1 < p < \infty$,
+but not for $p \eq 1$.
+
+\paragraph*{} %- Meyers-Serrin theorem
+The \textsc{Meyers-Serrin} \textit{theorem} claims
+$\cal{W}^{k,p}(\G) \cong \SobW$ in the sense of Banach space isomorphisms.
+Moreover,
+the notions of strong and weak derivative are equivalent
+when identifying functions in $\cal{W}^{k,p}(\G)$ and $\SobW$.
+
+\paragraph*{} %- embedding theorems for Sobolev spaces
+One of the most important properties of Sobolev spaces is given by the fact
+that under certain hypotheses they can continuously be embedded
+into further spaces and those of type $C^k(\clG)$.
+We define for fixed $1 \leq p < \infty$
+the \textit{Sobolev numbers} $\theta_{\,k,d,p}$ by
+\[
+\theta_{\,k,d,p} \eqdef k - d/p
+\quad \quad (k,d \in \N, p \geq 1),
+\]
+which play a crucial role in \textsc{Sobolev}\textit{'s embedding theorem}:
+
+\begin{theorem}\label{SOBOLEV_EMBEDDING_THEOREM_I}
+Let $\G \subset \Rd$ be a domain having Lipschitz-continuous boundary.
+If $k,m \in \N$ are chosen such that $\theta_{\,k,d,p} > m$,
+then there are continuous embeddings
+$\SobW \hookrightarrow C^m(\clG)$ and
+$\SobW \hookrightarrow C^{m,\gamma}(\clG)$ for $0 < \gamma < 1$.
+\end{theorem}
+
+Hence each equivalent class $f \in \SobW$ has a representative in these spaces,
+supposed the Sobolev number is sufficiently large.
+
+\paragraph*{} %- embeddings of Sobolev spaces into other Sobolev spaces
+In case of $\theta_{\,k,d,p} \leq 0$,
+however,
+one cannot embed $\SobW$ into $C(\clG)$.
+But it is at least possible to find an embedding of $\SobW$
+into some lower-dimensional Lebesgue spaces $L^q(\G)$:
+
+\begin{theorem}\label{SOBOLEV_EMBEDDING_THEOREM_II}
+For $\G \subset \Rd$,
+$k \in \N$ and $p,q \geq 1$ such that
+\[
+1 < q < \frac{dp}{d-kp},
+\]
+there are continuous embeddings $\SobW \hookrightarrow L^q(\G)$.
+\end{theorem}
+
+\subparagraph*{} %- embeddings for fractional Sobolev spaces
+Finally,
+there are also embeddings of Sobolev spaces into further Sobolev spaces,
+where the parameter $p$ is fixed:
+
+\begin{theorem}\label{SOBOLEV_EMBEDDING_THEOREM_III}
+If $\G \subset \Rd$ has Lipschitz-continuous boundary,
+$s,s' \in \N$ and $1 < s < s' < \infty$,
+then $W^{s',p}(\G) \hookrightarrow W^{s,p}(\G)$.
+\end{theorem}
+
+\item[7.] \textit{Hilbert-Sobolev spaces}.
+Let us consider in the family $\SobW$ of Sobolev spaces
+the case $p{=}2$ more specifically and denote the space
+$H^k(\G) \eqdef W^{k,2}(\G)$ for $k \in \N_0$,
+which is often called a \textit{Hilbert-Sobolev space}.
+
+\subparagraph*{} %- inner product and norm of Hilbert-Sobolev spaces
+Each space $H^k(\G)$ can be endowed with the inner product
+\[
+\scalar{f}{g}_k \, \eqdef \,
+\sum_{\abs{\alpha} \leq k} \int_{\,\G} \;
+\PA f \; \PA \overline{g} \, dx\,,
+\quad \quad f,g \in H^k(\G)
+\]
+and with norm
+$\abs{f} _k \eq \scalar{f}{f}^{1/2}$ for $f \in H^k(\G)$,
+so $H^k(\G)$ forms a Hilbert space in its own right.
+
+\item[8.]
+\textit{Sobolev spaces of functions having homogeneous boundary values}.
+The space $\TF$ of test functions can surely be endowed
+with the norms $\abs{\cdot} _{k,p}$,
+but this leads to uncomplete normed spaces.
+Hence it is nearby to introduce the spaces $\WN{k,p}{\G}$ for $k \in \N$
+by completion of the space $\TF$ {\wrt} the Sobolev norms:
+\[
+\WN{k,p}{\G} \, \eqdef \, \overline{\TF_{\abs{\cdot} _{k,p}}}.
+\]
+The elements of these spaces can be identified with functions in $\SobW$.
+Furthermore,
+the spaces $\WN{k,p}{\G}$ form closed linear subspaces
+of the Sobolev spaces $\SobW$.
+Clearly,
+the spaces $\HN{k}{\G} \eqdef \HN{k,2}{\G}$ are Hilbert spaces
+with inner products and norms as defined for $H^k(\G)$.
+\end{itemize}
+
+\subsubsection*{} %- examples of adjoint spaces
+In the following we describe the adjoint spaces
+for a couple of topological linear spaces $\banX$ arising in applied analysis
+by quoting a linear homeomorphism $\banX^* \cong \banY$,
+where $\banY$ has to be chosen in a suitable way.
+
+\begin{itemize}[leftmargin=15pt,itemsep=6pt]
+\item[1.] \textit{The adjoint space of $L^p(\G)$}.
+Let the two real numbers $p,q >1$ be coupled
+by the relation %$\frac{1}{p}+\frac{1}{q}=1$.
+$p^{-1} \,{+}\, q^{-1} \eq 1$.
+Then the duality statement $L^p(\G)^* \cong L^q(\G)$ for $1 < p < \infty$
+is a consequence of the \textit{{\HOELDER} inequality},
+which claims
+that for $f \in L^p(\G)$ and $g \in L^q(\G)$
+the product $f \cdot g$ is Lebesgue-integrable and satisfies the estimation
+\[
+\norm{f \cdot g}_1 \, \leq \, \norm{f}_p \cdot \norm{g}_q.
+\]
+Thus,
+each function $f \in L^q(\G)$ gives rise to a continuous linear functional
+$\phi_f$ on the space $L^p(\G)$ due to the mapping
+\begin{equation}\label{LINEAR_FUNCTIONAL_ON_LP}
+\phi_f(g) \eqdef \int_{\,\G} fg \, d\mu, \quad g \in L^p(\G).
+\end{equation}
+On the other hand,
+there are no more continuous linear functionals on $L^p(\G)$
+besides those defined by \eqref{LINEAR_FUNCTIONAL_ON_LP}.
+
+\subparagraph*{} %- adjoint space of L1
+In the special case $p \eq 1$ we obtain $L^1(\G)^* \cong L^{\infty}(\G)$.
+
+\item[2.] \textit{The adjoint space of $C_c(\G)$.}
+It is well-known from measure theory
+that each continuous function $f\:\G \xto \R$ is measurable,
+but $f$ is in general not Lebesgue-integrable.
+If $f \in C_c(\G)$,
+however,
+then $f$ is bounded and this implies Lebesgue-integrability.
+
+\subparagraph*{} %- Radon measures
+A \textit{Radon measure},
+defined on the Borel subsets of a domain $\G \subset \Rd$, 
+is a positive Borel measure
+which takes finite values on compact subsets of $\G$.
+Letting $\mu$ be a Radon measure on $\G$,
+the mapping $\phi_{\mu}\: C_c(\G) \xto \R$ defined by
+\[
+\phi_{\mu}(f) \eqdef \int_{\,\G} f \, d\mu
+\]
+forms a continuous linear functional,
+since
+\[
+\int_{\,\G} f \, d\mu \, \leq \,
+\norm{f}_{\infty} \, \cdot \, \mu(\supp{f}).
+\]
+In addition,
+$\phi_{\mu}(f) \geq 0$ holds for all $f \in C_c(\G)$ with $f \geq 0$,
+and a linear functional fulfilling this property is called \textit{positive}.
+So every Borel measure $\mu$ gives rise to
+a positive and continuous linear functional $\phi_{\mu}$ on $C_c(\G)$.
+
+\subparagraph*{} %- Riesz-Markov theorem I
+Conversely,
+the question arises
+whether each continuous linear functional $\phi \in C_c(\G)^*$
+appears in this way.
+The answer is given by the \textsc{Riesz-Markov} \textit{theorem},
+quoting
+that the representation of positive linear functionals on $\G$
+can just be done by the Radon measures on $\G$:
+
+\begin{theorem}\label{RIESZ-MARKOV_THEOREM}
+Let $\phi$ be a positive and continuous linear functional
+on the normed space $C_c(\G)$.
+Then there is exactly one Radon measure
+$\mu\:\Borel{\G} \xto [0,\infty]$ such that
+\[
+\phi(f) \eqdef \int_{\,\G} f \, d\mu, \quad \quad f \in C_c(\G).
+\]
+\end{theorem}
+
+\item[3.] \textit{The adjoint space of $C_0(\G)$.}
+A \textit{complex} measure $\mu \: \Borel{\G} \xto \C$
+is said to be \textit{Radon},
+if the so-called \textit{variation} $\abs{\mu} $
+is Radon in the sense of a positive measure on $\G$.
+Notice that $\abs{\mu} $ is always finite.
+The space of complex Radon measures $\MCR{\G}$
+proves to be complete {\wrt} the norm $\norm{\mu} := \abs{\mu} $
+for $\mu \in \MCR{\G}$.
+
+\paragraph*{} %- Riez-Markov theorem II
+The following theorem of \textsc{Riesz-Markov} type
+describes the adjoint space of $C_0(\G)$:
+
+\begin{theorem}\label{RIESZ_MARKOV_THEOREM_II}
+Let $\phi$ be a complex-valued and continuous linear functional
+defined on the space $C_0(\G)$.
+Then there is exactly one complex Radon measure $\mu$ such that
+\[
+\phi(f) \, \eqdef \, \int_{\,\G} f \, d\mu, \quad \quad f \in C_0(\G).
+\]
+\end{theorem}
+In conclusion,
+$C_0(\G)^* \cong \MCR{\G}$,
+so $C_0(\G)^*$ is norm-isomorphic to the Banach space $\MCR{\G}$
+of complex Radon measures.
+
+\item[4.] \textit{The adjoint space of $C[a,b]$.}
+We consider a further variant of the \textsc{Riesz-Markov} theorem
+for a compact set $[a,b]$ in the real line.
+Due to the properties of the Riemann-Stieltjes integral,
+each function $g$ \textit{of bounded variation} on $[a,b]$,
+gives rise to a continuous linear functional $F$ on the space $C[a,b]$
+according to
+\[
+G(f) \, \eqdef \, \int_a^b f \, dg, \quad \quad (f \in C[a,b]).
+\]
+Let $BV(a,b)$ denote the linear space of all functions of bounded variation.
+This space can be equipped with the norm
+\[
+\norm{f}_{bv} \, \eqdef \,
+\abs{ f(a) } \, + \,
+\sup_{P} \sum_{i=0}^{n_P-1} \abs{f(x_{i+1}-f(x_i)} ,
+\]
+where the supremum is taken over all finite partitions of $[a,b]$.
+The space $BV(a,b)$ is actually a Banach space in this norm,
+which is even norm-isomorphic to the space $\MCR{a,b}$
+of Radon measures on $[a,b]$.
+
+\subparagraph*{}
+Now the \textsc{Riesz-Markov} theorem quotes that
+\textit{every} continuous linear functional $G$ on $C[a,b]$ arises
+as Riemann-Stieltjes integral
+{\wrt} a certain function $g$ of bounded variation,
+that is,
+we have $C[a,b]^* \cong BV(a,b)$.
+
+\item[5.] \textit{The adjoint space of $\D(\G)$.}
+The notion of \textit{distribution} forms a generalization
+of an ordinary function $f\:\G \xto \F$.
+The corresponding subject in functional analysis,
+called the \textit{theory of distributions},
+was developed by \textsc{L.\,Schwartz} in the midth of the 20th century
+to describe ideas and concepts of theoretical physics
+by an exact mathematical formalism.
+Distribution theory can be seen as a direct application
+of the abstract theory of locally convex linear spaces
+and their continuous linear functionals.
+
+\subparagraph*{}
+Remember the space $\D(\G)$ consisting of test functions and furnished
+with a locally convex topology,
+in which this space is complete but not metrizable.
+Then every continuous linear functional $\disF\:\D(\G) \xto \C$ 
+is called a \textit{Schwartz distribution}.
+We denote $\D'(\G) \eqdef \D(\G)^*$ the adjoint space of $\D(\G)$
+respectively the space of Schwartz distributions on $\G$.
+It is also possible to characterize a Schwartz distribution
+{\wrt} $\D$-convergence,
+when applied to test functions:
+a linear functional $\disF\:\TF \xto \C$
+is a Schwartz distribution
+iff $\disF(\phi_n) \xto 0$ for any $\D$-convergent sequence $(\phi_n)$
+converges to the zero function.
+
+\subparagraph*{} %- regular distributions
+Notice that the linear functional $\disF_f$
+derived from a locally integrable function $f$ by
+\[
+\disF_f(\phi) \, \eqdef \, \int_{\,\G} f \, \phi \, dx,
+\quad \quad \phi \in \TF
+\]
+is continuous,
+and this is also true for the linear functional
+induced by the Radon measure $\mu$ according to
+\[
+\disF_{\mu}(\phi) \, \eqdef \, \int_{\,\G} \phi \, d\mu,
+\quad \quad \, \phi \in \TF.
+\]
+Thus locally integrable functions as well as Radon measures
+may be regarded as Schwartz distributions.
+Notice that the space $\D'(\G)$ is indeed extremely extensive
+and contains nearly all functions being important in applications,
+amongst others the functions belonging to the well-known spaces
+$\Lp$, $\Li$, $C(\G)$, $C(\clG)$ and $C_0(\G)$,
+but also measures on $\G$,
+which are regular enough in some sense.
+
+\subparagraph*{}
+A Schwartz distribution is said to be a \textit{regular distribution},
+if it is the continuous linear functional $\disF_f$
+induced by a locally integrable function $f \in \Lc$,
+otherwise it is called \textit{singular}.
+Well-known examples of singular distributions are
+the \textit{Dirac distributions}
+\[
+\delta_a(\phi) \, \eqdef \, \phi(a)
+\qfa \phi \in \TF
+\quad \quad  (a \in \G).
+\]
+
+\item[6.] \textit{The adjoint space of $\E(\G)$.}
+Regarding the {\FRECHET} space $\E(\G)$,
+each element $\disF \in \E'(\G) \eqdef \E(\G)^*$ is called
+a \textit{distribution with compact support}.
+This notion is founded by the fact
+that for such $\disF$ there is a compact set $K_{\disF} \subset \G$,
+called the \textit{support} of $\disF$
+such that
+$\disF \phi \eq 0$ for all $\phi \in \E(\G)$
+having support in $\G \setminus K_{\disF}$.
+On the other hand,
+each measurable function $f$ with compact support of course
+gives rise to a compactly supported distribution $\disF_f \in \E'(\G)$.
+
+\subparagraph*{}
+Since it is always possible to increase an adjoint space
+by decreasing the underlying base space,
+there is a continuous inclusion $\E'(\G) \, \hookrightarrow \, \D'(\G)$,
+which is dual to embedding
+$\D(\G) \, \hookrightarrow \, \E(\G)$.
+So we basically may regard
+each compactly supported distribution as a Schwartz distribution.
+
+\item[7.] \textit{The adjoint space of $\SRd$.}
+Similar to the spaces $\D(\G)$,
+we introduce the notion of \textit{tempered distribution}
+as a continuous linear functional $\disT\:\SRd \xto \C$,
+which generalizes that of bounded and slow-growing locally integrable functions.
+The space of tempered distributions is usually denoted $\TD$.
+
+\begin{comment}
+\subparagraph*{}
+The following criterion determines
+under which conditions a linear functional $f$ on $\SRd$
+forms a tempered distribution:
+this is the case 
+\iff
+there is a constant $C > 0$ and integers $m,l \in \N$ such that
+\[
+\abs{ f(\phi) } \, \leq \,
+C \cdot \sum_{\abs{\alpha} \leq l, \abs{\beta} \leq m} \, p_{\alpha,\beta}(\phi)
+\qfa \phi \in \SRd\,,
+\]
+where the functions $p_{\alpha,\beta}$ are the seminorms
+defined by \eqref{I_SRN_FAMILY_OF_SEMINORMS}.
+\end{comment}
+
+\subparagraph*{} %- comparison of distributional spaces
+Comparing the known kinds of distributional spaces,
+we obtain a chain of inclusions,
+which is dual to that of the base spaces:
+\[
+\cal{E}'(\Rd) \, \subset \, \TD \, \subset \, \D'(\Rd).
+\]
+IF we endow each of these spaces with the \textit{weak*-topology},
+then these embeddings prove to be continuous.
+Hence a distribution having compact support can also be regarded
+as a tempered distribution,
+which in turn gives rise to a Schwartz distribution.
+
+\item[8.] \textit{The adjoint space of $\HN{k}{\G}$}.
+The Sobolev space \textit{with negative index} $H^{-k}(\G)$
+is defined as the adjoint space
+$H^{-k}(\G) \, \eqdef \, \HN{k}{\G}^*$.
+
+\subparagraph*{}
+Notice that not all elements of $H^{-k}(\G)$ can be represented
+by regular functions $f\:\G \xto \F$,
+but all belong to the space $\D'(\G)$ of Schwartz distributions.
+In case of $k \eq 1$,
+each $f \in H^{-1}(\G)$ is of the form
+\[
+f \= f_0 + \partial_1 f_1 + \ldots + \partial_d f_d,
+\]
+where $f_0,f_1,\ldots,f_d \in \Lh$.
+There are similar representations for $k > 1$.
+
+\subparagraph*{}
+More generally,
+the adjoint space of $\WN{k,p}{\G}$ ($1<p<\infty$) 
+is the space $W^{-k,q}(\G)$,
+where $p^{-1} \,{+}\, q^{-1} \eq 1$.
+Like in the case $p \eq 2$,
+the elements of $W^{-k,q}(G)$ can be regarded as Schwartz distributions on $G$.
+\end{itemize}
+
+\paragraph*{} %- orthonormal bases in Hilbert spaces L2(I)
+Remember that
+the Lebesgue spaces $L^2(X)$ are prototypes of separable Hilbert spaces,
+where $X$ forms the base set of a certain measure space $(X,\Borel{X},\mu)$.
+
+\subparagraph*{}
+Our last subject is to enumerate orthonormal bases in $L^2(X)$,
+where $X \eq (a,b) \subset \R$ is a finite or infinite open interval.
+
+\begin{itemize}[leftmargin=15pt,itemsep=6pt]
+\item[1.]
+If $(a,b) \eq (-\pi,\pi)$,
+the \textit{trigonometrical functions} given by the functions
+\[
+\frac{1}{\sqrt{2\pi}},         \;\,
+\frac{1}{\sqrt{\pi}} \sin(x),  \;\,
+\frac{1}{\sqrt{\pi}} \cos(x),  \;\,
+\frac{1}{\sqrt{\pi}} \sin(2x), \;\,
+\frac{1}{\sqrt{\pi}} \cos(2x), \;\, \dots
+\]
+form an orthonormal base in the Hilbert space $L^2((-\pi,\pi))$.
+
+\item[2.]
+In case of $(a,b)=(-1,1)$,
+an orthonormal base, founded on polynomials,
+is given by the so-called \textit{Legendre polynomials}
+\[
+P_n(x)
+\, \eqdef \,
+\frac{1}{2^n n!} \, \frac{d^n}{dx^n} (x^2-1)^n,
+\quad n \in \N,
+\]
+together with the constant function $P_0(x) \eqdef 1$.
+These functions form the only orthogonal system in $L^2(-1,1)$
+that contains polynomials of any order.
+
+\item[3.]
+Let $(a,b)$ be the half-line $(0,\infty)$.
+Then the sequence of functions
+\[
+L_n^{\alpha}(x)
+\, \eqdef \,
+x^{\alpha/2} e^{-x/2}
+\cdot
+\cal{L}_n^{\alpha}(x),
+\quad n \in \N
+\]
+forms an orthonormal base in the space $L^2(0,\infty)$,
+where $\cal{L}_n^{\alpha}$ are called the \textit{Laguerre polynomials},
+defined by the equations
+\[
+\cal{L}_n^{\alpha}(x)
+\, \eqdef \,
+\frac{x^{-\alpha}e^x}{n!} \, \frac{d^n}{dx^n} (e^{-x}x^{n+\alpha}),
+\quad n \in \N.
+\]
+
+\item[4.]
+If $(a,b)$ is the entire set $\R$,
+an orthonormal base of $L^2(\R)$ is given by the sequence
+of \textit{Hermite functions}
+\[
+\cal{H}_n(x) \, \eqdef \, e^{-\frac{x^2}{2}} H_n(x),
+\quad n \in \N,
+\]
+where $H_n$ are the \textit{Hermite polynomials}
+\[
+{H}_n(x)
+\, \eqdef \,
+(-1)^n \sum_{k_1+2k_2=n}
+\frac{n!}{k_1! \, k_2!}
+\,
+(-1)^{k_1+k_2} \, (2x)^{k_1},
+\quad n \in \N.
+\]
+
+\begin{comment}
+\subparagraph*{} %- Hermite functions are eigenfunctions of the Plancherel oerator
+The functions $\cal{H}_n$ belong
+to the linear subspace $C^{\infty}(\R) \subset L^2(\R)$
+and are the eigenfunctions of the Fourier-Plancherel operator $\FT_P$
+{\wrt} the eigenvalues \-werte $+1,+i,-1,-i$,
+distributed according to
+\[
+\begin{cases}[1.2]
+\quad +1 &: \quad \cal{H}_0, \, \cal{H}_4, \, \cal{H}_8,    \; \, \ldots \\
+\quad +i &: \quad \cal{H}_1, \, \cal{H}_5, \, \cal{H}_9,    \; \, \ldots \\
+\quad -1 &: \quad \cal{H}_2, \, \cal{H}_6, \, \cal{H}_{10},    \, \ldots \\
+\quad -i &: \quad \cal{H}_3, \, \cal{H}_7, \, \cal{H}_{11},    \, \ldots \\
+\end{cases}
+\]
+\end{comment}
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+%\newpage
+%\thispagestyle{empty}
+\vspace{10mm}
+
+\titleformat{\section}
+{\normalfont \bfseries \filcenter}
+{\thesection.\;}{0mm}{}
+
+\begin{thebibliography}{99}
+\begin{small}
+\bibitem{I_AF} R.\,Adams, J.\,Fournier:
+\textit{Sobolev Spaces}, Academic Press Inc., 2003.
+\bibitem{I_RS1} M.\,Reed, B.\,Simon:
+\textit{Modern Methods of Mathematical Physics I: {\FA}}, Academic Press Inc., 1980.
+\bibitem{I_Yo}  K.\,Yosida:
+\textit{{\FA}}, 5.\,Edition, Springer Verlag, 1976.
+\end{small}
+\end{thebibliography}
+
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}

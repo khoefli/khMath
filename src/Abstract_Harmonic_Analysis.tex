@@ -1,0 +1,1149 @@
+%------------------------------------------------------------------------------%
+% ABSTRACT HARMONIC ANALYSIS                                                   %
+%------------------------------------------------------------------------------%
+% File  : Abstract_Harmonic_Analysis.tex                                       %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                       DOCUMENT CLASS and INCLUDE FILES                       %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+%\renewcommand\thesection{\Roman{section}}
+
+\def\Title{Abstract Harmonic Analysis}
+
+\titleformat{\section}
+{\normalfont \bfseries \filcenter}
+{\thesection.\;}{0mm}{}
+
+\titleformat{\subsection}[runin]
+{\normalfont \filcenter}
+{}{0mm}{}
+
+\titleformat{\subsubsection}[runin]
+{\itshape \filcenter}
+{}{0mm}{}
+
+\titlespacing*{\section}      {5pt}{12pt}{ 4pt}
+\titlespacing*{\subsection}   {0pt}{ 6pt}{12pt}
+\titlespacing*{\subsubsection}{0pt}{ 6pt}{ 3pt}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\centerline{\large{\textbf{\Title}}}
+\vspace{4pt}
+\centerline{\small{{\textsc{\Author}}}}
+\vspace{10pt}
+
+\fancyhead[C] {\small{\textsc{\Title}}}
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+
+\myfootnote
+{
+  Version {\Version} from \today;
+  Email:  \textit{khoeflinger@\,t-online.de}
+}
+The aim of this article
+is to review some basic concepts of \textit{abstract harmonic analysis}.
+
+\section{Basic Theory of Banach Algebras}
+%------------------------------------------------------------------------------%
+By a \textit{normed algebra} (rsp. \textit{Banach algebra}) is meant
+a normed linear space (rsp. Banach space)
+together with a multiplicative operation,
+which is compliant with the norm in some sense.
+
+\subparagraph{}
+More specifically,
+let $(\banB,+,\circ)$ be a $\F$-algebra,
+that simultaneously constitutes a normed space $(\banB,\norm{\cdot})$.
+Then $\banB$ is called a \textit{normed algebra},
+if the following conditions are fulfilled:
+
+\begin{itemize}[leftmargin=16mm,itemsep=2pt]
+\item[(A-1)]
+$\norm{x \circ y} \, \leq \, \norm{x} \cdot \norm{y}$
+for each pair of elements $x,y \xeof \banB$.
+
+\item[(A-2)]
+If $\banB$ has an identity $\1 \xeof \banB$, then $\norm{\1} \eq 1$.
+\end{itemize}
+
+\subparagraph{}
+Condition (A-1) implies
+that the map $(x,y) \mapsto x \circ y$ is continuous.
+If (A-2) is valid,
+then $\banB$ is called a \textit{unital} algebra.
+Finally,
+$\banB$ is said to be \textit{commutative},
+if
+\begin{itemize}[leftmargin=16mm,itemsep=2pt]
+\item[(A-3)]
+\;$x \circ y \eq y \circ x$ \; for all $x,y \xeof \banB$.
+\end{itemize}
+As for normed linear spaces,
+completeness of normed algebras is of interest,
+thus a normed algebra is denoted a \textit{Banach algebra},
+if it is complete as a normed linear space.
+
+\subparagraph{} %- the unital Banach algebra of bounded linear operators
+The most prominent example of a non-commutative Banach algebra is given by
+the $\C$-algebra $\BO{\banX}$ of bounded linear operators
+$\linA \:\banX \xto \banX$,
+where $\banX$ is a real or complex Banach space.
+It forms a unital Banach algebra {\wrt} composition of mappings
+and the operator norm $\norm{\linA}$ of $\linA \xeof \BO{\banX}$.
+
+\paragraph{} %- Gelfand-Mazur theorem
+One of the key results in the theory of complex Banach algebras
+is the \textit{Gelfand-Mazur theorem}
+(see also \cite{VII_Ka}, p.\,14):
+
+\begin{theorem1}\label{GELFAND_MAZUR_THEOREM}
+If each element $x \neq 0$ in a complex Banach algebra $\banB$ is invertible,
+then $\banB \cong \C$.
+\end{theorem1}
+
+\subparagraph{}
+In other words, 
+theorem \ref{GELFAND_MAZUR_THEOREM} quotes that
+the field of complex numbers is essentially the only complex Banach algebra,
+in which each element $x \neq 0$ is invertible.
+
+\paragraph{} %- Neumann series
+Let $\banB$ be a complex and unital Banach algebra.
+By the \textit{Neumann series} of $x \xeof \banB$ is meant the infinite sum
+$
+s_x := \sum_{n=0}^{\infty} \, x^n.
+$
+If $s_x$ is convergent in $\banB$,
+then the element $\1-x$ is invertible,
+and a short computation proves $(\1-x)^{-1} \eq s_x$.
+Like in the case $\banB \eq \C$,
+the {Neumann series} is convergent for all $x \xeof \banB$
+fulfilling $\norm{x} < 1$.
+
+\subparagraph{}
+If $x \xeof \banB$ is invertible,
+then any other element $x' \xeof \banB$ having the property
+\[
+\norm{ x - x'} \, < \, \frac{1}{\snorm{x^{-1}}}
+\]
+proves to be invertible, too.
+Thus all elements in a sufficiently small neighbourhood
+of an invertible element have convergent Neumann series
+and are invertible,
+which implies that
+the set $\GL{\banB} $ of invertible elements in $\banB$ is open.
+It is called the \textit{group of units} in $\banB$,
+since $x \circ y$ and $x^{-1}$ are invertible for $x,y \xeof \GL{\banB} $.
+Both operations $(x,y) \mapsto x \circ y$
+and $x \mapsto x^{-1}$ are continuous, 
+so $\GL{\banB} $ forms a topological group,
+when considered in the subset topology of $\banB$.
+
+\paragraph{} %- examples of commutative Banach algebras
+Here are some important examples of commutative Banach algebras
+{\wrt} applications:
+
+\begin{itemize}[leftmargin=12pt,itemsep=4pt]
+\item[1.]
+The field $\C$ of complex numbers may be regarded
+as a complex unital Banach algebra in its own right.
+
+\item[2.]
+For any topological space $\topX$
+the function spaces $C_b(\topX)$ and $C_0(\topX)$,
+both endowed with the supremum norm $\norm{f} := \sup_{x} \abs{f(x)} $.
+
+\subparagraph{}
+If $\topX$ is \textit{compact},
+then the function space $C(\topX)$ consisting of continuous functions
+$f\: \topX \xto \C$ forms a Banach algebra,
+which in addition is unital with identity $\1(x) := 1$ for $x \xeof \topX$.
+
+\item[3.]
+The algebra $L^1(\topG,\Borel{\topG},\mu)$ of Lebesgue-integrable functions
+{\wrt} the Haar measure $\mu$ on a locally compact topological group $\topG$,
+where multiplication is defined by \textit{convolution}
+\[
+(f \ast g)(x) \eqdef \int_{\R} f(y) \, g(x-y) \, d\mu
+\]
+for $f,g \xeof L^1(\topG)$.
+Important examples for $\topG$ are the classical groups $\Rn$, $\Z$
+and $\mathbb{T} \eq \{z \xeof \C: \norm{z} \eq 1\}$.
+
+\item[4.]
+The Banach algebra $L^{\infty}(X)$ of essentially bounded functions
+$f \: X \xto \R$, 
+where $(X,\Borel{X},\mu)$ may be any measure space.
+Addition and multiplication in this algebra are defined pointwise.
+
+\item[5.]
+The algebra $\cal{M}^r(\topG)$ of regular complex Borel measures
+defined on a locally compact topological group $\topG$.
+The multiplication is defined by convolution of measures:
+\[
+(\mu \ast \nu)(B) \eqdef
+(\mu \times \nu) (\{(x,y) \in \topG \xtimes \topG:x+y \in B\})
+\]
+for any Borel set $B \subset \topG$.
+This Banach algebra is even unital, 
+since the so-called \textit{Dirac measure} $\mu_0$ owns the property
+$\mu_0 \ast \nu \eq \nu \ast \mu_0 \eq \nu$
+for all $\nu \xeof \cal{M}^r(\topG)$.
+\end{itemize}
+
+\section{Gelfand Representation}
+%------------------------------------------------------------------------------%
+Given the Banach algebras $\banB_1, \banB_2$,
+a linear mapping $\Phi\:\banB_1 \xto \banB_2$
+is denoted a \textit{Banach algebra homomorphism},
+if it preserves multiplication according to 
+\[
+\Phi(x \circ y) \= \Phi(x) \circ \Phi(y)
+\fa x,y \in \banB_1.
+\]
+Moreover,
+$\banB_1$ and $\banB_2$ are said
+to be \textit{isomorphic} to each other, 
+if there is a bijective homomorphism $\Phi \:\banB_1 \xto \banB_2$ fulfilling
+$\norm{\Phi(x)}_{\banB_2} \eq \norm{x}_{\banB_1}$ for all $x \xeof \banB_1$,
+which in this case is called a \textit{Banach algebra isomorphism}
+(notation: $\banB_1 \cong \banB_2$).
+
+\paragraph{} %- Gelfand representation
+The \textit{Gelfand representation} is a powerful mapping
+in the setting of commutative Banach algebras
+and provides a Banach algebra homomorphism
+between an arbitrary commutative Banach algebra $\banB$ and
+the algebra $C_0(\topX)$ of continuous functions vanishing at infinity,
+where $\topX$ is assumed to be a locally compact Hausdorff space.
+
+\subparagraph{} %- characters on Banach algebras
+A \textit{character} on a complex Banach algebra $\banB$
+is a \textit{non-zero} Banach algebra homomorphism $\chi \:\banB \xto \C$.
+Characters (often also called \textit{multiplicative functionals}) are
+of great importance in the theory of unital commutative Banach algebras,
+as we will see in the following.
+
+\subparagraph{}
+By the multiplication property of a Banach algebra homomorphism,
+each character $\chi$ on $\banB$ satisfyies the inequality
+$\norm{\chi} \leq 1$,
+so $\chi$ is a continuous mapping and
+thus an element of the dual space $\banB'$.
+The set $\Gamma$ of all characters is called the \textit{structure space}
+or the \textit{spectrum} of the Banach algebra $\banB$.
+
+\subparagraph{} %- Gelfand topology
+Due to the inequality $\norm{\chi} \leq 1$ for all $\chi \xeof \Gamma$,
+the set $\Gamma$ is a subset of the closed unit ball $B_1(0) \subset \banB'$.
+Thus we may endow $\Gamma$ with the subset topology on $B_1(0)$
+inherited from the weak-*-topology on $\banB'$,
+which is called the \textit{Gelfand topology} on the structure space.
+Now,
+by the \textit{Alaoglu-Bourbaki theorem}
+the weak-*-topology on $\banB'$ is weak*-compact,
+implying
+that the Gelfand topology must be locally compact and Hausdorff.
+Hence the structure space $\Gamma$ becomes into
+a locally compact Hausdorff space.
+Moreover, 
+if $\banB$ is unital,
+it can be shown that the set $\Gamma$ is even compact.
+
+\paragraph{} %- Gelfand representation
+From now on
+let $\banB$ be a \textit{commutative} Banach algebra.
+We consider the natural mapping $\gamma \:\banB \xto C(\Gamma)$,
+where $\gamma$ assigns to each $x \xeof \banB$ the function
+$\hat{x} \xeof C(\Gamma)$ by way of $\hat{x}(\chi) := \chi(x)$,
+that is,
+the function values of $\gamma$ are given by evaluating
+the characters $\chi$ at the element $x$.
+The mapping $\gamma$ is called the \textit{Gelfand representation}
+of $\banB$.
+
+\paragraph{} %- properties of the Gelfand representation
+We collect the main properties of the Gelfand representation
+for a commutative unital Banach algebra $\banB$ to the following list:
+
+\begin{itemize}[leftmargin=12mm]
+\item[1.]
+$\gamma$ is a Banach algebra homomorphism
+from $\banB$ to $C(\Gamma)$ or $C_0(\Gamma)$,
+depending whether $\banB$ is unital or not.
+
+\item[2.]
+If $\banB$ is unital,
+then $\hat{\1}$ is the constant function $1$ on $\Gamma$.
+
+\item[3.]
+If $\banB$ is unital,
+then $x \xeof \banB$ is invertible
+iff $\hat{x}$ nowhere vanishes.
+
+\item[4.]
+$\norm{ \hat{x} }_{\infty} \leq \norm{x}$ for each $x \xeof \banB$.
+\end{itemize} 
+
+\subparagraph{}
+The Gelfand representation is injective
+iff $\banB$ is a \textit{semisimple} Banach algebra,
+that is,
+if the intersection of all maximal ideals in $\banB$,
+called the \textit{Jacobsen radical} of $\banB$,
+is equal to the set $\{0\}$.
+
+\section{Generalities on Topological Groups}
+%------------------------------------------------------------------------------%
+Before discussing abstract Fourier transformations,
+it is useful to review some concepts coming from general topology,
+especially that of a topological group, 
+which plays a fundamental role in the theory of Fourier transforms.
+
+\subparagraph{} %- topological groups
+There is a subclass within that of general topological spaces,
+which is of great importance in higher analysis
+and whose members are called \textit{topological groups}.
+They are mathematical objects owning the algebraic structure of a group
+and a topological structure together.
+Both have to be compatible to each other in the following sense:
+let $(G,\circ)$ be an ordinary group and a topological space $(G,\topT)$
+at once.
+Then $G$ is called a \textit{topological group},
+if the group operation $(x,y) \mapsto x \circ y^{-1}$ is continuous.
+
+\subparagraph{}
+Instead to require continuity of the mapping $(x,y) \mapsto x \circ y^{-1}$,
+one can equivalently require
+that the mappings $(x,y) \mapsto x \circ y$ and $x \mapsto x^{-1}$
+have to be continuous.
+
+\paragraph{} %- examples of topological groups
+Well-known examples of topological groups are:
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+each group $\grpG$ with its discrete topology $2^{\grpG}$,
+
+\item[2.]
+the group $\R^{\times} := \R - \{0\}$,
+
+\item[3.]
+the group $\C^{\times} := \C - \{(0,0)\}$,
+
+\item[4.]
+the group $\R^+ := \{x \xeof \R: x >0\}$,
+
+\item[5.]
+the additive groups $(\R,+)$ and $(\C,+)$,
+
+\item[6.]
+the \textit{circle group} $\mathbb{T} := \{z \xeof \C: \abs{z} \eq 1 \}$,
+
+\item[7.]
+each subgroup $\topU$ of a topological group $\topG$
+endowed with the subspace topology
+and its closure $\overline{\topU}$ are topological groups.
+\end{itemize}
+
+\paragraph{}
+Like for purely algebraic groups,
+a \textit{homomorphism} between topological groups
+is defined to be a \textit{continuous} group homomorphism,
+and such a homomorphism $\iota$ is called an \textit{isomorphism},
+if it is a group isomorphism and $\iota^{-1}$ is continuous,
+too
+(we use the notation $\topG \cong \topH$ in this case).
+
+\subparagraph{} %- (R,+) is isomorphic to (R+,.)
+A well-known example of a group isomorphism is
+the \textit{exponential function} $t \mapsto e^{t}$,
+which maps the topological group $(\R,+)$ to the group $(\R^+,\cdot)$.
+Rather similar,
+the function
+$t \xeof [0,1) \mapsto e^{2 \pi it}$
+forms a group isomorphism between the topological groups
+$\R / \Z$ and $\mathbb{T}$.
+
+\paragraph{} %- automorphisms between topological groups
+Because in a topological group $\topG$
+the left  translation $x \mapsto g \circ x$ and
+the right translation $x \mapsto x \circ g$
+are continuous mappings,
+they are both examples for \textit{automorphisms},
+that is,
+isomorphisms from the group $\topG$ to itself.
+Hence the topological properties of a topological group
+are completely determined by the topology in a neighbourhood
+of the identity element $\1 \xeof \topG$,
+which gives rise to call a topological group to be \textit{homogeneous}
+in this case.
+
+\subparagraph{}
+Moreover,
+the kind,
+how the identity $\1$ of a topological group $\topG$ lies
+in a given subgroup $\topU$,
+determines the topology of that subgroup.
+In particular,
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+$\topU \subset \topG$ is open iff $\1$ is an inner point of $\topU$.
+
+\item[2.]
+$\topU$ is discrete iff $\1$ is an isolated point of $\topU$.
+\end{itemize}
+
+\paragraph{} %- circle group
+Remember that the {circle group} $\mathbb{T}$ is the group
+consisting of all complex numbers of modulus $1$ with group operation
+\[
+e^{i \alpha} \circ e^{i \beta} \eqdef
+e^{i \alpha} \cdot e^{i \beta} \eqdef
+e^{i(\alpha + \beta)},
+\quad \alpha,\beta \xeof \R.
+\]
+Endowed with the subset topology inherited
+from the standard topology on the field $\C$,
+the unit circle $\mathbb{T}$ forms a topological group.
+Consider the set $C(\topG,\mathbb{T})$ consisting of all
+continuous functions $f \:\topG \xto \mathbb{T}$.
+By furnishing this set with the compact-open topology,
+it becomes into a Hausdorff space.
+
+\subparagraph{} %- characters in the setting of topological groups
+A \textit{character} $\chi$ is a (topological) group homomorphism from a
+topological group $\topG$ to the circle group $\mathbb{T}$
+and hence a continuous mapping.
+We denote $\topG^*$ the set of characters $\chi \:\topG \xto \mathbb{T}$,
+which forms a subset of the Hausdorff space $C(\topG,\mathbb{T})$.
+We can make $\topG^*$ into a topological space by taking the subset topology
+{\wrt} the compact-open topology on $C(\topG,\mathbb{T})$.
+
+\paragraph{} %- dual groups
+Performing multiplication of characters $\chi_1,\chi_2 \xeof \topG^*$ by
+\[
+\chi_1 \circ \chi_2\: g \mapsto \chi_1(g) \cdot \chi_2(g),
+\]
+we obtain a further character $\chi_1 \circ \chi_2 \xeof \topG^*$.
+It can be shown that this operation has all the properties of a group,
+and since it is commutative,
+$\topG^*$ has the structure of an Abelian group,
+called the \textit{character group} or the \textit{dual group} of $\topG$.
+Moreover,
+the group operation in $\topG^*$ is continuous,
+hence the dual group of any topological group forms a topological group
+as well.
+
+\paragraph{}
+In the following table we list three classical topological Abelian groups
+together with their dual groups and characters:
+
+\vspace{3mm}
+\renewcommand{\arraystretch}{1.2}\normalsize
+\centerline
+{
+\begin{tabular}{|c|c|c|}
+\hline
+$\topG$ & $\topG^*$       & characters                           \\
+\hline
+$\R$    & ${\R}^* \cong \R$ & $\chi_x(t) := e^{itx}, \, x \in \R$  \\
+$\Z$    & ${\Z}^* \cong \mathbb{T}$ & $\chi_z(n) := e^{inz},
+                 z \in \mathbb{T}$                                \\
+$\mathbb{T}$    & ${\mathbb{T}}^* \cong \Z$ & $\chi_n(z) := z^n, 
+                 \, n \in \Z$                                     \\
+\hline
+\end{tabular}
+}
+
+\vspace{3mm}
+\centerline{\small Table 1: classical topological groups and dual groups.}
+\vspace{2mm}
+
+\paragraph{}
+Concerning cartesian products of topological groups,
+for each topological group $\topG$ and $\topH$
+we have
+\[
+(\topG \times \topH)^*
+\, \cong \,
+\topG^* \times \topH^*.
+\]
+As a consequence,
+the group isomorphisms ${\Rn}^* \cong \Rn$ hold for any integer $n$.
+
+\section{Locally Compact Abelian Groups}
+%------------------------------------------------------------------------------%
+Recall that a topological space is called \textit{locally compact},
+if every subset owns a compact neighbourhood.
+The abbreviation \textit{LCA group} usually stands
+for a \textit{locally compact Abelian group}.
+The meaning of locally compact groups is based on the fact
+that these groups have non-trivial characters,
+that is,
+we have $\topG^* \neq \{\chi_1\}$ for such a group ${\topG}$,
+where $\chi_1$ is the character with $\chi_1(x) \eq 1$ for all $x \xeof \topG$.
+
+\subparagraph{}
+Suppose that the Abelian group ${\topG}$ is \textit{locally compact}.
+Then it can be shown (for example by the {\ARZELA}-Ascoli theorem)
+that the dual group $\topG^*$ is also locally compact {\wrt}
+its compact-open topology.
+Let $\topG^{**}$ denote the \textit{bidual group} 
+of a topological group $\topG$,
+which is defined to be the dual group of its character group.
+
+\paragraph{} %- Pontryagin's duality theorem
+One of the main results in the theory of LCA groups is the famous
+\textit{Pontryagin duality theorem}:
+
+\begin{theorem1}\label{PONTRYAGIN_DUALITY_THEOREM}
+If $\topG$ is LCA,
+then the groups $\topG$ and $\topG^{**}$ are isomorphic to each other.
+\end{theorem1}
+
+\subparagraph{}
+Notice that
+each group element $g \xeof \topG$ gives rise to a character $\chi_x$
+on the dual group $\topG^*$ by
+$\chi_x(\xi) := \xi(x)$ for all $\xi \xeof \topG^*$.
+Thus the mapping $x \mapsto \chi_x \xeof \topG^{**}$ is an injective group
+homomorphism,
+and Pontryagin duality means
+that the canonical embedding $\iota \: \topG \xto \topG^{**}$,
+$x \mapsto \chi_x$ is also surjective.
+
+\subparagraph{}
+It is easy to see
+that the groups listed in table 1 are examples of Pontryagin duality.
+This kind of duality also implies remarkable relationships between
+the topological properties of a LCA group $\topG$ and its dual group $\topG^*$:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$\topG$ is compact \iff $\topG^*$ is discrete.
+
+\item[2.]
+$\topG$ is discrete \iff $\topG^*$ is compact.
+\end{itemize}
+
+\paragraph{}
+Finally,
+let us mention
+that it is possible to endow the convolution algebra $L^1(\topG,+,\ast)$
+of any LCA group $\topG$
+with an involutional mapping $* \:L^1(\topG) \xto L^1(\topG)$,
+defined for $f \xeof L^1(\topG)$ by
+\[
+f^*(x) \eqdef \overline{f(-x)}, \quad \quad (x \in \topG).
+\]
+
+\section{Abstract Fourier Transformation}
+%------------------------------------------------------------------------------%
+Since $L^1(\topG,+,\ast)$ forms a commutative Banach algebra for every
+LCA group $\topG$,
+we may study its Gelfand transformation in detail,
+which in this case is denoted \textit{Fourier transformation}.
+If $\Gamma_{\topG}$ is the structure space of the algebra $L^1(\topG,+,\ast)$,
+then Fourier transformation maps each function $f \xeof L^1(\topG)$
+to a function $\hat{f} \xeof C_0(\Gamma_{\topG})$.
+It constitutes a Banach algebra homomorphism
+between $L^1(\topG)$ and $C_0(\Gamma_{\topG})$,
+where convolution in $L^1(\topG)$ corresponds to multiplication
+in $C_0(\Gamma_{\topG})$.
+
+\paragraph{}
+Moreover,
+each character $\chi \xeof \topG^*$ gives rise to
+a continuous multiplicative functional $\gamma \xeof \Gamma_{\topG}$,
+that is defined according to
+\[
+\gamma(\chi) \eqdef \int_{\topG} \, f \, \overline{\chi} \, d\mu,
+\]
+and reversely each continuous multiplicative functional
+$\gamma \xeof \Gamma_{\topG}$ can be represented in this way,
+Thus,
+we identify the structure space of the convolution algebra $L^1(\topG,+,\ast)$
+with the dual group $\topG^*$,
+and Fourier transformation appears as the Gelfand transformation
+up to this identification:
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+For $f \xeof L^1(\topG)$
+the mapping $\hat{f} \: \widehat{\topG} \mapsto \C$ according to
+\[
+\hat{f}(\chi) := \int_{\topG} \, f \, \overline{\chi} \, d\mu,
+\quad
+\chi \in \widehat{\topG}
+\]
+is called the \textit{Fourier transform} of $f$.
+
+\item[2.]
+The mapping
+$\FT \: f \xeof L^1(\topG) \xto \hat{f} \xeof C_0(\topG^*)$
+is called \textit{Fourier transformation}.
+\end{itemize}
+
+\paragraph{} %- properties of Fourier transformation
+Let us repeat some properties of Fourier transformation
+that are already known from the general Gelfand transformation:
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+For every $f \xeof L^1(\topG)$ the mapping $\hat{f}$ is continuous on $\topG^*$.
+
+\item[2.]
+the function $\hat{f}$ is vanishing at infinity
+(\textit{Riemann-Lebesgue theorem}),
+that is,
+it maps absolutely integrable functions
+to elements of the function space $C_0(\topG^*)$.
+
+\item[3.]
+$\FT$ is injective,
+that is,
+$\FT(f) \neq \FT(g)$ for $f \neq g$.
+
+\item[4.]
+$\FT$ is norm-preserving,
+that is,
+$\norm{\FT(f)}_{\infty} \leq \norm{f}_1$.
+
+\item[5.]
+$\FT(\alpha f + \beta g) \eq \alpha \FT(f) + \beta \FT(g)$,
+    $\alpha,\beta \xeof \R$.
+
+\item[6.]
+$\FT(f \ast g) \eq \sqrt{2\pi} \, \FT(f) \cdot \FT(g)$.
+\end{itemize}
+
+\subparagraph{}
+In addition,
+the image of $L^1(\topG)$ under $\FT$ forms a separating subalgebra
+of $C_(\Gamma_{\topG})$,
+which lies even dense in $C_0(\Gamma_{\topG})$. 
+
+\paragraph{} %- Fourier transformation for the groups R,Z,T
+It is nearby to consider Fourier transformation
+on $L^1(\topG,+,\ast)$ for the classical groups
+$\R$, $\R^n$, $\Z$ and $\mathbb{T}$:
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+If $\topG \eq \R$,
+then the character group of $(\R,+)$ is the group $(\R,+)$ itself.
+Hence a function $f \xeof L^1(\R)$ owns the Fourier transform
+$\hat{f} \:\R \xto \C$,
+whose function values are defined as follows:
+\[
+\hat{f}(x) \eqdef
+\frac{1}{\sqrt{2\pi}} \int_{- \infty}^{\infty} f(t) \, e^{-itx} \, dt,
+\quad (x \xeof \R).
+\]
+
+\item[2.]
+In case of $\topG \eq \R^n$
+the character group of $(\R^n,+)$ coincides with the group $(\R^n,+)$ as well.
+The Fourier transform of $f \xeof L^1(\R^n)$ is the function defined by
+\[
+\hat{f}(x) \eqdef
+\frac{1}{(2\pi)^{n/2}}
+\int_{- \infty}^{\infty} f(t) \, e^{-i \scalar{t}{x}} \, dt,
+\quad (x \xeof \R^n).
+\]
+
+\item[3.]
+Let $\topG \eq \Z$.
+The normed Haar measure on this group is nothing but the counting measure,
+and the character group $(\Z,+)$ is isomorphic to the multiplicative group
+$(\mathbb{T},\cdot)$.
+Hence the Fourier transform of a sequence $\{f_n\}_{n \in \N}$
+is the mapping $\hat{f} \: \mathbb{T} \xto \C$,
+which is defined pointwise by the \textit{Fourier series}
+\[
+\hat{f}(\omega) \eqdef
+ \frac{1}{\sqrt{2\pi}} \sum_{n= - \infty}^{\infty} f_n \, e^{-i n \omega},
+ \quad (\omega \in \mathbb{T}).
+\]
+
+\item[4.]
+The character group of the group $(\mathbb{T},\cdot)$ is isomorphic
+to the group $(\Z,+)$,
+hence the Fourier transform of a function
+$f \: \mathbb{T} \xto \R$ is the sequence $\hat{f}:\Z \xto \C$ with members
+\[
+\hat{f}_n \eqdef
+\frac{1}{\sqrt{2\pi}} \int_{\mathbb{T}} f(z) \, e^{-inz} \, dz,
+\quad (n \in \Z).
+\]
+\end{itemize}
+
+\paragraph{} %- inverse Fourier transformation
+By \textit{inverse Fourier transformation} is meant the procedure,
+how certain functions in the algebra $L^1(\topG)$ can be retrieved
+from the function values of the corresponding Fourier transforms.
+
+\paragraph{}
+Since the adjoint group $\topG^*$ of a LCA group $\topG$
+with Haar measure $\mu$ is LCA again,
+it owns a Haar measure as well,
+hence the convolution algebra $L^1(\topG^*)$ is well-defined.
+Let $f$ be an element of $L^1(\topG)$
+fulfilling the additional condition $\hat{f} \xeof L^1(\topG^*)$.
+Then there exists the Fourier transform of $\hat{f}$,
+\[
+\hat{\hat{f}}(x) \= 
+\int_{\topG^*} \hat{f}(\gamma) \overline{x(\gamma)} \, d\nu,
+\]
+which forms a complex-valued mapping
+defined on the biadjoint group $\topG^{**}$.
+Due to Pontryagin duality,
+$\topG^{**}$ is isomorphic to $\topG$,
+and we may define the \textit{inverse Fourier transform} $F$
+according to
+\[
+F(x) \= \int_{\topG^*} \hat{f}(\gamma) \, \overline{\gamma(x)} \, d \mu,
+\quad (x \in \topG).
+\]
+It can be shown that the functions $f$ and $F$ are $\mu$-nearly everywhere
+identical on $\topG$.
+
+\subparagraph{}
+Especially for the group $(\R,+)$,
+where even $\R^*$ may be identified with $\R$,
+we obtain the inverse Fourier transform of $\hat{f} \xeof L^1(\R)$ according to
+\[
+F(x) \= \int_R \hat{f}(t) \, e^{itx} \, dt, \quad (x \in \R).
+\]
+
+\paragraph{} %- the algebra of finite Borel measures
+Let $\topX$ be any topological space and $\mu$ be a measure
+define on the Borel $\sigma$-algebra $\Borel{\topX}$.
+A Borel set $B \subseteq \topX$ is called \textit{inner regular} if
+\[
+\mu(B) \= \sup \,
+          \{\mu(\compK): \compK \subset B, \, \compK \mbox{ kompact}\}.
+\]
+Then a measure $\mu$ is denoted as \textit{inner regular},
+if all Borel sets are so.
+Hence inner regular measures defined on $\topX$ are already uniquely
+defined by their values for compact subsets of $\topX$.
+Each inner regular measure on a topological space is said to be \textit{Radon}
+if it adopts finite values for compact sets.
+
+\subparagraph{}
+Rather similar,
+a measure $\mu$ is called \textit{outer regular},
+if for each Borel set $B \subseteq \topX$ the equality
+\[
+\mu(B) \= \inf \,
+          \{\mu(\openO): B \subset \openO, \, \openO \mbox{ open} \}.
+\]
+holds.
+Finally,
+a measure is called \textit{regular},
+if it is inner and outer regular at the same time.
+
+\paragraph{} %- convolution algebras of measures
+Let $\MCR{\topG}$ be the Banach space of finite regular Borel measures,
+where $\topG$ is a LCA group.
+Let $\mu_1, \mu_2$ be measures in $\MCR{\topG}$ and let $\mu_1 \xtimes \mu_2$
+be the product measure defined on the group $\topG \xtimes \topG$.
+If $B \xeof \Borel{\topG}$ is measurable,
+then the set $B'$ is defined by
+\[
+B' \eqdef \{(x,y) \in \topG \times \topG: x+y \in B\}.
+\]
+This set is measurable {\wrt} the $\sigma$-Algebra
+in $\topG \xtimes \topG$.
+Moreover,
+the \textit{convolution} operation $\mu_1 * \mu_2$
+of two measures $\mu_1$ und $\mu_2$ is defined to be the measure
+\[
+(\mu_1 * \mu_2)(B) \eqdef (\mu_1 \times \mu_2)(B')
+\quad (B \in \Borel{\topG}),
+\]
+which owns the following properties:
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+$\mu_1 * \mu_2 \xeof \MCR{\topG}$,
+
+\item[2.]
+$(\mu_1,\mu_2) \mapsto \mu_1 * \mu_2$ is commutative and associative,
+
+\item[3.]
+the inequality
+$\norm{\mu_1 * \mu_2} \, \leq \, \norm{\mu_1} \cdot \norm{\mu_2}$ holds.
+\end{itemize}
+
+\subparagraph{} %- Dirac measure
+Hence the Banach algebra $\MCR{\topG,+,*}$ is unital and commutative.
+Its unit element is the \textit{Dirac measure} $\delta_{\0}$,
+which distinguishes from other measures in this algebra by the property
+that it is concentrated to the element $\0 \xeof \topG$.
+
+\paragraph{}
+In case of $\topG=(\Rn,+)$,
+we may regard the algebra $\MCR{\Rn,+,*}$ as the Banach algebra,
+that is norm-isomorphic to the completion
+of the non-unital convolution algebra $L^1(\Rn,+,*)$.
+
+\paragraph{} %- Fourier-Stieltjes transformation
+\textit{Fourier-Stieltjes transformation} is another phrase for
+Gelfand transformation on the unital and commutative Banach algebra
+$\MCR{\topG,+,*}$ of finite and regular complex Borel measures
+on a LCA group $\topG$.
+In fact,
+if $\mu \xeof \MCR{\topG,+,*}$,
+then the mapping $\hat{\mu}$ defined on the dual group $\topG^*$ by
+\[
+\hat{\mu}(\gamma) \eqdef
+\int_{\topG} -\gamma(x) \, d\, \mu(x), \quad \quad \gamma \in \topG^*
+\]
+is called \textit{Fourier-Stieltjes transform} of  $\mu$.
+
+\paragraph{} %- properties of Fourier-Stieltjes transformation:
+Let $B(\topG^*)$ be the set of functions $\hat{\mu}$
+with $\mu \xeof \MCR{\topG,+,*}$.
+Then the following properties are valid:
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+Each function $\hat{\mu} \xeof B(\topG^*)$ is bounded and uniformly continuous.
+
+\item[2.]
+If $\sigma \eq \mu * \nu$,
+then $\hat{\sigma} \eq \hat{\mu} \cdot \hat{\nu}$ holds,
+that is,
+the mapping $\mu \mapsto \hat{\mu}(\gamma)$ 
+is a Banach algebra endomorphism on $\MCR{\topG,+,*}$
+for every $\gamma \xeof \topX^*$.
+
+\item[3.]
+The set $B(\topG^*)$ is invariant under translation, multiplication and
+complex conjugation.
+\end{itemize}
+
+\section{Fourier Transformation in Euclidean Spaces}
+%------------------------------------------------------------------------------%
+To the end we elaborate \textit{Fourier transformation} in the spaces $\Rd$,
+which is an important tool in advanced analysis with many useful applications,
+especially to the study of
+linear differential operators with constant coefficients.
+
+\paragraph{} %- convolutions
+Rather Fourier transformation can be defined in various linear spaces,
+it is customary to introduce this mapping first in Lebesgue space $L^1(\Rd)$.
+Recall that this space contains all measurable functions $f \: \R \xto \C$
+having the property
+\[
+\int_{\,\Rd} \, \abs{f} \, dx \, < \, \infty.
+\]
+
+\subparagraph{} %- convolution in L^1
+Preliminary,
+for elements $f,g \xeof L^1(\Rd)$ 
+a multiplication $f \ast g$ is defined by
+\[
+(f \ast g) \, (x) \eqdef \int_{\,\Rd} f(t) \cdot g(x-y) \, dy
+\]
+and denoted the \textit{convolution} in $L^1(\Rd)$.
+This mapping is commutative, associative and fulfills
+for all $f,g \xeof L^1(\Rd)$ the estimate
+\[
+\norm{f \ast g}_1 \, \leq \, \norm{f} \cdot \norm{g}.
+\]
+Since $L^1(\Rd)$ is complete,
+the algebra $(L^1(\Rd),+,\ast)$
+constitutes a commutative but non-unital Banach algebra.
+
+\paragraph{} %- Fourier transformation in L1
+L1-Fourier transformation in Euclidean space $\Rd$
+is nothing but the Gelfand mapping
+$\FT \: f \xto \hat{f}$ \xeof $C_0(\Rd)$,
+which sends each function $f \xeof L^1(\Rd)$
+to the function $\hat{f} \xeof C_0(\Rd)$,
+called the \textit{Fourier transform} of $f$ and defined by
+\begin{equation}\label{VII_L1_FOURIER_TRANSFORM}
+\hat{f}(\xi) \eqdef
+\frac{1}{(2 \pi)^{d/2}}
+\int_{\,\Rd} \, e^{-2 \pi i \scalar{\xi}{x}} \, f(x) \, dx
+\quad \quad (\xi \xeof \Rd),
+\end{equation}
+where $\scalar{\xi}{x}$ is the usual inner product of $\xi,x \xeof \Rd$.
+
+\paragraph{} %- properties of Fourier transformation in L1
+Let us again collect the remarkable properties of the mapping $\FT$
+in the special case $\topG \eq \topG^* \eq \Rd$:
+
+\begin{itemize}[leftmargin=12pt,itemsep=5pt]
+\item[1.]
+For each $f \xeof L^1(\Rd)$ the function $\hat{f}$ is continuous on $\Rd$,
+so $\hat{f} \xeof C(\Rd)$.
+
+\item[2.]
+$\hat{f}$ is vanishing at infinity,
+so $\hat{f} \xeof C_0(\Rd)$.
+
+\item[3.]
+$\FT$ is injective,
+that is,
+$\FT(f) \neq \FT(g)$ for $f \neq g$.
+
+\item[4.]
+$\norm{\FT(f)}_{\infty} \leq \norm{f}_1$ for $f \xeof L^1(\Rd)$.
+
+\item[5.]
+$\FT(\alpha f + \beta g) \eq \alpha \, \FT(f) + \beta \, \FT(g)$
+for $\alpha,\beta \xeof \C$,
+thus $\FT$ is linear.
+
+\item[6.]
+$\FT(f \ast g) \= \FT(f) \cdot \FT(g)$,
+so $\FT$ is an algebra homomorphism between the Banach algebras
+$L^1(\Rd,+,\ast)$ and $C_0(\Rd,+,\cdot)$.
+
+\item[7.]
+If $f \xeof L^1(\Rd)$ and
+$g \: x \xeof \Rd \mapsto \abs{x} f(x) \in L^1(\Rd)$,
+then $\hat{f} \xeof C^1(\Rd)$ and
+\[
+\partial_j f(x) \= \widehat{-i \, \xi_j f(\xi)}
+\quad (j=1,\ldots,d).
+\]
+\end{itemize}
+
+\paragraph{} %-- Fourier-Plancherel transformation
+%------------------------------------------------------------------------------%
+We now introduce Fourier transformation in the space $L^2(\Rd)$.
+Indeed,
+Recall that
+this space consists of the measurable functions $u \: \Rd \xto \C$ fulfilling
+\[
+\int_{\,\Rd} \, \abs{u} ^2 \, dx \, < \, \infty,
+\]
+and the inner product in $L^2(\Rd)$ is given by
+\[
+\scalar{u}{v} \= \int_{\,\Rd} \, u\,\overline{v} \, dx.
+\]
+If the functions $u,v \: \Rd \xto \C$ are Lebesgue-integrable
+then by definition they belong to the space $L^1(\Rd)$,
+and their \textit{Fourier transforms} are well-defined
+by formula \eqref{VII_L1_FOURIER_TRANSFORM}.
+
+\subparagraph{}
+However, 
+if is not only a member of $L^1(\Rd)$, 
+but also $u \xeof L^2(\Rd)$,
+we define Fourier transformation a little bit different:
+\begin{equation}\label{VII_L2_FOURIER_TRANSFORM}
+\hat{u}(\xi) \eqdef
+\frac{1}{(2 \pi)^{d/2}}
+\int_{\,\Rd} \, e^{-2 \pi i \scalar{\xi}{x}} \, u(x) \, dx.
+\end{equation}
+Then for functions $u,v \xeof L^2(\Rd)$ 
+the inner product between $u$ and $v$
+and the inner product of their Fourier transforms $\hat{u}$ and $\hat{v}$
+are related by \textsc{Plancherel}\textit{'s formula}
+\[
+\scalar{u}{v} \= \scalar{ \hat{u} }{\hat{v} }.
+\]
+Hence \textit{Fourier transformation} $\FT \: u \mapsto \hat{u} $
+constitutes a partial isometry from the space
+$L^{1,2}(\Rd) := L^1(\Rd) \, \cap \, L^2(\Rd)$
+to the space $L^2(\Rd)$.
+
+\subparagraph{}
+It is a crucial fact now
+that $L^{1,2}(\Rd)$ proves to be dense in $L^2(\Rd)$.
+Since the mapping $\FT$ is linear and continuous on $L^{1,2}(\Rd)$ ,
+it is even \textit{uniformly continuous} on that space
+and can be extended to an \textit{unitary},
+that is,
+a bijective and isometric linear operator
+$\FT_P \: L^2(\Rd) \xto L^2(\Rd)$,
+called the \textsc{Fourier-Plancherel} \textit{operator}
+or the \textit{$L^2$-Fourier transformation} in $L^2(\Rd)$.
+
+\subparagraph{}
+But in general a function $u \xeof L^2(\Rd)$ is not an element of $L^1(\Rd)$.
+Thus it is not possible to define the $L^2$-Fourier transform $\hat{u}$
+of every $u \xeof L^2(\Rd)$
+by means of formula \eqref{VII_L2_FOURIER_TRANSFORM}.
+However,
+for $u \xeof L^2(\Rd)$ and $R > 0$ the function
+\[
+\hat{u} _R(\xi) \eqdef
+\frac{1}{(2 \pi)^{d/2}}
+\int_{\,\abs{x} \leq R}
+e^{-2 \pi i \scalar{x}{\xi}} \, u(x) \, dx
+\]
+is well-defined,
+and one may obtain the $L^2$-Fourier transform $\hat{u}$ 
+as the limit of the functions $\hat{u} _R$ for $R \xto \infty$
+{\wrt} the $2$-norm,
+that is,
+$\lim_{\,R \to \infty} \, \norm{ \hat{u} - \hat{u} _R}_2 \= 0$.
+
+\paragraph{} %- Bessel potential spaces
+The Fourier-Plancherel operator can be used
+to introduce the class of \textit{Bessel potential spaces}.
+First recall
+that the mapping $\FT_P$ is well-defined in Hilbert space $L^2(\Rd)$,
+therefore it has also a meaning in the linear subspaces $H^k(\Rd)$
+for $k \xeof \N$.
+We define for each $k \xeof \N$ the real-valued mapping
+\begin{equation}\label{VII_DEFINITION_OF_FUNCTION_P}
+p_k:x \in \Rd \mapsto (1 + \abs{x} ^{2k})^{1/2}
+\end{equation}
+and the space
+\[
+\cal{H}^k(\Rd) \eqdef
+\{ f \in L^2(\Rd): p_k \, \hat{f} \in L^2(\Rd) \},
+\]
+which is Hilbertian with inner product
+$\scalar{f}{g}_{p_k} := \scalar{p_k \hat{f}}{p_k \hat{g}}$
+for $f,g \xeof \cal{H}^k(\Rd)$ and derived norm
+\[
+\norm{f}_{p_k}^2 \eqdef \scalar{f}{f}_{p_k} \=
+\int_{\,\Rd} \, (1+\abs{x} ^{2k}) \, \abs{\hat{f}} ^2 \, dx.
+\]
+
+\subparagraph{}
+It turns out
+that the so-called \textit{Bessel potential space}
+$\cal{H}^k(\Rd)$ is the range of
+the \textsc{Fourier-Plancherel} operator $\FT_P$
+when restricted to $H^k(\Rd) \subset L^2(\Rd)$.
+Hence $\FT_P$ is a bijective and norm-preserving mapping
+from $H^k(\Rd)$ to $\cal{H}^k(\Rd)$, {\ie}
+\[
+\abs{f} _k \= \lVert \hat{f} \rVert _{p_k}
+\quad \, \qfa f \in H^k(\Rd).
+\]
+
+\subparagraph{}
+In order to extend the definition of the spaces $H^k(\Rd)$
+to indices $s \xeof \R^+$,
+let $p_s$ be defined as in \eqref{VII_DEFINITION_OF_FUNCTION_P}
+but with $s > 0$ instead of $k \xeof \N$.
+We define
+\[
+\cal{H}^s(\Rd) \eqdef
+\{ \, f \in L^2(\Rd): p_s \hat{f} \in L^2(\Rd) \, \},
+\]
+then $\cal{H}^s(\Rd)$ given this way
+coincides for $s \eq k \xeof \N$ with the classical Sobolev space $H^k(\Rd)$,
+which motivates to define $H^s(\Rd) := \cal{H}^s(\Rd)$ for $s \notin \N$.
+For $s<0$,
+however,
+we introduce $H^s(\Rd) := H^{-s}(\Rd)^*$.
+
+\paragraph{} %-- Fourier transformation in the space of tempered distributions
+We finally elaborate that Fourier transformation can be extended
+to the space $\TD$ of tempered distributions.
+
+\subparagraph{}
+First notice 
+that the Fourier transform $\hat{\phi}$
+of a Schwartz function $\phi \xeof \SRd$ is well defined,
+since $\SRd$ is a linear subspace of the convolution algebra $L^1(\Rd,+,\ast)$.
+Moreover, 
+Fourier transformation restricted to the Schwartz space $\SRd$
+forms a linear mapping $\FT \:\SRd \xto \SRd$,
+which sends each function $\phi \xeof \SRd$ to a further function
+$\hat{\phi} \xeof \SRd$ according to the well-known formula
+\begin{equation}\label{VII_FOURIER_TRANSFORM_OF_SCHWARTZ_FUNCTION}
+\hat{\phi}(x) \= \FT(\phi)(x) :=
+\frac{1}{(2\pi)^{d/2}}
+\int_{\,\Rd} e^{-i <\xi,x>} \phi(\xi) \, d \xi
+\quad (x \xeof \Rd).
+\end{equation}
+
+\subparagraph{}
+The extraordinary meaning of Schwartz functions is founded by the fact that
+the Fourier transformation has excellent properties on the space $\SRd$.
+More precisely,
+besides the well-known features of Fourier transformation in $L^1(\Rd,+,\ast)$,
+the mapping $\FT$ is \textit{bijective} on $\SRd$.
+Hence the \textit{inverse Fourier transform} exists for all $\phi \xeof \SRd$
+and is described by the \textit{Fourier inversion formula}
+\[
+\check{\phi}(\xi) \= 
+\FT^{-1}(\phi)(\xi) \eqdef
+\frac{1}{(2\pi)^{d/2}}
+\int_{\,\Rd} e^{i \scalar{x}{\xi}} \, \phi(x) \, dx
+\quad \quad (\xi \xeof \Rd).
+\]
+
+\subparagraph{}
+We next extend Fourier transformation in $\SRd$ to the space $\TD$
+of tempered distributions by transposition,
+that is
+\[
+(\FT \disT) \, \phi \, := \, \disT(\FT \phi),
+\quad \quad \; \phi \xeof \SRd, \; \disT \xeof \TD.
+\]
+This mapping is bijective in the space $\TD$
+and even continuous {\wrt} the weak*-topology on $\TD$.
+The inverse Fourier transform of a tempered distribution $\disT$
+is represented by the formula
+\[
+\FT^{-1}(\disT)(\phi) \, := \, \disT(\FT^{-1} \phi)
+\quad \quad (\phi \xeof \SRd).
+\]
+For example,
+the Fourier transform $\FT(\delta_0)$ of the Dirac distribution
+$\delta_0 \xeof \cal{S}'(\R)$ is the continuous linear functional
+\[
+\FT(\delta_0)(\phi) \, := \,
+\delta_0(\FT(\phi)) \= \hat{\phi}(0) \=
+\frac{1}{\sqrt{2\pi}} \, \int_{\,\R} \phi(x) \, dx,
+\quad \phi \xeof \SR1\,,
+\]
+so $\FT(\delta_0)$ is nothing but the distribution induced by
+the constant function $x \mapsto \frac{1}{\sqrt{2\pi}}$.
+
+% BIBLIOGRAPHY
+%------------------------------------------------------------------------------%
+\vspace{5mm}
+\begin{thebibliography}{99}
+\begin{small}
+
+\bibitem{VII_Ka} E.\,Kaniuth:
+\textit{A Course in Commutative Banach Algebras},
+Springer GTM 246, 2009.
+
+\bibitem{VII_Ru} W.\,Rudin:
+\textit{Fourier Analysis on Groups},
+Wiley-Interscience, 1962.
+
+\bibitem{VII_SW} E.\,Stein, G.\,Weiss:
+\textit{Introduction to Fourier Analysis on Euclidean Spaces},
+Princeton Mathematical Series 32, Princeton University Press, 1971.
+
+\end{small}
+\end{thebibliography}
+
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}

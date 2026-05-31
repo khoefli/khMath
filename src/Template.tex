@@ -1,0 +1,90 @@
+%------------------------------------------------------------------------------%
+%                                                                              %
+%------------------------------------------------------------------------------%
+% File  : template.tex                                                         %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                       DOCUMENT CLASS and INCLUDE FILES                       %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+%\renewcommand\thesection{\Roman{section}}
+
+\def\Title{Template}
+
+\titleformat{\section}
+{\normalfont \bfseries \filcenter}
+{\thesection.\;}{0mm}{}
+
+\titleformat{\subsection}[runin]
+{\normalfont \filcenter}
+{}{0mm}{}
+
+\titleformat{\subsubsection}[runin]
+{\itshape \filcenter}
+{}{0mm}{}
+
+\titlespacing*{\section}      {5pt}{12pt}{ 4pt}
+\titlespacing*{\subsection}   {0pt}{ 6pt}{12pt}
+\titlespacing*{\subsubsection}{0pt}{ 6pt}{ 3pt}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\centerline{\large{\textbf{\Title}}}
+\vspace{4pt}
+\centerline{\small{{\textsc{\Author}}}}
+\vspace{10pt}
+
+\fancyhead[C] {\small{\textsc{\Title}}}
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+
+\myfootnote
+{
+  Version {\Version} from \today;
+  Email:  \textit{khoeflinger@\,t-online.de}
+}
+
+%------------------------------------------------------------------------------%
+%                                 INTRODUCTION                                 %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\section{A}                                                                    %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\section{B}                                                                    %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\newpage
+\thispagestyle{empty}
+
+\begin{thebibliography}{99}
+\begin{small}
+
+\bibitem{Yo}  K.\,Yosida:
+\textit{Functional Analysis}.
+Springer, 1980.
+
+\end{small}
+\end{thebibliography}
+
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}

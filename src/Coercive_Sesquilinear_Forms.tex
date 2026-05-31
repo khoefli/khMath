@@ -1,0 +1,1754 @@
+%------------------------------------------------------------------------------%
+% COERCIVE SESQUILINEAR FORMS                                                  %
+%------------------------------------------------------------------------------%
+% File  : Coercive_Sesquilinear_Forms.tex                                      %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                       DOCUMENT CLASS and INCLUDE FILES                       %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+%\renewcommand\thesection{\Roman{section}}
+
+\def\Title {Coercive Sesquilinear Forms}
+
+\titleformat{\section}
+{\normalfont \bfseries \filcenter}
+{\thesection.\;}{0mm}{}
+
+\titleformat{\subsection}[runin]
+{\normalfont \filcenter}
+{}{0mm}{}
+
+\titleformat{\subsubsection}[runin]
+{\itshape \filcenter}
+{}{0mm}{}
+
+\titlespacing*{\section}      {5pt}{12pt}{ 4pt}
+\titlespacing*{\subsection}   {0pt}{ 6pt}{12pt}
+\titlespacing*{\subsubsection}{0pt}{ 6pt}{ 3pt}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\centerline{\large{\textbf{\Title}}}
+\vspace{4pt}
+\centerline{\small{{\textsc{\Author}}}}
+\vspace{10pt}
+
+\fancyhead[C] {\small{\textsc{\Title}}}
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+
+\myfootnote
+{
+  Version {\Version} from \today;
+  Email:  \textit{khoeflinger@\,t-online.de}
+}
+
+%------------------------------------------------------------------------------%
+%                                 INTRODUCTION                                 %
+%------------------------------------------------------------------------------%
+Our aim in this text
+is to present the general theory of coercive sesquilinear forms
+and its applications to stationary linear equations.
+Sesquilinear forms are mostly efficient
+when studying abstract problems in the Hilbert space setting.
+
+%------------------------------------------------------------------------------%
+\section{Generalities}                                                         %
+%------------------------------------------------------------------------------%
+By a \textit{sesquilinear form} defined in complex linear space $\vecV$
+is meant a mapping $\sql\:\vecV \xtimes \vecV \xto \C$,
+which is linear in the first and conjugate linear in the second argument,
+that is,
+for all $x,y,z \in \vecV$ and $\lambda,\mu \in \C$ the computation rules
+\[
+\begin{cases}[1.2]
+\quad \sql(x+y,z) \= \sql(x,z) \, + \, \sql(y,z) \\
+\quad \sql(x,y+z) \= \sql(x,y) \, + \, \sql(x,z) \\
+\quad \sql(\lambda x,\mu y) \= \lambda \overline{\mu} \, \sql(x,y) \\
+\end{cases}
+\]
+are valid.
+If the linear space $\vecV$ is real, 
+however,
+then $\sql$ is assumed to be linear also in the second argument,
+so it becomes into a \textit{bilinear form} in this case.
+
+\subparagraph*{} %- quadratic form
+The mapping $x \in \vecV \mapsto \sql[x] := \sql(x,x) \in \C$ is called
+the \textit{quadratic form} of $\sql$.
+Notice that all values $\sql(x,y)$ can be recovered
+from the values $\sql[x]$ and $\sql[y]$ by certain polarization formulas.
+
+\paragraph*{} %- representation operators
+A sesquilinear form $\sql$ may also be regarded
+as a linear mapping $\repA\:\vecV \xto \vecV_a^{\#}$,
+where $\vecV_a^{\#}$ is the (algebraic) conjugate space of $\vecV$,
+that is,
+the linear space of conjugate linear functionals $\phi\:\vecV \xto \C$.
+More precisely,
+given a sesquilinear form $\sql$,
+each element $x \in \vecV$ gives rise to a conjugate linear functional
+$\phi_x\:\vecV \xto \C$,
+defined by $\phi_x(y) := \sql(x,y)$ for $y \in \vecV$.
+Let $\vecV_a^{\#}$ again be the linear space
+of conjugate linear functionals on $\vecV$.
+Then the mapping
+\[
+\repA: \;
+\begin{cases}[1.2]
+\quad \repA\:V \xto V^{\#},\\
+\quad \repA \, x := \phi_x \quad (x \in \vecV)
+\end{cases}
+\]
+proves to be linear and is said to be the \textit{form operator}
+or the \textit{representation operator} associated with $\sql$.
+
+\subparagraph*{}
+Reversely,
+for any linear operator $\cal{A}\:\vecV \xto \vecV_a^{\#}$,
+there is a sesqui\-linear form $\sql\:\vecV \xtimes \vecV \xto \F$
+such that $\sql(x,y) \eq (\cal{A} \, x) y$ for $x,y \in \vecV$.
+Hence sesquilinear forms acting on a complex linear space $\vecV$
+appear in a one-to-one correspondence to linear mappings
+acting between the spaces $\vecV$ and $\vecV_a^{\#}$.
+This correspondence remains valid,
+if $\vecV$ is a \textit{real} linear space,
+$\sql$ is a \textit{bilinear} form
+and $\cal{A}$ is the associated mapping
+from $\vecV$ to the adjoint space $\vecV^{\#}$.
+
+%------------------------------------------------------------------------------%
+\section{Continuous and Coercive Forms}                                        %
+%------------------------------------------------------------------------------%
+From now on we assume that $\vecV$ is a \textit{normed} linear space
+with underlying field $\C$.
+Then any sesquilinear form $\sql\:\vecV \xtimes \vecV \xto \C$
+is called \textit{bounded},
+if there is $\Theta > 0$ such that
+\[
+\abs{\sql(x,y)} \, \leq \Theta \norm{x} \cdot \norm{y}
+\quad \quad (x,y \in \vecV).
+\]
+Due to the \textit{uniform boundedness principle},
+this property is equivalent to say
+that $\sql$ is continuous on the space $\vecV \xtimes \vecV$.
+
+\subparagraph*{} %- representation of continuous forms
+The prototypical example of a continuous form is
+the inner product in a complex Hilbert space $\hilH$,
+where boundedness is ensured by the \textsc{Cauchy-Schwarz} inequality
+$\abs{ \scalar{x}{y} } \leq \norm{x} \cdot \norm{y}$.
+
+\subparagraph*{}
+Moreover,
+for each continuous sesquilinear form $\sql$ on $\hilH$
+there is a bounded linear operator $\linB_{\sql}\:\hilH \xto \hilH$
+such that
+\begin{equation}\label{FORM_REPRESENTATION}
+\sql(x,y) \= \scalar{\linB_{\sql} x}{y} \qfa x,y \in \hilH,
+\end{equation}
+which is a representation for the form $\sql$.
+In fact,
+if $x \in \hilH$ is fixed,
+then the mapping $\sql(x,\cdot)\:\hilH \xto \C$
+causes a continuous antilinear functional $\phi_x \in \hilH_a^*$,
+and by \textsc{Riesz}'s representation theorem
+there is $\tilde{x} \in \hilH$ such that
+$\phi_x(y) \eq \scalar{\tilde{x}}{y}$ for all $y \in \hilH$.
+This suggests to define $\linB_{\sql} x := \tilde{x}$ for every $x \in \hilH$.
+If \eqref{FORM_REPRESENTATION} holds for some operator $\linB \in \BO{\hilH}$,
+then the form $\sql$ is said to be represented by $\linB$.
+
+\subparagraph*{} %- coercive sesquilinear forms
+Finally,
+any continuous sesquilinear form $\sql\:\hilH \xtimes \hilH \xto \C$
+is called \textit{coercive}
+if there is $\theta > 0$ such that
+\begin{equation}\label{COERCIVITY_PROPERTY}
+\re \, \sql(x,x) \, \geq \theta \norm{x}^2
+\qfa x \in \hilH.
+\end{equation}
+The estimate \eqref{COERCIVITY_PROPERTY} especially implies the validness of
+\[
+\norm{\linB_{\sql} x}\norm{x}    \, \geq \,
+\abs{\scalar{\linB_{\sql} x}{x}} \, \eq  \,
+\abs{\sql(x,x)}                  \, \geq \,
+\re \sql(x,x)                    \, \geq \,
+\theta \norm{x}^2
+\]
+for all $x \in \hilH$.
+Hence the representation operator $\linB_{\sql}$ is bounded below
+with lower bound $\theta$,
+and we may conclude by the fundamental \textit{bounded-below theorem}
+that it is injective and the range $\range{\linB_{\sql}}$
+forms a closed linear subspace in $\hilH$.
+
+%------------------------------------------------------------------------------%
+\section{The Variational Approach}                                             %
+%------------------------------------------------------------------------------%
+Coercivity of a sesquilinear form $\sql$ is of great interest {\wrt}
+the solvability of the so-called \textit{variational problem},
+which may be formulated as follows:
+given a continuous and conjugate linear functional $\phi \in \vecV_a^*$,
+it is to find $x \in \vecV$ such that
+\begin{equation}\label{VARIATIONAL_EQUATION}
+\sql(x,y) \= \phi(y) \qfa y \in \vecV.
+\end{equation}
+
+\subparagraph*{} %- Lax-Milgram theorem
+The \textsc{Lax-Milgram} \textit{theorem} is of outstanding meaning
+in applied functional analysis
+and ensures well-posedness of the variational problem
+for any right-hand side $\phi \in \vecV_a^*$:
+
+\begin{theorem}\label{LAX-MILGRAM_THEOREM}
+If $\sql\:\vecV \xtimes \vecV \xto \C$ is bounded and coercive,
+then for each $\phi \in \vecV_a^*$
+the equation \eqref{VARIATIONAL_EQUATION} owns exactly
+one solution $x_{\phi} \in \vecV$.
+In addition,
+$\norm{\,x_{\phi}\,} \leq \theta^{-1} \norm{\phi}$ holds.
+\end{theorem}
+
+\subparagraph*{}
+In other words,
+if $\sql$ is bounded and coercive,
+then the form operator $\repA\: \vecV \xto \vecV_a^*$ is bjective.
+The bounded inverse theorem implies
+that the inverse operator $\repA^{-1}$ is bounded,
+too,
+so the solution $x_{\phi}$ of \eqref{VARIATIONAL_EQUATION}
+depends continuously on $\phi$.
+
+\begin{comment}
+\subparagraph*{}
+The proof of theorem \ref{LAX-MILGRAM_THEOREM} is based on the fact
+that the representation operator $\linB_{\sql}$ of $\sql$ is bounded below.
+
+\Proof:
+Since $\linB_{\sql}$ is bounded below,
+it is injective and $\range{\linB_{\sql}}$ is closed.
+It is still to show that $\linB_{\sql}$ is surjective.
+If $z \in \range{\linB_{\sql}}^{\bot}$,
+then for $\linB_{\sql} z \in \range{\linB_{\sql}} $ we have
+\[
+0 \=
+\scalar{\linB_{\sql} z}{z}
+\=
+\sql(z,z)
+\, \geq \,
+\theta \norm{z}^2
+\, \geq \, 0,
+\]
+which implies $z \eq 0$ and therefore $\overline{\range{\linB_{\sql}} } \eq \vecV$.
+But $\range{\linB_{\sql}}$ is closed,
+so $\range{\linB_{\sql}} \eq \vecV$.
+Finally,
+the inequality $\norm{x_f} \leq \theta^{-1} \norm{f}$
+follows from the fact that $\norm{\linB_{\sql}^{-1}} \leq \theta^{-1}$.
+\qed
+\end{comment}
+
+\paragraph*{} %- operator version of the \textsc{Lax-Milgram} theorem
+There is also an \textit{operator version} of theorem \ref{LAX-MILGRAM_THEOREM}.
+Let $\linA\:\vecV \xto \vecV$ be linear and bounded.
+We shall denote $\linA$ \textit{coercive} if
+\[
+\re \scalar{\linA x}{x} \, > \, \theta \norm{x}^2
+\]
+holds for some $\theta > 0$ and all $x \in \vecV$.
+It should be clear
+that the mapping $(x,y) \mapsto \scalar{\linA x}{y}$
+defines a coercive form on $\vecV$.
+Then the \textsc{Lax-Milgram} theorem implies
+invertibility of $\linA$ and boundedness of $\linA^{-1}$,
+where $\norm{\linA^{-1}} \leq \theta^{-1}$ holds.
+
+%------------------------------------------------------------------------------%
+\section{Operators Associated with H-Elliptic Forms}                           %
+%------------------------------------------------------------------------------%
+It is often indicated to study abstract linear problems
+in the setting of so-called \textit{pairs} $(\vecV,\hilH)$ of Hilbert spaces,
+where the space $\vecV$ is continuously and densely embedded
+into a second space $\hilH$.
+More precisely,
+we assume that
+
+\begin{itemize}[leftmargin=9mm]
+\item[(T-1)]
+there is a linear mapping $\iota_1\:\vecV \xto \hilH$
+such that $\overline{\range{\iota_1} }  \eq \hilH$;
+
+\item[(T-2)]
+there is $c>0$ such that
+$\norm{\iota_1 v}_{\hilH} \leq c \norm{v}_{\vecV}$ for all $v \in \vecV$.
+\end{itemize}
+
+By means of the embedding $\iota_1$,
+one can also think of $\vecV$ as a dense linear subspace in the space $\hilH$.
+
+\subparagraph*{} %- Gelfand triples
+Each Hilbert pair $(\vecV,\hilH)$ with embedding $\iota\:\vecV \xto \hilH$
+gives rise to introduce the \textit{transposed pair} $(\hilH_a^*,\vecV_a^*)$,
+where the conjugate space $\hilH_a^*$
+can be seen as continuously and densely embedded
+into the conjugate space $\vecV_a^*$
+by a further embedding $\iota_2\:\hilH_a^* \xto \vecV_a^*$.
+Then,
+by identifying the spaces $\hilH$ and $\hilH_a^*$ via the \textsc{Riesz} map,
+combining both Hilbert pairs leads to the triple
+\begin{equation}\label{GELFAND_TRIPLE}
+\vecV \, \overset{\iota_1}{\hookrightarrow} \,
+\hilH \, \overset{\iota_2}{\hookrightarrow} \, \vecV_a^*,
+\end{equation}
+sometimes called a \textit{Gelfand triple},
+an \textit{evolution triple} or a \textit{rigged Hilbert space}.
+The center space $\hilH$ is often denoted
+the \textit{pivot space} of \eqref{GELFAND_TRIPLE}.
+
+\subparagraph*{}
+Gelfand triples own a remarkable property.
+Let $(\,\cdot\,,\,\cdot\,)$ and $\scalar{\,\cdot\,}{\,\cdot\,}$
+be the inner products in $\vecV$ and $\hilH$,
+respectively,
+then for fixed chosen $x \in \hilH$
+the action of the antilinear linear functional
+$f_x := \iota_2 \, x \in \vecV_a^*$ to any element $v \in \vecV$
+is represented by the inner product of $x$ and $v$ in $\hilH$,
+{\ie} $f_x(v) \eq \scalar{x}{\iota_1 \, v}$ holds for all $v \in \vecV$.
+
+\subsubsection*{} %- form operators
+%----------------------------------
+The presented theory of coercive sesquilinear forms in a Hilbert space $\vecV$
+is often not sufficent for applications.
+Hence it is quite natural to examine sesquilinear forms
+also {\wrt} pairs $(\vecV,\hilH)$ of Hilbert spaces.
+In applications it is often the case
+that sesquilinear forms are merely continuous but not coercive.
+In the setting of a Hilbert pair $(\vecV,\hilH)$,
+however,
+we try to make a form $\sql$ coercive
+by adding an additional term,
+which is just a multiplicity of the inner product in $\hilH$.
+
+\subparagraph*{}
+Indeed,
+if $\sql\:\vecV \xtimes \vecV \xto \C$ is continuous
+and the slightly modified form
+\[
+\sql_{\lambda}(u,v) \eqdef
+\sql(u,v) \, + \, \lambda \scalar{\iota_1 u}{\iota_1 v}\, \quad
+(u,v \in \vecV)
+\]
+is coercive for some $\lambda \in \R$,
+that is,
+there is $\theta > 0$ such that
+\begin{equation}\label{QUASI_COERCIVE}
+\re \sql(u,u)  \, + \,
+\lambda \norm{\iota_1u}_{\hilH}^2 \, \geq \, \theta \norm{u}_{\vecV}^2
+\quad (u \in \vecV),
+\end{equation}
+then $\sql$ is called
+\textit{quasi-coercive},
+\textit{$\hilH$-elliptic}
+or simply a \textit{\GARDING} \textit{form}.
+It should be clear that
+if $\sql_{\lambda_0}$ is coercive for some $\lambda_0 \in \R$,
+then $\sql_{\lambda}$ is so for $\lambda > \lambda_0$.
+
+\paragraph*{} %- the operator associated with a quasi-coercive form
+Quasi-coercive sesquilinear forms are often used
+to define densely defined and closed linear operators
+acting in the pivot space $\hilH$ of a given Gelfand triple.
+
+\subparagraph*{}
+Let $\sql$ be a sesquilinear form defined on a Hilbert space $\vecV$,
+which is the left hand side of a Gelfand triple $(\vecV,\hilH,\vecV_a^*)$
+with continuous embeddings
+$\iota_1\:\vecV \xto \hilH$ and
+$\iota_2\:\hilH \xto \vecV_a^*$.
+It is our aim to introduce a linear operator $\linA_{\sql}$
+with domain space $\hilH$ and range space $\hilH$.
+This will be done by restricting the form operator
+$\repA\:\vecV \xto \vecV_a^*$ associated with $\sql$
+to those elements $u \in \vecV$,
+for which $\repA \, u \in \hilH$.
+Indeed,
+the domain $\domain{\linA_{\sql}}$ is defined to be the subspace
+of those elements $u \in \vecV$,
+for which $\repA \, u \in \iota_2(\hilH) \subset \vecV_a^*$ holds,
+briefly denoted
+\[
+\domain{\linA_{\sql}} \eqdef \{ \, u \in \vecV: \repA \, u \in \hilH \, \}.
+\]
+
+\subparagraph*{}
+Clearly,
+the set $\domain{\linA_{\sql}}$ can be regarded as a linear subspace
+of $\hilH$ by means of the embedding $\iota_1$.
+Then for $u \in \domain{A}$ there exists $y \in \hilH$
+such that $\iota_2 y \eq \repA \, u$.
+We set $x := \iota_1 u$ and $\linA_{\sql} x := y$
+for $x \in \domain{\linA_{\sql}}$
+and denote $\linA_{\sql}$
+the \textit{operator in $\hilH$ associated with $(\vecV,\sql)$},
+or shortly,
+the \textit{variational operator} derived from $\sql$.
+Another phrase is to say that
+the operator $\linA_{\sql}$ is the \textit{part of $\repA$ in $\hilH$}.
+
+\paragraph*{} %- main theorem on quasi-coercive forms
+The following theorem collects a couple of nice properties 
+of the operator $\linA_{\sql}$
+associated with a continuous and quasi-coercive form $\sql$.
+Besides the \textsc{Lax-Milgram} theorem,
+is is our second important theorem in this text:
+
+\begin{theorem}\label{QUASI-COERCIVE_FORMS_AND_ASSOCIATED_OPERATORS}
+Let $(\vecV,\hilH,\vecV_a^*)$ be a triple of Hilbert spaces
+and the sesquilinear form $\sql$ be continuous and quasi-coercive
+on $\vecV$ with parameter $\lambda_0 \in \R$.
+Then the following assertions are true:
+
+\begin{itemize}[leftmargin=9mm]
+\item[(a)]
+$\linA_{\sql}$ is closed.
+
+\item[(b)]
+$\linA_{\sql}$ is densely defined in $\hilH$.
+
+\item[(c)]
+If the embedding of $\vecV$ into $\hilH$ is \textit{compact},
+then the operator $\linA_{\sql} + \lambda$ has a compact inverse
+$(\linA_{\sql} +\lambda)^{-1}$ for each $\lambda > \lambda_0$.
+
+\item[(d)]
+The operator $\linA_{\sql} + \lambda$ is m-accretive.
+
+\item[(e)]
+The operator $\linA_{\sql} + \lambda$ is sectorial.
+\end{itemize}
+\end{theorem}
+
+\begin{comment}
+\subparagraph*{}
+To prove that $\linA_{\sql}$ is closed,
+let $\{x_n\}_{n \in \N}$ be a sequence in $\domain{\linA_{\sql}}$
+with limit element $x \in \hilH$
+and $(\linA_{\sql} x_n$ be the sequence mapped by $\linA_{\sql}$
+with limit element $y \in \hilH$.
+It is to show that $x \in \domain{\linA_{\sql}}$ and $\linA_{\sql} x=y$.
+Let $\abs{x} $ and $\norm{x}$ be the norms in $\vecV$ and $\hilH$,
+respectively.
+Clearly,
+we have
+\[
+\norm{(\linA_{\sql}+\lambda) x_n - y - \lambda x} \xto 0 
+\quad \for n \xto \infty.
+\]
+In the following we shall use the fact
+that for $\lambda > \lambda_0$ the operators
+$\linA_{\sql}+\lambda$ and $(\linA_{\sql}+\lambda)^{-1}$
+forms linear homeomorphism between the normed spaces
+$(\hilH,\norm{\,\cdot\,})$
+and $(\domain{\linA_{\sql}},\abs{\,\cdot\,} )$,
+so the latter one forms a closed subspace
+within the normed space $(\vecV,\abs{\,\cdot\,} )$.
+By this reason,
+\[
+x_n = (\linA_{\sql}+\lambda)^{-1} (\linA_{\sql}+\lambda) x_n
+\to 
+(\linA_{\sql}+\lambda)^{-1} (y + \lambda x)
+\quad \for n \xto \infty
+\]
+{\wrt} the norm $\abs{\,\cdot\,} $ in $\domain{\linA_{\sql}}$.
+Since $x$ belongs to $\hilH$ and $\domain{\linA_{\sql}}$ is closed,
+the element $(\linA_{\sql}+\lambda)^{-1} x$
+belongs to $\domain{\linA_{\sql}}$ with $\linA_{\sql} x \eq y$.
+
+\subparagraph*{}
+To prove that $\domain{\linA_{\sql}}$ is dense in $\hilH$,
+suppose that $y \in \hilH$ fulfills $\scalar{x}{y} \eq 0$
+for all $x \in \domain{\linA_{\sql}}$.
+It is to show that $y=0$ in this case.
+Since $\linA_{\sql}+\lambda$ is surjective,
+there must exist $x_0 \in \domain{\linA_{\sql}}$ such that
+$(\linA_{\sql}+\lambda) x_0 \eq y$.
+Then
+\[
+0 \=
+\scalar{\linA_{\sql} x_0}{x} \, + \, \scalar{\lambda x_0}{x} \=
+\sql(x_0,x) \, + \, \lambda \scalar{x_0}{x}.
+\]
+Especially for $x \eq x_0$ the last equation leads to
+\[
+0 \=
+\scalar{\linA_{\sql} x_0}{x_0} \, + \, \scalar{\lambda x_0}{x_0} \,\geq\,
+\theta \norm{x_0}^2
+\]
+for some $\theta > 0$,
+due to to quasi-coercivity of $\sql$,
+hence $x_0 \eq 0$ and finally $y=0$.
+
+\subparagraph*{}
+Finally,
+if $\iota_1 \: \vecV \xto \hilH$ is compact,
+then $\iota_1 \circ (\linA_{\sql}+ \lambda)^{-1} \: \hilH \xto \hilH$
+is compact,
+too,
+since the composition of a compact linear operator
+and a continuous linear operator proves to be compact.
+\qed.
+\end{comment}
+
+\paragraph*{} %- operators associated with adjoint and symmetric forms
+It is often helpful to consider the \textit{adjoint form} $\sql^*$
+of a given sesquilinear form $\sql$ defined by
+\[
+\sql^* (u,v) \eqdef \overline{\sql(v,u)}
+\quad \quad (u,v \in \vecV).
+\]
+Notice that if $\sql$ is continuous,
+then $\sql^*$ is so.
+Moreover,
+the form $\sql$ is called \textit{symmetric},
+if $\sql \eq \sql^*$ holds\footnote{
+\,A well-known example of a symmetric form is the inner product
+$\scalar{\,\cdot\,}{\,\cdot\,}_{\hilH}$ in a Hilbert space $\hilH$,
+which differs from arbitrary symmetric sesquilinear forms
+only by positive definiteness.}.
+
+\subparagraph*{} %- symmetric forms imply self-adjoint variational operators
+With respect to the variational operators $\linA_{\sql}$ and $\linA_{\sql^*}$,
+the following theorem is valid:
+
+\begin{theorem}\label{QUASI-COERCIVE_FORMS_AND_ASSOCIATED_OPERATORS_II}
+If $\sql^*$ is the adjoint form of $\sql$,
+then ${\linA_{\sql}}^* \eq \linA_{\sql^*}$.
+Furthermore,
+if $\sql$ is symmetric,
+then $\linA_{\sql}$ is self-adjoint.
+\end{theorem}
+
+\paragraph*{} %- generating operators
+Given a Hilbert pair $(\vecV,\hilH)$,
+the theorem \ref{QUASI-COERCIVE_FORMS_AND_ASSOCIATED_OPERATORS_II}
+is very helpful to construct self-adjoint linear operators in $\hilH$
+by starting with symmetric forms in $\vecV$.
+This approach can especially be performed,
+if the form is the inner product in $\vecV$.
+The operator $\linA$ associated with the inner product
+$\scalar{\,\cdot\,}{\,\cdot\,}_{\,\vecV}$,
+called the \textit{generating operator} of $(\vecV,\hilH)$,
+is coercive and even self-adjoint in $\hilH$
+by theorem \ref{QUASI-COERCIVE_FORMS_AND_ASSOCIATED_OPERATORS_II}.
+
+\paragraph*{} %- construction of generating operators
+In the following we derive the generating operator
+of a pair $(\vecV,\hilH)$ of Hilbert spaces in a straightforward way.
+First of all,
+each fixed $y \in \hilH$
+gives rise to a linear functional on $\vecV$ according to
+\[
+f_y(v) := \scalar{\iota v}{y}_{\hilH}, \quad \quad (v \in \vecV).
+\]
+The mapping $f_y$ is also bounded,
+{\ie} $f_y \in \vecV_a^*$.
+Then,
+by the \textsc{Riesz} representation theorem,
+there is $v_y \in \vecV$ such that
+\[
+\scalar{v}{v_y} \= f_y(v) \qfa v \in \vecV.
+\]
+We therefore obtain a mapping $\linB\:\hilH \xto \vecV$,
+by $\linB y := v_y$ for $y \in \hilH$,
+which proves to be linear and continuous,
+and the inner product in $\hilH$ is obtained from that in $\vecV$ by
+\[
+\scalar{\iota x}{y}_{\hilH} \= \scalar{x}{\linB y}_{\,\vecV}
+\quad \quad (x,y \in \hilH).
+\]
+But the operator $\linB$ is also symmetric and strictly positive.
+These properties imply the existence of the inverse operator
+\[
+\linB^{-1}\:\domain{\linB^{-1} } = \range{\linB} \subset \vecV \xto \hilH,
+\]
+which indeed is not necessarily bounded,
+but uniquely defined by the pair $(\vecV,\hilH)$.
+
+\subparagraph*{}
+The operator $\linB^{-1}$ is symmetric and strictly positive,
+too,
+hence there exists the square root operator $\linB^{-1/2}$
+having the property
+\begin{equation}\label{GENERATING_OPERATOR}
+\scalar{\linB^{-1/2} x}{\linB^{-1/2} y}_{\hilH} \= \scalar{x}{y}_{\,\vecV}
+\quad \quad (x,y \in \hilH).
+\end{equation}
+It turns out that $\domain{\linB^{-1/2}} \eq \vecV$,
+which can be shown by contradiction.
+Especially for $y=x$ in \eqref{GENERATING_OPERATOR} we obtain the equality
+\[
+\snorm{\linB^{-1/2}x}_{\hilH} \= \norm{x}_{\,\vecV}
+\quad \quad (x \in \vecV).
+\]
+
+%------------------------------------------------------------------------------%
+\section{Sectorial Forms and Operators}                                        %
+%------------------------------------------------------------------------------%
+In this section we introduce
+the notations of \textit{closed sectorial form} and
+\textit{m-sectorial operator}
+and show the relationships between them.
+
+\subparagraph*{} %- sectorial forms
+Let $\hilH$ be a complex Hilbert space
+and $\sql\:\domain{\sql} \xtimes \domain{\sql} \xto \C$ be a sesquilinear form,
+but defined on a linear subspace $\domain{\sql}$ of $\hilH$.
+Like for linear operators,
+the \textit{numerical range} of $\sql$ is defined by
+\[
+\Theta(\sql) \eqdef
+\{\, \sql(x,x): x \in \domain{\sql}, \, \norm{x}=1 \,\}.
+\]
+We then denote the form $\sql$ to be \textit{sectorial},
+if $\Theta(\sql)$ is contained in a sector $\Sigma_{\,\psi,\omega}$,
+that is,
+\begin{equation}\label{SECTOR_CONDITION}
+\Theta(\sql) \, \subset \,
+\Sigma_{\,\psi,\omega} \eqdef
+\{\zeta \in \C: \zeta \neq \omega, arg(\zeta-\omega) < \psi \},
+\end{equation}
+where $\omega \in \R$ is the vertex
+and $0 \leq \psi < \pi/2$ the semi-angle of the sector.
+Notice that sectors are symmetric {\wrt} the real line.
+Especially for $\psi \eq 0$ let $\Sigma_{\,0,\omega} := (\omega,\infty)$,
+and for $\psi \eq \pi/2$ we have $\Sigma_{\,\pi/2,0} \eq \C_+$.
+We also say that $\linA$ is $(\psi,\omega)$-sectorial,
+if \eqref{SECTOR_CONDITION} holds.
+
+\subparagraph*{} %- half-bounded forms
+Now,
+if $\sql$ is symmetric and $\sql \eq \sql^*$,
+respectively,
+then $\Theta(\sql) \subset \R$ and $\omega \leq \inf \Theta(\sql)$, 
+so in this case we denote $\sql$ to be 
+\textit{half-bounded} or \textit{bounded below}
+and call $\omega$ the lower bound of $\sql$.
+Moreover,
+if $\sql$ is half-bounded and $(\psi,\omega)$-sectorial,
+then the estimates
+\[
+\begin{cases}[1.2]
+\quad \re \sql(x,x) \, \geq \, \omega \norm{x}^2 \\
+\quad \im \sql(x,x) \, \leq \,
+      \tan \psi \cdot (\re \sql(x,x) - \omega \norm{x}^2)\\
+\end{cases}
+\]
+hold for all $x \in \domain{\sql}$.
+
+\paragraph*{} %- closeness of sectorial forms
+Let $\re \sql := (\sql + \sql^*)/2$ be the \textit{real part} of $\sql$.
+Then for every $\alpha > 0$ the slightly modified form
+$[\cdot,\cdot]_{\alpha} := \re \sql - \omega + \alpha$
+constitutes an inner product on the linear space $\domain{\sql}$.
+It turns out
+that the norms $\abs{\cdot} _{\alpha}$
+derived from these inner products $[\cdot,\cdot]_{\alpha}$
+are equivalent to each other.
+We especially take $\alpha=1$,
+pay attention to the inner product
+\[
+[x,y]_1 \= \re \sql(x,y) - \omega \scalar{x}{y} + \scalar{x}{y},
+\qfa x,y \in \domain{\sql}
+\]
+and distinguish between the two cases {\wrt} completeness of the norm
+\[
+\abs{x} _1 \eqdef {[x,x]_1}^{1/2}
+\quad \quad (x \in \domain{\sql}).
+\]
+In both cases it is our goal to obtain a Hilbert space $\hilH_{\sql}$
+with inner product $[x,y]_1$ and norm $\abs{x} _1$
+for $x,y \in \hilH_{\sql}$,
+together with a linear embedding $\iota\:\hilH_{\sql} \xto \hilH$,
+which should be continuous if possible,
+so $(\hilH_{\sql},\hilH)$ hopefully becomes into a pair of Hilbert spaces.
+
+\begin{itemize}[leftmargin=5mm]
+\item[1.]
+The normed linear space $(\domain{\sql},\abs{\,\cdot\,} _1$)
+is \textit{complete}.\\
+We denote the form $\sql$ \textit{closed} in this case,
+and $\domain{\sql}$ becomes into a Hilbert space in its own right,
+hence we may define $\hilH_{\sql} := \domain{\sql}$ in this case. 
+Notice that the norm $\abs{\,\cdot\,} _1$ on $\hilH_{\sql}$
+is stronger than the norm $\norm{\,\cdot\,}$ in $\hilH$
+restricted to $\hilH_{\sql}$,
+so the natural inclusion mapping $\iota\: \hilH_{\sql} \xto \hilH$
+proves to be continuous.
+
+\item[2.]
+The normed linear space $(\domain{\sql},\abs{\,\cdot\,} _1)$
+is \textit{not} complete rsp. $\sql$ is not closed.\\
+We define the Hilbert space $\hilH_{\sql}$ as the completion
+of $\domain{\sql}$ {\wrt} the norm $\abs{\,\cdot\,} _1$.
+Moreover,
+Cauchy sequences in $\hilH_{\sql}$ are also Cauchy sequences in $\hilH$,
+hence for every $x \in \hilH_{\sql}$
+there is $x' \in \hilH$ such that $x' \eq \iota x$
+for a linear map $\iota\:\hilH_{\sql} \xto \hilH$.
+
+\subparagraph*{}
+We want to extend the form $\sql$ from $\domain{\sql}$ to $\hilH_{\sql}$
+as well,
+and this will be done by defining
+\[
+\overline{\sql}(x,y) \eqdef \lim_{\,n \xto \infty} \sql(x_n,y_n)
+\]
+for $x,y \in \hilH_{\sql}$ and arbitrary sequences
+$\{x_n\}_{n \in \N}, \{y_n\}_{n \in \N} \subset \domain{\sql}$
+with $x_n \xto x$ and $y_n \xto y$.
+It turns out that
+the definition of $\overline{\sql}(x,y)$ is independent of
+the sequences $\{x_n\}_{n \in \N}$ and $\{y_n\}_{n \in \N}$,
+so this value is in fact well-defined for $x,y \in \hilH_{\sql}$.
+\end{itemize}
+
+\paragraph*{} %- closable sectorial forms
+In summary,
+we obtain in both cases a Hilbert space $\hilH_{\sql}$ with inner product
+$[\cdot,\cdot]_1$ and norm $\abs{\,\cdot\,} _1$ together with a linear embedding
+$\iota\: \hilH_{\sql} \xto \hilH$,
+but which in the second case is not necessarily continuous.
+
+\subparagraph*{} 
+Regarding the second case,
+the form $\sql$ is said to be \textit{closable},
+if the mapping $\iota$ is continuous.
+This definition especially means that every closed form is closable.
+If $\sql$ is closable,
+then the final result in both cases will be
+that there exists a closed form,
+namely $\sql$ itself in the first and $\overline{\sql}$ in the second case,
+together with a continuous embedding of $\hilH_{\sql}$ into $\hilH$.
+
+\paragraph*{} %- sectorialness
+Let us continue with the concept of \textit{sectorialness}
+of a closed linear operator in a complex Banach or Hilbert space.
+This class of operators has been introduced and first studied
+by \textsc{T.\,Kato}.
+Let again $\Sigma_{\,\psi,\omega}$
+be an open sector with vertex $\omega \in \R$ and semi-angle $0 < \psi \leq \pi$.
+In his book \cite{VIII_Ka},
+\textsc{Kato} denotes a linear operator $\linA$ in a Hilbert space
+to be \textit{sectorial},
+if the following conditions are fulfilled:
+
+\begin{itemize}[labelsep=4mm,leftmargin=12mm]
+\item[(S-1)]
+$\linA$ is {quasi-accretive},
+{\ie} $\scalar{(\linA + \omega) x}{x} \geq 0$
+for some $\omega \in \R$ and $x \in \domain{\linA}$,
+
+\item[(S-2)]
+the numerical range $\Theta(\linA)$ is a subset of the sector
+$\Sigma_{\,\psi,\omega}$.
+\end{itemize}
+
+Furthermore,
+$\linA$ is called \textit{m-sectorial},
+if it is at once sectorial and m-quasi-accretive,
+that is,
+$\linA + \omega$ is m-accretive for some $\omega \in \R$.
+
+\paragraph*{} %- correspondence between closable sectorial forms and operators
+We finally want to elaborate the correspondence
+between closed sectorial forms and m-sectorial operators.
+It should be clear
+that if $\linA$ is a m-sectorial operator in $\hilH$
+with domain of definition $\domain{\linA}$,
+then the sesquilinear form
+\[
+\sql_{\linA}: \;
+\begin{cases}[1.2]
+\quad \domain{\sql_{\linA}} \eqdef \domain{\linA}, \\
+\quad \sql_{\linA}(x,y) \eqdef \scalar{\linA \,x}{y}
+\, \for x,y \in \domain{\sql_{\linA}} \\
+\end{cases}
+\]
+is sectorial and closed.
+
+\subparagraph*{}
+Reversely,
+let $\sql_0$ be a closable sectorial form in $\hilH$
+with domain $\domain{\sql}$.
+We consider the closed completion $\sql$ on the space $\hilH_{\sql}$.
+A densely defined linear subspace $D \subset \domain{\sql}$ is denoted
+a \textit{core} of $\sql$,
+or equivalently,
+the set $D$ is a core of $\sql$,
+if $\sql$ is the closure of the restriction of $\sql$ to $D$.
+
+\subparagraph*{}
+\textsc{Kato}\textit{'s first representation theorem} claims that
+a densely defined and closed sectorial form gives rise
+to a m-sectorial linear operator:
+
+\begin{theorem}\label{FIRST_REPRESENTATION_THEOREM}
+Let $\sql$ be a densely defined and closed sectorial form in $\hilH$
+with vertex $\omega$, semi-angle $\psi$ and domain of definition $\hilH_{\sql}$,
+and let $\iota$ be the continuous embedding from $\hilH_{\sql}$ into $\hilH$.
+Then there is a m-sectorial operator $\linA_{\sql}$ in $\hilH$,
+whose domain of definition $\domain{\linA_{\sql}}$ is defined as follows:
+Any element $x \in \hilH$ belongs to $\domain{\linA_{\sql}}$,
+if $x \eq \iota x_0$ for some $x_0 \in \hilH_{\sql}$ and
+$\sql(x_0,z) \eq \scalar{y}{\iota z}$ holds
+for some $y \in \hilH$ and all $z \in \hilH_{\sql}$,
+which suggests to define $\linA_{\sql} \, x := y$.
+
+\paragraph*{}
+The operator $\linA_{\sql}$ owns a couple of properties:
+
+\begin{itemize}[leftmargin=5mm]
+\item[(a)]
+$\domain{\linA_{\sql}}$ is dense in $\hilH$
+and the preimage $\iota^{-1} \domain{\linA_{\sql}}$
+is dense in $\hilH_{\sql}$.
+
+\item[(b)]
+If $x \in \hilH_{\sql}$, $y \in \hilH$
+and $\sql(x,y) \eq \scalar{\iota x}{y}$ for all $x$ in a core of $\sql$,
+then $\iota x \in \domain{\linA_{\sql}}$ and $y \eq \linA (\iota x)$.
+
+\item[(c)]
+$\Theta(\linA_{\sql})$ is a dense subset of $\Theta(\sql)$.
+
+\item[(d)]
+The adjoint form $\sql^*$ is also closed and sectorial
+with vertex $\omega$ and semi-angle $\psi$.
+
+\item[(e)]
+The adjoint ${\linA_{\sql}}^*$ of $\linA_{\sql}$
+is the $m$-sectorial operator associated with the adjoint form $\sql^*$.
+\end{itemize}
+\end{theorem}
+
+\subparagraph*{}
+Thus m-sectorial linear operators are in one-to-one correspondence
+with closed sectorial forms.
+
+%------------------------------------------------------------------------------%
+\section{Self-Adjoint Extensions of Half-Bounded Operators}                    %
+%------------------------------------------------------------------------------%
+We want to apply the results of the last section
+to the following class of operators:
+a \textit{symmetric} linear operator $\linA$ is called \textit{half-bounded},
+if there is $\theta \in \R$ such that
+\[
+\scalar{\linA \,x}{x} \, \geq \, \theta \norm{x}^2
+\qfa x \in \domain{\linA},
+\]
+or equivalently,
+if $\Theta(\linA) \subset [\theta,\infty)$ for some $\theta \in \R$.
+The operator $\linA$ is called \textit{positive} (\textit{strictly positive}),
+if $\theta \eq 0$ ($\theta > 0$) can be chosen.
+In case of $\theta > 0$,
+the {Cauchy-Schwarz} inequality implies
+that $\linA$ is also bounded below,
+hence $\linA$ is surely injective.
+In addition,
+if $\linA$ is closed,
+then the range $\range{\linA}$ is closed in $\hilH$,
+which follows from the bounded-below theorem,
+but $\range{\linA}$ may be a proper subspace of $\hilH$.
+
+\paragraph*{}
+The main result in this section is given by the fact
+that each densely defined and half-bounded linear operator $\linA$
+acting in a Hilbert space owns at least one \textit{self-adjoint extension}.
+
+\subparagraph*{}
+First notice that if $\linA$ is half-bounded with $\theta \in \R$,
+then it is $(0,\theta)$-sectorial,
+and the sesquilinear form $\sql(x,y) := \scalar{\linA x}{y}$
+is sectorial and densely defined.
+But $\sql$ is also closable,
+so we may switch to the sesquilinear form $\overline{\sql}$ defined on the
+Hilbert space $\hilH_{\sql}$,
+called the \textit{energetic space} of the operator $\linA$.
+Then by theorem \ref{FIRST_REPRESENTATION_THEOREM}
+there is a m-sectorial and even self-adjoint linear operator $\linA_{\sql}$,
+that forms an extension of the half-bounded operator $\linA$,
+called the \textit{Friedrichs extension} of $\linA$.
+
+\subparagraph*{}
+The domain of definition $\domain{\linA_{\sql}}$ of the operator $\linA_{\sql}$
+coincides with the linear subspace $\hilH_{\sql} \, \cap \, \domain{\linA^*}$.
+Moreover,
+the operator $\linA_{\sql}$ owns a useful property:
+if one adds to the half-bounded operator $\linA$ the multiplication operator 
+$x \in \hilH \mapsto \theta x$ with $\theta \in \R$,
+then the {Friedrichs} extensions of $\linA$ and $\linA + \theta$
+are related to each other by
+$(\linA + \theta)_{\sql} \eq \linA_{\sql} + \theta$.
+
+%------------------------------------------------------------------------------%
+\section{Variational Evolution Equations}                                      %
+%------------------------------------------------------------------------------%
+Having the concept of Hilbert-Sobolev space available,
+we want to review the variational approach to first and second order
+evolution equations,
+which has been developed by \textsc{J.-L.\,Lions}
+in the midth of the last century.
+It can be seen as the straightforward extension of
+the \textsc{Lax-Milgram} theory from stationary equations to evolutional ones.
+
+\subparagraph*{}
+Let $\T > 0$ and denote $\lambda$ the Lebesgue-Borel measure on $[0,\T)$.
+By an \textit{abstract variational problem of parabolic type}
+in a real Hilbert space triple $(\vecV,\hilH,\vecV^*)$
+we mean a $\lambda$-nearly everywhere in $(0,\T)$ valid
+linear operator-differential equation
+\begin{equation}\label{ABSTRACT_PARABOLIC_VARIATIONAL_PROBLEM}
+\begin{cases}[1.2]
+\quad u'(t) \, + \, \repA(t) \, u(t) \= f(t), \\
+\quad u(0) = u_0, \\
+\end{cases}
+\end{equation}
+where $u_0 \in \hilH$,
+$f\:[0,\T) \xto \vecV^*$
+and $\repA_{t \in [0,\T)}$ is a family
+of linear operators $\repA\:\vecV \xto \vecV^*$.
+
+\subparagraph*{} %- definition of weak solution I
+Let $\sql(t)$ be the bilinear form associated with the operator $\repA(t)$.
+Then we call $u \in H^1(0,\T;\vecV,\vecV^*)$
+a \textit{weak solution} of \eqref{ABSTRACT_PARABOLIC_VARIATIONAL_PROBLEM},
+if $u(0) \eq u_0$ and
+\[
+\scalar{u'(t)\,}{v(t)} \, + \, \sql(t,u(t),v(t)) \= f(t)(v)
+\]
+for all $v \in \vecV$ and $\lambda$-nearly everywhere $t \in [0,\T)$.
+
+\subparagraph*{} %- Lions theorem for parabolic problems
+Regarding the existence and uniqueness of a \textit{weak solution}
+for the initial value problem \eqref{ABSTRACT_PARABOLIC_VARIATIONAL_PROBLEM},
+the following theorem is of fundamental meaning:
+
+\begin{theorem}\label{LIONS_THEOREM_I}
+Let $\{\sql(t)\}_{t \in [0,\T)}$ fulfill the following conditions:
+
+\begin{itemize}[leftmargin=9mm]
+\item[(a)]
+the mapping $t \in [0,\T) \mapsto \sql(t,u,v)$ is Lebesgue-measurable
+for every fixed pair $(u,v) \in \vecV \xtimes \vecV$,
+
+\item[(b)]
+$\sql$ is \textit{uniformly} bounded in $[0,\T)$,
+that is,
+there is a constant $M \geq 0$ such that
+\[
+\abs{\sql(t,u,v)} \, \leq M \cdot \norm{u}_{\vecV} \norm{v}_{\vecV}
+\qfa u,v \in \vecV, \; t \in [0,\T)\,,
+\]
+\item[(c)]
+$\sql(t)$ is quasi-coercive for each $t \in [0,\T)$.
+\end{itemize}
+
+Then for each $u_0 \in \hilH$ and each $f \in L^2(0,\T;\vecV^*)$
+there is exactly one solution $u \in H^1(0,\T;\vecV,\vecV^*)$
+of \eqref{ABSTRACT_PARABOLIC_VARIATIONAL_PROBLEM},
+which continuously depends on the data $u_0$ and $f$.
+\end{theorem}
+
+\subparagraph*{}
+The proof of this theorem has been published in \cite{Li2}
+as \textit{Th\'{e}or\`{e}me 1.1}, page 46.
+Both terms $u'$ and $\repA(t) u$
+in \eqref{ABSTRACT_PARABOLIC_VARIATIONAL_PROBLEM}
+belong to the same space $L^2(0,\T;\vecV^*)$ as $f$,
+which gives rise to say
+that the problem has \textit{maximal regularity} in $\vecV^*$.
+
+\paragraph*{} %- second order equations
+The concept of weak solution makes also sense
+for linear evolution equations of second order.
+
+\subparagraph*{}
+An \textit{abstract hyperbolic variational problem}
+{\wrt} the Hilbert space triple $(\vecV,\hilH,\vecV^*)$ 
+and a family of bilinear forms
+$\sql(t)\:[0,\T] \xtimes \vecV \xtimes \vecV \xto \R$ is given by
+\begin{equation}\label{ABSTRACT_HYPERBOLIC_VARIATIONAL_PROBLEM}
+\begin{cases}[1.2]
+\quad \scalar{u''(t)\,}{v(t)} + \sql(t,u(t),v(t)) = \scalar{f(t)}{v} 
+\quad (v \in \vecV, \\
+\quad u(0)  = u_0 \in \vecV, \\
+\quad u'(0) = u_1 \in \hilH, \\
+\end{cases}
+\end{equation}
+where $\scalar{\cdot}{\cdot}$ is the inner product in $\hilH$.
+
+\paragraph*{}
+The next theorem shows that
+problem \ref{ABSTRACT_HYPERBOLIC_VARIATIONAL_PROBLEM}
+is \textit{weakly solvable} under a couple of conditions
+on the involved bilinear forms:
+
+\begin{theorem}\label{LIONS_THEOREM_II}
+Let $\{\sql(t)\}_{t \in [0,\T)}$ be a family
+of bilinear forms on $\vecV$ such that
+
+\begin{itemize}[leftmargin=9mm]
+\item[(a)]
+$t \mapsto \sql(t)$ is \textit{uniformly} bounded in $[0,\T)$,
+
+\item[(b)]
+$\sql(t)$ is $\hilH$-elliptic for each $t \in [0,\T)$,
+
+\item[(c)]
+$\sql(t)$ satisfies the symmetry condition
+$\sql(t,u,v) \eq \sql(t,v,u)$
+for all $u,v \in \vecV, \; t \in [0,\T)$,
+
+\item[(d)]
+the mapping $t \mapsto \sql(t,u,v)$ is continuously differentiable in $[0,\T)$
+for each fixed $(u,v) \in \vecV \xtimes \vecV$,
+
+\item[(e)]
+there is $M_1 \geq 0$ such that
+\[
+\abs{ \frac{d}{dt} \sql(t,u,v)} \, \leq \, 
+M_1 \cdot \norm{u}_{\vecV} \norm{v}_{\vecV}
+\qfa \, t \in [0,\T).
+\]
+\end{itemize}
+Then the initial value problem \eqref{ABSTRACT_HYPERBOLIC_VARIATIONAL_PROBLEM}
+has a unique weak solution $u \in H^1(0,\T;\vecV,\vecV^*)$
+for all $u_0 \in \vecV$,
+        $u_1 \in \hilH$ and
+        $f \in L^2(0,\T;\hilH)$.
+\end{theorem}
+
+\subparagraph*{}
+The symmetry condition (c) in \ref{LIONS_THEOREM_II} is essential
+to prove this theorem.
+Moreover,
+the solution map
+\[
+R\:L^2(0,\T;\hilH) \xtimes \vecV \xtimes \hilH \xto L^2(0,\T;\hilH)
+\]
+given by $(f,u_0,u_1) \mapsto u$ is linear in each argument and continuous,
+thus problem \eqref{ABSTRACT_HYPERBOLIC_VARIATIONAL_PROBLEM} proves
+to be well-posed.
+
+%------------------------------------------------------------------------------%
+\section{Applications}                                                         %
+%------------------------------------------------------------------------------%
+In this final section we want to illustrate the usage of abstract sesquilinear
+forms in Hilbert space for the analysis of linear equations of the form
+$\A u \eq f$,
+where $\A$ is a linear partial differential operator and $u,f$ are real
+or complex-valued mappings defined on an open set $\G$
+within an Euclidean space $\Rd$.
+
+\paragraph*{} %- differential expressions in divergence form
+A differential expression $\A$ of order $2m$
+is said to be in \textit{divergence form},
+if there are functions $a_{\alpha \beta} \in C^{\abs{\alpha} }(\G)$
+for $\abs{\alpha} , \abs{\beta} \leq m$
+such that $\A$ can be written as
+\begin{equation}\label{VIII_LPDO_DIV}
+\A \eqdef
+\sum_{\abs{\alpha} \leq m, \abs{\beta} \leq m} (-1)^{\abs{\alpha} } \,
+\PA(\,a_{\alpha \beta}(x) \, D^{\beta}).
+\end{equation}
+
+\subparagraph*{}
+In opposite to this definition we call an arbitary differential expression
+of order $2m$ given by
+\begin{equation}\label{VIII_LPDO}
+\A'(x,\,\cdot\,) \eqdef
+\sum_{\abs{\alpha} \leq 2m} c_{\alpha}(x) \, \PA
+\end{equation}
+to be \textit{in non-divergence form}.
+
+\subparagraph*{}
+It is a matter of fact
+that every linear differential expression $\A$ in divergence form
+can be transformed into an expression $\A'$ in \textit{non-divergence form}.
+Reversely,
+a non-divergence form expression $\A'$ given by \eqref{VIII_LPDO}
+can be transformed into an expression $\A$ in divergence form \eqref{VIII_LPDO_DIV},
+if $c_{\alpha} \in C^{2m - \abs{\alpha} }(\G)$ for $\abs{\alpha} \leq 2m$,
+that is,
+if the coefficients are sufficiently many differentiable in $\G$.
+By comparing the expressions \eqref{VIII_LPDO} and \eqref{VIII_LPDO_DIV},
+it turns out that
+$\A'$ is strongly elliptic in $\G$ \iff $\A$ is so.
+
+\subparagraph*{}
+Next we elaborate the purpose of a differential operator
+being in divergence form.
+Let $\TF$ be the space of \textit{test functions}
+and furnished with the inner product
+\[
+\scalar{\phi}{\psi} \eqdef
+\int_{\,\G} \phi \, \overline{\psi} \,dx \qfa \phi,\psi \in \TF.
+\]
+Now,
+applying $\A$ given in divergence form to $\phi \in \TF$,
+then multiplying $\A \, \phi$ with $\overline{\psi} \in \TF$ and
+finally performing $m$-times partial integration leads to
+\begin{equation}\label{DIRICHLET_FORM}
+\DF_{\A}(\phi,\psi) \eqdef \scalar{\A \, \phi}{\psi} \=
+\sum_{\abs{\alpha} \leq m, \abs{\beta} \leq m} \,
+\int_{\G}
+a_{\alpha \beta} \; \PA \phi \; D^{\beta} \overline{\psi}
+\, dx,
+\end{equation}
+since all the boundary terms vanish.
+The mapping
+\[
+\DF_{\A} := \TF \xtimes \TF \xto \C
+\]
+is a sesquilinear form,
+called the \textit{Dirichlet form} of $\A$ in $\G$.
+If the coefficent functions $a_{\alpha \beta}$ of $\A$
+are measurable and essentially bounded,
+then the mapping $\DF_{\A}$ is continuous
+and thus can continuously be extended to the product space
+$\HN{m}{\G} \xtimes \HN{m}{\G}$,
+where $\HN{m}{\G}$ is the Sobolev space with null boundary conditions,
+that is,
+the completion of $\TF$ {\wrt} the Sobolev norm $\abs{\,\cdot\,} _m$.
+
+\paragraph*{}
+We are mainly interested in a $2m$-order linear differential operator $\A$
+given in divergence form,
+that together with the underlying domain $\G$ fulfills the following conditions:
+
+\begin{itemize}[leftmargin=14mm]
+\item[(I)\;\;]
+$\G$ is bounded in $\Rd$,
+
+\item[(I')\;\,]
+$\G$ satisfies the $m$-th \textit{extension property},
+that is,
+the linear space $R^0(\G)$ consisting of those functions $\phi \in W^{m,p}(\G)$,
+which are restrictions of functions $\phi_{ext} \in C_c^{\infty}(\Rd)$ to $\G$,
+is dense in $W^{m,p}(\G)$.
+
+\item[(II)\;]
+$\A$ is uniformly strongly elliptic in $\G$,
+that is,
+there is $\theta > 0$ %(independent of $x \in \clG$)
+such that
+$\re \, (-1)^m \, p(x,\xi) \geq \theta \cdot \abs{\xi} ^{2m}$
+for all $\xi \neq 0$ and $x \in \clG$.
+
+\item[(III)\,]
+the coefficient functions $a_{\alpha \beta}$ are essentially bounded in $\G$,
+that is,
+$a_{\alpha \beta} \in L^{\infty}(\G)$,
+
+\item[(III')]
+the coefficient functions $a_{\alpha \beta}$ of highest order
+$\abs{\alpha} + \abs{\beta} \eq 2m$ are uniformly continuous in $\clG$.
+\end{itemize}
+
+\subparagraph*{}
+\textsc{{\GARDING}}\textit{'s inequality} is the main assertion in this section
+and can be seen as a bridge
+from the theory of linear-elliptic differential operators
+to abstract functional analysis:
+
+\begin{theorem}\label{GARDING_INEQUALITY_THEOREM}
+Let the domain $\G$ fulfill the conditions (I),\,(I') 
+and let the operator $\A$ of order $2m$
+fulfill the conditions (II),\,\,(III),\,(III').
+Then there is $\lambda_0 \in \R$ and $a_0 > 0$ such that
+for all $u \in \HN{m}{\G}$
+\begin{equation}\label{GARDING_INEQUALITY}
+\DF_{\A}(u,u) \, + \, \lambda_0 \norm{u}^2
+\, = \,
+\scalar{\,(\A+\lambda_0)\,u}{u}
+\, \geq \,
+a_0 \, {\abs{u} _m}^2.
+\end{equation}
+\end{theorem}
+
+\subparagraph*{}
+In other words,
+\textsc{{\GARDING}}'s inequality quotes that
+under the mentioned conditions the Dirichlet form associated with
+the operator $\A + \lambda_0$ is coercive,
+hence the \textsc{Lax-Milgram} theorem may be applied.
+
+\subparagraph*{} %- Garding's inequality for second order operators
+% We do not want to prove theorem \ref{GARDING_INEQUALITY_THEOREM}
+% and refer to \cite{VIII_RR},\,p.\,292,
+% but instead will prove the version for differential operators
+% of \textit{second order},
+The most important class of linear partial differential operators
+in divergence form {\wrt} applications is that of \textit{second order},
+that is,
+our operator $\A$ is of the form
+\begin{equation}\label{GENERAL_SECOND_ORDER_DIFFERENTIAL_OPERATOR}
+\A(x,\cdot) \= 
+-\sum_{i=1}^d \,
+\partial_i \, (\sum_{j=1}^d a_{ij}(x)) 
+\, + \,
+\sum_{j=1}^d \, (b_j(x) \, \partial_j)
+\, + \,
+c(x),
+\end{equation}
+which is nothing but \eqref{VIII_LPDO_DIV} for $m=1$.
+
+\subparagraph*{} %- Dirichlet form
+The Dirichlet form $\DF_{\A}$ belonging to $\A$ 
+given by \eqref{GENERAL_SECOND_ORDER_DIFFERENTIAL_OPERATOR}
+is the sesquilinear form defined by
+\begin{equation}\label{GENERAL_SECOND_ORDER_DIRICHLET_FORM}
+\DF_{\A}(u,v) \= \int_{\G} \,
+(\sum_{i,j=1}^d a_{ij} \, \partial_i u \, \partial_j \overline{v} \, + \,
+ \sum_{j=1}^d b_j \, \partial_j u \, \overline{v} \, + \,
+ c \,u \, \overline{v}
+)
+\, dx.
+\end{equation}
+In this case,
+\textsc{\GARDING}'s inequality remains even true
+if condition (I)' and (III') are dropped:
+
+\begin{theorem}\label{GARDING_INEQUALITY_THEOREM_II}
+Let $\G \subset \Rd$ fulfill (I) and
+the differential operator $\A$ of second order and given in divergence form
+fulfill (II) and (III).
+Then there is $\lambda_0 \in \R$ and $a_0 > 0$ such that
+\[
+\DF_{\A}(u,u) \, + \, \lambda_0 \norm{u}^2
+\=
+\scalar{\,(\A+\lambda_0)\,u}{u}
+\, \geq \,
+a_0 \, {\abs{u} _1}^2
+\]
+for all $u \in \HN{1}{\G}$,
+where $a_0$ is the uniform lower bound of the eigenvalues of all the matrices
+$A(x)$ with $x \in \G$.
+\end{theorem}
+
+\subparagraph*{} %- proof of Garding's inequality for second order operators
+To prove \textsc{\GARDING}'s inequality in the special case of second order operators,
+first recall \textsc{Young}\textit{'s inequality}
+$ab \leq \epsilon a^2 + 4b^2/ \epsilon$
+for $a,b \in \R$ and any $\epsilon >0$.
+By the strict ellipticity condition for $\A$ and with
+$b_0 := \max_{1 \leq j \leq d} \norm{b_j}_{\infty}$
+and $c_0 := \norm{c}_{\infty}$
+we have
+\[
+\DF_{\A}(u,u) \= \int_{\,\G} \,
+(
+ \sum_{i,j=1}^d a_{ij} \, \partial_i u \, \partial_j \overline{u} \, + \,
+ \sum_{j=1}^d   b_j \, \partial_j u \, \overline{u} \, + \,
+ c \, u \, \overline{u}
+) \, dx
+\]
+\[
+\geq \, 
+\theta \int_{\,\G} \abs{\nabla u} ^2 \, dx
+\, - \,
+b_0 \int_{\,\G} \abs{\nabla u} \, \abs{u} \, dx
+\, - \, c_0 \norm{u}^2
+\]
+\[
+\geq \, 
+\theta \int_{\,\G} \abs{\nabla u} ^2 \, dx
+\, - \,
+b_0 \epsilon           \int_{\,\G} \abs{\nabla u} ^2 \, dx
+\, - \,
+\frac{b_0}{4 \epsilon} \int_{\,\G} \abs{u}        ^2 \, dx
+\, - \, 
+c_0 \norm{u}^2
+\]
+for some $\epsilon > 0$.
+Let us chose $\epsilon$ small enough to ensure 
+$
+b_0 \, \epsilon \leq \frac{\theta}{2},
+$
+then
+\[
+\DF_{\A}(u,u)
+\, \geq \, 
+\frac{\theta}{2} \int_{\,\G} \abs{ \nabla u} ^2 \, dx
+ \, - \, \,
+(\frac{b_0}{4 \epsilon} + c_0) \norm{u}^2
+\=
+\]
+\[
+\frac{\theta}{2} (\int_{\,\G} (\abs{u} ^2 + \abs{ \nabla u} ^2) \, dx
+ \, - \, \,
+(\frac{b_0}{4 \epsilon} + c_0 + \frac{\theta}{2}) \norm{u}^2,
+\]
+hence with $a_0 := \theta/2$  and
+$\lambda_0 := b_0 / 4 \epsilon + c_0 + \theta/2$
+we obtain \eqref{GARDING_INEQUALITY}.
+
+\paragraph*{} %- coerciveness of second-order differential operators
+Recall again
+that a sesquilinear form $\sql$ acting in a complex Hilbert space $\vecV$
+is coercive,
+if $\re \sql(x,x) \geq \theta \norm{x}^2$ holds for all $x \in \vecV$.
+In the following we again consider the Dirichlet form $B_{\A}$
+of a second-order differential operator $\A$
+given in divergence form and 
+by \eqref{GENERAL_SECOND_ORDER_DIFFERENTIAL_OPERATOR}.
+A short computation shows
+that $\DF_{\A}$ is coercive,
+if the function $c$ is large enough in comparison
+with the sum of partial derivatives of the functions $b_k$.
+More precisely,
+$B_{\A}$ proves to be coercive if
+\begin{equation}\label{COERCIVITY_CONDITION}
+c(x) \, \geq \, \frac{1}{2} \,
+\sum_{k=1}^d \, \frac{\partial b_k}{\partial x_k}(x)
+\quad \quad (x \in \G).
+\end{equation}
+
+\subparagraph*{}
+On the other hand,
+if the matrix $A(x) \eq (a_{ij}(x))_{i,j=1}^d$ consistent of the second-order
+coefficients of $\A$ fails to be positive definite for all $x \in \G'$,
+where $\G' \subset \G$ has positive measure,
+then $\DF_{\A}$ cannot be coercive on $\HN{1}{\G}$.
+Otherwise,
+if $A(x)$ is positive definite in all $x \in \G$ and 
+condition \eqref{COERCIVITY_CONDITION} does not hold.
+then the functions $b_j$ disturb the coercivity of the form $\DF_{\A}$.
+But after all,
+the form $\DF_{\A}$ is at least quasi-coercive,
+which is nothing but the assertion of \textsc{\GARDING}'s inequality.
+
+\paragraph*{} %- Gardings inequality for the Laplacian
+Let us especially consider the Dirichlet form $B_{-\Delta}$
+associated with the negative Laplacian $-\Delta$,
+which adopts the simple form
+\begin{equation}\label{LAPLACE_DIRICHLET_FORM}
+\DF_{-\Delta}(u,v) \= \int_{\,\G} \nabla u \cdot \nabla \overline{v} \, dx
+\end{equation}
+for $u,v \in \HN{1}{\G}$.
+\textsc{{\GARDING}}'s inequality for this form reads as 
+\[
+\DF_{-\Delta}(u,u) \, + \, \norm{u}^2 \=
+\int_{\,\G} (\abs{\nabla u} ^2 + \abs{u} ^2) \, dx \= {\abs{u} _1}^2,
+\]
+so $a_0 \eq \lambda_0 \eq 1$ can be chosen in this case.
+
+\subparagraph*{} %- Poincare's inequality
+The assertion that $\DF_{-\Delta}$ is coercive in bounded domains,
+is of course a consequence of \textsc{{\GARDING}}'s inequality,
+but may also proved directly by \textsc{{\POINCARE}}\textit{'s inequality}
+even for non-bounded domains.
+Let the mapping $\abs{\,\cdot\,} _e \:\HN{1}{\G} \xto [0,\infty)$ be defined by
+\[
+\abs{u} _e \eqdef
+\left(
+\int_{\G} \nabla u \, \nabla \overline{u} \; dx
+\right) ^{1/2},
+\]
+which fulfills all the properties of a norm.
+It is denoted the \textit{energetic norm} in $\HN{1}{\G}$.
+Suppose that $\G$ has at least a bound in one direction,
+say $\abs{x_1} \leq \delta$
+for all $x=(x_1,\ldots,x_d) \in \G$ and some $\delta > 0$.
+Then there is a constant $C(\G) > 0$
+such that
+\begin{equation}\label{POINCARE_INEQUALITY}
+\abs{u} _1 \, \leq \, C(\G) \cdot {\abs{u} _e}
+\end{equation}
+for all $u \in \HN{1}{\G}$,
+where the lower bound $C(\G) > 0$ only depends on the shape of $\G$.
+This inequality claims
+that in $\HN{1}{\G}$
+the energetic norm $\abs{\,\cdot\,} _e$
+and the Sobolev norm $\abs{\,\cdot\,} _1$
+are equivalent to each other.
+\begin{comment}
+For the proof of \eqref{POINCARE_INEQUALITY},,
+we perform integration by parts and obtain
+\[
+\norm{u}_2^2
+\, = \,
+\int_{\G} 1 \cdot \abs{u} ^2 \, dx
+\, = \,
+- \int_{\G} x_1 \, \frac{\partial}{\partial x_1} \abs{u} ^2 \, dx
+\, \leq \,
+2 \delta \norm{u}_2 \norm{\partial_1 u}.
+\]
+\end{comment}
+
+\subparagraph*{}
+\textsc{{\POINCARE}}'s \textit{inequality} also implies that
+the form $\DF_{-\Delta}$ as defined in \eqref{LAPLACE_DIRICHLET_FORM}
+is coercive.
+The linear operator $\linA_{\sql}$ associated with $\sql \eq \DF_{-\Delta}$
+has domain of definition
+\[
+\domain{\linA_{\sql}} \= \{\,u \in \HN{1}{\G}: \linA_{\sql} u \in \Lh\,\}
+\]
+with values $\linA_{\sql} u := -\Delta u$ in the sense of weak derivatives.
+This operator is in fact the realization of the negative Laplacian
+in Hilbert space $\Lh$ and
+under homogeneous Dirichlet conditions.
+By theorem \ref{QUASI-COERCIVE_FORMS_AND_ASSOCIATED_OPERATORS},
+$\linA_{\sql}$ is a densely defined and closed operator.
+
+\paragraph*{} %- the variational Dirichlet problem
+Let us now turn back to higher order differential operators and
+formulate the existence and uniqueness assertion
+for stationary equations of the form $\A\,u=f$,
+where
+
+\begin{itemize}[leftmargin=15mm]
+\item[(DP-1)]
+the differential operator is of order $2m$,
+strongly elliptic in a \textit{bounded} domain $\G \subset \Rd$
+and given in divergence form,
+hence
+\[
+\A \eqdef
+\sum_{\abs{\alpha} \leq m, \abs{\beta} \leq m} (-1)^{\abs{\alpha} } \,
+\PA(\,a_{\alpha \beta}(x) \, D^{\beta}),
+\]
+
+\item[(DP-2)]
+the coefficients fulfill $a_{\alpha \beta} \in L^{\infty}(\G)$ and
+the top-order coefficients are uniformly continuous in $\clG$.
+\end{itemize}
+
+\paragraph*{} %- homogeneous Dirichlet problem
+Our aim is to solve the \textit{homogeneous Dirichlet problem}
+\[
+\begin{cases}[1.2]
+\quad (\A\,u)(x)\= f(x)& (x \in \G),\\
+\quad u(x) =
+\partial u/ \partial \nu (x) =
+\ldots = \partial u^{m-1} / \partial \nu^{m-1}(x) = 0 & (x \in \bndG).\\
+\end{cases}
+\]
+
+\subparagraph*{}
+Let $\vecV \eq \HN{m}{\G}$ and $\hilH \eq \Lh$,
+so the pair $(\vecV,\hilH)$ forms a Hilbert triple.
+By \textsc{{\GARDING}}'s inequality \eqref{GARDING_INEQUALITY},
+the Dirichlet form $\DF_{\A}(u,v) := \scalar{\A u}{v}$ for $u,v \in \vecV$
+of $\A$ is quasi-coercive with some $\lambda_0 \in \R$.
+Then the \textsc{Lax-Milgram} theorem implies
+the \textit{existence and uniqueness theorem}
+for the homogeneous Dirichlet problem:
+
+\begin{theorem}\label{DIRICHLET_EXISTENCE_THEOREM}
+For $\lambda \geq \lambda_0$, the variational equation
+\begin{equation}\label{VARIATIONAL_EQUATION_II}
+\DF_{\A}(u,v) \, + \, \lambda \scalar{u}{v}
+\, = \, f(v) \quad (v \in \HN{m}{\G})
+\end{equation}
+owns for each $f \in H^{-m}(\G)$
+a unique solution $u \in \HN{m}{\G}$.
+\end{theorem}
+
+\subparagraph*{} %- weak solution of the Dirichlet problem
+The function $u$ is called the \textit{weak solution}
+of the homogeneous Dirichlet problem.
+
+\paragraph*{} %- notes on elliptic regularity
+Having theorem \ref{DIRICHLET_EXISTENCE_THEOREM} available,
+it is the task of \textit{elliptic regularity theory} to show,
+that if $\G$ is bounded,
+$\bndG$ is sufficiently smooth
+and $f \in H^k(\G)$ for some $k \in \N_0$,
+then the solution $u$ of \eqref{VARIATIONAL_EQUATION_II}
+actually belongs to the space
+$H^{k+2m}(\G) \, \cap \, \HN{m}{\G}$.
+
+\subparagraph*{}
+Moreover,
+let us assume
+that the existence of a weak solution
+for equation $\A\,u=f$
+under homogeneous Dirichlet boundary conditions is ensured.
+Then the question arises,
+under which conditions the weak solution $u \in \HN{m}{\G}$
+is classical,
+that is,
+$u$ is contained in the space $C^{2m}(\G) \, \cap \, C^m(\clG)$.
+
+\paragraph*{}
+In the following
+we present only few results on regularity theory
+and restrict ourselves to the second order differential operator
+\[
+\A_2(x,u) \=
+- \sum_{i,j=1}^d \partial_i (a_{ij}(x) \, \partial_j u(x))
++
+\sum_{j=1}^d b_j(x) \, \partial_j u(x)
++
+c(x) \,u(x).
+\]
+Basically,
+we distinguish between
+\textit{inner regularity} and \textit{regularity up to the boundary}.
+
+\paragraph*{} %- inner regularity
+Starting with \textit{inner regularity},
+let $\A_2$ be strongly elliptic and of second order,
+whose coefficients fulfill
+$a_{ij} \in C^1(\G)$, $b_i \in L^{\infty}(\G)$ and $c \in L^{\infty}(\G)$.
+If $f \in \Lh$ and $u \in H^1(\G)$ is a weak solution of $\A_2 \, u \eq f$,
+then the following propositions are valid:
+
+\begin{itemize}
+\item[1.]
+$u \in H_{loc}^2(\G)$,
+that is,
+for each open subset $\G' \Subset \G$\footnote{
+\,$\G' \Subset \G$ means
+that $\G'$ is \textit{compactly embedded} in $\G$,
+{\ie}
+there is a compact set $\compK$ such that $\G' \subset \compK \subset \G$.}
+the function $u \mid_{\G'}$ belongs to the space $H^m(\G')$,
+
+\item[2.]
+for each open subset $\G' \Subset \G$ the estimate
+\[
+\norm{u}_{H^2(\G')} \, \leq \,
+C \cdot [\,\norm{f}_{\Lh} + \norm{u}_{\Lh}\,]
+\]
+holds,
+where the constant $C$ only depends on $\G'$, $\G$
+and the coefficients of the operator $\A_2$.
+\end{itemize}
+
+Notice that
+there are no assumptions on smoothness of the boundary $\bndG$ required.
+
+\paragraph*{} %- higher inner regularity
+A similar result is obtained,
+called \textit{higher inner regularity},
+if one requires higher smoothness properties for the function $f$ and
+the coefficients of $\A_2$.
+Let $a_{ij}, b_i, c \in C^{m+1}(\G)$, $f \in H^m(\G)$ for some $m \in \N$.
+If $u \in H^1(\G)$ is a weak solution of the equation $\A_2 u =f$,
+then we have $u \in H_{loc}^{m+2}(\G)$ and
+\[
+\norm{u}_{H^{m+2}(\G')} \, \leq \,
+C \cdot [\, \norm{f}_{H^m(\G)} + \norm{u}_{\Lh} \,] \,,
+\]
+where $C$ again only depends on the sets $\G'$, $\G$
+and the coefficients of $\A_2$.
+Finally,
+if $u \in H^1(\G)$ is the weak solution of $\A_2 \, u \eq f$
+and $a_{ij}, b_i, c, f \in \SF$,
+then we even have $u \in \SF$.
+
+\paragraph*{} %- regularity up to the boundary
+We now turn to \textit{regularity up to the boundary}.
+This notation corresponds to assertions about the membership
+of the weak solution to one of the Sobolev spaces $H^m(\G)$.
+However,
+to obtain this kind of regularity,
+one has to postulate sharper requirements
+on the coefficients of the differential operator
+and certain smoothness properties of the boundary of $\G$.
+
+\subparagraph*{}
+This kind of regularity means
+that if $k \in \N_0$,
+$a_{ij}, b_j, c \in C^k(\clG)$,
+$f \in H^k(\G)$,
+the boundary $\bndG$ is of class $C^{k+2}$ and
+$u \in \HN{1}{\G}$ is a weak solution of the homogeneous Dirichlet problem,
+then $u \in H^{k+2}(\G)$ and the following Schauder estimate is valid:
+\[
+\norm{u}_{H^{k+2}(\G)} \, \leq \,
+C \cdot [\, \norm{f}_{H^k(\G)} + \norm{u}_{\Lh} \,].
+\]
+
+\subparagraph*{}
+There are statements about higher regularity of $u$ as well:
+let $a_{ij}, b_i, c \in C^{\infty}(\clG)$,
+$f \in \SF \, \cap \, \Lh$ and $\bndG$ be of class $C^{\infty}$,
+then each solution $u \in H^1(\G)$
+of the homogeneous Dirichlet problem is indefinitely differentiable
+(\textsc{Weyl}\textit{'s lemma}).
+
+\paragraph{} %- the Neumann Problem for the negative Laplacian
+Besides the Dirichlet boundary value problem,
+the \textit{Neumann problem} is the second important boundary value problem
+for elliptic differential operators of second order
+and especially for the negative Laplacian,
+which in the following we shall sketch in the setting of Hilbert-Sobolev spaces.
+
+\subparagraph*{} %- Neumann problem for the negative Laplacian
+Let $\G \subset \Rd$ be a bounded domain with $C^1$-boundary,
+so the outer normal vector $n(x)$ is defined in every point $x \in \bndG$.
+Then the \textit{homogeneous} Neumann problem reads as follows:
+find a function $u \in C^2(\G) \cap C^1(\overline{\G})$ such that
+\begin{equation}\label{NEUMANN_PROBLEM}
+\begin{cases}[1.2]
+\quad (-\Delta u)x \= f(x), & x \in \G, \\
+\quad u_{\nu}(x) := (\nabla u)(x) \cdot n(x) \= 0, & x \in \bndG \\
+\end{cases}
+\end{equation}
+for given $f \in C(\G)$.
+Notice that with each solution $u$ of this problem
+the function $u_c := u+c$ ($c \in \R$) is a solution,
+too.
+
+\subparagraph*{} %- divergence theorem
+The \textit{divergence theorem} quotes that
+\[
+\int_{\G} \Delta u \, dx \= \int_{\bndG} \nabla u \cdot n \, d\sigma
+\]
+holds for every function $u \in C^2(\G) \cap C(\bndG)$,
+which implies that
+a necessary condition for the existence of a solution
+of \eqref{NEUMANN_PROBLEM} is the validness of the equation
+\begin{equation}\label{NEUMANN_COMPATIBILITY_CONDITION}
+\int_{\G} f dx \= -\int_{\G} \Delta u \, dx.
+%\= \int_{\bndG} g \, d\sigma.
+\end{equation}
+Conversely,
+if this compatiblity condition does not hold,
+there cannot exist a solution of problem \eqref{NEUMANN_PROBLEM}.
+
+\paragraph*{} %- principles of the variational approach
+The variational approach to the Neumann problem consists of 
+multiplying each side of $-\Delta u \eq f$ with functions $v \in H^1(\G)$ and
+performing partial integration on the left hand side,
+which leads to the variational equation
+\[
+\int_{\G} \nabla u \cdot \nabla v \, dx \=
+\int_{\G} f \, v \, dx.
+% \, - \, \int_{\bndG} g \, v \, d\sigma.
+\]
+
+\subparagraph*{}
+Let $\gamma_0$ be the \textit{trace operator} on the Sobolev space $H^1(\G)$
+into the space $L^2(\bndG)$. 
+Then $u \in T_g(\G) := \{\, \phi \in H^1(\G): \gamma_0 \phi \eq 0 \,\}$,
+the \textit{trial space} for the Neumann problem,
+is called a \textit{weak solution} of \eqref{NEUMANN_PROBLEM},
+if for all $v \in H^1(\G)$
+\[
+\int_{\G} \nabla u \cdot \nabla v \, dx \=
+\int_{\G} f \, v \, dx.
+%\, - \, \int_{\bndG} g \, \gamma_0 v \, d\sigma.
+\]
+
+\paragraph*{}
+If a linear differential operator $\A$ is given in divergence form
+and its Dirichlet form is coercive,
+then the variational approach to the heat equation associated with $\A$
+may be applied.
+Consider for $f \in L^2([0,\T), H^{-1}(\G))$ and $u_0 \in \Lh$
+the \textit{parabolic} initial-value problem
+\[
+\begin{cases}[1.2]
+\quad \scalar{u_t}{v} \, + \, \DF_{\A}[u,v] \= \scalar{f}{v} 
+\qfa v \in \HN{1}{\G},\\
+\quad u(t,\cdot) \in \HN{1}{\G}, \\
+\quad u(0) = u_0.\\
+\end{cases}
+\]
+This problem owns a uniquely defined weak solution
+in the space $H^1(0,\T; \HN{1}{\G}, H^{-1}(\G))$,
+which fulfills the variational equation $\lambda$-nearly everywhere in $[0,\T)$.
+Notice that this assertion is especially true if $\A = -\Delta$.
+
+\subparagraph*{} %- variational approach to the hyperbolic problem
+Again,
+if $\A$ is given in divergence form,
+the \textit{hyperbolic} initial-value problem in variational form
+is given by
+\[
+\begin{cases}[1.2]
+\quad \scalar{u_{tt}}{v} \, + \, \DF_{\A}[u,v] \= \scalar{f}{v} 
+\qfa v \in \HN{1}{\G}, \\
+\quad u(t,\cdot) \in \HN{1}{\G},\\
+\quad u(0)=u_0, \\
+\quad u_t(0)=u_1, \\
+\end{cases}
+\]
+where the coefficients $a_{ij}$ of the operator $\A$ must fulfill
+the symmetry conditions
+\[
+a_{ij}(x) \=
+\overline{a_{ji}(x)} \quad 1 \leq i,j \leq d, \;\; x \in \G.
+\]
+
+\subparagraph*{}
+If $f$ belongs to $L^2([0,\T), \Lh)$,
+$u_0 \in \HN{1}{\G}$ and $u_1 \in \Lh$,
+then this problem has exactly one weak solution $u \in L^2(0,\T; \HN{1}{\G})$
+such that $u(0) = u_0$, $u_t(0)=u_1$
+and $u(t) \in \HN{1}{\G}$ for $t \in [0,\T)$ $\lambda$-nearly everywhere.
+
+\subparagraph*{}
+Since the Dirichlet form of the expression $-\Delta$ is symmetric,
+the variational initial-value problem for the classical wave equation
+$u'' - \Delta u = f$
+owns a uniquely defined weak solution
+$u \in H^1(0,\T; \HN{1}{\G}, H^{-1}(\G))$,
+if the functions $f, u_0, u_1$ fulfills the mentioned prerequisites.
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+%\newpage
+%\thispagestyle{empty}
+\vspace{10mm}
+
+\titleformat{\section}
+{\normalfont \bfseries \filcenter}
+{\thesection.\;}{0mm}{}
+
+\begin{thebibliography}{99}
+\begin{small}
+\bibitem{VIII_Ka} T.\,Kato:
+\textit{Perturbation Theory for Linear Operators}, Springer Verlag,
+Grundlehren der mathematischen Wissenschaften, Band 132, 1995.
+
+\bibitem{Li2} J.-L.\,Lions:
+\textit{\'{E}quations Diff\'{e}rentielles Op\'{e}rationelles et Probl\`{e}mes aux Limites}.
+Springer,
+Grund\-lehren der mathematischen Wissenschaften, Band 111, 1961.
+
+\bibitem{VIII_RR}  M.\,Renardy, R.\,Rogers:
+\textit{An Introduction to Partial Differential Equations}.
+Texts in Applied Mathematics 13, Springer, 2004.
+
+\bibitem{VIII_Sh} R.\,Showalter:
+\textit{Hilbert Space Methods in Partial Differential Equations},
+Dover Publications, 2010.
+\end{small}
+\end{thebibliography}
+
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}

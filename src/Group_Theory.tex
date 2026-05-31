@@ -1,0 +1,2060 @@
+%------------------------------------------------------------------------------%
+% GROUP THEORY                                                                 %
+%------------------------------------------------------------------------------%
+% File  : Group_Theory.tex                                                     %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+
+%------------------------------------------------------------------------------%
+% DOCUMENT CLASS and INCLUDE FILES                                             %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+\titleformat{\part}%[display]
+{\normalfont \rmfamily \bfseries \centering}
+{{\thepart.}}{3pt}{}
+
+\titleformat{\section}[runin]
+{\normalfont \bfseries \filcenter}
+{\thesection.\,}{0mm}{}[.]
+
+\titlespacing*{\part}   {5pt}{12pt}{ 4pt}
+\titlespacing*{\section}{0pt}{ 3pt}{ 3pt}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\centerline{\textrm{\large{\textbf{Group Theory}}}}
+\vspace{4pt}
+\centerline{\textsc{\small{\Author}}}
+\vspace{10pt}
+
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+\fancyhead[OC] {\small{\textsc{Group Theory}}}
+\fancyhead[EC]{\small{\thesection}. \textsc{\sectionname}}
+
+%------------------------------------------------------------------------------%
+%                                  CONTENT                                     %
+%------------------------------------------------------------------------------%
+\myfootnote
+{
+  Version {\Version} from \today;
+  Email:  \textit{\Email}
+}
+
+
+%------------------------------------------------------------------------------%
+\fancyhead[OC] {\small{\textsc{I. Sets, Relations and Mappings}}}
+\fancyhead[EC] {\small{\textsc{I. Sets, Relations and Mappings}}}
+
+This is an elementary text on the foundations of modern mathematics and
+on \textit{group theory}.
+It should be seen as a preparation for other mathematical
+subjects, which are based on group theory,
+like \textit{linear algebra} and others.
+
+\part{Sets, Relations and Mappings}
+%------------------------------------------------------------------------------%
+Following the German mathematician \textsc{Georg Cantor} (1845-1918),
+\begin{quotation}
+\textit{
+a set is a gathering together into a whole of definite, distinct objects
+of our perception or our thought—which are called elements of the set.
+}
+\end{quotation}
+
+\subparagraph{}
+Given a set $\setM$,
+the notation $x \xeof \setM$ means
+that the element $x$ is contained in $\setM$.
+However,
+the notation $x \notin \setM$ says
+that $x$ is not an element of $\setM$.
+
+\subparagraph{}
+In set theory there are various possibilites to describe sets. 
+One of them is to enumerate explicitly all the elements of a set.
+A simple example for this approach is the set $\N$ of \textit{natural numbers}
+respective the \textit{positive integers}
+enumerated by $\N := \{1,2,3,\ldots\}$.
+
+\subparagraph{}
+A further possibility is 
+to describe the content of a set $\setM$ by means of a property $E(x)$,
+which is true exactly for all $x \xeof \setM$,
+where the symbol $x$ stands for the elements of a second set $\setN$
+being larger then $\setM$.
+In this case,
+the set $\setM$ is described as follows:
+$\setM := \{x \xeof N \: E(x)\}$.
+An example is given again by the set of natural numbers,
+but now characterized by a property of the \textit{integers} $\Z$,
+which forms a superset of the set $\N$.
+In this case we obtain $\N \eq \{i \xeof \Z \: i > 0\}$. 
+
+\section{Set Operations}
+%------------------------------------------------------------------------------%
+One may define sets by \textit{operations} on further and already defined sets.
+In the following we shall collect the most important concepts, symbols
+and operations dealing with sets:
+
+\begin{itemize}[leftmargin=12mm]
+\item subsets
+\item equalities of sets
+\item the empty set
+\item intersections
+\item unions
+\item complementary sets
+\item cartesian products
+\end{itemize}
+
+\begin{itemize}[leftmargin=5mm]
+\item[a.] \textit{Subsets.}
+Let $\setM,N$ be sets.
+Then $\setM$ is called a \textit{subset} of $\setN$
+(notation: $\setM \subseteq N$),
+if each element of $\setM$ is also an element of $\setN$.
+In this case $\setN$ is called a \textit{superset} of $\setM$.
+The set $\setM$ is said to be a \textit{proper} subset of $\setN$,
+if there is an element $y \xeof N$ with $y \notin \setM$
+(notation: $\setM \subset N$).
+
+\item[b.] \textit{Equality of sets.}
+Two sets $\setM$ and $\setN$ are called \textit{equal}
+(notation: $\setM \eq \setN$),
+if they contain one and the same elements.
+In this case $\setM \subseteq N$ and $\setN \subseteq \setM$ are both valid.
+Otherwise,
+it is usual to write $\setM \neq N$.
+
+\item[c.] \textit{The empty set.}
+The \textit{empty set} (notation: $\emptyset$) is that set,
+which does not contain any elements. 
+Since two sets are only equal if they own 	the same elements,
+there is only one empty set,
+which can be seen as a subset of any other set.
+
+\item[d.] \textit{Intersections.}
+The set $\setM \cap N$ is the \textit{intersection} of the sets $\setM,N$ and 
+contains all elements
+that are contained in $\setM$ \textit{and} in $\setN$.
+If there are no common elements in $\setM$ and $\setN$,
+then $\setM \cap N \eq \emptyset$ holds and the sets are denoted \textit{disjoint}.
+
+\item[e.] \textit{Unions.}
+The set $\setM \cup N$ is the \textit{union} of the sets $\setM$ and $\setN$
+and contains all elements,
+which belong to $\setM$ \textit{or} to $\setN$.
+If $\setM$ and $\setN$ are disjoint,
+then one often writes $\setM \sqcup N$ instead of $\setM \cup N$.
+
+\item[f.] \textit{Complementary sets.}
+Let $\setM$ be a subset of $\setN$.
+Then $\setN \setminus \setM$ consists of all elements in $\setN$,
+which are \textit{not} contained in $\setM$,
+called the complementary set rsp. the \textit{complement} of $\setM$ in $\setN$.
+
+\item[g.] \textit{Cartesian products.}
+For given sets $\setM,N$,
+the set $\cross{M}{N}$ is called the \textit{cartesian product} of $\setM$ and $\setN$.
+It contains all \textit{ordered pairs} $(x,y)$ of elements $x \xeof \setM$
+and $y \xeof N$.
+Notice
+that for $\setM \neq N$ the cartesian product $\cross{M}{N}$ differs
+from the cartesian product $\cross{N}{M}$.
+The $n$-fold kartesian product of a set $\setM$ with itself is denoted $\setM^n$.
+\end{itemize}
+
+\section{Collections of Sets}
+%------------------------------------------------------------------------------%
+If $\setM$ is any set,
+then the collection $\pot{M} $ containing all subsets of $\setM$ is called
+the \textit{power set} of $\setM$.
+The empty set $\emptyset$ and the set $\setM$ itself is contained in $\pot{M}$.
+For a set with $n$ elements the power set contains exactly $2^n$ elements.
+
+\subparagraph{}
+Any set $\cal{F}$,
+whose elements are also sets,
+is called a \textit{collection of sets} or a \textit{family of sets}. 
+For example,
+the power set $\pot{\setM} $ of a set $\setM$
+forms such a collection of sets.
+
+\subparagraph{}
+A collection of sets $\cal{F}$ is called \textit{disjoint},
+if any elements $F_1, F_2 \xeof \cal{F}$ are pairwise disjoint.
+Moreover, 
+$\cal{F}$ is denoted a \textit{covering} of a set $\setM$,
+if each element $x \xeof \setM$ is contained in some set $F_i \xeof \cal{F}$,
+and by a \textit{disjoint decomposition} of $\setM$ is meant
+a disjoint covering $\cal{F}$ of $\setM$.
+
+\paragraph*{}
+In some mathematical areas there is the need to require the operations of
+union and intersection of arbitrarily many collections of sets:
+
+\subparagraph{}
+Let $\cal{F}_i (i \xeof I)$ be a family of collection of sets.
+Then the \textit{intersection}
+\[
+\cal{F} \eqdef \bigcap_{i \xeof I} \cal{F}_i
+\]
+of this collection of sets is that collection of sets $\cal{F}$,
+which contains exactly the sets being members
+of all sets $\cal{F}_i$.
+
+\subparagraph{}
+By the \textit{union} of collections of sets $\cal{F}_i$
+is meant the collection of sets
+\[
+\cal{F} \eqdef \bigcup_{i \xeof I} \cal{F}_i,
+\]
+which contains each set being a member in some $\cal{F}_i$.
+
+\section{Equivalence and Order Relations}
+%------------------------------------------------------------------------------%
+The concept of \textit{relation} is fundamental in mathematics
+and defined as follows:
+a \textit{relation} between two sets $\setM,N$ is a subset of the 
+cartesian product $\cross{M}{N}$. 
+
+\subparagraph{}
+\textit{Equivalence relations}, \textit{order relations}
+and \textit{mappings} are the most important specializations
+of the general notion of relation:
+
+\paragraph{}
+Let $\setM$ be a set.
+Any relation $R \subseteq \cross{M}{M}$ is called
+an \textit{equivalence relation} on $\setM$ if
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.] $(x,x) \xeof R$ for all $x \xeof \setM$ \textit{(reflexivity)}.
+\item[2.] $(x,y) \xeof R$ implies $(y,x) \xeof R$ \textit{(symmetry)}.
+\item[3.] $(x,y) \xeof R$ and $(y,z) \xeof R$ implies $(x,z) \xeof R$
+          \textit{(transitivity)}.
+\end{itemize}
+
+\subparagraph{}
+If $R$ is a equivalence relation on $\setM$ and $(x,y) \xeof R$,
+then we briefly write $x \sim y$,
+and the equivalence relation itself is denoted by $(M,\sim)$.
+In this case the element $x$ is said to be
+\textit{in relation with $y$}.
+Another phrase is to say
+that the elements $x,y$ are \textit{equivalent to each another}.
+The relation $\setM/\sim$ causes a disjoint decomposition of the set $\setM$.
+
+\subparagraph{}
+Given an equivalence relation $(M,\sim)$,
+the subset of all elements being equivalent to each another is called an 
+\textit{equivalence class}.
+Every element $x \xeof \setM$ is obviously contained
+in one and only one equivalence class within $(M,\sim)$,
+denoted $[x]$.
+
+\subparagraph{}
+The family $\setM/\sim$ of all equivalence classes is called the 
+\textit{quotient set} of $\setM$ {\wrt} the equivalence relation $\sim$.
+Each element of an equivalence class $[x]$ is called
+a \textit{representative} of $[x]$.
+
+\subparagraph{}
+Reversely,
+every disjoint decomposition of a set $\setM$ into a family $\cal{F}$
+of subsets corresponds to an equivalence relation on $\setM$,
+hence $\cal{F} \eq M/\sim$.
+We define $x \sim y \, :\Leftrightarrow \, x \xeof F_i$
+and $y \xeof F_i$ for some $F_i \xeof \cal{F}$.
+
+\paragraph{}
+Any relation $R \subset \cross{M}{M}$ is called a \textit{order relation}
+respective a \textit{semi-order} on $\setM$ if
+
+\begin{itemize}[leftmargin=15mm]
+\item[1.]
+$(x,x) \xeof R$ for all $x \xeof \setM$ \textit{(reflexivity)}.
+\item[2.]
+$(x,y) \xeof R$ and $(y,x) \xeof R$ implies $x \eq y$
+\textit{(anti-symmetriy)}.
+\item[3.]
+$(x,y) \xeof R$ and $(y,z) \xeof R$ implies $(x,z) \xeof R$
+\textit{(transitivity)}.
+\end{itemize}
+
+\subparagraph{}
+For example,
+the natural order on the set $\Z$ fulfills all the properties
+of an order relation.
+
+\subparagraph{}
+An order relation $R$ on $\setM$ is usually denoted $(\setM,\leq)$,
+and for two elements $x,y \xeof \setM$ with $(x,y) \xeof R$
+we usually write $x \leq y$.
+
+\subparagraph{}
+Let $\leq$ be a order relation on a given set $\setM$.
+We introduce some further concepts as follows:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+A \textit{chain} in $\setM$ is a subset $K \subseteq \setM$
+such that for all $x,y \xeof K$ either $x \leq y$ or $y \leq x$ holds.
+\item[2.]
+If the set $\setM$ itself is a chain,
+then $\setM$ is called \textit{totally ordered}.
+\item[3.]
+Any chain $K$ is called \textit{bounded above (rsp. below)},
+if there is an element $z \xeof \setM$ with $x \leq z$ (rsp. $z \leq x$)
+for all $x \xeof K$.
+The element $z$ is called an upper (rsp. lower) \textit{bound} of $K$.
+\item[4.]
+An element $m \xeof \setM$ is called \textit{maximal}
+(rsp. \textit{minimal}),
+if $m \leq x$ (rsp. $x \leq m$) for each $x \xeof \setM$ implies $x \eq m$.
+\end{itemize}
+
+\subparagraph{}
+For example,
+the set of even rsp. odd integers in $\N$ are bounded above chains.
+The number $1$ forms a minimal element of $\N$.
+
+\subparagraph{}
+For certain order relatios the existence of a maximal elements
+is postulated axiomatically by Zorn's lemma:
+
+\begin{theorem}
+Let $\setM$ be a set and $(M,\leq)$ be an order relation on $\setM$
+such that each chain $K \subset \setM$ is bounded above.
+Then there is a maximal element in $\setM$.
+\end{theorem}
+
+\subparagraph{}
+\textsc{Ernst Zermelo} formulated in 1904
+the so-called  \textit{axiom of choice},
+which proves to be equivalent to Zorn's lemma:
+
+\begin{theorem}
+Let $\cal{F}$ be a disjoint collection of sets
+consisting of non-empty sets $F_i$ ($i \xeof I$).
+Then there is a set $A$
+sharing with each set $F_i \xeof \cal{F}$ exactly one common element.
+\end{theorem}
+
+\subparagraph{}
+Any set $\setM$ is called \textit{well-ordered},
+if $\setM$ is totally ordered and owns a lower bound $m \xeof \setM$.
+The standard example of a well-ordered set is that of natural numbers
+endowed with the natural semi-order.
+The following well-ordering theorem is equivalent
+to Zorn's lemma and the axiom of choice:
+
+\begin{theorem}
+Each set can be well-ordered.
+\end{theorem}
+
+\section{Mappings}
+%------------------------------------------------------------------------------%
+\textit{Mappings} rsp. \textit{functions} form the most important subclass
+within that of relations and are of fundamental meaning in modern mathematics.
+They are defined as follows:
+let $\setM,N$ be sets and
+$f \subset \cross{M}{N}$ be a relation between $\setM$ and $\setN$.
+The triple $(M,N,f)$ is called a \textit{mapping} or a \textit{Funktion}
+from $\setM$ to $\setN$,
+if for each $x \xeof \setM$ there is \textit{exactly} one element $y \xeof N$
+such that $(x,y) \xeof f$.
+
+\subparagraph{}
+For a mapping $f$ from $\setM$ to $\setN$ we often write $f\:M \xto N$.
+The set $\setM$ is called the \textit{domain}
+and $\setN$ is called the \textit{range}.
+The relation $f \subseteq \cross{M}{N}$ itself is denoted the \textit{graph} of $f$.
+
+\paragraph{}
+The following concepts are often used when dealing with mappings:
+
+\begin{itemize}[leftmargin=12mm]
+\item image, pre-image
+\item composition
+\item injection, surjektion, bijection 
+\item embedding
+\item restriction
+\item constant mapping
+\item identity mapping, involution
+\item fixpoint
+\item permutation and transposition
+\item projection 
+\item fiber bundle
+\end{itemize}
+
+\paragraph{}
+In what follows, let $\setM, \setN$ be arbitrary sets
+and $f\:\setM \xto \setN$ be a mapping.
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.] \textit{Image and pre-image.}
+The element $y \xeof \setN$,
+uniquely assigned to the element $x \xeof \setM$,
+is called the \textit{image} of $x$ and is denoted by $f(x)$.
+The set $f(\setM) := \{ y \xeof \setN \: y \eq f(x) \mbox{ for some } x \xeof \setM\}$
+is called the \textit{image set} of $\setM$ by the mapping $f$,
+and for a subset $\setN'$ of $\setN$ the set
+$f^{-1}(\setN') := \{x \xeof \setM \: f(x) \xeof \setN'\}$
+is called the \textit{pre-image} of the set $\setN'$ in $\setM$.
+
+\item[2.] \textit{Composition.}
+If $M_1,M_2,M_3$ are ordinary sets and $f\:M_1 \xto M_2$ rsp.
+$g\:M_2 \xto M_3$ are mappings,
+then there is a further mapping $g \circ f\:M_1 \xto M_3$ defined by
+$(g \circ f)(x) := g(f(x))$ for all $x \xeof M_1$,
+called the \textit{composition} of $f$ and $g$.
+
+\item[3.] \textit{Injection, surjection, bijection.}
+The mapping $f\:M \xto N$ is called \textit{injective},
+if $f(x) \eq f(x')$ for $x,x' \xeof \setM$ implies $x \eq x'$.
+Hence each element $y \xeof f(M)$ of an injective mapping $f$ owns exactly
+one pre-image.
+
+\subparagraph*{}
+A mapping $f\:M \xto N$ is called \textit{surjective},
+if $f(M) \eq N$,
+that is
+each element $y \xeof N$ is the image of at least one element $x \xeof \setM$.
+
+\subparagraph*{}
+A mapping $f\:M \xto N$ is called \textit{bijektiv} or a \textit{bijection}, 
+if $f$ is injective and surjective at the same time.
+Then there is an \textit{inverse mapping}
+$f^{-1}:N \xto \setM$ with $f^{-1}(y) := x$ in case of $y \eq f(x)$. 
+The mapping $f^{-1}$ is bijective as well,
+and its inverse mapping is $f$,
+hence $(f^{-1})^{-1} \eq f$.
+
+\item[4.] \textit{Embedding.}
+Let $M'$ a subset of $\setM$.
+Then the mapping $\iota \: M' \xto \setM$ defined by
+$\iota(x) \eq x$ for $x \xeof M'$ 
+is called the \textit{embedding mapping} rsp. the \textit{inclusion}
+of $M'$ into $\setM$.
+
+\item[5.] \textit{Restriction.}
+Let $f\:\setM \xto \setN$ be a mapping and $M' \subset \setM$.
+Then the mapping $f':M' \xto N$ with $f'(x) \eq f(x)$ for $x \xeof M'$
+is called the \textit{restriction} of $f$ to $M'$.
+
+\item[6.] \textit{Constant mapping.}
+A mapping $f\:M \xto N$ is called \textit{constant},
+if  $y \xeof N$ exists such that $f(x) \eq y$ for all $x \xeof \setM$.
+
+\item[7.] \textit{Identity mapping, involution.}
+Let $f\:M \xto \setM$ be a mapping.
+If $f(x) \eq x$ for all $x \xeof \setM$,
+then $f$ is called the \textit{identity mapping} on $\setM$
+(notation: $Id \:M \xto \setM$).
+Moreover,
+if $f \circ f \eq Id$, then $f$ is denoted an \textit{involution}.
+
+\item[8.] \textit{Fixpoint.}
+An element $x \xeof \setM$ is called a \textit{fixpoint} of a mapping $f\:M \xto \setM$,
+if $f(x) \eq x$.
+
+\item[9.] \textit{Permutation and transposition.}
+For a \textit{finite} set $\setM \eq \{x_1,\ldots,x_n\}$
+a bijective mapping $\pi:M \xto \setM$ is called a \textit{permutation} of $\setM$.
+If in a permutation $\pi$ only two elements are permuted,
+then $\pi$ is said to be a \textit{transposition},
+and in this case all other elements are fixpoints of the permutation.
+
+\subparagraph{}
+Each permutation $\pi$ can be represented as a composition
+of $n$ transpositions,
+where $n$ is either even or odd.
+This enables the definition of a mapping
+$\pi \mapsto \operatorname{sgn}(\pi) \xeof \{-1,1\}$,
+called the \textit{signature} of the permutation.
+Let $\operatorname{sgn}(\pi) := 1$, if $n$ is even,
+and $\operatorname{sgn}(\pi) := -1$, if $n$ is odd.
+
+\subparagraph{}
+In case of $\setM \eq \N$ each mapping $f\:\N \xto N$ is called a \textit{sequence}
+of elements in $N$.
+One often writes $\{f_n\}_{n=1}^{\infty}$ for such a mapping.
+
+\item[10.] \textit{Projection.}
+Let $(M,\sim)$ be an equivalence relation and $\setM/\sim$ be the collection
+of sets of the related equivalence classes.
+Then the mapping $\pi:M \xto M/\sim$ with $x \mapsto [x]$ is called
+the \textit{projection} of $\setM$ onto the quotient set $\setM/\sim$.
+
+\item[11.] \textit{Fiber bundle.}
+A \textit{fiber bundle} is another point of view to a mapping.
+While for mappings the images are in the focus of interest,
+for fiber bundles the pre-images of given elements are considered.
+
+\subparagraph{}
+If $f\:M \xto N$ is a mapping, 
+then an equivalence relation on the set $\setM$ may be defined as follows:
+\[
+x \sim y \, :\Leftrightarrow \, f(x) \eq f(y), \quad x,y \xeof M.
+\]
+Each image $z \xeof N$ is associated with an equivalence class in $\setM$,
+which is denoted the \textit{fiber} for $z \xeof N$ of the mapping $f$
+(notation $f^{-1}(z)$).
+Hence the fibers are the preimages of the singletons of $N$ by $f$,
+and for a mapping $f\:M \xto N$ the set $\setM$ is the union of fibers.
+The mapping $f$ can be considered as a \textit{fiber bundle} $(M,f,N)$.
+
+\subparagraph{}
+A \textit{cut} into a fiber bundle $(M,f,N)$ is a mapping $s:N \xto \setM$
+having the property $f \circ s \eq Id$.
+To each bijective mapping $f\:M \xto N$ there is exactly one cut into
+the corresponding fiber bundle,
+namely the inverse mapping $f^{-1}$.
+
+\subparagraph{}
+By a fiber bundle with \textit{typical} fiber $F$ is meant
+a projection mapping $f\:\cross{M}{F} \xto \setM$ with $f(x,y) \eq x$,
+where mapping $f$ is the projection on the first factor
+of the cartesian product,
+and for the fibers of $y \xeof \setM$ the equality
+$f^{-1}(y) \eq \cross{y}{F}$, $y \xeof \setM$ holds.
+\end{itemize}
+
+\section{Cardinality of Sets}
+%------------------------------------------------------------------------------%
+The notion of \textit{cardinality} of a set $\setM$ provides information
+on the number of its elements.
+If a set contains finite elements only,
+then it is called \textit{finite},
+otherwise it said to be \textit{infinite}.
+
+\subparagraph{}
+To obtain a classification for \textit{infinite sets},
+we introduce the concept of \textit{identical cardinality} of sets.
+Two sets $\setM$ and $N$ are called to have {identical cardinality}, 
+if there is at least one bijective mapping $\iota\:M \xto N$.
+This defines an equivalence relation on the system of all sets.
+The related equivalence classed are called \textit{cardinal numbers}.
+
+\subparagraph{}
+A well-known criterion to establisch identical cardinality of sets
+is the \textit{Cantor-Bernstein equivalence theorem}:
+
+\begin{theorem}
+Let a set $\setM$ have same cardinality as a subset of a set $N$
+and let $N$ have same cardinality as a subset of $\setM$.
+Then $\setM$ and $N$ have identical cardinality.
+\end{theorem}
+
+\paragraph{}
+The following theorem quotes
+that the power set of a given set has always larger cardinality
+as the set itself.
+
+\begin{theorem}
+Let $\setM$ be a set and $\pot{M} $ be the power set.
+Then there is \textit{no} bijective mapping between $\setM$ and $\pot{M} $.
+\end{theorem}
+
+\subparagraph{}
+Those sets are of special interest,
+which have identical cardinality as the set $\N$ of natural numbers:
+In fact,
+any set $\setM$ is called \textit{countable} rsp. \textit{countable infinite},
+if the have same cardinality like $\N$.
+
+\subparagraph{}
+The sets of numbers $\Z$ and $\Q$ prove to be countable.
+However,
+the set $\R$ of real numbers however is not countable,
+that is,
+it owns larger cardinality than $\N$, $\Z$ and $\Q$.
+This fact justifies the following definition:
+each set having same cardinality as $\R$ is called \textit{uncountable}.
+
+%------------------------------------------------------------------------------%
+\fancyhead[OC] {\small{\textsc{II. Basic Concepts in Group Theory}}}
+\fancyhead[EC] {\small{\textsc{II. Basic Concepts in Group Theory}}}
+
+\part{Basic Concepts in Group Theory}
+%------------------------------------------------------------------------------%
+Many mathematical objekts coming from different topics
+own the structure of a group.
+Hence group theory is an area with applications in nearly all subjects of
+modern mathematics.
+Moreover,
+the concept of group is the foundation for the definition of more complex
+algebraical structures like rings, moduls, algebras and so on.
+
+\section{Semigroups and Monoids}
+%------------------------------------------------------------------------------%
+If $\grpH$ is a non-empty set,
+then each mapping $\circ \: \cross{\grpH}{\grpH} \xto \grpH$ is called
+an \textit{inner operation}.
+It is  called \textit{associative}, if
+\[
+(x \circ y) \circ z \= x \circ (y \circ z) \quad \mbox{for all }
+\, x,y,z \in \grpH.
+\]
+Any pair $(\grpH,\circ)$,
+consisting of a set $\grpH$ and an associative inner operation $\circ$
+on $\grpH$,
+is called a \textit{semigroup}.
+An element $\1 \xeof \grpH$ of a semigroup $\grpH$ is said to be
+a \textit{unital element} rsp. a \textit{unit} of $\grpH$,
+if
+\[
+x \circ \1 \= \1 \circ x \= x \quad \mbox{ for all }
+x \in \grpH.
+\]
+A unit element of a semigroup is always unique,
+that is,
+$x \circ \1' \eq \1' \circ x \eq x$ and
+$x \circ \1 \eq \1  \circ x \eq x$ for all $x \xeof \grpH$ implies $\1' \eq \1$.
+If a semigroup $\grpH$ owns a unital element,
+then it is called a \textit{monoid}.
+
+\subparagraph{}
+Two elements $x,y \xeof \grpH$ of a semigroup $\grpH$ are said to be
+\textit{commutable} rsp. \textit{commutative},
+if $x \circ y \eq y \circ x$.
+If an element $x \xeof \grpH$ is commutative
+with all other elements $y \xeof \grpH$,
+then it is denoted \textit{central}.
+The \textit{center} $Z_{\grpH}$ of $\grpH$ is the set of all central elements,
+that is,
+\[
+Z_{\grpH} \eqdef \{x \in \grpH \: x \circ y \eq y \circ x \fa y \in \grpH \}.
+\]
+Any semigroup $(\grpH,\circ)$ is called \textit{commutative} rsp.
+\textit{Abelian},
+if $Z_{\grpH} \eq \grpH$.
+So in this case we have $x \circ y \eq y \circ x$
+for all elements $x,y \xeof \grpH$
+(for a commutativee group the inner operation $\circ$ is usually denoted by $+$.
+If a unital element is present,
+then it is mostly denoted $0$).
+
+\paragraph{}
+The following assertions are valid:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+For each set $\setM$ the collection of mappings $f\:M \xto \setM$ forms
+a non-commutative monoid,
+where the unital element is given by the identity mapping.
+\item[2.]
+The set of natural numbers $(\N,+)$ is a semigroup,
+but the pair $(\N,\cdot)$ is a monoid.
+\item[3.]
+Let $\setM$ be a set and $\mathfrak{P}(M)$ its power set.
+Then the pair $(\mathfrak{P}(\setM),\cap)$ forms a commutative monoid,
+where $\cap(\setA,\setB) := \setA \cap \setB$ is the union
+of $\setA,\setB \subset \setM$.
+The unital element is given by the set $\setM$ itself.
+\end{itemize}
+
+\section{Groups}
+%------------------------------------------------------------------------------%
+An element $y$ of a monoid $\grpG$ is called \textit{inverse}
+to the element $x \xeof \grpG$,
+if $x \circ y \eq y \circ x \eq \1$.
+For each $x \xeof \grpG$ there is mostly one inverse element,
+usually denoted by $x^{-1}$,
+and if $x$ owns an inverse element,
+then it is called $x$ \textit{invertable}
+(if the monoid is commutative, then one often writes $-x$ instead of $x^{-1}$).
+We always have gilt $(x^{-1})^{-1} \eq x$ and
+$(x \circ y)^{-1} \eq y^{-1} \circ x^{-1}$ for $x,y \xeof \grpG$.
+The unital element is always inverse to itself, {\ie} $\1^{-1} \eq \1$.
+
+\paragraph*{} %-- groups
+Any monoid $(\grpG,\circ)$ is called a \textit{group},
+if each element $x \xeof \grpG$ owns an inverse element.
+A group is characterized by the fact
+that there is defined an inner operation on the base set,
+a unital element exists and each element is invertible. 
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Each singleton forms a group, called a \textit{trivial group}.
+\item[2.]
+Each set $\{\1,x\}$ forms a group by the operation $x \circ x \mapsto \1$.
+\item[3.]
+The number sets $\Z,\Q,\R$ and $\C$ with addition as operation
+are groups.
+\item[4.]
+The sets $m \Z := \set{n \xeof \Z}{ n \eq m \cdot z, \, z \xeof \Z}$
+with addition are groups.
+\item[5.]
+The set $\R^{\times} := \R \setminus \{0\}$ with 
+multiplication aas operation is a group
+as well as the set $\C^{\times} := \C \setminus \{0\}$.
+\item[6.]
+The set of regular $(n,n)$-matrices with real entries
+forms a group by matrix multiplication,
+called  the \textit{linear group} $\GL{n,\R} $.
+\item[7.]
+Let for of a set $\setM$ the \textit{symmetric difference}
+of two subsets $A,B \subseteq \setM$ be defined according to
+\[
+A \, \triangle \, B
+\eqdef
+(A \setminus B) \, \cup \, (B \setminus A),
+\]
+then the collection of sets $\pot{\setM}$ forms a commutative group
+by the operation $\triangle$.
+The unit element is the empty set,
+and the inverse element of $A$ is the complementary set $\setM \setminus A$.
+\end{itemize}
+
+\section{Subgroups}
+%------------------------------------------------------------------------------%
+The concept of \textit{subgroup}.
+is of fundamental meaning in group theory.
+Let $(\grpG,\circ)$ be a group and $\grpU \subset \grpG$ be a subset.
+Then $\grpU$ is called a \textit{subgroup} of $\grpG$,
+if for all $x,y \xeof \grpU$ we have $x \circ y \xeof \grpU$ and
+$x^{-1} \xeof \grpU$.
+Similar to this definition we introduce the notion of \textit{sub-semigroup}
+and \textit{sub-monoid},
+respectively.
+
+\subparagraph{}
+Hence subgroups are closed with respect to the group operation.
+The following \textit{subgroup criterion}
+characterizes whether a subset forms a subgroup or not:
+a subset $\grpU \subset \grpG$ is a subgroup of $\grpG$
+iff for all $x,y \xeof \grpU$ we have $x \circ y^{-1} \xeof \grpU$.
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$(\Z,+) \subset (\Q,+) \subset (\R,+) \subset (\C,+)$.
+\item[2.]
+$(m \Z,+)$ is a subgroup of $(\Z,+)$ for $m > 1$.
+\item[3.]
+$\GL{n,\R} := \{A \xeof \GL{n,\R} \: \abs{ \det(A)} \eq 1\}$.
+The \textit{special linear group}, is a subgroup of $\GL{n,\R} $.
+\item[4.]
+The set $\OG{n} $ of \textit{orthogonal} $(n,n)$-matrices
+({\ie} $A^{-1} \eq A^T$ for $A \xeof \GL{n,\R} $) forms a subgroup
+of the linear group $\GL{n,\R} $,
+called the \textit{orthogonale group}.
+\item[5.]
+The \textit{special orthogonal group}
+$\SOG{n} := \{A \xeof \OG{n} \: \det(A) \eq 1\}$ is a subgroup of $\OG{n} $,
+where $\SOG{n} \eq \OG{n} \,\cap\, \GL{n,\R} $ holds.
+\end{itemize}
+
+\subparagraph{}
+Each group $\grpG$ owns two natural subgroups:
+these are the trivial group $\{\1\}$ and the group $\grpG$ itself.
+
+\subparagraph{}
+If $\grpU_1,\grpU_2$ are two subgroups of $\grpG$,
+then $\grpU_1 \, \cap \, \grpU_2$ is a subgroup, too.
+In general,
+the intersection of arbitrarily many subgroups of $\grpG$
+is again a subgroup of $\grpG$.
+
+\subparagraph{}
+If $\grpU$ is a subgroup of $\grpG$ and $g \xeof \grpG$,
+then the set $g\,\grpU := \{g\,x \: x \xeof \grpU\}$ is called
+the \textit{left coset} of $\grpU$ with respect to $g$.
+The set $\grpU g := \{x\,g\: x \xeof \grpU\}$ is called
+the \textit{right coset} of $\grpU$ with respect to $g$.
+
+\subparagraph{}
+For a finite group $\grpG$ the number of elements is called
+the \textit{order} of the group
+(notation: $\abs{\grpG} $).
+If $\grpG$ is a finite group,
+then for each $g \xeof \grpG$ the numbers of left classes und
+right classes of $\grpU$ coincide.
+It is called the \textit{index} of $\grpU$ in $\grpG$
+(notation: $[G:\grpU]$).
+To compute the index of subgroups of a \textit{finite} group,
+the \textit{Lagrange theorem} may be useful:
+if $\grpG$ is finite and $\grpU$ is a subgroup of $\grpG$,
+then $\abs{\grpU} \cdot [G:\grpU] \eq \abs{\grpG} $.
+
+\section{Generating Sets and Free Groups}
+%------------------------------------------------------------------------------%
+As already mentioned,
+arbitrary intersections of subgroups of a group $\grpG$ are 
+subgroups of $\grpG$.
+Now, if a subset $S$ of a group $\grpG$ is given,
+then it is possible to build the smallest subgroup $[S]$ in $\grpG$,
+which still contains $S$.
+
+\subparagraph{}
+This subgroup $[S]$ is obtained,
+if one performs the intersection of all the subgroups of $\grpG$
+containing the set $S$.
+In this case the set $S$ is called a \textit{generator} of $[S]$
+and the subgroup $[S]$ is said to be \textit{generated by $S$}.
+
+\subparagraph{}
+If $S \subset \grpG$ is a generator of a group $\grpG$,
+then each element $g \xeof \grpG$ can be represented by
+\[
+g \eq g_1^{k_1} \circ \ldots \circ g_n^{k_n},
+\quad k_i \in \Z, \quad g_i \in S,
+\]
+where $g^0 := \1$ and $g^{-k} := (g^{-1})^k$ for $k \xeof \N$.
+
+\subparagraph{}
+A group $\grpG$ is called \textit{finitely generated},
+if there is a finite subset $S$
+such that $\grpG$ is generated by $S$.
+
+\subparagraph{}
+Any set $S \subset \grpG$ is called
+a \textit{minimal} generator of $\grpG$
+if $\grpG$ cannot be generated by a proper subset of $S$.
+Any group $\grpG$ is called \textit{free} over the set $S \subset \grpG$
+if $S$ is a minimal generator of $\grpG$.
+The group $\grpG$ is called \textit{free}
+if there is no proper subset $S \subset \grpG$
+such that $\grpG$ is free over $S$.
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+The group $(\Z,+)$ is free over the subsets $\{1\}$ and $\{-1\}$.
+
+\item[2.]
+$(\Q\,,+)$ is not a free group.
+\end{itemize}
+
+\subparagraph{}
+The property of a group to be free is inherited to all of its subgroups:
+each subgroup of a free group is free again.
+
+\subparagraph{}
+To any set $\setM$ there is always a group $F(\setM)$ and
+an injective mapping $\iota \: \setM \xto F(\setM)$
+such that $F(\setM)$ is free over the image $\iota(\setM)$.
+The group $F(\setM)$ is called the \textit{freely generated} group by $\setM$.
+
+\section{Cyclic Groups}
+%------------------------------------------------------------------------------%
+If a group $\grpG$ is generated by a singleton $\{g\} \xsubset \grpG$,
+then for each other element $h \xeof \grpG$ there is an integer $z$
+such that $g^z \eq h$.
+In this case the group owns a very simple structure.
+Any group $\grpG$ is called \textit{cyclic}
+if there is an element $g \xeof \grpG$ with $[g] \eq \grpG$.
+
+\subparagraph{}
+For a cyclic group each $g$ with $[g] \eq \grpG$ is called a
+\textit{primitive element} and a \textit{generator} of $\grpG$,
+respectively.
+Cyclic groups obviously are Abelian.
+
+\subparagraph{}
+If $\grpG$ is a \textit{finite} and cyclic group of order $n \xeof \N$
+and $g$ a primitive element of $\grpG$,
+then $\grpG$ consists of the elements
+\[
+G \eq \{ g, g^2, g^3, \ldots, g^{n-1}, \1 \}.
+\]
+The \textit{order} $\#g$ of an element $g \xeof \grpG$
+is the smallest integer $n$ such that $g^n \eq \1$.
+Clearly, for a generator $g$ of a finite cyclic group
+group $\grpG$ the identity $\#g \eq \abs{\grpG} $ holds.
+On the other hand,
+if $g \xeof \grpG$ is an element of a group $\grpG$,
+then generated subgroup $[g]$ is denoted
+the \textit{cyclic subgroup of $\grpG$ with generator $g$}.
+
+\subparagraph{}
+Given a group $\grpG$,
+the set $\operatorname{Tor}(\grpG)$
+of all elements $x \xeof \grpG$ with $x^n \eq \1$ for $n \xeof \N$
+is called the \textit{torsion set} of $\grpG$.
+Any group $\grpG$ is called \textit{torsion-free}
+if $\operatorname{Tor}(\grpG)$ is empty.
+If $\grpG$ is Abelian,
+then $\operatorname{Tor}(\grpG)$ forms a subgroup of $\grpG$.
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+The groups $\Z_m := \Z / m\Z$ are cyclic for $m > 1$.
+\item[2.]
+For a finite cyclic group $\grpG$ each element
+is a torsion element,
+that is,
+$\grpG \eq \operatorname{Tor}(\grpG)$.
+\item[3.]
+The group $(\Z,+)$ is cyclic with generators $1$ or $-1$
+as well as torsion-free.
+\end{itemize}
+
+\section{Free Products of Groups}
+%------------------------------------------------------------------------------%
+Let $A$ a be a finite set,
+which in the following is denoted an \textit{alphabet} and whose elements
+are called \textit{Buchstaben}.
+The \textit{free word-semigroup} $F(A)$ over the alphabet $A$
+is that semigroup,
+whose elements are finite sequences of Buchstaben.
+
+\subparagraph{}
+Hence the elements of $F(A)$ are obtained by concatenating Buchstaben.
+To the word-semigroup $F(A)$ can be assigned a unit element by
+the \textit{empty} word $\1$,
+that does not contain any Buchstaben.
+In this way the set $F(A)$ becomes into a finitely generated monoid,
+whose Alphabet $A$ forms a generator for $F(A)$.
+
+\subparagraph{}
+Let $\grpG_1$ and $\grpG_2$ be \textit{disjoint} groups.
+Then the \textit{free product} $\grpG_1 \* \grpG_2$ is that group,
+whose elements are finite sequences $f\:\N \xto \grpG_1 \sqcup \grpG_2$,
+where the members $f_i$ are alternately elements in $\grpG_1$ and $\grpG_2$.
+Hence for $f \xeof \grpG_1 \* \grpG_2$ we have:
+$f_i \xeof \grpG_1$,
+if $f_{i+1} \xeof \grpG_2$ and
+$f_i \xeof \grpG_2$,
+if $f_{i+1} \xeof \grpG_1$.
+The group operation in $\grpG_1 \* \grpG_2$ is given
+by concatenating the elements $f_1,f_2 \xeof \grpG_1 \* \grpG_2$.
+
+\subparagraph{}
+Example:
+Let $\grpG := \{g_1,g_2,    \ldots\}$ and
+    $\topH := \{h_1,h_2,h_3,\ldots\}$ be groups and
+$f_1 := \{g_1,h_2,g_2\}$, $f_2 := \{g_3,h_3,g_4,h_4\}$
+elements of $\grpG_1 \* \grpG_2$.
+Then $f_1 \* f_2$ is the element
+$\{g_1,h_2,g_2 g_3,h_3,g_4,h_4\}$.
+
+\section{Translation and Conjugation}
+%------------------------------------------------------------------------------%
+To each element $g$ of a group $\grpG$ there is a natural mapping
+\[
+L_g\: G \xto G, \quad \phi_g(x) := g \circ x, \quad x \in \grpG,
+\]
+called the \textit{left translation} of $\grpG$ {\wrt} $g$.
+Accordingly the mapping
+\[
+R_g\: G \xto G, \quad \phi_g(x) := x \circ g^{-1} \quad x \in \grpG,
+\]
+is called the \textit{right translation} of $\grpG$ {\wrt} $g$.
+Both mappings are bijective
+and $L_g^{-1} \eq L_{g^{-1}}$ rsp. $R_g^{-1} \eq R_{g^{-1}}$ holds.
+Combining left and right translation of $\grpG$ with $g \xeof \grpG$,
+we obtain the mapping $\phi_g := L_g \circ R_g$ by
+\[
+\quad \phi_g(x) \eqdef g \circ x \circ g^{-1} \quad \for x \in \grpG,
+\]
+denoted the \textit{conjugation} of $\grpG$ with the element $g$.
+Two elements $x,y \xeof \grpG$ are called \textit{conjugated},
+if they are mapped to each other by conjugation with an element $g$,
+that is,
+$y \eq g \circ x \circ g^{-1}$.
+The conjugation between elements of a group is an equivalence relation,
+and the equivalence classes of this relation are said to be
+the \textit{conjugation classes} of the group.
+
+\paragraph{}
+The following examples of translations and conjugation classes are known:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+For the additive group $(\Z,+)$ the left and right translations
+are given by the mappings $z \mapsto z-1$ rsp. $z \mapsto z+1$.
+\item[2.]
+If $(\grpG,+)$ is commutative,
+then the conjugation classs of $\grpG$ are the singletons of $\grpG$.
+\end{itemize}
+
+\subparagraph{}
+The notation of conjugation can be extended to subgroups:
+indeed,
+two subgroups $\grpU_1,\grpU_2$ of $\grpG$ are called \textit{conjugated},
+if there is $g \xeof \grpG$ such that
+$\grpU_2 \eq \set{g \circ x \circ g^{-1}}{x \xeof \grpU_1}$.
+For any fixed subgroup $\grpU$ of $\grpG$ let
+\[
+N_{\grpU} \eqdef \set{g \in \grpG}{g \circ \grpU \circ g^{-1} \eq \grpU}
+\]
+be set of all elements of $\grpG$,
+wich map $\grpU$ by conjugation to itself.
+This set is called the \textit{normalizer} of $\grpU$ and forms a subgroup
+of $\grpG$ in its own right,
+which contains $\grpU$ as a further subgroup.
+Hence we always have $\grpU \subseteq N_{\grpU} \subseteq \grpG$.
+
+\section{Normal Groups}
+%------------------------------------------------------------------------------%
+Let $\grpG$ be a group.
+Any subgroup $\grpU \subseteq \grpG$ is called \textit{normal}
+and a \textit{normal subgroup} of $\grpG$,
+respectively,
+if $N_{\grpU} \eq \grpG$ rsp. $g \circ \grpU \circ g^{-1} \eq \grpU$
+for all $g \xeof \grpG$.
+
+\subparagraph{}
+Any subgroup $\grpU$ is normal iff
+$g \, \grpU \eq \grpU \, g$ for all $g \xeof \grpG$,
+or in other words,
+if for each element $g \xeof \grpG$ the left cosets $g \, \grpU$
+coincide with the right cosets $\grpU \, g$.
+
+\subparagraph{}
+The property of a subgroup being normal has the following consequence:
+we introduce on $\grpG$ the equivalence relation
+\[
+x \sim y \, :\Longleftrightarrow \, x \circ y^{-1} \in \grpU.
+\]
+Hence any element $x$ is in relation with an element $y$
+if $x$ is contained in the right coset $\grpU \, y$.
+Let $\grpG/\grpU$ be the set of equivalence classes of this relation.
+Then we can define an operation
+\[
+\bullet \: \grpG/\grpU \times \grpG/\grpU \mapsto G/\grpU
+\]
+according to $[x \bullet y] := [x] \circ [y]$,
+which is independent of the representants \iff
+$\grpU$ is a normal subgroup in $\grpG$.
+In this case $\grpG/\grpU$ is the set of left rsp. right cosets,
+and $\grpG/\grpU$ endowed with the operation $\bullet$
+owns the structure of a group.
+The group $(\grpG/\grpU,\bullet)$ is called the \textit{factor group}
+of $\grpG$ by $\grpU$.
+
+\subparagraph{}
+The procedure how to build the factor group for a group $\grpG$
+and a normal subgroup $\grpU$ is denoted a \textit{factorization}.
+We enumerate a couple of factor groups:
+
+\begin{itemize}[leftmargin=15pt,itemsep=2pt]
+\item[1.]
+All subgroups of an Abelian group are normal,
+hence one can factorize every Abelian group by any subgroup.
+\item[2.]
+Each subgroup $\grpU \subset \grpG$ is a normal subgroup in $N_{\grpU}$.
+\item[3.]
+For $m > 1$ the subsets
+$m \, \Z := \{z \xeof Z \: z \eq mx, \, x\xeof \Z \}$ normal subgroup in $\Z$.
+The related factor groups $\Z_m := \Z / m \, \Z$ are finite
+and own the order $\abs{\Z_m} \eq m$.
+\item[4.]
+Each subgroup $\grpU$ of a finite group $\grpG$ with $[G:\grpU] \eq 2$
+is normal.
+\end{itemize}
+
+\section{Products and Sums of Groups}
+%------------------------------------------------------------------------------%
+Let $\grpG_1$ and $\grpG_2$ be groups.
+Then the cartesian product $\cross{\grpG_1}{\grpG_2}$
+with component-wise defined operation
+\[
+(x_1,x_2) \circ (y_1,y_2) \eqdef (x_1 \circ y_1, x_2 \circ y_2)
+\]
+for $x_1,y_1 \xeof \grpG_1$ and $x_2,y_2 \xeof \grpG_2$
+forms a group as well.
+This operation can also be defined for the cartesian product
+$\{\grpG_{\alpha}\}_{\alpha \in I}$
+of arbitrarily many groups.
+The group $(\prod_{\alpha \in I} G_{\alpha}, \bullet)$ defined this way is
+called the \textit{product} of the groups $\{\grpG_{\alpha}\}_{\alpha \in I}$.
+
+\subparagraph{}
+If $\{\grpG_{\alpha}\}_{\alpha \in I}$ is a family of monoids
+and $\1_{\alpha}$ the unit element in $\grpG_{\alpha}$,
+then the \textit{direct sum} $\bigoplus_{\alpha \in I} \grpG_{\alpha}$
+is set of all elements in $\prod_{\alpha \in I} \grpG_{\alpha}$
+having the property
+that only for finitely many components $x_{\alpha} \neq \1_{\alpha}$ holds.
+Then $(\bigoplus_{\alpha \in I} \grpG_{\alpha}, \bullet)$
+is a submonoid of $(\prod_{\alpha \in I} \grpG_{\alpha}, \bullet)$.
+
+\subparagraph{}
+Let $\grpG$ be a monoid and
+$\grpU_1,\grpU_2$ proper submonoids of $\grpG$,
+that is,
+$\grpU_i \neq \grpG$ and $\grpU_i \neq \{\1\}$ for $i \eq 1,2$.
+Then $\grpG$ is called the \textit{(inner) direct sum}
+of $\grpU_1$ and $\grpU_2$,
+if each element $x \xeof \grpG$ can uniquely be represented by
+$x \eq x_1 \circ x_2$ with $x_1 \xeof \grpU_1$ and $x_2 \xeof \grpU_2$.
+In this case the monoid is called \textit{decomposable}.
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+The group $(\R^n,+)$ is the $n$-fold direct sum of the group $(\R \, ,+)$.
+\item[2.]
+Each direct sum $\grpG_1 \bigoplus \grpG_2$ of groups $\grpG_1,\grpG_2$
+ist the inner direct sum of the groups
+$\cross{\grpG_1}{\{\1_2\}}$ and
+$\cross{\{\1_1\}}{\grpG_2}$,
+since for all $x_1 \xeof \grpG_1, x_2 \xeof \grpG_2$ we have
+$(x_1,\1_2) \bullet (\1_1,x_2) \eq (x_1,x_2) \xeof \grpG_1 \bigoplus \grpG_2$.
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+\fancyhead[OC] {\small{\textsc{III. Group Homomorphisms}}}
+\fancyhead[EC] {\small{\textsc{III. Group Homomorphisms}}}
+
+\part{Group Homomorphisms}
+%------------------------------------------------------------------------------%
+Group homomorphisms are mappings between groups,
+which are compatible with the group operation in each group.
+They constitute an important tool for classifying groups.
+
+\subparagraph{}
+Let $(\grpG_1,\circ)$, $(\grpG_2,\bullet)$ be arbitrary groups.
+Any mapping $\phi\:\grpG_1 \xto \grpG_2$ is called
+a \textit{group homomorphism} between $\grpG_1$ and $\grpG_2$,
+if
+\[
+\phi(x \circ y) \eq \phi(x) \bullet \phi(y) \quad \fa x,y \in \grpG_1.
+\]
+
+\subparagraph{}
+By group homomorphisms the unit element of a group is mapped
+to the unit element again.
+Moreover,
+each subgroup of $\grpG_1$ is mapped to a subgroup of $\grpG_2$,
+especially the image $\phi(\grpG_1)$ forms a subgroup of $\grpG_2$.
+
+\subparagraph{}
+A group homomorphism $\phi$ is called a \textit{monomorphism},
+if the mapping $\phi$ is injective,
+and it is called an \textit{epimorphism}, if $\phi$ is surjective.
+If $\phi$ is bijectiv ({\ie} a monomorphism and a epimorphism at once),
+then it is called $\phi$ an \textit{isomorphism}.
+
+\section{Isomorphisms}
+%------------------------------------------------------------------------------%
+Two groups $(\grpG_1,\circ)$ and $(\grpG_2,\bullet)$ are said to be
+\textit{isomorphic} to each other
+(notation: $\grpG_1 \cong \grpG_2$),
+if there is a group isomorphism $\phi \: \grpG_1 \xto \grpG_2$.
+In this case we can talk of \textit{structural identity}
+of these groups.
+It is a basic task in group theory
+to classify all groups up to isomorphisms.
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Let $\grpG$ be a group and $N \subset \grpG$ be a normal subgroup.
+Then the projection mapping $\pi\:\grpG \xto \grpG/N$, $x \mapsto [x]$
+is a surjective groups homomorphism,
+called the \textit{canonical epimorphism} of $\grpG$ to $\grpG/N$.
+
+\item[2.]
+The mapping $\exp\:\R \xto \R^{\times}$ defined by
+$\exp(x) := e^x$ for $x \xeof \R$ is a monomorphism
+between the groups $(\R,+)$ and $(\R^{\times}, \cdot)$,
+since
+\[
+\exp(x+y) \eq \exp(x) \cdot \exp(y) \quad \for x,y \xeof \R.
+\]
+
+\item[3.]
+Each group of the form $\{\1,x\}$ with $x \circ x \eq \1$
+is isomorphic to the group $\Z_2$.
+This is also valid for the groups $(\{1,-1\}, \cdot)$ and $(\{0,1\},+)$.
+\end{itemize}
+
+\subparagraph{}
+If $\phi_1 \: \grpG_1 \xto \grpG_2$ and $\phi_2 \: \grpG_2 \xto \grpG_3$
+are homomorphisms,
+then the mapping $\phi_2 \circ \phi_1 \: \grpG_1 \xto \grpG_3$
+is a homomorphism, too,
+and with each isomorphism $\phi      \: \grpG_1 \xto \grpG_2$
+the inverse mapping       $\phi^{-1} \: \grpG_2 \xto \grpG_1$
+is an isomorphism as well.
+Groups together with their homomorphisms form a \textit{category},
+which is usually denote with \textit{(gr)}.
+The Abelian groups with their homomorphisms
+are a \textit{full subcategory} \textit{(ab)} of \textit{(gr)}.
+
+\subparagraph{}
+If $\grpG$ is a group and if $\grpU_1,\grpU_2$ are subgroups of $\grpG$,
+then $\grpG$ is isomorphic to the direct sum $\grpU_1 \oplus \grpU_2$
+\iff $\grpU_1,\grpU_2$ are normal subgroups in $\grpG$,
+$[\grpU_1 \cup \grpU_2] \eq \grpG$
+and $\grpU_1 \cap \grpU_2 \eq \{ \1 \}$.
+
+\section{The Isomorphism Theorem}
+%------------------------------------------------------------------------------%
+In the following let $\grpG_1,\grpG_2$ be groups and
+$\phi \: \grpG_1 \xto \grpG_2$ be a group homomorphism.
+Then the \textit{kernel} of $\phi$ is the set of all elements of $\grpG_1$,
+which are mapped by $\phi$ to the unit element $\1 \xeof \grpG_2$,
+that is,
+\[
+\kernel{\phi} \eqdef \{x \in \grpG_1 \: \phi(x) \eq \1 \}.
+\]
+Obviously,
+$\phi$ is injective if and only if $\kernel{\phi} \eq \{\1\}$.
+
+\subparagraph{}
+The kernel of a homomorphism $\phi\:\grpG_1 \xto \grpG_2$ forms
+a normal subgroup of $\grpG_1$,
+hence one can perform the factor group $\grpG_1/\kernel{\phi}$.
+The \textit{homomorphism theorem of group theory} quotes
+that the faktor group $\grpG_1/\kernel{\phi}$ and the image
+$\phi(\grpG_1)$ are structural identical.
+
+\begin{theorem}
+Let $\grpG_1$, $\grpG_2$ be groups and $\phi\:\grpG_1 \xto \grpG_2$
+be a homomorphism.
+Then the groups $\grpG_1/\kernel{\phi}$ and $\phi(\grpG_1)$
+are isomorphic to each other.
+\end{theorem}
+
+\subparagraph{}
+On the other hand,
+if $N \subset \grpG_1$ is a normal subgroup of $\grpG_1$
+and $\grpG_2$ a further group,
+then there is a group homomorphism $\phi \: \grpG_1 \xto \grpG_2$
+with $\kernel{\phi} \eq N$.
+The normal subgroups of a group correspond with the kernels
+of group homomorphisms for further groups.
+
+\subparagraph{}
+Each group $\grpG_{\alpha}$ of a direct product
+$\prod_{\alpha \xeof I} \grpG_{\alpha}$
+is a normal subgroup up to homomorphisms.
+On the other hand,
+every group $\grpG_{\alpha}$ is always the image of a homomorphim 
+of the direct product $\prod_{\alpha \in I} \grpG_{\alpha}$
+(choose the canonical epimorphism
+$\pi_{\alpha}\:\prod_{\alpha \in I} \grpG_{\alpha} \xto \grpG_{\alpha}$).
+
+\section{Automorphism Groups}
+%-------------------------------------------------------------------------------
+Especially in case of $\grpG \eq \grpG_1 \eq \grpG_2$ each group homomorphism
+$\phi\:\grpG \xto \grpG$ is called an \textit{endomorphism}.
+Any subgroup $\grpU \subset G$ is called $\phi$-invariant
+rsp. a \textit{characteristic subgroup} of $\grpG$ {\wrt} $\phi$,
+if $\phi(\grpU) \subseteq \grpU$.
+Furthermore,
+if $\phi$ is bijective,
+then $\phi$ is called an \textit{automorphism} on $\grpG$,
+and the inverse mapping $\phi^{-1}$ is also an automorphism on $\grpG$.
+
+\subparagraph{}
+The automorphism $\phi\:\grpG \xto \grpG$ of a group $\grpG$ forms
+with the composition mappings a group $\operatorname{Aut}(\grpG)$,
+called the \textit{automorphism group} of $\grpG$.
+It is a subgroup of the permutation group $\operatorname{per}(\grpG)$.
+
+\subparagraph{}
+Each conjugation $\phi_g$ of a group $\grpG$ with an element $g \xeof \grpG$
+is an automorphism on $\grpG$.
+The set of all conjugations on $\grpG$ constitutes a normal subgroup of
+$\operatorname{Aut}(\grpG)$,
+the so-called \textit{inner automorphism group} of $\grpG$.
+Any conjugation is hence denoted an \textit{inner automorphism}.
+
+\section{Exact Sequences of Groups}
+%-------------------------------------------------------------------------------
+Exact sequences of groups primarily appear in algebraic topology,
+where they are a useful tool to compute fundamental groups of topological spaces.
+
+\subparagraph{}
+A \textit{short sequence} of the groups $\grpG_1$, $\grpG$ and $\grpG_2$
+is a sequence
+\[
+       \{\1 \}
+       \longrightarrow \grpG_1
+       \stackrel{f}{\longrightarrow} \grpG
+       \stackrel{g}{\longrightarrow} \grpG_2
+       \longrightarrow               \{\1 \}
+\]
+with group homomorphisms $f \:\grpG_1 \xto \grpG$ and $g\:\grpG \xto \grpG_2$,
+where $(g \circ f) x \eq \1$ for all $x \xeof \grpG_1$.
+By this condition we always have the inclusion $f(\grpG_1) \xsubset \kernel{g}$.
+We are interested in those cases, in which these sets are identical:
+a short sequence is denoted \textit{exact},
+if $f(\grpG_1) \eq \kernel{g}$.
+
+\subparagraph{}
+A group $\grpG$ is called \textit{semi-direct product} of the groups
+$\grpG_1$ and $\grpG_2$ (notation $\grpG \eq \grpG_1 \rtimes \grpG_2$),
+if $\grpG_1$ is a normal subgroup of $\grpG$
+and there is a short exact sequence $\grpG_1,\grpG,\grpG_2$.
+Let us consider the following both examples:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Let $\iota:\SOG{n} \hookrightarrow \OG{n} $ be the embedding
+of the special orthogonal group into the orthogonal group and
+$\det \: \OG{n} \xto \{-1,1\}$ be the determinant function.
+For two matrices $A,B \xeof \OG{n} $ we always have
+$\det(A \cdot B) \eq \det(A) \cdot \det(B) \xeof \{-1,1\}$.
+Then $\OG{n,\R} \eq \SOG{n} \rtimes \Z_2$ holds,
+since $(\{-1,1\},\cdot) \cong (\Z_2,+)$ and the following sequence is exact:
+\[
+       \SOG{n} \,
+       \stackrel{\iota} {\longrightarrow} \, \OG{n} \,
+       \stackrel{\det}  {\longrightarrow} \, \{-1,1\}
+\]
+\item[2.]
+The group $E_3$ of \textit{Euclidean movements} contains the mappings
+$\phi \: \R^3 \xto \R^3$ of type $\phi(x) := Ax + b$,
+where $A \xeof \OG{3}$ and $b \xeof \R^3$.
+Then $E_3$ is the semi-direct product between the subgroup of rotations
+$\OG{3}$ and the subgroup $\R^3$ of translations.
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+\fancyhead[OC] {\small{\textsc{IV. Abelian Groups}}}
+\fancyhead[EC] {\small{\textsc{IV. Abelian Groups}}}
+
+\part{Abelian Groups}
+%------------------------------------------------------------------------------%
+Let us repeat that \textit{Abelian groups} are those groups,
+whose group operation is {commutative}.
+For each Abelian group $(\grpA,+)$ there is a natural outer multiplication
+$\cdot\: \cross{\Z}{\grpA} \xto \grpA$ according to
+\[
+m \cdot x := \underbrace{ x + \ldots + x}_m, \quad
+x^0 := e, \quad
+-m \cdot x := - (m \cdot x)
+\]
+for all $m \xeof \N$.
+This multiplication is compatible with the group addition in the sense
+that the distributive laws are valid.
+The generalization of the outer multiplication with $\Z$ to a ring
+$\riR$ with unit element leads to the concept of \textit{$\riR$-module}.
+Hence the theory of Abelian groups is embedded into the theory of
+$\riR$-moduls.
+
+\section{Commutative Monoids}
+%------------------------------------------------------------------------------%
+If $(\grpA,+)$ rsp. $(\grpA',+)$ are commutative semigroups and
+$\phi \: \grpA \xto \grpA'$ rsp. $\psi \: \grpA \xto \grpA'$
+are group homomorphisms,
+then the mapping
+\[
+\phi + \psi\: \grpA \xto \grpA', \quad
+(\phi+\psi)\,g := \phi \,g \,+\, \psi \,g
+\]
+is also a group homomorphism.
+The set $\operatorname{Hom}(\grpA,\grpA')$ of homomorphisms
+from $\grpA$ to $\grpA'$ forms a commutativee semigroup,
+which in case of $\grpA \eq \grpA'$ actually is a commutative monoid.
+
+\subparagraph{}
+If $(\grpA,+)$ is a commutative semigroup
+and $S \subset \grpA$ is a subset,
+then this subset is called a \textit{base}
+if for each $g \xeof \grpA$ there are elements $s_1,\ldots,s_n$
+such that $g \eq \sum_{i=1}^n \,s_i$.
+For each other representation $g \eq \sum_{i=1}^{n'} \,{s'}_i$ we have
+that $n \eq n'$ and $s'_i \eq s_{\sigma(i)}$ for a suitable permutation
+$\sigma$ of $\{1,\ldots,n\}$.
+
+\subparagraph{}
+Let $S$ be a basis of $\grpA$.
+Then for each mapping $\alpha \: S \xto \grpA'$ there is exactly one
+homomorphism $\phi\:\grpA \xto \grpA'$
+such that $\phi(s) \eq \alpha(s)$ for $s \xeof S$.
+
+\section{Commutator Groups}
+%------------------------------------------------------------------------------%
+Each element of the form $aba^{-1}b^{-1} \xeof \grpG$ in a group
+$\grpG$ with $a,b \xeof \grpG$ is called a \textit{commutator} of $\grpG$.
+By means of commutators it is possible to construct for each group $\grpG$
+an \textit{Abelian} group $\grpG^{ab}$.
+For this, let
+\[
+\operatorname{Kom}(\grpG) \eqdef [\{aba^{-1}b^{-1} \: a,b \in \grpG\}].
+\]
+be the subgroup generated by the set of commutators.
+This subgroup is normal in $\grpG$,
+called the \textit{commutator group} of $\grpG$,
+and the associated factor group $\grpG^{ab} := G / \operatorname{Kom}(\grpG)$
+is always Abelian.
+
+\subparagraph{}
+We also have a natural epimorphism $\pi \: \grpG \xto G^{ab}$.
+If $\phi\:\grpG \xto H$ is a group homomorphism
+to an Abelian group $\topH$,
+then there is exactly one mapping
+$\psi\: G^{ab} \xto H$ with $\phi \eq \psi \circ \pi$.
+
+\subparagraph{}
+For an Abelian group $\grpA$ the unit element
+is the only one commutator,
+and $\grpA \eq \grpA^{ab}$ holds.
+
+\section{The Structure Theorem}
+%------------------------------------------------------------------------------%
+For finitely generated Abelian groups there is a classification theorem,
+which describes the structure of such groups up to isomorphisms.
+It was proved in the recent version by \textsc{Leopold\,Kronecker} (1823-1891) in 1870.
+
+\begin{theorem}
+Let $\grpA$ be a {finitely generated} Abelian group.
+Then $\grpA$ is isomorphic to the group
+\[
+\Z^m \oplus Z_{r_i} \oplus \ldots \oplus Z_{r_n}
+\]
+with suitable numbers $m, r_i \xeof \N$.
+\end{theorem}
+
+\subparagraph{}
+The numbers $r_i$ are called \textit{Betti numbers},
+and the number $m$ is called the \textit{rank} of the Abelian group.
+
+\subparagraph{}
+This theorem even remains valid for arbitrary $R$-moduls
+over a principal ideal domain $R$,
+and the quoted theorem proves to be the special case for $R \eq \Z$.
+An important consequence from this structure theorem is given by the fact
+that each cyclic group is isomorphic to one of the groups
+$\Z$ and $\Z_m$ ($m > 1$).
+
+\paragraph{}
+Let $\setM$ be a set and $\cal{F}(\setM)$ be the set of all mappings $f\:\setM \xto \Z$
+having the property $f(x) \neq 0$ for finitely many $x \xeof \setM$ only.
+With element-wise addition,
+$\cal{F}(\setM)$ forms an Abelian group,
+called the \textit{free-Abelian group} over $\setM$.
+Its unit element and their inverse elements
+are defined defined in a quite natural way.
+There is a natural embedding $\iota\:\setM \hookrightarrow \cal{F}(\setM)$,
+which identifies $\setM$ as a subset of $\cal{F}(\setM)$.
+
+\subparagraph{}
+The group $\cal{F}(\setM)$ together with the embedding $\iota$ is characterized
+by the following universal property:
+for each mapping $f\:\setM \xto \grpA$ into a further Abelian group $\grpA$
+there is exactly one group homomorphism $\phi\:\cal{F}(\setM) \xto \grpA$
+such that $\phi \circ \iota \eq f$.
+
+\section{Free-Abelian Groups}
+%------------------------------------------------------------------------------%
+In general, an Abelian group $\grpA$ is called \textit{free-Abelian},
+if there is a subset $\setM$ of $\grpA$
+such that the homomorphism $\phi\:\cal{F}(\setM) \xto \grpA$
+belonging to the inclusion $\setM \xto \grpA$ forms an \textit{isomorphism}.
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Let $\setM \eq \{a,b\}$,
+then $\cal{F}(\setM) \cong \cross{\Z}{\Z}$ holds.
+
+\item[2.]
+The group $\Z$ itself is free-Abelian over the singleton $\{1\} \subset \Z$.
+\end{itemize}
+
+\section{Abelian Groups Generated by Abelian Monoids}
+%------------------------------------------------------------------------------%
+In some case we there is a constellation,
+where a mathematical item owns the structure of a commutative monoid.
+To apply group theory,
+it is advantagous to construct a commutativee group
+out of the elements of the  monoid,
+which is {embedded} into the monoid.
+The prototypical example for this approach is the number extension from $\N$ to $\Z$.
+
+\subparagraph{}
+Let $(\grpG,\circ)$ be a commutative monoid.
+On the cartesiaon product $\cross{\grpG}{\grpG}$
+we define the equivalence relation by
+\[
+(x_1,x_2) \sim (y_1,y_2): \quad \Longleftrightarrow \quad
+\]
+\[
+\mbox{ there is }
+k \xeof \grpG,
+\mbox{ such that }
+k + x_1 + y_2 \eq k + x_2 + y_1.
+\]
+Then the group operation on $\grpG$ gives rise to an associative and
+commutative operation on the set $\cross{\grpG}{\grpG} / \sim$
+of equivalence classed,
+which is independent of their represents,
+that is,
+\[
+[(x_1,y_1)] \bullet [(x_2,y_2)] \eqdef [(x_1 + x_2, y_1 + y_2)].
+\]
+Each class $[(x,y)]$ is invertible,
+and its inverse element is given by the class $[(y,x)]$.
+Hence the set $A(\grpG) := \cross{\grpG}{\grpG} / \sim$
+becomes into an Abelian group.
+The monoid $\grpG$ can be embedded into the group $\cross{\grpG}{\grpG}/\sim$
+by means of the mapping $x \mapsto [(x,\1)]$.
+The group $A(\grpG)$ itself is called \textit{associated with $\grpG$}.
+
+\subparagraph{}
+As an example,
+the just given construction yields for the commutativee monoid $(\N_0,+)$
+the Abelian group $(\Z,+)$ of entire numbers.
+
+\section{The Tensor Product of Abelian Groups}
+%-------------------------------------------------------------------------------
+Given two Abelian groups $\grpA$ and $\grpB$,
+there is a further Abelian group $\tensor{\grpA}{\grpB}$,
+called the \textit{tensor product} of $\grpA$ and $\grpB$.
+It is constructed as follows:
+let $F(\grpA,\grpB) := \Z^{\grpA \times \grpB}$ be the Abelian group
+with base $\tensor{\grpA}{\grpB}$
+and $U(\grpA,\grpB)$ be the subgroup of $F(\grpA,\grpB)$
+generated by the elements
+\[
+(a_1 + a_2,b) - (a_1,b) - (a_2,b),
+\]
+\[
+(a,b_1 + b_2) - (a,b_1) - (a,b_2)
+\]
+for $a,a_1,a_2 \xeof \grpA$ and $b,b_1,b_2 \xeof \grpB$.
+Then the tensor product of $\grpA,\grpB$
+is nothing but the factor group
+$\grpA \times \grpB := F(\grpA,\grpB) / U(\grpA,\grpB)$.
+
+\subparagraph{}
+If $a \otimes b$ is the congruence class of $(a,b) \xeof F(\grpA,\grpB)$
+in $\grpA \times \grpB$,
+then we have
+\[
+(a_1 + a_2) \otimes b = a_1 \otimes b + a_2 \otimes b,
+\]
+\[
+a \otimes (b_1 + b_2) = a \otimes b_1 + a \otimes b_2.
+\]
+Moreover,
+the isomorphism $\Hom{\grpA \otimes \grpB,\grpC} \cong \Hom{\grpA, \Hom{\grpB,\grpC}}$
+holds for any further Abelian group $\grpC$.
+Now,
+performing the tensor product is compatible with taking the direct sums,
+that is,
+\[
+\bigoplus_{i \in I} \, (\grpA_i \otimes \grpB)
+\, \cong \,
+(\bigoplus_{i \in I} \grpA_i) \otimes \grpB.
+\]
+
+\subparagraph{}
+If $\alpha \:\grpA \xto \grpA'$ and $\beta \: \grpB \xto \grpB'$ are group homomorphisms,
+then there is exactly one homomorphism
+\[
+\alpha \otimes \beta\: \grpA \otimes \grpB \xto \grpA' \otimes \grpB',
+\quad
+\alpha \otimes \beta (a \otimes b) = \alpha(a) \otimes \beta(b)
+\]
+for all $a \xeof \grpA, b \xeof \grpB$.
+
+\subparagraph{}
+The tensor product of Abelian groups is right-exact,
+that is,
+to each given Abelian group $\grpB$ and each exact sequence
+\[
+\grpA' \longrightarrow \grpA \longrightarrow \grpA'' \longrightarrow \{0\}
+\]
+of Abelian groups $\grpA',\grpA,\grpA''$ the sequence
+\[
+\grpA' \otimes \grpB
+\longrightarrow
+\grpA \otimes \grpB
+\longrightarrow
+\grpA'' \otimes \grpB
+\longrightarrow
+\{0\}
+\]
+is exact, too.
+
+%------------------------------------------------------------------------------%
+\fancyhead[OC] {\small{\textsc{V. Finite Groups}}}
+\fancyhead[EC] {\small{\textsc{V. Finite Groups}}}
+
+\part{Finite Groups}
+%------------------------------------------------------------------------------%
+The group operation of a finite group $\grpG$ can be represented by means of
+a \textit{operation table}:
+
+\paragraph{}
+\centerline{
+\begin{tabular}{l|lllll}
+$\grpG$  &  $e$      & $a$      & $b$      & $c$      & $\ldots$ \\
+\hline
+$e$      &  $e$      & $a$      & $b$      & $c$      & $\ldots$ \\
+$a$      &  $a$      & $aa$     & $ab$     & $ac$     & $\ldots$ \\
+$b$      &  $b$      & $ba$     & $bb$     & $bc$     & $\ldots$ \\
+$c$      &  $c$      & $ca$     & $cb$     & $cc$     & $\ldots$ \\
+$\ldots$ &  $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$ \\
+\end{tabular}
+}
+
+\paragraph{}
+The operation table is symmetric \iff the underlying group is Abelian.
+
+\section{Finite Groups with Small Order}
+%-------------------------------------------------------------------------------
+The finite groups having order $n \leq 3$ are isomorphic to the cyclic groups
+$\Z_n$ and given by the following operation tables:
+
+\paragraph{}
+\centerline{
+\begin{tabular}{l|l}
+$\Z_1$ & $0$ \\
+\hline
+$0$    & $0$ \\
+\end{tabular}
+$\qquad \qquad$
+\begin{tabular}{l|ll}
+$\Z_2$ & $0$ & $1$ \\
+\hline
+$0$    & $0$ & $1$ \\
+$1$    & $1$ & $0$ \\
+\end{tabular}
+$\qquad \qquad$
+\begin{tabular}{l|lll}
+$\Z_3$ & $0$ & $1$ & $2$ \\
+\hline
+$0$    & $0$ & $1$ & $2$ \\
+$1$    & $1$ & $2$ & $0$ \\
+$2$    & $2$ & $0$ & $1$ \\
+\end{tabular}
+}
+
+\subparagraph{}
+For $n \eq 4$ there are essentially two groups,
+which are \textit{not} isomorphic to each other.
+These are the cyclic group $\Z_4$ and
+\textsc{F.\,Klein}'s \textit{four-group} $V_4$:
+
+\paragraph{}
+\centerline{
+\begin{tabular}{l|llll}
+$\Z_4$ & $0$ & $1$ & $2$ & $3$ \\
+\hline
+$0$    & $0$ & $1$ & $2$ & $3$ \\
+$1$    & $1$ & $2$ & $3$ & $0$ \\
+$2$    & $2$ & $3$ & $0$ & $1$ \\
+$3$    & $3$ & $0$ & $1$ & $2$ \\
+\end{tabular}
+$\qquad \qquad$
+\begin{tabular}{l|llll}
+$V_4$  & $0$ & $1$ & $2$ & $3$ \\
+\hline
+$0$    & $0$ & $1$ & $2$ & $3$ \\
+$1$    & $1$ & $0$ & $3$ & $2$ \\
+$2$    & $2$ & $3$ & $0$ & $1$ \\
+$3$    & $3$ & $2$ & $1$ & $0$ \\
+\end{tabular}
+}
+
+\paragraph{}
+Both groups are Abelian.
+The four-group is isomorphic to the direct sum $\Z_2 \oplus \Z_2$.
+Moreover,
+the dieder group $D_2$ owns four elements and is isomorphic to $V_4$.
+
+\vspace{1mm}
+
+For $n \eq 5,7,11$ (and all further prime numbers) there is  exactly one group
+with $\abs{\grpG} \eq n$.
+In each case it is the cyclic group $\Z_5, \Z_7, \Z_{11}, \ldots$.
+
+\vspace{1mm}
+
+If $n \eq 6$,
+then the cyclic group $\Z_6$ is isomorphic to $\Z_2 \oplus \Z_3$.
+There is a further group,
+the dieder group $D_3$,
+which is not isomorphic to $\Z_6$,
+also forming the smallest non-Abelian existing group.
+
+\vspace{1mm}
+
+If $n \eq 8$,
+then there are five groups,
+which are not pairwise isomorphic to each another.
+They are the non-commutative groups $Q_8$, $D_4$ and the commutative groups
+$\Z_8$, $\Z_4 \oplus \Z_4$, $V_4 \oplus \Z_2$.
+
+\vspace{1mm}
+
+For $n \eq 10$ we have two groups being not isomorphic to each other.
+These are the cyclic group $\Z_{10}$ and the non-commutative dieder group $D_5$.
+
+\vspace{1mm}
+
+In case of $n \eq 12$ we obtain the Abelian groups $\Z_{12}$ and $\Z_2 \oplus \Z_6$.
+Further non-Abelian groups of order $12$ are the dieder group $D_6$,
+the alternating group $A_4$ and the so-called $T$-group.
+
+\section{Classification of Finite Simple Groups}
+%-------------------------------------------------------------------------------
+A group $\grpG$ is called \textit{simple},
+if besides $\{ \1 \}$ and $\grpG$ itself
+there is no further normal subgroup of $\grpG$.
+Nowadays one can claim that all finite simple groups can be catalogized
+by five classes:
+
+\begin{theorem}
+Each finite simple group is isomorphic to a group belonging to one of
+the following classes:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Cyclic groups $\Z_p$ having the order of a prime number $p$.
+\item[2.]
+Alternating groups $A_n$ with $n \geq 5$
+\item[3.]
+Lie-type Chevalley groups.
+\item[4.]
+Twisted Lie-type Chevalley groups.
+\item[5.]
+$26$ so-called \textit{sporadic} groups.
+\end{itemize}
+\end{theorem}
+
+%------------------------------------------------------------------------------%
+\fancyhead[OC] {\small{\textsc{VI. Group Operations on Arbitrary Sets}}}
+\fancyhead[EC] {\small{\textsc{VI. Group Operations on Arbitrary Sets}}}
+
+\part{Group Operations on Arbitrary Sets}
+%------------------------------------------------------------------------------%
+The theory of group operations on sets requires the usage of permutation groups,
+so we shall start with this important class of groups.
+
+\section{Permutation Groups}
+%-------------------------------------------------------------------------------
+Let $\setM$ be a set and $\setM^{\setM}$ be the set of all mappings
+$\pi \: \setM \xto \setM$.
+Taking the composition of mappings as operation,
+the pair $(\setM^{\setM},\circ)$ constitutes a monoid.
+The subset of \textit{bijective} mappings is not only a submonoid
+of $(\setM^{\setM},\circ)$,
+but also a group.
+It is called the \textit{permutation group} $\cal{P}(\setM)$ of $\setM$,
+an its elements are denoted \textit{permutations}.
+
+\subparagraph{}
+Now \textsc{Caley}'s \textit{representation theorem} claims
+that each group $\grpG$ is isomorphic to a subgroup of a permutation group.
+This isomorphism is constructed by means of
+left translations $L_g \xeof S(\grpG)$ for $g \xeof \grpG$.
+In fact,
+the mapping $g \mapsto L_g$ is an injective group homomorphism,
+whose image forms a subgroup of $S(\grpG)$ being isomorphic to $\grpG$ itself.
+
+\section{The Permutation Group of Finite Sets}
+%-------------------------------------------------------------------------------
+If $\setM$ is finite with $n$ elements,
+then the permutation group is often denoted $S_n$ rsp. $S(n)$
+instead of $\cal{P}(\setM)$.
+It is known from combinatorics
+that the group $S_n$ has order $\abs{S_n} \eq n!$.
+
+\subparagraph{}
+An element $x \xeof \setM$ is said to be a \textit{fixpoint}
+of a permutation $\sigma$,
+if $\sigma(x) \eq x$.
+Two permutations $\sigma, \tau \xeof S_n$ are called \textit{disjoint},
+if the sets of fixpoints of $\sigma$ and $\tau$ are so.
+It is obvious
+that disjoint permutations commute with each another,
+that is,
+$\sigma \circ \tau \eq \tau \circ \sigma$ holds.
+
+\subparagraph{}
+A permutation $z \xeof S_n$ is called a \textit{$r$-cycle},
+if there are elements $x_1,\ldots,x_r \xeof \setM$ such that
+\[
+z(x_1) = x_2,
+\quad
+z(x_2) = x_3,
+\quad
+\ldots
+\quad
+z(x_r) = x_1
+\]
+as well as $z(y) \eq y$ for all further elements $y \xeof \setM$.
+Hence the permutation $z$ moves exactly $r$ elements,
+whereas all further elements are fixpoints of $z$.
+Especially for $r \eq 2$ each $2$-cycle
+is called a \textit{transposition} of $\setM$.
+
+\paragraph{}
+The following theorem is fundamental in the study of permutation groups:
+
+\begin{theorem}
+Each permutation $\sigma \xeof S_n$
+can be represented as composition of pairwise disjoint cycles
+up to the order of the factors,
+that is,
+there are cycles $z_1,\ldots,z_n \xeof S_n$ such that
+\[
+\sigma \, = \, z_1 \circ \ldots \circ z_n,
+\]
+called the \textit{cycle decomposition} of $\sigma$.
+\end{theorem}
+
+\paragraph{}
+Given $\sigma \in S_n$,
+a pair $(i,j)$ with $1 \leq i < j \leq n$ is called a \textit{deficiency}
+of $\sigma$,
+if $i< j$ and $\sigma(i) > \sigma(j)$.
+Moreover,
+a permutation is called \textit{even},
+if the number of its deficiencies is even, otherwise it is denoted \textit{odd}.
+This enables the definition of the mapping
+$\operatorname{sign}: S_n \mapsto \{-1,1\}$ according to
+\[
+\sign{\sigma} =
+\begin{cases}
++1, \quad \mbox{falls } \sigma \, \mbox{ even},\\
+-1, \quad \mbox{falls } \sigma \, \mbox{ odd}.
+\end{cases}
+\]
+The mapping $\operatorname{sign}$ forms a group homomorphism
+$\operatorname{sign} \: S_n \mapsto Z_2$,
+and its kernel $A_n$ consisting of even permutations is normal in $S_n$.
+It is called the \textit{alternating group} of degree $n$.
+The index of $A_n$ in $S_n$ may be computed by $[S_n:A_n] \eq 2$.
+Each element $\sigma \xeof A_n$ can always be represented as the product
+of transpositions between adjacented elements $\{i,i+1\}$.
+
+\paragraph{}
+Consider the following examples:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1]
+The elements of the permutation group $S_3$ are the idemtity mapping $Id$,
+the $2$-cycles $(12)$, $(13)$, $(23)$ and the $3$-Zykeln $(123)$,$(132)$.
+Finally, $(123) \eq (12)(23)$ and $(132) \eq (23)(12)$ holds.
+\item[2]
+The alternating group $A_3$ consists of the cycles $Id,(123),(132)$.
+\end{itemize}
+
+\subparagraph{}
+Besides the alternating group $A_n$ there is a further subgroup in $S_n$
+of interest:
+the \textit{dieder group} of degree $n$.
+It is denoted by $D_n$ and is generated by the permutations
+\[
+a:=(12\ldots n), \quad b:=(2 \,n)(3\,n-1)\ldots(n\,2)
+\]
+that is,
+$D_n := [ \{a,b\} ]$.
+A dieder group can geometrically be seen as the group of transformations,
+which are generated by rotations with angles
+$2\pi k/n$, $(1 \leq k < n)$ and by reflections of a regular $n$-edge.
+
+\subparagraph{}
+The dieder group of degree $n$ has order $\abs{D_n} \eq 2n$.
+For its generating elements $a,b$ we have $a^k \neq Id$ for $1 \leq k < n$
+and $a^n \eq Id$ for $b^2 \eq Id$.
+
+\section{Group Operations}
+%-------------------------------------------------------------------------------
+A permutation group $\operatorname{per}(\setM)$ is said
+\textit{to operate on a set $\setM$},
+if it is permuting the elements of $\setM$.
+In the same way a subgroup of $\operatorname{per}(\setM)$ is operating
+on the $\setM$.
+The concept of group operation on sets can be formulated
+in an abstract manner as follows:
+let $(\grpG,\circ)$ be a group and $\setM$ be a set.
+Then the group $\grpG$ is called \textit{operating on $\setM$
+(by left)},
+if ther is a mapping $T \:
+\cross{\grpG}{\setM} \xto \setM$ having the properties
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$T(e,x) \eq x$ for all $x \xeof \setM$
+
+\item[2.]
+$T(g,T(h,x)) \eq T(g \circ h, x)$
+for all $g,h \xeof \grpG$ and all $x \xeof \setM$.
+\end{itemize}
+
+\subparagraph{}
+The mapping $T$ is called an \textit{operation} of $\grpG$ on $\setM$.
+If the operation forms a mapping $T\:\cross{\setM}{\grpG} \xto \setM$,
+then $T$ is called to be \textit{operating from the right} on $\setM$.
+
+\subparagraph{}
+For any element $T(g,x)$ we briefly write $g \, x$.
+For each fixed element $g \xeof \grpG$ the operation of
+$\grpG$ on $\setM$ gives rise to a mapping $f_g \: M \xto \setM$.
+The mapping $f_g$ is even bijective,
+since
+\[
+(f_{g^{-1}} \circ f_g)(x) = g^{-1}(g\,x) = x
+\]
+holds for all $x \xeof \setM$.
+Moreover,
+$f_g \circ f_h \eq f_{gh}$,
+that is,
+$g \xeof \grpG \mapsto f_g$ is a group homomorphism from $\grpG$
+to the group $\operatorname{per}(\setM)$ of permutations on $\setM$.
+Hence any group operation of $\grpG$ on $\setM$ can be seen as
+a group homomorphism $\phi_T \: \grpG \xto \operatorname{per}(\setM)$.
+
+\section{Effective Operations}
+%------------------------------------------------------------------------------%
+An operation $T$ is called \textit{faithful} rsp. \textit{effective},
+if the homomorphism $\phi_T \: \grpG \xto \operatorname{per}(\setM)$
+is injective.
+For an effective operation there is,
+besides the element $e \xeof \grpG$,
+no further element letting all other elements of $\setM$ unchanged.
+Consider the following examples:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Left translations, right translations and conjugations are
+examples for operations of groups on themselves.
+
+\item[2.]
+The groups $\GL{n,\R} $, $\OG{n} $ and $\SOG{n} $ are operating on $\R^n$.
+\end{itemize}
+
+\section{Orbits}
+%------------------------------------------------------------------------------%
+If $x \xeof \setM$ is given,
+then by collection together all other elements of $\setM$,
+which are images of group operations applied to $x$,
+one is led to the notion of \textit{orbit}.
+
+\subparagraph{}
+Let $\grpG$ be a group that is operating on a set $\setM$.
+Then for $x \xeof \setM$ the set
+$\operatorname{Orb}(x) := \set{g\,x}{g \xeof \grpG} \subseteq \setM$
+is called the \textit{orbit} of $x$ with respect to $\grpG$.
+The orbits of a group operation on $\setM$ form equivalence classes
+of $\setM$ and are generated by the following relation:
+\[
+x \sim y
+\quad :\Longleftrightarrow \quad
+g \, x \eq y \, \mbox{ for a } g \in \grpG.
+\]
+Let $\setM/\grpG$ be the set of all orbits in $\setM$.
+Then $\setM/\grpG$ is denoted the \textit{orbit space} of $\grpG$ in $\setM$.
+The mapping $\pi\:\setM \xto \setM/\grpG$,
+which assigns to each element $x \xeof \setM$ the corresponding orbit,
+is called the \textit{canonical projection} of $\setM$ on $\setM/\grpG$.
+
+\section{Transitive Operations and Fixpoints}
+%------------------------------------------------------------------------------%
+A group operation $T$ is called \textit{transitive},
+if any pair of elements $x,y \xeof \setM$ can be transmitted into each another
+by an element $g \xeof \grpG$:
+$y \eq g\,x$.
+Hence transitive operations own exactly one orbit in $\setM$.
+The operation is called \textit{simply transitive},
+if for each pair $x,y \xeof \setM$
+there is exactly \textit{one} element $g \xeof \grpG$ such that $g\,x \eq y$.
+
+\subparagraph{}
+The elements of a group $\grpG$,
+which let for a given group operation $T\:\cross{T}{\setM} \xto \setM$
+a given element $x \xeof \setM$ unchanged,
+form a subgroup of $\grpG$.
+Let $\grpG$ a group, $T$ an operation of $\grpG$ on a set $\setM$
+and $x \xeof \setM$:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+The subgroup
+$\grpG_x := \set{g \xeof \grpG}{g\,x \eq x} \subseteq \grpG$ is called
+the \textit{isotropy group} of $x$ with respect to the operation $T$.
+
+\item[2.]
+An element $x$ is called a \textit{fixpoint} of $T$,
+if $g \, x \eq x$ for all $g \xeof \grpG$
+(rsp. $\grpG_x \eq \grpG$).
+
+\item[3.]
+The operation $T$ is called \textit{free},
+if it does not own any fixpoint.
+\end{itemize}
+
+\subparagraph{}
+If two elements $x,y \xeof \setM$ belong to one and the same orbit,
+then the related isotropy groups $\grpG_x,\grpG_y$
+are conjugated to each another,
+where each $g \xeof \grpG$ fulfilling $g\,x \eq y$ forms a conjugating element.
+
+\subparagraph{}
+If the base set $\setM$ is finite,
+then the cardinality of an orbit $\operatorname{Orb}(x)$
+is defined by the index of the isotropy group
+$\grpG_x$ of any element in the orbit:
+$\abs{\operatorname{Orb}(x) } \eq [\grpG:\grpG_x]$.
+
+\paragraph{}
+The following examples of group operations on sets are well-known:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Let $\setM \eq \R^2$ and $\grpG$ be the group of rotations
+for elements $x \xeof \setM$ with center $\0 := (0,0)$.
+Then $\grpG$ is operating on $\setM$,
+and the orbits in $\setM$ are the singleton $\{\0\}$
+and all circles with center $\0$.
+The element $\0$ is the only fixpoint of the operation,
+hence the operation is neither transitive nor free.
+The isotropy groups of the operation are $\grpG_x \eq \{ \1 \}$
+for $x \neq \0$ and $\grpG_x \eq \grpG$ for $x \eq \0$.
+
+\item[2.]
+If the operation is restricted to the set $\setM \setminus \{\0\}$,
+then it does not own fixpoints and therefore is free.
+
+\item[3.]
+The restriction of the operation to the unit circle $\T$
+is free and transitive.
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}
+
+ \multicolumn{3}{c}{\bf 1. Grundbegriffe der Gruppentheorie}                \\
+1.1 & Halbgruppen und Monoide                                 \dotfill &  1 \\
+1.2 & Gruppen                                                 \dotfill &  2 \\
+1.3 & Untergruppen                                            \dotfill &  2 \\
+1.4 & Erzeugendensysteme und freie Gruppen                    \dotfill &  3 \\
+1.5 & Zyklische Gruppen                                       \dotfill &  4 \\
+1.6 & Worthalbgruppen und freie Produkte von Gruppen          \dotfill &  5 \\ !
+1.7 & Translationen und Konjugationen                         \dotfill &  5 \\
+1.8 & Normale Gruppen                                         \dotfill &  6 \\
+1.9 & Produkte und Summen von Gruppen                         \dotfill &  7 \\
+1.10& Die Gruppenalgebra einer Gruppe                         \dotfill &  7 \\ !
+    &                                                                  &    \\
+ \multicolumn{3}{c}{\bf 2. Gruppen-Homomorphismen}                          \\
+2.1 & Homomorphismen und Kerne                                \dotfill &  9 \\
+2.2 & Der Homomorphiesatz der Gruppentheorie                  \dotfill & 10 \\
+2.3 & Automorphismengruppen                                   \dotfill & 10 \\
+2.4 & Exakte Sequenzen von Gruppen                            \dotfill & 11 \\
+    &                                                                  &    \\
+ \multicolumn{3}{c}{\bf 3. Operationen von Gruppen auf Mengen}              \\
+3.1 & Permutationsgruppen                                     \dotfill & 12 \\
+3.2 & Die Permutationsgruppe endlicher Mengen                 \dotfill & 12 \\
+3.3 & Gruppenoperationen                                      \dotfill & 13 \\
+3.4 & Orbits                                                  \dotfill & 14 \\
+3.5 & Isotropiegruppen                                        \dotfill & 14 \\
+    &                                                                  &    \\
+ \multicolumn{3}{c}{\bf 4. Abelsche Gruppen}                                \\
+4.1 & Kommutative Halbgruppen                                 \dotfill & 16 \\
+4.2 & Kommutatorgruppen                                       \dotfill & 16 \\
+4.3 & Der Struktursatz über endlich erzeugte Abelsche Gruppen \dotfill & 17 \\
+4.4 & Frei-Abelsche Gruppen                                   \dotfill & 17 \\
+4.5 & Die Konstruktion von Gruppen aus kommutativen Monoiden  \dotfill & 17 \\
+4.6 & Das Tensorprodukt Abelscher Gruppen                     \dotfill & 18 \\

@@ -1,0 +1,2520 @@
+%------------------------------------------------------------------------------%
+% ALGEBRAIC TOPOLOGY                                                           %
+%------------------------------------------------------------------------------%
+% File  : Algebraic_Topology.tex                                               %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                       DOCUMENT CLASS and INCLUDE FILES                       %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+\def\E{E}
+\def\B{B}
+\def\simS{S}
+\def\simK{K}
+\def\simL{L}
+\def\Rand#1{\delta_#1}
+\def\modM{M}
+
+\titleformat{\part}%[display]
+{\normalfont \rmfamily \bfseries \centering}
+{{\thepart.}}{3pt}{}
+
+\titleformat{\section}[runin]
+{\normalfont \bfseries \filcenter}
+{\thesection.\,}{0mm}{}[.]
+
+\titlespacing*{\part}   {5pt}{12pt}{ 4pt}
+\titlespacing*{\section}{0pt}{ 3pt}{ 3pt}
+
+\def\Title{Algebraic Topology}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\centerline{\large{\textbf{\Title}}}
+\vspace{4pt}
+\centerline{\small{{\textsc{\Author}}}}
+\vspace{10pt}
+
+\fancyhead[C] {\small{\textsc{\Title}}}
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+
+\myfootnote
+{
+  Version {\Version} from \today;
+  Email:  \textit{khoeflinger@\,t-online.de}
+}
+
+%\begin{comment}
+%------------------------------------------------------------------------------%
+% content                                                                      %
+%------------------------------------------------------------------------------%
+
+\fancyhead[C] {\small{\textsc{I. Categories and Morphisms}}}
+%------------------------------------------------------------------------------%
+\part{Categories and Morphisms}
+%------------------------------------------------------------------------------%
+In category theory versucht man, 
+die in verschiedenen mathematischen Disziplinen auftretenden structures
+unter einem vereinheitlichenden Begriffssystem zu erfassen.
+
+\section{Categories}
+%------------------------------------------------------------------------------%
+A \textit{category} is essentially the collection of mathematical structures
+of the same kind.
+
+\begin{definition}
+A \textit{category} $\cal{C}$ is a system of mathematical objects $M,N,\ldots$,
+together with sets $\operatorname{Mor}(M,N)$
+for each two objects $M,N$ of $\cal{C}$, 
+whose elements are called the \textit{morphisms} from $M$ to $N$.
+
+Zusätzlich muß gelten:
+for je drei objects $M_1$,$M_2$,$M_3$ von $\cal{C}$ existiert
+eine Zuordnung 
+\[
+\circ: \cross{\operatorname{Mor}(M_1,M_2)}
+             {\operatorname{Mor}(M_2,M_3)}
+       \to    \operatorname{Mor}(M_1,M_3),
+\]
+die folgende Eigenschaften besitzt:
+\begin{itemize}
+\item
+for $f \xeof \operatorname{Mor}(M_1,M_2)$, 
+    $g \xeof \operatorname{Mor}(M_2,M_3)$, 
+    $h \xeof \operatorname{Mor}(M_1,M_3)$
+gilt
+\[
+h \circ (g \circ f) \eq (h \circ g) \circ f \quad \mbox{(Assoziativität)}
+\]
+\item
+es existiert to each Objekt $M$ a morphism
+$\1_M \xeof \operatorname{Mor}(M,M)$ with 
+\[
+\1_M \circ f \eq f \mbox{ and } g \circ \1_M \eq g 
+\]
+for all weiteren objects $N$ and 
+alle Morphismen $f \xeof \operatorname{Mor}(M,N)$ and 
+                $g \xeof \operatorname{Mor}(N,M)$.
+\end{itemize}
+\end{definition}
+
+Häufig are the morphisms of a category
+gerade the mappings between zwei objectsn,
+which respect the natural structure of the objects.
+Wir führen hierzu folgende Beispiele an:
+
+\begin{examples}
+\begin{itemize}
+\item
+The category \textit{(gr)} der groups, 
+bestehend aus den groups and their homomorphisms.
+\item
+The category \textit{(ab)} der Abelschen groups, 
+bestehend aus den Abelschen groups and their homomorphisms.
+\item
+The category \textit{(ri)} der Ringe and their homomorphisms.
+\item
+The category \textit{$Mod_R$} der $R$-modules over a ring $R$.
+Ihre objects are the $R$-modules,
+and the morphisms are the module-homomorphisms between ihnen.
+\item
+The category \textit{(vec)} der Vektorräume over a field $\F$.
+Ihre objects are the Vektorräume selbst,
+and the Morphismen are the $\F$-linear mappings.
+Ebenso bilden the algebraischen Dualräume der Vektorräume über $\F$
+eine category.
+\item
+The category \textit{($Alg_R$)} of $R$-algebras and their homomorphisms.
+\item
+The category \textit{(kk)} of chain complexes von $R$-modules and their 
+homomorphisms.
+\item
+The topological category \textit{(top)}.
+Ihre objects are the topological Räume,
+ihre Morphismen are the continuous mappings between topological Räumen.
+\item
+The category der lokalkompakten topological groups,
+whose morphisms are the continuous mappings as well.
+\item
+The differentialtopological category \textit{(difftop)},
+bestehend aus den differenzierbaren Mannigfaltigkeiten
+and den differenzierbaren mappings between ihnen.
+\item
+Es gibt categories,
+deren Morphismen \textit{keine} mappings between ihren objectsn sind,
+z.B. the homotopy category \textit{(htop)}. 
+Ihre objects are the topological Räume,
+ihre Morphismen jedoch the homotopy-Klassen $[X,Y]$ der stetiger mappings
+$f:X \to Y$.
+\end{itemize}
+\end{examples}
+
+{\bf Definition 2} (inverser morphism, Isomorphismus).
+
+Ein morphism $g \xeof \operatorname{Mor}(N,M)$ heißt zum morphism 
+$f \xeof \operatorname{Mor}(M,N)$ \textit{invers} oder a \textit{inverser morphism},
+if $f \circ g \eq 1_N$ bzw. $g \circ f \eq 1_M$.
+Those morphisms of a category,
+which own an inverse morphism, 
+are called the \textit{isomorphisms} of the category,
+and in this case the related objects are called \textit{isomorph} to each another.
+
+\begin{examples}
+\begin{itemize}
+\item
+In der topological category \textit{(top)}
+sind zwei topological spaces isomorphic,
+wenn sie homeomorphic zueinander sind. 
+\item
+In der differentialtopological category \textit{(difftop)}
+sind zwei Mannigfaltigkeiten isomorph,
+wenn sie zueinander diffeomorph sind. 
+\item
+In der homotopy category \textit{(htop)} are zwei topological Räume
+zueinander isomorph,
+wenn sie homotopie-äquivalent sind.
+\end{itemize}
+\end{examples}
+
+{\bf Definition 3} (Unterkategorie).
+
+Let $\cal{C}$ a category.
+Then heißt $\cal{C}$ a \textit{Unterkategorie}
+einer weiteren category $\cal{D}$,
+if each Objekt von $\cal{C}$ a Objekt von $\cal{D}$ ist
+sowie each morphism $g \xeof \operatorname{Mor}(M,N)$ for objects $M,N$
+von $\cal{C}$ a morphism der objects $M,N$ in $\cal{D}$ ist.
+
+{\bf Definition 4} (volle Unterkategorie).
+
+A Unterkategorie $\cal{C}$ von $\cal{D}$ heißt \textit{voll},
+if each morphism von $\cal{D}$ auch a morphism von $\cal{C}$ ist.
+
+\begin{example}
+The category \textit{(ab)} der Abelschen groups is a volle Unterkategorie
+der category \textit{(gr)} der groups.
+\end{example}
+
+\section{Functors}
+%------------------------------------------------------------------------------%
+\textit{functors} are mappings between den objectsn bzw. den Morphismen 
+zweier categories,
+die gewissen Eigenschaften genügen.
+
+{\bf Definition 5} (functor).
+
+Seien $\cal{C}$ and $\cal{D}$ zwei categories.
+Ein \textit{kovarianter functor} $F$ between $\cal{C}$ and $\cal{D}$ 
+ist a mapping, the 
+\begin{itemize}
+\item
+each Objekt $M$ von $\cal{C}$ a Objekt $F(M)$ von $\cal{D}$ zuordnet
+\item
+each $f \xeof \operatorname{Mor}(M_1,M_2)$ a further morphism 
+$f' \xeof \operatorname{Mor}(F(M_1),\F(M_2))$ zuordnet
+such that \\
+(a) $F(\1_M) \eq \1_{F(M)}$ \textit{(Identitätsaxiom)}\\
+(b) $F(f \circ g) \eq F(f) \circ F(g)$ \textit{(chainsregel)}.
+\end{itemize}
+
+Ein functor $F$ heißt \textit{kontravariant},
+if $F$ each morphism $f \xeof \operatorname{Mor}(M_1,M_2)$
+a morphism $f' \xeof \operatorname{Mor}(F(M_2),F(M_1))$ zuordnet.
+
+\begin{examples}
+\begin{itemize}
+\item
+Let $\F$ a Körper and \textit{(vec)} the category der $\F$-Vektorräume
+with den linear Operatoren als Morphismen and $(vec^{\*})$ the category
+der Dualräume von $\F$-Vektorräumen.
+Let $F$ be that mapping,
+which assigns to each vector space $V$ its dual space $V^\*$.
+Then each homomorphism $\phi:V \to W$ gives rise to a
+homomorphism $\phi^\*:W^\* \to V^\*$ according to
+$\phi^\* (w^\*) := v^\*$,
+wobei $v^\*(v) := w^\*(\phi(v))$ for all $v \xeof V$.
+Wir definieren $F(\phi) := \phi^\*$.
+Then is $F$ a kontravarianter functor between den categories \textit{(vec)}
+and $(vec^{\*})$.
+\item
+The \textit{Identitäts-functor}, der each Objekt and each morphism 
+sich selbst zuweist.
+\item
+The \textit{Vergiß-functor} between den categories \textit{(ab)} and \textit{(gr)},
+der each Abelian group sich selbst zuweist,
+jedoch als Objekt in der category \textit{(gr)} der (allgemeinen) groups.
+\end{itemize}
+\end{examples}
+
+\section{Natural Transformations}
+%------------------------------------------------------------------------------%
+Let $\cal{C}$ a category and seine $A,B$ zwei objects von $\cal{C}$.
+Ist $\cal{D}$ a weitere category and are $F,G$ functors
+von $\cal{C}$ nach $\cal{D}$,
+so bilden these the objects $A,B$ in the objects $F(A),F(B)$
+bzw. $G(A),G(B)$ der category $\cal{D}$ ab.
+Ferner werden each morphism $\phi$ aus $\operatorname{Mor}(A,B)$
+die Morphismen $F(\phi)$ aus $\operatorname{Mor}(F(A),F(B))$ bzw.
+$G(\phi)$ aus $\operatorname{Mor}(G(A),G(B))$ zugeordnet.
+
+{\bf Definition 6} (natural Transformation, natural Äquivalenz).
+
+A \textit{natural Transformation} between $F$ and $G$ is a Familie
+von Morphismen $\eta_A \xeof Mor(F(A),G(A))$ for each $A$ aus $\cal{C}$
+such that
+for all Morphismen $\phi \xeof Mor(A,B)$ gilt:
+\[
+G(\phi) \circ \eta_A \eq \eta_B \circ F(\phi).
+\]
+The functors $F$, $G$ are called zueinander \textit{natürlich äquivalent},
+if a natural Transformation between ihnen existiert
+and each morphism $\eta_A$ sogar a Isomorphismus ist.
+
+If there is a natural transformation between the functors $F$ and $G$,
+then the following diagram is commutative for each morphism $\phi \xeof Mor(A,B)$:
+
+\begin{picture}(300,160)
+\put( 90,15){$A$}
+\put(250,15){$B$}
+\put( 50,130){$F(A)$}
+\put(110,90){$G(A)$}
+\put(210,130){$F(B)$}
+\put(270,90){$G(B)$}
+\put(110, 18){\vector( 1, 0){130}}
+\put( 80,133){\vector( 1, 0){120}}
+\put(140, 93){\vector( 1, 0){120}}
+\put( 90, 30){\vector(-1, 3){30}}
+\put(250, 30){\vector(-1, 3){30}}
+\put(100, 30){\vector( 1, 3){17}}
+\put(260, 30){\vector( 1, 3){17}}
+\put( 70,120){\vector( 2,-1){40}}
+\put(230,120){\vector( 2,-1){40}}
+\put(170,27){$\phi$}
+\put(140,137){$F(\phi)$}
+\put(190,97){$G(\phi)$}
+\put( 95,113){$\eta_A$}
+\put(255,113){$\eta_B$}
+\end{picture}
+
+\begin{example}
+Let $\cal{C}$ the category \textit{(vec)} der $\R$-Vektorräume
+and $\cal{D}$ the category der Bidualräume von $\R$-Vektorräumen.
+Then are the functors $Id:V \mapsto V$ and $Bi:V \mapsto V^{\*\*}$
+natürlich äquivalent.
+The Morphismen $\eta_V$ are hierbei the Einbettungsabbildungen
+$\iota:V \hookrightarrow V^{\*\*}$.
+\end{example}
+
+\fancyhead[C] {\small{\textsc{II. Homotopy and Fundamental Groups}}}
+%------------------------------------------------------------------------------%
+\part{Homotopy and Fundamental Groups}
+%------------------------------------------------------------------------------%
+By a homotopy is meant a continuous deformation from one mapping to another one.
+any properties of mappings remain unchanged ander homotopies.
+One can simplify the examination of a topological problem
+by substituting a continuous mapping by a further but homotopic mapping.
+
+\section{Homotopic Mappings}
+%------------------------------------------------------------------------------%
+Let us start with the precise definition of a homotopic mapping:
+
+\begin{definition}
+Let $\topX,\topY$ be topological spaces and $I := [0,1] \xsubset \R$.
+Two mappings $f \:\topX \xto \topY$ and $g\:\topX \xto \topY$ are called
+\textit{homotopic to each another} (notation: $f \simeq g$),
+if there is a further continuous mapping $h \: \cross{I}{\topX} \xto \topY$
+such that
+$h(0,p) \eq f(p)$ and $h(1,p) \eq g(p)$ for all $p \xeof \topX$.
+In this case $h$ is said to be a \textit{homotopy} between $f$ and $g$.
+\end{definition}
+
+\subparagraph{}
+Thinking the parameter in the interval $[0,1]$ as the progress along the time,
+then a homotopy $h$ between 
+$f,g$ can be seen as follows:
+at time $t \eq 0$ the mapping $h$ coincides with $f$
+and is continuously deformated
+such that in $t \eq 1$ it coincides with $g$.
+
+\paragraph{}
+Let us consider two simple examples:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Especially each two continuous mappings $f_1,f_2 \: \Rd \xto \R$
+are homotopic to each other,
+since a homotopy $h$ is given by the mapping
+$h \:(t,p) \mapsto t \cdot f_1(p) + (1-t) \cdot f_2(p)$.
+
+\item[2.]
+If a topological space $\topX$ consists of one element $p$ only,
+then two mappings $f,g \: \topX \xto \topY$ are homotopic
+iff
+there is a continuous path $\gamma \:I \xto \topY$
+with $\gamma(0) \eq f(p)$ and $\gamma(1) \eq g(p)$.
+\end{itemize}
+
+\subparagraph{}
+The property of two mappings to be homotopic to each other
+gives rise to an equivalence relation on the set of all continuous mappings
+between topological spaces.
+Let $[f]$ be the equivalence class of a continuous mapping $f\:\topX \xto \topY$,
+then $[f]$ is called the \textit{homotopy class} of $f$.
+It is usual to denote
+as $[\topX,\topY]$ the totality of all homotopy classes of
+$\topX$ and $\topY$\footnote
+{
+\,For punctured spaces and punctured continuous mappings
+the homotopy classes $[(\topX,p),(\topY,q)]$ are defined similarly.}.
+
+\subparagraph{}
+For example,
+the homotopy classes of the one-point space $\topX \eq \{p\}$
+and a further topological space $\topY$ exactly correspond
+to the set $\pi_0(\topY)$ of path-connected components of $\topY$.
+
+\subparagraph{}
+Forming the homotopy classes is compatible
+with the composition of continuous mappings:
+if $f,f'\:\topX \xto \topY$ and $g,g'\:\topY \xto \topZ$
+are continuous with $f \simeq f'$ and $g \simeq g'$,
+then the mappings $g \circ f$ and $g' \circ f'$ are homotopic to each other.
+The topological spaces constitute a category
+together with the homotopy classes $[\topX,\topY]$ as the morphisms.
+
+\section{Homotopy Equivalences}
+%------------------------------------------------------------------------------%
+The notation of der \textit{homotopy equivalence} is of fundamental meaning
+in algebraic topology,
+sind it provides a way to classify topological spaces.
+But this classification is not so exact as that given by homeomorphisms.
+But both classifications are compatible in the sense
+that homeomorphic spaces are also homotopy equivalent.
+
+\subparagraph{}
+Let $\topX,\topY$ be topological spaces and $Id_{\topX}, Id_{\topY}$
+be the identity mappings.
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+A continuous mapping $f:\topX \to \topY$ is called
+a \textit{homotopy equivalence},
+if there is a continuous mapping $g \:\topY \xto \topX$
+such that
+$g \circ f \simeq Id_{\topX}$ and $f \circ g \simeq Id_{\topY}$.
+In this case $g$ is called a \textit{homotopy inverse} of $f$.
+\item[2.]
+The spaces $\topX,\topY$ are called \textit{homotopy-equivalent} rsp.
+of one and the same \textit{homotopy type},
+if there is a homotopy equivalence $f\:\topX \xto \topY$ 
+(notation $\topX \simeq \topY$).
+\end{itemize}
+
+\subparagraph{}
+If $g$ is a homotopy inverse of $f$,
+then $f$ is a homotopy inverse of $g$,
+and the mappings $f$ and $g$ are called 
+\textit{inverse homotopy equivalences} in this case.
+For example,
+two homeomorphic spaces are homotopy-equivalent to each other.
+But the reverse statement does not hold:
+the sets $\{0\}$ and $\R$ are merely homotopy-equivalent,
+but not homeomorphic.
+
+\paragraph{}
+A topological space $\topX$ is called \textit{contractible},
+if it is homotopy-equivalent to the singleton $\{p\}$.
+The following examples for contractible spaces are well-known:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+The Euclidean spaces $\Rd (d \xeof \N)$ are contractible.
+\item[2.]
+A subset $S \xsubset \Rd$ is called \textit{star-shaped},
+if there is a point $p \xeof S$
+such that
+for each further point $q \xeof S$
+the segment $\vec{pq}$ is also a subset of $S$.
+Each star-shaped set is contractible.
+\end{itemize}
+
+\section{Retractions}
+%------------------------------------------------------------------------------%
+The homotopy-equivalence between a topological space
+and one of its subspaces cannot always immediately be recognized.
+Thus one is searching for criterions,
+which ensures the homotopy-equivalence of a space $\topX$
+with a subspace $\setM \subset \topX$.
+One of them is the concept of \textit{retraction}.
+
+\subparagraph{}
+Let $\topX$ be a topological space and $\setM \xsubset \topX$ be a subset.
+A \textit{retraction} of $\topX$ in $\setM$ is a continuous mapping
+$\rho \: \topX \xto \setM$ with $\rho(p) \eq p$ for $p \xeof \setM$.
+The set $\setM$ is called a \textit{retract} of $\topX$
+if there is a retraction of $\topX$ in $\setM$.
+
+xxx
+\subparagraph{}
+A Verst\"arkung des Rektrakt-Begriffes is derjenige
+des \textit{Deformationsretraktes}.
+
+{\bf Definition 4} (Deformationsretrakt).
+
+Let $\topX$ a topological space and $\setM \subset \topX$.
+A Retraktion $\rho:\topX \to \setM$ is called a \textit{Deformationsretraktion},
+if $\rho$ homotop zur Identit\"atsabbildung $Id:\topX \to \topX$ ist.
+The subset $\setM$ is called in diesem Falle a \textit{Deformationsretrakt}.
+
+\subparagraph{}
+A Deformationsretraktion $\rho:\topX \to \setM$ and the Inklusionsabbildung
+$\iota:\setM \to \topX$ are also zueinander inverse homotopy-equivalenceen.
+Zwei spaces are daher homotopie-\"aquivalent,
+if der a space a Deformationsretraktion des anderen space ist.
+Aus diesem Grand are Deformationsretraktionen von gro\"sser Bedeutung.
+Sie are oft leichter zu erkennen als a Paar von
+homotopie-\"aquivalenten mappings.
+
+{\bf Definition 5} (starke Deformationsretraktion).
+
+A Retraktion $\rho:\topX \to \setM$ is called a \textit{starke}
+Deformationsretraktion,
+if for the homotopy $h$ between $\rho$ and $Id_{\topX}$ gilt:
+$h(t,p) \eq p$ for all $t$ and $p \xeof \setM$.
+
+The subset $\setM$ is called in diesem Falle ein
+\textit{starker Deformationsretrakt} von $\topX$.
+Each point in $\setM$ bleibt hierbei w\"ahrend der Deformation fest.
+
+\begin{example}
+The Nullpunkt $\{0\} \xeof \R^n$ is a starker
+Deformationsretrakt sowohl der Vollkugel $D^n$ als auch des space $\R^n$.
+\end{example}
+
+\section{The Fundamental Group of a Topological Space}
+%------------------------------------------------------------------------------%
+The \textit{Fundamentalgruppe} is das einfachste algebraische Objekt,
+das man einem topological space zuweisen kann.
+Ihre Definition beruht auf dem Begriff der \textit{nullhomotopen Schleifen}
+an einem point.
+
+Let $(\topX,p)$ a punktierter topological space.
+Then is called each (geschlossene) continuous Weg $\gamma:S^1 \to \topX$ mit
+$\gamma(1) \eq p$ a \textit{Schleife} an $p$.
+
+A Schleife is called \textit{nullhomotop},
+if sie homotop zum \textit{konstanten} Weg $\gamma_0$ with $\gamma_0(t) \eq p$
+for all $t \xeof I$ ist.
+Nullhomotope Schleifen lassen sich also stetig zu ihrem Grundpunkt
+zusammenziehen.
+Dawith hat man a Instrument zur Hand,
+um \textit{L\"ocher} in einem topological space mathematisch exakt zu erfassen.
+
+Let $(\topX,p)$ a punktierter space and $\Omega(\topX,p)$
+die set der Schleifen an $p$.
+Auf $\Omega(\topX,p)$ l\"a\"sst sich a innere Verkn\"upfung $\circ$ wie folgt
+definieren:
+for $\gamma_1, \gamma_2 \xeof \Omega(\topX,p)$ is the Schleife $\gamma_2 \circ
+\gamma_1$ the Hintereinanderausf\"uhrung der beiden Schleifen.
+The zu einer Schleife $\gamma$ inverse Schleife $\gamma^{-1}$ ist
+diejenige Schleife, the man erh\"alt,
+indem $\gamma$ \textit{r\"uckw\"arts} durchlaufen wird.
+
+Let $\pi_1(\topX,p) := [(S^1,1),(\topX,p)]$ the set der homotopy classes
+von Schleifen an $p$.
+Then induziert the auf $\Omega(\topX,p)$ erkl\"arte Verkn\"upfung $\circ$ eine
+Verkn\"upfung auf $\pi_1(\topX,p)$ according to
+$[\gamma_1] \circ [\gamma_2] := [\gamma_1 \circ \gamma_2]$ for
+$[\gamma_1], [\gamma_2] \xeof \pi_1(\topX,p)$.
+Diese Definition is unabh\"angig von den gew\"ahlten Repr\"asentanten der
+homotopy classes.
+
+Ein neutrales Element $e \xeof \pi_1(\topX,p)$ is diejenige homotopyklasse,
+die den konstanten Weg $\gamma_0$ with $\gamma_0(t) \eq p$ for $t \xeof I$
+(Nullschleife) enth\"alt.
+\"Uberdies gibt es zu each $[\gamma] \xeof \pi_1(\topX,p)$ a inverses Element
+$[\gamma]^{-1}$
+such that
+$[\gamma] \circ [\gamma]^{-1} \eq e$.
+
+Hence the set $\pi_1(\topX,p)$ tr\"agt the structure of a (in general)
+non-commutative group.
+
+{\bf Definition 6} (Fundamentalgruppe).
+
+The group $(\pi_1(\topX,p),\circ)$ is called the \textit{Fundamentalgruppe} oder
+\textit{erste homotopygruppe} des punktierten space $(\topX,p)$.
+
+Beispiel: sei $(\topX,p) \eq (\R,0)$.
+Then is each Schleife an $0$ nullhomotop.
+Es gibt daher genau a homotopyklasse von Schleifen an $0$,
+and hence we have $\pi_1(\R,0) \cong \{0\}$.
+
+\section{The Fundamental Group Functor}
+%------------------------------------------------------------------------------%
+Ist $f:(\topX,p) \to (\topY,q)$ a punktierte continuous mapping and
+$\gamma$ a Schleife an $p$,
+so is the mapping $f \circ \gamma$ a Schleife an $q$.
+Ferner werden zueinander homotope Schleifen an $p$ unter $f$ in
+zueinander homotope Schleifen an $q$ \"ubergef\"uhrt.
+
+The group operations of the fundamental group $\pi_1(\topX,p)$
+and $\pi_1(\topY,q)$ are with $f$ insofern vertr\"aglich,
+als dass $f(\gamma_2 \circ \gamma_1) \eq f(\gamma_2) \circ f(\gamma_1)$ gilt.
+The mapping $f$ induziert daher a group homomorphism
+$f_{\*}: \pi_1(\topX,p) \to \pi_1(\topY,q)$.
+
+Hieraus folgt,
+dass the Zuordnungen $(\topX,p) \mapsto \pi_1(\topX,p)$ and $f \mapsto f_{\*}$
+einen kovarianten functor $\pi_1$ von der category der
+punktierten topological spaces in the category der groups darstellen.
+Dieser functor $\pi_1$ is called daher \textit{Fundamentalgruppen-Funktor}
+bzw.  \textit{erster Homotopie-Funktor}.
+
+A wichtige Eigenschaft zweier homotoper mappings ist,
+dass sie identische group homomorphisms between den entsprechenden
+Fundamentalgruppen erzeugen:
+
+{\bf Satz 1}
+
+Seien $f,g:\topX \to \topY$ zueinander homotope mappings.
+Then gilt $f_{\*} \eq g_{\*}$.
+
+Desweiteren gilt,
+dass a homotopy-equivalence between wegzusammenh\"angenden
+topological spaces die
+isomorphy ihrer Fundamentalgruppen zur Folge hat.
+
+{\bf Satz 2}
+
+Seien $\topX,\topY$ zwei wegzusammenh\"angende topological spaces.
+Sind $\topX$ and $\topY$ zueinander homotopie-\"aquivalent,
+so are the Fundamentalgruppen $\pi_1(\topX)$ and $\pi_1(\topY)$
+zueinander isomorph.
+
+Da dies insbesondere for hom\"oomorphe spaces gilt,
+ist the Fundamentalgruppe einer Klasse zueinander hom\"oomorpher spaces
+bis auf isomorphy eindeutig bestimmt.
+
+Let $\topX$ a topological space and $p,q \xeof \topX$ zwei points.
+Es stellt sich sofort the Frage,
+inwiefern the Fundamentalgruppen $\pi_1(\topX,p)$ and $\pi_1(\topX,q)$
+vergleichbar sind.
+Klar ist,
+dass for points aus verschiedenen Zusammenhangskomponenten
+des space keinerlei Beziehungen between ihren Fundamentalgruppen
+existieren k\"onnen.
+
+Ist $\topX$ jedoch \textit{wegzusammenh\"angend},
+then gibt es einen group Isomorphismus between den Fundamentalgruppen
+$\pi_1(\topX,p)$ and $\pi_1(\topX,q)$.
+Jeder continuous Weg between $p$ and $q$ induziert einen solchen Isomorphismus,
+ein \textit{kanonischer} Isomorphismus liegt daher nicht vor.
+For einen wegzusammenh\"angenden space $\topX$ kann man also von \textit{der}
+Fundamentalgruppe $\pi_1(\topX)$ des space sprechen.
+
+A gewisse Sonderstellung nehmen diejenigen wegzusammenh\"angenden spaces ein,
+deren Fundamentalgruppen nur aus dem neutralen Element bestehen.
+
+{\bf Definition 7} (einfach zusammenh\"angender space).
+
+Ein wegzusammenh\"angender topological space $\topX$ is called
+\textit{einfach zusammenh\"angend},
+if seine Fundamentalgruppe trivial ist,
+that is,
+$\pi_1(\topX) \cong \{0\}$.
+
+The simpelsten Beispiele for einfach zusammenh\"angende spaces are the
+kontrahierbaren spaces.
+
+\section{The Computation of Fundamental Groups}
+%------------------------------------------------------------------------------%
+Fundamentalgruppen are im allgemeinen nicht einfach zu berechnen.
+Ein erstes grundlegendes Resultat,
+dass man am einfachsten with Methoden der Funktionentheorie beweist,
+ist the Bestimmung der Fundamentalgruppe des Kreises:
+
+{\bf Satz 3}
+
+$\pi_1(S^1) \cong \Z$.
+
+For a kartesisches Produkt von punktierten topological spaces
+gewinnt man the Fundamentalgruppe durch direkte Produktbildung der
+Fundamentalgruppen der Faktorr\"aume.
+
+{\bf Satz 4}
+
+Seien $(\topX,p),(\topY,q)$ punktierte topological spaces.
+Then gilt
+\[
+\pi_1( \cross{\topX}{\topY}, (p,q))
+\, \cong \,
+\pi_1(\topX,p) \times \pi_1(\topY,q).
+\]
+
+\begin{example}
+The Fundamentalgruppen der $n$-dimensionalen Tori sind
+$\pi_1(\T^n) \eq \pi_1({S^1} \times \ldots \times {S^1}) \cong \Z^n$.
+\end{example}
+
+The folgende Satz,
+ein Spezialfall des Satzes von \textit{Seifert-van Kampen},
+gestattet the Berechnung der Fundamentalgruppe of a space,
+sofern man ihn in geeignete Teilr\"aume zerlegen kann
+and the Fundamentalgruppen dieser Teilr\"aume kennt.
+
+{\bf Satz 5} (Variante des Satzes von Seifert-van Kampen).
+
+Let $\topX$ a topological space and $A,B \subset \topX$
+offene and zusammenh\"angende subsets
+such that
+$A \cup B \eq \topX$ and $A \cap B$ einfach zusammenh\"angend ist.
+Then gilt for einen point $p \xeof A \cap B$
+\[
+\pi_1(\topX,p) \, \cong \, \pi_1(A,p) \* \pi_1(B,p).
+\]
+
+Hierbei is $\*$ das freie Produkt der groups $\pi_1(A,p)$ and $\pi_1(B,p)$.
+
+\begin{example}
+The spaces $S^n$ erf\"ullen the Voraussetzungen dieses Satzes.
+Speziel for den Fall $n=2$ erh\"alt man a Zerlegung der Kugeloberfl\"ache $S^2$,
+wenn man vom Nordpol and S\"udpol aus gen\"ugend gro\"sse Umgebungen definiert,
+such that
+whose intersection a einfach zusammenh\"angende Umgebung
+des \"Aquators darstellt.
+Es gilt daher $\pi_1(S^2) \cong \{0\}$.
+Dieselbe Argumentation bleibt auch for $n \geq 3$ g\"ultig.
+\end{example}
+
+\section{Higher Homotopy Groups}
+%------------------------------------------------------------------------------%
+Ersetzt man den Definitionsbereich $S^1$ von Schleifen an einem point
+$p \xeof \topX$ durch the h\"oherdimensionalen Sph\"aren $S^n$,
+so erh\"alt \textit{h\"ohere homotopy groups} als Verallgemeinerung
+des Fundamentalgruppen-Begriffes.
+
+{\bf Definition 8} ($n$-te homotopy-group).
+
+Let $N$ be the \textit{Nordpol} of the $n$-dimensional sphere $S^n$ $(n \geq 2)$,
+$(\topX,p)$ a punctured topological space and
+$[S^n,(\topX,p)]$ the set der homotopy classes of punctured
+continuous mappings $f:(S^n,N) \to (\topX,p)$.
+Then is called $\pi_n(\topX,p) := [S^n,(\topX,p)]$ the $n$-te homotopy group of
+$(\topX,p)$.
+
+For $n=1$ stimmt these Definition with derjenigen der Fundamentalgruppe
+$\pi_1(\topX,p)$ \"uberein.
+A group structure von $\pi_n(\topX,p)$ for $n \geq 2$ erh\"alt man wie folgt:
+
+Da $S^n$ hom\"oomorph zum Quotientenraum $I^n / \partial I^n$ ist,
+gibt es zu each continuous mapping $f:(S^n,N) \to (\topX,p)$
+genau a continuous mapping $f': I^n \to \topX$ with ${f'}^{-1}(p) \eq \partial I^n$.
+For $[f],[g] \xeof \pi_n(\topX,p)$ betrachte the zugeh\"origen mappings
+$f',g':I^n \to \topX$.
+Definiere $f' \* g':I^n \to \topX$ durch Halbieren and Zusammensetzen der
+jeweiligen Definitionsbereiche.
+Da $f'(x) \eq g'(x)$ for Randpunkte $x$ des Einheitsw\"urfels gilt,
+ist $f' \* g'$ in points der Trennfl\"ache stetig.
+Then is for $f$,$g$ the innere Verkn\"upfung $f \star g$ definiert according to
+$f \star g := [f' \* g']$.
+The Verkn\"upfung is unabh\"angig von den gew\"ahlten Repr\"asentanten.
+
+H\"ohere homotopy-groups besitzen folgende Eigenschaft:
+
+{\bf Satz 5}
+
+Let $\topX$ a topological space and $n \geq 2$.
+Then is $\pi_n(\topX)$ an Abelian group.
+
+Let $\topX$ a wegzusammenh\"angender topological space and
+$\topX^{\sim}$ seine topological \"Uberlagerung.
+Then gilt $\pi_n(\topX) \eq \pi_n(\topX^{\sim})$ for $n \geq 2$.
+
+Im Verallgemeinerung des einfach zusammenh\"angenden space is called ein
+topological space $n$-fach zusammenh\"angend,
+if $\pi_i(\topX) \cong 0$ for $i=0,\ldots,n$.
+
+Speziell for the topological spaces $S^m$ erh\"alt man the homotopy groups
+$\pi_n(S^m)$.
+Ihre Berechnung is nicht trivial and bis heute noch nicht abgeschlossen.
+The wichtigsten Resultate are in folgendem Satz zusammengefa\"sst.
+
+{\bf Satz 6}
+
+\begin{itemize}
+\item
+$\pi_n(S^n) \cong \Z$ for $n \xeof \N$.
+\item
+$\pi_n(S^m) \cong 0$ for $n > m$.
+\item
+$\pi_3(S^2) \cong \Z$. \textit{(Hopf-Faserung).}
+\item
+$\pi_1(S^m) \cong 0$ for $m \geq 2$,
+that is,
+the spaces $S^m$ are for $m \geq 2$ einfach zusammenh\"angend.
+\end{itemize}
+
+Speziell for $n \eq m$ gibt es a bijektive mapping between den
+homotopy classes $[S^n,S^n]$ and $\Z$.
+Dawith is each continuous mapping $f:S^n \to S^n$ a ganze Zahl zugeordnet,
+welche der \textit{mappingsgrad} $\operatorname{grad}(f)$ von $f$ genannt wird.
+
+\begin{example}
+Let $A: S^n \to S^n$ the antipodische mapping with $A(x) := -x$.
+Then besitzt $A$ den mappingsgrad $\operatorname{grad}(A) \eq (-1)^{n+1}$.
+\end{example}
+
+For zwei mappings $f,g:S^n \to S^n$ gilt:
+$\operatorname{grad} (f \circ g) =
+ \operatorname{grad} (f) \cdot
+ \operatorname{grad} (g)$.
+Ist $f$ nicht surjektiv, so is $\operatorname{grad} (f) \eq 0$.
+
+\fancyhead[C] {\small{\textsc{III. Ueberlagerungen}}}
+%------------------------------------------------------------------------------%
+\part{Ueberlagerungen}
+%------------------------------------------------------------------------------%
+
+\section{Basic Concepts}
+%------------------------------------------------------------------------------%
+The Begriff der \textit{topological \"Uberlagerung} trat historisch zum ersten
+al in der Funktionentheorie auf.
+
+{\bf Definition 1} (topological \"Uberlagerung).
+
+Seien $E,B$ topological spaces and $\pi:E \to B$ a surjektive stetige
+mapping.
+The space $E$ is called a \textit{(topologische) \"Uberlagerung} von $B$,
+wenn es zu each point $q \xeof B$ a Umgebung $V_q$ gibt,
+such that
+
+\begin{itemize}
+\item
+$V_q$ is weg-zusammenh\"angend.
+\item
+das Urbild $\pi^{-1}(V_q)$ is the disjunkte union von h\"ochstens
+abz\"ahlbar vielen offenen sets $\topU_{\alpha} \subset E$,
+die zu $V_q$ jeweils hom\"oomorph are \textit{(lokale Trivialisierung)}.
+\end{itemize}
+
+Es gilt also in diesem Fall $\pi^{-1}(V_q) \cong V_q \times I$
+with einer h\"ochstens abz\"ahlbaren
+and with der diskreten Topologie versehenen Indexmenge $I$.
+Aus dieser Definition folgt,
+dass es zu each $p \xeof E$ a offene Umgebung $U_p \subset E$ gibt,
+die hom\"oomorph zur set $\pi(U_p) \subset B$ ist.
+In diesem Sinne is $E$ \textit{lokal hom\"oomorph} zu $B$.
+
+The mapping $q \mapsto \operatorname{Card}(\pi^{-1}(q))$,
+die each point $q \xeof B$ the M\"achtigkeit ihrer Faser zuordnet,
+ist lokal konstant.
+Ist a \"Uberlagerungsraum $E$ zusammenh\"angend,
+so haben all Fasern $\pi^{-1}(q)$ ($q \xeof B$) dieselbe M\"achtigkeit.
+The Kardinalzahl der Fasern $\pi^{-1}(q)$ is called in diesem Fall
+die \textit{Bl\"atterzahl} der \"Uberlagerung.
+
+\begin{examples}
+\begin{itemize}
+\item
+Let $\topX$ a h\"ochstens abz\"ahlbare set,
+versehen with der diskreten Topologie.
+Then is $\cross{\topX}{B}$ with der Projektionsabbildung
+eine covering von $B$.
+\item
+Let $E \eq \R$, $B \eq S^1 \subset \C$ and $\pi(x) := e^{ix}$, $x \xeof \R$.
+Then stellt der space $\R$ a covering von $S^1$ dar.
+The Urbilder von offenen sets in $S^1$ are abz\"ahlbare unions
+von offenen Intervallen $(a,b) \subset \R$.
+\item
+Let $E \eq S^n$, $B \eq \R\,P^n$ and $\pi(p) := \{p,-p\}$.
+Then is $(S^n,\pi,\R\,P^n)$ a zweibl\"attrige \"Uberlagerung
+des projektiven space.
+\end{itemize}
+\end{examples}
+
+\section{The Lifting of Paths}
+%------------------------------------------------------------------------------%
+Das \textit{Hochheben} von Wegen $\gamma:I \to B$ in den
+\"Uberlagerungsraum $E$ is der Kern der \"Uberlagerungstheorie.
+
+{\bf Definition 2} (Hochhebung).
+
+Let $\pi:E \to B$ a covering with $\pi(p) \eq q$, $I := [0,1]$ and
+$\gamma: I \to B$ a stetiger Weg with $\gamma(0) \eq q$.
+A \textit{Hochhebung} von $\gamma$ is a stetiger Weg
+$\gamma': I \to E$ with $\gamma'(0) \eq p$ and $\pi \circ \gamma' \eq \gamma$.
+
+\begin{picture}(200,90)
+\put(130,75){$(E,p)$}
+\put( 60,10){$I$}
+\put(130,10){$(B,q)$}
+\put( 70,12){\vector( 1, 0){55}}
+\put(140,70){\vector( 0,-1){45}}
+\put( 70,15){\vector( 1, 1){57}}
+\put(100,20){$\gamma$}
+\put(145,45){$\pi$}
+\put( 80,45){$\gamma'$}
+\end{picture}
+
+For Hochhebungen erh\"alt man den folgenden Existenz- and Eindeutigkeitssatz.
+
+{\bf Satz 1}
+
+Let $\pi:E \to B$ a covering with $\pi(p) \eq q$.
+Zu each continuous Weg $\gamma: I \to B$ with $\gamma(0) \eq q$ gibt es genau
+eine Hochhebung $\gamma'$ in den \"Uberlagerungsraum $E$ with $\gamma'(0)=p$.
+
+Sind $\gamma$ and $\delta$ zwei homotope Wege in $B$ with gleichem
+Anfangspunkt $q \xeof B$,
+then are auch ihre Hochhebungen nach $E$ homotop.
+The homotopy von Wegen bleibt also bei Hochhebungen erhalten.
+Dies is the Aussage des \textit{Monodromie-Lemmas}.
+Insbesondere besitzen the Hochhebungen von $\gamma$ and $\delta$
+den identischen Endpunkt $p \xeof E$
+such that
+dieser durch the homotopy-Klasse $[\gamma]$ eindeutig bestimmt ist.
+
+Dawith is a Operation der Fundamentalgruppe $\pi_1(B,q)$ auf der
+Faser von $q$ erkl\"art.
+Ist der \"Uberlagerungsraum $E$ wegzusammenh\"angend,
+so operiert the group $\pi_1(B,q)$ sogar transitiv auf $\pi^{-1}(q)$.
+
+The \"Uberlagerungstheorie von topological spaces is daher eng mit
+der Theorie der Fundamentalgruppen verkn\"upft.
+
+\section{Charakteristic Subgroups}
+%------------------------------------------------------------------------------%
+Covering mappings induce group homomorphisms between the
+fundamental groups of the total space and the base space.
+
+{\bf Satz 2}
+
+Let $\pi:\E \to \B$ a covering with $\pi(p) \eq q$.
+Then is der von $\pi$ induzierte group homomorphism
+$\pi_{\*}: \pi_1(\E,p) \to \pi_1(\B,q)$ injektiv.
+
+For a covering besitzt daher the Fundamentalgruppe des
+\"Uberlagerungsraumes a einfachere structure than the base space.
+
+{\bf Definition 3} (charakteristische Untergruppe).
+
+Das Bild $G(\E,p,\pi)\,:=\, \pi_{\*}(\pi_1(\E,p)) \subset \pi_1(\B,q)$
+is called the \textit{charakteristische Untergruppe} der \"Uberlagerung.
+
+Zwischen der group-Operation von $\pi_1(\B,q)$ auf $\pi^{-1}(q)$ and der
+charakteristischen subgroup $G(\E,p,\pi)$ besteht folgender Zusammenhang.
+
+{\bf Satz 3}
+
+Let $\pi:\E \to \B$ a covering with $\pi(p) \eq q$. Then gilt
+\begin{itemize}
+\item
+The Isotropie-Gruppe von $p \xeof \pi^{-1}(q)$ is $G(\E,p,\pi)$.
+\item
+Ist $\E$ wegzusammenh\"angend, so are for $p,p' \xeof \pi^{-1}(q)$
+die Untergruppen $G(\E,p,\pi)$ and $G(\E,p',\pi)$
+als Untergruppen von $\pi_1(\B,q)$ zueinander konjugiert.
+\end{itemize}
+
+{\bf Definition 4} (\"aquivalente coverings).
+
+Zwei coverings $\pi:\E \to \B$ and $\pi':\E' \to \B$
+eines topological space $\B$ are called \textit{\"aquivalent},
+if es einen Hom\"oomorphismus $h:\E \to \E'$ gibt
+such that $\pi \eq \pi' \circ h$.
+
+Dawith lassen sich coverings \"uber einem fest gew\"ahlten Basisraum
+klassifizieren.
+
+{\bf Satz 3}
+
+Zwei wegzusammenh\"angende coverings von $\B$ are genau then \"aquivalent,
+wenn ihre charakteristischen Untergruppen in $\pi_1(\B)$ zueinander
+konjugiert sind.
+
+\section{Universal Coverings}
+%------------------------------------------------------------------------------%
+\textit{Einfach zusammenh\"angende} \"Uberlagerungsr\"aume are the strukturell
+einfachsten coverings, the es gibt.
+Sie werden daher wie folgt ausgezeichnet:
+
+{\bf Definition 5} (universal \"Uberlagerung).
+
+A covering $\pi:\E \to \B$ is called \textit{universell},
+if $\E$ einfach zusammenh\"angend ist.
+
+Ist a \"uberlagerter space $\B$ lokal wegzusammenh\"angend,
+so are zwei universal coverings $\E$ and $\E'$ zueinander \"aquivalent.
+an kann in diesem Fall daher von \textit{der} universellen covering von $\B$
+sprechen.
+
+Es stellt sich the Frage,
+unter welchen Voraussetzungen a universal covering of a lokal
+wegzusammenh\"angenden topological space $\B$ existiert.
+
+{\bf Definition 6} (semi-lokal einfach zusammenh\"angender space).
+
+Ein topological space $\B$ is called \textit{semi-lokal einfach
+zusammenh\"angend},
+if each point $q \xeof \B$ a Umgebung $V_q$ besitzt
+such that
+each Schleife $\gamma$ at $q$ with $\gamma(S^1) \subset V_q$ is nullhomotop.
+
+Alle for the Existenz einer universellen covering \textit{hinreichenden}
+Eigenschaften of a topological space werden in dem
+folgenden Begriff zusammengefa\"sst.
+
+{\bf Definition 7} (hinreichend zusammenh\"angender space).
+
+Ein topological space $\B$ is called \textit{hinreichend zusammenh\"angend},
+if $\B$ wegzusammenh\"angend, lokal wegzusammenh\"angend
+and semi-lokal einfach zusammenh\"angend ist.
+
+\begin{example}
+$S^1$ is hinreichend zusammenh\"angend.
+\end{example}
+
+Hinreichend zusammenh\"angende spaces besitzen the folgende Eigenschaft.
+
+{\bf Satz 4}
+
+Let $\B$ a hinreichend zusammenh\"angender topological space.
+Then gibt es zu each subgroup $H \subset \pi_1(\B)$ eine
+wegzusammenh\"angende covering $\pi:\E \to \B$
+such that $\pi_1(\E) \cong H$.
+
+Dieser Satz is the Grundlage for the Existenz einer
+universellen \"Uberlagerung.
+
+{\bf Satz 5} (Existenz einer universellen \"Uberlagerung).
+
+Let $\B$ a hinreichend zusammenh\"angender topological space.
+Then besitzt $\B$ a universal covering $\E$.
+
+The universal covering nimmt a Sonderstellung unter allen
+coverings of a space ein, and zwar in folgendem Sinne:
+ist $\pi:\E \to \B$ a wegzusammenh\"angende \"Uberlagerung,
+so \"uberlagert the universal covering von $\B$ auch $\E$.
+
+Andererseits gilt:
+if a universal covering von $\B$ existiert,
+so is $\B$ semi-lokal einfach zusammenh\"angend.
+
+\begin{example}
+Let $\E \eq S^n$, $\B \eq \R\,P^n$ and $\pi(p) := \{p,-p\}$.
+Im Falle $n \geq 2$ is $S^n$ einfach zusammenh\"angend and stellt damit
+die universal covering von $\R\,P^n$ dar.
+Im Falle $n=1$ is $S^1$ nicht einfach zusammenh\"angend and damit
+\textit{not} a universal covering of $\R\,P^1$.
+\end{example}
+
+\section{Deck Transformations}
+%------------------------------------------------------------------------------%
+it Hilfe von \textit{Decktransformationen} kann man unter gewissen
+Voraussetzungen the Fundamentalgruppen von topological spaces berechnen.
+
+{\bf Definition 8} (Decktransformation).
+
+Let $\pi:\E \to \B$ a \"Uberlagerung.
+A \textit{Decktransformation} is a Hom\"oomorphismus $\phi:\E \to E$
+such that
+$\phi(\pi^{-1}(p)) \eq \phi(\pi^{-1}(p))$ for each $p \xeof \B$.
+
+A Decktransformation f\"uhrt also Fasern wieder in Fasern \"uber.
+The set $\cal{D}(\E)$ der Decktransformationen von $\E$
+stellt with der Hintereinanderausf\"uhrung a group dar.
+
+\begin{example}
+$\R$ is a universal covering of $S^1$ and hence auch von
+$\R\,P^1$.
+The Decktransformationen are hier durch the Translationen
+$x \mapsto x + 2k\pi$, $k \xeof \Z$ gegeben.
+\end{example}
+
+{\bf Satz 6}
+
+Let $\pi:\E \to \B$ a covering and $\B$ wegzusammenh\"angend.
+Then is the group der Decktransformationen isomorphic to a subgroup of $\pi_1(\B)$.
+
+Folgende Eigenschaften des \"Uberlagerungsraumes bzw. des \"uberlagerten space
+f\"uhren zur isomorphy der groups $\cal{D}(\E)$ and $\pi_1(\B)$.
+
+{\bf Satz 7}
+
+Let $\pi:\E \to \B$ a \"Uberlagerung.
+Ist der topological space $E$ einfach zusammenh\"angend and
+lokal wegzusammenh\"angend,
+oder $\B$ hinreichend zusammenh\"angend and $E$ seine universal \"Uberlagerung,
+then gilt $\cal{D}(\E) \cong \pi_1(\B)$.
+
+\begin{examples}
+\begin{itemize}
+\item
+Es gilt $\cal{D}(\R) \cong \Z$, also auch $\pi_1(S^1) \cong \Z$.
+\item
+Es gilt $\cal{D}(S^n) \cong \Z_2$ for $n \geq 2$.
+The coverings $(S^n,\pi, \R\,P^n)$ erf\"ullen the Voraussetzungen
+des obigen Satzes.
+Es gilt daher $\pi_1(\R\,P^n) \cong \Z_2$ for $n \geq 2$ and
+$\pi_1(\R\,P^1) \cong \pi_1(S^1) \cong \Z$.
+\end{itemize}
+\end{examples}
+
+\section{Serre-Fibrations and Exact Homotopy-Sequences}
+%------------------------------------------------------------------------------%
+In point-set topology Das \textit{Hochhebeproblem} besteht darin,
+unter welchen Voraussetzungen man a continuous mapping
+$f:\topX \to \B$ zu einer continuous mapping $h:\topX \to \E$ hochheben kann
+such that
+for vorgegebenes $\pi:\E \to \B$ gilt: $\pi \circ h \eq f$.
+
+{\bf Definition 9} (homotopy-Hochhebungseigenschaft).
+
+A continuous mapping $\pi:\E \to \B$ hat the \textit{homotopy-Hochhebungs
+eigenschaft} (HHE) in Bezug auf einen topological space $\topX$,
+if es zu each continuous mapping $f:\topX \to \B$ a \textit{Hochhebung}
+$h:X \to \E$ gibt, such that $f \eq \pi \circ h$.
+
+\begin{picture}(200,90)
+\put(180,75){$\E$}
+\put(105,10){$\topX$}
+\put(180,10){$\B$}
+\put(120,12){\vector( 1, 0){55}}
+\put(185,70){\vector( 0,-1){45}}
+\put(120,15){\vector( 1, 1){57}}
+\put(150,20){$f$}
+\put(190,45){$\pi$}
+\put(135,45){$h$}
+\end{picture}
+
+Folgende coverings are wie folgt ausgezeichnet:
+
+{\bf Definition 10} (Serre-Faserung).
+
+Let $I:=[0,1] \subset \R$.
+A covering $\pi:\E \to \B$ is called a \textit{Serre-Faserung},
+if sie the HHE for all topological spaces $I^n$, $n \xeof \N$ besitzt.
+
+Gilt for a Serre-Faserung $\pi:\E \to \B$,
+dass $\pi^{-1}(q) \simeq \F$ for einen topological space $\F$ and each point
+$q \xeof \B$,
+so sagt man, these besitze the \textit{typische Faser} $\F$.
+Unter diesen Voraussetzungen gibt es a Instrument zur Berechnung der
+h\"oheren homotopy groups,
+n\"amlich the \textit{lange exakte homotopy-Sequenz einer Serre-Faserung}.
+
+{\bf Satz 8}
+
+Seien $\E,\B$ wegzusammenh\"angende topological spaces and
+$(\E,\pi,\B)$ a Serre-Faserung with typischer Faser $\F$.
+Let $p \xeof \B$ and $y \xeof \pi^{-1}(p)$ a beliebiger point.
+Then is the Sequenz der homotopy groups
+\[
+\ldots \rightarrow \pi_n(\F,y) \rightarrow \pi_n(\E)
+       \rightarrow \pi_n(\B)   \rightarrow
+\ldots
+\]
+\[
+\ldots \rightarrow \pi_1(\F,y) \rightarrow \pi_1(\E)
+       \rightarrow \pi_1(\B)
+\]
+exakt.
+
+Im Spezialfall, dass $\F$ diskret oder kontrahierbar ist,
+ist $\pi_n(\F,y) \eq 0$.
+Hieraus folgt, dass the Sequenzen
+\[
+0 \rightarrow \pi_n(\E) \rightarrow \pi_n(\B) \rightarrow 0
+\]
+exakt sind.
+Es gilt also insbesondere $\pi_n(\E) \eq \pi_n(\B)$ for all $n \geq 2$.
+
+\begin{example}
+The mapping $\pi:\R \to S^1$ besitzt the diskrete Faser $\Z$,
+also gilt $\pi_n(S^1) \eq 0$ for all $n \geq 2$.
+\end{example}
+
+
+\fancyhead[C] {\small{\textsc{IV. Chain Complexes}}}
+%------------------------------------------------------------------------------%
+\part{Chain Complexes}
+%------------------------------------------------------------------------------%
+Chain complexes treten vorwiegend bei der Untersuchung der globalen
+Eigenschaften von topological Räumen auf.
+Sie lassen sich rein algebraisch definieren and untersuchen.
+
+\section{Short Exact Sequences of Modules}
+%------------------------------------------------------------------------------%
+Im folgenden werden Folgen von $R$-modules betrachtet,
+die durch module homomorphisms miteinander verbunden sind. 
+The homomorphisms sollen the Eigenschaft besitzen, 
+dass the Verknüpfung zweier benachbarter homomorphisms stets the 
+Nullabbildung ist.
+
+{\bf Definition 1} (kurze Sequenz von $R$-modules)
+
+Let $R$ a commutative ring with unit and $M_1,M,M_2$ jeweils
+$R$-modules.
+A \textit{kurze Sequenz} von $R$-modules is a Folge
+\[
+       \{0\}
+       \longrightarrow M_1
+       \stackrel{f}{\longrightarrow} M
+       \stackrel{g}{\longrightarrow} M_2
+       \longrightarrow               \{0\}
+\]
+with module homomorphisms $f:M_1 \to M$, $g:M \to M_2$ and
+$g(f(x)) \eq 0$ for all $x \xeof M_1$.
+
+Aufgrand der \textit{Komplexbedingung} $f \circ g \eq 0$ gilt stets the Inklusion 
+$f(M_1) \subseteq \operatorname{Kern}(g)$.
+Von besonderem Interesse are the cases, for which these sets are identical.
+
+{\bf Definition 2} (kurze exakte Sequenz von $R$-modules)
+
+A kurze Sequenz heißt \textit{exakt}, if $f(M) \eq \operatorname{Kern}(g)$.
+
+\begin{example}
+Seien $M_1,M_2$ jeweils $R$-modules and $f:M_1 \to M_2$ a homomorphism.
+Then is the Sequenz
+\[
+       \{0\}
+       \longrightarrow              \operatorname{Kern}(f)
+       \longrightarrow               M_1
+       \stackrel{f}{\longrightarrow} M_2
+       \longrightarrow              \operatorname{Kokern}(f)
+       \longrightarrow              \{0\}
+\]
+exakt.
+Hieraus folgt, dass for a homomorphism $\phi:M_1 \to M_2$ gilt:
+\begin{itemize}
+\item
+$\phi$ is genau then injektiv, if the Sequenz
+$\{0\} \longrightarrow M_1 \stackrel{\phi}{\longrightarrow} M_2$ exakt ist.
+\item
+$\phi$ is genau then surjektiv, if the Sequenz
+$M_1 \stackrel{\phi}{\longrightarrow} M_2 \longrightarrow \{0\}$ exakt ist.
+\item
+$\phi$ is genau then a Isomorphismus, if the Sequenz
+$\{0\} \longrightarrow M_1 \stackrel{\phi}{\longrightarrow} M_2 
+       \longrightarrow \{0\}$
+exakt ist.
+\end{itemize}
+\end{example}
+
+A kurze exakte Sequenz
+\[
+\{0\}     \longrightarrow M_1 \longrightarrow M 
+\longrightarrow M_2 \longrightarrow    \{0\}
+\]
+von $R$-modules heißt \textit{spaltend},
+if es Untermoduln $U_1,U_2$ von $M$ gibt
+such that
+$M \eq U_1 \oplus U_2$ and $f:M_1 \to U_1$ bzw. $g:U_2 \to M_2$ 
+module-Isomorphismen sind.
+
+\begin{picture}(100,60)
+\put( 70,40){$M_1$}
+\put( 95,50){$f$}
+\put( 85,42){\vector(1,0){32}}
+\put(120,40){$U_1$}
+\put(120,25){$\bigoplus$}
+\put(120,10){$U_2$}
+\put(135,12){\vector(1,0){32}}
+\put(170,10){$M_2$}
+\put(145,20){$g$}
+\put(110, 2){\line( 1, 0){30}}
+\put(110, 2){\line( 0, 1){50}}
+\put(140,52){\line(-1, 0){30}}
+\put(140,52){\line( 0,-1){50}}
+\end{picture}
+
+The Begriff der kurzen Sequenz von modules läßt sich auf Folgen von modules
+wie folgt erweitern.
+
+{\bf Definition 3} (chain complex)
+
+Let $R$ a commutative ring with unit.
+\begin{itemize}
+\item
+Ein (absteigender) \textit{chain complex} $(K,d)$ is a Folge 
+$\{M_i\}_{i \xeof \Z}$ von $R$-modules and module homomorphisms
+$d_i: M_{i+1} \to M_{i}$,
+die for all $i \xeof \Z$ der complex-condition
+$d_{i} \circ d_{i+1} \eq 0$ genügen.
+\item
+Jede mapping $d_i$ heißt a \textit{Rand-homomorphism} of the chain complex.
+\item
+The sequence $\{d_i\}_{i \xeof \Z}$ der Rand-homomorphisms heißt das 
+\textit{Differential} des chain complex.
+\end{itemize}
+
+Einen chain complex $(K,d)$ schreibt man gewöhnlich in der Form
+\[
+\ldots                    \longrightarrow  M_{i+1} 
+       \stackrel{d_{i+1}}{\longrightarrow} M_i 
+       \stackrel{d_{i}}  {\longrightarrow} M_{i-1} 
+       \stackrel{d_{i-1}}{\longrightarrow} M_{i-2} 
+       \longrightarrow 
+\ldots
+\]
+
+\section{The Homology of a Chain Complex}
+%------------------------------------------------------------------------------%
+Wegen $d_{i} \circ d_{i+1} \eq 0$ gilt stets the Inklusion
+$d_{i+1}(M_{i+1}) \subseteq \operatorname{Kern} (d_i)$.
+Since the kernel of a module homomorphism s a $R$-module, too,
+kann man for each $i \xeof \Z$ den Faktormodul
+$\operatorname{Kern} (d_i) / d_{i+1}(M_{i+1})$ bilden.
+Dies gibt Anlaß zu folgender Definition.
+
+{\bf Definition 4} (Homologie-module, exakter chain complex)
+
+Let $(K,d)$ a chain complex and $i \xeof \Z$.
+\begin{itemize}
+\item
+The $R$-module
+\[
+H_i(K) := \frac {\operatorname{Kern} (d_i)}
+                {d_{i+1}(M_{i+1})}
+\]
+heißt der $i$-te \textit{Homologie-module} des chain complex.
+\item
+$(K,d)$ heißt \textit{exakt} an der Stelle $i \xeof \N$,
+if $H_i(K) \eq \{0\}$.
+\item
+Ein chain complex heißt \textit{exakt}, 
+if er an each Stelle $i \xeof \Z$ exakt ist.
+\end{itemize}
+
+Hence the homology-modules of a chain complex messen the Abweichung
+of the complex von seiner Exaktheit.
+
+Ein Element $x \xeof M_{i}$ heißt a \textit{Zykel}, if $d_i(x) \eq 0$.
+Gilt $x \eq d_{i-1}(y)$ for a $y \xeof M_{i-1}$, so heißt $x$ a \textit{Rand}.
+Aufgrand der Komplex-Bedingung is each Zykel a Rand.
+The Umkehrung gilt dagegen nur,
+if der chain complex an der Stelle $i$ exakt ist.
+
+Bildet man aus den homology-modules $H_i(K)$ the direkte sum,
+so erhält man the \textit{totale homology} des chain complex:
+\[
+H(K) := \bigoplus_{i \xeof \Z} \, H_i(K).
+\]
+The totale homology $H(K)$ owns the structure of a $\Z$-graded $R$-module.
+
+\section{Homomorphisms Between Chain Complexes}
+%------------------------------------------------------------------------------%
+Ist for zwei chain complexe $(K,d)$ and $(K',d')$ a Folge von 
+module homomorphisms between den korrespondierenden modules
+$M_i$ and $M'_i$ gegeben,
+so kann man unter gewissen Zusatzvoraussetzungen a 
+homomorphism between den chain complexes selbst erklären.
+
+{\bf Definition 5} (Homomorphismus between chain complexes)
+
+Seien $(K,d)$ and $(K',d')$ chain complexe.
+A homomorphism $\phi: (K,d) \to (K',d')$ is a Folge 
+$\{\phi_i\}_{i \xeof \Z}$ von module homomorphisms 
+$\phi_i:M_i \to M'_i$
+such that
+\[
+d'_i \circ \phi_i \eq \phi_{i-1} \circ d_i \qquad \mbox{for all } i \xeof \Z.
+\]
+
+For a homomorphism $\phi: (K,d) \to (K',d')$ erhält man also an each
+Stelle $i \xeof \Z$ das folgende kommutative Diagramm:
+
+\begin{picture}(100,100)
+\put(140,15){$M'_{i}$}
+\put(210,15){$M'_{i-1}$}
+\put(140,75){$M_{i}$}
+\put(210,75){$M_{i-1}$}
+\put(162,77){\vector( 1, 0){45}}
+\put(162,18){\vector( 1, 0){45}}
+\put(148,70){\vector( 0,-1){45}}
+\put(217,70){\vector( 0,-1){45}}
+\put(133,48){$\phi_i$}
+\put(223,48){$\phi_{i-1}$}
+\put(175,80){$d_i$}
+\put(175,25){$d'_{i}$}
+\end{picture}
+
+The chain complexes together with their homomorphisms constitute a category.
+
+\section{Homotopy of Chain Complexes}
+%------------------------------------------------------------------------------%
+Ist $\phi$ a homomorphism between den chain complexes $(K,d)$ and 
+$(K',d')$,
+so wird hierdurch a Folge $\{\phi^\*_i\}_{i \xeof \Z}$
+von module homomorphism between den homology-modules der 
+beiden chain complexe induziert: 
+\[
+\phi^\*_i : H_i(K) \to H_i(K'), \quad \phi_i([x]) := [\phi_i(x)].
+\]
+
+Seien $\phi$, $\psi$ zwei homomorphisms between den chain complexes
+$(K,d)$ and $(K',d')$.
+
+{\bf Definition 6} (zueinander homotope chain complexe)
+
+Seien $(K,d)$ and $(K',d')$ chain complexe.
+Zwei homomorphisms $\phi, \psi: (K,d) \to (K',d')$ are called
+\textit{zueinander homotop},
+if for each $i \xeof \Z$ a module-homomorphism
+$\alpha_i:M_i \to M'_{i+1}$ existiert
+such that
+\[
+\phi_i - \psi_i \eq d'_{i+1} \circ \alpha_i + \alpha_{i-1} \circ d_i.
+\]
+
+Folgendes Diagramm veranschaulicht these Identitäten.
+
+\begin{picture}(100,100)
+\put( 70,15){$M'_{i+1}$}
+\put(145,15){$M'_{i}$}
+\put(210,15){$M'_{i-1}$}
+\put( 70,75){$M_{i+1}$}
+\put(145,75){$M_{i}$}
+\put(210,75){$M_{i-1}$}
+\put( 92,77){\vector( 1, 0){45}}
+\put( 92,18){\vector( 1, 0){45}}
+\put(162,77){\vector( 1, 0){45}}
+\put(162,18){\vector( 1, 0){45}}
+\put( 78,70){\vector( 0,-1){45}}
+\put(148,70){\vector( 0,-1){45}}
+\put(217,70){\vector( 0,-1){45}}
+\put( 55,45){$\phi_{i+1}$}
+\put( 55,55){$\psi_{i+1}$}
+\put(150,45){$\phi_i$}
+\put(150,55){$\psi_i$}
+\put(223,45){$\phi_{i-1}$}
+\put(223,55){$\psi_{i-1}$}
+\put(105,82){$d_{i+1}$}
+\put(175,82){$d_i$}
+\put(105,25){$d'_{i+1}$}
+\put(180,25){$d'_{i}$}
+\put(140,70){\vector( -1,-1){47}}
+\put(210,70){\vector( -1,-1){47}}
+\put(168,50){$\alpha_{i-1}$}
+\put(108,50){$\alpha_{i}$}
+\end{picture}
+
+homotopy is a Äquivalenzrelation auf der set der homomorphisms 
+between zwei chain complexes.
+Zwei homomorphisms aus derselben Äquivalenzklasse are called zueinander
+\textit{kettenhomotop}.
+
+{\bf Definition 7} (homotopie-äquivalente chain complexe)
+
+Zwei chain complexe $(K,d)$ and $(K',d')$ are called \textit{homotopie-äquivalent},
+wenn es homotope homomorphism 
+$\phi:(K,d)   \to (K',d')$ and 
+$\psi:(K',d') \to (K,d)$
+gibt, such that $\phi \circ \psi \eq id_{K'}$ bzw. $\psi \circ \phi \eq id_K$.
+The homomorphisms $\phi$ and $\psi$ are called in diesem Falle 
+\textit{zueinander homotopie-invers}.
+
+The Bedeutung der homotopy-Äquivalenz wird durch folgenden Satz ersichtlich.
+
+{\bf Satz 1}
+
+Seien $(K,d)$ and $(K',d')$ homotopie-äquivalente chain complexe.
+Then are the induzierten module-homomorphisms between den korrespondierenden
+Homologie-modules zueinander isomorph:
+\[
+f_{\*} \eq g_{\*} : H_i(K) \to H_i(K').
+\]
+
+Für homotopie-inverse homomorphisms schreibt man kurz $\phi \simeq \psi$.
+The homotopy-Äquivalenz is a Äquivalenzrelation
+in der category der chain complexe.
+
+The Begriff der kurzen exakten Sequenz von modules kann auf chain complexe
+wie folgt erweitert werden.
+
+{\bf Definition 8} (kurze exakte Sequenz von chain complexes)
+
+Ein \textit{kurze exakte Sequenz} von chain complexes is a Folge
+\[
+\{0\} 
+\longrightarrow K' 
+\stackrel{f}{\longrightarrow} K 
+\stackrel{g}{\longrightarrow} K''
+\longrightarrow 
+\{0\}
+\]
+von Komplexen and homomorphisms
+such that for each $i \xeof \Z$ the Folge der modules
+\[
+\{0\} \longrightarrow M'_i 
+      \stackrel{f_i}{\longrightarrow} M_i 
+      \stackrel{g_i}{\longrightarrow} M''_i 
+      \longrightarrow
+\{0\}
+\]
+exakt ist.
+
+Eines der wichtigsten Resultate in der homologischen Algebra ist,
+dass a kurze exakte Sequenz von chain complexes
+eine lange exakte Sequenz von homology-modules erzeugt.
+
+{\bf Satz 2} (Satz von der langen exakten homology-Sequenz).
+
+Sei
+$
+\{0\} 
+\longrightarrow K' 
+\stackrel{f}{\longrightarrow} K 
+\stackrel{g}{\longrightarrow} K''
+\longrightarrow 
+\{0\}
+$
+eine kurze exakte Sequenz von chain complexes.
+Then is for all $n \xeof \N$ the mapping
+$\delta_n: H_n(K'') \to H_{n-1}(K')$ durch the mappingsvorschrift
+$[z] \xeof H_n(K'') \mapsto [ f^{-1}_{n-1} \circ d_n \circ g^{-1}_n(z) ]$
+wohldefiniert and folgende lange Sequenz exakt:
+\[
+\ldots 
+       \stackrel{\delta_{n+1}}{\longrightarrow} H_n(K')
+       \stackrel{ f_n}        {\longrightarrow} H_n(K)
+       \stackrel{ g_n}        {\longrightarrow} H_n(K'')
+       \stackrel{\delta_n}    {\longrightarrow} H_{n-1}(K')
+\ldots
+\]
+
+The mappings $\delta_n$ are called the \textit{Randhomomorphismen} der
+kurzen exakten Sequenz von chain complexes.
+
+The direkte sum von chain complexes ergibt sich in naheliegender Weise
+aus der direkten sum von modules.
+
+{\bf Definition 9} (direkte sum von chain complexes)
+
+Seien $(K',d')$ and $(K'',d'')$ zwei chain complexe.
+The \textit{direkte sum} von $(K',d')$ and $(K'',d'')$ is der chain complex
+$(K,d)$, der durch $M_i := M'_i \oplus M''_i$ and 
+$d_i(x,y) := (d'(x),d''(y))$
+for $x \xeof M'_i$ and $y \xeof M''_i$ definiert ist.
+
+Let $(K' \oplus K'', d' \oplus d'')$ the direkte sum der chain complexe
+$(K',d')$ and $(K'',d'')$.
+The homology-modules dieser direkten sum lassen sich
+aus den homology-modules der Summanden berechnen:
+\[
+H_i(K' \oplus K'') \cong H_i(K') \oplus H_i(K'') \quad \fa i \xeof \Z.
+\]
+
+\section{Sub-Complexes of Chain Complexes}
+%------------------------------------------------------------------------------%
+an kann in naheliegender Weise von Unterkomplexen of a chain complex
+sprechen,
+wenn for each module $M_i$ of the complex a Untermodul $U_i$ vorgegeben ist
+such that
+the Einschränkungen der Randhomomorphismen $d_i$ auf die
+Untermoduln $U_i$ also Randhomomorphismen sind
+and the Komplex-Bedingung $d_i \circ d_{i+1} \eq 0$ erhalten bleibt.
+
+{\bf Definition 10} (Unterkomplex)
+
+Let $(K,d)$ a chain complex and $\{U_i\}_{i \xeof \Z}$ for each 
+$i \xeof \Z$ a Untermodul von $M_i$, such that $d_i(U_i) \subseteq U_{i-1}$.
+Then heißt $(U,d)$ a \textit{Unterkomplex} von $(K,d)$.
+
+Let $(U,d)$ a Unterkomplex of a chain complex $(K,d)$.
+Bildet man for each $i \xeof \Z$ the Faktor-modules $M_i/U_i$,
+so erhält man wieder a Folge von (Faktor)-modules. 
+Für these definiert man module-homomorphisms 
+\[
+d''[x]: M_i/U_i \to M_{i-1}/U_{i-1}, \quad d''[x] := [d(x)]
+\]
+such that
+with $M''_i := K_i/U_i$ the Folge $(K'',d'')$ wieder einen
+chain complex bildet.
+
+{\bf Definition 11} (Faktorkomplex)
+
+The oben angeführte chain complex $(K'',d'')$ heißt der Faktorkomplex bzw. 
+Quotienten-Komplex des chain complex $(K,d)$ and des Unterkomplexes 
+$(U,d)$.
+
+Let nun $(K,d)$ a chain complex, $(U,d)$ a Unterkomplex and $(K'',d'')$
+der hieraus gebildete Faktorkomplex. 
+it den Einbettungsabbildungen $\iota_i:U_i \hookrightarrow M_i$
+and den Projektionsabbildungen $\pi_i: M_i \to M''_i$
+stellen the drei Komplexe a kurze exakte Sequenz von chain complexes dar.
+Es existiert daher zu $(U,d)$, $(K,d)$ and $(K'',d'')$ a lange exakte 
+Sequenz von homology-modules and module-homomorphisms.
+
+Bildet man for zwei Unterkomplexe modulweise the intersection of the modules
+$M'_i, M''_i$, so erhält man auf these Weise den chain complex 
+$K' \cap K''$.
+
+{\bf Satz 3}
+
+Let $(K,d)$ be a chain complex and $(K',d'), (K'',d'')$ subcomplexes.
+Seien ferner the mappings $i$ and $p$ defined according to
+$i(x) \mapsto (x,-x)$ for $x \xeof K'$ 
+and $p(x,y) \mapsto x+y$ for $(x,y) \xeof K' \oplus K''$.
+Then gilt: the kurze Sequenz von chain complexes
+\[
+0              \longrightarrow  K' \cap   K'' 
+  \stackrel{i}{\longrightarrow} K' \oplus K''
+  \stackrel{p}{\longrightarrow} K
+               \longrightarrow
+0
+\]
+ist exakt. 
+
+\section{The Tensor Product of Chain Complexes}
+%------------------------------------------------------------------------------%
+Es läßt sich sowohl a Tensorprodukt of a chain complex with einem
+$R$-module als auch with einem weiteren chain complex definieren.
+
+{\bf Definition 12} (Tensorprodukt von chain complexes)
+
+Let $R$ a commutative ring with unit,
+$(K,d)$ a chain complex and $M$ a $R$-module.
+Then is das Tensorprodukt von $(K,d)$ with $M$ der chain complex 
+$(\tensor{K}{M}, c)$ with den modules $\tensor{K_i}{M}$ and den
+homomorphisms $c_i: \tensor{K_i}{M} \to \tensor{K_{i-1}}{M}$,
+$c_i := d_i \otimes id_M$.
+
+Let $H_i(K,M) := H_i(\tensor{K}{M},c)$.
+The modules $H_i(K,M)$ are called the homology-modules of the chain complex 
+$(K,d)$ with coefficients in $M$.
+
+The tensor product of two chain complexe is defined as follows:
+
+{\bf Definition 12} (Tensorprodukt von chain complexes)
+
+Let $R$ a commutative ring with unit and $(K,d)$, $(L,d')$ 
+chain complexe.
+Then is das Tensorprodukt $\tensor{(K,d)}{(K',d')}$ der
+chain complex $(C,e)$ mit
+\[
+C_n := \bigoplus_{p+q=n} \tensor{K_p}{{K'}_q}
+\]
+und
+\[
+e_n(\tensor{x_p}{y_q}) := \tensor{d_p(x_p)}{y_q} + 
+             (-1)^p \cdot \tensor{x_p}{d'_q(y_q)},
+\qquad x_p \xeof K_p, \, y_q \xeof {K'}_q.
+\]
+
+\section{Cohomology of Chain Complexes}
+%------------------------------------------------------------------------------%
+Let $(K,d)$ a absteigender chain complex.
+Hieraus erhält man in a natural way einen \textit{aufsteigenden}
+chain complex,
+indem man the modules and module-homomorphisms umnummeriert:
+$K^n := K_{-n}$ and $d^n := d_{-n}$ for $n \xeof \Z$.
+
+\subparagraph{}
+Durch Anwenden des Hom-functors $Hom(-,M)$ auf einen absteigenden chain complex
+$(K,d)$ erhält man also einen aufsteigenden chain complex,
+and zwar in folgender Weise:
+zum homomorphism $d_n:K_n \to K_{n-1}$ sei
+\[
+d^{\*}_n:Hom_R(K_{n-1},M) \to Hom_R(K_n,M)
+\]
+der \textit{duale} homomorphism sowie $d^n := (-1)^n \, d^{\*}_{n+1}$.
+In diesem Falle heißt $(Hom(K,M),d)$ a \textit{cochain complex}.
+
+{\bf Definition 13} (cochain module, Korand, Kozykel)
+
+Let $(K,d)$ a chain complex, $M$ a $R$-module and $(Hom(K,M),d)$ der
+zugehörige cochain complex.
+Then heißt $Hom_R(K_n,M)$ der $n$-te cochain module von $(K,d)$
+with values in $M$.
+Ein Element aus $\operatorname{Kern}(d^n)$ heißt \textit{$n$-Kozykel},
+and a Element von $d^{n-1}(K^{n-1})$ heißt \textit{$n$-Korand} von
+$K$ with coefficients in $M$.
+
+\subparagraph{}
+Analog zu den homology-modules definiert man:
+
+{\bf Definition 14} (Kohomologie-module)
+
+Let $R$ a commutative ring with unit and $(K,d)$ der aufsteigender
+chain complex
+\[
+\ldots
+\stackrel{d^{n-2}}{\longrightarrow}
+K^{n-1}
+\stackrel{d^{n-1}}{\longrightarrow}
+K^{n}
+\stackrel{d^{n}}{\longrightarrow}
+K^{n+1}
+\stackrel{d^{n+1}}{\longrightarrow}
+\ldots
+\]
+Then heißt
+$H^n(K) := \operatorname{Kern}(d^n) / d^{n-1}(K^{n-1})$
+der $n$-te \textit{Kohomologie-module} von $(K,d)$.
+
+\fancyhead[C] {\small{\textsc{V. Simplicial Complexes}}}
+%------------------------------------------------------------------------------%
+\part{Simplicial Complexes}
+%------------------------------------------------------------------------------%
+\textit{Simpliziale Komplexe} bzw. \textit{Polyeder} are subsets des $\R^n$,
+die aus sogenannten \textit{Simplices} zusammengesetzt sind.
+Viele topological spaces k\"onnen durch simplicial complexes
+beliebig approximiert werden.
+
+\section{Simplicial Chains}
+%------------------------------------------------------------------------------%
+A Anzahl von points $p_0,\ldots,p_k \xeof \R^n$ with $k \leq n$ are called
+\textit{in allgemeiner Lage},
+if for $i=1,\ldots,k$ the Vektoren $v_i := p_i-p_0$ linear unabh\"angig sind,
+and in diesem Fall is the \textit{konvexe H\"ulle} $[p_0,\ldots,p_k]$ erkl\"art
+als the set
+\[
+[v_1,\ldots,v_k]
+\, := \,
+\set{x \xeof \R^n}
+    {x \eq p_0 \, + \, \sum_{i=1}^k \lambda_i \, v_i,
+    \quad 
+    \lambda_i \geq 0,
+    \quad
+    \lambda_1 + \ldots + \lambda_k \leq 1}.
+\]
+For einen point $x \xeof [p_0,\ldots,p_k]$ are called the coefficients
+$\lambda_i$ the \textit{baryzentrischen Koordinaten} von $x$.
+Dawith kann der Begriff \textit{Simplex} wie folgt erkl\"art werden:
+
+{\bf Definition 1} ($k$-dimensionales Simplex).
+
+Ein \textit{$k$-dimensionales Simplex} bzw. \textit{$k$-Simplex} $\simS \subset \R^n$
+ist the konvexe H\"ulle von $k+1$ points $p_i$ in allgemeiner Lage.
+Ein \textit{Teilsimplex} von $\simS$ is the konvexe H\"ulle einer subset von
+$\{ p_0,\ldots,p_k\}$.
+
+\begin{examples}
+\begin{itemize}
+\item
+Jeder point $p \xeof \R^n$ is a $0$-Simplex and wird a \textit{Ecke} genannt.
+\item
+The $1$-Simplices are Segmente with Endpunkten $p,q \xeof \R^n$ \textit{(Kanten)}.
+\item
+The $2$-Simplices are nichtentartete Dreiecke,
+bestehend aus jeweils drei Segmenten,
+die wiederum Teil-Simplices hiervon sind.
+\end{itemize}
+\end{examples}
+
+The \textit{Rand} bzw. das \textit{Innere} of a Simplices is wie folgt erkl\"art:
+
+{\bf Definition 2} (Rand of a Simplices, offener Simplex).
+
+Let $\simS$ a $k$-Simplex.
+The union $\partial \, \simS$ der Teilsimplices von $\simS$ is called der
+\textit{Rand} von $\simS$.
+The set $S^0 := \simS \setminus \partial \, \simS$
+is called der \textit{offene Simplex} von $\simS$.
+
+\begin{example}
+Ecken besitzen als Rand the leere set,
+each Kante hat seine beiden Endpunkte als Rand,
+and der Rand of a $2$-Simplices besteht aus seinen drei Kanten.
+\end{example}
+
+Let $\simS$ a $k$-dimensionales Simplex,
+der von den $k+1$ points $p_0,\ldots,p_k$ in allgemeiner Lage erzeugt wird.
+Then is called der point
+\[
+\overline{\simS} \, := \, \frac{1}{k+1} \, \sum_{i=0}^k\,  p_i \quad \xeof \R^n
+\]
+der \textit{Schwerpunkt} von $\simS$.
+The nichtnegative reelle Zahl
+$\delta_{\simS} := \operatorname{sup} \set{\norm{x-y}}{x,y \xeof \simS}$
+is called der \textit{Durchmesser} of a Simplices.
+
+\section{Polyeders}
+%------------------------------------------------------------------------------%
+Baut man Simplices so zusammen,
+dass points, edges, Dreiecke usw. zur Deckung gebracht werden,
+so erh\"alt man einen sogenannten \textit{simplizialen Komplex}.
+
+{\bf Definition 3} (simplizialer Komplex, Polyeder).
+
+A set $\simK$ von Simplices is called a \textit{simplizialer Komplex}
+bzw. a \textit{Polyeder}, if gilt:
+\begin{itemize}
+\item
+it each Simplex $\simS \xeof \simK$ enth\"alt $\simK$ auch
+s\"amtliche Teilsimplices von $\simS$.
+\item
+The intersection of je zwei Simplices $\simS_1$, $\simS_2 \xeof \simK$
+ist entweder leer oder a gemeinsamer Teilsimplex.
+\item
+Enth\"alt $\simK$ unendlich viele Simplices,
+so is $\simK$ \textit{lokal endlich},
+that is,
+each point $x \xeof \R^n$ hat a Umgebung,
+die nur with endlich vielen Simplices aus $K$ nichtleeren Durchschnitt besitzt.
+\end{itemize}
+
+Let $\simK$ a simplizialer Komplex.
+Then is the Dimension von $\simK$
+das Maximum der Dimensionen aller Simplices von $\simK$.
+
+A subset $\simK'$ of a simplizialen Komplexes $\simK$ is called ein
+\textit{Unterkomplex} von $\simK$,
+if $\simK'$ selbst einen simplizialen Komplex darstellt.
+The Dimension of a Unterkomplexes is offensichtlich h\"ochstens so gro\"ss
+wie the Dimension of the complex selbst.
+
+Let $ \abs{\simK} $ the mengentheoretische union aller
+Simplices of a simplizialen Komplexes $\simK$:
+\[
+\abs{\simK} \, := \, \bigcup_{\simS_i \xeof \simK} \simS_i.
+\]
+Then is called $\abs{ \simK } \subset \R^n$ der dem Komplex zugrundeliegende
+topological space.
+The Topologie von $ \abs{\simK} $ is dabei durch the Spur-Topologie
+des $\R^n$ in $ \abs{\simK} $ vorgegeben.
+Zu each $p \xeof \abs{\simK} $ gibt es genau a Simplex $\simS_p \xeof \simK$
+with maximaler Dimension and $p \xeof \simS_p$.
+Dieses is called das \textit{Tr\"ager-Simplex} von $p$.
+
+Ist andererseits $\topX$ a beliebiger topological space
+and $\simK$ a (endlicher) simplizialer Komplex,
+so is called $\topX$ durch $\simK$ \textit{(endlich) triangulierbar},
+if $\topX$ zu $ \abs{\simK} $ hom\"oomorph ist.
+
+\begin{example}
+The Kreisscheibe $D^1$ is triangulierbar,
+da hom\"oomorph zu einem Dreieck $\Delta \subset \R^2$.
+\end{example}
+
+\section{Simplicial Mappings}
+%------------------------------------------------------------------------------%
+\textit{Simpliziale mappings} are continuous mappings
+between simplizialen Komplexen,
+die Simplices wiederum in Simplices \"uberf\"uhren.
+
+{\bf Definition 4} (simpliziale mapping).
+
+Seien $\simK$ and $\simL$ simplicial complexes.
+A \textit{simpliziale mapping} $f:\simK \to \simL$ ist
+eine continuous mapping with folgenden Eigenschaften:
+\begin{itemize}
+\item
+$f$ bildet the Ecken von $\simK$ in Ecken von $\simL$ ab.
+\item
+$f(\simS) \xeof \simL$ for each Simplex $\simS \xeof \simK$.
+\end{itemize}
+
+A simpliziale mapping is eindeutig durch the Bilder der Ecken
+bzw. der $0$-Simplices bestimmt.
+Sind $\simK$ and $\simL$ zwei simplicial complexes
+with jeweils $m$ bzw. $n$ Ecken,
+so gibt es h\"ochstens $n^m$ simpliziale mappings $f:\simK \to \simL$
+(meistens are es jedoch weniger).
+
+For a simpliziale mapping $f$ gilt stets:
+$\dim (\simS) \geq \dim (f(\simS))$ for each Simplex $\simS \xeof \simK$.
+
+A simpliziale mapping $f$ between den Komplexen $\simK$ and $\simL$
+induziert a continuous mapping $ \abs{f} $ between den topological spaces
+$ \abs{\simK} $ and $ \abs{\simL} $.
+The mapping $ \abs{f} $ is for einen point $p \xeof \abs{\simK} $ with den
+baryzentrischen Koordinaten $\lambda_i$ bez\"uglich des Tr\"ager-Simplices
+$(x_0,\ldots,x_n)$ erkl\"art according to
+\[
+\abs{f}(p) \, := \, \sum_{i=0}^n \lambda_i \, f(x_i).
+\]
+Ist $f:\simK \to \simL$ a simpliziale mapping and \"uberdies bijektiv,
+so is auch $f^{-1}$ simplizial.
+Insbesondere is then $ \abs{f} $ a Hom\"oomorphismus between
+den spaces $ \abs{\simK} $ and $ \abs{\simL} $.
+
+The simplizialen Komplexe bilden with zusammen with den simplizialen
+mappings a category.
+
+\section{The Simplicial Approximation Theorem}
+%------------------------------------------------------------------------------%
+Das Ziel der \textit{simplizialen Approximation} is es,
+eine beliebige continuous mapping between Polyedern durch a simpliziale
+mapping anzun\"ahern.
+Hierzu m\"ussen in der Regel the Polyeder verfeinert werden.
+
+{\bf Definition 5} (baryzentrische Unterteilung).
+
+Let $\simK$ a simplizialer Komplex.
+A \textit{baryzentrische Unterteilung} von $\simK$ ist
+ein weiterer simplizialer Komplex $\simK'$,
+dessen Ecken the Schwerpunkte von Simplices in $\simK$ sind.
+
+Da each Simplex von $\simK$ hierbei in kleinere Simplices
+von $\simK'$ zerlegt wird,
+ist the baryzentrische Unterteilung von $\simK$ tats\"achlich a Verfeinerung.
+Hierbei gilt for the Durchmesser von Simplices von $\simK'$:
+\[
+d(S') \leq \frac{\dim(\simK)}{\dim(\simK)+1}
+\cdot
+\operatorname{max} \set{d(S)}{S \xeof \simK}.
+\]
+The zugrundeliegende topological space bleibt bei einer Verfeinerung erhalten,
+that is,
+es gilt $ \abs{\simK} \eq \abs{\simK'} $.
+
+Das Verfahren der baryzentrischen Unterteilung kann iterativ angewandt werden.
+Let $K^0 := K$ and $K^n := (K^{n-1})'$ the $n$-te baryzentrische Unterteilung
+von $\simK$.
+Zu $\epsilon > 0$ gibt es $n \xeof \N$
+such that
+each simplex of $K^n$ owns a diameter,
+which is smaller than $\epsilon$.
+
+{\bf Definition 6} (simpliziale Appoximation).
+
+Seien $\simK$ and $\simL$ simplicial complexes and
+$f: \abs{\simK} \to \abs{\simL} $ a continuous mapping.
+A simpliziale mapping $\phi:\simK \to \simL$ is called eine
+\textit{simpliziale Approximation} von $f$,
+wenn for all $p \xeof \abs{\simK} $ gilt:
+$\abs{\phi}(p) \xeof \overline{S_{f(p)}}$.
+
+The folgende Satz von der \textit{Existenz einer simplizialen Approximation}
+hat zum Inhalt,
+dass man each continuous mapping between Polyedern
+durch a simpliziale mapping approximieren kann,
+wenn man den Urbildraum durch baryzentrische Unterteilungen
+hinreichend verfeinert.
+
+{\bf Satz 1} (Existenz einer simplizialen Approximation).
+
+Seien $\simK$ and $\simL$ simplicial complexes
+and $f: \abs{\simK} \to \abs{\simL} $ a continuous mapping.
+Then gibt es a $n_0 \xeof \N$ and for each $n \geq n_0$ a simpliziale
+Approximation $\phi_n:K^n \to \simL$ von $f$.
+
+\section{Ordered Simplicial Complexes}
+%------------------------------------------------------------------------------%
+Um a homology-Theorie for simplicial complexes bzw. ihre assoziierten
+topological spaces formulieren zu k\"onnen,
+ben\"otigt man a Totalordnung auf der set der $0$-Simplices of the complex.
+
+{\bf Definition 7} (geordneter simplizialer Komplex).
+
+Let $\simK$ a finite simplicial complex.
+$\simK$ is called \textit{geordnet},
+if auf der set aller $0$-Simplices a Totalordnung $<$ erkl\"art ist.
+
+The points of a geordneten Komplexes are also durchnummeriert.
+Let $(\simK,<)$ the Bezeichnung for einen \textit{geordneten} simplizialen Komplex.
+Then l\"a\"sst sich a $k$-Simplex $\simS \xeof \simK$ eindeutig in der Form
+$\simS \eq [p_0,\ldots,p_k]$ darstellen.
+
+{\bf Definition 8} ($i$-te Seite of a geordneten simplizialen Komplexes).
+
+Let $(\simK,<)$ a geordneter simplizialer Komplex.
+For a $k$-Simplex $\simS \eq [p_0,\ldots,p_k] \xeof \simK$ and $0 \leq i \leq k$
+is called das $(k-1)$-Simplex $\partial_i \simS$ mit
+$\partial_i \simS := \, [p_0,\ldots,p_{i-1},p_{i+1},\ldots,p_k]$
+die $i$-te Seite von $\simS$.
+
+The Seite $\partial_i \simS$ is also dasjenige Teilsimplex von $\simS$,
+das dem point $p_i$ gegen\"uber liegt.
+
+Let $K_n$ diejenige subset des simplizialen Komplexes $\simK$,
+die genau the $n$-Simplizes enth\"alt.
+Then f\"uhrt the Zuordnung $\simS \mapsto \partial_i \simS$
+Simplices aus $K_n$ in Simplices von $K_{n-1}$ \"uber.
+
+\section{The Euler-Charakteristics of a Simplicial Complex}
+%------------------------------------------------------------------------------%
+Let im folgenden $\riR$ a commutative ring with unit,
+$(\simK,<)$ a geordneter simplizialer Komplex and $n \xeof \N$.
+The set $C_n(\simK,R)$ sei der von den $n$-Simplices
+frei erzeugte $\riR$-module,
+that is,
+each element $c \xeof C_n(\simK,R)$ is a formal sum of the form
+\[
+c \, \eq \, \sum_{i=1}^n r_i K_i, \quad r_i \xeof R.
+\]
+
+{\bf Definition 9} (simpliziale $n$-chain).
+
+The elements von $C_n(\simK,R)$ are called \textit{simpliziale $n$-chains}
+in $\simK$ (with coefficients in $\riR$).
+
+Let for $n > 0$ the mapping $d_n: C_n(\simK,R) \to C_{n-1}(\simK,R)$
+definiert according to
+\[
+d_n(S) := \sum_{i=0}^n (-1)^i \, \partial_i \, S, \qquad S \xeof C_n(\simK,R).
+\]
+Then stellt the mapping $d_n$ for each $n \xeof \N$
+einen module-homomorphism dar.
+
+\begin{example}
+Sind $k_0, k_1, k_2$ the Kanten of a Dreiecks $\Delta$,
+so gilt $d_2(\Delta) \eq k_0 - k_1 + k_2$ and $d_1 \circ d_2(\Delta) \eq 0$.
+\end{example}
+
+Es is a wichtige Eigenschaft von chains,
+dass the zweimalige Anwendung der Randbildung einer chain
+die $0$-chain liefert:
+
+{\bf Satz 2}
+
+Es gilt $d_{n-1} \circ d_{n} \eq 0$ for $n \geq 2$.
+
+The sequence der $\riR$-modules $C_n(\simK,R)$ stellt also
+with den homomorphisms $d_n$ a chain complex $(C(\simK,R),d)$ dar.
+Es is naheliegend, the homology-modules dieses chain complex untersuchen:
+
+{\bf Definition 10} (simplizialer homology-module).
+
+Let $(\simK,<)$ a geordneter simplizialer Komplex.
+Then is called $H_n(\simK;\riR)$
+der $n$-te \textit{simpliziale Homologie-Modul} von $(\simK,<)$.
+
+it $H_{\*}(\simK,R)$ wird gew\"ohnlich the \textit{totale simpliziale homology}
+des geordneten simplizialen Komplexes $(\simK,<)$ bezeichnet.
+
+Zwischen den homology-modules and der \textit{Euler-Charaktistik} of the complex,
+die historisch gesehen the \"alteste topological Invariante darstellt,
+gibt es einen engen Zusammenhang.
+
+{\bf Definition 11} (Euler-Charakteristik).
+
+Let $\simK$ a endlicher simplizialer Komplex and $a_n(\simK)$ the Anzahl
+der $n$-Simplices von $\simK$.
+Then is called the Zahl
+\[
+\chi(\simK) := \sum_{n=0}^{\infty} a_n(\simK) \, \xeof \Z
+\]
+die \textit{Euler-Charakteristik} von $\simK$.
+
+The \textit{Eulersche Polyedersatz} liefert for den Fall,
+dass $\riR$ a K\"orper ist,
+folgende Beziehung between der Euler-Charakteristik of a Komplexes and
+seinen homology-modules.
+
+{\bf Satz 3} (Eulerscher Polyeder-Satz).
+
+Let $(\simK,<)$ a finite and ordered simplicial complex and $\riR$ a field.
+Then we have
+\[
+\chi(\simK) \eq \sum_{n=0}^{\infty} \dim_{\riR} \, H_n(\simK;\riR).
+\]
+
+The values $\beta_n := \dim_{\riR} \, H_n(\simK;\riR)$ are called
+die \textit{Betti numbers} of the complex.
+
+\begin{example}
+The Betti numbers of a W\"urfels $W$ are $\beta_0 \eq 8$, $\beta_1 \eq 12$,
+$\beta_2 \eq 6$ and $\beta_3 \eq 1$,
+which implies $\chi(W) \eq 8-12+6-1 \eq 1$.
+\end{example}
+
+\section{CW-Complexes}
+%------------------------------------------------------------------------------%
+CW-Komplexe are Verallgemeinerungen von simplizialen Komplexen.
+Viele topological spaces wie z.B. Sph\"aren oder Tori k\"onnen with CW-Komplexen
+wesentlich einfacher approximiert werden als with Polyedern.
+
+\textit{cells} and Zerlegungen von topological spaces in cells bilden die
+Grundlagen der CW-Komplexe.
+
+{\bf Definition 12} ($n$-Zelle).
+
+Let $\topX$ a topological space.
+\begin{itemize}
+\item
+The space $\topX$ is called a \textit{$n$-Zelle},
+if er zum space $\R^n$ hom\"oomorph ist.
+\item
+Jeden point $p$ einer $n$-Zelle is called a $0$-Zelle.
+\item
+A \textit{cellszerlegung} $(\cal{E},\topX)$ von $\topX$ is a setnsystem
+$\cal{E}$ von $n$-cells,
+die paarweise disjunkt are and den space $\topX$ \"uberdecken.
+\end{itemize}
+
+\begin{examples}
+\begin{itemize}
+\item
+The offene Vollkugel $D^n$ sowie the punktierte Sph\"are
+$S^n \setminus \{p\} \subset \R^{n+1}$ are $n$-cells.
+\item
+The open simplices of a simplizialen Komplexes $\simK$ are $n$-cells,
+and all open simplices of the complex bilden a cellszerlegung
+des topological space $ \abs{\simK} $.
+\end{itemize}
+\end{examples}
+
+The cellszerlegungen of a space sollten gewissen Einschr\"ankungen
+unterworfen sein,
+die zum Begriff des \textit{CW-Komplexes} f\"uhren:
+
+{\bf Definition 13} (CW-Komplex).
+
+Let $\topX$ a Hausdorffscher topological space and $\cal{E}$
+eine cellszerlegung von $\topX$.
+Then is called $(\cal{E},\topX)$ a \textit{CW-Komplex}, if gilt:
+\begin{itemize}
+\item
+Zu each $n$-Zelle $\epsilon \xeof \cal{E}$ gibt es a continuous mapping
+$\Phi:D^n \to \topX$,
+die das Innere von $D^n$ hom\"oomorph auf the Zelle $\epsilon$
+and $S^{n-1}$ in the union der h\"ochstens $(n-1)$-dimensionalen cells
+abbildet \textit{(charakteristische mapping)}.
+\item
+The abgeschlossene H\"ulle $\overline{\epsilon}$ each Zelle
+$\epsilon \xeof \cal{E}$ hat nur with endlich vielen anderen cells
+non-empty intersection \textit{(H\"ullen-Endlichkeit)}.
+\item
+A subset $\setM \subset \topX$ is genau then abgeschlossen,
+wenn each set $\setM \cap \overline{\epsilon}$ abgeschlossen ist
+\textit{(schwache Topologie)}.
+\end{itemize}
+
+Ist a cellszerlegung endlich,
+so is the Forderung nach der H\"ullen-Endlichkeit
+and der schwache Topologie bereits erf\"ullt.
+
+\begin{examples}
+\begin{itemize}
+\item
+Jeder simpliziale Komplex is a CW-Komplex.
+\item
+The spaces $S^n$ are CW-Komplexe.
+Insbesondere besteht the Sph\"are $S^2$ aus einer $0$-Zelle (Nordpol) and
+einer $2$-Zelle.
+\item
+The Torus is a CW-Komplex, bestehend aus einer $0$-Zelle, zwei $1$-cells
+and einer $2$-Zelle.
+\item
+The $3$-dimensionale W\"urfel besteht aus acht $0$-cells, zw\"olf $1$-cells,
+sechs $2$-cells and einer $3$-Zelle.
+\item
+The projektive space $\R P^n$ besitzt a CW-Zerlegung
+\[
+\R P^0 \subset \R P^1 \subset \ldots \subset \R P^n
+\]
+with einer $i$-Zelle for each $i=0,\ldots,n$.
+\item
+The projektive space $\C P^n$ besitzt a CW-Zerlegung
+\[
+\C P^0 \subset \C P^1 \subset \ldots \subset \C P^n
+\]
+with einer $2i$-Zelle for each $i=0,\ldots,n$.
+\end{itemize}
+\end{examples}
+
+CW-Komplexe are bez\"uglich der performing the intersection and the union abgeschlossen.
+
+The Aufbau von CW-Komplexen erfolgt gew\"ohnlich with Hilfe von \textit{$n$-Ger\"usten},
+welche folgenderma\"ssen definiert sind:
+
+{\bf Definition 14} ($n$-Ger\"ust).
+
+Let $(\cal{E},\topX)$ a CW-Komplex.
+For $n \xeof \N$ is called the set $\cal{E}^n$ aller $n$-cells $\epsilon
+\in \cal{E}$ das $n$-Ger\"ust bzw. $n$-Skelett von $(\cal{E},\topX)$.
+
+Let $\epsilon$ a $n$-Zelle.
+The Restriktion der charakteristischen mapping $\Phi:S^{n-1} \to \cal{E}^n$
+is called the \textit{anheftende mapping} der Zelle an das $n-1$-Ger\"ust.
+The $n$-cells von $\cal{E}$ are also durch $\Phi$ an das $n-1$-Ger\"ust
+$\cal{E}^n$ angeheftet.
+
+an kann daher einen CW-Komplex sukzessive aufbauen,
+in dem man das $n$-Ger\"ust durch Anheften von $n$-cells
+aus dem $n-1$-Ger\"ust konstruiert.
+Beginnend with einem $0$-Ger\"ust (discrete set of points) entsteht der Komplex
+durch Anheften of cells gr\"o\"sserer dimension.
+
+The Begriff des \textit{Unterkomplexes} of a CW-Komplexes ergibt sich in
+nat\"urlicher Weise.
+
+{\bf Definition 15} (Unterkomplex).
+
+Let $(\cal{E},\topX)$ a CW-Komplex,
+$\cal{E}' \subset \cal{E}$ a subset of cells
+and $\topX'$ the union ihrer points.
+$(\cal{E}',\topX')$ is called a \textit{Unterkomplex} von $(\cal{E},\topX)$,
+if $(\cal{E}',\topX')$ also a CW-Komplex ist.
+
+Beliebige unions and beliebige intersections von Unterkomplexen sind
+also Unterkomplexe.
+
+\begin{examples}
+\begin{itemize}
+\item
+Jedes $n$-Ger\"ust of a CW-Komplexes is a Unterkomplex.
+\item
+The union beliebig vieler $n$-cells $\epsilon \xeof \cal{E}$
+with dem $(n-1)$-Ger\"ust $\cal{E}^{n-1}$ is a Unterkomplex.
+\end{itemize}
+\end{examples}
+
+Unterkomplexe lassen sich wie folgt charakterisieren.
+
+{\bf Satz 4}
+
+Let $(\cal{E},\topX)$ a CW-Komplex.
+Ein CW-Komplex $(\cal{E}',\topX')$ is genau then a Unterkomplex von
+$(\cal{E},\topX)$,
+if $\cal{E}' \subset \cal{E}$ and $\topX' \subset \topX$ in $\topX$
+abgeschlossen ist.
+
+Ein CW-Komplex is called endlich,
+if $\cal{E}$ nur aus endlich vielen cells besteht.
+A CW-complex is compact iff it is finite.
+
+Jede Zelle $\epsilon$ liegt in einem endlichen Unterkomplex von $\cal{E}$.
+Jede kompakte subset of a CW-Komplexes ist
+in einem endlichen Unterkomplex enthalten.
+
+\fancyhead[C] {\small{\textsc{VI. Singular Homology}}}
+%------------------------------------------------------------------------------%
+\part{Singular Homology}
+%------------------------------------------------------------------------------%
+A \textit{homology theory} is a topological-algebraical functor,
+which assigns to each topological space a chain complex.
+The diesem chain complex zugrundeliegende Ring $\riR$ wird als commutative
+vorausgesetzt and owns a unit element.
+
+The am meisten betrachtete homology theory is the \textit{singular} homology,
+die for each topological space erkl\"art werden kann.
+Im Mittelpunkt steht hierbei der Begriff der \textit{singular chain} and
+ihre Randabbildungen.
+
+\section{Singular Chains}
+%------------------------------------------------------------------------------%
+Ein $n$-dimensionale \textit{Standard-Simplex} im $\R^{n+1}$ is erkl\"art
+als the set
+\[
+\Delta^n := \set{(x_0,\ldots,x_n) \xeof \R^{n+1}}
+                { \, 0 \leq x_i \leq 1, \sum_{i=0}^n x_i \eq 1}.
+\]
+Speziell for $n=0$ sei $\Delta^0 := \{0,1\}$.
+
+Setzt man a Koordinate $x_i \eq 0$,
+so erh\"alt man a $(n-1)$-dimensionale Seite $\delta_i \Delta^n$
+von $\Delta^n$.
+Diese Seite kann man als Bild einer Einh\"angungs-mapping
+$\delta^n_i : \Delta^{n-1} \to \Delta^n$ mit
+\[
+\delta^n_i(x_0,\ldots,x_{n-1}) \eq (x_0,\ldots,x_{i-1},0,x_i,\ldots,x_n)
+\]
+auffassen.
+Diese mapping $\delta^n_i$ is called the $i$-te \textit{Seitenabbildung} von
+$\Delta^{n-1}$ nach $\Delta^n$.
+
+The Seitenabbildungen gen\"ugen gewissen Vertauschungsregeln.
+For each $j < i$ gilt
+$\delta^n_i \circ \delta^n_j \eq \delta^n_j \circ \delta^n_{i-1}$,
+w\"ahrend for $j \geq i$ the Identit\"at
+$\delta^n_i \circ \delta^n_j \eq \delta^n_{j+1} \circ \delta^n_i$ gilt.
+
+it Hilfe der Standard-Simplices and ihre Seitenabbildungen kann man den
+Begriff des \textit{singular simplices} in general topological spaces
+einf\"uhren:
+
+{\bf Definition 1} (singular $n$-simplex).
+
+Ein {singular $n$-simplex} is a continuous mapping
+$\sigma: \Delta^n \to \topX$ des $n$-dimensionalen
+Standard-Simplices in a topological space $\topX$.
+
+The Seitenabbildungen $\delta^n_i$ between Standard-Simplices induzieren die
+Definition von Seitenabbildungen between singular Simplices:
+
+{\bf Definition 2} (Seite of a singular $n$-Simplices).
+
+Let $\topX$ a topological space,
+$S_n(\topX)$ the set aller singular $n$-Simplizes in $\topX$
+and $\sigma \xeof S_n(\topX)$.
+Then $\partial_i \sigma := \sigma \circ \delta_i^n \xeof S_{n-1}(\topX)$
+is called the \textit{$i$-te Seite} of $\sigma$.
+
+The Seitenbildung of an element $ \sigma \xeof S_n(\topX)$ fulfills the identity
+$(\partial_i \circ \partial_{i-1}) \sigma \eq 0$.
+
+To apply methods from homological algebra,
+dehnt man the set $S_n(\topX)$ to a $\riR$-module $\cal{S}_n(\topX;\riR)$ aus,
+for den $S_n(\topX)$ a free basis darstellt.
+
+{\bf Definition 3} (singular $n$-chain).
+
+Let $\cal{S}_n(\topX;\riR)$ der freie $\riR$-module with basis $S_n(\topX)$.
+Then are called the elements von $\cal{S}_n(\topX;\riR)$ \textit{singular $n$-chains}
+in $\topX$ (with coefficients in $\riR$).
+
+The singular $n$-chains are also formale $\riR$-Linearkombinationen von
+singular Simplices.
+
+The Seitenabbildungen $\partial_i$ between singular Simplices
+gestatten \"uberdies the Definition von module-homomorphisms
+between den modules $\cal{S}_n(\topX;\riR)$:
+sei $\Rand{n}: \cal{S}_n(\topX;\riR) \to \cal{S}_{n-1}(\topX;\riR)$
+die mapping mit
+\[
+\Rand{n}(\sigma) \, := \, \sum_{i=0}^n (-1)^i \partial_i \sigma.
+\]
+Jede mapping $\Rand{n}$,
+welche der Komplex-Bedingung $\Rand{n-1} \circ \Rand{n} \eq 0$ gen\"ugt,
+ist a module-homomorphism.
+This implies
+that the sequence of $\riR$-modules $\{\cal{S}_n(\topX;\riR)\}$ with the
+module-homomorphisms $\Rand{n}$ forms a $\riR$-chain complex $K(\topX;\riR)$.
+Each homomorphism $\Rand{i}$ is called a \textit{boundary operator}
+of this chain complex.
+
+The Untersuchung der homology-groups von $K(\topX;\riR)$ is naheliegend.
+
+{\bf Definition 4} (singular homology-module).
+
+Let $\topX$ a topological space.
+Then is called $H_n(\topX;\riR)$ der $n$-te \textit{singular homology-module} von $\topX$.
+
+it $H_{\*}(\topX,R) := \bigoplus_{n \geq 0} H_n(\topX;\riR)$ bezeichnet man die
+\textit{totale singular homology} des topological space $\topX$.
+
+\begin{example}
+Let $\riR=\Z$ and $\topX \eq \{p\}$ a singleton.
+Then gibt es for each $n \xeof \N$ genau a singular $n$-Simplex.
+Es gilt also $\cal{S}_n(\topX;\Z) \cong \Z$.
+For the Randoperatoren erh\"alt man $\Rand{i} \eq 0$ for $i$ ungerade and
+$\Rand{i} \eq Id$ for $i$ gerade.
+Hieraus folgt insbesondere $H_0(\{p\},\Z) \cong \Z$.
+\end{example}
+
+Bis auf wenige simple examples are the singular chain complexes of a
+topological space un\"uberschaubare and kaum berechenbare objects.
+an ben\"otigt daher further methods,
+to gain insight into the structure of these chain complexes.
+
+\section{The Singular Homology-Functor}
+%------------------------------------------------------------------------------%
+Seien im folgenden $\topX,\topY$ topological spaces and
+$f:\topX \to \topY$ a continuous mapping.
+For each singular Simplex $\sigma \xeof S_n(\topX)$ is the mapping
+$f \circ \sigma$ a singular Simplex von $\topY$.
+Let $f^{\*}:S_n(\topX) \to S_n(\topY)$ the zugeh\"orige mapping.
+Then gilt for $\sigma \xeof S_n(\topX)$:
+\[
+\Rand{n+1} \circ f^{\*}(\sigma) \eq f^{\*} \circ \Rand{n+1} (\sigma),
+\]
+that is,
+$f$ induziert a homomorphism $\phi_f$ between den
+chain complexes $K(\topX;\riR)$ and $K(\topY;\riR)$.
+
+Ferner induziert $f$ for each $n \xeof \Z$ a module-homomorphism
+\[
+f^{\*}_n : H_n(\topX;\riR)
+\to H_n(\topY;\riR), \quad f^{\*}([\sigma]) := [f \circ \sigma]
+\]
+between den homology-modules von $\topX$ and $\topY$.
+
+{\bf Definition 5} (induzierte chainsabbildung).
+
+$f^{\*}_n$ is called the von $f$ \textit{induzierte chainsabbildung}.
+
+The mapping $f^{\*}_n$ stellt daher for each $n \xeof \N$ einen
+kovarianter functor von der category der topological spaces
+in the category der $\riR$-modules dar dar.
+
+\section{Relationships Between Homology and Homotopy}
+%------------------------------------------------------------------------------%
+Seien $\topX,\topY$ topological spaces and $f:\topX \to \topY$ stetig.
+Ist $f$ a homotopy-equivalence,
+so is der homomorphism $\phi_f$ between den chain complexes
+$K(\topX;\riR)$ and $K(\topY;\riR)$ kettenhomotop.
+
+The singular homology is with der homotopytheorie insofern vertr\"aglich,
+als dass homotopie-\"aquivalente spaces zueinander isomorphe homology-modules
+besitzen.
+Hieraus folgt for the induzierten chainsabbildungen:
+
+{\bf Satz 1}
+
+Ist $f:\topX \to \topY$ a homotopy-equivalence
+between the spaces $\topX$ and $\topY$,
+so are for each $n \xeof \Z$ the homology-modules
+$H_n(\topX;\riR)$ and $H_n(\topY;\riR)$ zueinander isomorph.
+
+Zwischen der Fundamentalgruppe and der ersten homology-Gruppe eines
+topological space $\topX$ besteht folgender Zusammenhang:
+ist $\gamma$ a Schleife an $p \xeof \topX$, so is $\gamma$ a $1$-Zykel,
+that is,
+$\gamma \xeof S_1(\topX)$ and hence $[\gamma] \xeof H_1(\topX,\riR)$.
+The dadurch induzierte mapping $h:\pi_1(\topX,p) \to H_1(\topX,\riR)$ is ein
+group homomorphism with $Kern h \eq Kom(\pi_1(\topX,p))$.
+Hieraus folgt der Satz von Hurewicz:
+
+{\bf Satz 2}
+
+Let $\topX$ a wegzusammenh\"angender topological space.
+\begin{itemize}
+\item
+Ist $\pi_1(\topX)$ kommutativ,
+so are $\pi_1(\topX)$ and $H_1(\topX,\Z)$ zueinander isomorph.
+\item
+Ist $\pi_1(\topX)$ nicht-kommutativ,
+then are $\pi_1(\topX)^{ab}$ and $H_1(\topX,\Z)$ zueinander isomorphic groups.
+\end{itemize}
+
+\section{The Homology Groups of Some Geometrical Spaces}
+%------------------------------------------------------------------------------%
+Let $\riR$ be a commutative and unital ring.
+Then gilt
+\[
+H_m(S^n;\riR) \cong \riR, \quad m \eq n > 0, \quad m \eq 0
+\]
+and $H_0(S^0;\riR) \cong \riR \otimes \riR$ and $H_m(S^n;\riR) \cong 0)$ sonst.
+
+Explizit bedeutet dies $H_0(S^0) \cong R$ and $H_0(S^1) \cong H_1(S^1) \cong \riR$.
+Speziell for $n \eq 2$ erh\"alt man $H_0(S^2) \cong \riR$,
+$H_1(S^2) \cong 0$ and $H_2(S^2) \cong \riR$.
+
+Hieraus folgt,
+dass Sph\"aren unterschiedlicher Dimension weder homotopie-\"aquivalent
+noch hom\"oomorph zueinander sind.
+
+For the real projective space we have
+\[
+H_i(\R\,P^n,\Z) \cong \Z, \quad i=0, \, i=2j-1
+\]
+and
+\[
+H_i(\R\,P^n,\Z) \cong \Z_2, \quad i=2j-1, \, i < n.
+\]
+In all other cases $H_i(\R\,P^n,\Z) \cong 0$ holds.
+This means
+\[
+H_0(\R\,P^1,\Z) \cong \Z \cong H_1((\R\,P^1,\Z) \cong 0,
+\]
+\[
+H_0(\R\,P^2,\Z) \cong \Z, \quad  H_1((\R\,P^2,\Z) \cong \Z_2,
+\quad H_2(\R P^2,\Z) \cong 0.
+\]
+
+For the komplex projective space we have
+\[
+H_i(\C\,P^n,\Z) \cong \R, \quad i=2*j, \, 0 \leq j \leq n
+\]
+and $H_i(\C\,P^n,\Z) \cong 0$ otherwise.
+
+\section{Eilenberg-Zilber Theorem}
+%------------------------------------------------------------------------------%
+For topological spaces is der singular chain complex des Produktraumes
+in a natural way homotopie\"aquivalent zum Tensorprodukt der singular
+Komplexe der Faktoren.
+Dies is der Inhalt des \textit{Satzes von Eilenberg-Zilber}:
+
+{\bf Satz 3} (Satz von Eilenberg-Zilber).
+
+Let $\topX,\topY$ be topological spaces.
+Then there are up to chain homotopy uniquely defined homomorphisms
+\[
+\phi\: S_{\*}(\topX) \otimes S_{\*}(\topY) \to S_{\*} (\topX \times \topY),
+\]
+\[
+\psi\: S_{\*}(\topX \times \topY) \to S_{\*}(\topX) \otimes S_{\*}(\topY).
+\]
+
+\section{Cohomology}
+%------------------------------------------------------------------------------%
+Cohomology is the zur homology \textit{duale} Art and Weise,
+topological spaces rsp. pairs of spaces $\riR$-modules zuzuweisen.
+The Vorteil der cohomology besteht darin,
+dass in der totalen cohomology auf nat\"urliche Weise an inner
+multiplicative operation erkl\"art werden kann
+such that
+the total cohomology sogar a Ringstruktur tr\"agt.
+
+In topology there is an important reason,
+neben singular chain complexes auch the zugehorigen cochain complexes
+zu betrachten.
+Diese werden durch Dualisieren,
+that is,
+durch Anwenden of the \textit{Hom}-functor
+for each module des chain complex gewonnen.
+The so definierte cohomology tr\"agt neben der modulestruktur zus\"atzlich
+eine Ringstruktur.
+The Information, welche the cohomology over a topological space
+liefert, is daher reichhaltiger als the der homology.
+Dies is der Hauptgrund, in der Topologie cohomologies zu betrachten.
+
+%{\bf Definition 6} (singular cochain, Korand-Operator, cohomology-module).
+\begin{definition}
+Let $\riR$ be a commutative unital ring, $\modM$ be a $\riR$-module and
+$\topX$ be a topological space.
+
+\begin{itemize}
+\item
+$S^n(\topX;\modM) := Hom_{\riR}(\cal{S}(\topX;\riR),\modM)$ is called der module
+of $n$-dimensional \textit{singular cochains} of $\topX$
+with values in $\modM$.
+\item
+The Korand-operator $d^n : S^n(\topX;\modM) \mapsto S^{n+1}(\topX;\modM)$
+is defined according to
+\[
+(d^n(\phi)(\sigma) := (-1)^n \, \phi(\Rand{n+1}(\sigma))
+\]
+for all $\phi \xeof S^n(\topX;\modM)$ and all $\sigma \xeof S_{n+1}(\topX;\riR)$
+as well as their linear extensions.
+\item
+$H^n(\topX;\modM) := Z^n(\topX;\modM) / B^n(\topX;\modM) \eq H^n(S(\topX;\modM),d)$
+is called the $n$-te singular cohomology-module of $\topX$ with values in $\modM$.
+\end{itemize}
+\end{definition}
+
+\subparagraph{}
+The sequence $S^n(\topX;\modM),d^n)$ forms a cochain complex
+due to $d^n \circ d^{n+1}$.
+Let $f\:\topX \xto \topY$ be a continuous mapping.
+Then $f^{\*}$ is called the \textit{dual mapping} for $f_{\*}$.
+Hence for each $n \xeof \N$ $H^n$ is a contravariant functor
+from the category of pairs of topological spaces
+to the category of $\riR$-modules.
+
+\section{Homotopy, Homology and Cohomology}
+%------------------------------------------------------------------------------%
+If $\topX,\topY$ are topological spaces,
+then the following relationship between homeomorphy, homotopy-equivalence
+and the isomorphy of homology and cohomology complexes holds:
+\[
+\topX \cong \topY
+\quad
+\Longrightarrow
+\quad
+\topX \simeq \topY
+\quad
+\Longrightarrow
+\quad
+H^{\star}(\topX,\Z) \cong H^{\star}(\topY,\Z)
+\quad
+\Longrightarrow
+\quad
+H_{\star}(\topX,\Z) \cong H_{\star}(\topY,\Z).
+\]
+The reverse statements do not hold.
+since it is possible to give counterexamples for them.
+
+%\end{comment}
+%------------------------------------------------------------------------------%
+% close document                                                               %
+%------------------------------------------------------------------------------%
+\end{document}

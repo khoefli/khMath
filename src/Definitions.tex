@@ -1,0 +1,302 @@
+%------------------------------------------------------------------------------%
+% general notations                                                            %
+%------------------------------------------------------------------------------%
+\def\*{\star}
+\def\={\,=\,}
+\def\+{\,+\,}
+\def\xsubset{{\,\subset\,}}
+\def\xtimes{{\,\times\,}}
+\def\xeof{{\,\in\,}}
+\def\eq{{\,=\,}}
+\def\xto{{\,\to\,}}
+\def\eqdef{\,:=\,}
+\def\:{{\,:\,}}
+\def\ele{{\,\in\,}}
+\def\exists{\mbox{ exists }}
+\def\and{\mbox{ and }}
+\def\for{\mbox{ for }}
+\def\fa{\mbox{ for all }}
+\def\fe{\mbox{ for each }}
+\def\qfa{\quad \mbox{ for all }}
+\def\df{\,\dotfill}
+\def\iff{if and only if }
+\def\wrt{with respect to}
+
+\makeatletter
+\newcommand \Df {\leavevmode \cleaders \hb@xt@ .70em{\hss .\hss }\hfill \kern \z@}
+\makeatother
+
+\def\sql{\mathfrak{a}}               % sesquilinear form a
+\def\DF{B}                           % Dirichlet form a
+%------------------------------------------------------------------------------%
+% number sets and special elements                                             %
+%------------------------------------------------------------------------------%
+\def\P{\mathbb{H}}                   % half plane of $\C$
+\def\J{I}                            % interval I
+\def\N{{\mathbb{N}}}                 % unsigned integers
+\def\Q{{\mathbb{Q}}}                 % rational integers
+\def\Z{{\mathbb{Z}}}                 % integers
+\def\R{{\mathbb{R}}}                 % real numbers
+\def\Rn{{\mathbb{R}}^n}              % real numbers in Rn
+\def\Rd{{\mathbb{R}}^d}              % real numbers in Rn
+\def\C{{\mathbb{C}}}                 % complex numbers
+\def\F{{\mathbb{K}}}                 % arbitrary field
+\def\Torus{{\mathbb{T}}}             % complex circle line
+\def\T{\tau}                         % upper bound of interval (0,t)
+\def\sign#1{\operatorname{sign}(#1)} % sign of a number
+
+%------------------------------------------------------------------------------%
+% set theory                                                                   %
+%------------------------------------------------------------------------------%
+\def\G{G}                            % domain $G$
+\def\clG{\overline{\G}}              % closure of $G$
+\def\bndG{\partial \G}               % boundary of $G$
+\def\setA{\mathcal{A}}               % set A
+\def\setB{\mathcal{B}}               % set B
+\def\setC{\mathcal{C}}               % set C
+\def\setM{M}                         % set M
+\def\setN{N}                         % set N
+\def\setS{\mathcal{S}}               % set S
+\def\famF{\mathfrak{F}}              % family of sets
+\def\indI{\mathcal{I}}               % index set I
+\def\pot#1{\mathfrak{P}(#1)}         % power set
+
+\def\relR{\mathbf{R}}                % relation R
+\def\mapf{f}                         % mapping f
+\def\mapg{g}                         % mapping g
+
+\def\set#1#2{\{ \, #1 \,: \, #2 \, \}}
+\def\tensor#1#2{#1 \otimes #2}
+\def\Tens{\oplus}
+
+\def\cal#1{{\mathcal{#1}}}
+\def\aut#1{\operatorname{Aut}(#1)}
+
+\def\cross#1#2{#1 {\,\times\,} #2}
+\def\multicross#1#2{#1 \times  \ldots \times  #2}
+\def\multitens#1#2 {#1 \otimes \ldots \otimes #2}
+
+%------------------------------------------------------------------------------%
+% group theory                                                                 %
+%------------------------------------------------------------------------------%
+\def\1{{\mathsf{1}}}                % unit element of a monoid
+\def\0{{\mathsf{0}}}                % unit element of an Abelian monoid
+\def\kernel#1{\mathfrak{N}(#1)}     % kernel of a homomorphism
+\def\cokernel#1{\mathfrak{C}{(#1)}} % cokernel of a homomorphism
+\def\Hom#1{\operatorname{Hom}(#1)}
+
+%------------------------------------------------------------------------------%
+% linear algebra                                                               %
+%------------------------------------------------------------------------------%
+\def\vecV{\mathit{V}}               % vector space V
+\def\vecH{\mathit{H}}               % vector space H
+\def\vecW{\mathit{W}}               % vector space W
+\def\vecU{\mathit{U}}               % subspace U
+\def\convC{\mathcal{C}}             % convex set C
+\def\basH{\mathfrak{B}}             % Hamel base B
+
+\def\LO#1{\mathscr{L}(#1) }         % algebra of linear transformations
+
+\def\scalar#1#2{ \langle #1,#2 \rangle }
+\def\trace#1{\operatorname{tr}(#1)}
+\def\dim#1{{\operatorname{dim} \, #1 }}
+\def\codim#1{{\operatorname{codim} \, #1 }}
+\def\dim{\operatorname{dim}}
+\def\codim{\operatorname{codim}}
+\def\ind{\operatorname{ind}}
+
+\def\genG{\cal{G}}
+
+\def\algA{\cal{A}}
+\def\algB{\cal{B}}
+\def\algU{\cal{U}}
+
+\def\idI{\cal{I}}
+
+%------------------------------------------------------------------------------%
+% topology                                                                     %
+%------------------------------------------------------------------------------%
+\def\compK{{K}}          % compact set C
+\def\openO{\mathcal{O}}  % open set O
+\def\openU{\mathcal{U}}  % open set U
+\def\U{\mathcal{U}}      % neighbourhood U
+\def\V{\mathcal{V}}      % neighbourhood V
+\def\d{\mathit{d}}       % metric function d
+
+\def\interior#1{\mathring{#1}}
+\def\closure#1{{\overline{#1}}}
+
+\def\topT{\mathcal{T}}   % topology T
+\def\topX{X}             % topological space X
+\def\topY{Y}             % topological space Y
+\def\topZ{Z}             % topological space Z
+\def\metrS{M}            % metric space M
+
+\def\grpG{G}             % topological group G
+\def\grpA{A}             % topological group A
+\def\grpB{B}             % topological group B
+\def\grpC{C}             % topological group C
+\def\grpH{H}             % topological group H
+\def\grpU{U}             % topological group U
+\def\grpV{V}             % topological group V
+\def\topG{G}             % topological group G
+\def\topH{H}             % topological group H
+\def\topU{U}             % topological subgroup U
+
+\def\subS{\cal{S}}
+\def\riR{R}              % ring R
+
+%------------------------------------------------------------------------------%
+% calculus                                                                     %
+%------------------------------------------------------------------------------%
+\def\supp#1{\operatorname{supp}(#1)}
+\def\singsupp#1{\operatorname{sing \, supp}(#1)}
+
+\def\re{\operatorname{Re}}
+\def\im{\operatorname{Im}}
+\def\grad{\operatorname{grad}}
+
+%\def\abs#1 {\left|#1\right|}
+\def\abs#1 {\lvert #1 \rvert}
+%\def\abs#1 {\left|\,#1\,\right|}
+
+%------------------------------------------------------------------------------%
+% measure theory                                                               %
+%------------------------------------------------------------------------------%
+\def\salgA{\Sigma}               % sigma-algebra S
+\def\salgB{\cal{B}}              % sigma-algebra B
+\def\Borel#1{\cal{B}_{#1}}       % Borel-algebra 
+\def\LB{\lambda}                 % Lebesgue-Borel measure
+
+%------------------------------------------------------------------------------%
+% function spaces                                                              %
+%------------------------------------------------------------------------------%
+\def\Lp{L^p(\G)}                 % spaces L_p
+\def\Lq{L^q(\G)}                 % spaces L_q
+\def\Lh{L^2(\G)}                 % spaces L_2
+\def\Li{L^{\infty}(\G)}          % spaces L_infty
+\def\Lc{L_{loc}^1(\G)}           % spaces L_1^{loc}
+\def\Ck{C^k(\G)}                 % spaces C_k
+
+\def\BV#1{BV(#1) }               % set of functions of bounded variation
+\def\AC#1{AC(#1) }               % set of absolutely continuous functions
+
+\def\MP#1{\mathscr{M}^+(#1) }    % set of positive measures
+\def\MS#1{\mathscr{M}^-(#1) }    % vector space of finite signed measures
+\def\MC#1{\mathscr{M}(#1) }      % vector space of complex measures
+\def\MCR#1{\mathscr{M}_{r}(#1) } % vector space of regular complex measures
+
+\def\SobW{W^{k,p}(\G)}                % Sobolev space W
+\def\SobO{\mathring{W}^{k,p}(\G)}     % Sobolev space W
+%\def\WN#1#2{\mathring{W}^{#1}(#2) }   % Sobolev space W
+\def\WN#1#2{W_0^{#1}(#2) }   % Sobolev space W
+%\def\HN#1#2{\mathring{H}^{#1}(#2) }   % Sobolev space H
+\def\HN#1#2{H_0^{#1}(#2) }   % Sobolev space H
+%------------------------------------------------------------------------------%
+% functional analysis                                                          %
+%------------------------------------------------------------------------------%
+\def\snorm#1{\lVert #1 \rVert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
+\def\topV{V}                       % topological vector space V
+\def\topW{W}                       % topological vector space W
+\def\normS{X}                      % normed space
+
+\def\banX{\mathit{X}}              % Banach space X
+\def\banY{\mathit{Y}}              % Banach space Y
+\def\banZ{\mathit{Z}}              % Banach space Z
+\def\dbanX{\mathit{X^*}}           % dual space of Banach space X
+\def\dbanY{\mathit{Y^*}}           % dual space of Banach space Y
+\def\dbanZ{\mathit{Z^*}}           % dual space of Banach space Z
+
+\def\banA{\mathit{A}}              % Banach algebra A
+\def\banB{\mathit{B}}              % Banach algebra B
+\def\banC{\mathit{C}}              % C*-algebra C
+
+
+\def\domain#1{\mathfrak{D}(#1)}    % domain
+\def\range#1{\mathfrak{R}(#1)}     % range
+
+\def\isoJ{\mathfrak{J}}            % isometry J
+\def\repA{{\cal{A}_{\sql}}}        % representation operator A
+\def\linS{{S}}                     % linear operator S
+\def\linG{{G}}                     % linear operator G
+\def\linL{{L}}                     % linear operator L
+\def\linT{{T}}                     % linear operator A
+\def\linA{\mathit{A}}              % linear operator A
+\def\linB{{B}}                     % linear operator B
+\def\linM{{M}}                     % linear operator M
+\def\linU{{U}}                     % linear operator U
+\def\linI{{I}}                     % linear operator I
+\def\A{\cal{A}}                    % linear differential operator A
+\def\BDO{\cal{B}}                  % linear boundary differential operator B
+\def\linU{{U}}                     % unitary operator U
+\def\linP{{P}}                     % projection P
+\def\compA{k}                      % compact operator k
+\def\linFR{f}                      % finite rank operator f
+\def\fredA{A}                      % Fredholm operator F
+
+\def\HAM{\cal{H}}                  % Hamilton operator
+\def\PA{\partial^{\alpha}}         % elementary differential operator
+\def\DO{\cal{A}}                   % linear differential operator
+\def\BC{\cal{B}}                   % boundary operator
+\def\SLO{\cal{L}_{p,q}}            % Sturm-Liouville operator
+\def\MO{\cal{L}_{M}}               % momentum operator
+
+\def\HS#1{S(#1)           }        % algebra of Hilbert-Schmidt operators
+\def\FR#1{F(#1)           }        % algebra of finite rank operators
+\def\TC#1{N(#1)           }        % algebra of trace class operators
+\def\BU#1{\mathscr{U}(#1) }        % algebra of unitary linear operators
+\def\BO#1{\mathscr{L}(#1) }        % algebra of bounded linear operators
+\def\CO#1{\mathscr{C}(#1) }        % algebra of compact linear operators
+\def\CL#1{\mathscr{C}(#1) }        % algebra of compact linear operators
+\def\FO#1{\Phi(#1) }               % set of Fredholm operators
+\def\FK#1#2{\Phi_{#2}(#1) }        % set of Fredholm operators with index k
+
+\def\hilH{\mathit{H}}              % Hilbert space H
+\def\clU{\mathit{U}}               % closed subspace U
+
+\def\orthO{\mathfrak{O}}           % orthonormal system O
+\def\orthS{\mathfrak{S}}           % orthonormal system S
+\def\basB{\mathfrak{B}}            % basis B of a Hilbert space
+
+\def\GL#1 {\mathbf{GL}(#1)}        % linear group
+\def\OG#1 {\mathbf{O}(#1)}         % linear group
+\def\SOG#1 {\mathbf{SO}(#1)}       % linear group
+
+%------------------------------------------------------------------------------%
+% distribution theory                                                          %
+%------------------------------------------------------------------------------%
+\def\disF{F}                  % distribution F
+\def\disG{G}                  % distribution G
+\def\disH{H}                  % distribution H
+\def\disU{U}                  % distribution U
+\def\disT{T}                  % distribution T
+\def\SF{C^{\infty}(\G)}       % space of smooth functions
+\def\TF{C_c^{\infty}(\G)}     % space of compactly supported smooth functions
+\def\TFRd{C_c^{\infty}(\R^d)} % space of test functions
+\def\SRd{\mathscr{S}(\R^d)}   % Schwartz space
+\def\SR1{\mathscr{S}(\R)}     % Schwartz space
+\def\B1#1{C^1(#1) }           % space of continuously differentiable functions
+\def\Bm#1{C^m(#1) }           % space of continuously differentiable functions
+\def\Ck{C^k(\G)}
+\def\TD{\mathscr{S}'(\R^d)}   % space of temperated distributions
+\def\E{\cal{E}}               % space of distributions with compact support
+\def\D{\mathscr{D}}           % D
+\def\FT{\mathcal{F}}          % Fourier transformation F
+\def\FT{\mathscr{F}}          % Fourier transformation F
+
+%------------------------------------------------------------------------------%
+% other definitions                                                            %
+%------------------------------------------------------------------------------%
+\def\Proof{\textsc{Proof}}
+\def\FRECHET{Fr\'{e}chet}
+\def\ARZELA{Arzel\'{a}}
+\def\GARDING{G\r{a}rding}
+\def\HOELDER{H\"older}
+\def\SCHROEDINGER{Schr\"odinger}
+\def\WUEST{W\"uest}
+\def\KAEHLER{K\"aehler}
+\def\HOEFLINGER{H\"oflinger}
+\def\POINCARE{Poincar\'{e}}
+\def\FA{Functional Analysis}

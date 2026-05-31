@@ -1,0 +1,906 @@
+%------------------------------------------------------------------------------%
+% SPECTRAL THEORY OF PARTIAL DIFFERENTIAL OPERATORS                            %
+%------------------------------------------------------------------------------%
+% File  : weid.tex                                                             %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                       DOCUMENT CLASS and INCLUDE FILES                       %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+%\renewcommand\thesection{\Roman{section}}
+
+\def\Title{Spectral Theory of Partial Differential Operators}
+
+\titleformat{\section}
+{\normalfont \bfseries \filcenter}
+{\thesection.\;}{0mm}{}
+
+\titleformat{\subsection}%[runin]
+{\normalfont \itshape}
+{}{}{}
+
+\titlespacing*{\section}   {0pt}{12pt}{4pt}
+\titlespacing*{\subsection}{0pt}{6pt}{0pt}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\centerline{\large{\textbf{\Title}}}
+
+\vspace{4pt}
+\centerline{\footnotesize{{\textsc{Joachim Weidmann}}}}
+\vspace{6pt}
+
+\fancyhead[C] {\small{\textsc{\Title}}}
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+
+\myfootnote
+{
+  Reprint of a lecture published
+  in \textit{Spectral Theory and Differential Equations},
+  Lecture Notes in Mathematics 448, Springer Verlag.
+}
+
+%------------------------------------------------------------------------------%
+%\section*{Introduction}                                                       %
+%------------------------------------------------------------------------------%
+In this paper we review some methods of \textit{perturbation theory}
+which are especially useful for the study of
+\textit{spectral properties of self-adjoint differential operators}.
+
+\subparagraph*{}
+First we describe self-adjoint differential operators with constant and
+not constant coefficients in $L_2(\R^m)$ or $L_2(G)$,
+where $G$ is an open subset of $\R^m$ (sections 1 and 2).
+In section 3 we give some abstract perturbation results concerning
+perturbations which are relatively compact with respect to the unperturbed
+operaotr or with respect to the square of the unperturbed operator.
+Roughly speaking the results say that the essential spectrum
+(and frequently the singular sequences) are preserved.
+In section 4 we show how these results are applicable
+to differential operators,
+especially to operator of the \textit{{\SCHROEDINGER}}
+or \textit{Dirac type}.
+We study perturbations which are \textit{small at infinity}.
+It turns out that these perturbations are very well adapted to this situation.
+In section 5 finally we show that similar conditions are also useful
+in \textit{scattering theory}
+(and therefore in the perturbation theory
+of the absolutely continuous spectrum).
+
+\paragraph*{}
+We introduce some notations.
+With $L_2(G)$ we denote the Hilbert space of square integrable complex-valued
+functions.
+By $L_{2,M}(G) := \{L_2(G)\}^M \eq L_2(G,\C^M)$ we denote
+the corresponding space of $\C^M$-valued functions.
+The inner products and norms are in both cases denoted
+by $\scalar{\,\cdot\,}{\,\cdot\,}$ and $\norm{\,\cdot\,}$,
+respectively.
+The additional index $M$ is used in the same sense in other cases:
+$C_{0,M}^{\infty}$, $W_{2,M}^r$ etc.
+
+\subparagraph*{}
+The \textit{Fourier transform} in $L_2(\R^m)$
+(and in the same way in $L_{2,M}(\R^m)$) is defined by
+\[
+F\,f(x) \= (2\pi)^{-m/2} \lim_{N \to \infty}
+\int_{\abs{y} \leq N} \,e^{-ixy} f(y) \,dy;
+\]
+here $xy$ stands for the inner product of $x,y \in \R^m$.
+With $b_j = i \frac{\partial}{\partial x_j}$ we then have
+\[
+F \partial_j f = -x_j F\,f,
+\quad
+F\,x_jf = \partial_j F\,f,
+\]
+where $x_j$ is the $j$-the component of $x$.
+
+%------------------------------------------------------------------------------%
+\section{Differential operators with constant coefficients}                    %
+%------------------------------------------------------------------------------%
+The simplest differential operators are of course those
+with \textit{constant coefficients}.
+Such an operator $T$ can be written in the form
+\[
+T = P(\partial) = P(b_1,\ldots,b_m),
+\]
+where $P$ is a polynomial in $m$ variables,
+\[
+b = (\partial_1,\ldots,\partial_m), \quad b_j = i \frac{\partial}{\partial x_j}
+\]
+(the imaginary factor $i$ is included to make $b_j$
+\textit{formally self-adjoint};
+this means, for $u,v \in C_0^{\infty}(\R^m)$ we have
+$\scalar{b_j u}{v} = \scalar{u}{b_j v}$.
+A quite natural domain of definition for such a differential operator
+is $C_0^{\infty}(\R^m)$,
+which is dense in $L_2(\R^m)$.
+
+\subparagraph*{}
+For $u,v \in C_0^{\infty}(\R^m)$ we have
+\[
+\scalar{P(\partial) u}{v} = \scalar{u}{P^*(\partial) v},
+\]
+where $P^*$ is the polynomial with coefficients
+which are conjugate to the coefficients of $P$.
+Therefore $T_0$,
+the restriction of $T$ to $\domain{T_0} = C_0^{\infty}(\R^m)$,
+is symmetric if the coefficients of $P$ are real.
+
+\subparagraph*{}
+By means of the Fourier transform $F$ the operator $T_0$ is transformed to
+\[
+M_{P,0} = F^{-1} \, T_0 \, F,
+\]
+where $M_{P,0}$ is the restriction of the multiplication by $P$ to the domain
+$\domain{M_{P,0}} = F^{-1} C_0^{\infty}(\R^m)$,
+which is also dense in $L_2(\R^m)$.
+From that it is clear that $M_{P,0}$,
+and therefore $T_0$, are closable.
+$D{\overline{M_{P,0}}}$,
+and therefore $\domain{\overline{T_0}}$,
+obviously contain the Schwartz space $S(\R^m)$;
+this immediately implies that $\overline{M_{P,0}} = M_P$,
+the maximal operator of multiplication by $P$, {\ie}
+\[
+\domain{M_P} = \{f \in L_2(\R^m): P\,f \in L_2(\R^m) \},
+\]
+\[
+M_P\,f = P\,f \for f \in \domain{M_p}.
+\]
+Since $M_P$ is self-adjoint if and only if $P$ is real valued
+({\ie} the coefficients of $P$ are real),
+the operator $T = \overline{T_0}$ is \textit{self-adjoint}
+if and only if $P$ has real coefficients.
+This implies that $T_0$ is \textit{essentially self-adjoint}
+in this case, and
+\[
+T = T_0^* = F \, M_p \, F^{-1}.
+\]
+
+\subparagraph*{}
+In general $T$ is a \textit{normal} operator, {\ie}
+\[
+\domain{T} = \domain{T^*},
+\quad
+\norm{T^*\,f} = \norm{T\,f} \for f \in \domain{T}.
+\]
+$T^*$ is the operator generated by $P^*$ in the same sense as $T$ was generated
+by $P$.
+(We could say: $T_0$ is essentially normal,
+since $\overline{T_0}$ is normal).
+
+\subparagraph*{}
+The domain of $T$ apparently is given by
+\[
+\domain{T} = F\,\domain{M_P} = \{ f \in L_2(\R^m): P\,F^{-1}f \in L_2(\R^m)\}.
+\]
+From $T = T_0^*$ and the definition of the derivatives for distributions
+it follows that $f \in \domain{T}$ if and only if $P(\partial)f \in L_2(\R^m)$,
+$T\,f = P(\partial) f$.
+(Here the derivatives are taken in the sense of distributions.
+This means: take the regular distribution $D_f$ which is generated by $f$,
+calculate $P(\partial) D_f$ in the sense of distributions;
+this is again a regular distribution generated by an $L_2$-function $g$;
+define $P(\partial)f = g$.)
+This is another useful description of $\domain{T}$ and $T$.
+
+\subparagraph*{}
+Let $P_1$ and $P_2$ be polynomials with
+\[
+\abs{P_1(\xi)} \leq C_1 + C_2 \abs{P_2(\xi)} ,
+\quad \xi \in \R^m
+\]
+for suitable constants $C_1$ and $C_2$.
+Let further $T_1$ and $T_2$ be the operators generated by $P_1$ and $P_2$,
+respectively.
+It follows that $\domain{T_1} \subset \domain{T_2}$
+and for a suitable constant $C$
+\[
+\norm{T_1 f} \leq C \norm{f} + \norm{T_2 f}.
+\]
+For example, if
+\[
+T := -\Delta = \sum_{j=1}^n \partial_j^2,
+\]
+then every derivative (in the sense of distributions) of $f \in \domain{T}$
+up to order $2$ lies in $L_2(\R^m)$.
+If,
+on the other hand,
+$T = \partial_1 \partial_2$,
+then $\partial_1 \partial_2 f$ is (in general) the only derivative
+of $f$ which lies in $L_2(\R^m)$ for $f \in \domain{T}$.
+
+\subparagraph*{}
+If $T$ is an \textit{elliptic} operator of order $r$,
+{\ie} $P$ is a polynomial of order $r$ and
+\[
+C_1 + \abs{P(\xi)} \geq C_2 \abs{\xi} ^r,
+\quad \xi \in \R^m
+\]
+for some constants $C_1$ and $C_2$,
+then $\domain{T}$ is equal to the well-known \textit{Sobolev space}
+\[
+W_2^r(\R^m) := \{ f \in L_2(\R^m): \abs{x} ^r F^{-1}f \in L_2(\R^m) \}
+\]
+\[
+\= \{ f \in L_2(\R^m): \abs{x} ^r Ff \in L_2(\R^m) \}.
+\]
+This definition is meaningful for all $r \in \R$,
+and we shall use it later for all positive $r$.
+For $r=0$ we have $W_2^r(\R^m) = L_2(\R^m)$.
+From the above considerations it follows that
+$C_0^{\infty}(\R^m)$ is \textit{dense} in $W_2^r(\R^m)$
+with respect to the \textit{Sobolev norm}
+\[
+\norm{f}_r := \norm{f}_{W_2^r} = \norm{(1+\abs{\cdot} )^r) Ff}.
+\]
+With this norm $W_2^r(\R^m)$ becomes a Hilbert space.
+One of the most important facts about these Sobolev spaces is given
+by the following theorem.
+
+\begin{theorem}
+Let $0 \leq s < r$.
+Then $W_2^r(\R^m) \subset W_2^s(\R^m)$ and the embedding is continuous.
+For every $\epsilon > 0$ there is a $C \geq 0$ such that
+\[
+\norm{f}_s \leq \epsilon \norm{f}_r + C \norm{f}
+\mbox{ for every } f \in W_2^r(\R^m).
+\]
+For every $\phi \in C_0^{\infty}(\R^m)$ and $f \in W_2^r(\R^m)$ we have
+$\phi f \in W_2^r(\R^m)$ and the map
+\[
+J_\phi: W_2^r(\R^m) \to W_2^s(\R^m), \quad f \mapsto \phi f
+\]
+is compact.
+\end{theorem}
+
+\subparagraph*{}
+The first and second statement are immediate consequences of the
+definition of the norms in $W_2^r(\R^m)$.
+The remaining results follow easily the fact that the multiplication
+by $\phi$ is represented by a convolution with the rapidly decreasing
+function $(2\pi)^{-m/2} F^{-1} \phi$ in the Fourier representation.
+
+\subparagraph*{}
+Sometimes local Sobolev space are used.
+We define
+\[
+W^r_{2,loc}(\R^m) := \{ f \in L_{2,loc}(\R^m):
+\phi f \in W_2^r(\R^m)
+\mbox{ for } \phi \in C_0^{\infty}(\R^m) \}.
+\]
+It is possible to define an inductive limit topology such that
+$W^r_{2,loc}(\R^m)$ becomes a (locally convex) {\FRECHET} space;
+but we do not need such a topological structure.
+
+\subparagraph*{}
+If $P$ does not satisfy the ellipticity condition,
+then one could define a "generalized Sobolev space" by
+\[
+W_2(\R^m,P) := \{ f \in L_2(\R^m): PF^{-1}f \in L_2(\R^m) \}.
+\]
+It is easy to prove some quite similar results for such spaces,
+but we do not go into details.
+
+\subparagraph*{}
+All questions concerning \textit{spectral properties} of the operators
+considered above are now almost trivial,
+since they are \textit{unitary equivalent} to multiplication operators
+(in fact to multiplication by polynomials).
+By means of the unitary equivalence we see that the spectrum of $T$
+is equal to the range of $P$
+(remember that the range of a polynomial is always closed).
+Therefore,
+the spectrum of a self-adjoint differential operator $T$ is either
+a half plane (if $T$ is semi-bounded),
+or the entire real line (if $T$ is not semi-bounded).
+Since $\lambda$ is an eigenvalue of the operator of multiplication by
+a function $t$ if and only if $t^{-1}(\lambda)$ has positive measure,
+if follows that our operator $T$ have \textit{no eigenvalues}.
+
+\paragraph*{}
+The \textit{spectral resolution} $\hat{E}$ of the self-adjoint operator
+$M_P$ is given by
+\[
+(\hat{E}(b) - \hat{E}a) f \= 
+\chi_{\{x \in \R^m: a \leq P(x) \leq b\}} f.
+\]
+From this we can see that the spectra of $M_P$ and $T$ are
+\textit{absolutely continuous},
+which means that the measure on $\R$,
+which is generated by
+\[
+\mu([a,b)) \= \scalar{f}{(\hat{E}(b) - \hat{E}a) f}
+\]
+is absolutely continuous with respect to the Lebesgue measure
+for every $f \in L_2(\R^m)$.
+The spectral projection $\hat{E}(b)-\hat{E}(a)$ of $T$
+is given by the convolution with
+\[
+(2\pi)^{-m/2} F \chi_{\{x \in \R^m: a \leq P(x) \leq b\}}
+\]
+(which lies in $L_2(\R^m)$.
+
+\paragraph*{}
+The \textit{resolvent} of $M_P$ is the multiplication operator
+\[
+(\lambda - M_P)^{-1} f(x) \= (\lambda - P(x))^{-1} f(x)
+\]
+for $\lambda$ not in the range of $P$.
+Therefore the resolvent of $T$ can be given as a convolution operator,
+but in general this is possible only in the sense of distributions.
+
+\subparagraph*{}
+For the very important operator $T \eq -\Delta$ in $\R^3$
+we have $\sigma(T) \eq [0,\infty)$ and 
+\[
+(\lambda - T)^{-1} f(x) \= \frac{-1}{4\pi}
+\int \abs{x-y} ^{-1} \, \exp [i \sqrt{\lambda} \abs{x-y} ] \, f(y) \, dy,
+\]
+where $\im \sqrt{\lambda} > 0$ for $\lambda \neq [0,\infty)$.
+It is also possible to calculate the \textit{unitary group} $exp(-itT)$
+by means of the Fourier transform,
+since the unitary group of $M_P$ is multiplication by $exp(-itP)$.
+We get for $T \eq -\Delta$ and $m \in \N$
+\[
+(e^{-itT}f)(x) = \lim_{N \to \infty} (4\pi it)^{-m/2}
+\int_{\abs{x} \leq N} e^{-\abs{x-y} /4it} \, f(y)\,dy.
+\]
+
+\subparagraph*{}
+These things are only a little more complicated for differential operators
+in the Hilbert spaces of $C^M$-valued functions
+$L_{2,M}(\R^M) := L_2(\R^m)^M = L_2(\R^m,\C^M)$.
+In this case we assume that $P$ is a matrix valued function on $\R^m$,
+where all the entries are polynomials.
+Again by means of the Fourier transform on $L_{2,M}(\R^m)$,
+we get
+\[
+T_0 \= F \, M_{P,0} \, F^{-1},
+\]
+where now $M_{P,0}$ is the operator of (matrix-vector) multiplication by $P$.
+By the same technique as above we prove that $T_0$ is closable and
+that $T_0^*$ is unitarily equivalent to the maximal multiplication operator
+$M_{P^*}$,
+where $P^*(x)$ is the matrix which is hermitean conjugate to $P(x)$.
+It follows that $T := \overline{T_0}$ is essentially self-adjoint
+if and only if $P(x) = P^*(x)$; then $T = T_0^*$.
+
+\subparagraph*{}
+one of the most important examples of this kind is the \textit{Dirac operator}
+for a free electron.
+In this case we have $m=3$, $M=4$ and
+\[
+P(x) \= c(y_1 \alpha_1 + y_2 \alpha_2 + y_3 \alpha_3) + \mu c^2 \beta,
+\]
+$\mu$ and $c$ are positive constants ($\mu$ the mass of the electron,
+$c$ the velocity of the light),
+\[
+xxx
+\]
+and
+\[
+xxx.
+\]
+Since $P^*(x) = P(x)$ the operator $T_0$ is essentially self-adjoint;
+$T := \overline{T_0}$ is self-adjoint with the domain
+$W^1_{2,M}(\R^m) = W^1_2(\R^m)^M$.
+
+\subparagraph*{}
+The eigenvalues of the matrix $P(x)$ are given by $h_j(x)$ with
+\[
+h_1(x) = h_2(x) = -h_3(x) = -h_4(x)
+= \mu c^2 (1 + \frac{\abs{x} ^2}{\mu^2 c^2})^{1/2}.
+\]
+These eigenvalues and a suitable choice of corresponding eigenvectors
+depend smoothly on $x$ (see [25], section 4).
+Therefore $T$ is unitarily equivalent to the multiplication operator $M_H$,
+where
+\[
+xxx,
+\]
+from which we can easily see that the \textit{spectrum} is
+\[
+\sigma(T) = (-\infty, -\mu c^2] \, \cup \, [\mu c^2,\infty).
+\]
+It is also not difficult to show
+that this spectrum is \textit{absolutely continuous}.
+
+\paragraph*{}
+Finally we should mention that the differential operators are just
+a subclass of those operators
+which are \textit{Fourier transforms of multiplication operators}
+(in the same sense as differential operators are Fourier transforms
+of multiplications by polynomials).
+This more general class of operators has many properties
+which are the same as for differential operators.
+If, for example,
+the function $P \: \R^m \xto \R$ is smooth and $\grad P \neq 0$
+almost everywhere,
+then $M_P$ and therefore $T$) has an absolutely continuous spectrum
+and there exists at least some part of a reasonable scattering theory,
+e.\,g. [24,25].
+One great difference lies in the fact
+that differential operators are \textit{local operators}
+({\ie} $\supp{T \phi} \subset \supp{\phi}$,
+but these more general operators are not local.
+
+
+%------------------------------------------------------------------------------e
+\section{Perturbed operators}                                                  %
+%------------------------------------------------------------------------------%
+Most operators which appear in applications do not have constant coefficients,
+but in many cases the terms of hoghest order have constant
+(or asymptotically constant) coefficients.
+Therefore it seems reasonable to consider these operators as
+\textit{perturbed operators},
+the \textit{unperturbed operator} being one with constant coefficients.
+Therefore all the basic problems of spectral theory can be studied
+from the view point of \textit{perturbation theory}:
+assume that we know the unperturbed operator $T_0$ very well;
+what can we say about the perturbed operator.
+Almost everything we are goint to describe in this paper is
+perturbation theory in some sense.
+
+\paragraph*{}
+The first problem is,
+to give a reasonable definition of the perturbed operator,
+{\ie} to find a domain of definition such that
+this operator is self-adjoint or, at least, essentially self-adjoint.
+One of the most useful (abstract) results was given by Rellich and Kato
+(see [12], V.4).
+
+\subparagraph*{}
+Let $A$ and $B$ be operators in a Hilbert space $H$.
+We say that $B$ is $A$\textit{-bounded},
+if $\domain{A} \subset \domain{B}$and
+if there exist non-negative numbers $a$ and $b$ such that
+\[
+\norm{Bx} \leq a \norm{Ax} + b\norm{x}, \quad x \in \domain{A}.
+\]
+The infimum of all possible numbers $a$ is called the $A$-bound of $B$.
+
+\begin{theorem}
+Let $A$ be a (essentially) self-ajoint operator in a Hilbert space $H$
+and assume that $B$ is symmetric and $A$-bounded with $A$-bound less than $1$.
+The $A+B$ is (essentially) self-adjoint and
+$\overline{A+B} \overline{A} + \overline{B}$
+(this implies $\domain{\overline{A+B}} = \domain{A}$.
+\end{theorem}
+
+\subparagraph*{}
+It turns out,
+that very often on eproves the $A$-boundedness with relative bound $<1$
+of a perturbation $B$ by proving that it is $A$-bounde woth $A-bound$ $0$.
+This is so,
+if one considers differential operators where the coefficients are taken
+from a suitable \textit{Stummel class}.
+
+\subparagraph*{}
+For a real number $\rho$ we say that a function $q \:\R^m \xto \C$ belongs to
+the \textit{local Stummel class} $M_{\rho,loc}(\R^m)$, if
+\[
+xxx
+\]
+exists for every $x \in \R^m$ and if $M_{q,\rho}(\cdot)$ is locally bounded.
+For $\rho \geq m$ we have $M_{\rho,loc}(\R^m) \eq L_{2,loc}(\R^m)$.
+We say that
+$q$ belongs to the (global) \textit{Stummel class} $M_{\rho}(\R^m)$,
+if
+\[
+M_{q,p} \eqdef \sup_{x \in \R^m} M_{q,p}(x) \, < \, \infty. 
+\]
+We have obviously $M_{\rho,loc} \subset M_{\tau,loc}$, if $\rho \leq \tau$.
+With this notion the following theorem holds.
+
+%------------------------------------------------------------------------------%
+\section{The invariance of the essential spectrum; abstract results}           %
+%------------------------------------------------------------------------------%
+The \textit{essential spectrum} $\sigma_e(A)$ of a self-adjoint operator $A$
+in a Hilbert space $H$ is defined to be the set consisting of all limit points
+of the spectrum and the eigenvalues of infinite multiplicity.
+It is known that a real number $\lambda$ belongs to $\sigma_e(A)$ \iff one of
+the following conditions is satisfied:
+
+\begin{itemize}[leftmargin=6mm]
+\item[3.1]
+For every $\epsilon > 0$
+the projection $E(\lambda+\epsilon)-E(\lambda-\epsilon)$
+is infinite-dimensional, or
+\item[3.2]
+there exists a sequence $(u_n)$ in $\domain{A}$ such that $u_n \to \0$,
+$u_n \neq \0$ and $(A-\lambda)u_n \to \0$;
+such a sequence is called a \textit{singular sequence} for $A$ and $\lambda$.
+\end{itemize}
+An important problem is the \textit{invariance of the essential spectrum}
+under perturbations.
+In this connection \textit{relative compactness} plays an important role.
+
+\paragraph*{}
+Let $A$ and $B$ be operators in $H$.
+$B$ is said to be $A$\textit{-compact} if $\domain{A} \subset \domain{B}$
+and the map $B \: \domain{A} \xto H$ is compact
+(here $\domain{A}$ is equiped with the \textit{graph norm}
+$\norm{x}_A := (\norm{x}^2 + \norm{Ax}^2)^{1/2}$.
+An equivalent condition is:
+from $x_n\to \0$ and $Ax_n\to \0$ it follows that $Bx_n \to \0$
+(for details see [11]).
+
+\subparagraph*{}
+For a self-adjoint operator $A$ with the spectral resolution $E$ it follows
+easily from the von Neumann spectral theorem:
+$B$ is $A$-compact if and only if $B$ is $A$-bounded with $A$-bound $0$ and
+the restriction of $B$ to $\range{E(N)-E(-N)}$ is compact for every $N \geq 0$.
+
+\paragraph*{}
+The following result is well-known.
+It follows immediately from the above characterizations
+of the essential spectrum and of the relative compactness.
+
+\begin{theorem}
+Let $A$ be self-adjoint and let $B$ be symmetric and $A$-compact.
+Then $\sigma_e(A+b) = \sigma_e(A)$.
+\end{theorem}
+
+\subparagraph*{}
+For many interesting applications to differential operators the
+requirement of $A$-compactness is too restrictive.
+Recently Schechter[18] proved that in certain cases $A^2$-compactness is
+also sufficient.
+His result holds also for non self-adjoint operators in Banach spaces;
+the proof makes strong use of Fredholm theory.
+For this reason we will give here a simpler proof for self-adjoint operators.
+
+\begin{theorem}
+Let $A$ be a self-adjoint operator in $H$, $B$ symmetric and $A$-bounded
+such that $A+B$ is self-adjoint.
+If $B$ is $A^2$-compact,
+then $\sigma_e(A+b) = \sigma_e(A)$.
+\end{theorem}
+
+%------------------------------------------------------------------------------%
+\section{Perturbations which are small at infinity}                            %
+%------------------------------------------------------------------------------%
+In [11] J\"{o}rgens and the author introduced a general class of perturbations
+which are "relatively small at infinity".
+
+%------------------------------------------------------------------------------%
+\section{The absolutely continuous spectrum and scattering theory}             %
+%------------------------------------------------------------------------------%
+From examples (see for example Aronzajn [1]) it is well known that
+we cannot expect a reasonable perturbation theory for the continuous spectrum,
+neither for differential operators nor in an abstract setting.
+
+\subparagraph*{}
+From scattering theory we know that the situation is much better
+with the \textit{absolutely continuous spectrum}.
+But, let us first give some definitions.
+If $T$ is a self-adjoint operator in a Hilbert space $H$,
+then the \textit{absolutely continuous subspace} $H_{ac}$ of $T$
+is defined by
+\[
+H_{ac} = \{ u \in H: \scalar{E(\cdot)u}{u} \mbox{ is absolutely continuous}\}.
+\]
+The restriction $T_{ac}$ of $T$ to $H_{ac}$ is called the \textit{absolutely
+continuous part} of $T$;
+the spectrum of $T_{ac}$ is the \textit{absolutely continuous spectrum} of $T$,
+$\sigma_{ac}(T)$.
+In this section we consider operators $T_0$ and $T_1$;
+to all symbols $H_{ac}$, $\sigma_{ac}$, $T_{ac}$ we add the index $0$ or $1$
+if they refer to $T_0$ or $T_1$ respectively.
+
+\subparagraph*{}
+Let us now assume that $T_0$ has a purely absolutely continuous spectrum
+({\ie} $H_{ac,0} = H$);
+this is always the case if $T_0$ is a differential operator with constant
+coefficients, $T_0 \neq 0$.
+Then the \textit{wave operators} $W_{\pm}(T_1,T_0)$ are defined by
+\[
+W_{\pm}(T_1,T_0) \=
+\mbox{s-}\lim_{t \to \pm \infty} \exp(itT_1) \, \exp(-itT_0)
+\]
+if they exist ("s-lim" means "strong limit").
+
+\subparagraph*{}
+If the wave operators $W_{\pm} = W_{\pm}(T_1,T_0)$ exist,
+then these are isometries and the ranges $\range{W_{\pm}}$ are subspaces of
+$H_{ac,1}$ and $T_0$ is \textit{unitarily equivalent}
+to $T_1\mid_{\range{W_{\pm}}}$.
+In general this is not very much information,
+since we do not know anything about the restriction of $T_1$
+to $\range{W_{\pm}}^{\bot}$.
+But there are results which guarantee that the ranges of $W_{\pm}$ are equal
+to all of $H_{ac,1}$.
+One of these results is given by
+
+%-- theorem 5.1.
+\begin{theorem}([12], note the end of X.4.5)
+If $(\lambda-T_1)^{-n} - (\lambda-T_0)^{-n}$ is in the trace class
+for every non-real $\lambda$,
+then the wave operators $W_{\pm}(T_1,T_0)$ exist and
+$\range{W_+} \eq \range{W_-} \eq H_{ac,1}$.
+(The simplest characterization of an operator of the \textit{trace class} is,
+that it is a product of two Hilbert-Schmidt operators.)
+\end{theorem}
+
+\paragraph*{}
+This result has been proved in [26] to the $1$-dimensional case.
+There we have proven essentially the following theorem.
+
+%-- theorem 5.2.
+\begin{theorem}
+Let $T_0$ be a self-adjoint (elliptic) differential operator with constant
+coefficients in $L_2(\R^m)$ of order $>2$ and assume that $V$ is a symmetric
+operator in $L_2(\R^m)$ such that:
+$\domain{T_0} \subset \domain{V}$,
+$T_1 = T_0 + V$ is self-adjoint and there exist constants $C \geq 0$ and
+$\Theta < -1$ such that for every $r \geq 0$
+\[
+\norm{V u} \leq C (1+r)^{\Theta} (\norm{u} + \norm{T_0}),
+\]
+if $u \in \domain{T_0}$ ans $\abs{\supp{u}} \geq r$.
+Then the wave operators $W_{\pm}(T_1,T_0)$ exist and we have 
+$\range{W_+} \eq \range{W_-} \eq H_{ac,1}$.
+\end{theorem}
+
+\subparagraph*{}
+So far we are not able to give such a general result for higher dimensions
+of for $m \eq 1$ and an operator $T_0$ or order $1$.
+But it is not difficult to prove the following extension which covers
+"smooth and reapidly decreasing" perturbations.
+
+%-- theorem 5.3.
+\begin{theorem}
+Let $T_0$ be a self-adjoint elliptic differential operator
+with constant coefficients in $L_2(\R^m)$ of order $r \geq 1$.
+Let $V$ be a symmetric operator in $L_2(\R^m)$ such that
+$\domain{T_0} \subset \domain{V}$, $T_1 = T_0+V$ is self-adjoint and there
+exist constants $C \geq 0$ and $\theta < -m$ such that for every $r \geq 0$
+\[
+\norm{Vu} \leq C (1+r)^{\theta} (\norm{u}+\norm{T_0 u})
+\]
+if $u \in \domain{T_0}$ and $\abs{ \supp u} \geq r$.
+Assume further that $\domain{T_0^K} = \domain{T_1^k}$
+for $k \in \N$, $k \leq p$, $p > m/r\,+1$.
+Then the wave operators $W_{\pm}(T_1,T_0)$ exist and
+$\range(W_+) = \range(W_-) = \hilH_{ac,i}$.
+\end{theorem}
+
+%------------------------------------------------------------------------------%
+\section{Appendix (added after the end of the symposium)}                      %
+%------------------------------------------------------------------------------%
+In the course of this symposium the author was able to conclude from part ii)
+of the proof of Theorem 3.4 that every singular sequence of $A+B$ and $\lambda$
+is also a singular sequence of $A$ and $\lambda$;
+together with part i) this means that under the assumption of Theorem 3.4
+the operators $A$ and $A+B$ have the same singular sequences.
+This simplifies several later results.
+
+\subparagraph*{}
+The symmetry in this result lead the author to the conjecture
+that "$B$ is also $(A+B)^2$-compact" or more general:
+"If $A_1$ and $A_2$ are self-adjoint with the same domain $\cal{D}$ and
+$\cal{D} \subset \domain{B}$,
+then $B$ is $A_1^2$-compact if and only if $B$ is $A_2^2$-compact".
+The proof of the first conjecture is contained in the following theorem
+which the authors owes to T.\,Kato.
+So far we could neither prove nor disprove the second conjecture.
+It is (in general) not true if the operators $A_j$ are not self-adjoint.
+
+\begin{theo}
+\textit{
+(T.\,Kato, private communication).
+Let $A_1$ and $A_2$ be self-adjoint with $\domain{A_1} = \domain{A_2}$.
+Assume that $B: A_2 - A_1$ is $A_1^2$-compact. Then
+\begin{itemize}
+\item[a)]
+$B$ is also $A_2^2$-compact.
+\item[b)]
+$\sigma_e(A_1) = \sigma_e(A_2)$
+\item[c)]
+an operator $V$ is $A_1$-bounded and $A_1^2$-compact \iff
+$V$ is $A_2$-bounded and $A_2^2$-compact.
+\end{itemize}
+}
+\end{theo}
+
+\Proof:
+Let $R_j = (i-A_j)^{-1}$ for $j=1,2$.
+Then $B R_j$ are bounded operators in $\hilH$ for $j=1,2$ and $B R_1^2$
+is a compact operator in $\hilH$.
+We also have
+\begin{equation}\tag{1}
+R_2 - R_1 \= R_1 B R_2 - R_2 B R_1
+\end{equation}
+and therefore
+\begin{equation}\tag{2}
+R_2^2 \= (I + R_2 B) \, R_1^2 (I + B R_2).
+\end{equation}
+
+\paragraph{}
+a) From (2) we get $BR_2^2 \eq (I + B R_2) \, B \, R_1^2 \, (I+BR_2).$
+Hence $BR_2^2$ is compact because $BR_1^2$ is compact.
+Hence $B$ is $A_2^2$-compact.
+
+b) From (2) we also get
+\[
+R_2^2 \= R_1^2 -(BR_1^{*2})^*R_2 + R_2BR_1^2(I+BR_2)
+\]
+which is compact since $BR_1^{*2}$ and $BR_1^2$ are compact.
+Hence $\sigma_e(R_2^2) = \sigma_e(R_1^2)$,
+and therefore $\sigma_e(A_2) = \sigma(A_1)$.
+(Here a simple spectral mapping theorem for the essential spectrum is used).
+
+c) Let $V$ be $A_1$-bounded and $A_1^2$-compact.
+Then by (1)
+\[
+VR_2 \= VR_1(I-BR_2)
+\]
+is a bounded operator in $\hilH$.
+Therefore $V$ is $B$-bounded. By (2)
+\[
+VR_2^2 \= (VR_1^2 + VR_2BR_1^2)(I + BR_2)
+\]
+is compact since $VR_1^2$ nad $BR_1^2$ are compact.
+Hence $V$ is $B^2$-compact.
+The converse is proved in the same way since the assumptions are completely
+symmetric {\wrt} $A_1$ and $A_2$ by part a) of this theorem. \qed
+
+\paragraph{}
+Part b) of the above theorem gives a very simple proof of this invariance
+of the essential spectrum.
+If we combine part a) of this theorem with part i) of the proof of theorem 3.4,
+then we get a simple proof of the fact
+that also the singular sequence are preserved.
+The complicated part ii) of the proof of theorem 3.4. is not needed.
+
+\paragraph{}
+Note that part a) of the theorem holds also
+if $A_j$ are arbitrary closed operators in a Banach space and
+$\rho(A_1) \cap \rho(A_2) \neq \emptyset$.
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\newpage
+\fancyhead[C] {}
+\fancyhead[OL]{}
+\fancyhead[ER]{}
+\thispagestyle{empty}
+
+\titleformat{\section}
+{\normalfont \bfseries \filcenter}
+{\thesection.\;}{0mm}{}
+
+\newlength{\bibitemsep}\setlength{\bibitemsep}{.5\baselineskip plus .05\baselineskip minus .05\baselineskip}
+\newlength{\bibparskip}\setlength{\bibparskip}{0pt}
+\let\oldthebibliography\thebibliography
+\renewcommand\thebibliography[1]{%
+  \oldthebibliography{#1}%
+  \setlength{\parskip}{\bibitemsep}%
+  \setlength{\itemsep}{\bibparskip}%
+}
+
+\vspace{8mm}
+\begin{thebibliography}{99}
+%\setlength\bibitemsep{3\itemsep}
+\begin{small}
+
+\bibitem{1}  Aronszajn,\,N.:
+On a problem of Weyl in the theory of singular Sturm Liouville equations.
+Amer.\,J.\,Math. 79, 597-610 (1951).
+
+\bibitem{2}  Birman,\,M.\,Sh.:
+Scattering problems for differential operators with constant coefficients.
+Functional Anal. Appl. 3, 167-180 (1969).
+
+\bibitem{3}  B{\"o}cker,\,U.:
+Invarianz des wesentlichen Spektrums bei {\SCHROEDINGER}-Operatoren.
+Math. Ann. 207, 349-352 (1974).
+
+\bibitem{4}  Eckardt,\,K.-J.:
+Scattering Theory for Dirac Operators.
+Math. Z. (to appear)
+
+\bibitem{5}  Glazman,\,I.\,M.:
+Direct Methods of Qualitative Spectral Analysis
+of Singular Differential Operators,
+Israel Program for Scientific Translations, Jerusalem 1965.
+
+\bibitem{6}  Gustafson,\,K. and J.\,Weidmann:
+On the essential spectrum.
+J.\,Math.\,Anal.\,Appl. 25, 121-127 (1969).
+
+\bibitem{7}  Ikebe,\,T. and T.\,Kato:
+Uniqueness of the self-adjoint extensions
+of singular elliptic differential operators.
+Arch.\,Rational\,Mech.\,Anal. 2, 77-92 (1969).
+
+\bibitem{8}  xxx,\,:
+
+\bibitem{9}  J{\"o}rgens,\,K.:
+Wesentliche Selbstadjungiertheit singul{\"a}rer elliptischer
+Differentialoperatoren zweiter Ordnung in C$_0^{\infty}$(G).
+Math Scand. 15, 5-17 (1964).
+
+\bibitem{10} J{\"o}rgens,\,K.:
+Perturbations of the Dirac Operator.
+Conf. Ordinary and Partial Differential Equations, Dundee/Scotland 1972,
+Lecture Notes in Math. 280, 87-102 (1972).
+
+\bibitem{11} J{\"o}rgens,\,K. and J.\,Weidmann:
+Spectral Prperties of Hamitonian Operators.
+Lecture Notes in Math., 313, 1973.
+
+\bibitem{12}  Kato,\,T.:
+Perturbation theory for linear operators.
+Berlin-Heidelberg-New York:
+Springer, 1966.
+
+\bibitem{13}  Kato,\,T.:
+Some results on potential scattering.
+Proceedings at the International Conference on Functional Analysis
+and Related Topics,
+206-215, Tokyo, University of Tokyo Press, 1969.
+
+\bibitem{14}  xxx,\,:
+
+\bibitem{15}  xxx,\,:
+
+\bibitem{16}  xxx,\,:
+
+\bibitem{17}  xxx,\,:
+
+\bibitem{18}  xxx,\,:
+
+\bibitem{19}  xxx,\,:
+
+\bibitem{20}  xxx,\,:
+
+\bibitem{21}  xxx,\,:
+
+\bibitem{22}  xxx,\,:
+
+\bibitem{23}  xxx,\,:
+
+\bibitem{24}  xxx,\,:
+
+\bibitem{25}  xxx,\,:
+
+\bibitem{26}  xxx,\,:
+
+\bibitem{27}  Weidmann,\,J.:
+Zur Spektraltheorie von Sturm-Liouville-Operatoren.
+Math.\,Z. 28, 268-302 (1967).
+
+\bibitem{28}  Weidmann,\,J.:
+Perturbations of self-adjoint operators in $L_2(G)$ with applications
+to differential operators.
+Conf. Ordinary and Partial Diff. Equations Dundee/Scotland 1974 (to appear in 
+Lecture Notes in Math.)
+
+\bibitem{29}  Yosida,\,K.:
+Functional Analysis.
+Berlin-Heidelberg-New York:
+Springer, 1966.
+
+\end{small}
+\end{thebibliography}
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}

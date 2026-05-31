@@ -1,0 +1,176 @@
+%------------------------------------------------------------------------------%
+% define packages                                                              %
+%------------------------------------------------------------------------------%
+\usepackage{upref}
+\usepackage{amssymb}
+\usepackage{slantsc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{amscd}
+\usepackage{verbatim}
+\usepackage{latexsym}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage[ngerman,english]{babel}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{tikz}
+\usetikzlibrary{arrows,arrows.meta,decorations.markings}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{datetime2}
+\usepackage{textgreek}
+\usepackage{hyperref}
+\usepackage{pifont}
+\usepackage{relsize}
+%\usepackage{biblatex}
+\relsize{-0.05}
+\usepackage[skip=0mm]{parskip}
+\usetikzlibrary{decorations.pathmorphing}
+
+\usepackage{mlmodern}
+\usepackage[T5,T1]{fontenc}
+\usepackage{ragged2e}
+
+%\usepackage{mathabx}
+%\usepackage{times}
+
+%\usepackage{fontspec}
+%\setmainfont{Nimbus Roman No9 L}
+%\usepackage[T1]{fontenc}
+
+%------------------------------------------------------------------------------%
+% define page layout                                                           %
+%------------------------------------------------------------------------------%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{30.0pt}
+\renewcommand{\headrulewidth}{0pt}
+
+\AtBeginDocument{
+  \addtolength\abovedisplayskip{-0.0\baselineskip}
+  \addtolength\belowdisplayskip{-0.0\baselineskip}
+}
+
+\fancyhead{}
+\fancyfoot{}
+\addtolength{\headwidth}{0.02\marginparwidth}
+
+\makeatletter
+\let\ps@plain\ps@fancy
+\makeatother
+
+\renewcommand\sectionmark[1]
+{
+ \def\sectionname{#1}
+ \markright{\thesection #1}
+}
+
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother
+
+%------------------------------------------------------------------------------%
+% define footnote without number                                               %
+%------------------------------------------------------------------------------%
+\newcommand{\myfootnote}[1]{%
+\renewcommand{\thefootnote}{}%
+\footnotetext{#1}%
+\renewcommand{\thefootnote}{\arabic{footnote}}%
+}
+
+%------------------------------------------------------------------------------%
+% define numbering in equations                                                %
+%------------------------------------------------------------------------------%
+\numberwithin{equation}{section}
+
+%------------------------------------------------------------------------------%
+% define newtheorem                                                            %
+%------------------------------------------------------------------------------%
+\declaretheoremstyle[
+headfont=\scshape, 
+headindent = 0mm, %\parindent,
+%postheadhook = {\hspace{0mm}\newline},
+%postheadspace = \newline, 
+spaceabove = 3mm, 
+spacebelow = 3mm,
+numberwithin=section,
+name=Theorem]{khMATH}
+\declaretheorem[style=khMATH]{theorem}
+
+\declaretheoremstyle[
+headfont=\bfseries, 
+headindent = 0mm, %\parindent,
+%postheadhook = {\hspace{0mm}\newline},
+%postheadspace = \newline, 
+spaceabove = 3mm, 
+spacebelow = 3mm,
+numberwithin=part,
+name=Theorem]{khMATH1}
+\declaretheorem[style=khMATH1]{theorem1}
+
+\declaretheoremstyle[
+headfont=\scshape, 
+headindent = 0mm, %\parindent,
+%postheadhook = {\hspace{0mm}\newline},
+%postheadspace = \newline, 
+spaceabove = 3mm, 
+spacebelow = 3mm,
+numberwithin=section,
+name=Corollary]{khMATH1}
+\declaretheorem[style=khMATH1]{corollary}
+
+%            name         counter     label              numeration-mode
+\theoremstyle{plain}
+\newtheorem*{introduction}            {\sc Introduction}
+\newtheorem {standard}                {}                 [section]
+\newtheorem*{definition}              {\sc Definition}
+\newtheorem{satz1}                    {\sc Satz}
+\newtheorem{lemma}                    {\sc Lemma}
+\newtheorem*{proposition}             {\sc Proposition}
+%\newtheorem{corollary}               {\sc Corollary}
+\newtheorem*{corollar}                {\sc Korollar}
+\newtheorem*{remark}                  {\sc Remark}
+\newtheorem*{remarks}                 {\sc Remarks}
+\newtheorem*{example}                 {Example}
+\newtheorem*{examples}                {Examples}
+\newtheorem*{theo}                    {\sc Theorem}
+
+%------------------------------------------------------------------------------%
+% define tabular                                                               %
+%------------------------------------------------------------------------------%
+\usepackage{tabularx}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}  p{#1}} 
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash} p{#1}} 
+
+%------------------------------------------------------------------------------%
+% define \sh, \zB                                                              %
+%------------------------------------------------------------------------------%
+\def\dsh{{d.\,h.}}
+\def\ie{{i.\,e.}}
+\def\zB{z.\,B.}
+\renewcommand{\abstractname}{ }
+
+%------------------------------------------------------------------------------%
+% change default spacing for cases                                             %
+%------------------------------------------------------------------------------%
+\makeatletter
+\renewcommand*\env@cases[1][1.6]{%
+  \let\@ifnextchar\new@ifnextchar
+  \left\lbrace
+  \def\arraystretch{#1}%
+  \array{@{}l@{\quad}l@{}}%
+}
+\makeatother
+
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+
+%------------------------------------------------------------------------------%
+% change default for \predisplaypenalty                                        %
+%------------------------------------------------------------------------------%
+\predisplaypenalty=990
+\allowdisplaybreaks \numberwithin{equation}{section}

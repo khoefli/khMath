@@ -1,0 +1,1227 @@
+%------------------------------------------------------------------------------%
+% MEASURE AND INTEGRATION THEORY                                               %
+%------------------------------------------------------------------------------%
+% File  : Measure_and_Integration_Theory.tex                                   %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+% DOCUMENT CLASS and INCLUDE FILES                                             %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+\titleformat{\part}%[display]
+{\normalfont \rmfamily \bfseries \centering}
+{{\thepart.}}{3pt}{}
+
+\titleformat{\section}[runin]
+{\normalfont \bfseries \filcenter}
+{\thesection.\,}{0mm}{}[.]
+
+\titlespacing*{\part}   {5pt}{12pt}{ 4pt}
+\titlespacing*{\section}{0pt}{ 3pt}{ 3pt}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\centerline{\textrm{\large{\textbf{Measure and Integration Theory}}}}
+\vspace{4pt}
+\centerline{\textsc{\small{\Author}}}
+\vspace{10pt}
+
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+
+%------------------------------------------------------------------------------%
+%                                  CONTENT                                     %
+%------------------------------------------------------------------------------%
+\myfootnote
+{
+  Version {\Version} from \today;
+  Email:  \textit{\Email}
+}
+
+\thispagestyle{empty}
+This text serves as a comprised review on the essentials
+of \textit{measure and integration theory},
+a fundamental area in modern mathematics with many applications
+to functional and harmonic analysis and other fields of importance.
+The content is presented within three parts:
+the first one describes abstract measure spaces and different kinds of
+measures, the second one deals with \textsc{Lebesgue}'s integration theory
+and the final one considers measures on locally compact topological spaces.
+
+\fancyhead[OC] {\small{\textsc{I. Measure Spaces}}}
+\fancyhead[EC] {\small{\textsc{I. Measure Spaces}}}
+\part{Measure Spaces}
+%-------------------------------------------------------------------------------
+In mathematics a \textit{measure} is
+a way of assigning a numerical value to certain subsets of a given base set,
+which can be considered as the length, the area or the volume of such sets.
+One may think of the situation in the real line,
+where each compact interval $[a,b]$ is measured by the real number $b{-}a$.
+This mapping can easily be extended to finite or actually countable
+many unions of finite intervals under the assumption
+that the involved intervals are pairwise disjoint.
+
+\section{Measurable Spaces}
+%------------------------------------------------------------------------------%
+Motivated by the introductory statements,
+we are interested in collections of subsets of a set $X$,
+which are closed under taking countable unions,
+and each member of such a collection will be called a \textit{measurable set}.
+This means
+that the collection of measurable sets will be the natural domain for a measure.
+
+\subparagraph{}
+For a non-empty set $X$,
+the domain of a measure on $X$ is a collection of subsets of $X$,
+called a \textit{$\sigma$-algebra}.
+In particular,
+a $\sigma$-algebra $\salgB$ on $X$ is defined by the following properties:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$\salgB$ contains the empty set $\emptyset$.
+
+\item[2.]
+$\salgB$ is closed under complemention:
+if $A,B \xeof \salgB$, then $A \setminus B \xeof \salgB$
+(this property implies $X \xeof \salgB$).
+
+\item[3.]
+$\salgB$ is closed under taking countable unions,
+that is,
+if $\{ {A_n}\}_{n=1}^{\infty}$ is a sequence of sets $A_n \xeof \salgB$,
+then $\bigcup_{n=1}^{\infty} A_n \xeof \salgB$.
+\end{itemize}
+
+\subparagraph{}
+From de Morgan's law
+(which is just as valid for infinite unions and intersections
+as it is for finite ones),
+one can see
+that $\sigma$-algebras are also closed under countable intersections.
+We call an element of a $\sigma$-algebra a \textit{measurable set},
+and each pair $(X,\salgB)$ consisting of a set $X$ and
+a $\sigma$-algebra $\salgB$ is said to be a \textit{measurable space}.
+
+\section{Generators of \textsigma-Algebras}
+%------------------------------------------------------------------------------%
+We now describe two methods,
+how $\sigma$-algebras can be established supposed a base set $X$ is given.
+
+\subparagraph{}
+First,
+we may claim
+that the intersection of arbitrarily many $\sigma$-algebras
+forms a $\sigma$-algebra again.
+Thus,
+for a given collection $\setA$ of subsets of the set $X$
+(think of the collection of finite intervals in $\R$ for instance),
+we define the {coarsest} $\sigma$-algebra containing $\setA$
+(denoted $[\setA]$).
+This resulting $\sigma$-algebra $[\setA]$ is called
+\textit{generated} by $\setA$,
+and $\setA$ is said to be a \textit{generator} of $[\setA]$.
+
+\subparagraph{}
+Second,
+if $X'$ is a subset of $X$ and $\salgB$ is a $\sigma$-algebra on $X$,
+it is possible to define the \textit{subset-$\sigma$-algebra} on $X'$
+as the collection of all intersections $X' \cap B$ with $B \xeof \salgB$.
+
+\paragraph*{}
+Using the first method described above,
+we define the \textit{Borel} $\sigma$-algebra $\cal{B}(\R)$
+on the real line $\R$ to be the $\sigma$-algebra generated
+by the collection of closed and finite intervals $[a,b] \subset \R$.
+Each element of $\cal{B}(\R)$ is called a \textit{Borel-measurable set}.
+Similarly,
+for the higher dimensional Euclidean spaces
+the Borel $\sigma$-algebras $\cal{B}(\Rn)$ are 
+generated by the collection of open subsets, closed subsets,
+compact subsets and open balls in $\Rn$.
+Applying the second method for any subset $X \subset \Rn$,
+we can define the $\sigma$-algebra $\cal{B}(X)$,
+which is also called the Borel $\sigma$-algebra on $X$.
+
+\section{Positive Measures}
+%------------------------------------------------------------------------------%
+Given any collection of measurable sets,
+a measure is nothing but a \textit{set function} acting additively
+on sequences of pairwise disjoint measurable sets.
+
+\subparagraph{}
+Let $(X,\salgB)$ a measurable space.
+Then a \textit{measure} is a mapping
+$\mu \: \salgB \xto \R^+ \cup \{\infty\}$
+satisfying (1) $\mu(\emptyset)=0$ and (2) the main condition
+\[
+\mu (\, \bigsqcup_{i=1}^{\infty} M_i \,) \= \sum_{i=1}^{\infty} \, \mu(M_i)
+\]
+for any sequence of pairwise disjoint sets
+$\{M_1,M_2,M_3, \ldots\} \subset \salgB$,
+which is the fundamental property of a measure
+denoted \textit{countable additivity} or \textit{$\sigma$-additivity}.
+
+\subparagraph{}
+Since a measure $\mu$ takes values in the interval $[0,\infty]$,
+it is often called an \textit{unsigned} or a \textit{positive} measure
+(in distinction to other concepts like 
+\textit{signed} and \textit{complex} measures which are discussed below).
+
+\subparagraph{}
+Each triple $(X, \salgB, \mu)$ consisting of a measurable space
+and a measure $\mu$ on $X$ is called a \textit{measure space}.
+It is a central concept in measure theory,
+
+\paragraph{}
+Given a measure $\mu$,
+the inclusion $A \subset B$ implies $\mu(A) \leq \mu(B)$
+for any measurable sets $A,B$.
+This property of a measure is called \textit{monotonicity}.
+But there are further properties which measures may or may not have:
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+If $\mu(A) < \infty$ for each set $A \xeof \salgB$,
+then $\mu$ is called a \textit{finite} measure.
+The measure $\mu$ is called $\sigma$-finite,
+if there is a sequence ${A_n}$ of measurable sets
+such that
+\[
+X = \bigcup_{n \in \N} A_n, \quad A_n \subset A_{n+1}, \quad
+\mu(A_n) < \infty \, \fa n \in \N.
+\]
+
+\item[2.]
+A measure $\mu$ is said to be \textit{concentrated} on a measurable set $A$,
+if $\mu(E) \eq 0$ for all sets $E \xeof \salgB$ which are distinct from $A$.
+This is equivalent to the statement
+that $\mu(E) \eq \mu(A \cap E)$ for every $E \xeof \salgB$.
+
+\item[3.]
+For two measures $\mu,\nu$ on $\salgB$
+suppose there exist disjoint sets $A_{\mu},A_{\nu}$ such that
+$\mu$ is concentrated on $A_{\mu}$ and
+$\nu$ is concentrated on $A_{\nu}$.
+Then $\mu, \nu$ are called \textit{mutually singular} denoted $\mu \bot \nu$.
+\end{itemize}
+
+\subparagraph{}
+Finally,
+a property $E$ defined for elements $x \xeof X$ is called
+\textit{$\mu$-almost everywhere valid},
+if the set of all elements $x$,
+for which $E(x)$ does \textit{not} hold,
+is a null set or the subset of another null set.
+
+\section{Signed Measures}
+%------------------------------------------------------------------------------%
+There are several possibilities to extend the notion of a (positive) measure.
+One of them is that of a \textit{signed measure},
+which is characterized by the property
+to take values in the extended real lines
+$(-\infty,\infty] := \R \cup \{\infty\}$
+or
+$[-\infty,\infty) := \R \cup \{-\infty\}$.
+In particular,
+for a measurable space $(X,\salgB)$ a set function
+\[
+\mu: \salgB \to (-\infty,+ \infty] \quad \mbox{or} \quad
+\mu: \salgB \to [-\infty,+ \infty)
+\]
+is called a \textit{signed measure},
+if $\mu(\emptyset) \eq 0$ and $\mu$ is countable additive.
+A signed measure is called \textit{finite},
+if it takes values in the real line only.
+
+\subparagraph{}
+Each positive measure is a special case of a signed measure.
+If $\mu,\nu$ are signed measures,
+one can take the difference $\mu - \nu$, supposed one of them is finite.
+Conversely,
+for signed measures the \textsc{Hahn-Jordan} \textit{decomposition theorem}
+holds,
+which states
+that each signed measure can be represented as the difference of two
+positive measures:
+
+\begin{theorem}\label{HAHN_JORDAN_DECOMPOSITION_THEOREM}
+For each signed measure $\mu$ on the measurable space $(X,\salgB)$
+there are two positive measures $\mu_+$ and $\mu_-$,
+such that for every set $A \xeof \salgB$ the equality
+$\mu(A) \eq \mu_+(A) - \mu_-(A)$ holds.
+
+\subparagraph{}
+In addition, 
+there is a disjoint decomposition of the base set $X$ into two sets $P,N$,
+such that $\mu_+$ is the zero measure on $N$
+and $\mu_-$ is the zero measure on $P$.
+If $X \eq P' \sqcup N'$ is a further decomposition with these properties,
+then the sets $P,P'$ and $N,N'$ differ only in null sets {\wrt} $\mu$.
+\end{theorem}
+  
+\subparagraph{}
+The sum of two finite signed measures is a finite signed measure
+as well as the product of a finite signed measure by a real number.
+Hence finite signed measures are closed under linear combinations of them,
+which implies
+that the set of finite signed measures on a measurable space $(X,\salgB)$
+is a real linear space denoted $\cal{M}^-(X,\salgB)$.
+For a signed measure $\mu$,
+the measure $\abs{\mu} := \mu_+ + \mu_-$ is called
+the \textit{total variation} of $\mu$,
+which itself is called of \textit{bounded variation}, if $\abs{\mu} < \infty$.
+ 
+\section{Complex Measures}
+%------------------------------------------------------------------------------%
+In contrast to positive measures,
+a \textit{complex measure} on the measurable space $(X,\salgB)$
+is a $\sigma$-additive set function $\mu \: \salgB \xto \C$.
+By this reason,
+a complex measure can only have finite values,
+and the condition $\mu(\emptyset)=0$ is fulfilled by itself
+and need not be part of the definition.
+
+\subparagraph{}
+When dealing with complex measures,
+it is possible to define the concept of \textit{variation}.
+More precisely,
+the variation $\abs{\mu} $ of a complex measure $\mu$
+is that mapping $\abs{\mu} \: \salgB \xto [0,\infty]$,
+which assigns to each measurable set $A$ the value
+\[
+\abs{\mu} (A) \eqdef
+\sup \, \sum_{n=1}^{\infty} \, \norm{\mu(A_n)},
+\]
+where the sequences $(A_n)$ may be any mostly countable disjoint
+decompositions of $A$ in measurable subsets.
+It is a surprising result
+that for each complex measure $\mu$
+the variation $\abs{\mu} $ is actually a \textit{finite} positive measure.
+
+\subparagraph{}
+The \textit{total variation} of a complex measure $\mu$ is defined
+to be the variation of the entire set $X$,
+that is, $\abs{\mu} := \abs{\mu} (X)$.
+Since $\abs{\mu} < \infty$,
+each complex measure is said to be of \textit{bounded variation}.
+
+\section{Measurable Functions}
+%------------------------------------------------------------------------------%
+The main thing what one can do with a measure is to integrate
+real-valued or complex-valued functions.
+But in general this is not possible for any function, that is,
+the restriction to the so-called \textit{measurable functions} is necessary.
+By this way
+we will establish the \textit{Lebesgue integral} for measurable functions,
+which may or may not exist for such a function.
+It turns out
+that the Lebesuge integral has much better behaviour {\wrt}
+some limit processes than the classical Riemann integral,
+which suffers from the drawback
+that the limit function of a sequence of Riemann-integrable functions
+need not be Riemann-integrable again.
+
+\paragraph{}
+The notion of measurability of a function is elementary
+in integration theory.
+Let $(X,\salgB)$ and $(X',\salgB')$ be measurable spaces,
+then any mapping $f \: X \xto X'$ is called \textit{measurable},
+if $f^{-1}(A) \xeof \salgB$ for every set $A \xeof \salgB'$.
+Note
+that this definition is rather similar to that of continuity
+for functions between topological spaces.
+
+\subparagraph{}
+The measurablility of a given function $f$ is ensured,
+if the pre-images of those subsets in $X'$ are measurable in $X$,
+which form a generator of the $\sigma$-algebra $\salgB'$.
+Especially in case of a measurable space $(X,\salgB)$
+and a real-valued function $f \: X \xto \R$,
+the function $f$ is measurable {\wrt} the $\sigma$-algebra
+$\cal{B}(\R)$, if and only if the pre-images of the half-bounded intervals
+$A_{\lambda} := \set{x \xeof \R}{x \leq \lambda}$ are elements of $\salgB$,
+and in this case the mapping $f$ is called a \textit{Borel function}.
+
+\subparagraph{}
+If $f,g$ are Borel functions and $\lambda$ is a real number,
+then $f+g$ and $\lambda f$ are Borel functions again,
+so the set of Borel functions for a given measurable space
+forms a linear space.
+It is also important to know that $f$ is measurable,
+iff the functions $f^+$ and $f^-$ are both measurable,
+which are defined to be the positive and negative part
+of the real-valued function $f$,
+that is, $f \eq f^+ - f^-$.
+We conclude
+that the modulus function $\abs{f} := f^+ + f^-$ is measurable,
+supposed the function $f$ itself is measurable.
+
+\subparagraph{}
+In case of complex-valued functions,
+a function $f \: X \xto \C$ is said to be measurable,
+iff both the real and imaginary part of $f$ are measurable.
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\begin{comment}
+\vspace{8mm}
+\begin{small}
+\begin{thebibliography}{99}
+
+\bibitem{El_1} J.\,Elstrodt:
+\textit{Ma{\ss} -und Integrationstheorie}.
+Springer Verlag, 2018.
+
+\end{thebibliography}
+\end{small}
+\end{comment}
+
+%\newpage
+%\thispagestyle{empty}
+\fancyhead[OC]{\small{\textsc{II. Lebesgue Integration}}}
+\fancyhead[EC]{\small{\textsc{II. Lebesgue Integration}}}
+\part{Lebesgue Integration}
+%-------------------------------------------------------------------------------
+Integration is a way of assigning a mean value to a given function.
+The basic idea of \textit{Lebesgue integration} is to decomposite
+the range of a function $f \: X \xto \R$ into intervals
+and to measure the pre-images of them.
+If these pre-images are measurable sets {\wrt} a measurable space $(X,\salgB)$,
+we can do a first step to assign a real number to $f$,
+which may be regarded as the integral of $f$.
+
+\section{Setup of the Lebesgue Integral}
+%------------------------------------------------------------------------------%
+Usually the definition of the Lebesgue integral is carried out in four steps,
+beginning with that for elementary functions.
+Let $(X, \salgB, \mu)$ be a measure space.
+Our aim is to define Lebesgue-integration for every measurable function,
+which will be done by a couple of steps:
+
+\begin{itemize}[leftmargin=12pt,itemsep=2pt]
+\item[1.]
+A mapping $\chi_A \: X \xto \R$ is called the \textit{characteristic function}
+of a measurable set $A$,
+if $\chi(x)=1$ for $x \xeof A$ and $\chi(x)=0$ otherwise.
+We can simply define the Lebesgue-Integral of $\chi_A$ by
+\[
+\int_{X} \chi_A \, d \mu \eqdef \mu(A),
+\]
+and the function $\chi_A$ is called \textit{Lebesgue-integrable},
+iff $\mu(A) < \infty$.
+
+\item[2.]
+A measurable function $e \: X \xto \R$ is called \textit{simple},
+if there are finitely many real numbers $a_1,\ldots,a_n$
+such that $e(x) \xeof \{a_1,\ldots,a_n\}$ for all $x \xeof \R$,
+that is, the range of a simple function is a finite set.
+Equivalently,
+a simple function $e$ is a linear combination of characteristic functions,
+and we define the Lebesgue integral for $e$ by the setting
+\[
+\int_{X} e \, d \mu \eqdef
+\sum_{i=1}^m a_i \cdot \int_{X} \chi_{A_i} \, d \mu.
+\]
+If this is a finite value,
+then the simple function $e$ is said to be \textit{Lebesgue-integrable}.
+
+\item[3.]
+Now,
+let the function $f \: X \xto \R$ be nonnegative and measurable.
+In this case we define the set $\cal{E}_f$ as the collection
+of all simple functions $e$ satisfying the property $e(x) \leq f(x)$
+for all $x \xeof X$.
+Note
+that the set $\cal{E}_f$ is non-empty,
+since for each measurable function $f$
+there is a sequence $\{e_n\}$ of simple functions with
+$e_1 \leq e_2 \leq e_3 \leq \ldots$ and
+$\lim_{n \to \infty} e_n \eq f$ pointwise.
+We define the \textit{Lebesgue integral} of $f$ as follows:
+\[
+\int_{X} f \, d \mu :=
+\sup_{e \in \cal{E}_f} \, \int_{X} e \, d \mu.
+\]
+If the supremum is a finite number,
+the nonnegative and measurable function $f$ is called
+\textit{Lebesgue-integrable}.
+
+\item[4.]
+In order to define the Lebesgue integral
+of a measurable function $g \: X \xto \R$,
+let us decomposite $g$ into the difference of nonnegative measurable functions
+$f^+, f^-$, i.e. $g := f^+ - f^-$,
+reducing the concept of integration for $g$
+to that of the functions $f^+$ and $f^-$.
+Then the function $g$ is said to be \textit{Lebesgue-integrable},
+if $f^+$ and $f^-$ are both Lebesgue-integrable,
+and the Lebesgue integral of $g$ is defined according to
+\[
+\int_{X} g \, d \mu \eqdef
+\int_{X} f^+ \, d \mu \, - \, \int_{X} f^- \, d \mu,
+\]
+It turns out that a measurable function $g$ is Lebesgue-integrable,
+if and only if the function $\abs{g} := f^+ + f^-$ is Lebesgue-integrable,
+and in this case the function $f$ is said to be \textit{absolutely integrable}.
+\end{itemize}
+
+\subparagraph{}
+The construction of the Lebesgue integral is done now.
+Lebesgue integration enjoys a list of nice properties:
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+If $A \subset X$ is a null set,
+the Lebesgue integral has the value $0$ for any measurable function.
+
+\item[2.]
+If two functions $f,g$ are Lebesgue-integrable,
+then any linear combination $\alpha f + \beta g$ with $\alpha, \beta \xeof \R$
+is Lebesgue-integrable, too, and the equation
+\[
+\int_X (\alpha f + \beta g) \, d \mu =
+\alpha \int_X  f \, d \mu + \beta \int_{X}  g \, d \mu
+\]
+holds.
+Thus the mapping $f \mapsto \int_{X} f \, d \mu$ is a linear map.
+More precisely, it is  a linear functional
+on the $\R$-linear space of Lebesgue-integrable functions.
+
+\item[3.]
+For a Lebesgue-integrable function the following inequality holds:
+\[
+\abs{\int_X f \, d\mu \,} \, \leq \, \int_{X} \abs{f} \, d\mu \,
+\]
+
+\item[4.]
+If $f \leq g$ $\mu$-almost everywhere, then
+\[
+\int_X f \, d\mu \, \leq \, \int_{X} g \, d\mu,
+\]
+\end{itemize}
+
+\subparagraph{}
+Extensions of the Lebesgue integral are possible to
+(1) complex-valued measurable functions and
+(2) measurable subsets of the base space $X$.
+Firstly,
+for the class of complex-valued functions
+we define $f$ to be Lebesgue-integrable,
+iff real and imaginary part of $f$ are so,
+and in this case the Lebesgue integral is
+\[
+\int_{X} f \, d \mu
+\eqdef
+\int_{X} \re f \, d \mu
+\, + \, i \cdot
+\int_{X} \im f \, d \mu.
+\]
+The mapping $f \mapsto \int f d\mu$ is $\C$-linear on the linear space
+of Lebesgue-integrable complex-valued functions.
+As in case of real-valued functions,
+a Lebesgue-integrable complex-valued function satisfies the inequality
+\[
+\abs{\int_{X}      f  \, d\mu \,} \, \leq \,
+     \int_{X} \abs{f} \, d\mu.
+\]
+Secondly,
+if $A \xeof \salgB$ is measurable, then
+\[
+\int_{A} f \, d\mu \eqdef \int_{X} f \cdot \chi_A \, d\mu.
+\]
+
+\subparagraph{}
+For a fixed measure space $(X,\salgB,\mu)$,
+one can construct a lot of further measures using Lebesgue integration
+by the setting
+\[
+\mu_f(A) \eqdef \int_X f \cdot \chi_A \, d \mu, \quad A \in \salgB,
+\]
+where $f \: X \xto [0,\infty]$ is any nonnegative measurable function.
+If $g$ is another function fullfilling these properties,
+the formula
+\[
+\int_X g \, d \mu_f \= \int_X g \cdot f \, d \mu
+\]
+holds,
+and if $\mu$ is $\sigma$-finite, the identity $\mu_f \eq \mu_g$ is valid,
+if and only if
+$f \eq g$ $\mu$-nearly everywhere.
+Thus a function $f \: X \xto [0,\infty]$
+(modulo $\mu$-almost everywhere equivalence)
+can be identified with a positive measure $\mu_f$ on $X$.
+
+\section{Convergence Theorems}
+%------------------------------------------------------------------------------%
+One of the main purposes of the Lebesgue integral is,
+in contrary to the classical Riemann integral,
+that under some restrictions
+we can swap the limit process of a pointwise convergent sequence
+of functions with integration in the sense that
+\[
+\lim_{n \to \infty} \int_{X} f_n \, d \mu
+\=
+\int_{X} \lim_{n \to \infty} f_n \, d \mu.
+\]
+There are some cases in which this exchange can be done without doubt,
+and we will mention two theorems which describe such a desirable situation.
+
+\paragraph{}
+The first one,
+due to \textsc{B.\,Levi},
+is called the \textit{monotone convergence theorem} and states as follows:
+
+\begin{theorem}\label{MONOTON_CONVERGENCE_THEOREM}
+Let the real-valued functions $\{f_n\}_{n=1}^{\infty}$ be nonnegative,
+Lebesgue-integrable and monotone increasing, i.e.
+\[
+f_i(x) \leq f_j(x) \, \mbox{ for all } x \in X, \quad i < j.
+\]
+Then there is a Lebesgue-integrable function $f$ having the property
+that $f \eq \lim_{n \to \infty} f_n$ $\mu$-almost-everywhere and
+\[
+\lim_{n \to \infty} \int_{X} f_n \, d \mu \,
+= \,
+\int_{X} \lim_{n \to \infty} f_n \, d \mu.
+\]
+\end{theorem}
+
+\subparagraph{}
+Thus the process of limitation does not exceed
+the class of Lebesgue-integrable functions.
+In this sense the set of Lebesgue-integrable functions is closed.
+
+\paragraph{}
+The second theorem,
+called the \textit{dominated convergence theorem} due to \textsc{H.\,Lebesgue},
+yields a sufficient criterion for integrability of a function,
+which is defined by the limit process of a sequence of integrable functions:
+
+\begin{theorem}\label{DOMINATED_CONVERGENCE_THEOREM}
+Suppose that the sequence $(f_n)$ of Lebesgue-integrable functions
+$f_n \: X \xto \R$ has the property
+\[
+\lim_{n \to \infty} f_n = f \quad \mu \mbox{-almost everywhere}.
+\]
+In addition, 
+if there is a Lebesgue-integrable function $g$
+with $\abs{f_n} \leq g$ for all $n \xeof \N$,
+then $f$ is Lebesgue-integrable, too,
+and integration can be commuted with the process of limitation,
+that is
+\[
+\int_{X} f \, d \mu\,
+= \,
+\lim_{n \to \infty} \int_{X} f_n \, d \mu.
+\]
+\end{theorem}
+
+\section{Product Spaces}
+%------------------------------------------------------------------------------%
+The method of constructing a $\sigma$-algebra by given subsets
+of a base set can be used to define a $\sigma$-algebra over the
+cartesian product of measurable spaces.
+
+\subparagraph{}
+Let $(X_1,{\salgB}_1)$ and $(X_2,{\salgB}_2)$ be measurable spaces.
+Then for the cartesian product $\cross{X_1}{X_2}$
+there is a $\sigma$-algebra $\cross{{\salgB}_1}{{\salgB}_2}$
+called the \textit{product $\sigma$-algebra},
+which is generated by all sets $\cross{A_1}{A_2}$
+with $A_1 \xeof \salgB_1, A_2 \xeof \salgB_2$.
+It is the smallest $\sigma$-algebra over $\cross{X_1}{X_2}$,
+such that the projection mappings $(x_1,x_2) \mapsto x_1$ and
+$(x_1,x_2) \mapsto x_2$ are still measurable.
+This construction can be extended to a finite number of products
+of measurable spaces.
+
+\subparagraph{}
+If $\mu_1,\mu_2$ are measures on the measurable spaces
+$(X_1,{\salgB}_1)$ and $(X_2,{\salgB}_2)$,
+then there is a measure $\mu_1 \otimes \mu_2$ on the $\sigma$-algebra
+$\cross{{\salgB}_1}{{\salgB}_2}$,
+such that for all measurable sets $A_1 \xeof \salgB_1$, $A_2 \xeof \salgB_2$:
+\[
+\mu_1 \otimes \mu_2(A_1,A_2) \= \mu_1(A_1) \cdot \mu_2(A_2)
+\]
+The measure $\mu_1 \otimes \mu_2$ obtained this way is called
+the \textit{product measure} on the measurable space
+$(\cross{X_1}{X_2}, \cross{\salgB_1}{\salgB_2})$.
+If both measures $\mu_1,\mu_2$ are $\sigma$-finite,
+then $\mu_1 \otimes \mu_2$ is unique and $\sigma$-finite, too.
+
+\paragraph{}
+Under certain conditions
+the Lebesgue integral for any measurable function
+$f \: X_1 \otimes X_2 \xto \R$ {\wrt} the product measure $\mu_1 \otimes \mu_2$
+can be reduced to the Lebesgue integrals of the single measures.
+This is the assertion of the \textsc{Fubini-Tonelli} \textit{theorem}:
+
+\begin{theorem}
+Let $f \: X_1 \xtimes X_2 \xto \R$ be $\mu_1 \otimes \mu_2$-integrable.
+Then the following holds:
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+the function $f_y(x) := f(x,y)$ is $\mu_1$-almost-everywhere integrable,
+
+\item[2.]
+the function $f_x(y) := f(x,y)$ is $\mu_2$-almost-everywhere integrable,
+
+\item[3.]
+the order of integration can be commuted, that is, if
+\[
+M_1(x) \eqdef \int_{X_2} f_x(y) \, d \mu_2,
+\quad \quad
+M_2(y) \eqdef \int_{X_1} f_y(x) \, d \mu_1,
+\]
+then the following identities hold:
+\[
+\int_{X_1 \xtimes X_2}
+f(x,y) \, d(\mu_1 \otimes \mu_2)
+\=
+ \int_{X_1}
+M_1(x) \, d \mu_1
+\=
+ \int_{X_2}
+M_2(y) \, d \mu_2.
+\]
+\end{itemize}
+\end{theorem}
+
+\section{Absolutely Continuous Measures}
+%------------------------------------------------------------------------------%
+The concept of an \textit{absolutely continuous measure} is of 
+fundamental meaning in measure theory.
+Let $(X,\salgB,\mu)$ be a measure space
+and $\nu$ a further measure define on the measurable space $(X,\salgB)$.
+Then $\nu$ is called \textit{absolutely continuous} {\wrt} $\mu$
+(notation: $\nu \ll \mu$),
+if each $\mu$-null set is always a $\nu$-null set,
+that is, $\mu(A) \eq 0$ implies $\nu(A) \eq 0$ for each measurable set $A$.
+
+\subparagraph{}
+Two measures are said to be equivalent,
+if each is absolutely continuous {\wrt} the other one.
+Hence we can divide all the measures defined on a measurable space
+into equivalence classes and denote each of them a \textit{measure class}.
+
+\subparagraph{}
+Given any positive measure $\mu$,
+the related absolutely continuous measures {\wrt} $\mu$ can easily be found.
+If $f \: X \xto [0,\infty)$ is a Lebesgue integrable function,
+then $f$ causes by means of the mapping
+\[
+\nu_f(A) \=
+\int_{A} f \, d\mu, \quad A \in \salgB
+\]
+an absolutely continuous measure $\nu_f$ {\wrt} $\mu$.
+Thus Lebesgue integrable functions can be regardes as
+absolutely continuous measures on the measurable space $(X,\salgB)$.
+On the other side,
+the \textit{Radon-Nikodym} \textit{theorem} states that
+the measure $\nu_f$ are the only absolutely continuous measures {\wrt} $\mu$:
+
+\begin{theorem}\label{RADON_NIKODYM_THEOREM_A}
+Let $\mu$ be a $\sigma$-finite measure on $(X,\salgB)$,
+$(X,\salgB,\mu)$ be a $\sigma$-finite measure space
+and $\nu$ a measure being absolutely continuous {\wrt} $\mu$.
+Then there exists a Lebesgue-integrable map $f_{\nu} \: X \xto [0,\infty)$
+such that
+\[
+\nu(A) \= \int_{X} f_{\nu}\, d \, \mu
+\quad \mbox{for all } A \in \salgB.
+\]
+\end{theorem}
+
+\subparagraph{}
+The condition of $\mu$ being $\sigma$-finite is essential.
+The function $f_{\nu}$ is called the \textit{Radon-Nikodym derivation}
+of $\nu$ {\wrt} $\mu$ and is uniquely defined 
+$\mu$-mostly everywhere.
+
+\subparagraph{}
+The {Radon-Nikodym theorem} can also be stated
+for a complex measure $\nu$,
+but one has to use the variation $\abs{\nu} $ in this case,
+which is known to be a positive finite measure.
+A complex measure $\nu$ is called \textit{absolutely continuous}
+{\wrt} the positive measure $\mu$,
+if $\abs{\nu} \ll \mu$.
+Then a further variant of the {Radon-Nikodym theorem} reads as follows:
+
+\begin{theorem}\label{RADON_NIKODYM_THEOREM_B}
+Let $\mu$ be a $\sigma$-finite positive measure on the measurable space
+$(X,\salgB)$ and $\nu$ be a complex measure satisfying $\nu \ll \mu$.
+Then there is $f \xeof L^1(X;\C)$
+such that
+\[
+\nu(A) \= \int_{X} f \, d\mu
+\quad \mbox{for all } A \in \salgB.
+\]
+\end{theorem}
+
+\paragraph{}
+We will finish the considerations about absolutely continuous measures
+with the \textsc{Lebesgue} \textit{decomposition theorem}.
+It asserts
+that for a given $\sigma$-finite measure space $(X,\salgB,\mu)$
+each complex measure $\nu$ can be represented as the sum
+of an absolutely continuous measure $\nu_c$
+and a singular measure $\nu_s$,
+both {\wrt} $\mu$:
+
+\begin{theorem}\label{LEBESGUE_DECOMPOSITION_THEOREM}
+Let $\mu$ be a positive $\sigma$-finite measure
+and $\nu$ a complex measure on the measurable space $(X,\salgB)$.
+Then there is a uniquely defined pair $(\nu_c,\nu_s)$ of complex measures
+such that
+\[
+\nu = \nu_c + \nu_s, \quad
+\nu_c \ll \mu, \quad
+\nu_s \bot \mu.
+\]
+If the measure $\nu$ is positive,
+then both measures $\nu_c$ and $\nu_s$ are positive measures, too.
+\end{theorem}
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\begin{comment}
+\vspace{8mm}
+\begin{small}
+\begin{thebibliography}{99}
+
+\bibitem{El_2} J.\,Elstrodt:
+\textit{Ma{\ss} -und Integrationstheorie}.
+Springer Verlag, 2018.
+
+\end{thebibliography}
+\end{small}
+\end{comment}
+
+%\newpage
+%\thispagestyle{empty}
+\fancyhead[OC]{\small{\textsc{III. Measures on Locally Compact Spaces}}}
+\fancyhead[EC]{\small{\textsc{III. Measures on Locally Compact Spaces}}}
+\part{Measures on Locally Compact Spaces}
+%-------------------------------------------------------------------------------
+Abstract Measure theory also includes the study of measures
+on topological spaces.
+But these spaces must be supposed to be \textit{locally compact}
+in order to obtain a satisfactory theory.
+
+\subparagraph{}
+Recall that the $\sigma$-algebra $[\cal{F}]$,
+generated by a family of subsets $\cal{F} \subset 2^{X}$ of a base set $X$,
+can be received as the intersection of all $\sigma$-algebras
+containing this family $\cal{F}$.
+If $(\topX,\topT)$ is a topological space,
+the $\sigma$-algebra $[\topT]$ generated by the family $\topT$
+of open sets is called the \textit{Borel $\sigma$-algebra} of $\topX$.
+It is also generated by the family of closed sets of $\topX$.
+Each set $B \xeof [\topT]$ is called \textit{Borel-measurable}
+or a \textit{Borel set}.
+Moreover,
+if $\topX$ is Hausdorff and can be represented
+as a union of mostly countable compact sets,
+then $[\topT]$ is also generated by the family of compact subsets of $\topX$.
+
+\subparagraph{}
+The (topological) \textit{support} of a measure $\mu$ on a topological space
+$\topX$ is a notion of where in the space $\topX$ the measure \textit{lives}.
+It is defined to be the largest closed subset $\supp{\mu}$ of $\topX$,
+for which every open neighbourhood of any point $x$ of $\supp{\mu}$
+has positive measure.
+A measure $\mu$ is called \textit{discrete},
+if $\supp{\mu}$ consists of a mostly countable set of points,
+i.e. if $\mu$ is concentrated to a sequence of single points
+of the space $\topX$.
+
+\subparagraph{}
+Remember also
+that bounded subsets of the Euclidean spaces $\Rd$ have a finite measure.
+This property can be extended to topological spaces by the request,
+that a measure should adopt finite values for compact sets.
+Consequently we define a measure with this property as follows:
+let $(\topX,\topT)$ be a topological space and $[\topT]$ its
+Borel $\sigma$-algebra.
+Then any measure $\mu$ is called a \textit{Borel measure} for $\topX$,
+if $\mu(\compK) < \infty$ for every compact set $\compK \xeof [\topT]$.
+For example,
+the counting measure is a Borel measure on the set of integers
+{\wrt} the discrete topology.
+In addition,
+a measure $\mu$ on the Borel sets of $\topX$
+is called \textit{locally finite},
+if for each point $x \xeof \topX$
+there is an open neighbourhood $\openO_x$
+such that $\mu(\openO_x) < \infty$.
+
+\subparagraph{}
+Each local finite measure is a Borel measure.
+But if the topological space $\topX$ is a locally compact Hausdorff space,
+then the inverse statement is also true,
+that is,
+each locally finite measure is a Borel measure.
+
+\section{Regularity of Measures}
+%------------------------------------------------------------------------------%
+Let $\topX$ be a topological space and $\mu$ be a positive measure on its
+Borel $\sigma$-algebra.
+Then a Borel set $B \subseteq \topX$
+is called \textit{inner regular} {\wrt} $\mu$, if
+\[
+\mu(B) \= \sup \,
+\set{\mu(\compK)} {\compK \subset B, \, \compK \mbox{ compact}}.
+\]
+A measure $\mu$ is called \textit{inner regular},
+if all Borel sets are inner regular.
+Thus the inner regular measures on $\topX$ are already defined
+by its values for compact subsets.
+Each locally finite and inner regular measure on a topological space
+$\topX$ is called a \textit{Radon measure}.
+
+\subparagraph{}
+On the other hand,
+a measure $\mu$ on a topological space $\topX$
+is called \textit{outer regular},
+if for each Borel set $B \subseteq \topX$ the equality
+\[
+\mu(B) \= \inf \,
+          \set{\mu(\openO)}{B \subset \openO, \, \openO \mbox{ open}}
+\]
+holds.
+A measure is called \textit{regular},
+if it is outer and inner regular.
+For any finite and regular measure $\mu$,
+for each Borel set $B \subset \topX$ and for each $\epsilon > 0$
+there is a compact set $\compK_{\epsilon}$
+and an open set $\openO_{\epsilon}$
+such that
+\[
+\compK_{\epsilon} \subset B \subset \openO_{\epsilon}
+\, \mbox{ and } \,
+\mu(\openO_{\epsilon} \setminus \compK_{\epsilon}) < \epsilon.
+\]
+In other words,
+for a Borel set $B$
+the value $\mu(B)$ of such a measure $\mu$ can be approximated
+by its values for compact subsets and open supersets of $B$.
+
+\paragraph*{}
+There are a couple of sufficient conditions on the topology in $\topX$,
+which ensure
+that Borel measures are regular.
+For example,
+this is true
+if either $\topX$ is a compact metric space satisfying the
+\textit{first countability axiom}
+or $\topX$ is a \textit{polish space},
+that is,  
+$\topX$ is metrizable, separable and complete
+(this is the assertion of \textsc{Ulam}\textit{'s theorem}).
+If $\topX$ is a finite interval $[a,b]$,
+this theorem implies
+that every Borel measure on $[a,b]$ is Radon.
+
+\subparagraph{}
+The meaning of regular measures primarily relies on the fact
+that so-called \textit{density theorems} can be quoted.
+They ensure the possibility to approximate Lebesgue-integrable functions
+by continuous ones.
+
+\section{Haar Measures}
+%------------------------------------------------------------------------------%
+The existence of a translation invariant measure on a certain class of groups
+is one of the highlights in abstract measure theory and
+forms the foundation of a further mathematical area
+called \textit{abstract harmonic analysis}.
+ 
+\subparagraph{}
+Remember
+that a topological group is an algebraic one together with a topology $\topT$,
+such that the group operations are continuous mappings.
+A measure $\mu$ defined on the Borel sets of a topological group $\topG$
+is called \textit{left invariant} respectively \textit{right invariant},
+if for each element $g \xeof \topG$ and each Borel set
+$B \xeof \cal{B}(\topG)$ we have
+\[
+\mu(B) \= \mu(g \circ B) \quad \mbox{rsp.} \quad
+\mu(B) \= \mu(B \circ g).
+\]
+In addition,
+a measure is called \textit{invariant},
+if it is left \textit{and} right invariant.
+Note
+that if $\topG$ is an Abelian group,
+the notions of left and right invariance of a measure fall together.
+
+\subparagraph{}
+Let $\topG$ be a locally compact Hausdorff space
+and a topological group together.
+Then there is a left invariant positive Radon measure
+$\mu \: \cal{B}(\topG) \xto [0,\infty]$,
+which is unique up to a constant $c > 0$.  
+This measure is called a \textit{Haar measure} on $\topG$.
+
+\paragraph{}
+The following important examples of Haar measures are known:
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+For the topological groups $(\R^d,+)$ the Haar measure is called the
+\textit{Lebesgue-Borel measure} $\lambda^n$.
+
+\item[2.]
+For the complex unit circle $\Torus \subset \C$ the mapping
+\[
+\phi(f) \eqdef
+\frac{1}{2\pi} \, \int_0^{2\pi} f(e^{it})\,dt, \quad f \in C(\C^{\times},\R)
+\]
+is a nonnegative invariant linear form,
+and the associated invariant Radon measure is proportional
+to the Lebesgue-Borel measure on $\Torus$.
+\end{itemize}
+
+\section{The Lebesgue-Borel Measure}
+%------------------------------------------------------------------------------%
+There are only few measurable spaces,
+on which a measure can be defined in a very natural way.
+An example of such measure spaces is any countable set,
+whose $\sigma$-algebra is defined to be the power set of that space,
+and a measure deserving the notion \textit{standard measure} for this space
+is the counting measure $\mu_{\#}$,
+that is,
+the mapping assigning to each subset its cardinal number.
+In particular,
+for the set of integers
+we get the measure space $(\Z,2^{\Z},\mu_{\#})$ this way.
+
+\paragraph{}
+Concerning the Euclidean spaces $\Rd$,
+the situation is not quite so simple.
+Here only those measures come into consideration,
+which provide for such elementary sets like intervals,
+rectangles or $d$-dimensional cubes
+the associated lengths, areas or volumes.
+The question arises
+whether a positive measure exists on the Borel $\sigma$-algebra
+$\Borel{{\R}^d}$ satisfying these properties.
+
+\subparagraph{}
+There is a fundamental theorem in measure theory,
+known as the \textit{measure extension theorem},
+which states
+that in each space $\Rd$
+there is exactly one positive measure $\LB^d$,
+which adopts for each cube $W \subset \Rd$ with border lengths $l_1,\ldots,l_d$
+the value
+\[
+\LB^d(W) \= l_1 \cdot l_2 \cdot \ldots \cdot l_{d-1} \cdot l_d,
+\]
+called the \textit{Lebesgue-Borel measure} on the spaces $\Rd$.
+
+\subparagraph{}
+It is not surprising 
+that the measure $\LB^d$ is the Haar measure for the space $\Rd$.
+Thus the Lebesgue-Borel measure have the property
+to be invariant under Euclidean movements,
+that is,
+the equation $\LB^d(B) \eq \LB^d(\tau(B))$ holds
+for each Borel set $B$ and
+each orthogonal transformation $\tau \: \Rd \xto \Rd$,
+in contrary to all other thinkable measures on space $\Rd$.
+
+%------------------------------------------------------------------------------%
+\section{Decomposition of Measures}                                            %
+%------------------------------------------------------------------------------%
+We turn back to Lebesgue's decomposition theorem, 
+now considered for the measurable space $(\R,\Borel{\R})$
+and the Lebesgue-Borel measure $\LB^1$.
+In it general form it claims
+that each positive measure $\nu$ can be represented in the form
+\[
+\nu = \nu_{ac} + \nu_d + \nu_{cs},
+\]
+$\nu_{ac} \ll \lambda$ being absolutely continuous,
+$\nu_d$ being a measure 
+which is concentrated on a possibly terminating sequence $(x_n)$
+of points with $\nu_d(x_n) >0$,
+and $\nu_{cs}$ being a \textit{continuous singular measure}.
+A continuous singular measure is characterized by the fact
+that it is concentrated on a set of measure $0$,
+\textit{atomic} but not absolutely continuous w.r.t. $\lambda$.
+An example of such a measure is the so-called \textit{Cantor distribution}.
+
+\subparagraph{}
+To each finite measure $\mu$ on $(\R,\Borel{\R})$ 
+the monotonic increasing function
+\[
+F_{\mu}(a) \eqdef \mu(-\infty,a), \quad a \in \R
+\]
+is called the \textit{distribution function} of $\mu$.
+Now, if $\mu \ll \lambda$ is absolutely continuous,
+then the associated distribution function is called absolutely continuous, too.
+In general,
+each mapping $f \: [a,b] \xto \R$ is called \textit{absolutely continuous},
+if there is a locally integrable function $g \: [a,b] \xto \R$,
+such that
+\[
+f(x) \eqdef \int_a^x g(t) \, dt, \quad x \in [a,b].
+\]
+An absolutely continuous function has the property to be
+$\lambda$-nearly everywhere differentiable,
+and the derivative of $f$ is given by the function $g$.
+One can characterize absolutely continuous functions as follows:
+$f \: [a,b] \xto \R$ is \textit{absolutely continuous},
+iff for each $\epsilon > 0$ there is a number $\delta > 0$
+such that for each decomposition $\cal{Z}$ of $[a,b]$ with
+grid size $F_{\cal{Z}} < \delta$
+we have
+$\sum_i \abs{ f(x_{i+1}) - f(x_i) } < \epsilon$.
+The set of absolutely continuous functions on the interval $[a,b]$
+forms a linear space denoted $\AC{[a,b]}$.
+
+\section{Comparison of Lebesgue and Riemann Integration}
+%------------------------------------------------------------------------------%
+To the end,
+let us have a look to the question
+how the Lebesgue integral is comparable with the classical
+Riemann integral for ordinary functions $f \: [a,b] \xto \R$.
+For this purpose we will review in brief 
+the setup and the basic
+properties of the Riemannian integral.
+
+\subparagraph{}
+To define this concept for a function $f \: [a,b] \xto \R$,
+two auxiliary concepts are required:
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+A \textit{decomposition} $P$ of $[a,b]$ is a sequence of points
+\[
+\{x_0 := a,x_1,\ldots,x_{n-1},x_n := b \},
+\quad x_{i-1} < x_i, \quad i=1,\ldots,n,
+\]
+and the length $\snorm{P} $ of the largest subinterval
+is called the \textit{grid} of $P$,
+that is
+\[
+\snorm{P} \eqdef \max_{1 \leq i \leq n} \, (x_i-x_{i-1}).
+\]
+\item[2.]
+A \textit{tagged} decomposition $P(t_0,\ldots,t_n)$
+of the interval $[a,b]$
+is a decomposition $P$ (in the ordinary sense) together with a 
+sequence of points $t_0,\ldots,t_{n-1}$,
+where each point $t_i$ is contained in the subinterval $[x_i,x_{i+1}]$.
+\end{itemize}
+
+\subparagraph{}
+Now, 
+for a tagged decomposition $P(t_0,\ldots,t_n)$ 
+the \textit{Riemannian sum} $R(f,P)$
+for the function $f\:[a,b] \xto \R$ is defined by
+\[
+R(f,P) \eqdef \sum_{i=1}^n f(t_i) \cdot (x_i - x_{i-1}),
+\]
+and the \textit{Riemann integral} of $f$ is received as
+possible limit value of Riemannian sums $R(f,P)$ by decreasing the
+grid to zero.
+The function $f$ is called \textit{Riemann integrable} on $[a,b]$
+(briefly \textit{R-integrable}) to the value $R_f$,
+if for every $\epsilon > 0$ there is a number $\delta > 0$,
+such that
+$\abs{ R_f - R(f,P)} < \epsilon$
+for every tagged decomposition $P(t_0,\ldots,t_n)$
+with grid $\abs{P} < \delta$,
+and the magnitude $R_f$ is said to be the \textit{Riemann integral} of $f$
+in this case,
+usually denoted
+\[
+\int_a^b f \, dx \eqdef R_f.
+\]
+It is easy to verify
+that the set $R(a,b)$ of Riemann integrable functions
+on the interval $[a,b]$ forms a linear space,
+so Riemann integration appears as a linear functional $R \: \R(a,b) \xto \R$.
+
+\subparagraph{}
+Notice also that
+each continuous function,
+each monotonic function and
+each function of bounded variation 
+(being the difference of two monotonic increasing functions)
+is a member of the space $R(a,b)$.
+
+\paragraph{}
+The following theorem goes back to \textsc{Lebesgue}
+and provides a connection between both integration methods
+for functions defined on a compact interval $[a,b] \subset \R$:
+
+\begin{theorem}
+Each R-integrable function $f\:[a,b] \xto \R$ is
+Lebesgue integrable {\wrt} the Lebesgue-Borel measure $\LB := \LB^1$).
+In addition,
+for these functions both kinds of integrals coincide, {\ie}
+\[
+\int_a^b f(x) \, dx \= \int_{[a,b]} f \, d\LB.
+\]
+\end{theorem}
+
+\subparagraph{}
+Due to this theorem it is possible to compute the Lebesgue integral
+by applying the known integration rules for
+Riemann integration like
+the \textit{product rule},
+the \textit{substitution rule} and
+the \textit{formula of partial integration}.
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\begin{comment}
+\vspace{8mm}
+\begin{small}
+\begin{thebibliography}{99}
+
+\bibitem{El_3} J.\,Elstrodt:
+\textit{Ma{\ss} -und Integrationstheorie}.
+Springer Verlag, 2018.
+
+\end{thebibliography}
+\end{small}
+\end{comment}
+
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\vspace{8mm}
+\begin{thebibliography}{99}
+
+\bibitem{El_1} J.\,Elstrodt:
+\textit{Ma{\ss} -und Integrationstheorie}.
+Springer Verlag, 2018.
+
+\end{thebibliography}
+
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}

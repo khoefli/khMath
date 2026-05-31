@@ -1,0 +1,1450 @@
+%------------------------------------------------------------------------------%
+% FUNDAMENTAL CONCEPTS IN GENERAL TOPOLOGY                                     %
+%------------------------------------------------------------------------------%
+% File  : General_Topology.tex                                                 %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+% DOCUMENT CLASS and INCLUDE FILES                                             %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+\titleformat{\part}%[display]
+{\normalfont \rmfamily \bfseries \centering}
+{{\thepart.}}{3pt}{}
+
+\titleformat{\section}[runin]
+{\normalfont \bfseries \filcenter}
+{\thesection.\,}{0mm}{}[.]
+
+\titlespacing*{\part}   {5pt}{12pt}{ 4pt}
+\titlespacing*{\section}{0pt}{ 3pt}{ 3pt}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\centerline{\textrm{\large{\textbf{Fundamental Concepts in General Topology}}}}
+\vspace{4pt}
+\centerline{\textsc{\small{\Author}}}
+\vspace{10pt}
+
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+
+%------------------------------------------------------------------------------%
+%                                  CONTENT                                     %
+%------------------------------------------------------------------------------%
+\myfootnote
+{
+  Version {\Version} from \today;
+  Email:  \textit{\Email}
+}
+
+\setcounter{page}{1}
+
+%\newpage
+\thispagestyle{empty}
+
+Our text is a short review of the core notations of general topology,
+often purely called \textit{point-set topology}.
+This mathematical theory deals with the study of limits,
+continuity and geometric properties of the underlying sets.
+Rather topology has meaning in its own right,
+it mainly serves as foundation of further mathematical areas
+like \textit{functional analysis}, \textit{differential topology},
+\textit{Riemannian geometry} and other ones.
+Topological concepts are frequently required to understand
+mathematical analysis on a high and abstract level.
+One may justly claim
+that analysis today is unthinkable
+without including the extremely useful notions provided by topology.
+
+\subparagraph{}
+The content is divided into four parts: first of all,
+we outline the basic concepts of topology.
+In the subsequent parts we shall have a look at specific kinds
+of topological spaces,
+which especially are
+\textit{metric spaces} and
+\textit{topological groups}.
+%and \textit{manifolds}.
+
+\fancyhead[OC]{\small{\textsc{I. Topological Spaces}}}
+\fancyhead[EC]{\small{\textsc{I. Topological Spaces}}}
+\part{Topological Spaces}
+%-------------------------------------------------------------------------------
+This first part deals with the main concepts of topology,
+and the first one has to consider is that of a \textit{topological space}.
+
+\subparagraph{} %- definition of a topological space
+Given a non-empty set $\topX$,
+any collection $\topT$ of subsets of $\topX$ is called
+a \textit{topology} on $\topX$
+iff the following conditions are fulfilled:
+
+\begin{itemize}[leftmargin=10mm,itemsep=1pt]
+\item[(T-1)]
+both,
+the empty set $\emptyset$ and the entire set $\topX$ are elements of $\topT$,
+
+\item[(T-2)]
+if $\openO_i \xeof \topT$ for $i \eq 1,\ldots,n$,
+then $\openO_1 \cap \ldots \cap \openO_n \xeof \topT$.
+
+\item[(T-3)]
+if $\{\openO_{\alpha}\}$ is any collection of members of $\topT$,
+then $\bigcup \openO_{\alpha} \xeof \topT$.
+\end{itemize}
+
+This means
+that a topology is closed under the formation of finitely
+many intersections and arbitrarily many unions.
+A \textit{topological space} is a pair $(\topX,\topT)$
+consisting of a set $\topX$ and a topology $\topT$.
+It is convenient to denote the elements of a topological space
+as \textit{points}.
+
+%------------------------------------------------------------------------------%
+\section{Open and Closed Sets}                                                 %
+%------------------------------------------------------------------------------%
+For any topological space $(\topX,\topT)$
+the members of the topology $\topT$ are called
+the \textit{open sets} in $\topX$.
+On the other hand,
+any subset of $\topX$ is said to be \textit{closed},
+if its complementary set is open.
+Due to the properties of an open set,
+the intersection of arbitrarily many closed sets as well as
+the union of a \textit{finite} number of closed sets is closed again.
+Especially the base set $\topX$ and the empty set are both closed.
+
+\paragraph{}
+The framework of a topological space also enables the definition
+of some further important concepts in point-set topology:
+
+\begin{itemize}[leftmargin=15pt,itemsep=1pt]
+\item[(a)]
+If $\setA$ is a subset of a topological space $\topX$,
+then the set $\interior{\setA}$ denotes the union
+of all open subsets of $\setA$,
+or equivalently,
+it is the largest open set $\openO$
+such that $\openO \subset \setA$.
+
+\item[(b)]
+The set $\interior{\setA}$ is said to be the \textit{interior} of $\setA$,
+and each element of $\interior{\setA}$ is called an \textit{inner point}
+of $\setA$.
+
+\item[(c)]
+Conversely,
+consider for a given set $\setA$ the intersection $\overline{\setA}$
+of all closed sets containing $\setA$.
+Then the set $\overline{\setA}$ is closed again and is called
+the \textit{closure} of $\setA$,
+and each point $x \xeof \overline{\setA}$ is said to be a \textit{limit point}
+of $\setA$.
+\end{itemize}
+
+In summary,
+for each subset $\setA \subset \topX$ there is always
+the sequence of inclusions
+\begin{equation}\label{CHAIN}
+\emptyset
+\subseteq \, \interior{\setA} \,
+\subseteq \, \setA            \,
+\subseteq \, \overline{\setA}  \,
+\subseteq \, \topX.
+\end{equation}
+
+We take care of the midth subchain
+$\interior{\setA} \, \subseteq \, \setA \, \subseteq \, \overline{\setA}$.
+If the inclusions can be replaced by equality,
+that is,
+$\interior{\setA} \eq \setA$ on the left side,
+then and only then the set $\setA$ is open.
+Similarly,
+if $\setA \eq \overline{\setA}$ on the right side,
+then and only then the set $\setA$ is closed.
+
+\subparagraph{} %- discrete sets
+Now consider the first inclusion $\emptyset \subseteq \interior{\setA}$
+in \eqref{CHAIN}.
+If it can be replaced by the equality $\emptyset \eq \interior{\setA}$,
+then $\setA$ is called \textit{discrete}.
+On the other hand,
+in case of $\overline{\setA} \eq \topX$,
+the set $\setA$ is called \textit{dense} in $\topX$,
+that is,
+every point $x \xeof \topX$ can be obtained as a limit point of $\setA$.
+
+\subparagraph{} %- boundary points and boundary
+Finally,
+for a given subset $\setA \subset \topX$,
+the relative complement set
+$\partial \setA := \overline{\setA} \setminus \interior{\setA}$
+is called the \textit{boundary} of $\setA$,
+and each element of $\partial \setA$ is said
+to be a \textit{boundary point} of $\setA$.
+It can be shown
+that a set $\openO \subset \topX$ is open
+iff it contains no boundary points,
+and a set $\setA \subset \topX$ is closed
+iff it contains all its boundary points.
+We obtain the boundary of $\setA$ as the intersection
+of the sets $\overline{\setA}$ and $\overline{\topX \setminus \setA}$,
+which implies that a boundary set is always closed.
+
+%------------------------------------------------------------------------------%
+\section{Neighbourhoods}                                                       %
+%------------------------------------------------------------------------------%
+The notion of \textit{neighbourhood} is one of
+the most important one in general topology.
+Roughly spoken,
+any set constitutes a neighbourhood of a point $x \xeof \topX$,
+if it contains all points sufficiently close to $x$.
+The exact definition states as follows:
+a subset $\U \subset \topX$ is called a \textit{neighbourhood}
+of $x \xeof \topX$,
+iff $x$ is an interior point of $\U$.
+For example,
+an open set is a neighbourhood for all of its elements.
+The neighbourhoods of a given point $x \xeof \topX$ have the property,
+that each finite intersection and each union of arbitrarily many
+neighbourhoods of $x$ is also a neighbourhood of $x$.
+Moreover,
+every superset $\U' \supset \U$ of a neighbourhood of $x$
+forms a neighbourhood of $x$.
+
+\subparagraph{} %- convergence of sequences
+Neighbourhoods are useful to define the concept of \textit{convergence}
+for sequences in a topological space $\topX$.
+In particular,
+a sequence $(\phi_n)$ is called \textit{convergent} to
+an element $x \xeof \topX$,
+if for each neighbourhood $\U$ of $x$ there are only
+finitely many members of $(\phi_n)$ being outside $\U$.
+We will study the convergence of sequences again
+in the setting of metric spaces (see Part II).
+
+\subparagraph{} %- neighbourhood bases, first countablility axiom
+A \textit{neighbourhood base} of a point $x$ is a family $\famF$
+of neighbourhoods of $x$ with the additional property
+that each open set $\openO_x$ with $x \xeof \openO_x$
+contains a neighbourhood $\U_x \xeof \famF$ as a subset:
+$\U_x \subset \openO_x$.
+Furthermore,
+a topological space is said to satisfy the \textit{first countability axiom},
+if each point has a mostly \textit{countable} neighbourhood base.
+
+%------------------------------------------------------------------------------%
+\section{Hausdorff's Separation Axiom}                                         %
+%------------------------------------------------------------------------------%
+Every set $\topX$ containing at least two points
+can be employed with different topologies.
+Obviously,
+the largest one is the \textit{discrete} topology on $\topX$,
+which coincides with the power set of $\topX$.
+On the other hand,
+the coarsest thinkable topology on $\topX$ consists
+of the empty set and the set $\topX$ only.
+
+\subparagraph{} %- comparison of various topologies
+If $\topT_1,\topT_2$ are topologies on $\topX$,
+then $\topT_1$ is called \textit{weaker} than $\topT_2$,
+if every open set in $\topT_1$ is also an open set in $\topT_2$,
+and at the same time $\topT_2$ is called \textit{stronger} than $\topT_1$.
+The notion of topology on a set $\topX$ is extremely general,
+and it includes pathological examples of very little interest
+such as the topology whose only elements are the sets $\emptyset$ and $\topX$.
+
+\subparagraph{} %- Hausdorff spaces
+For most applications in analysis,
+it is desirable to impose additional conditions to the topology
+that guarantee the existence of sufficiently many open sets.
+The most important condition of this kind is
+the \textit{Hausdorff separation axiom},
+which can be stated as follows:
+a topological space $\topX$ is called \textit{Hausdorff space},
+if for any points $x,y \xeof \topX$
+there are open sets $\openO_x$ and $\openO_y$
+such that
+$x \xeof \openO_x$, $y \xeof \openO_y$ and
+$\openO_x \cap \openO_y \eq \emptyset$.
+In other words,
+in a Hausdorff space
+every pair of points can be separated by suitable open sets
+with empty intersection.
+Besides many other separation axioms in topology
+the Hausdorff one is the most important of them,
+because nearly all important topological spaces considered in analysis
+are Hausdorff spaces.
+The Hausdorff separation axiom ensures two desirable properties
+of a topological space:
+(1) each singleton $\{x\}$ is closed, and
+(2) the limit point of any convergent sequence is unique.
+
+%------------------------------------------------------------------------------%
+\section{Continuous Mappings}                                                  %
+%------------------------------------------------------------------------------%
+The notion of \textit{continuity} of a real-valued function
+at a certain point $t \xeof \R$ is well known from elementary calculus.
+Using neighbourhoods,
+it is possible to extend this notion to arbitrary mappings
+between topological spaces $\topX, \topY$ as follows:
+a mapping $f \: \topX \xto \topY$ is said to be \textit{continuous at a point}
+$x \xeof \topX$,
+if for each neighbourhood $\V$ of $f(x)$
+there is a neighbourhood $\U$ of $x$ with $f(\U) \subseteq \V$.
+Furthermore,
+the mapping $f$ is called \textit{continuous},
+iff $f$ is continuous at \textit{every} point $x \xeof \topX$.
+
+\subparagraph{} %- another definition of continuous mapping
+By means of open sets,
+an equivalent definition of continuity is the following one,
+which is the most common definition in general topology:
+a mapping $f \: \topX \xto \topY$ is called \textit{continuous},
+if the preimages $f^{-1}(\openO)$ of open sets $\openO \subseteq \topY$
+are also open sets in $\topX$.
+Obviously,
+the property of a mapping being continuous
+depends on the choice of the topology in both spaces.
+
+\subparagraph{} %- homeomorphisms
+If a continuous mapping $f \: \topX \xto \topY$ is bijective,
+we cannot conclude
+that the inverse mapping $f^{-1} \: \topY \xto \topX$ is continuous, too.
+This fact justifies the notion of \textit{homeomorphism}
+between topological spaces:
+a bijective continuous mapping $f \: \topX \xto \topY$
+is called a \textit{homeomorphism},
+if the inverse mapping $f^{-1}$ is continuous as well.
+Thus a homeomorphism carries over exactly the open sets in open sets again.
+If there is a homeomorphism between the topological spaces
+$\topX$ and $\topY$,
+then the spaces are called \textit{homeomorphic} to each other
+(denoted $\topX \cong \topY$).
+In this case we can talk about structural identity of the spaces $\topX$
+and $\topY$ {\wrt} their topological properties.
+A property of a topological space is called
+a \textit{topological invariant},
+if it is preserved by homeomorphic mappings.
+
+%------------------------------------------------------------------------------%
+\section{Connected Sets} %- connected sets
+%------------------------------------------------------------------------------%
+Open sets are suitable to define the notion of \textit{connectedness}
+for subsets of a topological space:
+a set $C \subseteq \topX$ is said to be \textit{connected},
+if there are \textit{not} two open sets $\openO_1,\openO_2$ with
+$\openO_1 \cap \openO_2=\emptyset$ and $C \subseteq \openO_1 \sqcup \openO_2$,
+otherwise it is called \textit{disconnected}.
+Each open and connected set is usually called a \textit{domain}.
+
+\subparagraph{}
+Clearly,
+the property of a set $C \subset \topX$ being connected
+depends on the topology of the underlying space.
+Connected sets mapped by a continuous function do not lose this property.
+More precisely,
+if $\setA \subset \topX$ is connected and the mapping $f \: \topX \xto \topY$
+is continuous,
+then $f(\setA) \subseteq \topY$ is connected as well.
+Connectedness is actually a topological invariant.
+
+\subparagraph{}
+The most well-known criterion for connectedness is given
+by the following theorem:
+\textit{a topological space $\topX$ is connected,
+iff $\topX$ and the empty set $\emptyset$ are the only sets,
+which are open and closed together}.
+
+\subparagraph{} %- connected components
+For a topological space $\topX$,
+a \textit{connected component} of a point $x \xeof \topX$ is defined as
+the union of all connected sets which contain this point.
+Each such set is obviously connected
+and cannot be extended to a larger connected set by adding further points.
+Since the closure of a connected set is connected again,
+the connected components of a topological space are always closed.
+They form a disjoint decomposition of the space into connected subsets,
+being the coarsest qualitative information about the global structure
+of a space.
+
+%------------------------------------------------------------------------------%
+\section{Generators of New Topologies}                                         %
+%------------------------------------------------------------------------------%
+It can be shown
+that for a base set $\topX$ the intersection of arbitrarily
+many topologies on $\topX$ forms a topology on $\topX$ again.
+Thus for a given collection $\setS$ of subsets of $\topX$,
+we define the topology $[\setS]$ to be the intersection
+of all topologies on $\topX$ containing $\setS$.
+The set $\setS$ is denoted a \textit{generator} of the topology $[\setS]$,
+and reversely $[\setS]$ is said to be \textit{generated} by $\setS$.
+
+\subparagraph{} %- standard topology in the real line
+As a first application of this method we define the \textit{standard topology}
+$\topT_{\R}$ on the real line $\R$ as the topology generated
+by all half-bounded open intervals,
+that is,
+$\topT_{\R}$ is the smallest topology on $\R$
+containing the half-bounded intervals $(-\infty,a)$ and $(b,\infty)$.
+
+\subparagraph{} %- initial topology
+Let $\topX$ be any set and
+let $f_i \: \topX \xto \topY_i$ ($i \xeof \indI$) be a family of mappings
+into arbitrarily many topological spaces $\topY_i$.
+We consider the collection $\setS$ of preimages $f_i^{-1}(\openO)$
+for all the open sets $\openO \subset \topY_i$.
+Then the topology $[\setS]$ generated by $\setS$ is the coarsest
+topology on $\topX$ such that all mappings $f_i$ remain still continuous.
+It is called the \textit{initial topology} {\wrt} the family
+$\{f_i\}_{i \in \indI}$.
+
+\paragraph{} %- derived topologies
+Using initial topologies,
+we introduce the \textit{subset topology} and the \textit{product topology}:
+
+\begin{itemize}[leftmargin=12pt,itemsep=2pt]
+\item[1.]
+Let $\topX$ be a topological space
+and $\setM \subset \topX$ be a proper subset of $\topX$.
+We define the \textit{subset topology}
+$\topT_{\setM}$ on $\setM$
+as the initial topology {\wrt} the inclusion mapping
+$\setM \hookrightarrow \topX$,
+that is,
+the subset topology is the smallest one such that
+the inclusion of $\setM$ into $\topX$ is continuous.
+The pair $(\setM,\topT_{\setM})$ is a topological space in its own right,
+and a subset $\openO \subset \setM$ is open {\wrt} $\topT_{\setM}$
+iff there is an open set $\openO'$ in $\topX$
+such that $\openO \eq \setM \cap \openO'$.
+
+\subparagraph{}
+It should be mentioned
+that the subset topology in $\setM$ can also be received by definition
+of its open sets,
+\[
+\topT_{\setM} \eqdef \{ \setM \cap \openO': \openO' \in {\topT} \}.
+\]
+A \textit{continuous embedding} of a space $\topX$ into a space $\topY$
+is a mapping $\iota \: \topX \xto \topY$
+such that the images of open sets in $\topX$ under $\iota$ exactly
+form the subset topology of $\iota(\topX)$ considered as a subspace
+of $\topY$.
+
+\item[2.]
+The \textit{product topology} $\topT_{\topX \times \topY}$
+on the cartesian product $\cross{\topX}{\topY}$ is defined to be
+the initial topology {\wrt} the projection mappings
+$\pi_X \: \cross{\topX}{\topY} \xto \topX$ and
+$\pi_Y \: \cross{\topX}{\topY} \xto \topY$.
+In other words,
+it is the coarsest topology
+for which the both mappings are continuous.
+Note
+that this definition of the product topology can be extended
+to the cartesian product of arbitrarily many topological spaces.
+Another way to define the product topology on the set $\cross{\topX}{\topY}$
+is given by the following one:
+$\topT_{\topX \times \topY}$ is the topology generated by the set of all pairs
+$(\openO_1,\openO_2)$ with $\openO_1 \xeof \topX$ and $\openO_2 \xeof \topY$.
+\end{itemize}
+
+\subparagraph{} %- standard topology in the set of complex numbers
+We can use the product topology to define
+the \textit{standard topology} $\topT_{\C}$
+on the field $\C$ of complex numbers,
+since $\C$ can be considered as the cartesian product $\R \times \R$.
+Here,
+for each factor of $\R \times \R$ the standard topology
+of the space $\R$ is used.
+
+%------------------------------------------------------------------------------%
+\section{Compact and Locally Compact Spaces}                                   %
+%------------------------------------------------------------------------------%
+One of the most useful concepts coming from topology
+is that of \textit{compactness}.
+It is a property of finiteness defined for subsets of a topological space.
+Preliminary,
+given a topological space $\topX$,
+an \textit{open covering} of a set $\compK \subseteq \topX$
+is a collection $\famF$ of open sets such that
+\[
+\compK \, \subseteq \, \bigcup_{\openO \in {\famF}} \openO.
+\]
+The set $\compK$ is called \textit{compact},
+if \textit{every open covering of $\compK$ has a finite subcovering}.
+
+\subparagraph{}
+The meaning of compactness is,
+that many proofs are much easier and more transparent,
+if the set under consideration is assumed to be compact.
+In general,
+when examining a topological problem
+it is a benefite to consider primarily the compact case if possible.
+Note that compactness is an {inner property} of a subset,
+that is,
+a subset $\compK \subset \topX$ is compact
+{\wrt} the topology $\topT$ on $\topX$
+\iff it is compact in its subset topology $\topT_{\compK}$.
+
+\subparagraph{} %- relatively compact sets
+The property of compactness of a set is inherited to its subsets
+supposed these are closed,
+that is,
+every closed subset of a compact set or space is compact,
+too.
+On the other hand,
+if a topological space $\topX$ is Hausdorff,
+then every compact subset of $\topX$ is closed.
+We shall call a subset \textit{relatively compact},
+if its closure is compact.
+
+\subparagraph{} %- compactness criterion for homeomorphisms
+Compactness provides also a helpful criterion to decide
+whether a given map $f \: \topX \xto \topY$ is homeomorphic.
+In particular,
+let $\topX$ be a compact space and $\topY$ be a Hausdorff space,
+then each continuous and bijective mapping is a homeomorphism.
+
+\paragraph{} %- locally compactness
+Since compactness is a rather ambitious property,
+topological spaces having this property are very sparse.
+But there is a weaker property,
+called \textit{locally compactness},
+which is fulfilled by a larger number of topological spaces.
+Locally compactness is a property
+which has to be satisfied by all the elements of a space:
+a topological space $\topX$ is called \textit{locally compact},
+if each neighbourhood of any point $x \xeof \topX$
+contains a compact neighbourhood.
+In case of $\topX$ being a Hausdorff space, $\topX$ is locally compact if
+and only if each point $x \xeof \topX$ has a compact neighbourhood.
+
+\subparagraph{} %- locally compact Hausdorff spaces
+The class of \textit{locally compact spaces} plays an outstanding role
+for investigations in other mathematical areas like
+\textit{measure theory} and \textit{abstract harmonic analysis}.
+Nearly all locally compact spaces of practical interest
+are Hausdorff spaces as well,
+so the notion \textit{LCH space} is a popular abbreviation for
+a topological space being both,
+namely \textit{locally compact} and \textit{Hausdorff}.
+
+%------------------------------------------------------------------------------%
+\section{Compact-Open Topologies}                                              %
+%------------------------------------------------------------------------------%
+Given the two sets $\topX$ and $\topY$,
+we denote $\topY^{\topX}$ the set of all mappings $f \: \topX \xto \topY$.
+In additon,
+if both sets are topological spaces,
+let $C(\topX,\topY) \subset \topY^{\topX}$ be the subset
+of \textit{continuous} mappings $f \: \topX \xto \topY$.
+It is our goal to equip the set $C(\topX,\topY)$ with a suitable topology.
+
+\subparagraph{} %- definition of compact-open topologies
+Preliminary,
+for a compact subset $\compK \subset \topX$ and an open subset
+$\topU \subset \topY$ we introduce the family of mappings
+\[
+S(\compK,\openO) \eqdef \{f \in C(\topX,\topY): f(\compK) \subset \openO \}.
+\]
+Then the set $C(\topX,\topY)$ can be furnished with the topology $\topT_{co}$,
+which is generated by the collection of all such sets $S(\compK,\openO)$,
+called the \textit{compact-open topology} on $C(\topX,\topY)$.
+It turns out
+that the set $C(\topX,\topY)$ equipped with this topology is a Hausdorff space
+whenever $\topY$ is Hausdorff.
+
+\paragraph{}
+The establishment of the compact-open topology on sets of continuous mappings
+can be seen as a standard method in general topology.
+Its meaning is based on the fact that
+functions in $C(\topX,\topY)$ are closed together,
+if their images on compact subsets are so.
+
+\subparagraph{}
+In case of $\topY=\R$ or $\topY=\C$,
+let both sets be endowed with their standard topology.
+Then for the spaces $C(\topX,\R)$ and $C(\topX,\C)$
+we get the compact-open topology,
+respectively.
+Since $\R$ and $\C$ are Hausdorff spaces according to the standard topologies,
+the functions sets $C(\topX,\R)$ and $C(\topX,\C)$ prove to be Hausdorff spaces,
+too.
+
+%------------------------------------------------------------------------------%
+\section{Baire Spaces}                                                         %
+%------------------------------------------------------------------------------%
+A topological space is called a \textit{Baire space}
+(due to \textsc{R.L.\,Baire}),
+if the union of a countable collection of closed sets with empty interior
+has empty interior, too.
+This definition is equivalent to the following one:
+if the union of countable many closed subsets has an interior point,
+then at least one of them must have an interior point.
+\textsc{Baire}\textit{'s category theorem} claims
+(as a special variant of a more general theorem)
+that \textit{every LCH space is a Baire space}.
+The word "category" is due to \textsc{Baire}'s original terminology,
+according to which a set is said to be \textit{of first category}
+if it is a countable union of nowhere dense sets,
+and \textit{of second category} otherwise.
+We may reformule \textsc{Baire}'s theorem by quoting
+that \textit{all LCH spaces are of second category}.
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\begin{comment}
+\vspace{8mm}
+\begin{small}
+\begin{thebibliography}{99}
+
+\bibitem{Du_1} J.\,Dugundji:
+\textit{Topology}.
+Allyn and Bacon, 1966.
+
+\end{thebibliography}
+\end{small}
+\end{comment}
+
+%\newpage
+%\thispagestyle{empty}
+\fancyhead[OC]{\small{\textsc{II. Metric Spaces}}}
+\fancyhead[EC]{\small{\textsc{II. Metric Spaces}}}
+\part{Metric Spaces}
+%-------------------------------------------------------------------------------
+The theory of \textit{metric spaces} may serve as a link
+between general topology and modern analysis.
+Introduced by \textsc{M.\,{\FRECHET}},
+they are one of the most important classes within that of topological spaces.
+Roughly spoken,
+they can be considered as a straightforward generalization
+of the Euclidean spaces.
+The main property of a metric space is
+that a distance value, called the \textit{metric} on that space,
+is assigned to each pair of its elements.
+This leads to an intuitive understanding
+of the topological concept of \textit{closeness} between points.
+
+%------------------------------------------------------------------------------%
+\section{Metrics}                                                              %
+%------------------------------------------------------------------------------%
+Given a non-empty set $\metrS$,
+a mapping $\d \: \metrS \xtimes \metrS \xto \R$ is called a \textit{metric}
+on $\metrS$
+iff the following four conditions hold for all $x,y,z \xeof \metrS$:
+
+\begin{itemize}[leftmargin=17mm,itemsep=1pt]
+\item[(M-1)]
+$\d(x,y) \geq 0$,
+
+\item[(M-2)]
+$\d(x,y) \eq 0$ if and only if $x \eq y$,
+
+\item[(M-3)]
+$\d(x,y) \eq \d(y,x)$;
+
+\item[(M-4)]
+$\d(x,z) \leq \d(x,y) + \d(y,z)$ \hspace{3mm}(\textit{triangle inequality}).
+\end{itemize}
+
+\paragraph{} %- metric spaces
+If $\d$ is a metric on the set $\metrS$,
+then the pair $(\metrS,\d)$ is called a \textit{metric space}.
+Any set $\metrS$ can be made into a metric space in different ways
+by employing different metric functions.
+
+\subparagraph{}
+There is a natural way to furnish a metric space with a distinguished topology.
+Let $(\metrS,\d)$ be a metric space,
+then any set of the form
+$
+B_{\epsilon}(x) := \{y \xeof \metrS: \d(x,y) < \epsilon \}
+$
+is called an \textit{$\epsilon$-ball} around a point $x \xeof \metrS$.
+We then introduce open sets in $\metrS$ by means of $\epsilon$-balls:
+a subset $\openO \subseteq \metrS$ is called open,
+if for every point $x \xeof \openO$
+there is a ball $B_{\epsilon}(x)$
+such that $B_{\epsilon}(x) \subset \openO$.
+
+\subparagraph{}
+Indeed,
+the system $\topT_d$ of all such open sets in $\metrS$ forms a topology
+and is called the \textit{induced} or \textit{metric topology} on $\metrS$.
+Thus each metric space is naturally a topological space,
+and all the concepts provided by general topology can be applied.
+Note that metric topologies are always Hausdorff,
+since any two points in $\metrS$ can be separated
+by sufficient small $\epsilon$-balls.
+
+\paragraph{} %- boundedness
+It is easy to define the notion of \textit{boundedness}
+for arbitrary subsets of a metric space $(\metrS,\d)$.
+For a set $\setA \subseteq \metrS$,
+the nonnegative number
+\[
+\d(\setA) \eqdef \sup \, \{ \d(x,y) \: x,y \in \setA \}
+\]
+is called the \textit{diameter} of $\setA$,
+and $\setA$ is said to be \textit{bounded}
+iff $\d(\setA) < \infty$.
+
+\subparagraph{}
+Boundedness is \textit{not} a topological invariant of the metric topology.
+For example,
+consider the real line with the first metric $\d_1(x,y) := \abs{x-y} $
+and the second metric
+\[
+\d_2(x,y) \eqdef \frac{ \abs{x-y} }{1 + \abs{x-y} }
+\quad \quad (x,y \in \R).
+\]
+Then the identity mapping $\iota \:(\R,\d_2) \xto (\R,\d_1)$ is a homeomorphism,
+but the diameter of the entire set $\R$ related to the metric $\d_2$ is finite,
+whereas {\wrt} the metric $\d_1$ it is infinite.
+
+\paragraph{} %- isometries
+Let $(\metrS_1,\d_1)$ and $(\metrS_2,\d_2)$ be metric spaces.
+Then a mapping $\iota \: \metrS_1 \xto \metrS_2$ is called an \textit{isometry},
+if it satisfies the equations
+\[
+\d_2(\iota(x),\iota(y)) \= \d_1(x,y)
+\quad \quad (x,y \in \metrS_1).
+\]
+
+\subparagraph{}
+This definition implies that an isometry is injective.
+Two metric spaces $\metrS_1,\metrS_2$ are said to be
+\textit{isometric} to each other,
+if there is a \textit{surjective} isometry between them.
+In particular,
+isometric spaces are homeomorphic to each other {\wrt} their metric topologies.
+
+%------------------------------------------------------------------------------%
+\section{Convergence and Completeness}                                         %
+%------------------------------------------------------------------------------%
+The concept of convergence is already known
+for sequences in arbitrary topological spaces.
+By the validness of the first countability axiom
+in a metric space $(\metrS,\d)$,
+a sequence $(x_n)$ of elements in $\metrS$ converges to
+a limit point $x \xeof \metrS$ \iff $\lim_{n \xto \infty} \d(x,x_n)=0$,
+that is,
+if for each $\epsilon > 0$ there is an integer $N_{\epsilon}$
+such that $\d(x_n, x) < \epsilon$ for all $n > N_{\epsilon}$.
+Because each metric space is Hausdorff,
+the limit point of a convergent sequence must be unique.
+By the triangle inequality
+\[
+\d(x_n,x_m) \, \leq \, \d(x_n,x) + \d(x,x_m),
+\]
+we can see that a convergent sequence in $\metrS$ satisfies the
+\textit{Cauchy convergence condition}
+\[
+\lim_{n,m \to \infty} \d(x_n,x_m) \= 0.
+\]
+This condition suggests the following definition:
+a sequence $(x_n)$ is called \textit{Cauchy sequence},
+if for each $\epsilon > 0$ there is a positive integer $N_{\epsilon}$
+such that $\d(x_m, x_n) < \epsilon$ for all $m,n > N_{\epsilon}$.
+In addition,
+two metrics $\d_1,\d_2$ on a set $\metrS$ are called \textit{equivalent},
+if they create identical sets of Cauchy sequences,
+and in this case their corresponding metric topologies coincide.
+
+\paragraph{}
+It is one of the benefits when working with metric spaces
+that the property of a set to be closed or dense can be expressed
+in terms of convergent sequences:
+
+\begin{itemize}[leftmargin=12pt,itemsep=1pt]
+\item[1.]
+a subset $\setA \subset \metrS$ is closed,
+iff the limit point of any convergent sequence in $\setA$ belongs to $\setA$,
+too,
+
+\item[2.]
+the set $\setA$ is dense in $\metrS$,
+iff for each point $x \xeof \metrS$ there is a sequence $(x_n)$
+in $\setA$ which is convergent to $x$.
+\end{itemize}
+
+\subparagraph{}
+Clearly,
+every convergent sequence is a Cauchy sequence,
+but the converse statement does not hold:
+consider Cauchy sequences in the space $\Q$ of rational numbers,
+which in general do not have a limit point in $\Q$.
+This counterexample gives rise to introduce the concept
+of \textit{completeness} for a metric space,
+which is of outstanding meaning in higher analysis:
+indeed,
+a metric space $(\metrS,\d)$ is called \textit{complete},
+if each Cauchy sequence $(x_n)$ is convergent to an element $x \xeof \metrS$.
+
+\subparagraph{}
+One can easily prove
+that the cartesian product of arbitrarily many metric spaces is complete
+iff each single space is complete,
+and that a subset $\A$ of a complete metric space is complete
+\iff $\A$ is closed.
+
+\paragraph{}
+In the following we shall point out the fundamental assertion
+that for each \textit{uncomplete} metric space $(\metrS,\d)$
+there is a \textit{complete} metric space $(\overline{\metrS},\delta)$ and
+a continuous embedding $\iota \: \metrS \xto \overline{\metrS}$,
+which preserves the metric in the sense that
+\[
+\d(x,y) \= \delta(\iota(x),\iota(y))
+\quad \, \quad (x,y \in \metrS).
+\]
+The metric space $\overline{\metrS}$ is called the \textit{completion}
+of $\metrS$ and is unique up to isometric mappings.
+Moreover,
+the image of $\metrS$ is a dense subset in $\overline{\metrS}$.
+
+\subparagraph{}
+The space $\overline{\metrS}$ is usually designed as
+a set of equivalence classes consisting of Cauchy sequences in $\metrS$.
+More precisely,
+two Cauchy sequences $(x_n)$ and $(y_n)$ are called equivalent,
+if $\lim_{n \to \infty} \d(x_n,y_n) \eq 0$,
+and the mapping
+\[
+\delta([(x_n)],[(y_n)]) \eqdef \lim_{n \to \infty} \d(x_n,y_n)
+\]
+defines a metric function on $\overline{\metrS}$,
+which is independent of the representants in $[(x_n)]$ and $[(y_n)]$.
+The embedding of $\metrS$ into the metric space $\overline{\metrS}$
+is performed by mapping an element $x \xeof \metrS$
+to that equivalent class $[x]$,
+which contains the \textit{constant} Cauchy sequence $(x,x,\ldots)$.
+The construction of the real numbers as the completion of the space
+of rational numbers is a prototypical example for that method.
+
+\subparagraph{}
+Complete metric spaces turn out to be Baire spaces.
+
+%------------------------------------------------------------------------------%
+\section{Compactness in Metric Spaces}                                         %
+%------------------------------------------------------------------------------%
+In the setting of metric spaces 
+the property of compactness and relatively compactness of a given subset
+can be expressed in terms of \textit{sequentially compactness}
+(\textsc{Bolzano-Weierstrass} \textit{theorem}):
+
+\begin{theorem}\label{BOLZANO_WEIERSTRASS_THEOREM}
+A subset $\setA \subseteq \metrS$ of a metric space is relatively compact
+iff each sequence in $\setA$ has a convergent subsequence.
+\end{theorem}
+
+\subparagraph{}
+For a compact subset $\compK$ in $\metrS$,
+the limit point of such a subsequence must be a member of $\compK$ again,
+since $\compK$ is closed.
+Furthermore,
+every compact metric space is \textit{complete},
+due to the fact that
+each Cauchy sequence in a compact metric space
+must have a convergent subsequence.
+In order to describe compact subsets in a metric space,
+the following concept is adequate:
+a subset $\setA \subseteq \metrS$ is called \textit{totally bounded},
+if for each $\epsilon > 0$ there is a finite number of points
+$x_1,\ldots,x_n \xeof \setA$
+such that their $\epsilon$-balls form an open cover of $\setA$.
+
+\paragraph{}
+For \textit{complete} metric spaces the \textit{Heine-Borel} \textit{theorem}
+asserts
+that there is a strong link between the concepts of totally boundedness
+and relatively compactness:
+
+\begin{theorem}
+If a metric space $\metrS$ is complete,
+then a subset $\setA \subset \metrS$ is relatively compact,
+if and only if it is totally bounded.
+\end{theorem}
+
+\subparagraph{}
+For the Euclidean spaces $\Rd$ the notion of totally boundedness
+and usual boundedness are equivalent, 
+so a subset $\compK \subset \R^n$ is compact
+iff $\compK$ is closed and bounded.
+
+\paragraph{}
+The following property of a compact subset in a metric space is often used:
+if a set $\setA_1$ is \textit{compact} and
+a further set $\setA_2$ is \textit{closed},
+then they have non-zero distance to each other,
+that is,
+$\delta(\setA_1,\setA_2) \eq \delta(\setA_2,\setA_1) > 0$ holds.
+
+%------------------------------------------------------------------------------%
+\section{Continuity in the Setting of Metric Spaces}                           %
+%------------------------------------------------------------------------------%
+In metric spaces
+there is an alternative approach to define continuity of a mapping:
+a function $f \: D \subseteq \metrS_1 \xto \metrS_2$
+is called \textit{continuous} at a point $x_0 \xeof \metrS_1$,
+if for each $\epsilon > 0$ there exists $\delta > 0$
+such that $d_1(x_0,x) < \delta$ implies $d_2(f(x_0),f(x)) < \epsilon$
+for all $x \xeof D$.
+
+\subparagraph{}
+Beyond that,
+the function $f$ is called \textit{continuous},
+if $f$ is continuous at every point of its domain $D$.
+Notice
+that in metric spaces a function $f$ is continuous at a point $x$,
+iff it is \textit{sequentially continuous} in $x$, that is,
+a sequence $(x_n)$ converging to $x$ implies the
+convergence of the sequence $(f(x_n))$ to the point $f(x)$.
+The property of a function being continuous at a point $x$
+is of local nature.
+
+\paragraph{} %- Arzela-Ascoli theorem
+Let $C(\topX,\C)$ be the set of continuous complex-valued functions
+$f \: \topX \xto \C$.
+If $\topX$ is a compact topological space,
+then any function $f \xeof C(\topX,\C)$ is bounded.
+As a consequence,
+the difference $f{-}g$ of such functions is bounded,
+too,
+and one may introduce a metric $\d$ on the set $C(\topX,\C)$ by
+\[
+\d(f,g) \eqdef \sup_{x \in \topX} \abs{ f(x)-g(x) }
+\quad \mbox{for } f,g \in C(\topX,\C).
+\]
+
+\subparagraph{}
+It is an important task to identify the compact subsets
+of the set $C(\topX,\C)$ {\wrt} its metric topology.
+More precisely,
+the question arises,
+under which conditions a subset of $C(\topX)$ is relatively compact.
+The main condition in this problem is called \textit{equicontinuity}:
+a family $\famF \subset C(\topX)$  is called \textit{equicontinuous},
+if for each $\epsilon > 0$ there exists a $\delta > 0$ such that
+\[
+\abs{(f(x)-f(y)} < \epsilon, \, \mbox{ whenever } \, \d(x,y) < \delta
+\]
+for every function $f \xeof \famF$.
+In addition,
+the family $\famF$ is called \textit{uniformly bounded} in $x \xeof \topX$,
+if there is a number $M$ such that $\abs{f(x)} \leq M$ for all $f \xeof \famF$.
+Once these concepts are available,
+the answer to the question above is given
+by the \textit{{\ARZELA}-Ascoli theorem}:
+
+\begin{theorem}\label{ARZELA_ASCOLI_THEOREM}
+Let $\topX$ be a compact space and $C(\topX)$ the
+space of continuous complex-valued functions.
+Then a subset $\famF \subset C(\topX)$ is relatively compact,
+iff $\famF$ is equicontinuous and uniformly bounded for each $x \xeof \topX$.
+\end{theorem}
+
+\subparagraph{}
+There are some generalizations of this theorem.
+For example,
+it is still valid for families of continuous mappings $f \: \topX \xto \metrS$,
+where $\topX$ is a compact Hausdorff space and $\metrS$ is a metric space.
+Note that in this case the notion of relatively compactness means
+that for each point $x \xeof \topX$
+the set $\famF_x := \{ f(x): f \xeof \famF \}$ is relatively compact.
+
+\paragraph{} %- uniform continuity
+A further notion in metric space theory is \textit{uniform continuity},
+which avoids the dependency of the number $\delta$ from the point $x$:
+a function $f \: D \subseteq M_1 \xto M_2$
+is called \textit{uniformly continuous},
+if for each $\epsilon > 0$ there exists $\delta > 0$,
+such that $d_1(x,y) < \delta$ implies $d_2(f(x),f(y)) < \epsilon$
+for \textit{all} $x,y \xeof D$.
+Thus the value $\delta$ can be chosen independently of the points $x,y$.
+
+\paragraph{} %- Heine-Cantor theorem
+The \textsc{Heine-Cantor} \textit{theorem} quotes:
+
+\begin{theorem}\label{HEINE_CANTOR_THEOREM}
+If $M_1,M_2$ are metric spaces and $M_1$ is \textit{compact},
+then every continuous function $f \: M_1 \xto M_2$ is uniformly continuous.
+\end{theorem}
+
+\subparagraph{}
+Uniformly continuous functions map Cauchy sequences
+to Cauchy sequences again,
+but this is not true in case of non-uniformly continuous functions.
+Furthermore,
+the uniform continuity of a function $f$ is a global property,
+and each such function clearly is continuous.
+The converse statement however is not true:
+consider the mapping $f \: \R \xto \R$, $x \mapsto x^2$,
+which is continuous,
+but \textit{not} uniformly continuous on the real line.
+
+%------------------------------------------------------------------------------%
+\section{{\HOELDER}-Continuity}                                                %
+%------------------------------------------------------------------------------%
+A function $f \: \metrS_1 \xto \metrS_2$ between metric spaces $M_1,M_2$
+is called \textit{{\HOELDER}-continuous},
+if there a real constants $c \geq 0$ and $\alpha \geq 0$ such that
+for all $x,y \xeof \metrS_1$ the so called \textit{{\HOELDER} condition}
+\[
+\d_2(f(x),f(y)) \, \leq \, c \cdot \d_1(x,y)^{\alpha}
+\]
+is satisfied.
+Moreover,
+each {\HOELDER} continuous function $f \: M_1 \xto M_2$
+is actually uniformly continuous.
+In case of $\alpha \eq 0$,
+{\HOELDER} continuity means that the function $f$ is simply bounded,
+whereas in case of $\alpha \eq 1$ it is equivalent to the inequality
+\[
+\d_2(f(x),f(y)) \, \leq \, c \cdot \d_1(x,y),
+\]
+whose validness is known as \textit{Lipschitz continuity}.
+The number $c$ is called the \textit{Lipschitz constant} of the function $f$.
+
+\subparagraph{}
+If the Lipschitz constant satisfies $0 < c < 1$,
+the function is called a \textit{contraction}.
+Contractions in the context of complete metric spaces
+are very useful,
+because they ensure the existence and uniqueness
+of the solution for a couple of nonlinear equations.
+This fact is based on the \textsc{Banach} \textit{fixpoint theorem}:
+
+\begin{theorem}\label{BANACH_FIXPOINT_THEOREM}
+Let $(\metrS,\d)$ be a complete metric space
+and the mapping $f \: \metrS \xto \metrS$ be a contraction.
+Then $f$ admits exactly one fixpoint of the equation $f(x) \eq y$.
+\end{theorem}
+
+\subparagraph{}
+Indeed,
+beginning with any $x_0 \xeof \metrS$,
+the sequence $(x_n)$ defined by $x_n := f(x_{n-1})$ is Cauchy,
+whose limit point $x$ is the solution of the equation $f(x) \eq x$.
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\begin{comment}
+\vspace{8mm}
+\begin{small}
+\begin{thebibliography}{99}
+
+\bibitem{Du_2} J.\,Dugundji:
+\textit{Topology}.
+Allyn and Bacon, 1966.
+
+\end{thebibliography}
+\end{small}
+\end{comment}
+
+%\newpage
+%\thispagestyle{empty}
+\fancyhead[OC]{\small{\textsc{III. Topological Groups}}}
+\fancyhead[EC]{\small{\textsc{III. Topological Groups}}}
+\part{Topological Groups}
+%-------------------------------------------------------------------------------
+Besides the metric spaces there is a further subclass of topological spaces,
+which is of great importance in analysis,
+namely that of \textit{topological groups}.
+
+\subparagraph{}
+First recall from group theory
+that an arbitrary group is a set $\topG$ together with
+an associative operation $\circ \: \topG \times \topG \xto \topG$, such that
+
+\begin{itemize}[leftmargin=12pt,itemsep=1pt]
+\item[1.]
+there is exactly one \textit{identity element} $\1 \xeof \topG$ such that
+\[
+x \circ \1 = \1 \circ x \= x \quad \quad (x \in \topG),
+\]
+
+\item[2.]
+to each $x \xeof \topG$ there is a unique element $x^{-1} \xeof \topG$,
+called the \textit{inverse} of $x$
+such that
+\[
+x \circ x^{-1} = x^{-1} \circ x = \1.
+\]
+\end{itemize}
+
+\subparagraph{}
+If the group operation is commutative,
+then the identity element is often denoted $\0$
+and each inverse element $x^{-1}$ is denoted $-x$.
+
+\section{Generalities on Topological Groups}
+%------------------------------------------------------------------------------%
+These are mathematical objects having the algebraic structure of a group
+and a topological structure together.
+Both kinds must be compatible to each other in the following sense:
+let $(\topG,\circ)$ be an ordinary group and
+a topological space $(\topG,\topT)$ at once.
+Then $\topG$ is called a \textit{topological group},
+if the group operation
+\[
+\circ \: \cross{\topG}{\topG} \xto \topG,
+\quad
+(x,y) \mapsto x \circ y^{-1}
+\]
+is a continuous mapping.
+Note that
+instead to require continuity for the mapping $(x,y) \mapsto x \circ y^{-1}$,
+one can equivalently require
+that the mappings $(x,y) \mapsto x \circ y$ and $x \mapsto x^{-1}$
+be continuous.
+
+\paragraph{} %- examples of topological groups
+Well-known examples of topological groups are:
+
+\begin{itemize}[leftmargin=9mm,itemsep=1pt]
+\item[1.]
+each group $\grpG$ with its discrete topology $2^{\grpG}$,
+
+\item[2.]
+the group $\R^{\times} := \R - \{0\}$,
+
+\item[3.]
+the group $\C^{\times} := \C - \{(0,0)\}$,
+
+\item[4.]
+the group $\R^+ := \set{x \xeof \R}{x >0}$,
+
+\item[5.]
+the additive groups $(\R,+)$ and $(\C,+)$,
+
+\item[6.]
+each subgroup $\topU$ of a topological group $\topG$
+endowed with the subspace topology
+and its closure $\overline{\topU}$ are
+topological groups in its own right.
+\end{itemize}
+
+\paragraph{} %- homomorphisms between topological groups
+Like for purely algebraic groups,
+a \textit{homomorphism} between topological groups
+is defined to be a \textit{continuous} group homomorphism,
+and a homomorphism is called an \textit{isomorphism},
+if it is continuous and a group isomorphism at the same time.
+A well-known example of a group isomorphism is
+the \textit{exponential function} $t \mapsto e^{t}$,
+which maps the topological group $(\R,+)$ to the group $(\R^+,\cdot)$.
+Similarly,
+the function
+\[
+t \in [0,1) \mapsto e^{2 \pi it}
+\]
+forms a group isomorphism between the groups $\R / \Z$ and $\mathbb{T}$.
+
+\paragraph{}
+Since in a topological group the
+left  translation $x \mapsto g \circ x$ and the
+right translation $x \mapsto x \circ g$
+are continuous mappings,
+they are both examples for \textit{automorphisms},
+that is,
+isomorphisms on the group $\topG$ to itself.
+Hence the topological properties of a topological group $\topG$
+are completely determined by the topology in a neighbourhood
+of the identity element $\1 \xeof \topG$,
+which gives rise to call a topological group to be \textit{homogeneous}.
+
+\subparagraph{}
+The kind,
+how the identity $\1$ of a topological group $\topG$
+lies in a given subgroup $\topU$,
+determines the topology of that subgroup.
+In particular,
+
+\begin{itemize}[leftmargin=9mm,itemsep=1pt]
+\item[1.]
+$\topU \subset \topG$ is open, iff $\1$ is an inner point of $\topU$.
+
+\item[2.]
+$\topU$ is discrete, iff $\1$ is an isolated point of $\topU$.
+\end{itemize}
+
+\paragraph{} %- circle group
+The \textit{circle group} $\mathbb{T}$ is that group
+consisting of all complex numbers of modulus $1$ with group operation
+\[
+e^{i \alpha} \circ e^{i \beta} \eqdef
+e^{i \alpha} \cdot e^{i \beta} \eqdef
+e^{i(\alpha + \beta)},
+\quad \alpha,\beta \in \R.
+\]
+This group,
+endowed with the subset topology inherited
+by the standard topology on the field $\C$,
+is a topological group.
+Consider the set $C(\topG,\mathbb{T})$ consisting of all
+continuous functions $f \: \topG \xto \mathbb{T}$.
+We equip this set with the compact-open topology,
+so $C(\topG,\mathbb{T})$ becomes into a Hausdorff space.
+
+\section{Characters and Dual Groups}
+%------------------------------------------------------------------------------%
+A \textit{character} is a group homomorphism from a
+topological group $\topG$ to the circle group $\mathbb{T}$
+(in the sense of topological groups) and hence a continuous mapping.
+We denote $\topG^*$ the set of all characters $\chi \: \topG \xto \mathbb{T}$,
+which turns out to be a subset of the function space $C(\topG,\mathbb{T})$.
+The set $\topG^*$ can be made into a topological space
+by choosing the topology $\topT_{\topG^*}$ on $\topG^*$ to be
+the subset topology {\wrt} the compact-open topology on $C(\topG,\mathbb{T})$.
+
+\paragraph{} %- definition of the dual group
+Now,
+performing multiplication of characters
+$\chi_1,\chi_2 \xeof \topG^*$ by
+\[
+\chi_1 \circ \chi_2 \: g \mapsto \chi_1(g) \cdot \chi_2(g),
+\]
+we obtain a further character $\chi_1 \circ \chi_2 \xeof \topG^*$.
+This operation has all the properties of a group operation,
+and since it is commutative,
+the set $\topG^*$ of all characters of $\topG$
+has the structure of an Abelian group,
+called the \textit{character group} or the \textit{dual group} of $\topG$.
+
+\subparagraph{}
+Furthermore,
+one can prove
+that the group operation in $\topG^*$ is continuous {\wrt}
+the topology $\topT_{\topG^*}$,
+hence the dual group of any topological group is a topological group as well.
+
+\paragraph*{} %- examples of classical topological Abelian groups
+In the following table we list three classical topological Abelian groups
+together with their dual groups and characters:
+\vspace{3mm}
+
+\renewcommand{\arraystretch}{1.2}
+\centerline
+{
+\begin{tabular}{|c|c|c|}
+\hline
+$\topG$ & $\topG^*$ & characters \\
+\hline
+$\R$ & ${\R}^* \cong \R$ & $\chi_x(t) := e^{itx}, \, x \in \R$ \\
+$\Z$ & ${\Z}^* \cong \mathbb{T}$ & $\chi_z(n) := e^{inz}, z \in \mathbb{T}$ \\
+$\mathbb{T}$ & ${\mathbb{T}}^* \cong \Z$ & $\chi_n(z) := z^n, \, n \in \Z$ \\
+\hline
+\end{tabular}
+}
+\vspace{3mm}
+\centerline{\small Table 1: classical topological groups and dual groups.}
+
+\paragraph{}
+Concerning cartesian products of topological groups,
+for each topological group $\topG$ and $\topH$
+we have
+\[
+(\topG \times \topH)^* \, \cong \, {\topG}^* \times {\topH}^*.
+\]
+As a consequence,
+the group isomorphisms $(\Rd)^* \cong \Rd$ hold for any integer $d$.
+
+\section{Pontryagin Duality}
+%------------------------------------------------------------------------------%
+The abbreviation \textit{LCA group} usually stands
+for a \textit{locally compact Abelian group}.
+The meaning of locally compact groups is based on the fact
+that they own non-trivial characters,
+that is,
+we have $\topG^* \neq \{\chi_1\}$ for such a group $\topG$,
+where $\chi_1$ is the character with $\chi_1(x) \eq 1$ for all $x \xeof \topG$.
+
+\paragraph{} %- Pontryagin duality theorem
+Suppose that the group ${\topG}$ is \textit{locally compact}.
+Then it can be shown (for example by the \textsc{{\ARZELA}-Ascoli} theorem)
+that the dual group $\topG^*$ is also locally compact
+{\wrt} its compact-open topology.
+Let $\topG^{**}$ denote the \textit{bidual group}
+of a topological group $\topG$,
+which is defined to be the dual group of its character group.
+
+\subparagraph{}
+One of the main results in the theory of LCA groups is the celebrated
+\textit{Pontryagin duality theorem}:
+
+\begin{theorem}\label{PONTRYAGIN_DUALITY_THEOREM}
+If $\topG$ is a LCA group,
+then $\topG$ and its bidual group $\topG^{**}$ are isomorphic to each other.
+\end{theorem}
+
+\subparagraph{}
+Notice that
+each group element $g \xeof \topG$ gives rise to a character $\chi_x$
+on the dual group $\topG^*$ defined by $\chi_x(\xi) := \xi(x)$
+for all $\xi \xeof \topG^*$.
+Thus the mapping $x \mapsto \chi_x \xeof \topG^{**}$ is an injective group
+homomorphism,
+and Pontryagin duality means
+that the canonical embedding $\iota \: \topG \xto {\topG}^{**}$,
+$x \mapsto \chi_x$ is also surjective.
+
+\paragraph{}
+It is easy to see
+that the groups listed in table 1 are examples for Pontryagin duality.
+This kind of duality also implies remarkable relationships
+between the topological properties of the LCA group $\topG$
+and its dual group $\topG^*$:
+
+\begin{itemize}[leftmargin=9mm,itemsep=1pt]
+\item[1.]
+$\topG$ is compact  if and only if ${\topG}^*$ is discrete.
+
+\item[2.]
+$\topG$ is discrete if and only if ${\topG}^*$ is compact.
+\end{itemize}
+
+\begin{comment}
+\section{Homogene Räume}
+%------------------------------------------------------------------------------%
+Sei im folgenden $(\topG,T,\topX)$ ein G-Raum,
+$p \in \topX$ ein fest gewählter Punkt,
+$[p] \in \topX/\topG$ der Orbit von $p$ unter $T$
+und $\grpG_p$ seine Isotropiegruppe.
+Es ist leicht zu zeigen,
+dass die Zuordnung $\topG/\topG_p \mapsto [p]$ stetig und bijektiv ist.
+
+\paragraph{}
+Im Falle, dass $\topG$ kompakt und $\topX$ ein Hausdorff-Raum ist,
+ist auch die Umkehrabbildung $\phi^{-1}$ stetig,
+und für jeden Punkt $p \in \topX$ ist der Orbit $[p]$
+zum Raum $\topG/\topG_p$ homöomorph.
+Die Orbits können also unter diesen Voraussetzungen
+als Quotientenräume $\topG/\topG_p$ angesehen werden.
+
+\paragraph{}
+Einfach gesprochen heißt eine topologischer Raum {\em homogen},
+falls je zwei Punkte durch einen Homöomorphismus ineinander
+übergeführt werden können.
+Mit anderen Worten,
+der topologische Raum ist der Orbit einer transitiven Gruppenoperation und
+homöo\-morph zum Quotienten einer topologischen Gruppe
+nach einer geeigneten Untergruppe.
+Wir definieren daher den Begriff des {\em homogenen Raumes} wie folgt:
+
+\paragraph{}
+Sei $\topG$ eine topologische Gruppe, $\topU \subset \topG$ eine Untergruppe
+und $\topG/\topU$ die Menge der Linksnebenklassen,
+versehen mit der Quotienten-Topologie.
+Dann heißt der topologische Raum $\topG/\topU$ ein {\em homogener Raum}.
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Der Torus $\T := \R / \Z$ ist ein homogener Raum,
+der homöomorph zum Einheitskreis $S^1 \subset \C$ ist.
+
+\item[2.]
+Die Menge $S^1 \subset \C$ ist eine kompakte topologische Gruppe,
+die auf dem Hausdorff-Raum $\C$ durch folgende Operation stetig operiert:
+$T(e^{i \phi},z) := e^{i \phi} \cdot z$.
+Die Isotropie-Gruppe für ein Element $z \in \C^{\times}$ ist
+die ein-elementige Menge $\enumeration{1} \subset S^1$,
+also gilt $\topG/\topG_z \cong S^1$.
+Die Räume $[z]$ und $\topG/\topG_z$ sind zueinander homöomorph,
+und folglich stellt die Menge $S^1$ einen homogenen Raum dar.
+
+\item[3.]
+Jeder Quotientenraum $\R^{k+m} / \R^k$ heißt
+eine {\em Graß\-mann-Mannig\-faltig\-keit}.
+Die Graß\-mann-Mannig\-faltig\-keit ist also die Menge
+aller $k$-dimensionaler Untervektorräume von $\R^{k+m}$.
+\end{itemize}
+
+\paragraph{}
+Die topologischen Eigenschaften der homogenen Räume $\topG/\topU$ hängen
+auf folgende Weise mit denen der Untergruppen $\topU$ab:
+
+\begin{theorem}
+Sei $\topG$ eine topologische Gruppe und $U$ eine Untergruppe von $\topG$.
+Dann gilt:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$\topG/\topU$ ist genau dann ein Hausdorff-Raum,
+wenn $\topU$ abgeschlossen in $\topG$ ist.
+\item[2.]
+Die Topologie von $\topG/\topU$ ist genau dann diskret,
+wenn $\topU$ offen in $\topG$ ist.
+\end{itemize}
+\end{theorem}
+
+\paragraph{}
+Dieser Satz kommt insbesondere dann zur Anwendung,
+wenn die Untergruppe $\topU$ ein Normalteiler von $\topG$ ist.
+Sei $\overline{\topU}$ der Abschluss von $\topU$,
+dann ist der homogene Raum $\topG/\overline{\topU}$ eine
+Hausdorffsche topologische Gruppe,
+und die Projektionsabbildung $\pi:\topG \to \topG/\overline{\topU}$ ist
+ein Epimorphismus topologischer Gruppen.
+\end{comment}
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\begin{comment}
+\vspace{8mm}
+\begin{small}
+\begin{thebibliography}{99}
+
+\bibitem{Ru_3} W.\,Rudin:
+\textit{Fourier Analysis on Groups}.
+Wiley-Interscience, 1962.
+
+\end{thebibliography}
+\end{small}
+\end{comment}
+
+%\newpage
+%\thispagestyle{empty}
+%\fancyhead[OC]{\small{\textsc{IV. Manifolds}}}
+%\fancyhead[EC]{\small{\textsc{IV. Manifolds}}}
+%\part{Manifolds}
+%-------------------------------------------------------------------------------
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\vspace{8mm}
+\begin{thebibliography}{99}
+
+\bibitem{Du} J.\,Dugundji:
+\textit{Topology}.
+Allyn and Bacon, 1966.
+
+\bibitem{Ru} W.\,Rudin:
+\textit{Fourier Analysis on Groups}.
+Wiley-Interscience, 1962.
+
+\end{thebibliography}
+
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}

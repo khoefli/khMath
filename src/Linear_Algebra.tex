@@ -1,0 +1,1034 @@
+%------------------------------------------------------------------------------%
+% LINEAR ALGEBRA                                                               %
+%------------------------------------------------------------------------------%
+% File  : Linear_Algebra.tex                                                   %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+% DOCUMENT CLASS and INCLUDE FILES                                             %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+\titleformat{\part}%[display]
+{\normalfont \rmfamily \bfseries \centering}
+{{\thepart.}}{3pt}{}
+
+\titleformat{\section}[runin]
+{\normalfont \bfseries \filcenter}
+{\thesection.\,}{0mm}{}[.]
+
+\titlespacing*{\part}   {5pt}{12pt}{ 4pt}
+\titlespacing*{\section}{0pt}{ 3pt}{ 3pt}
+
+%\renewcommand\thesection{\Roman{section}}
+%\renewcommand*{\thesubsection}{\arabic{subsection}}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\centerline{\textrm{\large{\textbf{Linear Algebra}}}}
+\vspace{4pt}
+\centerline{\textsc{\small{\Author}}}
+\vspace{10pt}
+
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+\fancyhead[OC] {\small{\textsc{Linear Algebra}}}
+\fancyhead[EC]{\small{\thesection}. \textsc{\sectionname}}
+
+
+%------------------------------------------------------------------------------%
+%                                  CONTENT                                     %
+%------------------------------------------------------------------------------%
+\myfootnote
+{
+  Version {\Version} from \today;
+  Email:  \textit{\Email}
+}
+
+\textit{Linear algebra} is the mathematical subject of modules and linear spaces
+together with the linear mappings defined between them.
+It is the fundament for a couple of other topics in mathematics,
+which in fact relies on the concepts provided by linear algebra.
+The content is divided up into three main parts,
+namely \textit{rings and fields}, \textit{linear spaces and mappings}
+and finally \textit{algebras}.
+
+\paragraph{}
+Let us first recall from group theory
+that an \textit{Abelian group} is a set $\grpG$ together with
+an associative operation $+ \:\grpG \times \grpG \xto \grpG$
+such that
+
+\begin{itemize}[leftmargin=15pt,itemsep=2pt]
+\item[1.]
+there is exactly one element $\0 \xeof \grpG$
+such that the computation rule
+$x + \0 \eq \0 + x \eq x$ holds for all other $x \xeof \grpG$,
+and $\0$ is called the \textit{unit element} in $\grpG$.
+\item[2.]
+to each $x \xeof \grpG$ there is a unique element $-x \xeof \grpG$,
+called the \textit{inverse} of $x$
+such that $x + (-x) \eq -x + x \eq \0$.
+\item[3.]
+the operation $+$ is \textit{commutative} or \textit{Abelian},
+{\ie} $x+y \eq y+x$ for all $x,y \xeof \grpG$.
+\end{itemize}
+
+\setcounter{page}{1}
+%------------------------------------------------------------------------------%
+\fancyhead[EC] {\small{I. \textsc{Rings and Fields}}}
+\fancyhead[OC] {\small{I. \textsc{Rings and Fields}}}
+
+\part{Rings and Fields}  
+%------------------------------------------------------------------------------%
+The concepts of \textit{ring} and \textit{field}
+constitute algebraic structures,
+which form the base for the domains of numbers $\Z, \Q, \R$ and $\C$.
+Moreover,
+rings and fields are used to define further structures
+like \textit{modules}, \textit{vector spaces} and \textit{algebras}.
+
+\paragraph{}
+In the following let $(R,+)$ be an Abelian group
+and $\circ \:R \times R \xto R$ be a further associative operation.
+The triple $(R,+,\circ)$ is called a \textit{ring},
+if the operations $+$ and $\circ$ satisfy the following computation rules,
+denoted as \textit{distributive laws}:
+\[
+\begin{cases}[1.4]
+\quad x \circ (a + b) = (x \circ a) + (x \circ b), \\
+\quad (a + b) \circ y = (a \circ y) + (b \circ y), \\
+\end{cases}
+\]
+for $a,b,x,y \xeof R$.
+The pair $(R,\circ)$ especially forms a semigroup,
+and the operation $\circ$ is usually called the \textit{ring multiplication} in $R$.
+
+\subparagraph{}
+Any ring $R$ is called a \textit{ring with unit element},
+if there is a element $1 \xeof R$ such that $x \circ \1 \eq \1 \circ x \eq x$
+for all $x \xeof R$.
+Moreover,
+a ring is called \textit{commutative},
+if the multiplication is so,
+that is,
+$(R,\circ)$ constitutes a commutativee semigroup.
+
+\paragraph{}
+The following examples of rings are well-known:
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+$(\Z,+,\cdot)$ with unit element $1 \xeof \Z$ is a commutative ring.
+
+\item[2.]
+Let $\setM$ be a set, $(R,+,\circ)$ be a ring
+and $\cal{A}(M,R)$ be the set of mappings from $\setM$ to $R$.
+We introduce addition and multiplication of mappings
+$f,g \xeof \cal{A}(M,R)$ according to
+\[
+\begin{cases}[1.4]
+\quad (f + g)(x) := f(x) + g(x),\\
+\quad (f \cdot g)(x) := f(x) \cdot g(x),\\
+\end{cases}
+\]
+for all $x \xeof M$.
+The set $(\cal{A}(M,\R), +, \cdot)$ forms a ring as well.
+
+\item[3.]
+Let $(A,+)$ be an Abelian group
+and $\cal{A}(A)$ be the set of mappings $f \: A \xto A$.
+Let for $f,g \xeof \cal{A}(A)$ the sum $f + g$ and the prodzct
+$f \circ g$ be given by
+\[
+(f + g)(x) := f(x) + g(x), \quad (f \circ g)(x) := f(g(x))
+\]
+for all $x \xeof A$.
+Then $(\cal{A}(A),+,\circ)$ is a non-commutative ring with unit element $\1$,
+where $\1$ is nothing but the identity mapping in $A$.
+
+\item[4.]
+The set of $(n,n)$-matrices with coefficients in $\R$ or 
+$\C$ forms a ring with unit element {\wrt} matrix multiplication,
+which is non-commutative for $n > 1$.
+\end{itemize}
+
+\paragraph{}
+Let us turn to some subclasses of rings
+by posing some additional requirements regarding the ring multiplication:
+
+\subparagraph{}
+Let $(R,+,\circ)$ be a ring.
+An element $r \xeof R$ is called a \textit{zero divisor} of $R$,
+if $r \neq 0$ and there is $x \xeof R$
+such that $x \neq 0$ and $r \circ x \eq 0$.
+A ring $R$ is called \textit{without zero divisors},
+if it does not contain a zero divisor.
+
+\subparagraph{}
+The absence of a zero divisor in a ring can be characterized
+by means of the \textit{reduction rule}:
+a ring is without zero divisors
+\iff
+for $x,y,z \xeof R$ and $x \neq 0$ the equation $x \circ y \eq x \circ z$
+implies $y \eq z$.
+Damit gelangen we zum Begriff des \textit{Integrit\"{a}ts ring}:
+a ring $R$ is called a \textit{Integrit\"{a}tsring},
+if it is without zero divisors and commutative 
+and owns a unit element $1 \neq 0$.
+
+\subparagraph{}
+Let $(R,+,\circ)$ be a ring with unit element $1 \xeof R$.
+An element $r \xeof R$ is called a \textit{unit} rsp. \textit{invertible},
+if there is $r' \xeof R$ such that $r \circ r' \eq 1$.
+If $r'$ exists, then it is uniquely defined by $r$
+(notation: $r' \eq r^{-1}$).
+If $r$ and $r^{-1}$ are both units, then $(r^{-1})^{-1} \eq r$ holds.
+
+\subparagraph{}
+We denote $E(R)$ to be the set of units of a ring $R$.
+The pair $(E(R),\circ)$ forms an Abelian group for every ring $R$.
+
+\section{Subrings}
+%------------------------------------------------------------------------------%
+Subrings are defined in a smiliar way as subgroups.
+Let $(R,+,\circ)$ be a ring.
+Then yny set $U \subset R$ is called a \textit{subring} of $R$, 
+if for all $r,s \xeof U$ we have $r+s \xeof U$ and $r \circ s \xeof U$.
+
+\subparagraph{}
+Hence a subring is closed {\wrt} the algebraic operations $+$ and $\circ$.
+Each subring $(U,+)$ is an (Abelian) subgroup of $(R,+)$,
+and $(U,\circ)$ is a sub-semigroup of $(R,\circ)$.
+The intersection of arbitrarily many subrings of a ring is a subring again.
+If $R$ is a ring and $S \subset R$ is a non-empty subset,
+then the \textit{generated subring} $[S]$ of $S$ is defined
+to be the intersection of all subrings $U$ of $R$
+having the property $S \xsubset U$.
+
+\section{Ideals}
+%------------------------------------------------------------------------------%
+One of the most important concepts in ring theory is that of \textit{ideal}.
+Let $(R,+,\circ)$ be a ring and $I \subset R$ be a subring:
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$I$ is called a \textit{left-sided ideal} in $R$,
+if for each $r \xeof R$ and each $x \xeof I$ is $r \circ x \xeof I$.
+\item[2.]
+$I$ is called a \textit{right-sided ideal} in $R$,
+if $x \circ r \xeof I$ for each $r \xeof R$ and each $x \xeof I$.
+\item[3.]
+$I$ is called \textit{two-sided},
+if it is a left and right-sided ideal at the same time.
+\end{itemize}
+
+\subparagraph{}
+It follows from this definition
+that for ideals in a \textit{commutative} ring all this notations
+are equivalent to each other.
+
+\subparagraph{}
+The intersection of arbitrarily many ideals in $R$ forms an ideal again.
+Hence we can assign to each non-empty subset $S \subset R$ a \textit{smallest} ideal,
+wich contains the set $S$.
+The ideal generated by the set $S$ is denoted $[S]$ and is defined
+as the intersection of all ideals in $R$ containing the set $S$.
+
+\paragraph{}
+Let $(R,+,\circ)$ be a ring and $I \neq R$ be an ideal in $R$.
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$I$ is called a \textit{maximal ideal}, 
+if it is not contained in a larger ideal besides $R$ itself.
+\item[2.]
+$I$ is called a \textit{primary ideal}, if the following is true:
+If $x,y \xeof R \setminus I$, then $x \circ y \xeof R \setminus I$,
+that is,
+the set $R \setminus I$ is closed {\wrt} multiplication.
+\item[3.]
+The set $\operatorname{Spec}(R)$ of all primary ideals in $R$
+is called the \textit{spectrum} of $R$.
+The set of all maximal ideals in $R$ is called the \textit{maximal spectrum}
+of $R$.
+\item[4.]
+$I$ is called a \textit{principal ideal},
+if it is multiplicatively generated by one element,
+that is,
+there is a $y \xeof R$ with
+$I \eq \set{x \xeof R}{x \eq r \cdot y, \, r \xeof R}$ rsp. $I \eq [y]$.
+\end{itemize}
+
+\paragraph{} %- principal ideal rings
+Let $R$ a commutative ring without zero divisors,but with unit element.
+Then $R$ is called a \textit{principal ideal ring},
+if each ideal in $R$ is a principal one.
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+Each ring $R$ and the mutually existing unit element $\{1\}$ is a ideal.
+
+\item[2.]
+Let $I$ be an interval
+and $(C(I),+,\cdot)$ be the ring of continuous functions $f \:I \xto \R$.
+For $x \xeof I$ let $I_x := \{f \xeof C(I) \: f(x) \eq 0 \}$.
+Then $I_x$ is a maximal ideal in $C(I)$.
+Moreover,
+each maximal ideal in $C(I)$ is a set $I_x$ for an element $x \xeof I$.
+
+\item[3.]
+Let $R \eq (\Z,+,\cdot)$ and 
+$m \, \Z := \{z \xeof \Z \: z = m \cdot i, \, i \xeof \Z \}$ for $m \xeof \N$.
+Then the sets $m \, \Z$ are principal ideals in $\Z$.
+The ring $\Z$ is commutative and withour zero divisors.
+Since each ideal in $\Z$ is principal, 
+$\Z$ proves to be a principal ideal ring.
+\end{itemize}
+
+\section{Factor Rings}
+%------------------------------------------------------------------------------%
+Let $(R,+,\circ)$ be a ring and $I \subset R$ be a two-sided ideal. 
+Since $I$ forms an Abelian subgroup of $R$,
+we can consider the (Abelian) factor group $(R/I,+)$.
+
+\subparagraph{}
+For each pair of elements $[x],[y] \xeof R/I$ the multiplicative operation
+$[x] \circ [y] := [x \circ y]$ is well-defined.
+The ideal $I$ is two-sided in $R$,
+hence the multiplication is indepenedent of the representatives
+$x \xeof [x]$ and $y \xeof [y]$.
+Now,
+the triple $(R/I,+,\circ)$ has also the structure of a ring,
+so the following definition is justified:
+$R/I$ is called the \textit{factor ring} rsp.
+the \textit{residual class ring} of $R$ by $I$.
+
+\subparagraph{}
+If $R$ is a commutative ring,
+then each factor ring $R/I$ is commutative, too,
+and if $R$ owns a unit element, 
+then for each factor ring $R/I$ a unit element can be constructed, too. 
+For $R \eq \Z$ and $m \xeof \N$ the ring $\Z_m := \Z / (m \, \Z)$
+is the residual class ring of $\Z$ factorized by the principal ideal $m \, \Z$.
+The rings $\Z_m$ constitute commutative rings with unit elements.
+
+\paragraph{}
+Like for other algebraic structures,
+the notion of \textit{homomorphism} is also defined for rings.
+Let $(R,+,\circ)$ and $(S,+,\bullet)$ be rings.
+Then a \textit{ring homomorphism} is a group homomorphism $\phi \:R \xto S$
+that is compatible with the multiplicative operations in $R$ and $S$
+in the sense of
+\[
+\phi(x \circ y) = \phi(x) \bullet \phi(y), \qquad x,y \in R.
+\]
+
+\subparagraph{}
+Other concepts like epimorphisms,
+monomorphisms, isomorphisms and endomorphisms are defined for rings as well.
+The rings form together with their homomorphisms a category.
+
+\subparagraph{}
+Let $(R,+,\circ)$ a ring and $I$ a two-sided ideal in $R$.
+Then the residual class assignment $\pi\:R \xto R/I$, $x \mapsto [x]$
+is a ring homomorphism,
+denoted the \textit{canonical epimorphism} of $R$ to $R/I$.
+
+\subparagraph{}
+The \textit{kernel} $\kernel{\phi}$ of a ring homomorphism $\phi\:R_1 \xto R_2$
+is the set of all $x \xeof R_1$ with $\phi(x) \eq 0$.
+If $\phi$ is surjective,
+then $\kernel{\phi}$ forms a two-sided ideal in $R_1$.
+In this case the ring $R_1$ can be factorized by $\kernel{\phi}$,
+and the following theorem is valid:
+
+\begin{theorem}
+Let $R_1$, $R_2$ be rings and $\phi\:R_1 \xto R_2$ be a surjective
+ring homomorphism.
+Then the ideals $R_1 / \kernel{\phi}$ and $R_2$ are isomorphic to each other.
+\end{theorem}
+
+\paragraph{}
+In some cases a variant of the concept of ring homomorphisms is meaningful,
+which is denoted \textit{derivations} over a given ring:
+Let $(R_1,+,\circ)$ and $(R_2,+,\bullet)$ be rings.
+Then a \textit{derivative} is a group homomorphism $\phi\:R_1 \xto R_2$,
+if it is compatible with the ring multiplications,
+that is
+\[
+\phi(x \circ y) \= \phi(x) \bullet y \, + \, x \bullet \phi(y),
+\quad \fa x,y \in R_1.
+\]
+
+\subparagraph{}
+Look at the following example:
+let $R := C^1(\R)$ be the ring of countinuously differentiable functions
+$f\:\R \xto \R$
+and $S := C(\R)$ be the ring of continuous functions $f\:\R \xto \R$.
+Then the differential operator $\phi \: R \xto S$ 
+defined by $\phi(f) := f'$ for $f \xeof C^1(\R)$ forms a derivation
+from $R$ to $S$,
+since the product rule $(fg)' \eq f'g \, + \, fg'$ holds.
+
+\section{Polynomial Rings}
+%------------------------------------------------------------------------------%
+For a commutative ring $R$ with unit element
+let $R_0$ be the set of \textit{terminating sequences} $f\:\N \xto R$.
+It should be clear
+that for two sequences $p,q \xeof R_0$ the addition
+$p + q \xeof R_0$ is defined component-wise.
+Moreover,
+theres is a multiplicative operation $\bullet$ in $R_0$,
+which is close to that of convolution:
+\[
+(p \bullet q)_k \eqdef (\sum_{i+j=k} p_i \cdot q_j), \quad k \in \N.
+\]
+Hence a ring structure on $R_0$ is defined by these operations.
+
+\subparagraph{}
+The triple $(R_0,+,\bullet)$ is called the \textit{polynomial ring}
+associated with $R$,
+and each element $p \xeof R_0$ is called a \textit{polynomial}.
+The unit elements of a polynomial ring are given by the sequences
+\[
+\0 : = (0,0,\ldots), \, \mbox{ and } \, 1 := (1,0,\ldots).
+\]
+Morover,
+if a poynomial ring owns a generating element $x := (0,1,0,\ldots)$,
+{\ie} $R_0 \eq [x]$, 
+then each other element $p$ of the polynomial ring can be represented by
+\[
+p = a_0 + a_1 \circ x + a_2 + x^2 + \ldots + a_n \circ x^n,
+\]
+which coincides with the usual notations for polynomials.
+We call the elements $a_i$ the \textit{coefficients} of this polynomial.
+
+\subparagraph{}
+By the \textit{degree} of a polynomial $p$ is meant the number
+$\grad{p} := \max \set{a_k}{k \xeof \N_0}$.
+The following computation rules are valid for all $p,q \xeof R_0$:
+\[
+\begin{cases}[1.4]
+\quad \grad{p+q}         \, \leq \, \max \{ \grad{p}, \grad{q} \},\\
+\quad \grad{p \bullet q} \, \leq \, \grad{p} + \grad{q}.\\
+\end{cases}
+\]
+It is of interest to know
+that by inserting a ring element $x \xeof R$ into a polynomal $p \xeof R_0$
+we obtain a ring homomorphism
+\[
+\phi_x\:R_0 \to R, \quad p \mapsto p(x),
+\]
+which is often called the \textit{insertion homomorphism}.
+
+\section{Fields}  
+%------------------------------------------------------------------------------%
+By a \textit{field} is meant a ring $(R,+,\circ)$,
+for which all its elements besides $\0 \xeof R$ own an inverse element.
+Let $(K,+,\circ)$ a ring with unit element $\1$.
+
+\begin{itemize}[leftmargin=15pt]
+\item[1.]
+$K$ is called a \textit{skew field},
+if for each element $x \xeof K \setminus \{0\}$ there is $x^{-1} \xeof K$ 
+such that $x \circ x^{-1} \eq x^{-1} \circ x \eq \1$.
+\item[2.]
+In addition,
+if $K$ is commutative, then $K$ is denoted a \textit{field}.
+\end{itemize}
+
+\subparagraph{}
+If $K$ is a skew field,
+then the pair $(K \setminus \{0\},\circ)$ forms a group.
+The sets $\Q, \R, \C$ of rational, real and complex number
+constitute also fields,
+but the set of \textit{quaternions} however is only a skew field.
+
+\paragraph{}
+We next answer the question,
+whether for a given ring $R$ and ideal $I$ in $R$
+the factor ring $R/I$ forms a field.
+The following result is valid:
+let $(R,+,\circ)$ be a commutative ring with unit element 
+and $I$ an ideal in $R$. 
+Then $R/I$ is a field \iff
+$I$ is a \textit{maximal} ideal.
+
+\subparagraph{}
+Let $K$ be a field and $\1 \xeof K$ be the unit element {\wrt} multiplication.
+Then the smallst integer $\chi(K)$ having the property
+\[
+\underbrace{\1 \,+\, \ldots \,+\, \1}_{\chi(K)} \= 0
+\]
+is called the \textit{characteristic} of $K$.
+If no such number exists,
+then the field $K$ is said to have characteristic $\chi(K) \eq 0$.
+An example of a field with $\chi(K) \eq 0$ is the field $\Q$ of rational numbers.
+
+\subparagraph{}
+Given an integrity ring $R$,
+one can construct a field,
+called the \textit{quotient field} of $R$:
+First define an equivalence relation on the cartesian product
+$\setM := R \times R \setminus \{0\}$ according to
+\[
+(a,b) \sim (c,d) \, \Leftrightarrow : \, a \circ d = b \circ c.
+\]
+We denote the equivalence class of $(a,b)$ briefly by $\frac{a}{b}$.
+The equivalence classes of $\sim$ form the basic set $Q$
+of the quotient field:
+\[
+Q \eqdef \setM / \sim \= \{ \frac{a}{b} \: (a,b) \xeof \setM \}.
+\]
+But addition and multiplication on $Q$ is still required:
+\[
+\frac{a}{b} + \frac{c}{d} := \frac{(a \circ d) + (c \circ b)}{b \circ d},
+\quad \quad
+\frac{a}{b} \bullet \frac{c}{d} := \frac{a \circ c}{b \circ d}.
+\]
+The reduction rule in integrity rings implies
+that these operations are independent of the representants
+of the equivalence classes.
+
+\subparagraph{}
+There is still the task to identify the unit elements {\wrt}
+addition and multiplication:
+\[
+0 \eqdef \frac{0}{1},
+\quad
+1 \eqdef \frac{1}{1}.
+\]
+Then the triple $(Q,+,\bullet)$ forms a field,
+in which the original ring $R$ can be embedded by an injective mapping $\iota$,
+that is,
+there is a monomorphism $\iota \:R \xto Q$ given by $x \mapsto \frac{x}{1}$.
+
+\subparagraph{}
+The most well-known example for this construction is the definition
+of the field $\Q$ of rational numbers --
+it is the quotient field of the integrity ring $\Z$.
+
+%------------------------------------------------------------------------------%
+\fancyhead[EC] {\small{II. \textsc{Linear Spaces and Mappings}}}
+\fancyhead[OC] {\small{II. \textsc{Linear Spaces and Mappings}}}
+
+\part{Linear Spaces and Mappings}
+%------------------------------------------------------------------------------%
+An Abelian group $(\vecV,+)$ is called a \textit{$\F$-linear space},
+if there is an outer multiplication $\cdot \: \F \times \vecV \xto \vecV$,
+which fulfills for all $\lambda,\mu \xeof \F$ and $x,y \xeof \vecV$
+\[
+\begin{cases}[1.2]
+\quad \lambda \cdot (x + y)       = \lambda \cdot x + \lambda \cdot y,\\
+\quad (\lambda + \mu) \cdot x     = \lambda \cdot x + \mu \cdot x,\\
+\quad \lambda \cdot (\mu \cdot x) = (\lambda \mu) \cdot x,\\
+\quad 1 \cdot x                   = x.
+\end{cases}
+\]
+The mapping $(\lambda,x) \mapsto \lambda \cdot x$
+(briefly denoted $\lambda x$)
+is called \textit{scalar multiplication}.
+If $\F$ is the field of real or complex numbers,
+then $\vecV$ is called a \textit{real} or \textit{complex} linear space,
+respectively.
+The previous conditions imply $0 \cdot x \eq \0$ for each $x \xeof \vecV$.
+
+\section{Linear Subspaces}
+%------------------------------------------------------------------------------%
+A subset $\vecU \subseteq \vecV$ is called a \textit{subspace} of $\vecV$,
+if $\vecU$ is a subgroup of $\vecV$ and
+$\lambda \cdot x \xeof \vecU$ holds for all $x \xeof \vecU, \lambda \xeof \F$,
+so $\vecU$ forms a linear space in its own right.
+
+\subparagraph{}
+One can verify
+that the intersection of arbitrarily many subspaces of a given linear space
+is a subspace again.
+So for each non-empty set $\genG \subset \vecV$
+it is possible to define (like in case of groups and rings)
+a smallest subspace $[\genG]$ containing $\genG$,
+which is said to be generated by $\genG$:
+the set $[\genG]$ is the intersection of all subspaces $U \supseteq \genG$
+and forms the smallest subspace in $\vecV$ containing the set $\genG$.
+The subspace $[\genG]$ is called the \textit{span} of the set $\genG$.
+Any vector $x \xeof \vecV$ is an element of $[\genG]$, if and only if
+$x$ can be represented as \textit{linear combination} of vectors in $\genG$,
+that is, there are vectors $x_1,\ldots,x_n \xeof \genG$ and
+coefficients $\xi_1,\ldots,\xi_n \xeof \F$ such that
+$x \eq \xi_1 x_1 + \xi_2 x_2 + \ldots + \xi_n x_n$.
+
+\paragraph{} %- Hamel bases
+One of the main concepts in the theory of linear spaces
+is that of a \textit{Hamel base}.
+Preliminary,
+a non-empty set $B \subset \vecV$ is called \textit{linearly independent},
+if for each selection $\{e_1,\ldots,e_n\}$ of vectors in $B$
+the condition
+$\xi_1 \, e_1 + \xi_2 \, e_2 + \ldots + \xi_n \, e_n \eq \0$ implies
+$\xi_i \eq 0$ for $i \eq 1,\ldots,n$.
+Note
+that the null vector cannot be an element of any linearly independent set.
+
+\subparagraph{}
+A \textit{Hamel base} of a linear space $\vecV$ is
+a linearly independent subset $\basH$,
+which generates the entire linear space,
+{\ie} $[\basH] \eq \vecV$.
+In this case the set $\basH$ cannot be extended to a larger linearly
+independent set by adding further vectors $\0 \neq v \notin \basH$.
+
+\paragraph{}
+The question arises,
+whether each linear space has a Hamel basis.
+Indeed,
+this is true if the \textit{axiom of choice} in set theory is provided:
+{\em
+assume the axiom of choice to be valid,
+then each linear space $\vecV \neq \{\0\}$ has a Hamel basis.}
+Induced by set inclusion,
+there is a natural partial order on the family
+of linearly independent subsets in $\vecV$,
+since each chain of linearly independent sets is bounded
+by the linear space $\vecV$ itself.
+Due to \textit{Zorn's lemma},
+which is equivalent to the axiom of choice,
+there is a maximal linearly independent set $\basH$
+being a Hamel base in $\vecV$.
+
+\paragraph{}
+Two Hamel bases $\basH,\basH'$ of a linear space $\vecV$
+have always identical cardinalities,
+that is, there is a bijective mapping $\phi \:\basH \xto \basH'$.
+By this reason,
+the linear space $\vecV$ is called \textit{free of rank $\abs{\basB} $},
+and we can speak of the \textit{dimension} of a linear space $\vecV$,
+which is defined to be the cardinality of any Hamel base in $\vecV$
+(we will assign the dimension $0$ to the linear space
+consisting of the null vector only).
+
+\subparagraph{}
+If a Hamel base of $\vecV$ consists of a finite number of elements,
+then the linear space $\vecV$ is called \textit{finite-dimensional}
+respectively \textit{n-dimensional},
+otherwise the space is said to be \textit{infinite-dimensional}.
+
+\section{Convexity}
+%------------------------------------------------------------------------------%
+A subset $\convC$ of a linear space $\vecV$ is called \textit{convex},
+if for any selection $v_1, \ldots, v_n$ of elements in $\convC$
+and coefficients $\lambda_1,\ldots,\lambda_n \xeof \F$ satisfying
+$0 \leq \lambda_i \leq 1$ and
+$\sum_{i=1}^n \lambda_i \eq 1$
+the \textit{convex combination}
+\[
+C[v_1,\ldots,v_n;\lambda_1,\ldots,\lambda_n]
+\eqdef
+\lambda_1 \, v_1 + \ldots + \lambda_n \, v_n
+\]
+is again an element of $\convC$.
+The \textit{line segment} $[x,y]$ for $x,y \xeof \vecV$ is
+a set of vectors, for which each element $v \xeof [x,y]$
+can be represented by the equation $v \eq \lambda x + (1-\lambda) y$
+for some $\lambda \xeof [0,1]$.
+In addition, the {\em inner} line segment $(x,y)$ consists of those vectors,
+which satisfy this equation for $\lambda \xeof (0,1)$.
+So an alternative definition for the concept of convexity is possible:
+a subset $\convC$ is convex,
+if and only if
+$(x,y) \subset \convC$ for each pair of vectors $x,y \xeof \convC$.
+
+\subparagraph{}
+Notice
+that for a linear space $\vecV$ the empty set and the space itself
+are always convex.
+For example,
+the convex subsets of the real line are exactly the intervals
+of finite or infinite type.
+
+\paragraph{}
+Convex sets have the property,
+that intersections of arbitrarily many convex sets are convex again.
+This property enables us to declare the \textit{convex hull} $\convC(\setM)$
+for each subset $\setM$ of $\vecV$,
+which is defined as the intersection of all convex sets
+$\setM' \supseteq \setM$.
+The operation, which maps each subset of a linear space to its closed hull,
+is a hull operator.
+Thus we have $\setM \subseteq \convC(\setM)$
+and $\convC(\convC(\setM)) \eq \convC(\setM)$.
+
+\section{Linear Mappings}
+%------------------------------------------------------------------------------%
+Let $\vecV$ and $\vecW$ be arbitrary $\F$-linear spaces.
+Then each mapping $\linT \:\vecV \xto \vecW$ satisfying the condition
+\[
+\linT(\lambda \, x + \mu \, y) \= \lambda \, \linT(x) + \mu \, \linT(y),
+\quad (x,y \in \vecV, \; \lambda, \mu \in \F)
+\]
+is called \textit{linear trans\-formation} or
+a \textit{homo\-morphism} from $\vecV$ to $\vecW$;
+often it is called a \textit{linear operator}.
+We denote $\LO{\vecV,\vecW}$ the set of all
+linear trans\-formations between $\vecV$ and $\vecW$.
+Obviously,
+with the pointwise defined operations
+$\linT_1 + \linT_2$ and $\lambda \, \linT$ ($\lambda \xeof \F$),
+the set $\LO{\vecV,\vecW}$ forms a $\F$-linear space again.
+
+\paragraph{Kernels, Ranges and Cokernels}
+To each linear trans\-formation $\linT \:\vecV \xto \vecW$
+there are related three further linear spaces,
+namely the \textit{kernel}, the \textit{range}
+and the \textit{cokernel} of $\linT$.
+The \textit{kernel} $\kernel{\linT}$ of
+$\linT$ is the set of all vectors $x \xeof \vecV$ satisfying $\linT x \eq \0$,
+which turns out to be a subspace of $\vecV$.
+Similarly,
+the \textit{range} $\range{\linT} := \set{\linT x \xeof \vecW}{x \xeof \vecV}$
+is a subspace of $\vecW$.
+
+\subparagraph{}
+To define the cokernel of $\linT$,
+we consider the factor group $V/T := \vecV / \kernel{\linT}$.
+This group is well-defined due to the fact
+that the subgroup $\kernel{\linT}$ is \textit{normal} in $\vecV$.
+We still have to endow the group $V/T$ with a linear structure:
+let
+$\circ \: \F \times V/T \xto V/T$
+be the outer multiplication on $V/T$ defined by
+\[
+\lambda \circ [x] \eqdef
+[\lambda x] \quad \mbox{for } [x] \in V/T.
+\]
+This operation is independent of the representants in $[x]$,
+thus $V/T$ is even a $\F$-linear space,
+called the \textit{cokernel} of $\vecV$ {\wrt} $\linT$.
+
+\paragraph{}
+A vector $x \neq \0$ is called an \textit{eigenvector} to the
+\textit{eigenvalue} $\lambda \xeof \F$ {\wrt} the linear transformation $\linT$,
+if the equation $\linT x \eq \lambda \, x$ holds.
+It can be easily shown
+that the \textit{eigenspace} $E_{\lambda}(\linT)$ 
+consisting of all eigenvectors to an eigenvalue $\lambda$ 
+forms a subspace of $\vecV$, too.
+
+\section{Linear Functionals}
+%------------------------------------------------------------------------------%
+As a special case of a linear trans\-formation,
+a \textit{linear functional} is a mapping $f \:\vecV \xto \F$
+satisfying the condition
+\[
+f(\lambda x + \mu y) \= \lambda f(x) + \mu f(y),
+\quad \,
+(x,y \in \vecV, \; \lambda,\mu \in \F).
+\]
+The set $\vecV^* := \LO{\vecV,\F}$ consisting of all linear functionals
+on $\vecV$ is clearly a linear space again,
+called the \textit{algebraic dual space} of $\vecV$.
+Notice
+that if $\vecU_1,\vecU_2$ are subspaces of $\vecV$ with
+$\vecU_1 \subset \vecU_2$,
+then each linear functional $f \xeof \vecU_2^*$ induces
+a linear functional $f' \xeof \vecU_1^*$ by restriction to $\vecU_1$,
+that is, we have $\vecU_2^* \subset \vecU_1^*$.
+This means
+that it is possible to increase the dual space by decreasing the base space.
+
+\paragraph{}
+Furthermore,
+the \textit{bidual space} $\vecV^{**}$ of $\vecV$ is the linear space
+consisting of all linear functionals $\Phi \:\vecV^* \xto \F$.
+In particular,
+each vector $x \xeof \vecV$ can be sent to an element $x^{**}$
+of the bidual space $\vecV^{**}$ by the mapping
+$\iota \: x \mapsto x^{**}(\Phi) := \Phi(x)$ for $\Phi \xeof \vecV^*$.
+This mapping is linear,
+hence its image forms a subspace of $\vecV^{**}$.
+It is remarkable
+that the mapping $\iota$ may be defined without any specification
+of a Hamel base in $\vecV$.
+Thus $\iota$ is said to be a \textit{natural} linear space homomorphism
+from $\vecV$ into its bidual space $\vecV^{**}$.
+
+\subparagraph{}
+The embedding $\iota \:\vecV \xto \vecV^{**}$ is always injective.
+If the linear space $\vecV$ is finite-dimensional,
+then $\iota$ is actually surjective,
+and in this case
+the spaces $\vecV$ and $\vecV^{**}$ are canonically isomorphic to each other.
+However,
+in case of an infinite-dimensional linear space
+no such assertion can be done without further assumptions.
+
+\paragraph{}
+Let $\vecV, \vecW$ be vecor spaces and $\vecV^*, \vecW^*$ their
+dual spaces.
+Given a linear trans\-formation $\linT \:\vecV \xto \vecW$,
+each linear functional $f \xeof \vecW^*$ gives rise to
+a linear functional $g \xeof \vecV^*$ by the composition $g:= f \circ \linT\,$.
+The assignment $f \mapsto g$ induces a mapping
+$\linT^* \:\vecW^* \xto \vecV^*$,
+called the \textit{adjoint trans\-formation} of $\linT$.
+The adjoint is also linear.
+Moreover,
+if $\linT$ is bijective, then $\linT^*$ is so.
+
+\begin{center}
+\scalebox{0.9}{
+\begin{tikzpicture}[node distance=5.0cm]
+
+\node     (v) at (0,0)  {$V$};
+\node [right of=v]  (w)     {$W$};
+
+\draw [-stealth] (v)  -- node [midway, above]    {$\linT$}  (w);
+\path [stealth-] (v) -- node [midway, below, yshift=-2.5cm] (k) {$\F$} (w);
+
+\draw [-stealth] (v)  -- node [midway, right, yshift=0.2cm] (g') {$g$} (k);
+\draw [-stealth] (w)  -- node [midway, left, yshift=0.2cm]  (f)  {$f$} (k);
+\draw [-stealth] (f)  -- node [midway, above] {$\linT^*$}    (g');
+
+\end{tikzpicture}
+}
+
+\footnotesize{Figure 1: definition of the adjoint transformation.}
+\end{center}
+
+\section{Sesquilinear Forms}
+%------------------------------------------------------------------------------%
+Let $\vecV$ be a complex linear space.
+We denote a \textit{sesquilinear form} on $\vecV$
+as a mapping $\sql \:\vecV \times \vecV \xto \C$,
+which is linear in the first and conjugate linear in the second argument,
+that is,
+for all $x,y,z \xeof \vecV$ and $\lambda,\mu \xeof \C$ the following rules hold:
+\[
+\begin{cases}[1.2]
+\quad \sql(x+y,z) \= \sql(x,z) \, + \, \sql(y,z)\,,\\
+\quad \sql(x,y+z) \= \sql(x,y) \, + \, \sql(x,z)\,,\\
+\quad \sql(\lambda x,\mu y) \=
+      \lambda \overline{\mu} \, \sql(x,y)\,.\\
+\end{cases}
+\]
+If the underlaying linear space is real,
+then $\sql$ is also linear in the second argument and 
+thus called a \textit{bilinear form}.
+The mapping $x \mapsto \sql[x] := \sql(x,x)$ is called
+the \textit{quadratic form} related to $\sql$.
+
+\subparagraph{}
+Furthermore,
+an \textit{conjugate linear functional} on $\vecV$
+is a mapping $f \:\topX \xto \C$ having the properties
+\[
+f(x+y) = f(x) + f(y)\,, \quad
+f(\lambda x) = \overline{\lambda}f(x)
+\quad \quad
+(x,y \in \topX, \; \lambda \in \C).
+\]
+Then each sesquilinear form $\sql$ on $\vecV$ can be considered
+as a linear map $\linA \:\vecV \xto \vecV^*$,
+where $\vecV^*$ is the algebraic dual space of $\vecV$,
+that is,
+the linear space of all conjugate linear functionals on $\vecV$,
+where addition and scalar multiplication are defined pointwise.
+Indeed,
+given a sesquilinear form $\sql$ on $\vecV$,
+each vector $x \xeof \vecV$ gives rise to the conjugate linear functional
+\[
+f_x(y) := \sql(x,y) \quad (y \in \vecV).
+\]
+The mapping $\linA \:V \xto V^*$ defined by $\linA \, x := f_x$ is linear
+and sometimes called the \textit{representation operator} for $\sql$.
+Reversely,
+if $\linA \:\vecV \xto \vecV^*$ is linear,
+then there is a sesquilinear form $\sql \:\vecV \times \vecV \xto \F$
+associated with $\linA$ according to
+$
+\sql(x,y) := (\linA \,x) y$ for all $x,y \xeof \vecV.
+$
+Hence sesquilinear forms on a complex linear space $\vecV$
+are in one-to-one relationship to linear trans\-formations
+between the spaces $\vecV$ and $\vecV^*$.
+
+\paragraph{}
+By an \textit{inner product} in a complex linear space $\vecV$
+we mean a specific sesquilinear form
+$\scalar{\cdot}{\cdot} \:\cross{\vecV}{\vecV} \xto \C$
+satisfying the additional conditions for all $x,y \xeof \vecV$:
+
+\begin{itemize}[leftmargin=35pt]
+\item[(I-1)]
+$\scalar{x}{y} \eq \overline{\scalar{y}{x}}$ \; \textit{(hermitean symmetry)}.
+
+\item[(I-2)]
+$\scalar{x}{x} \geq 0$ \; \textit{(positivity)}.
+
+\item[(I-3)]
+$\scalar{x}{x} \eq 0$ implies $x \eq 0$ \; \textit{(regularity)}.
+\end{itemize}
+
+\subparagraph{}
+Linear spaces endowed with an inner product
+$\scalar{\cdot}{\cdot}$ are said to be \textit{unitary spaces} or
+\textit{inner product spaces}.
+
+\paragraph{}
+Due to the existence of the inner product in $\vecV$,
+the concept of \textit{orthogonality} in such spaces is really new
+in comparison to ordinary linear spaces.
+Two vectors $x,y \xeof \vecV$ are called \textit{orthogonal} to each other,
+if $\scalar{x}{y} \eq 0$ (notation: $x \bot y$).
+A subset $\orthO \subset \vecV$ is called \textit{orthogonal}
+or an \textit{orthogonal system},
+if any pairs of vectors $x,y \xeof \orthO$ are orthogonal to each other.
+It is easy to verify
+that an orthogonal system forms a linearly independent set.
+For a subset $\setA \subset \vecV$ we introduce the \textit{orthogonal space}
+$ \setA^{\bot}$ of $\setA$ by means of
+\[
+\setA^{\bot} \eqdef
+\{ x \in \vecV: \scalar{x}{y} \eq 0 \fa y \in \setA \}.
+\]
+
+%------------------------------------------------------------------------------%
+\fancyhead[EC] {\small{III. \textsc{Algebras}}}
+\fancyhead[OC] {\small{III. \textsc{Algebras}}}
+
+\part{Algebras}
+%------------------------------------------------------------------------------%
+An \textit{algebra} is a linear space $\algA$,
+whose underlying Abelian group has a ring structure
+being compatible with the scalar multiplication in a certain way.
+More precisely,
+let $(\algA,+,\circ)$ be a ring and $\F$ be a field, then
+$\algA$ is called a \textit{$\F$-algebra},
+if there is an operation $\cdot \:\cross{\F}{\algA} \xto \algA$
+such that $(\algA,+)$ is a $\F$-linear space
+satisfying the rule
+\[
+(\lambda \cdot x) \circ y
+\=
+x \circ (\lambda \cdot y) = \lambda \cdot (x \circ y)
+\quad \quad
+(\lambda \in \F, \, x,y \in \algA).
+\]
+An algebra $\algA$ is called \textit{unital},
+if it has an identity element $\1 \xeof \algA$ {\wrt} the ring operation $\circ$.
+Finally, $\algA$ is called a \textit{commutative} algebra,
+if $\algA$ (considered as a ring) is commutative.
+For abbreviation one often writes $xy$ instead of $x \circ y$.
+
+\section{Algebra Homomorphisms}
+%------------------------------------------------------------------------------%
+For some $\F$-algebras $\algA$ and $\algB$,
+an \textit{algebra homomorphism} $\Phi \:\algA \xto \algB$
+is a linear trans\-formation,
+which is compliant with the ring operation, that is
+\[
+\Phi(x \circ y) \= \Phi(x) \circ \Phi(y) \quad \quad (x,y \in \algA).
+\]
+A bijective character $\Phi$ between algebras is called
+an \textit{algebra isomorphism},
+and in this case it can easily be proved
+that the inverse mapping $\Phi^{-1}$ is an algebra homomorphism, too.
+In the special case,
+where $\algB$ is the field $\C$ of complex numbers,
+an algebra homomorphism is usually called a \textit{character}.
+The existence of an algebra homomorphism between arbitrary algebras 
+$\algA$ and $\algB$ is denoted by $\algA \cong \algB$.
+
+\paragraph{}
+There is a natural way to endow a non-unital algebra with an identity element.
+If $\algA$ is an $\F$-algebra \textit{without} identity,
+then an extended algebra \textit{with} identity can be created by
+$\algB := \algA \oplus \F$ and $\1 := (\0,1)$,
+where $\algA \oplus \F$ is the cartesian product of $\algA$ and $\F$
+endowed with algebra operations componentwise defined as follows:
+\[
+\begin{cases}[1.2]
+\quad (x,\lambda) + (y,\mu) \eqdef (x+y, \lambda + \mu)\\
+\quad (x,\lambda) (y,\mu)   \eqdef (xy + \mu x + \lambda y, \lambda \mu) \\
+\quad \mu (x,\lambda)       \eqdef (\mu x, \mu \lambda)\\
+\end{cases}
+\]
+for all $x,y \xeof \algA$ and $\lambda,\mu \xeof \F$.
+Notice
+that he original algebra $\algA$ is a two-sided ideal within
+the extended algebra $\algB$,
+and the factor algebra $\algB/\algA$ is isomorphic to the field $\F$
+(considered as a $\F$-algebra): $\algB/\algA \cong \F$.
+
+\section{Subalgebras}
+%------------------------------------------------------------------------------%
+Let $(\algA,+,\circ)$ be a $\F$-algebra.
+A subset $\algU \subset \algA$ is called a \textit{subalgebra} of $\algA$,
+if $\algU$ is a subspace of $\algA$ and a subring of $(\algA,+,\circ)$ together.
+Similar to subspaces of linear spaces,
+the intersection of arbitrarily many subalgebras of $\algA$ is a subalgebra
+of $\algA$, too.
+If $\genG \subset \algA$ is a non-empty subset,
+then the intersection $[\genG]$ of all subalgebras $\algA'$ with the property
+$\algA' \supseteq \genG$ is called the subalgebra \textit{generated by $\genG$}.
+Finally,
+if for any subset $\genG$ the equality $[\genG] \eq \algA$ holds,
+then $\genG$ is called a \textit{generator} of $\algA$.
+
+\section{Group Algebras}
+%------------------------------------------------------------------------------%
+For every group $\grpG$ it is possible to construct
+an algebra in a natural way
+by performing the formal linear combinations
+\[
+\alpha_1 \cdot g_1 \, + \, \alpha_2 \cdot g_2 + \ldots + \alpha_n \cdot g_n
+\]
+with coefficients $\alpha_i \xeof \R$.
+The set $A_{\R}(\grpG)$ of these linear combinations constitutes
+a $\R$-linear space.
+
+\subparagraph{}
+An additional ring structure on $A_{\R}(\grpG)$ is given according to
+\[
+\sum_{i=1}^n \alpha_i \cdot g_i \, \bullet \,
+\sum_{j=1}^m \beta_j  \cdot g_j
+\eqdef
+\sum_{i,j=1}^{i=n,j=m} \alpha_i \beta_j \, \cdot \, g_i g_j.
+\]
+The structure $(A_{\R}(\grpG), + , \bullet)$ is called
+the \textit{group algebra} of $\grpG$ over $\R$.
+The construction of the group algebra can be done basically for each ring $R$.
+
+\section{Ideals}
+%------------------------------------------------------------------------------%
+A subset $\idI \subset \algA$ is called an \textit{ideal} in $\algA$,
+if $\idI$ is a subspace in the linear space $(\algA,+)$
+and an ideal in the ring $(\algA,+,\circ)$ together.
+Because the intersection of arbitrarily many ideals in $\algA$
+is an ideal in $\algA$ again,
+we can assign to each non-empty subset $\genG \subset \algA$
+the minimal ideal $[\genG]$, which is called the
+\textit{ideal generated by $\genG$}.
+
+\subparagraph{}
+Let $\algA / \idI$ be the quotient linear space of an ideal $\idI$ in $\algA$.
+Then $\algA/\idI$ is also a subring in $\algA$,
+so it is possible to factorize each algebra $\algA$
+by an ideal $\idI$ in $\algA$.
+The set $\algA/\idI$ is a $\F$-Algebra again
+and is called the \textit{factor algebra} of $\algA$ by $\idI$.
+
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}
