@@ -77,8 +77,8 @@ html h4
 html ol
 {
   margin:0 auto;
-  margin-top:5px;
-  margin-bottom:5px;
+  margin-top:4px;
+  margin-bottom:6px;
   list-style-position:outside;
   padding-left:30px;
 }
@@ -302,6 +302,22 @@ html button
 .main-container a:focus
 {
   color: gray;
+}
+
+/*----------------------------------------------------------------------------*/
+/* kh-table                                                                   */
+/*----------------------------------------------------------------------------*/
+.kh-td1
+{
+  text-align:center;
+  padding: 0px 3px;
+  margin-left:5px;
+}
+
+.kh-td2
+{
+  text-align:left;
+  padding: 0px 4px;
 }
 
 /*----------------------------------------------------------------------------*/
