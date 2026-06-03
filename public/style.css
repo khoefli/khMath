@@ -90,6 +90,18 @@ html ul
   margin-bottom:5pt;
 }
 
+.ul3
+{
+  columns:3 300px;
+  column-gap:10px;
+}
+
+.ol2
+{
+  columns:2 400px;
+  column-gap:10px;
+}
+
 html li
 {
   padding-left: 5px;
