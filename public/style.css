@@ -60,9 +60,34 @@ html h4
 {
   color:DarkSlateGray;
   font-size:12pt;
-  padding-top:0px;
+  padding-top:15px;
   padding-bottom:0px;
   text-align:left;
+}
+
+.kh-summary
+{
+  font-size:13pt;
+//font-weight:bold;
+  color:DarkSlateGray;
+  font-size:12pt;
+  text-align:left;
+}
+
+html ol
+{
+  margin:0 auto;
+  margin-top:5px;
+  margin-bottom:5px;
+  list-style-position:outside;
+  padding-left:30px;
+}
+
+html ul
+{
+  list-style:square;
+  margin-top:5pt;
+  margin-bottom:5pt;
 }
 
 html li
