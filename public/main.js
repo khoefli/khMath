@@ -591,6 +591,16 @@ function appendContent()
 }
 
 /*----------------------------------------------------------------------------*/
+/* counter                                                                    */
+/*----------------------------------------------------------------------------*/
+let num = localStorage.getItem("counter");
+function counter()
+{
+  document.getElementById("counter").textContent = ++num;
+  localStorage.setItem("counter", document.getElementById("counter").textContent);
+}
+
+/*----------------------------------------------------------------------------*/
 /* call main functions                                                        */
 /*----------------------------------------------------------------------------*/
 createTable('Journals', 'Journal');
@@ -604,3 +614,4 @@ createTable('Internet Seminars on Evolution Equations', 'isem');
 createTable('Monographs in \'Lecture Notes in Mathematics (Springer)\'', 'lecture_notes');
 createTable('Mathematics and its Applications', 'mass');
 createTable('Mathematical Subject Classification for Functional Analysis', 'msc46');
+counter();

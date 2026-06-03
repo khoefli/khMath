@@ -331,7 +331,7 @@
       </div>
 
       <div id='home' class='container'>
-        <h1>Welcome to my homepage!</h1>
+        <h1>Welcome to this web page!</h1>
         Nowadays <b>functional analysis</b> is one of the most important areas in modern mathematics.
         It deals with the theory of topological linear spaces and the linear rsp. nonlinear mappings between them.
         The subject was mainly developed in the first half of the 20<sup>th</sup> century,
@@ -349,22 +349,22 @@
           and we want to emphasize a couple of them:
         </p>
         <ul>
-          <li><mark class="change-page" onclick="displayContainer('topological_linear_spaces')">topological and normed linear spaces</mark></li>
-          <li>duality theory (dual pairs, adjoint spaces, adjoint operators)</li>
-          <li>calculus of vector-valued functions</li>
-          <li><mark class="change-page" onclick="displayContainer('spectral_theory')">linear operators and spectral theory</mark></li>
-          <li><mark class="change-page" onclick="displayContainer('semigroup_theory')">semigroup theory and evolution equations</mark></li>
-          <li><mark class="change-page" onclick="displayContainer('distribution_theory')">distribution theory</mark></li>
-          <li>monotone mappings, fixpoint and degree theorems <i>(nonlinear functional analysis)</i></li>
+          <li><mark class="internal-page" onclick="displayContainer('topological_linear_spaces')">basic theory on topological and normed linear spaces</mark></li>
+          <li>duality (adjoint spaces, dual pairs, adjoint operators)</li>
+          <li>the calculus of vector-valued functions</li>
+          <li><mark class="internal-page" onclick="displayContainer('spectral_theory')">linear operators and spectral theory</mark></li>
+          <li><mark class="internal-page" onclick="displayContainer('semigroup_theory')">semigroup theory and evolution equations</mark></li>
+          <li><mark class="internal-page" onclick="displayContainer('distribution_theory')">distribution theory</mark></li>
+          <li><mark class="internal-page" onclick="displayContainer('nonlinear_functional_analysis')">nonlinear functional analysis</mark> (monotone mappings, fixpoint and degree theorems)</li>
           <li>applied functional analysis (elliptic boundary value problems, Hilbert space methods, Schrödinger equation, ...)</li>
         </ul>
         <p>
           One can claim without doubt that functional analysis relies
           on four main columns of other mathematical subjects:
-          <mark class="change-page" onclick="displayContainer('linear_algebra')">linear&nbsp;algebra</mark>,
-          <mark class="change-page" onclick="displayContainer('general_topology')">general&nbsp;topology</mark>,
-          <mark class="change-page" onclick="displayContainer('measure_and_integration_theory')">measure&nbsp;and&nbsp;integration&nbsp;theory</mark> and
-          <mark class="change-page" onclick="displayContainer('complex_analysis')">complex&nbsp;analysis</mark>.
+          <mark class="internal-page" onclick="displayContainer('linear_algebra')">linear&nbsp;algebra</mark>,
+          <mark class="internal-page" onclick="displayContainer('general_topology')">general&nbsp;topology</mark>,
+          <mark class="internal-page" onclick="displayContainer('measure_and_integration_theory')">measure&nbsp;and&nbsp;integration&nbsp;theory</mark> and
+          <mark class="internal-page" onclick="displayContainer('complex_analysis')">complex&nbsp;analysis</mark>.
         </p>
         <p>
           It is my wish that visitors of this website will find inspirating hints and texts for further extended studies.
@@ -697,14 +697,16 @@
       <div id='linear_algebra' class='container' style='display:none'>
         <h1>Linear Algebra</h1>
         This is a fundamental area in mathematics, which deals with <i> vector spaces</i>
-        and the so-called linear transformations between them.
-        We may divide up the totalities of topics in linear algebra as follows:
+        and the so-called <i>linear transformations</i> between them.
+        We may divide up the subtopics in linear algebra as follows:
         <ol>
           <li>the general theory of rings and fields</li>
           <li>the basic theory of vector spaces (often called <i>linear spaces</i>),
               including such concepts like linear independency, generator systems, Hamel bases, dimensions, 
               convex sets and so on</li>
-          <li>the theory of linear transformations between vector spaces rsp. that of (m,n)-matrices</li>
+          <li>the abstract theory of linear transformations between vector spaces</li>
+          <li>the concrete theory of (m,n)-matrices,
+              considered as linear transformations between finite-dimensional spaces</li>
           <li>the theory of linear functionals, dual spaces and determinants</li>
           <li>the theory of algebras, subalgebras and ideals</li>
           <li>the theory of inner product spaces and unitary transformations.</li>
@@ -712,7 +714,7 @@
         <p>
           One can for example study <i>Werner Greub</i>'s monograph 'Linear Algebra',
           which was published in Springer's
-          '<mark class="change-page" onclick="displayContainer('grundlehren')">Grundlehren der mathematischen Wissenschaften</mark>'
+          '<mark class="internal-page" onclick="displayContainer('grundlehren')">Grundlehren der mathematischen Wissenschaften</mark>'
           as vol. 97 in 1958.
         </p>
         <p>
@@ -970,8 +972,8 @@
             </p>
             <ul>
               <li>Topological Vector Spaces, by <i>A.F. Robinson & W.J. Robinson</i>, Cambridge University Press, 1964</li>
-              <li>Topological Vector Spaces I, by <i>G. Köthe</i>, Springer,<br>Grundlehren der math. Wissenschaften Bd. 159, 1969</li>
-              <li>Topological Vector Spaces II, by <i>G. Köthe</i>, Springer,<br>Grundlehren der math. Wissenschaften Bd. 237, 1979</li>
+              <li>Topological Vector Spaces I, by <i>G. Köthe</i>, Springer, Grundlehren der math. Wissenschaften Bd. 159, 1969</li>
+              <li>Topological Vector Spaces II, by <i>G. Köthe</i>, Springer, Grundlehren der math. Wissenschaften Bd. 237, 1979</li>
             </ul>
           </div>
           <div>
@@ -1044,14 +1046,13 @@
         a strongly continuous semigroup of bounded linear operators is a mapping \(S:[0,\infty) \to B(X)\),
         where the following conditions must hold:
         <ol>
-          <li>&nbsp; \(S(0) = Id_X\),</li>
-          <li>&nbsp; \(S(t+s) = S(t) \circ S(s)\) for all \(s,t \geq 0\),</li>
-          <li>&nbsp; \(\lim_{t \downarrow 0} S(t)x = x\) for every \(x \in X\).</li>
+          <li>\(S(0) = Id_X\),</li>
+          <li>\(S(t+s) = S(t) \circ S(s)\) for all \(s,t \geq 0\),</li>
+          <li>\(\lim_{t \downarrow 0} S(t)x = x\) for every \(x \in X\).</li>
         </ol>
-        <p>
-          To each such semigroup (\S\) there is assigned a densely defined linear operator \(A\),
-          called the <i>infinitesimal operator</i> of \(S\).
-        </p>
+        To each such semigroup \(S\) there is assigned a densely defined linear operator \(A: D(A) \subset X \to X\)
+        with domain of definition \(D(A)\) being a linear subspace of \(X\),
+        called the <i>infinitesimal operator</i> of \(S\).
         <p>
           A great part of semigroup theory deals with the question,
           under which conditions a given linear operator \(A\) is the infinitesimal generator of a strongly
@@ -1059,13 +1060,11 @@
           In fact, if \(A\) fulfills these conditions,
           then the related homogeneous <i>Cauchy problem</i> of first order
         </p>
-          <center>\(\dot{x}(t) + A x(t) = 0\)</center>
+        <center>\(\dot{x}(t) + A x(t) = 0\)</center>
+        has one and only one solution \(x:[0,\infty) \to X\) for a given initial value \(x(0) = x_0\).
+        In this case the solution functions \(x\) continuously depend on the values \(x_0\).
         <p>
-          has one and only one solution \(x:[0,\infty) \to X\) for a given initial value \(x(0) = x_0\).<br>
-          Moreover, in this case the solution functions \(x\) continuously depend on the values \(x_0\).
           The <i>Hille-Yosida theorem</i> gives the complete answer to this question.
-        </p>
-        <p>
           My text on this theorem and its proof can be found
           <a href="../pdf/Hille_Yosida.pdf">here</a>.
         </p>
@@ -1150,20 +1149,25 @@
         <p>
           I also add a fundamental paper from <i>Peter Werner</i> to this site,
           in which Lebesgue and Sobolev spaces are introduced by means of distribution theory instead of using
-          Lebesgue's integration theory.<br>
+          Lebesgue's integration theory.
           See '
           <a href="../pdf/A_Distribution-Theoretical_Approach_to_Certain_Lebesgue_and_Sobolev_Spaces.pdf">
           A Distribution-Theoretical Approach to Certain Lebesgue and Sobolev Spaces</a>
           ' for this text steaming from 1970.
         </p>
         <p>
-          Here is a short list of monographs on distribution theory:
+          To the end I want to add to this site a short list of monographs on distribution theory:
         </p>
-        <ul>
-          <li>Distributions, by J.J. <i>Duistermaat & J.A.C. Kolk</i>, Birkhäuser 2010</li>
-          <li><a href="https://zr9558.com/wp-content/uploads/2014/08/a-guide-to-distribution-theory-and-fourier-transforms.pdf">A Guide to Distribution Theory and Fourier Transforms</a>, by <i>Robert S. Strichart</i>, Studies in Advanced Mathematics, 1994</li>
-          <li>Introduction to the Theory of Distributions, by J.J. <i>M.Joshi & F.G. Friedlander</i>, Cambridge University Press, 1999</li>
-        </ul>
+        <details open>
+          <summary>
+            Monographs:
+          </summary>
+          <ul>
+            <li>Distributions, by J.J. <i>Duistermaat & J.A.C. Kolk</i>, Birkhäuser 2010</li>
+            <li><a href="https://zr9558.com/wp-content/uploads/2014/08/a-guide-to-distribution-theory-and-fourier-transforms.pdf">A Guide to Distribution Theory and Fourier Transforms</a>, by <i>Robert S. Strichart</i>, Studies in Advanced Mathematics, 1994</li>
+            <li>Introduction to the Theory of Distributions, by J.J. <i>M.Joshi & F.G. Friedlander</i>, Cambridge University Press, 1999</li>
+          </ul>
+        </details>
       </div>
 
       <div id='Nagy' class='container' style='display:none'>
@@ -1548,6 +1552,11 @@
           </table>
         </div>
       </div>
+
+      <div id='statistics' class='container' style='display:none'>
+        <div>Calls on this website since 03/06/2026:</div>
+        <div id='counter'></div>
+      </div>
     </div>
 
 <!--------------------------------------------------------------------------------
@@ -1557,7 +1566,7 @@
       <p>
       </p>
       <hr><hr>
-      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 03/06/2026).&nbsp;&nbsp;
+      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 03/06/2026).
       <button onclick="displayContainer('about_me')">About me</button>
       <button onclick="displayContainer('impressum')">Impressum</button>
       <button onclick="displayContainer('sitemap')">Sitemap</button>
