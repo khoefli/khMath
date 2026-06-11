@@ -56,7 +56,6 @@ function undisplayAllContainers()
     'Fattorini'
   ];
 
-  var i;
   for(i=0; i < data.length; i++)
   {
     //console.log(data[i]);
@@ -234,7 +233,6 @@ function createTable(title,classname)
       { n: 'A. Friedman',              t: 'Foundations of Modern Analysis',                              y:'2010'},
     ];
 
-    var i;
     for(i=0; i < data.length; i++)
       table.row.add([data[i].n,
                      data[i].t,
@@ -571,7 +569,6 @@ function createTable(title,classname)
       { code: '46T99', name: 'None of the above, but in this section'},
     ];
 
-    var i;
     for(i=0; i < data.length; i++)
       table.row.add([data[i].code,
                      data[i].name]);
