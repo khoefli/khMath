@@ -34,6 +34,7 @@
   </head>
 
   <body>
+    <a id="top"></a>
 <!--------------------------------------------------------------------------------
 |                                 LOGO & MAIN MENU                               |
 --------------------------------------------------------------------------------->
@@ -81,7 +82,6 @@
             </ul>
           </li>
           <li>|</li>
-    <!--  <li onclick="displayContainer('journals')">Journals</li> -->
           <li>Seminars
             <ul style="width:280px">
               <li onclick="displayContainer('internet_seminar_evo')">Internet Seminars on Evolution Equations</li>
@@ -93,6 +93,7 @@
               <li onclick="displayContainer('key_concepts')">Key Concepts</li>
               <li onclick="displayContainer('mathematicians')">Mathematicians</li>
               <li onclick="displayContainer('history')">History of F.A.</li>
+              <li onclick="displayContainer('journals')">Journals</li>
             </ul>
           </li>
           <li>|</li>
@@ -254,8 +255,8 @@
       <div id='sitemap' class='container' style='display:none'>
         <h1>Sitemap</h1>
         <div class='left-to-right-container' style='font-size:90%'>
-          <div style="width:450px">
-            <ul>
+          <div>
+            <ul class='columns-2'>
               <li onclick="displayContainer('home')">Home</li>
               <li onclick="displayContainer('impressum')">Impressum</li>
               <li onclick="displayContainer('about_me')">About me</li>
@@ -272,16 +273,12 @@
               <li onclick="displayContainer('lecture_notes_in_mathematics')">Lecture Notes in Mathematics (Springer)</li>
               <li onclick="displayContainer('dover')">Dover Publications</li>
               <li onclick="displayContainer('gsm')">Graduate Studies in Mathematics (AMS)</li>
-         <!-- <li onclick="displayContainer('journals')">Journals</li> -->
+              <li onclick="displayContainer('journals')">Journals</li>
               <li onclick="displayContainer('nonlinear_functional_analysis')">Nonlinear Functional Analysis</li>
               <li onclick="displayContainer('Dunford_Schwartz')">Dunford & Schwartz: Linear Operators I-III</li>
               <li onclick="displayContainer('Reed_Simon')">Reed & Simon: Methods of Modern Math. Physics I-IV</li>
               <li onclick="displayContainer('Kato')">Kato: Perturbation Theory of Linear Operators</li>
               <li onclick="displayContainer('Fattorini')">Fattorini: The Cauchy Problem</li>
-            </ul>
-          </div>
-          <div>
-            <ul>
               <li onclick="displayContainer('Rudin')">Rudin's Books on Mathematical Analysis</li>
               <li onclick="displayContainer('Yosida')">Yosida: Functional Analysis</li>
               <li onclick="displayContainer('Nagy')">Riesz & Sz.-Nagy: Functional Analysis</li>
@@ -1528,8 +1525,7 @@
       <div id='journals' class='container' style='display:none'>
         <h1>Journals</h1>
         This is an enumeration of well-known journals,
-        where mathematical research articles have been published.
-        But notice that this list is not complete.
+        where mathematical research articles on functional analysis have been published.
         <div class='datatables-content' id='Journals'>
           <table class="compact stripe cell-border" id="Journal-table">
             <thead>
@@ -1556,10 +1552,11 @@
       <p>
       </p>
       <hr><hr>
-      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 04/06/2026).
+      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 17/06/2026).
       <button onclick="displayContainer('about_me')">About me</button>
       <button onclick="displayContainer('impressum')">Impressum</button>
       <button onclick="displayContainer('sitemap')">Sitemap</button>
+      <a href="#top">&#8593;</a>
     </div>
 
     <script src="main.js"></script>
