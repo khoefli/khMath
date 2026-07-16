@@ -22,11 +22,16 @@
 
 \def\Title {Functional Analysis}
 
+\titleformat{\part}[display]
+{\normalfont \large \rmfamily \bfseries \centering}
+{\small{\thepart.}}{2pt}{}
+
 \titleformat{\section}%[runin]
 {\normalfont \bfseries \filcenter}
 {\S \thesection.\;}{0mm}{}
 
-\titlespacing*{\section}{0pt}{16pt}{ 4pt}
+\titlespacing*{\section}   {0pt}{16pt}{ 4pt}
+\titlespacing*{\subsection}{0pt}{10pt}{12pt}
 
 \def\G{G}
 
@@ -45,11 +50,11 @@
 \begin{document}
 \thispagestyle{empty}
 
-\centerline{\huge{\textbf{Functional Analysis}}}
+\centerline{\Large{\textbf{Functional Analysis}}}
 
-\vspace{15pt}
-\centerline{{\large{\textsc{\Author}}}}
-\vspace{35pt}
+\vspace{5pt}
+\centerline{\small{\textsc{\Author}}}
+\vspace{20pt}
 
 \fancyhead[OL]{\small{\thepage}}
 \fancyhead[ER]{\small{\thepage}}
@@ -60,46 +65,55 @@
   Email:  \textit{khoeflinger@\,t-online.de}
 }
 
-\section*{Introduction}
-%------------------------------------------------------------------------------%
 This text consists of a series of articles
 on the mathematical area of {functional analysis}
-and finally of one section concerning with the applications
+and of a final article concerning with the applications of the abstract theory
 to linear partial differential equations,
-which arise as abstract models of problems in mathematical physics
-and engineering science.
+which arise as models for problems
+in mathematical physics and engineering science.
+
+\subparagraph{}
 Functional analysis was mainly developed
 in the first half of the 20$^{\textrm{th}}$ century,
 and valuable contributions have been done by
 {D.\;Hilbert},
 {S.\;Banach},
 {F.\;Riesz},
-{J.\;v.\,Neumann},
+{J.\;von Neumann},
+{F.\,E.\;Browder},
 {L.\;Schwartz},
-{F.\;Browder},
 {J.-L.\;Lions} and others.
 
 \subparagraph{}
 The topics within functional analysis are mainly divided into two parts:
 the linear and the non-linear theory.
-In our treatise we shall consider exclusively with the linear part,
+In our treatise we shall exclusively deal with the linear one,
 hence the fundamental concept of {"linear operator"}
-plays a central role in our considerations.
-Especially what historically is meant by the concept of unbounded operator
+will play a central role in our considerations.
+Especially
+what historically is meant by the concept of unbounded operator
 is of great importance,
 since the theory of this specific class of mappings can be successfully applied
 to the study of partial differential operators
-and their boundary and initial-value problems.
+and their related boundary and initial-value problems.
 
 \paragraph{}
 It is assumed that
 the reader is familiar with elementary concepts in linear algebra,
 general topology and measure theory.
 In fact,
-functional analysis can be seen as the synthesis of the both first subjects
-and especially {\wrt} infinite-dimensional linear spaces.
+functional analysis can be seen as the synthesis of the both first subjects,
+especially {\wrt} infinite-dimensional linear spaces.
 Further preliminaries
 will be introduced as soon as there is the need to use them.
+
+\subparagraph{}
+It is not the idea of this text to give all the proofs of the stated theorems,
+except in the case where these are elementary.
+Instead,
+the main purpose is a transparent and overall presentation of the topics,
+especially for readers, which have learned functional analysis in the past
+and want to have a refresh of the main results now.
 
 \paragraph{} %- honoration to Prof. Dr. Werner
 I wrote the treatise in honour of Prof.\;Dr.\;P.\;Werner (1932-2018),
@@ -107,6 +121,7 @@ who conveyed my fascination of these beautiful mathematical topics
 by his lessons hold in 1984 and 1985 at
 Mathematical Institute A of University Stuttgart.
 
+\begin{comment}
 \newpage
 \thispagestyle{empty}
 \centerline{\textbf{\large{Table of Contents}}}
@@ -117,19 +132,302 @@ Mathematical Institute A of University Stuttgart.
 %------------------------------------------------------------------------------%
    I. & Topological and Normed Linear Spaces                   \Df &   1 \\ % 19
   II. & Linear Operators in Banach Spaces                      \Df &  19 \\ %  8
- III. & Calculus of Vector-Valued Functions                    \Df &  27 \\ % 11
-  IV. & Adjoint Spaces and Operators                           \Df &  38 \\ % 15
-   V. & Normally Solvable Operators                            \Df &  53 \\ %  6
+ III. & Adjoint Spaces and Operators                           \Df &  38 \\ % 15
+  IV. & Normally Solvable Operators                            \Df &  53 \\ %  6
+   V. & Calculus of Vector-Valued Functions                    \Df &  27 \\ % 11
   VI. & General Spectral Theory                                \Df &  59 \\ % 12
  VII. & Commutative Banach Algebras                            \Df &  71 \\ % 19
 VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
   IX. & Spectral Theory of Self-Adjoint Operators              \Df &  98 \\ % 15
-   X. & Semigroup Theory and Evolution Equations               \Df & 113 \\ %  9
+   X. & Semigroups of Bounded Linear Operators                 \Df & 113 \\ %  9
   XI. & Coercive Sesquilinear Forms                            \Df & 122 \\ % 13
  XII. & Applications to Linear Differential Operators          \Df & 135 \\ % 32
 %------------------------------------------------------------------------------%
 \end{tabular}
 }
+\end{comment}
+
+%------------------------------------------------------------------------------%
+%                              TABLE OF CONTENTS                               %
+%------------------------------------------------------------------------------%
+\newpage
+\thispagestyle{empty}
+\section*{Table of Contents}
+%------------------------------------------------------------------------------%
+
+\begin{small}
+\vspace{7pt}
+%\centerline{{\footnotesize{Part I}}}
+%\vspace{1pt}
+\centerline{\textbf{I. Topological and Normed Linear Spaces}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Generalities on Topological Linear Spaces                      \Df &  1 \\
+ 2. & Seminorms and Locally Convex Spaces                            \Df &  3 \\
+ 3. & Normed Linear Spaces                                           \Df &  4 \\
+ 4. & Strictly and Uniformly Convex Spaces                           \Df &  5 \\
+ 5. & Banach and Hilbert Spaces                                      \Df &  6 \\
+ 6. & Spaces of Scalar-Valued Functions and Measures                 \Df &  9 \\
+ 7. & Hierarchy of Topological and Normed Linear Spaces              \Df & 18 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+%\centerline{{\footnotesize{Part II}}}
+%\vspace{1pt}
+\centerline{\textbf{II. Linear Operators in Banach Spaces}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Fundamentals of Operator Theory                                \Df & 19 \\
+ 2. & Continuous Linear Operators                                    \Df & 20 \\
+ 3. & Compact Linear Operators                                       \Df & 21 \\
+ 4. & Closed and Closable Linear Operators                           \Df & 23 \\
+ 5. & The Closed Graph Theorem                                       \Df & 25 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+%\centerline{{\footnotesize{Part III}}}
+%\vspace{1pt}
+\centerline{\textbf{III. Adjoint Spaces and Operators}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Continuous Linear Functionals                                  \Df & 27 \\
+ 2. & Weak Topologies, Bidual Spaces and Reflexivity                 \Df & 27 \\
+ 3. & Representation Theorems for Adjoint Spaces                     \Df & 29 \\
+ 4. & Spaces of Distributions                                        \Df & 32 \\
+ 5. & Adjoint Operators in Locally Convex Spaces                     \Df & 35 \\
+ 6. & Adjoint Operators in Banach Spaces                             \Df & 36 \\
+ 7. & Hilbert Adjoints and Normal Operators                          \Df & 38 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+%\centerline{{\footnotesize{Part IV}}}
+%\vspace{1pt}
+\centerline{\textbf{IV. Normally Solvable Operators}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Linear Operators with Closed Range                             \Df & 42 \\
+ 2. & The Fredholm Index                                             \Df & 43 \\
+ 3. & Perturbations of Semi-Fredholm Operators                       \Df & 44 \\
+ 4. & Basic Theory on Fredholm Operators                             \Df & 45 \\
+ 5. & \textsc{Fredholm}'s Alternative Theorem                        \Df & 46 \\
+ 6. & Concepts of Solvability for Linear Equations                   \Df & 46 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+%\centerline{{\footnotesize{Part V}}}
+%\vspace{1pt}
+\centerline{\textbf{V. Calculus of Vector-Valued Functions}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Spaces of Classical Differentiable Functions                   \Df & 49 \\
+ 2. & Riemann Integration                                            \Df & 50 \\
+ 3. & Linear Evolution Equations                                     \Df & 52 \\
+ 4. & Bochner Integration                                            \Df & 54 \\
+ 5. & Inhomogeneous Cauchy Problems                                  \Df & 55 \\
+ 6. & Weak Derivatives and Bochner Sobolev-Spaces                    \Df & 56 \\
+ 7. & Hilbert-Bochner-Sobolev Spaces                                 \Df & 57 \\
+ 8. & Holomorphic Vector-Valued Functions                            \Df & 58 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\newpage
+\thispagestyle{empty}
+%\vspace{7pt}
+%\centerline{{\footnotesize{Part VI}}}
+%\vspace{1pt}
+\centerline{\textbf{VI. General Spectral Theory}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Resolvent Sets and Resolvent Functions                         \Df & 60 \\
+ 2. & Different Kinds of Spectra                                     \Df & 62 \\
+ 3. & Riesz-Schauder Spectral Theory                                 \Df & 64 \\
+ 4. & Linear Operators with Pure Point Spectrum                      \Df & 66 \\
+ 5. & The Riesz-Dunford Functional Calculus                          \Df & 66 \\
+ 6. & Essential and Discrete Spectrum                                \Df & 69 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+%\centerline{{\footnotesize{Part VII}}}
+%\vspace{1pt}
+\centerline{\textbf{VII. Commutative Banach Algebras}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Resolvent and Spectrum of Banach Algebra Elements              \Df & 72 \\
+ 2. & Gelfand Representation                                         \Df & 73 \\
+ 3. & Involutional Algebras and C*-Algebras                          \Df & 74 \\
+ 4. & The Gelfand-Naimark Theorem                                    \Df & 76 \\
+ 5. & Locally Compact Abelian Groups                                 \Df & 78 \\
+ 6. & Abstract Fourier Transformation                                \Df & 81 \\
+ 7. & Fourier Transformation in Euclidean Spaces                     \Df & 85 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+%\centerline{{\footnotesize{Part VIII}}}
+%\vspace{1pt}
+\centerline{\textbf{VIII. Linear Operators in Hilbert Space}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Numerical Range and External Field of Regularity               \Df & 91 \\
+ 2. & Unitary Operators and Isometries                               \Df & 92 \\
+ 3. & Symmetric Linear Operators                                     \Df & 92 \\
+ 4. & Self-Adjoint Operators                                         \Df & 94 \\
+ 5. & Essentially Self-Adjointness                                   \Df & 95 \\
+ 6. & The von\,Neumann Extension Theory                              \Df & 95 \\
+ 7. & Perturbations of Self-Adjoint Operators                        \Df & 96 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+%\centerline{{\footnotesize{Part IX}}}
+%\vspace{1pt}
+\centerline{\textbf{IX. Spectral Theory of Self-Adjoint Operators}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Spectral Properties of Normal Operators                        \Df & 99 \\
+ 2. & Properties of the Resolvent and the Spectrum                   \Df &100 \\
+ 3. & The Discrete Spectral Theorem                                  \Df &102 \\
+ 4. & Projections and Projection-Valued Measures                     \Df &103 \\
+ 5. & Functional Calculus and Spectral Operators                     \Df &105 \\
+ 6. & The Spectral Theorem for Self-Adjoint Operators                \Df &107 \\
+ 7. & Positive Self-Adjoint Operators and Cauchy Problems            \Df &110 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+%\centerline{{\footnotesize{Part X}}}
+%\vspace{1pt}
+\centerline{\textbf{X. Semigroups of Bounded Linear Operators}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Strongly Continuous Semigroups                                 \Df &114 \\
+ 2. & Infinitesimal Generators                                       \Df &115 \\
+ 3. & Accretive Operators and Contractive Semigroups                 \Df &116 \\
+ 4. & Sectorial Operators and Analytic Semigroups                    \Df &118 \\
+ 5. & Skew-Adjoint Operators and Unitary Groups                      \Df &120 \\
+ 6. & Well-Posedness of Second-Order Cauchy Problems                 \Df &121 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\newpage
+\thispagestyle{empty}
+%\vspace{7pt}
+%\centerline{{\footnotesize{Part XI}}}
+%\vspace{1pt}
+\centerline{\textbf{XI. Coercive Sesquilinear Forms}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Generalities on Sesquilinear Forms                             \Df &123 \\
+ 2. & Coercive Forms and Variational Equations                       \Df &125 \\
+ 3. & Triples of Hilbert Spaces                                      \Df &126 \\
+ 4. & Linear Operators Associated with a H-Elliptic Form             \Df &126 \\
+ 5. & Sectorial Forms and m-Sectorial Operators                      \Df &129 \\
+ 6. & The Friedrichs Extension Theorem                               \Df &132 \\
+ 7. & Variational Evolution Equations                                \Df &133 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+%\centerline{{\footnotesize{Part XII}}}
+%\vspace{1pt}
+\centerline{\textbf{XII. Applications to Differential Operators}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Linear Partial Differential Operators                          \Df &136 \\
+ 2. & Free Space and Boundary Value Problems                         \Df &139 \\
+ 3. & Operators of Elliptic, Parabolic and Hyperbolic Type           \Df &141 \\
+ 4. & Functional Analytic Methods for Differential Operators         \Df &143 \\
+ 5. & Realizations in the Spaces $C^{k,\gamma}(\G)$ and $L^p(\G)$    \Df &145 \\
+ 6. & Closeness and Closability of Differential Operators            \Df &147 \\
+ 7. & The Fredholm Property of Properly Elliptic Operators           \Df &149 \\
+ 8. & Self-Adjoint Extensions in Hilbert Space L²(G)                 \Df &152 \\
+ 9. & Eigenvalue Problems in Bounded Domains                         \Df &154 \\
+10. & Variational Boundary Value Problems                            \Df &155 \\
+11. & Linear Differential Operators in Distributional Spaces         \Df &157 \\
+12. & Fourier Transform Methods                                      \Df &160 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+\centerline
+{
+\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+%------------------------------------------------------------------------------%
+    & Bibliography                                                   \Df &    \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+\end{small}
+
+
+\setcounter{page}{0}
+\newpage
+\thispagestyle{empty}
 
 %------------------------------------------------------------------------------%
 %   I. TOPOLOGICAL AND NORMED LINEAR SPACES ---
@@ -145,9 +443,6 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 
 \def\TitleI{Topological and Normed Linear Spaces}
 \fancyhead[C] {\small{\textsc{I. \TitleI}}}
-\setcounter{page}{0}
-\newpage
-\thispagestyle{empty}
 \part{\TitleI}
 %------------------------------------------------------------------------------%
 Our aim in this first section
@@ -394,7 +689,7 @@ whose infinite sum converges.
 
 \section{Normed Linear Spaces}
 %------------------------------------------------------------------------------%
-Based on the results in this section,
+Based on the preceded results,
 a normed linear space is nothing but a pre-{\FRECHET} space,
 whose family of separating seminorms consists of only one element
 $\norm{\,\cdot\,} \eqdef \abs{\,\cdot\,} _0$,
@@ -1374,10 +1669,10 @@ with inner products and norms as defined for $H^k(\G)$.
 \begin{comment}
 \paragraph{}
 Further normed linear spaces like Bochner spaces
-and Sobolev spaces will be introduced in subsequent sections
-after having available the notion of \textit{adjoint space} (section II)
-and methods for integration and differentiation
-of vector-valued functions (section III).
+and Sobolev spaces will be introduced later
+after having available the notion of \textit{adjoint space} (section III)
+and methods for integration and differentiation of vector-valued functions
+(section V).
 \end{comment}
 
 \section{Hierarchy of Topological and Normed Linear Spaces}
@@ -1387,7 +1682,7 @@ The following figure shows the inheritance tree
 of topological and normed linear spaces,
 where Banach and Hilbert spaces are positioned at the very end
 of this tree.
-For the notion of \textit{reflexive space} we refer to section IV.
+For the notion of \textit{reflexive space} we refer to section III.
 
 \begin{center}
 \scalebox{0.67}{ % optimum = 0.69
@@ -1467,7 +1762,7 @@ For the notion of \textit{reflexive space} we refer to section IV.
 
 % BIBLIOGRAPHY
 %------------------------------------------------------------------------------%
-\vspace{0mm}
+\vspace{5mm}
 \begin{thebibliography}{99}
 \begin{small}
 
@@ -1502,7 +1797,7 @@ Academic Press Inc., 1980.
 \fancyhead[C] {\small{\textsc{II. \TitleII}}}
 \part{\TitleII}
 %------------------------------------------------------------------------------%
-The aim of this second section
+The aim of this second part
 is to present some fundamental facts on linear operators
 acting between Banach spaces.
 Furthermore,
@@ -1607,7 +1902,7 @@ to every linear operator $\linA\:\domain{\linA} \xsubset \banX \xto \banY$
 there are basically assigned three linear subspaces,
 namely
 
-\begin{itemize}[leftmargin=12pt,itemsep=5pt]
+\begin{itemize}[leftmargin=12pt]
 \item[1.]
 the \textit{kernel} $\kernel{\linA} \eq
 \{\,x \in \domain{\linA}: \linA x \eq \0\,\} \subseteq \banX$;
@@ -1629,7 +1924,7 @@ A first classification of linear operators
 between a domain space $\banX$ and a range space $\banY$
 can be performed by checking certain properties,
 which are defined by means of the norm topologies in these spaces.
-This leads to the concepts of \textit{continuous}, \textit{compact},
+It leads in conclusion to the concepts of \textit{continuous}, \textit{compact},
 \textit{closed} and \textit{closable} operator.
 
 \section{Continuous Linear Operators}
@@ -1660,8 +1955,8 @@ defined on the closure $\overline{\domain{\linA}} \eq \banX$,
 which proves to be continuous as well.
 This is the assertion of the \textit{B.L.T.\,theorem}
 (written out the \textit{bounded linear transformation theorem},
-see \cite{II_RS1}, page 6),
-given by the fact that
+see \cite{II_RS1}, page 6).
+It is given by the fact that
 any continuous linear operator $\linA$ is even \textit{uniformly} continuous,
 that is,
 for each $\epsilon > 0$ there exists $\delta > 0$,
@@ -1699,9 +1994,10 @@ the subsequent assertions are equivalent to each other:
 
 \begin{itemize}[leftmargin=9mm]
 \item[(a)] $\linA$ is continuous;
-\item[(b)] $\linA$ is sequentially continuous in every $x \xeof \banX$;
-\item[(c)] $\linA$ is sequentially continuous at the origin $\0 \xeof \banX$;
-\item[(d)] $\linA$ is bounded.
+\item[(b)] $\linA$ is uniformly continuous;
+\item[(c)] $\linA$ is sequentially continuous in every $x \xeof \banX$;
+\item[(d)] $\linA$ is sequentially continuous at the origin $\0 \xeof \banX$;
+\item[(e)] $\linA$ is bounded.
 \end{itemize}
 \end{theorem1}
 
@@ -1730,38 +2026,11 @@ and owns the property
 It is called the \textit{operator algebra}
 associated with $\banX$.
 
-\paragraph{} %-- continuous embeddings
-We go ahead with the notion of \textit{embedding},
-which is a special kind of a continuous linear operator
-and leads to the concept of \textit{norm-isomorphism}
-between Banach spaces.
-
-\subparagraph{}
-A linear mapping $\iota:\banX \xto \banY$ is called
-a (continuous) \textit{embedding} from a Banach space $\banX$
-into a Banach space $\banY$,
-if it is injective (and continuous).
-If $\iota$ is continuous and even surjective,
-it is said to be a \textit{linear homeomorphism}
-between $\banX$ and $\banY$
-(in the sense of general topological linear spaces).
-Then \textsc{Banach}\textit{'s isomorphism theorem} claims
-that the inverse map $\iota^{-1}$ is also continuous,
-so it forms a norm-isomorphism, too.
-Notice that the notion of embedding can be introduced
-for more general topological linear spaces,
-but the validness of the isomorphism theorem may be lost in this case.
-
-\subparagraph{}
-A well-known example for a norm-isomorphism is the \textit{Riesz map}
-acting between a complex Hilbert space and its conjugate space.
-Various kinds of \textit{Fourier transformation} are further examples
-of continuous linear operators acting on Lebesgue spaces $L^p(X,\mu)$.
-
 \section{Compact Linear Operators}
 %------------------------------------------------------------------------------%
-A linear operator $\compA \: \banX \xto \banY$ between Banach spaces
-$\banX,\,\banY$ is called \textit{compact},
+A linear operator $\compA \: \banX \xto \banY$
+acting between normed linear spaces $\banX,\,\banY$
+is called \textit{compact},
 if the image of each bounded set under $\compA$ is relative compact
 {\wrt} the norm topology in $\banY$,
 or equivalently,
@@ -1778,31 +2047,31 @@ the identity operator $\1_X\:\banX \xto \banX$ is compact
 iff $\banX$ is finite-dimensional.
 
 \paragraph{} %- properties of compact operators
-We collect further properties of compact linear operators:
+Further properties of compact linear operators are:
 
 \begin{itemize}[leftmargin=17pt]
 \item[(a)]
-every compact linear operator is continuous;
+every compact operator is continuous
+(the opposite assumption leads to a contradiction);
 
 \item[(b)]
-the composition $\linA_1 \circ \linA_2$ of bounded linear operators
-is compact,
+the composition $\linA_1 \circ \linA_2$ of continuous operators is compact,
 if one of them is so;
 
 \item[(c)]
-the first and second property together imply that
-the set $\CO{\banX}$ of compact linear operators $\compA\:\banX \xto \banX$
-is a \textit{closed} ideal within the operator algebra $\BO{\banX} $,
-hence it is complete and forms a Banach algebra in its own right;
-
-\item[(d)]
 finite linear combinations of compact linear operators are compact, too;
 
-\item[(e)]
+\item[(d)]
 the limit of a norm convergent sequence of compact operators is compact.
+
+\item[(e)]
+the first and second property together imply that
+the set $\CO{\banX}$ of compact operators $\compA\:\banX \xto \banX$
+is a \textit{closed} ideal within the operator algebra $\BO{\banX} $,
+hence it is complete and forms a Banach algebra in its own right;
 \end{itemize}
 
-\subparagraph{} %- finite-rank operators
+\paragraph{} %- finite-rank operators
 A linear operator $\linFR \: \banX \xto \banY$ is said
 to have \textit{finite rank},
 if the range $\range{\linFR}$ is finite-dimensional.
@@ -1825,6 +2094,35 @@ each compact linear operator $\compA$ appears in this way,
 that is,
 $\compA$ is the norm-limit of a sequence of finite-rank operators
 (but this is not necessarily true in the general setting of Banach spaces).
+
+\paragraph{} %- Hilbert Schmidt operators
+Let $\basB \eq \{e_1,e_2,\ldots\}$ be any orthonormal base
+of a \textit{separable} Hilbert space $\hilH$ and let $\linA \xeof \BO{\hilH}$.
+We define the number $S(\linA)$ according to
+\[
+S(\linA) \eqdef \sum_{i \in \basB} \, \norm{ \linA \, e_i}^2.
+\]
+Then it turns out that this definition for $S(\linA)$
+does not depend on the choice of the orthonormal base.
+In case of $S(\linA) < \infty$
+the operator $\linA$ is called a \textsc{Hilbert-Schmidt} \textit{operator},
+and the number
+\[
+\norm{\linA}_{HS} \eqdef \sqrt{S(\linA)}
+\]
+is denoted the \textit{Hilbert-Schmidt} \textit{norm} of $\linA$,
+since the mapping $\linA \mapsto \norm{\linA}_{HS} $
+owns all the properties of a norm.
+
+\subparagraph{}
+The set $\HS{\hilH}$ of {Hilbert-Schmidt} operators in $\hilH$
+is topologically and algebraically closed in $\BO{\hilH}$
+{\wrt} the operations $\linA_1 + \linA_2$ and $\lambda \linA$,
+hence $\HS{\hilH}$ endowed with norm
+$\norm{\,\cdot\,}_{HS}$ forms a Banach space in its own right.
+Each {Hilbert-Schmidt} operator proves to be compact,
+so $\HS{\hilH}$ forms a two-sided ideal within the space $\CO{\hilH}$
+of compact operators acting in $\hilH$.
 
 \section{Closed and Closable Linear Operators}
 %------------------------------------------------------------------------------%
@@ -2022,7 +2320,9 @@ However,
 if $\banX$ and $\banY$ are Banach or Hilbert spaces
 and $\domain{\linA}$ is a \textit{closed} set in $\banX$,
 then closeness of $\linA$ is an easy consequence of continuity of $\linA$.
-This is especially true in the following situation:
+
+\subparagraph{}
+This assertion is especially true in the following situation:
 if $\linA$ is densely defined and continuous,
 then it can be extended to a continuous linear operator
 $\linA_{ext} \: \banX \xto \banY$,
@@ -2042,7 +2342,7 @@ However,
 if $\banX$ and $\banY$ are Banach or Hilbert spaces
 and $\domain{\linA}$ is a \textit{closed} set in $\banX$,
 then closeness of $\linA$ is an easy consequence of continuity of $\linA$.
-This is especially true in the following situation:
+This fact can be applied to the following situation:
 if $\linA$ is densely defined and continuous,
 then it can be extended to a continuous linear operator
 $\linA_{ext} \: \banX \xto \banY$,
@@ -2054,6 +2354,8 @@ fit in a natural way
 into the class of densely defined and closed linear operators.
 
 \paragraph{} %- closed graph theorem
+For the rest of this paragraph it is assumed that the spaces $\banX,\,\banY$
+are Banach.
 The \textit{closed graph theorem} claims that
 under a certain condition the reverse statement is also true:
 
@@ -2078,8 +2380,9 @@ is continuous\footnote{
 if it is bijective and $\linA^{-1}$ is continuous.}.
 \end{theorem1}
 
-The closed graph theorem is an immediate consequence
-of \textsc{Banach}'s \textit{open mapping theorem}:
+\subparagraph{} %- open mapping theorem
+The closed graph theorem is a consequence of
+\textsc{Banach}'s \textit{open mapping theorem}:
 
 \begin{theorem1}\label{OPEN_MAPPING_THEOREM}
 If $\linA$ is continuous and surjective,
@@ -2087,18 +2390,17 @@ then the image $\linA(\openO)$ of an open set $\openO \subset \banX$
 is open in $\banY$.
 Moreover,
 if $\linA$ is injective,
-then $\linA^{-1}$ is continuous,
-too,
-and forms a homeomorphism between the spaces $\banX$ and $\banY$
-(this is \textit{bounded inverse theorem} for continuous operators).
+then $\linA^{-1}$ is continuous
+and constitutes a linear homeomorphism between the spaces $\banX$ and $\banY$
+(this is the \textit{bounded inverse theorem} for continuous operators).
 \end{theorem1}
 
 The closed graph theorem,
 the open mapping theorem and
 the bounded inverse theorem
 are equivalent to each another
-and can be derived from \textsc{Baire}'s category theorem,
-which is a fundamental assertion in general topology.
+and can be derived from \textit{\textsc{Baire}'s category theorem},
+which is a fundamental result in general topology.
 
 \subparagraph{} %- summary
 In conclusion,
@@ -2106,18 +2408,16 @@ if the domain of definition $\domain{\linA}$ of a linear operator $\linA$
 is a \textit{closed} subspace of the domain space $\banX$,
 then the following chain of implications is valid:
 \[
-\linA \mbox{ compact }    \Longrightarrow
-\linA \mbox{ bounded }    \Longleftrightarrow
-\linA \mbox{ continuous } \Longleftrightarrow
-\linA \mbox{ closed}. %  \Longrightarrow
-%\linA \mbox{ closable}.
+\linA \mbox{ compact }     \Longrightarrow
+\linA \mbox{ bounded }     \Longleftrightarrow
+\linA \mbox{ continuous }  \Longleftrightarrow
+\linA \mbox{ closed}.     %\Longrightarrow \linA \mbox{ closable}.
 \]
 
 \paragraph{} %- solvability of linear equations
 Regarding the solvability of $\linA \, x \eq y$
-where $\linA$ is assumed to be closed and
-acting between Banach spaces $\banX$ and $\banY$,
-we obtain the following concepts:
+where $\linA$ is acting between Banach spaces $\banX$ and $\banY$,
+the following concepts are available:
 the equation $\linA \, x \eq y$ is called
 
 \begin{itemize}[leftmargin=12mm]
@@ -2143,13 +2443,15 @@ if it is solvable and $\linA^{-1}$ is continuous.
 \end{itemize}
 
 \subparagraph{}
+Hence well-posedness means that
+solutions of the linear equations depend continuously on the right hand side.
 We want to emphasize
-that if the linear operator $\linA$ is closed,
-then property (d) implies property (e) by the closed graph theorem.
+that if the linear operator $\linA$ is continuous or closed,
+then property (d) implies property (e) by the bounded inverse theorem.
 
 % BIBLIOGRAPHY
 %------------------------------------------------------------------------------%
-\vspace{0mm}
+\vspace{5mm}
 \begin{thebibliography}{99}
 \begin{small}
 
@@ -2173,726 +2475,7 @@ Springer, 1980.
 \end{thebibliography}
 
 %------------------------------------------------------------------------------%
-% III. CALCULUS OF VECTOR-VALUED FUNCTIONS ---
-%------------------------------------------------------------------------------%
-%  §1. Spaces of Classical Differentiable Functions ---
-%  §2. Riemann Integration ---
-%  §3. Linear Evolution Equations ---
-%  §4. Bochner Integration ---
-%  §5. Inhomogeneous Cauchy Problems ---
-%  §6. Weak Derivatives and Bochner-Sobolev Spaces ---
-%  §7. Hilbert-Bochner-Sobolev Spaces ---
-%  §8. Holomorphic Vector-Valued Functions ---
-%  ---
-
-\def\TitleIII{Calculus of Vector-Valued Functions}
-\newpage
-\thispagestyle{empty}
-\fancyhead[C] {\small{\textsc{III. \TitleIII}}}
-\part{\TitleIII}
-%------------------------------------------------------------------------------%
-In section I we have considered topological and normed linear spaces,
-whose elements are real or complex-valued functions.
-There are good reasons to extend the definitions of some of these spaces
-to contain so-called \textit{vector-valued} functions,
-which are nothing but mappings $f\:(a,b) \xto \banX$,
-where $(a,b) \subset \R$ is a finite interval
-and $\banX$ is a real or complex Banach space.
-
-\subparagraph{}
-The most important spaces containing such functions are
-the vector-valued {\HOELDER} spaces,
-the Bochner spaces and
-the Bochner-Sobolev spaces.
-For the latter one the notion of weak differentiability of a vector-valued
-function is required.
-
-\section{Spaces of Classical Differentiable Functions}
-%------------------------------------------------------------------------------%
-If $\banX$ is an arbitrary Banach space and $(a,b) \xsubset \R$,
-then a vector-valued function $x \: [a,b] \xto \banX$
-is called \textit{classical differentiable} in $t_0 \xeof (a,b)$,
-if there is an element $x'(t_0) \xeof \banX$ such that
-\[
-\lim_{\,t \xto t_0} \,
-\norm{ \, \frac{x(t)-x(t_0)}{t-t_0}\, - x'(t_0) \, } \= 0.
-\]
-Moreover,
-the function $x$ is called {classical differentiable in} $(a,b)$,
-if $x$ is so in each $t \xeof (a,b)$.
-The linear space consisting of functions having \textit{continuous}
-classical derivatives in $(a,b)$ is denoted $C^1(a,b;\banX)$.
-
-\subparagraph{} %- spaces of k-times differentiable functions
-The spaces $C^k(a,b;\banX)$ ($k \xeof \N$) are defined recursively as usual,
-and the space $C^{\infty}(a,b;\banX)$ is defined
-by taking the intersection of all spaces $C^k(a,b;\banX)$,
-$k \xeof \N_0$.
-
-\paragraph{} %-- vector-valued Hölder spaces
-We continue with the introduction of vector-valued {\HOELDER} spaces.
-First of all,
-let $0 < \alpha \leq 1$ and $C^{\alpha}(a,b;\banX)$ be the linear space of
-\textit{{\HOELDER}-continuous} functions $f:[a,b] \to \banX$,
-defined by the property
-\begin{equation}\label{II_HOELDER_NORM_2}
-\norm{f} _{\alpha} \, := \,
-\sup_{x,y \in [a,b], \, x \neq y} \,
-\frac{\norm{\, f(x) - f(y) \,} }
-     {\norm{x-y} ^{\alpha}}
-\, < \, \infty.
-\end{equation}
-The mapping $f \xeof C^{\alpha}(a,b;\banX) \mapsto \norm{f}_{\alpha}$ is a norm,
-in which the space $C^{\alpha}(a,b;\banX)$ is complete.
-Then for $k \xeof \N$ and $0 < \alpha \leq 1$ we define
-$C^{k,\alpha}(a,b;\banX)$ as the space of functions $f:[a,b] \to \banX$
-such that
-
-\begin{itemize}[leftmargin=15pt]
-\item[(a)]
-$f \xeof C^k(a,b;\banX)$;
-
-\item[(b)]
-the derivatives
-$f^{(1)},f^{(2)},\ldots,f^{(k)}$
-can continuously be extended from $(a,b)$ to the closure $[a,b]$;
-
-\item[(c)]
-The highest derivative $f^{(k)}$ belongs to $C^{\alpha}(a,b;\banX)$.
-\end{itemize}
-
-\subparagraph{}
-In fact, the mapping $\norm{\,\cdot\,}_{k,\alpha}$ defined by
-\[
-\norm{f}_{k,\alpha} \, := \,
-\sum_{i=0}^k \, \sup_{x \in [a,b]} \snorm{f^{(i)}(x)} \, + \,
-\snorm{f^{(k)}}_{\alpha}
-\]
-constitutes a norm on $C^{k,\alpha}(a,b;\banX)$,
-in which this space is complete.
-
-\section{Riemann Integration}
-%------------------------------------------------------------------------------%
-It is the purpose in the current paragraph
-to sketch the setup of the \textit{Riemann integral}
-for vector-valued functions $f \: [a,b] \xto \banX$.
-Like in the case $\banX \eq \R$,
-one usually starts with a partition
-\[
-\cal{Z} \=
-\{x_0:=a,x_1,\ldots,x_{n-1},x_n:=b\},
-\quad x_{i-1} < x_i \quad (i=1,\ldots,n),
-\]
-where the length $\snorm{\cal{Z}} $ of the largest subinterval
-is called the \textit{grid size} of $\cal{Z}$:
-\[
-\snorm{\cal{Z}} \eqdef \max_{1 \leq i \leq n} \, (x_i-x_{i-1}).
-\]
-Furthermore,
-a \textit{tagged partition} $\cal{Z}(t_1,\ldots,t_n)$
-of $[a,b]$ is a partition $\cal{Z}$
-together with a sequence of intermediate points $t_1,\ldots,t_n$,
-where each $t_i$ belongs to the sub\-interval $[x_{i-1},x_i]$.
-Then the \textit{Riemannian sum} of $f \: [a,b] \xto \banX$
-{\wrt} the tagged partition $\cal{Z}(t_1,\ldots,t_n)$ is given by
-\[
-R(f,\cal{Z}) \eqdef \sum_{i=1}^n f(t_i) \cdot (x_i - x_{i-1}).
-\]
-
-\subparagraph{}
-The \textit{Riemann integral} of $f$ on $[a,b]$
-is defined as the possible limit of Riemannian sums $R(f,\cal{Z})$
-for $\snorm{\cal{Z}} \xto 0$.
-Alternatively,
-a function $f$ is called \textit{Riemann-integrable} on $[a,b]$
-to the value $R_f \xeof \banX$,
-if to each $\epsilon > 0$ there is a number $\delta > 0$ such that
-\[
-\norm{ R_f - R(f,\cal{Z})} < \epsilon
-\]
-for each tagged partition $\cal{Z}(t_1,\ldots,t_n)$
-with $\abs{\cal{Z} } < \delta$,
-and in this case the vector $R_f$ is said to be
-the \textit{Riemann integral} of $f$,
-denoted
-\[
-\int_a^b f \, dx \eqdef R_f.
-\]
-
-\subparagraph{}
-Continuity of a vector-valued function $f$ is a sufficient condition
-for the existence of the Riemann integral for $f$.
-Indeed,
-every continuous function $f \: [a,b] \xto \banX$ is Riemann-integrable.
-The Riemann integral constitues a linear map on $C([a,b],\banX)$,
-satisfying the estimate
-\[
-\norm{\, \int_a^b f(t) \, dt \,} \, \leq \,  \int_a^b \norm{f(t)} \, dt.
-\]
-Moreover, 
-any Riemann-integrable function fulfills the \textit{mean value theorem}
-\[
-\int_a^b f(t) \, dt \= (b-a)\,\overline{f}\,,
-\]
-where the function $\overline{f}$ belongs to the closed convex hull
-of the set $\{\,f(t): t \xeof [a,b]\,\}$.
-
-\subparagraph{}
-As in the scalar-valued case,
-in order to commute integration and taking the limit of a sequence
-$\{f_n\}_{n \in \N}$ of continuous vector-valued functions
-$f_n \: [a,b] \xto \banX$,
-it suffices that
-$\{f_n\}$ is \textit{uniformly convergent}
-to a continuous function $f \: [a,b] \xto \banX$,
-and under this condition
-\[
-\lim_{n \to \infty} \, \int_a^b f_n(t)\,dt \= \int_a^b f(t) \, dt.
-\]
-
-\subparagraph{} %- improper Riemann integral
-Like in classical calculus,
-we also introduce the notion of the \textit{improper} Riemann integral.
-If $f$ is defined on the real line and is R-integrable
-on each compact interval,
-then by the unproper Riemann integral of $f$ on $\R$
-is meant the possible limit
-\[
-\int_{- \infty}^{+ \infty} f(t) \, dt
-\eqdef
-\lim_{a \to \infty} \, \int_{-a}^{+a} f(t) \, dt.
-\]
-
-\paragraph{} %- complex path integrals
-If $f \: \openU \xto \banX$ is defined on a domain $\openU$
-within the complex plane
-and $\gamma \: [a,b] \xto \openO$ is a continuous \textit{path},
-then we define
-\[
-\int_{\gamma} f(z)\, dz \eqdef \int_a^b (f \circ \gamma) dt,
-\]
-and if $\gamma$ is continuously differentiable,
-the path integral may be computed by 
-\[
-\int_a^b f(\gamma(t)) \, \gamma(t) \, dt.
-\]
-
-\subparagraph{}
-The following statement claims
-that Riemann integration of vector-valued functions is commutable
-with the action of closed linear operators:
-
-\begin{theorem1}
-Let $\linA \: \domain{\linA} \xto \banX$ be a closed linear operator
-acting in a Banach space $\banX$
-and $f \: [a,b) \xto \banX$ ($a < b \leq \infty$) continuous.
-Suppose that
-
-\begin{itemize}[leftmargin=22pt]
-\item[1.] $f(t) \in \domain{\linA}$ for all $t \xeof [a,b]$,
-\item[2.] the mapping $t \mapsto \linA f(t)$ is continuous in $[a,b)$,
-\item[3.] the possibly improper integral values $x$ and $y$ exist, where
-\[
-x \, := \, \int_a^b f(t) \, dt
-\quad \and \quad
-y \, := \, \int_a^b \linA f(t) \, dt.
-\]
-\end{itemize}
-Then $x \in \domain{\linA}$ and $\linA x \eq y$ holds.
-\end{theorem1}
-
-\paragraph{} %- Riemann-Stieltjes integration for vector-valued functions
-We finally want to mention the concept
-of \textit{Riemann-Stieltjes integral}
-for a vector-valued function $f \: [a,b] \xto \banX$.
-If $g\:[a,b] \xto \R$ is a further function and
-\[
-\cal{Z} := \{t_0=a,t_1,\ldots,t_n=b;\xi_0,\ldots,\xi_{n-1}\}
-\]
-a tagged partition of $[a,b]$,
-then $f$ is called \textit{Riemann-Stieltjes-integrable},
-if there is an element $R_f \in \banX$ such that
-\[
-\sum_{i=0}^{n-1} \, f(\xi_i) \, [g(t_{i+1})-g(t_i)],
-\quad
-\xi_i \in [t_{i+1},t_i]
-\]
-converges to $R_f$ for $\abs{\cal{Z}} \to 0$,
-and in this case we define
-\[
-\int_a^b f \,dg \, := \, R_f.
-\]
-The mapping $g$ plays the role of a weight function.
-A sufficient criterion for Riemann-Stieltjes integrability
-of a function $f \: [a,b] \xto \banX$ is for example,
-that $f$ is piecewise continuous and $g$ is monotonly growing in $[a,b]$.
-
-\subparagraph{}
-Improper Riemann-Stieltjes integrals may be defined in a similar manner.
-In fact,
-such integrals exist if and only if the following limits exist:
-\[
-\lim_{\genfrac{}{}{0pt}{}{a \to -\infty}{b \to +\infty}}
-\int_a^b f \, dg
-\]
-
-\section{Linear Evolution Equations}
-%------------------------------------------------------------------------------%
-By an \textit{evolution equation} is meant
-an ordinary or partial differential equation
-that describes the behaviour of a dynamical system.
-More precisely,
-it describes the propagation of one or more physical magnitudes along the time,
-where their initial states are given in a starting point $t_0 \xeof \R$.
-
-\subparagraph{} %- example of evolution equation
-An elementary example of an evolution equation
-is given by the differential equation
-$x' + \lambda x \eq \0$ for $x(0) \eq x_0 \xeof \R$ and $\lambda {\,>\,} 0$.
-It is well known that
-this problem is solved by the exponential function
-$x(t,x_0) \eq x_0 \, e^{-\lambda t}$ for $t {\,>\,} 0$.
-
-\paragraph{} %- functional analysis and evolution equations
-Functional analysis provides a rich theory
-on \textit{homogeneous} and \textit{linear} evolution equations of the form
-\begin{equation}\label{III_HOMOGENEOUS_CAUCHY_PROBLEM_1}
-\begin{cases}[1.2]
-\quad x'(t) \+ \linA \, x(t) \= \0,\\ 
-\quad x(0) \= x_0 \xeof \banX,\\
-\end{cases}
-\end{equation}
-where $\linA$ is a linear operator acting in a Banach space $\banX$
-and with domain of definition $\domain{\linA}$.
-The task is to find \textit{vector-valued} solutions $x \: [0,\T) \xto \banX$
-of the equation $x' + \linA x \eq \0$ 
-satisfying the initial value condition $x(0) \eq x_0$.
-The evolution equation \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1} with prescribed
-initial value is denoted the \textit{Cauchy problem of first order}.
-
-\subparagraph{} %- second order equations
-The homogeneous Cauchy problem of \textit{second order} consists of solving
-the initial value problem
-\begin{equation}\label{III_HOMOGENEOUS_CAUCHY_PROBLEM_2}
-\begin{cases}[1.2]
-\quad x''(t) \+ \linA \, x(t) \= \0,\\
-\quad x(0)  \= x_0, \\
-\quad x'(0) \= x_1,\\
-\end{cases}
-\end{equation}
-where $\linA$ is densely defined and closed.
-We also suppose $x_0 \xeof \domain{\linA}$,
-but the element $x_1$ may belong to any other linear subspace of $\banX$.
-
-\paragraph{} %- concepts of solution for homogeneous Cauchy problems
-In the following we want to introduce some concepts of solution
-for the first order Cauchy problem:
-
-\begin{itemize}[leftmargin=12pt]
-\item[1.]
-A vector-valued function
-$x \xeof C([0,\T),\domain{\linA}) \, \cap \, C^1((0,\T),\banX)$ is called
-a \textit{classical solution} of \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1},
-if it satisfies the initial condition $x(0) \eq x_0$
-and the differential equation in each point $t \xeof (0,\T)$.
-
-\item[2.]
-a continuous function $x \: [0,\T) \xto \banX$ is said to be
-a \textit{mild solution} of \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1} if
-\[
-\mbox{(1) } \, \tilde{x}(t) \eqdef
-\int_{\,0}^t x(s) \, ds \, \xeof \domain{\linA}
-\quad \and \quad
-\mbox{(2) } \, \linA \, \tilde{x}(t) \eq x(t)-x_0
-\]
-holds for all $0 {\,<\,} t {\,<\,} \T$,
-where the integral on the right-hand side of (1) 
-is meant in the Riemannian sense.
-One is led to the notion of mild solution in a natural way
-by integrating both sides of the equation $x' + \linA \, x \eq \0$,
-which then becomes into
-\[
-\int_{\,0}^t x' ds \=
-x(t)-x(0) \= -
-\int_{\,0}^t \linA \, x(s) \, ds.
-\]
-If $\linA$ is closed,
-then the action of $\linA$ and performing the integration commutes
-for continuous functions $x \: [0,t] \xto \domain{\linA}$,
-that is,
-\[
-\int_{\,0}^t \linA \, x(s) \, ds  \= \linA \, \int_{\,0}^t x(s) \, ds,
-\]
-and to the end we obtain the equation
-\[
-x(t) \= x(0) - \linA \, \int_{\,0}^t x(s) \,ds
-\quad \quad (t \xeof (0,\T)).
-\]
-\end{itemize}
-
-\subparagraph{} %- comparing classical and mild solutions
-Notice that each classical solution is a mild solution,
-and reversely a mild solution is classical
-iff it is continuously differentiable in $(0,\T)$.
-Thus classical and mild solutions of homogeneous Cauchy problems
-only differ {\wrt} this regularity condition.
-
-\paragraph{} %-- correctly and well-posed Cauchy problems
-%------------------------------------------------------------------------------%
-After having the notions of classical and mild solution
-for the homogeneous Cauchy problem available,
-we want to introduce
-the concepts of \textit{correct posedness} and \textit{well-posedness}.
-
-\subparagraph{} %- definitions of correctly and well-posed problems
-First,
-the homogeneous Cauchy problem \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1}
-is called \textit{correctly posed},
-if there is a unique classical solution $x$
-for any initial value $x_0 \xeof \domain{\linA}$.
-Second,
-it is denoted \textit{well-posed},
-if it is correctly posed and
-the solution $x$ depends continuously on the initial value $x_0$,
-or in other words,
-if for each $\T {\,>\,} 0$ there is $c_{\T} {\,>\,} 0$ such that
-\[
-\norm{x(t)} \leq c_{\T} \norm{x_0}
-\]
-for all $t \xeof (0,\T)$ and all $x_0 \xeof \banX$.
-
-\subparagraph{}
-In \cite{III_EN}
-the continuous dependency of the solutions from the initial values
-is expressed as follows:
-if $\{x_n\}_{n \xeof \N}$ is a converging sequence in $\domain{\linA}$
-with limit element $\0 \xeof \banX$,
-then the related solutions $t \mapsto x_n(t)$ are uniformly convergent
-to the zero function in all compact intervals $[0,t_0]$
-for $0 {\,<\,} t_0 < \T$
-(similar definitions for correct posedness and well-posedness
-can also be quoted for the second-order homogeneous Cauchy problem
-\eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_2}).
-
-\subparagraph{}
-Let us finally mention that problem \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1}
-governed by a densely defined and closed linear operator $\linA$ is well-posed
-iff
-it is correctly posed and
-in addition $\linA$ is regular,
-that is,
-$\rho(\linA) \ne \emptyset$ holds.
-
-\section{Bochner Integration}
-%------------------------------------------------------------------------------%
-To introduce a concept of integration for vector-valued functions,
-which generalizes the Lebesgue integral for scalar-valued functions,
-we first have to introduce a suitable notation of measurability 
-for vector-valued functions.
-
-\subparagraph{} %- measurable functions
-A function $f\:\Omega \xto \banX$ is called \textit{weakly measurable},
-if $\phi \circ f\:\Omega \xto \F$ is measurable for every $\phi \xeof \banX^*$.
-Then a weakly measurable function $f\:\Omega \xto \banX$
-is called \textit{Bochner-integrable},
-if
-\[
-\int_{\Omega} \norm{f} \,d\mu \, < \, \infty.
-\]
-For any $p \geq 1$
-we denote $L^p(\Omega,\banX)$ the space of functions $f\:\Omega \xto \banX$
-having Bochner-integrable powers $\abs{f} ^{p}$.
-The elements of this space have also to be understood
-as equivalence classes of functions
-being identical almost everywhere in $\Omega$.
-Endowed with the norm
-\[
-f \mapsto \norm{f}_p \eqdef (\int_{\Omega} \, \norm{f} ^p \, d\mu)^{1/p},
-\]
-the Bochner spaces $L^p(\Omega,\banX)$ are complete
-and thus constitute Banach spaces.
-
-\subparagraph{} %- weak and strong measurability
-It should be mentioned that
-if we suppose the Banach space $\banX$ to be separable,
-then a function $f\:\Omega \xto \banX$ is weakly measurable
-if and only if $f$ is strongly (or Pettis-) measurable.
-The latter notion of measurability uses approximations of $f$ by sequences
-$\{e_n\}_{n \in \N}$ of elementary functions $e_n\:\Omega \xto \banX$,
-and the Bochner integral of $f$ is obtained by taking the limit of the
-Bochner integrals of the functions $e_n$,
-that is,
-\[
-\int_{\Omega} f \,d\mu \eqdef \lim_{n \xto \infty} \int_{\Omega} e_n \, d\mu.
-\]
-This definition proves to be independent of the specific choices
-of the approximating sequences for $f$.
-
-\subparagraph{} %- specific choice of Omega and X for Bochner spaces
-With respect to applications in partial differential equations,
-Bochner spaces are of interest on the one hand 
-for the choices $\Omega \eq \G$ and $\banX \eq \F \xeof \{\R,\C\}$,
-where $\G$ is a domain in one of the Euclidean spaces $\Rd$
-and $L^p(\G,\F)$ is nothing but the Lebesgue space $\Lp$.
-On the other hand,
-in the weak solution theory of evolution equations
-we chose $\Omega$ to be a finite or infinite interval $\J \subset \R$,
-and the Banach space $\banX$ may be any complete function space $\mathbb{F}$
-consisting of differentiable mappings $f\:\G \xto \F$,
-so we are dealing with the Bochner spaces $L^p(\J,\mathbb{F})$ in this case.
-
-\section{Inhomogeneous Cauchy Problems}
-%------------------------------------------------------------------------------%
-In this paragraph we deal with the solution theory
-of the \textit{inhomogeneous} Cauchy problem
-\begin{equation}\label{X_INHOMOGENEOUS_CAUCHY_PROBLEM}
-\begin{cases}[1.2]
-\quad   x'(t) + \linA \, x(t) \, = \, y(t)\\
-\quad \; x(0) \= x_0 \in \banX, \\
-\end{cases}
-\end{equation}
-where $y$ is a function $y \: [0,\T) \xto \banX$ and
-the solution $x \: (0,\T) \xto \banX$ of the problem
-\eqref{X_INHOMOGENEOUS_CAUCHY_PROBLEM} has to be searched.
-
-\subparagraph{} %- Duhamel's principle
-Let us first remember \textsc{Duhamel}\textit{'s principle},
-also called the \textit{method of variation of constants}:
-if $x$ is a classical solution of \eqref{X_INHOMOGENEOUS_CAUCHY_PROBLEM},
-the right hand side $y \: [0,\T) \xto \banX$ is continuous
-and the linear operator $\linA$ is bounded,
-then 
-\[
-x(t) \= \linS(t) \, x_0 \, + \, \int_{\,0}^t \linA \, y(s) \, ds,
-\quad (0 < t \leq \T),
-\]
-where $\linS(t)$ is the solution operator of the homogeneous problem
-\eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1} at time $t > 0$.
-
-\paragraph{} %- solvability of the inhomogeneous Cauchy problem
-The basic problem in solving the inhomogeneous Cauchy problem is to find
-conditions on the function $y$,
-which ensure existence and uniqueness of a solution.
-We first review the notion of classical and mild solution:
-
-\begin{itemize}[leftmargin=5mm]
-\item[1.]
-A function $x \: [0,\T] \xto \banX$ is called a \textit{classical solution}
-for problem \eqref{X_INHOMOGENEOUS_CAUCHY_PROBLEM},
-if $u \xeof C([0,\T)) \cap C^1((0,\T))$,
-fulfills the differential equation $x' + \linA x \eq y$ in every $t \in (0,\T)$
-and the initial condition $x(0) \eq x_0$.
-\item[2.]
-A function $x \: [0,\T] \xto \banX$ is called a \textit{mild solution},
-if $\ldots$ % waiting for implementation
-\end{itemize}
-
-\paragraph{}
-While in the homogeneous case a mild solution is classical
-\iff it is continuously differentiable,
-the validness of this assertion remains true for the inhomogeneous problem
-only
-under some additional regularity properties of the right hand side $y$.
-
-\subparagraph{}
-To be precise,
-we have to check that $y$ belongs to one of the following function spaces:
-
-\begin{itemize}[leftmargin=30pt]
-\item[1.]
-$y \xeof L^1([0,\T),\banX) \, \cap \, C((0,\T),\banX)$,
-
-\item[2.]
-$y(t) \xeof \domain{\linA}$ for each $t \in (0,\T)$,
-
-\item[3.]
-$\linA y \xeof L^1((0,\T),\banX)$.
-\end{itemize}
-
-\section{Weak Derivatives and Bochner-Sobolev Spaces}
-%------------------------------------------------------------------------------%
-We next introduce so-called \textit{Bochner-Sobolev spaces},
-which differ by the property
-that their members are at the same time
-Bochner-integrable and \textit{weakly differentiable}.
-
-\subparagraph{}
-Let $\hilH$ be a separable Hilbert space and $L^2(a,b;\hilH)$ be
-the Bochner space consisting of functions $f\:(a,b) \xto \hilH$,
-that is,
-we have
-\[
-\int_a^b \norm{f(t)}^2 \,dt \, < \, \infty
-\]
-for $f \xeof L^2(a,b,;\hilH)$.
-We endow this space with the inner product
-\[
-\scalar{f}{g} \eqdef \int_a^b \scalar{f(t)}{g(t)} \,dt,
-\quad \quad
-f,g \xeof L^2(a,b;\hilH)
-\]
-such that the norm is given as usual by
-$\norm{f}_2 \eq \scalar{f}{f}^{1/2}$.
-Thus $L^2(a,b;\hilH)$ is Hilbertian,
-and if $(a,b)$ is a \textit{finite} interval,
-the inclusion $L^2(a,b;\hilH) \subset L^1(a,b;\hilH)$ holds.
-We shall denote $L^2(a,b;\hilH)$ a \textit{Hilbert-Bochner space}.
-
-\subparagraph{} %- weak derivatives of vector-valued functions
-For $f \xeof L^2(a,b;\hilH)$,
-a further function $g\:(a,b) \xto \hilH$ is said to be
-the \textit{weak derivative} of $f$,
-if
-\[
-\int_a^b g \phi \,dx \= - \int_a^b f \phi' \,dx
-\]
-holds for each $\phi \xeof C_c^{\infty}(a,b,\banX)$,
-that is,
-$\phi$ is an indefinitely differentiable function with compact support
-in $(a,b)$.
-If such a function $g$ exists,
-we denote $f' := g$ in this case,
-which should not be confused with the classical derivative of $f$.
-But notice that if the weak derivative of $f$ is present,
-then $f$ is also classical differentiable.
-
-\section{Hilbert-Bochner-Sobolev spaces}
-%------------------------------------------------------------------------------%
-Having the notion of weak derivative available,
-we finally introduce the \textit{Hilbert-Bochner-Sobolev space}
-\[
-H^1(a,b;\hilH) :=
-W^{1,2}(a,b,\hilH) :=
-\{f \in L^2(a,b;\hilH): f' \in L^2(a,b;\hilH) \},
-\]
-which is a Hilbert space as well with inner product given by
-\[
-\scalar{f}{g}_1 \eqdef
-\int_a^b \scalar{f}{g} \, dt
-\, + \,
-\int_a^b \scalar{f'}{g'} \, dt\,,
-\quad f,g \in H^1(a,b;\hilH).
-\]
-
-\subparagraph{} %- mixed Bochner-Sobolev spaces
-Finally,
-let $\hilH_1, \hilH_2$ be \textit{real} Hilbert spaces,
-where $\hilH_1$ is continuously embedded into $\hilH_2$.
-Then there is also a continuous embedding
-\[
-H^1(a,b;\hilH_1) \, \overset{\kappa}{\hookrightarrow} \, H^1(a,b;\hilH_2).
-\]
-Consequently,
-given a Hilbert space triple 
-$
-\vecV \, {\overset{\iota_1}{\hookrightarrow}} \,
-\hilH \, {\overset{\iota_2}{\hookrightarrow}} \vecV^*,
-$
-we may regard the space $H^1(a,b;\vecV)$
-as a linear subspace of $H^1(a,b;\vecV^*)$,
-which enables us to define the \textit{mixed Hilbert-Bochner-Sobolev space}
-\[
-H^1(a,b;\vecV,\vecV^*) \eqdef
-\{ f \in L^2(a,b;\vecV): f' \in L^2(a,b;\vecV^*) \}
-\]
-or equivalently
-\[
-H^1(a,b;\vecV,\vecV^*) \eqdef L^2(a,b;\vecV) \, \cap H^1(a,b;\vecV^*).
-\]
-Then the mapping
-\[
-(f,g) \mapsto \scalar{f}{g}_1 \eqdef
-\int_a^b \, \scalar{f(t)}{g(t)}_{\vecV} \, dt
-\, + \,
-\int_a^b \, \scalar{f'(t)}{g'(t)}_{V^*} \, dt
-\]
-fulfills the properties on an inner product
-and makes $H^1(a,b;\vecV,\vecV^*)$ into a Hilbert space
-having the following properties:
-
-\begin{itemize}[leftmargin=17pt]
-\item[(a)]
-Each $f \xeof H^1(a,b;\vecV,\vecV^*)$
-is $\lambda$-nearly everywhere identical
-to a continuous function $f_c\:[a,b] \xto \hilH$,
-and by identifying the functions $f$ and $f_c$
-the space $H^1(a,b;\vecV,\vecV^*)$ can continuously be embedded
-into the space $C([a,b],\hilH)$.
-
-\item[(b)]
-The space $C^{\infty}([a,b],\vecV)$ is dense in $H^1(a,b;\vecV,\vecV^*)$.
-
-\item[(c)]
-The following product rule is valid for each $t \xeof (a,b)$:
-\[
-\frac{d}{dt} \norm{u(t)} ^2
-\=
-2 \re \, \scalar{u'(t)}{u(t)}_1
-\fa u \xeof H^1(a,b;\vecV,\vecV^*).
-\]
-\end{itemize}
-
-\section{Holomorphic Vector-Valued Functions}
-%------------------------------------------------------------------------------%
-To the end we introduce the concept of differentiability
-for functions  $x\:\openO \xto \banX$,
-where $\openO$ is an open and connected subset of the complex plane
-and $\banX$ is a complex Banach space.
-The function $x$ is called \textit{complex differentiable} in a point
-$z_0 \xeof \openO$,
-if 
-\[
-\lim_{z \to z_0} \frac{x(z)-x(z_0)}{z-z_0}
-\]
-exists,
-and this limit is usually denoted $x'(z_0)$,
-called the \textit{complex derivative} of $x$ in $z_0$.
-Furthermore,
-$x$ is said to be \textit{holomorphic} or \textit{analytic}
-in $z_0 \xeof \openO$,
-if there is an open neighbourhood $U$ of $z_0$
-such that $x$ has complex derivative in each $z \xeof U$.
-Finally,
-$x$ is said to be holomorphic or analytic in $\openO$,
-if $x$ is so in each $z_0 \xeof \openO$.
-
-\subparagraph{}
-The property of $x$ being holomorphic in $\openO$ can be characterized
-as follows:
-$x$ is holomorphic \iff
-the functions $f \circ x \: \openO \xto \C$ are holomorphic
-considered as complex-valued functions for each $f \xeof \banX^*$.
-As in complex analysis,
-a holomorphic function $x\:\openO \xto \banX$ can be locally represented
-by a power series with coefficients in $\banX$.
-It should also be mentioned that
-the concepts just introduced also apply to \textit{operator-valued} functions,
-where the Banach space $\banX$ is nothing but the space $\BO{\banY}$
-for some further Banach space $\banY$.
-
-% BIBLIOGRAPHY
-%------------------------------------------------------------------------------%
-\vspace{5mm}
-\begin{thebibliography}{99}
-\begin{small}
-
-\bibitem{III_DU} J.\,Diestel, J.\,J.\,Uhl:
-\textit{Vector Measures}.
-American Mathematical Soc., 1977.
-
-\bibitem{III_EN} K.-J.\,Engel, R.\,Nagel:
-\textit{A Short Course on Operator Semigroups}.
-Universitext, Springer, 2006.
-
-\bibitem{III_Yo} K.\,Yosida:
-\textit{Functional Analysis}.
-Springer, 1980.
-
-\end{small}
-\end{thebibliography}
-
-%------------------------------------------------------------------------------%
-%  IV. ADJOINT SPACES AND OPERATORS ---
+% III. ADJOINT SPACES AND OPERATORS ---
 %------------------------------------------------------------------------------%
 %  §1. Continuous Linear Functionals ---
 %  §2. Bidual Spaces and Reflexivity ---
@@ -2905,8 +2488,9 @@ Springer, 1980.
 
 \newpage
 \thispagestyle{empty}
-\fancyhead[C] {\small{\textsc{IV. Adjoint Spaces and Operators}}}
-\part{Adjoint Spaces and Operators}
+\def\TitleIII{Adjoint Spaces and Operators}
+\fancyhead[C] {\small{\textsc{III. \TitleIII}}}
+\part{\TitleIII}
 %------------------------------------------------------------------------------%
 It is often useful to combine the study of a topological or normed linear space
 $\banX$ with that of its \textit{dual space} $\banX^*$,
@@ -2924,7 +2508,7 @@ $\F$-linear spaces again,
 where the topologies are given by the so-called \textit{standard topologies}.
 
 \subparagraph{}
-The main objects in this section are \textit{continuous linear functionals}
+The main objects in this paragraph are \textit{continuous linear functionals}
 on $\banX$,
 that is,
 continuous mappings of the form $\phi \: \banX \xto \F$,
@@ -2960,41 +2544,25 @@ on $\banX$,
 usually called the \textit{conjugate linear space}
 or the \textit{antidual space} of $\banX$.
 
-\section{Bidual Spaces and Reflexivity}
+\section{Weak Topologies, Bidual Spaces and Reflexivity}
 %------------------------------------------------------------------------------%
-Notice that if a linear space $\banX$ is normed,
+Let us first remember that if a linear space $\banX$ is normed,
 then the adjoint space $\banX^*$ is also normed,
 where the norm of an element $\phi \xeof \banX^*$ is defined by
 \[
 \norm{\phi} \, \eqdef \, \sup_{x \in \banX,\,\norm{x} \leq 1} \, \abs{\phi(x)} .
 \]
 Since the fields $\R$ and $\C$ are complete,
-the {adjoint space} $\banX^*$ is complete,
+the {adjoint space} $\banX^*$ is complete, too,
 which can easily be proved.
-Moreover,
-let for a given normed linear space $\banX$ the \textit{bidual space}
-defined by $\banX^{**} := (\banX^*)^*$,
-which also forms a complete normed linear space.
-Then there is a natural embedding
-$\iota\: \banX \hookrightarrow \banX^{**}$,
-defined by $\iota(x) := \phi_x$ for $\phi_x \xeof \banX^*$,
-where $\phi_x(f) := f(x)$ for $f \xeof \banX^*$.
-The mapping $\iota$ proves to be linear, continuous and injective.
-
-\subparagraph{}
-In other words,
-each element $x \xeof \banX$ gives rise to a mapping $\phi_x \xeof \banX^{**}$,
-where $\norm{x} \eq \norm{\iota_x}$ holds,
-so $\banX$ can be seen as a linear subspace of $\banX^{**}$.
-On the other hand,
-nothing can be said whether the embedding $\iota$ is onto.
 
 \paragraph{} %- weak topologies
-Remember that a normed linear space $\banX$ owns a specific topology,
+Recall also from section I
+that a normed linear space $\banX$ owns a specific topology,
 called the \textit{norm topology},
 which is the coarsest one to make the norm into a continuous mapping.
 But there is a further and useful topology on $\banX$,
-called the \textit{weak topology} $\topT_w$.
+denoted the \textit{weak topology} $\topT_w$.
 It is the coarsest topology on $\banX$
 such that all continuous linear functionals
 $\phi \xeof \banX^*$ remain continuous.
@@ -3015,39 +2583,32 @@ norm convergence of any sequence in $\banX$ implies weak convergence.
 If $\banX$ is finite-dimensional,
 however,
 both topologies coincide,
-but this is in general not true in arbitrary normed spaces.
+but this is in general not true in arbitrary normed linear spaces.
 
-\subparagraph{} %- properties of the weak* topology
-We also introduce the \textit{weak*}-topology on the adjoint $\banX^*$
-of a locally convex topological linear space $\banX$:
-it is the smallest topology in $\banX^*$
-such that
-for each $x \xeof \banX$ the linear functional $\phi_x$ remains continuous.
+\paragraph{} %- bidual spaces
+Let for a given normed linear space $\banX$ the \textit{bidual space}
+defined by $\banX^{**} := (\banX^*)^*$,
+which forms a complete normed linear space again.
+Then there is a natural embedding
+\[
+\begin{cases}[1.2]
+\quad \iota \: \banX \hookrightarrow \banX^{**},\\
+\quad \iota(x) := \phi_x \for \phi_x \xeof \banX^*,\\
+\end{cases}
+\]
+where $\phi_x(f) := f(x)$ for $f \xeof \banX^*$.
+The mapping $\iota$ is linear, continuous and injective.
+In other words,
+each element $x \xeof \banX$ gives rise to a mapping $\phi_x \xeof \banX^{**}$,
+where $\norm{x} \eq \norm{\iota_x}$ holds,
+so $\banX$ can be seen as a linear subspace of $\banX^{**}$.
 
-\paragraph{} %- Alaoglu-Bourbaki theorem
-The weak*-topology on the adjoint space $\banX^*$ may possibly contain
-fewer open sets than the weak topology and is therefore coarser.
-But $\banX^*$ is at least a Hausdorff space {\wrt} the weak*-topology.
-The main result concerning weak*-topologies in adjoint spaces is
-the well-known \textit{Alaoglu theorem}:
-
-\begin{theorem1}\label{IV_ALAOGLU_BOURBAKI_THEOREM}
-The closed unit ball
-$B_1(\0) : = \{ f \in \banX^*: \norm{f} \leq 1 \}$ is compact
-{\wrt} the weak*-topology on $\banX^*$.
-\end{theorem1}
-
-\paragraph{} %- reflexive spaces
-Consider again the situation, where $\banX$ is a normed linear space.
-It may happen
-that the natural embedding
-$\iota\: \banX \hookrightarrow \banX^{**}$,
-$\iota(x) := \phi(x)$ for $\phi \xeof \banX^*$
-is even surjective,
-which in this case
-constitutes a norm-isomorphism between the spaces $\banX$ and $\banX^*$.
+\subparagraph{} %- reflexive spaces
+It can in general nothing be said whether the mapping $\iota$ is onto.
+But if this is the case,
+then $\iota$ constitutes a norm-isomorphism between $\banX$ and $\banX^*$.
 Many normed linear spaces considered in functional analysis
-have this remarkable property,
+own this remarkable property,
 which is indicated by the concept of \textit{reflexivity}:
 the space $\banX$ is called \textit{reflexive},
 if $\iota$ is onto and consequently $\banX \cong \banX^{**}$ holds.
@@ -3088,9 +2649,30 @@ then all these spaces prove to be pairwise unisomorphic to each other.
 \end{itemize}
 
 \subparagraph{} %- Milman-Pettis theorem
-Important examples of reflexive Banach spaces are provided
-by the \textit{Milman-Pettis} \textit{theorem}:
+Important examples of reflexive Banach spaces are given
+by the \textit{Milman-Pettis} \textit{theorem},
+which claims that
 \textit{each uniformly convex Banach space is reflexive}.
+
+\paragraph{} %- weak* topologies
+We finally introduce the \textit{weak*}-topology on the adjoint $\banX^*$
+of a locally convex topological linear space $\banX$:
+it is the smallest topology in $\banX^*$
+such that
+for each $x \xeof \banX$ the linear functional $\phi_x$ remains continuous.
+
+\paragraph{} %- Alaoglu-Bourbaki theorem
+The weak*-topology on the adjoint space $\banX^*$ may possibly contain
+fewer open sets than the weak topology and is therefore coarser.
+But $\banX^*$ is at least a Hausdorff space {\wrt} the weak*-topology.
+The main result concerning weak*-topologies in adjoint spaces in the setting
+of normed linear spaces is given by the \textit{Alaoglu theorem}:
+
+\begin{theorem1}\label{IV_ALAOGLU_BOURBAKI_THEOREM}
+The closed unit ball
+$B_1(\0) : = \{ f \in \banX^*: \norm{f} \leq 1 \}$ is compact
+{\wrt} the weak*-topology on $\banX^*$.
+\end{theorem1}
 
 \section{Representation Theorems for Adjoint Spaces}
 %------------------------------------------------------------------------------%
@@ -4078,15 +3660,15 @@ which is symmetric and fulfills $P \circ P \eq P$.
 \begin{thebibliography}{99}
 \begin{small}
 
-\bibitem{IV_Ka} T.\,Kato:
+\bibitem{III_Ka} T.\,Kato:
 \textit{{Perturbation theory of linear operators}}.
 Springer, Grund\-lehren der mathematischen Wissenschaften, Band 132, 1966.
 
-\bibitem{IV_RN} F.\,Riesz, B.\,Sz.-Nagy:
+\bibitem{III_RN} F.\,Riesz, B.\,Sz.-Nagy:
 \textit{{Functional Analysis}}.
 Springer, 1956.
 
-\bibitem{IV_Yo} K.\,Yosida:
+\bibitem{III_Yo} K.\,Yosida:
 \textit{Functional Analysis}.
 Springer, 1980.
 
@@ -4094,28 +3676,27 @@ Springer, 1980.
 \end{thebibliography}
 
 %------------------------------------------------------------------------------%
-%   V. NORMALLY SOLVABLE OPERATORS ---
+%  IV. NORMALLY SOLVABLE OPERATORS ---
 %------------------------------------------------------------------------------%
-%  §1. Banach's Closed Range Theorem ---
-%  §2. Operators Bounded Below ---
-%  §3. The Fredholm Index ---
-%  §4. Perturbations of Semi-Fredholm Operators ---
-%  §5. Basic Theory on Fredholm Operators ---
-%  §6. Fredholm's Alternative Theorem ---
-%  §7. Concepts of Solvability for Linear Equations ---
+%  §1. Linear Operators with Closed Range ---
+%  §2. The Fredholm Index ---
+%  §3. Perturbations of Semi-Fredholm Operators ---
+%  §4. Basic Theory on Fredholm Operators ---
+%  §5. Fredholm's Alternative Theorem ---
+%  §6. Concepts of Solvability for Linear Equations ---
 %  ---
 
-\def\TitleV{Normally Solvable Operators}
+\def\TitleIV{Normally Solvable Operators}
 \newpage
 \thispagestyle{empty}
-\fancyhead[C] {\small{\textsc{V. \TitleV}}}
-\part{\TitleV}
+\fancyhead[C] {\small{\textsc{IV. \TitleIV}}}
+\part{\TitleIV}
 %------------------------------------------------------------------------------%
 Given a densely defined linear operator $\linA$ acting between Banach spaces
-$\banX$ and $\banY$,
+$\banX$ and\,$\banY$,
 the orthogonality relations in section IV can be improved
 if the ranges of $\linA$ and $\linA^*$ are \textit{closed} subspaces
-of $\banY$ and $\banX^*$,
+of $\banY$ and\,$\banX^*$,
 so in these cases we actually would have
 \begin{equation}\label{V_ORTHOGONALITY_RELATIONS}
 {\range{\linA} } \= ^{\bot}\kernel{\linA^*}
@@ -4128,12 +3709,16 @@ if it is densely defined and
 $\range{\linA} \eq \, ^{\bot}\kernel{\linA^*}$ holds,
 which means that $\linA$ has closed range.
 
-\section{Banach's Closed Range Theorem}
+\section{Linear Operators with Closed Range}
 %------------------------------------------------------------------------------%
+In this paragraph we shall mention two important theorems,
+which give us sufficient conditions for a linear operator to own closed range.
+
+\paragraph{} %- closed range theorem
 The \textit{closed range theorem}
 is one of the classical results in functional analysis
 and provides equivalent conditions
-for a densely defined and closed linear operator to own closed range:
+for a densely defined and closed linear operator to have closed range:
 
 \begin{theorem1}\label{CLOSED_RANGE_THEOREM}
 Let $\banX,\,\banY$ be Banach spaces
@@ -4156,13 +3741,12 @@ For a proof of this theorem see for example \cite{V_Yo}, pp. 205-207.
 The statement was originally proved by \textsc{S.\,Banach}
 for continuous linear operators and
 have later been extended to closed linear operators,
-see \textsc{Browder} \cite{V_Br}, theorem\,1.1 and theorem\,1.2.
+see \cite{IV_Br}, theorem\,1.1 and theorem\,1.2.
 
-\section{Operators Bounded Below}
-%------------------------------------------------------------------------------%
+\paragraph{} %- operators bounded below
 Besides theorem \ref{CLOSED_RANGE_THEOREM}
 it is natural to search for further conditions
-that imply normal solvability.
+that imply closeness of the range of an operator.
 One of them is given as follows:
 a linear operator $\linA$ is called \textit{bounded below}
 if there is $\theta {\,>\,} 0$ such that
@@ -4171,14 +3755,14 @@ if there is $\theta {\,>\,} 0$ such that
 \end{equation}
 
 \subparagraph{} %- bounded below theorem
-The \textit{bounded-below theorem} provides a fundamental assertion
-in operator theory and is helpful to verify the closeness of $\range{\linA}$:
+The \textit{bounded-below theorem} is a useful tool
+to verify the closeness of $\range{\linA}$:
 
 \begin{theorem1}\label{V_BOUNDED_BELOW_THEOREM}
-If $\linA$ fulfills \eqref{V_BOUNDED_BELOW_CONDITION},
+If $\linA$ fulfills inequality \eqref{V_BOUNDED_BELOW_CONDITION},
 then $\linA$ is injective and the operator
-$\linA^{-1} \: \range{\linA} \xsubset \banY \xto \banX$ is bounded
-with operator norm $\norm{\linA^{-1}} \leq \theta^{-1}$.
+$\linA^{-1} \: \range{\linA} \xsubset \banY \xto \banX$
+is bounded with operator norm $\norm{\linA^{-1}} \leq \theta^{-1}$.
 Furthermore,
 the range $\range{\linA}$ is closed \iff $\linA$ is closed.
 \end{theorem1}
@@ -4287,7 +3871,7 @@ c \, (\norm{\iota x}_{\banZ} \+ \norm{\linA \,x}_{\banY})
 \end{theorem1}
 
 \subparagraph{}
-For a proof of this theorem, see \cite{V_Wl}, theorem 12.12, page 180.
+For a proof of this theorem, see \cite{IV_Wl}, theorem 12.12, page 180.
 
 \section{Perturbations of Semi-Fredholm Operators}
 %------------------------------------------------------------------------------%
@@ -4298,7 +3882,7 @@ under which a linear operator of the form $\linA + \linB$ is semi-Fredholm,
 assumed $\linA$ is semi-Fredholm and $\linB$ fulfills certain properties.
 In this case the operator $\linB$ is regarded as a perturbation of $\linA$.
 
-\paragraph{} %- Yood's theorem
+\subparagraph{} %- Yood's theorem
 We next quote two theorems {\wrt} conditions on $\linB$,
 which ensure the semi-Fredholm property of the operator $\linA + \linB$.
 We basically assume that $\banX$ and $\banY$ are Banach spaces.
@@ -4478,17 +4062,64 @@ $y \xeof \,^{\bot}\kernel{\linA^*}$.
 
 \section{Concepts of Solvability for Linear Equations}
 %------------------------------------------------------------------------------%
-{Fredholm theory} is useful in the study of linear operators
-of type $\1_X+\compA$, 
-where $\compA \: \banX \xto \banY$ is compact.
-Remember that such operators are Fredholm with index $0$,
-to which \textsc{Fredholm}'s alternative theorem can be applied.
+Let us finally illustrate the interplay between Fredholm theory
+and the theory of bijective linear operators having compact inverse.
+
+\subparagraph{} %- the operator 1+k is Fredholm
+Remember that if $\banX$ is a Banach space and
+$k \: \banX \xto \banX$ is compact,
+then the operator $\1_{\banX}{+}k$ has finite nullity index and closed range,
+hence it is upper semi-Fredholm.
+This is also true for the operator $\1_{\banX^*}{+}k^*$,
+since $k^*$ is compact, too,
+and both properties together imply that
+$\1_{\banX}{+}k$ is Fredholm with index $\chi(\1_{\banX}{+}k) \eq 0$.
+
+\subparagraph{} %- equivalence of equations
+The following computation is of central meaning 
+and for example useful in solving the \textit{Dirichlet problem}
+for linear-elliptic differential operators.
+Consider the linear equation $\linA x \eq y$,
+where $\banX$ is a Banach space and
+$\linA \: \domain{\linA} \xsubset \banX \xto \banX$
+is bijective linear operator with compact inverse for some $\zeta \in \C$.
+Then for $\zeta \xeof \rho(\linA)$ we surely have
+\[
+\linA \,x \= (\linA {-}\zeta)\,x + \zeta \,x \= y,
+\]
+and applying the mapping $(\linA {-}\zeta)^{-1}$ from the left yields
+\[
+x \+ \zeta (\linA {-} \zeta)^{-1}\,x
+\=
+(\linA {-}\zeta)^{-1}\,y \, =: \, \tilde{y}
+\]
+or equivalently $x + \tilde{\compA} \,x \eq \tilde{y}$,
+where $\tilde{\compA} := \zeta (\linA {-} \zeta)^{-1}$ is compact.
+The equations $\linA \,x \eq y$ and
+$(\1_{\banX} + \tilde{\compA})\,x \eq \tilde{y}$
+are called \textit{equivalent to each other} in the sense
+that the element $x$ is a solution of the first one
+\iff
+it is a solution of the second one.
+
+\paragraph{}
+We summarize the result of the previous computation to the following
+
+\begin{theorem1}\label{FREDHOLM_ALTERNATIVE_THEOREM_II}
+Let $\linA \: \domain{\linA} \xsubset \banX \xto \banX$
+be an operator such that
+$(\linA-\zeta)^{-1}$ exists for some $\zeta \in \C$ and is compact.
+Then the equation $\linA x \eq y$ is equivalent to an equation
+of the form $\fredA x \eq (\1_{\banX} + \tilde{\compA})x \eq \tilde{y}$,
+where
+the operator $\fredA$ is Fredholm rsp. the operator $\tilde{\compA}$ is compact.
+\end{theorem1}
 
 \subparagraph{}
-The operator $\1_X + \tilde{\compA}$ is Fredholm with vanishing index,
-hence theorem \ref{FREDHOLM_ALTERNATIVE_THEOREM} is applicable
-and consequently provides assertions
-also for the solution of the equation $\linA x \eq y$.
+Clearly,
+\textsc{Fredholm}'s alternative theorem \ref{FREDHOLM_ALTERNATIVE_THEOREM}
+holds for the operator $\fredA$ and therefore provides assertions
+also on the solutions of the original equation $\linA x \eq y$.
 
 \paragraph{} %- solvability of linear equations
 We want to finalize our elaborations on linear equations
@@ -4500,34 +4131,34 @@ The equation $\linA \, x \eq y$ is called
 
 \begin{itemize}[leftmargin=15pt]
 \item[(a)]
-\textit{densely solvable} (\cite{V_Kr}),
+\textit{densely solvable} (\cite{II_Kr}),
 if $\overline{\range{\linA}} \eq \banY$;
 
 \item[(b)]
-\textit{normally solvable} (\cite{V_Kr}),
+\textit{normally solvable} (\cite{II_Kr}),
 if $\overline{\range{\linA}} \eq \range{\linA}$;
 
 \item[(c)]
-\textit{correctly solvable} (\cite{V_Kr}),
+\textit{correctly solvable} (\cite{II_Kr}),
 if $\linA$ is bounded below;
 
 \item[(d)]
-\textit{semi-solvable} (\cite{V_Br}), if $\linA$ is Fredholm;
+\textit{semi-solvable} (\cite{II_Br}), if $\linA$ is Fredholm;
 
 \item[(e)]
-\textit{almost solvable} or \textit{regularly solvable} (\cite{V_Br}),
+\textit{almost solvable} or \textit{regularly solvable} (\cite{II_Br}),
 if $\linA$ is semi-solvable and $\chi(\linA) \eq 0$;
 
 \item[(f)]
-\textit{uniquely solvable} (\cite{V_Kr}),
+\textit{uniquely solvable} (\cite{II_Kr}),
 if $\linA$ is injective;
 
 \item[(g)]
-\textit{everywhere solvable} (\cite{V_Kr}),
+\textit{everywhere solvable} (\cite{II_Kr}),
 if $\linA$ is surjective;
 
 \item[(h)]
-\textit{solvable} (\cite{V_Br}),
+\textit{solvable} (\cite{II_Br}),
 if it is uniquely and everywhere solvable;
 
 \item[(i)]
@@ -4537,7 +4168,7 @@ or equivalently,
 if $0 \xeof \rho(\linA)$;
 
 \item[(j)]
-\textit{completely solvable} (\cite{V_Br}) or \textit{compactly solvable}
+\textit{completely solvable} (\cite{II_Br}) or \textit{compactly solvable}
 if it is solvable and $\linA^{-1}$ is compact.
 \end{itemize}
 
@@ -4547,17 +4178,736 @@ if it is solvable and $\linA^{-1}$ is compact.
 \begin{thebibliography}{99}
 \begin{small}
 
-\bibitem{V_Br} F.\,Browder:
+\bibitem{IV_Br} F.\,Browder:
 \textit{Functional Analysis and Partial Differential Equations I}.
 Math. Annalen 138, pp.\,55-79, 1959.
 
-\bibitem{V_Kr} S.\,Krein:
+\bibitem{IV_Kr} S.\,Krein:
 \textit{Linear Equations in Banach Spaces}.
 Birk\-h\"{a}user, 1982.
 
-\bibitem{V_Wl} J.\,Wloka:
+\bibitem{IV_Wl} J.\,Wloka:
 \textit{Partial Differential Equations}.
 Cambridge University Press, 1987.
+
+\bibitem{IV_Yo} K.\,Yosida:
+\textit{Functional Analysis}.
+Springer, 1980.
+
+\end{small}
+\end{thebibliography}
+
+%------------------------------------------------------------------------------%
+%   V. CALCULUS OF VECTOR-VALUED FUNCTIONS ---
+%------------------------------------------------------------------------------%
+%  §1. Spaces of Classical Differentiable Functions ---
+%  §2. Riemann Integration ---
+%  §3. Linear Evolution Equations ---
+%  §4. Bochner Integration ---
+%  §5. Inhomogeneous Cauchy Problems ---
+%  §6. Weak Derivatives and Bochner-Sobolev Spaces ---
+%  §7. Hilbert-Bochner-Sobolev Spaces ---
+%  §8. Holomorphic Vector-Valued Functions ---
+%  ---
+
+\def\TitleV{Calculus of Vector-Valued Functions}
+\newpage
+\thispagestyle{empty}
+\fancyhead[C] {\small{\textsc{V. \TitleV}}}
+\part{\TitleV}
+%------------------------------------------------------------------------------%
+In section I we have considered topological and normed linear spaces,
+whose elements are real or complex-valued functions.
+There are good reasons to extend the definitions of some of these spaces
+to contain so-called \textit{vector-valued} functions,
+which are nothing but mappings $f\:(a,b) \xto \banX$,
+where $(a,b) \subset \R$ is a finite interval
+and $\banX$ is a real or complex Banach space.
+
+\subparagraph{}
+The most important spaces containing such functions are
+the vector-valued {\HOELDER} spaces,
+the Bochner spaces and
+the Bochner-Sobolev spaces.
+For the latter one the notion of weak differentiability of a vector-valued
+function is required.
+
+\section{Spaces of Classical Differentiable Functions}
+%------------------------------------------------------------------------------%
+If $\banX$ is an arbitrary Banach space and $(a,b) \xsubset \R$,
+then a vector-valued function $x \: [a,b] \xto \banX$
+is called \textit{classical differentiable} in $t_0 \xeof (a,b)$,
+if there is an element $x'(t_0) \xeof \banX$ such that
+\[
+\lim_{\,t \xto t_0} \,
+\norm{ \, \frac{x(t)-x(t_0)}{t-t_0}\, - x'(t_0) \, } \= 0.
+\]
+Moreover,
+the function $x$ is called {classical differentiable in} $(a,b)$,
+if $x$ is so in each $t \xeof (a,b)$.
+The linear space consisting of functions having \textit{continuous}
+classical derivatives in $(a,b)$ is denoted $C^1(a,b;\banX)$.
+
+\subparagraph{} %- spaces of k-times differentiable functions
+The spaces $C^k(a,b;\banX)$ ($k \xeof \N$) are defined recursively as usual,
+and the space $C^{\infty}(a,b;\banX)$ is defined
+by taking the intersection of all spaces $C^k(a,b;\banX)$,
+$k \xeof \N_0$.
+
+\paragraph{} %-- vector-valued Hölder spaces
+We continue with the introduction of vector-valued {\HOELDER} spaces.
+First of all,
+let $0 < \alpha \leq 1$ and $C^{\alpha}(a,b;\banX)$ be the linear space of
+\textit{{\HOELDER}-continuous} functions $f:[a,b] \to \banX$,
+defined by the property
+\begin{equation}\label{II_HOELDER_NORM_2}
+\norm{f} _{\alpha} \, := \,
+\sup_{x,y \in [a,b], \, x \neq y} \,
+\frac{\norm{\, f(x) - f(y) \,} }
+     {\norm{x-y} ^{\alpha}}
+\, < \, \infty.
+\end{equation}
+The mapping $f \xeof C^{\alpha}(a,b;\banX) \mapsto \norm{f}_{\alpha}$ is a norm,
+in which the space $C^{\alpha}(a,b;\banX)$ is complete.
+Then for $k \xeof \N$ and $0 < \alpha \leq 1$ we define
+$C^{k,\alpha}(a,b;\banX)$ as the space of functions $f:[a,b] \to \banX$
+such that
+
+\begin{itemize}[leftmargin=15pt]
+\item[(a)]
+$f \xeof C^k(a,b;\banX)$;
+
+\item[(b)]
+the derivatives
+$f^{(1)},f^{(2)},\ldots,f^{(k)}$
+can continuously be extended from $(a,b)$ to the closure $[a,b]$;
+
+\item[(c)]
+The highest derivative $f^{(k)}$ belongs to $C^{\alpha}(a,b;\banX)$.
+\end{itemize}
+
+\subparagraph{}
+In fact, the mapping $\norm{\,\cdot\,}_{k,\alpha}$ defined by
+\[
+\norm{f}_{k,\alpha} \, := \,
+\sum_{i=0}^k \, \sup_{x \in [a,b]} \snorm{f^{(i)}(x)} \, + \,
+\snorm{f^{(k)}}_{\alpha}
+\]
+constitutes a norm on $C^{k,\alpha}(a,b;\banX)$,
+in which this space is complete.
+
+\section{Riemann Integration}
+%------------------------------------------------------------------------------%
+It is the purpose in the current paragraph
+to sketch the setup of the \textit{Riemann integral}
+for vector-valued functions $f \: [a,b] \xto \banX$.
+Like in the case $\banX \eq \R$,
+one usually starts with a partition
+\[
+\cal{Z} \=
+\{x_0:=a,x_1,\ldots,x_{n-1},x_n:=b\},
+\quad x_{i-1} < x_i \quad (i=1,\ldots,n),
+\]
+where the length $\snorm{\cal{Z}} $ of the largest subinterval
+is called the \textit{grid size} of $\cal{Z}$:
+\[
+\snorm{\cal{Z}} \eqdef \max_{1 \leq i \leq n} \, (x_i-x_{i-1}).
+\]
+Furthermore,
+a \textit{tagged partition} $\cal{Z}(t_1,\ldots,t_n)$
+of $[a,b]$ is a partition $\cal{Z}$
+together with a sequence of intermediate points $t_1,\ldots,t_n$,
+where each $t_i$ belongs to the sub\-interval $[x_{i-1},x_i]$.
+Then the \textit{Riemannian sum} of $f \: [a,b] \xto \banX$
+{\wrt} the tagged partition $\cal{Z}(t_1,\ldots,t_n)$ is given by
+\[
+R(f,\cal{Z}) \eqdef \sum_{i=1}^n f(t_i) \cdot (x_i - x_{i-1}).
+\]
+
+\subparagraph{}
+The \textit{Riemann integral} of $f$ on $[a,b]$
+is defined as the possible limit of Riemannian sums $R(f,\cal{Z})$
+for $\snorm{\cal{Z}} \xto 0$.
+Alternatively,
+a function $f$ is called \textit{Riemann-integrable} on $[a,b]$
+to the value $R_f \xeof \banX$,
+if to each $\epsilon > 0$ there is a number $\delta > 0$ such that
+\[
+\norm{ R_f - R(f,\cal{Z})} < \epsilon
+\]
+for each tagged partition $\cal{Z}(t_1,\ldots,t_n)$
+with $\abs{\cal{Z} } < \delta$,
+and in this case the vector $R_f$ is said to be
+the \textit{Riemann integral} of $f$,
+denoted
+\[
+\int_a^b f \, dx \eqdef R_f.
+\]
+
+\subparagraph{}
+Continuity of a vector-valued function $f$ is a sufficient condition
+for the existence of the Riemann integral for $f$.
+Indeed,
+every continuous function $f \: [a,b] \xto \banX$ is Riemann-integrable.
+The Riemann integral constitues a linear map on $C([a,b],\banX)$,
+satisfying the estimate
+\[
+\norm{\, \int_a^b f(t) \, dt \,} \, \leq \,  \int_a^b \norm{f(t)} \, dt.
+\]
+Moreover, 
+any Riemann-integrable function fulfills the \textit{mean value theorem}
+\[
+\int_a^b f(t) \, dt \= (b-a)\,\overline{f}\,,
+\]
+where the function $\overline{f}$ belongs to the closed convex hull
+of the set $\{\,f(t): t \xeof [a,b]\,\}$.
+
+\subparagraph{}
+As in the scalar-valued case,
+in order to commute integration and taking the limit of a sequence
+$\{f_n\}_{n \in \N}$ of continuous vector-valued functions
+$f_n \: [a,b] \xto \banX$,
+it suffices that
+$\{f_n\}$ is \textit{uniformly convergent}
+to a continuous function $f \: [a,b] \xto \banX$,
+and under this condition
+\[
+\lim_{n \to \infty} \, \int_a^b f_n(t)\,dt \= \int_a^b f(t) \, dt.
+\]
+
+\subparagraph{} %- improper Riemann integral
+Like in classical calculus,
+we also introduce the notion of the \textit{improper} Riemann integral.
+If $f$ is defined on the real line and is R-integrable
+on each compact interval,
+then by the unproper Riemann integral of $f$ on $\R$
+is meant the possible limit
+\[
+\int_{- \infty}^{+ \infty} f(t) \, dt
+\eqdef
+\lim_{a \to \infty} \, \int_{-a}^{+a} f(t) \, dt.
+\]
+
+\paragraph{} %- complex path integrals
+If $f \: \openU \xto \banX$ is defined on a domain $\openU$
+within the complex plane
+and $\gamma \: [a,b] \xto \openO$ is a continuous \textit{path},
+then we define
+\[
+\int_{\gamma} f(z)\, dz \eqdef \int_a^b (f \circ \gamma) dt,
+\]
+and if $\gamma$ is continuously differentiable,
+the path integral may be computed by 
+\[
+\int_a^b f(\gamma(t)) \, \gamma(t) \, dt.
+\]
+
+\subparagraph{}
+The following statement claims
+that Riemann integration of vector-valued functions is commutable
+with the action of closed linear operators:
+
+\begin{theorem1}
+Let $\linA \: \domain{\linA} \xto \banX$ be a closed linear operator
+acting in a Banach space $\banX$
+and $f \: [a,b) \xto \banX$ ($a < b \leq \infty$) continuous.
+Suppose that
+
+\begin{itemize}[leftmargin=22pt]
+\item[1.] $f(t) \in \domain{\linA}$ for all $t \xeof [a,b]$,
+\item[2.] the mapping $t \mapsto \linA f(t)$ is continuous in $[a,b)$,
+\item[3.] the possibly improper integral values $x$ and $y$ exist, where
+\[
+x \, := \, \int_a^b f(t) \, dt
+\quad \and \quad
+y \, := \, \int_a^b \linA f(t) \, dt.
+\]
+\end{itemize}
+Then $x \in \domain{\linA}$ and $\linA x \eq y$ holds.
+\end{theorem1}
+
+\paragraph{} %- Riemann-Stieltjes integration for vector-valued functions
+We finally want to mention the concept
+of \textit{Riemann-Stieltjes integral}
+for a vector-valued function $f \: [a,b] \xto \banX$.
+If $g\:[a,b] \xto \R$ is a further function and
+\[
+\cal{Z} := \{t_0=a,t_1,\ldots,t_n=b;\xi_0,\ldots,\xi_{n-1}\}
+\]
+a tagged partition of $[a,b]$,
+then $f$ is called \textit{Riemann-Stieltjes-integrable},
+if there is an element $R_f \in \banX$ such that
+\[
+\sum_{i=0}^{n-1} \, f(\xi_i) \, [g(t_{i+1})-g(t_i)],
+\quad
+\xi_i \in [t_{i+1},t_i]
+\]
+converges to $R_f$ for $\abs{\cal{Z}} \to 0$,
+and in this case we define
+\[
+\int_a^b f \,dg \, := \, R_f.
+\]
+The mapping $g$ plays the role of a weight function.
+A sufficient criterion for Riemann-Stieltjes integrability
+of a function $f \: [a,b] \xto \banX$ is for example,
+that $f$ is piecewise continuous and $g$ is monotonly growing in $[a,b]$.
+
+\subparagraph{}
+Improper Riemann-Stieltjes integrals may be defined in a similar manner.
+In fact,
+such integrals exist if and only if the following limits exist:
+\[
+\lim_{\genfrac{}{}{0pt}{}{a \to -\infty}{b \to +\infty}}
+\int_a^b f \, dg
+\]
+
+\section{Linear Evolution Equations}
+%------------------------------------------------------------------------------%
+By an \textit{evolution equation} is meant
+an ordinary or partial differential equation
+that describes the behaviour of a dynamical system.
+More precisely,
+it describes the propagation of one or more physical magnitudes along the time,
+where their initial states are given in a starting point $t_0 \xeof \R$.
+
+\subparagraph{} %- example of evolution equation
+An elementary example of an evolution equation
+is given by the differential equation
+$x' + \lambda x \eq \0$ for $x(0) \eq x_0 \xeof \R$ and $\lambda {\,>\,} 0$.
+It is well known that
+this problem is solved by the exponential function
+$x(t,x_0) \eq x_0 \, e^{-\lambda t}$ for $t {\,>\,} 0$.
+
+\paragraph{} %- functional analysis and evolution equations
+Functional analysis provides a rich theory
+on \textit{homogeneous} and \textit{linear} evolution equations of the form
+\begin{equation}\label{III_HOMOGENEOUS_CAUCHY_PROBLEM_1}
+\begin{cases}[1.2]
+\quad x'(t) \+ \linA \, x(t) \= \0,\\ 
+\quad x(0) \= x_0 \xeof \banX,\\
+\end{cases}
+\end{equation}
+where $\linA$ is a linear operator acting in a Banach space $\banX$
+and with domain of definition $\domain{\linA}$.
+The task is to find \textit{vector-valued} solutions $x \: [0,\T) \xto \banX$
+of the equation $x' + \linA x \eq \0$ 
+satisfying the initial value condition $x(0) \eq x_0$.
+The evolution equation \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1} with prescribed
+initial value is denoted the \textit{Cauchy problem of first order}.
+
+\subparagraph{} %- second order equations
+The homogeneous Cauchy problem of \textit{second order} consists of solving
+the initial value problem
+\begin{equation}\label{III_HOMOGENEOUS_CAUCHY_PROBLEM_2}
+\begin{cases}[1.2]
+\quad x''(t) \+ \linA \, x(t) \= \0,\\
+\quad x(0)  \= x_0, \\
+\quad x'(0) \= x_1,\\
+\end{cases}
+\end{equation}
+where $\linA$ is densely defined and closed.
+We also suppose $x_0 \xeof \domain{\linA}$,
+but the element $x_1$ may belong to any other linear subspace of $\banX$.
+
+\paragraph{} %- concepts of solution for homogeneous Cauchy problems
+In the following we want to introduce some concepts of solution
+for the first order Cauchy problem:
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+A vector-valued function
+$x \xeof C([0,\T),\domain{\linA}) \, \cap \, C^1((0,\T),\banX)$ is called
+a \textit{classical solution} of \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1},
+if it satisfies the initial condition $x(0) \eq x_0$
+and the differential equation in each point $t \xeof (0,\T)$.
+
+\item[2.]
+a continuous function $x \: [0,\T) \xto \banX$ is said to be
+a \textit{mild solution} of \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1} if
+\[
+\mbox{(1) } \, \tilde{x}(t) \eqdef
+\int_{\,0}^t x(s) \, ds \, \xeof \domain{\linA}
+\quad \and \quad
+\mbox{(2) } \, \linA \, \tilde{x}(t) \eq x(t)-x_0
+\]
+holds for all $0 {\,<\,} t {\,<\,} \T$,
+where the integral on the right-hand side of (1) 
+is meant in the Riemannian sense.
+One is led to the notion of mild solution in a natural way
+by integrating both sides of the equation $x' + \linA \, x \eq \0$,
+which then becomes into
+\[
+\int_{\,0}^t x' ds \=
+x(t)-x(0) \= -
+\int_{\,0}^t \linA \, x(s) \, ds.
+\]
+If $\linA$ is closed,
+then the action of $\linA$ and performing the integration commutes
+for continuous functions $x \: [0,t] \xto \domain{\linA}$,
+that is,
+\[
+\int_{\,0}^t \linA \, x(s) \, ds  \= \linA \, \int_{\,0}^t x(s) \, ds,
+\]
+and to the end we obtain the equation
+\[
+x(t) \= x(0) - \linA \, \int_{\,0}^t x(s) \,ds
+\quad \quad (t \xeof (0,\T)).
+\]
+\end{itemize}
+
+\subparagraph{} %- comparing classical and mild solutions
+Notice that each classical solution is a mild solution,
+and reversely a mild solution is classical
+iff it is continuously differentiable in $(0,\T)$.
+Thus classical and mild solutions of homogeneous Cauchy problems
+only differ {\wrt} this regularity condition.
+
+\paragraph{} %-- correctly and well-posed Cauchy problems
+%------------------------------------------------------------------------------%
+After having the notions of classical and mild solution
+for the homogeneous Cauchy problem available,
+we want to introduce
+the concepts of \textit{correct posedness} and \textit{well-posedness}.
+
+\subparagraph{} %- definitions of correctly and well-posed problems
+First,
+the homogeneous Cauchy problem \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1}
+is called \textit{correctly posed},
+if there is a unique classical solution $x$
+for any initial value $x_0 \xeof \domain{\linA}$.
+Second,
+it is denoted \textit{well-posed},
+if it is correctly posed and
+the solution $x$ depends continuously on the initial value $x_0$,
+or in other words,
+if for each $\T {\,>\,} 0$ there is $c_{\T} {\,>\,} 0$ such that
+\[
+\norm{x(t)} \leq c_{\T} \norm{x_0}
+\]
+for all $t \xeof (0,\T)$ and all $x_0 \xeof \banX$.
+
+\subparagraph{}
+In \cite{V_EN}
+the continuous dependency of the solutions from the initial values
+is expressed as follows:
+if $\{x_n\}_{n \xeof \N}$ is a converging sequence in $\domain{\linA}$
+with limit element $\0 \xeof \banX$,
+then the related solutions $t \mapsto x_n(t)$ are uniformly convergent
+to the zero function in all compact intervals $[0,t_0]$
+for $0 {\,<\,} t_0 < \T$
+(similar definitions for correct posedness and well-posedness
+can also be quoted for the second-order homogeneous Cauchy problem
+\eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_2}).
+
+\subparagraph{}
+Let us finally mention that problem \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1}
+governed by a densely defined and closed linear operator $\linA$ is well-posed
+iff
+it is correctly posed and
+in addition $\linA$ is regular,
+that is,
+$\rho(\linA) \ne \emptyset$ holds.
+
+\section{Bochner Integration}
+%------------------------------------------------------------------------------%
+To introduce a concept of integration for vector-valued functions,
+which generalizes the Lebesgue integral for scalar-valued functions,
+we first have to introduce a suitable notation of measurability 
+for vector-valued functions.
+
+\subparagraph{} %- measurable functions
+A function $f\:\Omega \xto \banX$ is called \textit{weakly measurable},
+if $\phi \circ f\:\Omega \xto \F$ is measurable for every $\phi \xeof \banX^*$.
+Then a weakly measurable function $f\:\Omega \xto \banX$
+is called \textit{Bochner-integrable},
+if
+\[
+\int_{\Omega} \norm{f} \,d\mu \, < \, \infty.
+\]
+For any $p \geq 1$
+we denote $L^p(\Omega,\banX)$ the space of functions $f\:\Omega \xto \banX$
+having Bochner-integrable powers $\abs{f} ^{p}$.
+The elements of this space have also to be understood
+as equivalence classes of functions
+being identical almost everywhere in $\Omega$.
+Endowed with the norm
+\[
+f \mapsto \norm{f}_p \eqdef (\int_{\Omega} \, \norm{f} ^p \, d\mu)^{1/p},
+\]
+the Bochner spaces $L^p(\Omega,\banX)$ are complete
+and thus constitute Banach spaces.
+
+\subparagraph{} %- weak and strong measurability
+It should be mentioned that
+if we suppose the Banach space $\banX$ to be separable,
+then a function $f\:\Omega \xto \banX$ is weakly measurable
+if and only if $f$ is strongly (or Pettis-) measurable.
+The latter notion of measurability uses approximations of $f$ by sequences
+$\{e_n\}_{n \in \N}$ of elementary functions $e_n\:\Omega \xto \banX$,
+and the Bochner integral of $f$ is obtained by taking the limit of the
+Bochner integrals of the functions $e_n$,
+that is,
+\[
+\int_{\Omega} f \,d\mu \eqdef \lim_{n \xto \infty} \int_{\Omega} e_n \, d\mu.
+\]
+This definition proves to be independent of the specific choices
+of the approximating sequences for $f$.
+
+\subparagraph{} %- specific choice of Omega and X for Bochner spaces
+With respect to applications in partial differential equations,
+Bochner spaces are of interest on the one hand 
+for the choices $\Omega \eq \G$ and $\banX \eq \F \xeof \{\R,\C\}$,
+where $\G$ is a domain in one of the Euclidean spaces $\Rd$
+and $L^p(\G,\F)$ is nothing but the Lebesgue space $\Lp$.
+On the other hand,
+in the weak solution theory of evolution equations
+we chose $\Omega$ to be a finite or infinite interval $\J \subset \R$,
+and the Banach space $\banX$ may be any complete function space $\mathbb{F}$
+consisting of differentiable mappings $f\:\G \xto \F$,
+so we are dealing with the Bochner spaces $L^p(\J,\mathbb{F})$ in this case.
+
+\section{Inhomogeneous Cauchy Problems}
+%------------------------------------------------------------------------------%
+In this paragraph we deal with the solution theory
+of the \textit{inhomogeneous} Cauchy problem
+\begin{equation}\label{X_INHOMOGENEOUS_CAUCHY_PROBLEM}
+\begin{cases}[1.2]
+\quad   x'(t) + \linA \, x(t) \, = \, y(t)\\
+\quad \; x(0) \= x_0 \in \banX, \\
+\end{cases}
+\end{equation}
+where $y$ is a function $y \: [0,\T) \xto \banX$ and
+the solution $x \: (0,\T) \xto \banX$ of the problem
+\eqref{X_INHOMOGENEOUS_CAUCHY_PROBLEM} has to be searched.
+
+\subparagraph{} %- Duhamel's principle
+Let us first remember \textsc{Duhamel}\textit{'s principle},
+also called the \textit{method of variation of constants}:
+if $x$ is a classical solution of \eqref{X_INHOMOGENEOUS_CAUCHY_PROBLEM},
+the right hand side $y \: [0,\T) \xto \banX$ is continuous
+and the linear operator $\linA$ is bounded,
+then 
+\[
+x(t) \= \linS(t) \, x_0 \, + \, \int_{\,0}^t \linA \, y(s) \, ds,
+\quad (0 < t \leq \T),
+\]
+where $\linS(t)$ is the solution operator of the homogeneous problem
+\eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1} at time $t > 0$.
+
+\paragraph{} %- solvability of the inhomogeneous Cauchy problem
+The basic problem in solving the inhomogeneous Cauchy problem is to find
+conditions on the function $y$,
+which ensure existence and uniqueness of a solution.
+We first review the notion of classical and mild solution:
+
+\begin{itemize}[leftmargin=5mm]
+\item[1.]
+A function $x \: [0,\T] \xto \banX$ is called a \textit{classical solution}
+for problem \eqref{X_INHOMOGENEOUS_CAUCHY_PROBLEM},
+if $u \xeof C([0,\T)) \cap C^1((0,\T))$,
+fulfills the differential equation $x' + \linA x \eq y$ in every $t \in (0,\T)$
+and the initial condition $x(0) \eq x_0$.
+\item[2.]
+A function $x \: [0,\T] \xto \banX$ is called a \textit{mild solution},
+if $\ldots$ % waiting for implementation
+\end{itemize}
+
+\paragraph{}
+While in the homogeneous case a mild solution is classical
+\iff it is continuously differentiable,
+the validness of this assertion remains true for the inhomogeneous problem
+only
+under some additional regularity properties of the right hand side $y$.
+
+\subparagraph{}
+To be precise,
+we have to check that $y$ belongs to one of the following function spaces:
+
+\begin{itemize}[leftmargin=30pt]
+\item[1.]
+$y \xeof L^1([0,\T),\banX) \, \cap \, C((0,\T),\banX)$,
+
+\item[2.]
+$y(t) \xeof \domain{\linA}$ for each $t \in (0,\T)$,
+
+\item[3.]
+$\linA y \xeof L^1((0,\T),\banX)$.
+\end{itemize}
+
+\section{Weak Derivatives and Bochner-Sobolev Spaces}
+%------------------------------------------------------------------------------%
+We next introduce so-called \textit{Bochner-Sobolev spaces},
+which differ by the property
+that their members are at the same time
+Bochner-integrable and \textit{weakly differentiable}.
+
+\subparagraph{}
+Let $\hilH$ be a separable Hilbert space and $L^2(a,b;\hilH)$ be
+the Bochner space consisting of functions $f\:(a,b) \xto \hilH$,
+that is,
+we have
+\[
+\int_a^b \norm{f(t)}^2 \,dt \, < \, \infty
+\]
+for $f \xeof L^2(a,b,;\hilH)$.
+We endow this space with the inner product
+\[
+\scalar{f}{g} \eqdef \int_a^b \scalar{f(t)}{g(t)} \,dt,
+\quad \quad
+f,g \xeof L^2(a,b;\hilH)
+\]
+such that the norm is given as usual by
+$\norm{f}_2 \eq \scalar{f}{f}^{1/2}$.
+Thus $L^2(a,b;\hilH)$ is Hilbertian,
+and if $(a,b)$ is a \textit{finite} interval,
+the inclusion $L^2(a,b;\hilH) \subset L^1(a,b;\hilH)$ holds.
+We shall denote $L^2(a,b;\hilH)$ a \textit{Hilbert-Bochner space}.
+
+\subparagraph{} %- weak derivatives of vector-valued functions
+For $f \xeof L^2(a,b;\hilH)$,
+a further function $g\:(a,b) \xto \hilH$ is said to be
+the \textit{weak derivative} of $f$,
+if
+\[
+\int_a^b g \phi \,dx \= - \int_a^b f \phi' \,dx
+\]
+holds for each $\phi \xeof C_c^{\infty}(a,b,\banX)$,
+that is,
+$\phi$ is an indefinitely differentiable function with compact support
+in $(a,b)$.
+If such a function $g$ exists,
+we denote $f' := g$ in this case,
+which should not be confused with the classical derivative of $f$.
+But notice that if the weak derivative of $f$ is present,
+then $f$ is also classical differentiable.
+
+\section{Hilbert-Bochner-Sobolev Spaces}
+%------------------------------------------------------------------------------%
+Having the notion of weak derivative available,
+we finally introduce the \textit{Hilbert-Bochner-Sobolev space}
+\[
+H^1(a,b;\hilH) :=
+W^{1,2}(a,b,\hilH) :=
+\{f \in L^2(a,b;\hilH): f' \in L^2(a,b;\hilH) \},
+\]
+which is a Hilbert space as well with inner product given by
+\[
+\scalar{f}{g}_1 \eqdef
+\int_a^b \scalar{f}{g} \, dt
+\, + \,
+\int_a^b \scalar{f'}{g'} \, dt\,,
+\quad f,g \in H^1(a,b;\hilH).
+\]
+
+\subparagraph{} %- mixed Bochner-Sobolev spaces
+Finally,
+let $\hilH_1, \hilH_2$ be \textit{real} Hilbert spaces,
+where $\hilH_1$ is continuously embedded into $\hilH_2$.
+Then there is also a continuous embedding
+\[
+H^1(a,b;\hilH_1) \, \overset{\kappa}{\hookrightarrow} \, H^1(a,b;\hilH_2).
+\]
+Consequently,
+given a Hilbert space triple 
+$
+\vecV \, {\overset{\iota_1}{\hookrightarrow}} \,
+\hilH \, {\overset{\iota_2}{\hookrightarrow}} \vecV^*,
+$
+we may regard the space $H^1(a,b;\vecV)$
+as a linear subspace of $H^1(a,b;\vecV^*)$,
+which enables us to define the \textit{mixed Hilbert-Bochner-Sobolev space}
+\[
+H^1(a,b;\vecV,\vecV^*) \eqdef
+\{ f \in L^2(a,b;\vecV): f' \in L^2(a,b;\vecV^*) \}
+\]
+or equivalently
+\[
+H^1(a,b;\vecV,\vecV^*) \eqdef L^2(a,b;\vecV) \, \cap H^1(a,b;\vecV^*).
+\]
+Then the mapping
+\[
+(f,g) \mapsto \scalar{f}{g}_1 \eqdef
+\int_a^b \, \scalar{f(t)}{g(t)}_{\vecV} \, dt
+\, + \,
+\int_a^b \, \scalar{f'(t)}{g'(t)}_{V^*} \, dt
+\]
+fulfills the properties on an inner product
+and makes $H^1(a,b;\vecV,\vecV^*)$ into a Hilbert space
+having the following properties:
+
+\begin{itemize}[leftmargin=17pt]
+\item[(a)]
+Each $f \xeof H^1(a,b;\vecV,\vecV^*)$
+is $\lambda$-nearly everywhere identical
+to a continuous function $f_c\:[a,b] \xto \hilH$,
+and by identifying the functions $f$ and $f_c$
+the space $H^1(a,b;\vecV,\vecV^*)$ can continuously be embedded
+into the space $C([a,b],\hilH)$.
+
+\item[(b)]
+The space $C^{\infty}([a,b],\vecV)$ is dense in $H^1(a,b;\vecV,\vecV^*)$.
+
+\item[(c)]
+The following product rule is valid for each $t \xeof (a,b)$:
+\[
+\frac{d}{dt} \norm{u(t)} ^2
+\=
+2 \re \, \scalar{u'(t)}{u(t)}_1
+\fa u \xeof H^1(a,b;\vecV,\vecV^*).
+\]
+\end{itemize}
+
+\section{Holomorphic Vector-Valued Functions}
+%------------------------------------------------------------------------------%
+To the end we introduce the concept of differentiability
+for functions  $x\:\openO \xto \banX$,
+where $\openO$ is an open and connected subset of the complex plane
+and $\banX$ is a complex Banach space.
+The function $x$ is called \textit{complex differentiable} in a point
+$z_0 \xeof \openO$,
+if 
+\[
+\lim_{z \to z_0} \frac{x(z)-x(z_0)}{z-z_0}
+\]
+exists,
+and this limit is usually denoted $x'(z_0)$,
+called the \textit{complex derivative} of $x$ in $z_0$.
+Furthermore,
+$x$ is said to be \textit{holomorphic} or \textit{analytic}
+in $z_0 \xeof \openO$,
+if there is an open neighbourhood $U$ of $z_0$
+such that $x$ has complex derivative in each $z \xeof U$.
+Finally,
+$x$ is said to be holomorphic or analytic in $\openO$,
+if $x$ is so in each $z_0 \xeof \openO$.
+
+\subparagraph{}
+The property of $x$ being holomorphic in $\openO$ can be characterized
+as follows:
+$x$ is holomorphic \iff
+the functions $f \circ x \: \openO \xto \C$ are holomorphic
+considered as complex-valued functions for each $f \xeof \banX^*$.
+As in complex analysis,
+a holomorphic function $x\:\openO \xto \banX$ can be locally represented
+by a power series with coefficients in $\banX$.
+It should also be mentioned that
+the concepts just introduced also apply to \textit{operator-valued} functions,
+where the Banach space $\banX$ is nothing but the space $\BO{\banY}$
+for some further Banach space $\banY$.
+
+% BIBLIOGRAPHY
+%------------------------------------------------------------------------------%
+\vspace{5mm}
+\begin{thebibliography}{99}
+\begin{small}
+
+\bibitem{V_DU} J.\,Diestel, J.\,J.\,Uhl:
+\textit{Vector Measures}.
+American Mathematical Soc., 1977.
+
+\bibitem{V_EN} K.-J.\,Engel, R.\,Nagel:
+\textit{A Short Course on Operator Semigroups}.
+Universitext, Springer, 2006.
 
 \bibitem{V_Yo} K.\,Yosida:
 \textit{Functional Analysis}.
@@ -4569,7 +4919,6 @@ Springer, 1980.
 %------------------------------------------------------------------------------%
 %  VI. GENERAL SPECTRAL THEORY ---
 %------------------------------------------------------------------------------%
-%  §1. Resolvent and Spectrum of Banach Algebra Elements ---
 %  §2. Resolvent Sets and Resolvents ---
 %  §3. Different Kinds of Spectra ---
 %  §4. Riesz-Schauder Spectral Theory ---
@@ -4585,7 +4934,7 @@ Springer, 1980.
 \fancyhead[C] {\small{\textsc{VI. \TitleVI}}}
 \part{\TitleVI}
 %------------------------------------------------------------------------------%
-The aim in this section
+The aim in this part
 is to give an outline on the spectral theory of a closed or continuous
 linear operator $\linA$ acting in a complex Banach space $\banX$.
 
@@ -4637,156 +4986,6 @@ of the resolvent set and the spectrum within the complex plane.
 Moreover,
 various classes of linear operators acting in $\banX$ can be defined
 by requiring specific properties of these both fundamental sets.
-
-\section{Resolvent and Spectrum of Banach Algebra Elements}
-%------------------------------------------------------------------------------%
-Let us first have a look to the notion of resolvent and spectrum in the setting
-of unital complex Banach algebras.
-
-\subparagraph{}
-By a \textit{normed algebra} (rsp. \textit{Banach algebra}) is meant
-a normed linear space (rsp. Banach space)
-together with a multiplicative operation,
-which is compliant with the norm in some sense.
-
-\subparagraph{}
-More specifically,
-let $(\banB,+,\circ)$ be a $\F$-algebra,
-that simultaneously constitutes a normed space $(\banB,\norm{\cdot})$.
-Then $\banB$ is called a \textit{normed algebra},
-if the following conditions are fulfilled:
-
-\begin{itemize}[leftmargin=16mm,itemsep=2pt]
-\item[(A-1)]
-$\norm{x \circ y} \, \leq \, \norm{x} \cdot \norm{y}$
-for each pair of elements $x,y \xeof \banB$.
-
-\item[(A-2)]
-If $\banB$ has an identity $\1 \xeof \banB$, then $\norm{\1} \eq 1$.
-\end{itemize}
-
-\subparagraph{}
-Condition (A-1) implies
-that the map $(x,y) \mapsto x \circ y$ is continuous.
-If (A-2) is valid,
-then $\banB$ is called a \textit{unital} algebra.
-Finally,
-$\banB$ is said to be \textit{commutative},
-if
-\begin{itemize}[leftmargin=16mm,itemsep=2pt]
-\item[(A-3)]
-\;$x \circ y \eq y \circ x$ \; for all $x,y \xeof \banB$.
-\end{itemize}
-As for normed linear spaces,
-completeness of normed algebras is of interest,
-thus a normed algebra is denoted a \textit{Banach algebra},
-if it is complete as a normed linear space.
-
-\subparagraph{} %- the unital Banach algebra of bounded linear operators
-The most prominent example of a non-commutative Banach algebra is given by
-the $\C$-algebra $\BO{\banX}$ of bounded linear operators
-$\linA \:\banX \xto \banX$,
-where $\banX$ is a real or complex Banach space.
-It forms a unital Banach algebra {\wrt} composition of mappings
-and the operator norm $\norm{\linA}$ of $\linA \xeof \BO{\banX}$.
-
-\paragraph{} %- Gelfand-Mazur theorem
-One of the key results in the theory of complex Banach algebras
-is the \textit{Gelfand-Mazur theorem}
-(see also \cite{VII_Ka}, p.\,14):
-
-\begin{theorem1}\label{GELFAND_MAZUR_THEOREM}
-If each element $x \neq 0$ in a complex Banach algebra $\banB$ is invertible,
-then $\banB \cong \C$.
-\end{theorem1}
-
-\subparagraph{}
-In other words, 
-theorem \ref{GELFAND_MAZUR_THEOREM} quotes that
-the field of complex numbers is essentially the only complex Banach algebra,
-in which each element $x \neq 0$ is invertible.
-
-\paragraph{} %- Neumann series
-Let $\banB$ be a complex and unital Banach algebra.
-By the \textit{Neumann series} of $x \xeof \banB$ is meant the infinite sum
-$
-s_x := \sum_{n=0}^{\infty} \, x^n.
-$
-If $s_x$ is convergent in $\banB$,
-then the element $\1-x$ is invertible,
-and a short computation proves $(\1-x)^{-1} \eq s_x$.
-Like in the case $\banB \eq \C$,
-the {Neumann series} is convergent for all $x \xeof \banB$
-fulfilling $\norm{x} < 1$.
-
-\subparagraph{}
-If $x \xeof \banB$ is invertible,
-then any other element $x' \xeof \banB$ having the property
-\[
-\norm{ x - x'} \, < \, \frac{1}{\snorm{x^{-1}}}
-\]
-proves to be invertible, too.
-Thus all elements in a sufficiently small neighbourhood
-of an invertible element have convergent Neumann series
-and are invertible,
-which implies that
-the set $\GL{\banB} $ of invertible elements in $\banB$ is open.
-It is called the \textit{group of units} in $\banB$,
-since $x \circ y$ and $x^{-1}$ are invertible for $x,y \xeof \GL{\banB} $.
-Both operations $(x,y) \mapsto x \circ y$
-and $x \mapsto x^{-1}$ are continuous, 
-so $\GL{\banB} $ forms a topological group,
-when considered in the subset topology of $\banB$.
-
-\paragraph{} %- spectrum of Banach algebra elements
-The basic concepts of spectral theory,
-as introduced for bounded linear operators acting in a Banach space,
-are also well-defined for elements in a unital complex Banach Algebra $\banB$.
-Let $\1 \xeof \banB$ be the identity and $x \xeof \banB$ be arbitrary,
-then
-
-\begin{itemize}[leftmargin=12pt]
-\item[1.]
-any number $\zeta \xeof \C$ is called \textit{regular} {\wrt} $x$,
-if $x - \zeta \1$ is invertible;
-
-\item[2.]
-the set of regular numbers
-$\rho(x) := \{ \zeta \xeof \C: (x - \zeta \1)^{-1} \exists \}$
-is said to be the \textit{resolvent set} of $x$;
-
-\item[3.]
-the mapping $R_x \: \zeta \xeof \rho(x) \mapsto (x - \zeta \1)^{-1}$
-is denoted the \textit{resolvent function} and
-$R_x(\zeta)$ is called the \textit{resolvent} of $x$
-{\wrt} $\zeta \xeof \rho(x)$;
-
-\item[4.]
-the complementary set $\sigma(x) := \C \setminus \rho(x)$
-is called the \textit{spectrum} of $x$,
-and any element $\lambda \xeof \sigma(x)$ is called a
-\textit{spectral value} of $x$.
-\end{itemize}
-
-\paragraph{} %- properties of the resolvent set and the resolvent
-We just reformulate some known results for resolvent sets and 
-spectra of bounded linear operators,
-which are also true for elements in a unital complex Banach algebra $\banB$.
-Because the set $\GL{\banB} $ of invertible elements is open,
-the resolvent set $\rho(x)$ of $x \xeof \banB$ forms an open subset in $\C$.
-Moreover,
-the resolvent function $R(x,\cdot) \: \rho(x) \xto \banB$
-is continuous and even analytic,
-that is,
-$R(x,\cdot)$ can locally be represented by a convergent power series
-with coefficients in $\banB$.
-
-\paragraph{} %- properties of the spectrum
-On the other hand,
-the spectrum $\sigma(x)$ is closed and \textit{non-empty},
-which is a generalization of the fact
-that $\sigma(\linA) \neq \emptyset$ for any bounded linear operator
-$\linA \:\banX \xto \banX$.
 
 \section{Resolvent Sets and Resolvent Functions}
 %------------------------------------------------------------------------------%
@@ -5080,10 +5279,65 @@ as the \textsc{Riesz-Schauder} \textit{spectral theorem},
 which resemble those of $(d,d)$-matrices
 considered as linear mappings in the finite-dimensional spaces $\C^d$.
 
+\paragraph{} %- geometric and algebraic multiplicity
+Before quoting the main theorem of this paragraph,
+let us have a short look to this case,
+which can completely be covered by the theory of square matrices.
+In finite-dimensional linear algebra,
+the spectral theory begins with the study of eigenvalues and eigenvectors
+of a square matrix $\A \xeof \C^{d \times d}$.
+Remember that an eigenvalue $\lambda$ of $\A$ is a complex number
+satisfying $\A x \eq \lambda x$ for some nonzero vector $x \xeof \C^d$,
+called an eigenvector corresponding to $\lambda$.
+The set of all eigenvalues of $\A$, counting multiplicities,
+forms the spectrum $\sigma(\A)$.
+Moreover,
+the eigenvalues of $\A$ are precisely the roots
+of its characteristic polynomial $p_{\A}(\lambda) \eq det(\lambda {-} \A)$,
+a monic polynomial of degree $d$.
+The algebraic multiplicity of an eigenvalue $\lambda$ is
+the multiplicity of $\lambda$ as a root of $p_{\A}(\lambda)$.
+The geometric multiplicity of $\lambda$,
+however,
+is the dimension of the eigenspace $\kernel{\A {-} \lambda}$,
+which is at most the algebraic multiplicity.
+
+\subparagraph{} %- Jordan canonical form
+A matrix $\A$ is diagonalizable \iff
+for every eigenvalue geometric multiplicity equals the algebraic multiplicity.
+When $\A$ is not diagonalizable,
+its structure is captured by the \textit{Jordan canonical form},
+which decomposes $\C^d$ into generalized eigenspaces.
+For an eigenvalue $\lambda$,
+the generalized eigenspace is nothing but $\kernel{\A{-}\lambda}^m$,
+where $m$ is the \textit{index} of $\lambda$,
+defined as the smallest positive integer
+such that $\kernel{\A{-}\lambda}^m \eq \kernel{\A{-}\lambda}^{m+1}$.
+This index equals the size of the largest Jordan block
+associated with $\lambda$.
+The space $\C^n$ then decomposes as a direct sum
+of these generalized eigenspaces over all distinct eigenvalues.
+
+\subparagraph{} %- Jordan canonical form
+The \textit{Jordan canonical form theorem} states that
+every square matrix $\A$ over an algebraically closed field such as $\C$
+is similar to a unique (up to permutation of blocks) Jordan matrix $J$,
+meaning there exists an invertible matrix $P$ such that $\A \eq PJP^{-1}$.
+The matrix $J$ is block-diagonal,
+consisting of Jordan blocks $J_k(\lambda)$ for each eigenvalue $\lambda$,
+where a $k \xtimes k$ Jordan block has the value $\lambda$ on the main diagonal
+and the value $1$ on the superdiagonal.
+This form was established by \textsc{C.\,Jordan} in his 1870 treatise.
+A simple example of a non-diagonalizable matrix is
+\[
+\A \eq \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix},
+\]
+which has the eigenvalue $0$ with algebraic multiplicity $2$
+but geometric multiplicity $1$.
+
 \subparagraph{}
-Hence it is worthwhile first to inspect the spectral theory
-of linear transformations $\linA\:\C^d \xto \C^d$.
-The \textsc{Jordan} decomposition of a $(d,d)$-matrix
+In summary,
+the \textsc{Jordan} decomposition of a $(d,d)$-matrix
 propagates the existence of $k$ pairwise different complex eigenvalues
 $\lambda_1,\ldots,\lambda_k$ and associated eigenspaces $E_1,\ldots,E_k$
 such that
@@ -5125,7 +5379,7 @@ is a pole of the resolvent function $R(\compA,\, \cdot \,)$.
 Notice
 that the forth assertion in theorem \ref{RIESZ-SCHAUDER_SPECTRAL_THEOREM}
 is nothing but the second part of \textsc{Fredholm}'s {alternative theorem}
-(see section V).
+(see paragraph IV.5).
 Indeed,
 this is true
 since for each compact operator $\compA$
@@ -5150,21 +5404,41 @@ that is,
 the continuous and residual spectrum of $\linA$ are both empty
 and $\sigma(\linA)$ consists of eigenvalues only.
 Such operators are of outstanding meaning in applied analysis,
-since they appear as realizations of linear-ellipic differential operators
-defined in \textit{bounded} domains $\G \subset \Rd$.
+since they appear as
+realizations of linear-ellipic partial differential operators
+in Sobolev spaces for \textit{bounded} domains $\G \subset \Rd$.
+Recall also from paragraph IV.6
+that in this case
+the operator equation $\linA x \eq y$ is equivalent to an operator
+equation of the form $(\1_X + \compA) x \eq y$ with $\compA$ being compact,
+hence \textsc{Fredholm}'s alternative theorem may be applied. 
 
-\subparagraph{}
-Moreover,
+\subparagraph{} %- operators with compact resolvents
+Furthermore,
 a closed linear operator $\linA$
 with domain of definition $\domain{A} \subset \banX$
 is said to \textit{own compact resolvents},
 if at least one resolvent $(\linA -\zeta)^{-1}$ with $\zeta \xeof \rho(\linA)$
 is compact.
-The resolvent equation implies
+The first resolvent equation \eqref{VI_RESOLVENT_EQUATION} implies
 that in this case all other resolvents of $\linA$ are compact.
 It is easy to verify
 that $\linA$ has pure point spectrum
 \iff it has compact resolvents.
+
+\subparagraph{} %- order of the eigenvalues
+The eigenvalues of a linear operator $\linA$ with pure point spectrum
+are mostly countable and can be ordered by their moduli,
+that is,
+there is a sequence $\{ \lambda_n \}_{n \xeof \N}$ consisting
+of eigenvalues of $\linA$
+such that
+\[
+\abs{\lambda_1} \,\leq\, \abs{\lambda_2} \,\leq\, \abs{\lambda_3} \,\leq\,
+\ldots \, .
+\]
+More can be said in the "symmetric" case,
+see the \textit{discrete spectral theorem} (paragraph IX.3).
 
 \paragraph{} %- criterion for operators having pure point spectrum
 There is a useful criterion to check
@@ -5185,7 +5459,7 @@ is compact.
 
 \section{The Riesz-Dunford Functional Calculus}
 %------------------------------------------------------------------------------%
-Our subject in this section is
+Our subject in this paragraph is
 the exposition of the \textit{holomorphic functional calculus},
 sometimes also called the \textsc{Riesz-Dunford} \textit{calculus}
 for bounded linear operators acting in a Banach space $\banX$.
@@ -5336,22 +5610,28 @@ we collect the properties of the mapping $\pi_{\lambda}$ to the following list:
 \begin{itemize}[leftmargin=12pt]
 \item[1.]
 $\pi_{\lambda}$ is linear;
+
 \item[2.]
 $\pi_{\lambda}$ owns the \textit{projection property}
 $\pi_{\lambda} \circ \pi_{\lambda} \eq \pi_{\lambda}$;
+
 \item[3.]
 The spectrum of this mapping only consists of the value $\lambda_0$ itself;
+
 \item[4.]
 $\pi_{\lambda}$ commutes with $\linA$,
 so $\linA \circ \pi_{\lambda} \eq \pi_{\lambda} \circ \linA$ holds;
+
 \item[5.]
 The range $\Pi_{\lambda}$ of $\pi_{\lambda}$ is a closed subspace in $\banX$;
+
 \item[6.]
 There is a closed subspace $\Pi_{\lambda}^{\bot} \subset \banX$
 such that
 $\banX \eq \Pi_{\lambda} \, \oplus \, \Pi_{\lambda}^{\bot}$,
 where $\Pi_{\lambda}^{\bot}$ is defined by
 $\Pi_{\lambda}^{\bot} := \1_H- \Pi_{\lambda}$;
+
 \item[7.]
 Both subspaces $\Pi_{\lambda}$ and $\Pi_{\lambda}^{\bot}$
 are $\linA$-invariant, so
@@ -5360,6 +5640,7 @@ $\linA \, \Pi_{\lambda}^{\bot} \subset \Pi_{\lambda}^{\bot}$.
 One also says that the subspaces 
 $\Pi_{\lambda}$ and $\Pi_{\lambda}^{\bot}$
 \textit{reduces} the entire space $\banX$;
+
 \item[8.]
 The mapping $\pi_{\lambda}^{\bot} := \1_H \pi_{\lambda}$ is a projection again,
 and both projections
@@ -5372,7 +5653,7 @@ $\pi_{\lambda}        \circ \pi_{\lambda}^{\bot} \eq
 \end{itemize}
 
 \subparagraph{}
-The concept of \textsc{Riesz} projection may be extended into two directions.
+The concept of {Riesz projection}  may be extended into two directions.
 First,
 the linear operator $\linA$ may be assumed to be closed
 instead of being continuous,
@@ -5382,9 +5663,10 @@ by any connected component $\sigma_0(\linA)$ of the set $\sigma(\linA)$.
 
 \section{Essential and Discrete Spectrum}
 %------------------------------------------------------------------------------%
-The concept of semi-Fredholm operator can be used to characterize
-the \textit{essential spectrum} $\sigma_{ess,1}(\linA)$
-of a closed operator $\linA$ acting in a complex Banach space $\banX$:
+The concept of semi-Fredholm operator (see section IV)
+can be used to characterize the \textit{essential spectrum}
+$\sigma_{ess,1}(\linA)$ of a closed operator $\linA$ acting
+in a complex Banach space $\banX$:
 a number $\lambda \xeof \C$ belongs to $\sigma_{ess,0}(\linA)$
 \iff $\linA - \lambda$ is \textit{not} semi-Fredholm.
 But there are further approaches to define the notion of essential spectrum:
@@ -5500,10 +5782,10 @@ Springer, 1980.
 %------------------------------------------------------------------------------%
 % VII. BANACH ALGEBRAS AND FOURIER TRANSFORMATION ---
 %------------------------------------------------------------------------------%
-%  §1. The Gelfand Representation ---
-%  §2. Involutional Algebras and C*-Algebras ---
-%  §3. The Gelfand-Naimark Theorem ---
-%  §4. Generalities on Topological Groups ---
+%  §1. Resolvent and Spectrum of Banach Algebra Elements ---
+%  §2. The Gelfand Representation ---
+%  §3. Involutional Algebras and C*-Algebras ---
+%  §4. The Gelfand-Naimark Theorem ---
 %  §5. Locally Compact Abelian Groups ---
 %  §6. Abstract Fourier Transformation ---
 %  §7. Fourier Transformation in Euclidean Spaces ---
@@ -5515,7 +5797,7 @@ Springer, 1980.
 \fancyhead[C] {\small{\textsc{VII. \TitleVII}}}
 \part{\TitleVII}
 %------------------------------------------------------------------------------%
-The aim in this section
+The aim in this part
 is to review commutative Banach algebras and
 their applications to other topics in functional analysis and operator theory.
 They are of own interest due to the celebrated \textit{Gelfand transformation}.
@@ -5526,9 +5808,108 @@ on the other hand
   to the continuous functional calculus for \textit{normal} linear operators
   acting in Hilbert space.
 
+Let us first have a look to the notion of resolvent and spectrum in the setting
+of unital complex Banach algebras.
+
+\subparagraph{}
+By a \textit{normed algebra} (rsp. \textit{Banach algebra}) is meant
+a normed linear space (rsp. Banach space)
+together with a multiplicative operation,
+which is compliant with the norm in some sense.
+
+\subparagraph{}
+More specifically,
+let $(\banB,+,\circ)$ be a $\F$-algebra,
+that simultaneously constitutes a normed space $(\banB,\norm{\cdot})$.
+Then $\banB$ is called a \textit{normed algebra},
+if the following conditions are fulfilled:
+
+\begin{itemize}[leftmargin=16mm,itemsep=2pt]
+\item[(A-1)]
+$\norm{x \circ y} \, \leq \, \norm{x} \cdot \norm{y}$
+for each pair of elements $x,y \xeof \banB$.
+
+\item[(A-2)]
+If $\banB$ has an identity $\1 \xeof \banB$, then $\norm{\1} \eq 1$.
+\end{itemize}
+
+\subparagraph{}
+Condition (A-1) implies
+that the map $(x,y) \mapsto x \circ y$ is continuous.
+If (A-2) is valid,
+then $\banB$ is called a \textit{unital} algebra.
+Finally,
+$\banB$ is said to be \textit{commutative},
+if
+\begin{itemize}[leftmargin=16mm,itemsep=2pt]
+\item[(A-3)]
+\;$x \circ y \eq y \circ x$ \; for all $x,y \xeof \banB$.
+\end{itemize}
+As for normed linear spaces,
+completeness of normed algebras is of interest,
+thus a normed algebra is denoted a \textit{Banach algebra},
+if it is complete as a normed linear space.
+
+\subparagraph{} %- the unital Banach algebra of bounded linear operators
+The most prominent example of a non-commutative Banach algebra is given by
+the $\C$-algebra $\BO{\banX}$ of bounded linear operators
+$\linA \:\banX \xto \banX$,
+where $\banX$ is a real or complex Banach space.
+It forms a unital Banach algebra {\wrt} composition of mappings
+and the operator norm $\norm{\linA}$ of $\linA \xeof \BO{\banX}$.
+
+\paragraph{} %- Gelfand-Mazur theorem
+One of the key results in the theory of complex Banach algebras
+is the \textit{Gelfand-Mazur theorem}
+(see also \cite{VII_Ka}, p.\,14):
+
+\begin{theorem1}\label{GELFAND_MAZUR_THEOREM}
+If each element $x \neq 0$ in a complex Banach algebra $\banB$ is invertible,
+then $\banB \cong \C$.
+\end{theorem1}
+
+\subparagraph{}
+In other words, 
+theorem \ref{GELFAND_MAZUR_THEOREM} quotes that
+the field of complex numbers is essentially the only complex Banach algebra,
+in which each element $x \neq 0$ is invertible.
+
+\paragraph{} %- Neumann series
+Let $\banB$ be a complex and unital Banach algebra.
+By the \textit{Neumann series} of $x \xeof \banB$ is meant the infinite sum
+$
+s_x := \sum_{n=0}^{\infty} \, x^n.
+$
+If $s_x$ is convergent in $\banB$,
+then the element $\1-x$ is invertible,
+and a short computation proves $(\1-x)^{-1} \eq s_x$.
+Like in the case $\banB \eq \C$,
+the {Neumann series} is convergent for all $x \xeof \banB$
+fulfilling $\norm{x} < 1$.
+
+\subparagraph{}
+If $x \xeof \banB$ is invertible,
+then any other element $x' \xeof \banB$ having the property
+\[
+\norm{ x - x'} \, < \, \frac{1}{\snorm{x^{-1}}}
+\]
+proves to be invertible, too.
+Thus all elements in a sufficiently small neighbourhood
+of an invertible element have convergent Neumann series
+and are invertible,
+which implies that
+the set $\GL{\banB} $ of invertible elements in $\banB$ is open.
+It is called the \textit{group of units} in $\banB$,
+since $x \circ y$ and $x^{-1}$ are invertible for $x,y \xeof \GL{\banB} $.
+Both operations $(x,y) \mapsto x \circ y$
+and $x \mapsto x^{-1}$ are continuous, 
+so $\GL{\banB} $ forms a topological group,
+when considered in the subset topology of $\banB$.
+
 \paragraph{} %- examples of commutative Banach algebras
-Here are some important examples of commutative Banach algebras
-{\wrt} applications:
+In this section we are especially interested
+in \textit{commutative} Banach algebras.
+Here are some important examples {\wrt} applications:
 
 \begin{itemize}[leftmargin=12pt,itemsep=4pt]
 \item[1.]
@@ -5577,6 +5958,57 @@ since the so-called \textit{Dirac measure} $\mu_0$ owns the property
 $\mu_0 \ast \nu \eq \nu \ast \mu_0 \eq \nu$
 for all $\nu \xeof \cal{M}^r(\topG)$.
 \end{itemize}
+
+\section{Resolvent and Spectrum of Banach Algebra Elements}
+%------------------------------------------------------------------------------%
+The basic concepts of spectral theory,
+as introduced for bounded linear operators acting in a Banach space,
+are also well-defined for elements in a unital complex Banach Algebra $\banB$.
+Let $\1 \xeof \banB$ be the identity and $x \xeof \banB$ be arbitrary,
+then
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+any number $\zeta \xeof \C$ is called \textit{regular} {\wrt} $x$,
+if $x - \zeta \1$ is invertible;
+
+\item[2.]
+the set of regular numbers
+$\rho(x) := \{ \zeta \xeof \C: (x - \zeta \1)^{-1} \exists \}$
+is said to be the \textit{resolvent set} of $x$;
+
+\item[3.]
+the mapping $R_x \: \zeta \xeof \rho(x) \mapsto (x - \zeta \1)^{-1}$
+is denoted the \textit{resolvent function} and
+$R_x(\zeta)$ is called the \textit{resolvent} of $x$
+{\wrt} $\zeta \xeof \rho(x)$;
+
+\item[4.]
+the complementary set $\sigma(x) := \C \setminus \rho(x)$
+is called the \textit{spectrum} of $x$,
+and any element $\lambda \xeof \sigma(x)$ is called a
+\textit{spectral value} of $x$.
+\end{itemize}
+
+\paragraph{} %- properties of the resolvent set and the resolvent
+We just reformulate some known results for resolvent sets and 
+spectra of bounded linear operators,
+which are also true for elements in a unital complex Banach algebra $\banB$.
+Because the set $\GL{\banB} $ of invertible elements is open,
+the resolvent set $\rho(x)$ of $x \xeof \banB$ forms an open subset in $\C$.
+Moreover,
+the resolvent function $R(x,\cdot) \: \rho(x) \xto \banB$
+is continuous and even analytic,
+that is,
+$R(x,\cdot)$ can locally be represented by a convergent power series
+with coefficients in $\banB$.
+
+\paragraph{} %- properties of the spectrum
+On the other hand,
+the spectrum $\sigma(x)$ is closed and \textit{non-empty},
+which is a generalization of the fact
+that $\sigma(\linA) \neq \emptyset$ for any bounded linear operator
+$\linA \:\banX \xto \banX$.
 
 \section{Gelfand Representation}
 %------------------------------------------------------------------------------%
@@ -5994,7 +6426,7 @@ the operator $f(\linA) \xeof \BO{\hilH}$ is well defined.
 This is especially true for the operators 
 $\abs{\linS} $ and $\sqrt{\abs{\linS} }$.
 
-\section{Generalities on Topological Groups}
+\section{Locally Compact Abelian Groups}
 %------------------------------------------------------------------------------%
 Before discussing abstract Fourier transformations,
 it is useful to review some concepts coming from general topology,
@@ -6174,9 +6606,9 @@ we have
 As a consequence,
 the group isomorphisms ${\Rn}^* \cong \Rn$ hold for any integer $n$.
 
-\section{Locally Compact Abelian Groups}
+\subsection{}
 %------------------------------------------------------------------------------%
-Recall that a topological space is called \textit{locally compact},
+A topological space is called \textit{locally compact},
 if every subset owns a compact neighbourhood.
 The abbreviation \textit{LCA group} usually stands
 for a \textit{locally compact Abelian group}.
@@ -6188,9 +6620,9 @@ where $\chi_1$ is the character with $\chi_1(x) \eq 1$ for all $x \xeof \topG$.
 
 \subparagraph{}
 Suppose that the Abelian group ${\topG}$ is \textit{locally compact}.
-Then it can be shown (for example by the {\ARZELA}-Ascoli theorem)
-that the dual group $\topG^*$ is also locally compact {\wrt}
-its compact-open topology.
+Then it can be shown (for example by the \textit{{\ARZELA}-Ascoli theorem})
+that the dual group $\topG^*$ is also locally compact
+{\wrt} its compact-open topology.
 Let $\topG^{**}$ denote the \textit{bidual group} 
 of a topological group $\topG$,
 which is defined to be the dual group of its character group.
@@ -6841,10 +7273,10 @@ Princeton Mathematical Series 32, Princeton University Press, 1971.
 %  §7. Perturbations of Self-Adjoint Operators ---
 %  ---
 
-\def\TitleVIII{Linear Operators in Hilbert Space }
+\def\TitleVIII{Linear Operators in Hilbert Space}
 \newpage
 \thispagestyle{empty}
-\fancyhead[C] {\small{\textsc{VIII. \TitleVII}}}
+\fancyhead[C] {\small{\textsc{VIII. \TitleVIII}}}
 \part{\TitleVIII}
 %------------------------------------------------------------------------------%
 The presence of the inner product in a Hilbert space can be used to
@@ -7690,7 +8122,7 @@ which of course is nothing but
 \range{\linA - \lambda} \, \neq \, \overline{\range{\linA - \lambda} } \}.
 \]
 In opposite to the originally given definition of $\sigma_c(\linA)$
-(see section 6),
+(see paragraph VI.2),
 the set $\sigma_c(\linA)$ may also contain those elements $\lambda \xeof \C$,
 for which $\linA-\lambda$ is not injective.
 
@@ -7750,13 +8182,13 @@ of \textit{real} eigenvalues of $\compA$,
 which either terminates or converges to $0 \xeof \C$.
 Due to the compactness of $\compA$,
 the related eigenspaces $E_{\lambda_n}$ are finite-dimensional.
-By the \textsc{Gram-Schmidt} orthogonalization method,
+By the \textit{Gram-Schmidt orthogonalization method},
 one can define an orthogonal system $\orthO$ of eigenvectors of $\compA$
 such that $\orthO$ spans a dense subspace in $\hilH$
 and consequently forms an \textit{orthonormal base} in $\hilH$.
 
 \paragraph{} %- discrete spectral theorem
-The \textsc{Hilbert-Schmidt} \textit{spectral theorem},
+The \textit{Hilbert-Schmidt spectral theorem},
 also often called the \textit{discrete spectral theorem},
 claims that
 a compact-symmetric operator $\compA$
@@ -8231,8 +8663,8 @@ The latter formula is often written down in the symbolic form
 \]
 
 \paragraph{} %- relationship between spectrum and spectral resolution
-To the end of this section
-we next want to investigate the relationship between the shape of the spectrum
+To the end of this paragraph
+we want to investigate the relationship between the shape of the spectrum
 and the spectral resolution of a self-adjoint operator.
 
 \subparagraph{}
@@ -8394,7 +8826,8 @@ for \eqref{IX_ABSTRACT_SCHROEDINGER_EQUATION} is unique.
 
 \subparagraph{}
 A solution of \eqref{IX_ABSTRACT_SCHROEDINGER_EQUATION} is also provided
-by semigroup theory and especially by \textsc{Stone}'s theorem (see section X),
+by semigroup theory and especially by \textsc{Stone}'s theorem
+(see paragraph X.5),
 since the operator $i\linA$ is the infinitesimal generator of a unitary group
 of bounded operators.
 To construct a solution for problem \eqref{IX_ABSTRACT_SCHROEDINGER_EQUATION}
@@ -8500,13 +8933,13 @@ Springer, 1980.
 %  §6. Well-Posedness of Second-Order Cauchy Problems ---
 %  ---
 
-\def\TitleX{Semigroup Theory and Evolution Equations}
+\def\TitleX{Semigroups of Bounded Linear Operators}
 \newpage
 \thispagestyle{empty}
 \fancyhead[C] {\small{\textsc{X. \TitleX}}}
 \part{\TitleX}
 %------------------------------------------------------------------------------%
-Our aim in this section
+Our aim in this part
 is to sketch the basic notions of semigroup theory,
 which forms one of the most important topics within functional analysis
 {\wrt} applications to ordinary and partial differential equations.
@@ -8770,7 +9203,7 @@ of the m-accretive operator $\linA$:
 \end{itemize}
 
 \paragraph{} %- characterization of m-accretive operators
-The main theorem of this section
+The main theorem of this paragraph
 characterizes m-accretive linear operators by other conditions:
 
 \begin{theorem1}
@@ -9197,7 +9630,7 @@ Applied Mathematical Sciences Vol.\,44, Springer, 1983.
 \fancyhead[C] {\small{\textsc{XI. \TitleXI}}}
 \part{\TitleXI}
 %------------------------------------------------------------------------------%
-Our aim in this section
+Our aim in this part
 is to present the general theory of coercive sesquilinear forms
 and its applications to stationary and evolutional linear equations.
 Sesquilinear forms are mostly efficient
@@ -9562,7 +9995,7 @@ The following theorem collects a couple of nice properties
 of the operator $\linA_{\sql}$
 associated with a continuous and quasi-coercive form $\sql$.
 Besides the \textsc{Lax-Milgram} theorem,
-is is our second important theorem in this section:
+is is our second important theorem:
 
 \begin{theorem1}\label{QUASI-COERCIVE_FORMS_AND_ASSOCIATED_OPERATORS}
 Let $(\vecV,\hilH,\vecV_a^*)$ be a triple of Hilbert spaces
@@ -10245,7 +10678,7 @@ Grund\-lehren der mathematischen Wissenschaften, Band 111, 1961.
 \fancyhead[C] {\small{\textsc{XII. \TitleXII}}}
 \part{\TitleXII}
 %------------------------------------------------------------------------------%
-This final section deals with applications of the presented theory
+This final section of this text deals with applications of the presented theory
 to linear differential operators and some standard problems
 related with them.
 
@@ -10681,16 +11114,17 @@ the operator $\linA_D$ is Fredholm again with index $\chi(\linA_D) \eq 0$.
 
 \section{Self-Adjoint Extensions in Hilbert Space L²(G)}
 %------------------------------------------------------------------------------%
-We denote a linear differential expression $\DO$ \textit{formally self-adjoint}
-in case of $\DO^{\dag} \eq \DO$.
-If $\DO$ has constant coefficients,
-then it is formally self-adjoint
+Recall that we denote a linear differential expression $\DO$ to be
+\textit{formally self-adjoint},
+if $\DO^{\dag} \eq \DO$ holds.
+In case of $\DO$ has constant coefficients,
+then the expression is formally self-adjoint
 iff
 $c_{\alpha} \in \R$ for $\abs{\alpha} $ even
 and $c_{\alpha} \in i \, \R$ for $\abs{\alpha} $ odd.
 
 \paragraph{} %- examples of self-adjoint realizations
-In the rest of this section we want to enumerate a couple
+It is our aim to enumerate a couple
 of formally self-adjoint differential expression
 and elaborate the self-adjoint extensions related to them.
 More precisely,
@@ -11122,7 +11556,7 @@ and with domain of definition $H^2(\Rd)$ is well-known.
 
 \subparagraph{} %- application of the Kato-Rellich theorem
 As an application of the Kato-Rellich theorem coming from perturbation theory
-(see section VIII, \S\,7),
+(see paragraph VIII.7),
 consider the case,
 where $d \eq 3$ and the function $q$ belongs to $L^2(\R^3) + L^{\infty}(\R^3)$,
 so
@@ -11495,7 +11929,7 @@ of the matrices $A(x)$ with $x \xeof \G$.
 %------------------------------------------------------------------------------%
 The variational approach to stationary and evolutional boundary value problems
 provides the concept of weak solution,
-and in this part of the section we want to apply the abstract theory
+and in this paragraph we want to apply the abstract theory
 boundary value problems governed by strictly elliptic differential operators
 by quoting the related existence and uniqueness assertions.
 
