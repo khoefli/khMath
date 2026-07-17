@@ -56,15 +56,15 @@
 \centerline{\small{\textsc{\Author}}}
 \vspace{20pt}
 
-\fancyhead[OL]{\small{\thepage}}
-\fancyhead[ER]{\small{\thepage}}
-
 \myfootnote
 {
   Version {\Version} from \today;
   Email:  \textit{khoeflinger@\,t-online.de}
 }
 
+%------------------------------------------------------------------------------%
+%                                INTRODUCTION                                  %
+%------------------------------------------------------------------------------%
 This text consists of a series of articles
 on the mathematical area of {functional analysis}
 and of a final article concerning with the applications of the abstract theory
@@ -121,40 +121,18 @@ who conveyed my fascination of these beautiful mathematical topics
 by his lessons hold in 1984 and 1985 at
 Mathematical Institute A of University Stuttgart.
 
-\begin{comment}
-\newpage
-\thispagestyle{empty}
-\centerline{\textbf{\large{Table of Contents}}}
-\vspace{20pt}
-\centerline
-{
-\begin{tabular}{C{9mm}L{87mm}R{6mm}}
-%------------------------------------------------------------------------------%
-   I. & Topological and Normed Linear Spaces                   \Df &   1 \\ % 19
-  II. & Linear Operators in Banach Spaces                      \Df &  19 \\ %  8
- III. & Adjoint Spaces and Operators                           \Df &  38 \\ % 15
-  IV. & Normally Solvable Operators                            \Df &  53 \\ %  6
-   V. & Calculus of Vector-Valued Functions                    \Df &  27 \\ % 11
-  VI. & General Spectral Theory                                \Df &  59 \\ % 12
- VII. & Commutative Banach Algebras                            \Df &  71 \\ % 19
-VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
-  IX. & Spectral Theory of Self-Adjoint Operators              \Df &  98 \\ % 15
-   X. & Semigroups of Bounded Linear Operators                 \Df & 113 \\ %  9
-  XI. & Coercive Sesquilinear Forms                            \Df & 122 \\ % 13
- XII. & Applications to Linear Differential Operators          \Df & 135 \\ % 32
-%------------------------------------------------------------------------------%
-\end{tabular}
-}
-\end{comment}
-
 %------------------------------------------------------------------------------%
 %                              TABLE OF CONTENTS                               %
 %------------------------------------------------------------------------------%
+\fancyhead[OL,ER]{\small{(\thepage)}}
+\fancyhead[C] {\small{\textsc{Table of Contents}}}
+\pagenumbering{roman}
+
+\setcounter{page}{0}
 \newpage
 \thispagestyle{empty}
 \section*{Table of Contents}
 %------------------------------------------------------------------------------%
-
 \begin{small}
 \vspace{7pt}
 %\centerline{{\footnotesize{Part I}}}
@@ -164,7 +142,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 
 \centerline
 {
-\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+\begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
  1. & Generalities on Topological Linear Spaces                      \Df &  1 \\
  2. & Seminorms and Locally Convex Spaces                            \Df &  3 \\
@@ -185,7 +163,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 
 \centerline
 {
-\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+\begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
  1. & Fundamentals of Operator Theory                                \Df & 19 \\
  2. & Continuous Linear Operators                                    \Df & 20 \\
@@ -204,7 +182,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 
 \centerline
 {
-\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+\begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
  1. & Continuous Linear Functionals                                  \Df & 27 \\
  2. & Weak Topologies, Bidual Spaces and Reflexivity                 \Df & 27 \\
@@ -225,7 +203,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 
 \centerline
 {
-\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+\begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
  1. & Linear Operators with Closed Range                             \Df & 42 \\
  2. & The Fredholm Index                                             \Df & 43 \\
@@ -245,7 +223,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 
 \centerline
 {
-\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+\begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
  1. & Spaces of Classical Differentiable Functions                   \Df & 49 \\
  2. & Riemann Integration                                            \Df & 50 \\
@@ -260,7 +238,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 }
 
 \newpage
-\thispagestyle{empty}
+%\thispagestyle{empty}
 %\vspace{7pt}
 %\centerline{{\footnotesize{Part VI}}}
 %\vspace{1pt}
@@ -269,7 +247,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 
 \centerline
 {
-\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+\begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
  1. & Resolvent Sets and Resolvent Functions                         \Df & 60 \\
  2. & Different Kinds of Spectra                                     \Df & 62 \\
@@ -289,7 +267,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 
 \centerline
 {
-\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+\begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
  1. & Resolvent and Spectrum of Banach Algebra Elements              \Df & 72 \\
  2. & Gelfand Representation                                         \Df & 73 \\
@@ -310,7 +288,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 
 \centerline
 {
-\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+\begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
  1. & Numerical Range and External Field of Regularity               \Df & 91 \\
  2. & Unitary Operators and Isometries                               \Df & 92 \\
@@ -331,7 +309,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 
 \centerline
 {
-\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+\begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
  1. & Spectral Properties of Normal Operators                        \Df & 99 \\
  2. & Properties of the Resolvent and the Spectrum                   \Df &100 \\
@@ -352,7 +330,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 
 \centerline
 {
-\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+\begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
  1. & Strongly Continuous Semigroups                                 \Df &114 \\
  2. & Infinitesimal Generators                                       \Df &115 \\
@@ -365,7 +343,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 }
 
 \newpage
-\thispagestyle{empty}
+%\thispagestyle{empty}
 %\vspace{7pt}
 %\centerline{{\footnotesize{Part XI}}}
 %\vspace{1pt}
@@ -374,7 +352,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 
 \centerline
 {
-\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+\begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
  1. & Generalities on Sesquilinear Forms                             \Df &123 \\
  2. & Coercive Forms and Variational Equations                       \Df &125 \\
@@ -395,7 +373,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 
 \centerline
 {
-\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+\begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
  1. & Linear Partial Differential Operators                          \Df &136 \\
  2. & Free Space and Boundary Value Problems                         \Df &139 \\
@@ -416,7 +394,7 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 \vspace{7pt}
 \centerline
 {
-\begin{tabular}{R{5mm}L{92mm}R{5mm}}
+\begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
     & Bibliography                                                   \Df &    \\
 %------------------------------------------------------------------------------%
@@ -424,10 +402,9 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 }
 \end{small}
 
-
-\setcounter{page}{0}
-\newpage
-\thispagestyle{empty}
+%------------------------------------------------------------------------------%
+%                                    CONTENT                                   %
+%------------------------------------------------------------------------------%
 
 %------------------------------------------------------------------------------%
 %   I. TOPOLOGICAL AND NORMED LINEAR SPACES ---
@@ -441,6 +418,11 @@ VIII. & Linear Operators in Hilbert Space                      \Df &  90 \\ %  7
 %  §7. The Hierarchy of Topological and Normed Linear Spaces ---
 %  ---
 
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\thispagestyle{empty}
+\fancyhead[OL,ER]{\small{\thepage}}
 \def\TitleI{Topological and Normed Linear Spaces}
 \fancyhead[C] {\small{\textsc{I. \TitleI}}}
 \part{\TitleI}
@@ -1791,9 +1773,9 @@ Academic Press Inc., 1980.
 %  §5. The Closed Graph Theorem ---
 %  ---
 
-\def\TitleII{Linear Operators in Banach Spaces}
 \newpage
 \thispagestyle{empty}
+\def\TitleII{Linear Operators in Banach Spaces}
 \fancyhead[C] {\small{\textsc{II. \TitleII}}}
 \part{\TitleII}
 %------------------------------------------------------------------------------%
@@ -3686,9 +3668,9 @@ Springer, 1980.
 %  §6. Concepts of Solvability for Linear Equations ---
 %  ---
 
-\def\TitleIV{Normally Solvable Operators}
 \newpage
 \thispagestyle{empty}
+\def\TitleIV{Normally Solvable Operators}
 \fancyhead[C] {\small{\textsc{IV. \TitleIV}}}
 \part{\TitleIV}
 %------------------------------------------------------------------------------%
@@ -4210,9 +4192,9 @@ Springer, 1980.
 %  §8. Holomorphic Vector-Valued Functions ---
 %  ---
 
-\def\TitleV{Calculus of Vector-Valued Functions}
 \newpage
 \thispagestyle{empty}
+\def\TitleV{Calculus of Vector-Valued Functions}
 \fancyhead[C] {\small{\textsc{V. \TitleV}}}
 \part{\TitleV}
 %------------------------------------------------------------------------------%
@@ -4481,7 +4463,7 @@ $x(t,x_0) \eq x_0 \, e^{-\lambda t}$ for $t {\,>\,} 0$.
 \paragraph{} %- functional analysis and evolution equations
 Functional analysis provides a rich theory
 on \textit{homogeneous} and \textit{linear} evolution equations of the form
-\begin{equation}\label{III_HOMOGENEOUS_CAUCHY_PROBLEM_1}
+\begin{equation}\label{V_HOMOGENEOUS_CAUCHY_PROBLEM_1}
 \begin{cases}[1.2]
 \quad x'(t) \+ \linA \, x(t) \= \0,\\ 
 \quad x(0) \= x_0 \xeof \banX,\\
@@ -4492,13 +4474,13 @@ and with domain of definition $\domain{\linA}$.
 The task is to find \textit{vector-valued} solutions $x \: [0,\T) \xto \banX$
 of the equation $x' + \linA x \eq \0$ 
 satisfying the initial value condition $x(0) \eq x_0$.
-The evolution equation \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1} with prescribed
+The evolution equation \eqref{V_HOMOGENEOUS_CAUCHY_PROBLEM_1} with prescribed
 initial value is denoted the \textit{Cauchy problem of first order}.
 
 \subparagraph{} %- second order equations
 The homogeneous Cauchy problem of \textit{second order} consists of solving
 the initial value problem
-\begin{equation}\label{III_HOMOGENEOUS_CAUCHY_PROBLEM_2}
+\begin{equation}\label{V_HOMOGENEOUS_CAUCHY_PROBLEM_2}
 \begin{cases}[1.2]
 \quad x''(t) \+ \linA \, x(t) \= \0,\\
 \quad x(0)  \= x_0, \\
@@ -4517,13 +4499,13 @@ for the first order Cauchy problem:
 \item[1.]
 A vector-valued function
 $x \xeof C([0,\T),\domain{\linA}) \, \cap \, C^1((0,\T),\banX)$ is called
-a \textit{classical solution} of \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1},
+a \textit{classical solution} of \eqref{V_HOMOGENEOUS_CAUCHY_PROBLEM_1},
 if it satisfies the initial condition $x(0) \eq x_0$
 and the differential equation in each point $t \xeof (0,\T)$.
 
 \item[2.]
 a continuous function $x \: [0,\T) \xto \banX$ is said to be
-a \textit{mild solution} of \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1} if
+a \textit{mild solution} of \eqref{V_HOMOGENEOUS_CAUCHY_PROBLEM_1} if
 \[
 \mbox{(1) } \, \tilde{x}(t) \eqdef
 \int_{\,0}^t x(s) \, ds \, \xeof \domain{\linA}
@@ -4571,7 +4553,7 @@ the concepts of \textit{correct posedness} and \textit{well-posedness}.
 
 \subparagraph{} %- definitions of correctly and well-posed problems
 First,
-the homogeneous Cauchy problem \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1}
+the homogeneous Cauchy problem \eqref{V_HOMOGENEOUS_CAUCHY_PROBLEM_1}
 is called \textit{correctly posed},
 if there is a unique classical solution $x$
 for any initial value $x_0 \xeof \domain{\linA}$.
@@ -4597,10 +4579,10 @@ to the zero function in all compact intervals $[0,t_0]$
 for $0 {\,<\,} t_0 < \T$
 (similar definitions for correct posedness and well-posedness
 can also be quoted for the second-order homogeneous Cauchy problem
-\eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_2}).
+\eqref{V_HOMOGENEOUS_CAUCHY_PROBLEM_2}).
 
 \subparagraph{}
-Let us finally mention that problem \eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1}
+Let us finally mention that problem \eqref{V_HOMOGENEOUS_CAUCHY_PROBLEM_1}
 governed by a densely defined and closed linear operator $\linA$ is well-posed
 iff
 it is correctly posed and
@@ -4687,18 +4669,18 @@ if $x$ is a classical solution of \eqref{X_INHOMOGENEOUS_CAUCHY_PROBLEM},
 the right hand side $y \: [0,\T) \xto \banX$ is continuous
 and the linear operator $\linA$ is bounded,
 then 
-\[
+\begin{equation}\label{DUHAMEL_SOLUTION}
 x(t) \= \linS(t) \, x_0 \, + \, \int_{\,0}^t \linA \, y(s) \, ds,
 \quad (0 < t \leq \T),
-\]
+\end{equation}
 where $\linS(t)$ is the solution operator of the homogeneous problem
-\eqref{III_HOMOGENEOUS_CAUCHY_PROBLEM_1} at time $t > 0$.
+\eqref{V_HOMOGENEOUS_CAUCHY_PROBLEM_1} at time $t > 0$.
 
 \paragraph{} %- solvability of the inhomogeneous Cauchy problem
 The basic problem in solving the inhomogeneous Cauchy problem is to find
 conditions on the function $y$,
 which ensure existence and uniqueness of a solution.
-We first review the notion of classical and mild solution:
+We first review the both notions of classical and mild solution:
 
 \begin{itemize}[leftmargin=5mm]
 \item[1.]
@@ -4709,7 +4691,7 @@ fulfills the differential equation $x' + \linA x \eq y$ in every $t \in (0,\T)$
 and the initial condition $x(0) \eq x_0$.
 \item[2.]
 A function $x \: [0,\T] \xto \banX$ is called a \textit{mild solution},
-if $\ldots$ % waiting for implementation
+if $x$ fulfills equation \eqref{DUHAMEL_SOLUTION}.
 \end{itemize}
 
 \paragraph{}
@@ -4928,9 +4910,9 @@ Springer, 1980.
 %  §8. Essential and Discrete Spectrum ---
 %  ---
 
-\def\TitleVI{General Spectral Theory}
 \newpage
 \thispagestyle{empty}
+\def\TitleVI{General Spectral Theory}
 \fancyhead[C] {\small{\textsc{VI. \TitleVI}}}
 \part{\TitleVI}
 %------------------------------------------------------------------------------%
@@ -5791,9 +5773,9 @@ Springer, 1980.
 %  §7. Fourier Transformation in Euclidean Spaces ---
 %  ---
 
-\def\TitleVII{Commutative Banach Algebras}
 \newpage
 \thispagestyle{empty}
+\def\TitleVII{Commutative Banach Algebras}
 \fancyhead[C] {\small{\textsc{VII. \TitleVII}}}
 \part{\TitleVII}
 %------------------------------------------------------------------------------%
@@ -7273,9 +7255,9 @@ Princeton Mathematical Series 32, Princeton University Press, 1971.
 %  §7. Perturbations of Self-Adjoint Operators ---
 %  ---
 
-\def\TitleVIII{Linear Operators in Hilbert Space}
 \newpage
 \thispagestyle{empty}
+\def\TitleVIII{Linear Operators in Hilbert Space}
 \fancyhead[C] {\small{\textsc{VIII. \TitleVIII}}}
 \part{\TitleVIII}
 %------------------------------------------------------------------------------%
@@ -7860,9 +7842,9 @@ Springer Verlag, 1980.
 %  §7. Positive Self-Adjoint Operators and Cauchy Problems ---
 %  ---
 
-\def\TitleIX{Spectral Theory of Self-Adjoint Operators}
 \newpage
 \thispagestyle{empty}
+\def\TitleIX{Spectral Theory of Self-Adjoint Operators}
 \fancyhead[C] {\small{\textsc{IX. \TitleIX}}}
 \part{\TitleIX}
 %------------------------------------------------------------------------------%
@@ -8933,9 +8915,9 @@ Springer, 1980.
 %  §6. Well-Posedness of Second-Order Cauchy Problems ---
 %  ---
 
-\def\TitleX{Semigroups of Bounded Linear Operators}
 \newpage
 \thispagestyle{empty}
+\def\TitleX{Semigroups of Bounded Linear Operators}
 \fancyhead[C] {\small{\textsc{X. \TitleX}}}
 \part{\TitleX}
 %------------------------------------------------------------------------------%
@@ -9624,9 +9606,9 @@ Applied Mathematical Sciences Vol.\,44, Springer, 1983.
 %  §7. Variational Evolution Equations ---
 %  ---
 
-\def\TitleXI{Coercive Sesquilinear Forms}
 \newpage
 \thispagestyle{empty}
+\def\TitleXI{Coercive Sesquilinear Forms}
 \fancyhead[C] {\small{\textsc{XI. \TitleXI}}}
 \part{\TitleXI}
 %------------------------------------------------------------------------------%
@@ -10672,9 +10654,9 @@ Grund\-lehren der mathematischen Wissenschaften, Band 111, 1961.
 % §11. Free Space Problems ---
 % §12. Fourier Transform Methods ---
 
-\def\TitleXII{Applications to Linear Differential Operators}
 \newpage
 \thispagestyle{empty}
+\def\TitleXII{Applications to Linear Differential Operators}
 \fancyhead[C] {\small{\textsc{XII. \TitleXII}}}
 \part{\TitleXII}
 %------------------------------------------------------------------------------%
