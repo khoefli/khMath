@@ -64,7 +64,7 @@ const Topics_Data =
   { c:'TVSb',  p:'TVS',  t:'seminorms and locally convex spaces'},
   { c:'TVSc',  p:'TVS',  t:'normed linear spaces'},
   { c:'TVSc1', p:'TVSc', t:'strictly and uniformly convex spaces'},
-  { c:'TVSc2', p:'TVSc', t:'Banach spaces abd Hilbert spaces'},
+  { c:'TVSc2', p:'TVSc', t:'Banach and Hilbert spaces'},
   { c:'TVSc3', p:'TVSc', t:'geometrical properties of Hilbert spaces'},
   { c:'TVSd',  p:'TVS',  t:'spaces of scalar-valued functions and measures'},
   { c:'TVSd1', p:'TVSd', t:'spaces of countinuous functions'},
@@ -86,28 +86,22 @@ const Topics_Data =
   { c:'LOc',   p:'LO',   t:'closed graph and bounded inverse theorem'},
 
   { c:'ADJ',   p:'root', t:'adjoint spaces and operators'},
-  { c:'ADJa',  p:'ADJ',  t:'continuous linear and antilinear functionals'},
-  { c:'ADJb',  p:'ADJ',  t:'weak- and weak* topologies'},
-  { c:'ADJc',  p:'ADJ',  t:'bidual spaces and reflexivity '},
-  { c:'ADJd',  p:'ADJ',  t:'representation theorems for some adjoint spaces'},
-  { c:'ADJe',  p:'ADJ',  t:'sesquilinear forms'},
-  { c:'ADJf',  p:'ADJ',  t:'Riesz\'s representation theorem'},
-  { c:'ADJg',  p:'ADJ',  t:'adjoint operators in locally convex spaces'},
-  { c:'ADJh',  p:'ADJ',  t:'adjoint operators in Banach spaces'},
-  { c:'ADJi',  p:'ADJ',  t:'Hilbert adjoints and classes of normal operators'},
-  { c:'ADJj',  p:'ADJ',  t:'adjoint sesquilinear forms'},
-  { c:'ADJk',  p:'ADJ',  t:'spaces of distributions'},
-  { c:'ADJl',  p:'ADJ',  t:'distributional derivatives'},
-  { c:'ADJm',  p:'ADJ',  t:'formally-adjoint differential expressions'},
-
-  { c:'LOH',   p:'root', t:'linear operators in Hilbert space'},
-  { c:'LOHa',  p:'LOH',  t:'numerical range and external field of regularity'},
-  { c:'LOHb',  p:'LOH',  t:'unitary operators and isometries'},
-  { c:'LOHc',  p:'LOH',  t:'symmetric operators'},
-  { c:'LOHd',  p:'LOH',  t:'self-adjoint operators'},
-  { c:'LOHe',  p:'LOH',  t:'essentially self-adjoint operators'},
-  { c:'LOHf',  p:'LOH',  t:'extension theory for symmetric operators'},
-  { c:'LOHg',  p:'LOH',  t:'perturbation theory for self-adjoint operators'},
+  { c:'ADJa',  p:'ADJ',  t:'continuous linear functionals'},
+  { c:'ADJa1', p:'ADJa', t:'weak- and weak* topologies'},
+  { c:'ADJa2', p:'ADJa', t:'bidual spaces and reflexivity '},
+  { c:'ADJa3', p:'ADJa', t:'representation theorems for some adjoint spaces'},
+  { c:'ADJa4', p:'ADJa', t:'sesquilinear forms'},
+  { c:'ADJa5', p:'ADJa', t:'Riesz\'s representation theorem'},
+  { c:'ADJb',  p:'ADJ',  t:'adjoint operators'},
+  { c:'ADJb1', p:'ADJb', t:'adjoint operators in locally convex spaces'},
+  { c:'ADJb2', p:'ADJb', t:'adjoint operators in Banach spaces'},
+  { c:'ADJb3', p:'ADJb', t:'Hilbert adjoints and classes of normal operators'},
+  { c:'ADJb4', p:'ADJb', t:'adjoint sesquilinear forms'},
+  { c:'ADJc',  p:'ADJ',  t:'distribution theory'},
+  { c:'ADJc1', p:'ADJc', t:'spaces of test functions and distributions'},
+  { c:'ADJc2', p:'ADJc', t:'convolution and tensor products'},
+  { c:'ADJc3', p:'ADJc', t:'formally-adjoint differential expressions'},
+  { c:'ADJc4', p:'ADJc', t:'differential operators with constant coefficients'},
 
   { c:'NSO',   p:'root', t:'normally solvable operators'},
   { c:'NSOa',  p:'NSO',  t:'Banach\'s closed range theorem'},
@@ -118,6 +112,22 @@ const Topics_Data =
   { c:'NSOf',  p:'NSO',  t:'Fredholm\'s alternative theorem'},
   { c:'NSOg',  p:'NSO',  t:'concepts of solvability for linear equations'},
 
+  { c:'CVF',   p:'root', t:'calculus of vector-valued functions'},
+  { c:'CVFa',  p:'CVF',  t:'spaces of classical differentiable functions'},
+  { c:'CVFb',  p:'CVF',  t:'Riemann integration'},
+  { c:'CVFd',  p:'CVF',  t:'Bochner integration'},
+  { c:'CVFg',  p:'CVF',  t:'weak derivatives and Bochner-Sobolev spaces'},
+  { c:'CVFh',  p:'CVF',  t:'holomorphic vector-valued functions'},
+
+  { c:'LOH',   p:'root', t:'linear operators in Hilbert space'},
+  { c:'LOHa',  p:'LOH',  t:'numerical range and external field of regularity'},
+  { c:'LOHb',  p:'LOH',  t:'unitary operators and isometries'},
+  { c:'LOHc',  p:'LOH',  t:'symmetric operators'},
+  { c:'LOHd',  p:'LOH',  t:'self-adjoint operators'},
+  { c:'LOHe',  p:'LOH',  t:'essentially self-adjoint operators'},
+  { c:'LOHf',  p:'LOH',  t:'extension theory for symmetric operators'},
+  { c:'LOHg',  p:'LOH',  t:'perturbation theory for self-adjoint operators'},
+
   { c:'CBA',   p:'root', t:'commutative Banach algebras'},
   { c:'CBAa',  p:'CBA',  t:'Gelfand representation'},
   { c:'VBAb',  p:'CBA',  t:'involutional algebras and C*-algebras'},
@@ -126,13 +136,6 @@ const Topics_Data =
   { c:'CBAc2', p:'CBAc', t:'locally compact Abelian groups '},
   { c:'CBAc3', p:'CBAc', t:'Fourier transformation on LCA groups '},
   { c:'CBAc4', p:'CBAc', t:'the Fourier transform in Euclidean spaces'},
-
-  { c:'CVF',   p:'root', t:'calculus of vector-valued functions'},
-  { c:'CVFa',  p:'CVF',  t:'spaces of classical differentiable functions'},
-  { c:'CVFb',  p:'CVF',  t:'Riemann integration'},
-  { c:'CVFd',  p:'CVF',  t:'Bochner integration'},
-  { c:'CVFg',  p:'CVF',  t:'weak derivatives and Bochner-Sobolev spaces'},
-  { c:'CVFh',  p:'CVF',  t:'holomorphic vector-valued functions'},
 
   { c:'SPT',   p:'root', t:'spectral theory'},
   { c:'SPTa',  p:'SPT',  t:'general theory on resolvent and spectrum'},
@@ -345,7 +348,13 @@ const Dover_Data =
 
 const GSM_Data =
 [
-  { id:'36',a:'M. Schechter' ,t:'Principles of Functional Analysis',y:'2002'}
+  { id:'36', a:'M. Schechter',                          t:'Principles of Functional Analysis',               y:'2002'},
+  { id:'66', a:'Y. Eidelman, V. Milman, A. Tsolomitis', t:'Functional Analysis: An Introduction',            y:'2004'},
+  { id:'116',a:'J. Cerdà',                              t:'Linear Functional Analysis',                      y:'2010'},
+  { id:'143',a:'A. Bressan',                            t:'Lecture Notes on Functional Analysis',            y:'2013'},
+  { id:'156',a:'M. Haase',                              t:'Functional Analysis: An Elementary Introduction', y:'2014'},
+  { id:'166',a:'A. Torchinsky',                         t:'Problems in Real and Functional Analysis',        y:'2015'},
+  { id:'191',a:'T. Bühler, D. Salomon',                 t:'Functional Analysis',                             y:'2018'}
 ]
 
 const Mass_Data =
@@ -485,7 +494,10 @@ const Book_Data =
   { a:'E. Zeidler' ,t:'Nonlinear Functional Analysis and its Applications. IIB: Nonlinear Monotone Operators',p:'Springer',y:'1989'},
   { a:'E. Zeidler' ,t:'Nonlinear Functional Analysis and its Applications. III: Variational Methods and Optimization',p:'Springer',y:'1985'},
   { a:'E. Zeidler' ,t:'Nonlinear Functional Analysis and its Applications. IV: Applications to Mathematical Physics',p:'Springer',y:'1988'},
-  { a:'S. Kesavan' ,t:'Nonlinear Functional Analysis: A First Course',p:'Springer',y:'2022'}
+  { a:'S. Kesavan' ,t:'Nonlinear Functional Analysis: A First Course',p:'Springer',y:'2022'},
+  { a:'Y. Eidelman, V. Milman, A. Tsolomitis', t:'Functional Analysis: An Introduction', p:'GSM', y:'2004'},
+  { a:'M. Haase',   t:'Functional Analysis: An Elementary Introduction', p:'GSM',  y:'2014'},
+  { a:'A. Bressan', t:'Lecture Notes on Functional Analysis',            p:'GSM',  y:'2013'},
 ]
 
 const MSC46_Data =
