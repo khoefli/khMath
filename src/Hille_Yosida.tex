@@ -70,7 +70,7 @@ In the forties of the 20$^{\textrm{th}}$ century
 the cornerstones of semigroup theory has been developed independently
 by the mathematicians \textsc{E.\,Hille} and \textsc{K.\,Yosida}.
 Both proved in different ways a theorem that clarifies the condition,
-when a linear operator $\linA$ acting in a complex Banach space $\banX$
+when a linear operator $\linA$ acting in a Banach space $\banX$
 is the infinitesimal generator of a strongly continuous semigroup {\SG}
 of bounded linear operators.
 
@@ -78,7 +78,7 @@ of bounded linear operators.
 This subject is of great importance {\wrt} the existence and uniqueness
 of solutions for the abstract initial-value problem
 \[
-\dot{x} + \linA x = \0, \quad x(0) = x_0,
+\dot{x} + \linA x = \0, \quad x(0) = x_0 \in \banX,
 \]
 which is meaningful for evolutional differential equations
 posed in a domain $\G \subset \Rd$
@@ -89,10 +89,10 @@ and governed by linear-elliptic partial differential operators.
 
 \section{Strongly Continuous Semigroups}
 %------------------------------------------------------------------------------%
-Let $\banX$ be a complex Banach space and $\BO{\banX}$ be the linear space
+Let $\banX$ be a complex Banach space and $\BO{\banX}$ the unital Banach algebra
 of bounded linear operators $\linS \: \banX \xto \banX$
-with identity operator $\1_{\banX}$.
-By a \textit{C$_0$-semigroup} or
+with identity $\1_{\banX}$.
+Then by a \textit{C$_0$-semigroup} or
 a \textit{strongly continuous semigroup} of bounded linear operators
 {\SG} is meant an operator-valued mapping
 \[
@@ -122,10 +122,9 @@ $\cal{E}(t) \: \lambda \xeof \R \mapsto e^{-\lambda t}$,
 hence {\EG} serves as an elementary example of a strongly continuous semigroup.
 
 \subparagraph{} %- classification of strongly continuous semigroups
-The totality of strongly continuous semigroups
-may be classified as follows:
-for each such semigroup {\SG} there are constants $M \geq 0$
-and $\omega \xeof \R$
+For a given Banach space $\banX$
+the totality of strongly continuous semigroups may be classified as follows:
+for each such {\SG} there are constants $M \geq 0$ and $\omega \xeof \R$
 such that
 \begin{equation}\label{X_SEMIGROUP_GROWTH}
 \norm{\linS(t)} \, \leq \, M e^{\omega t}
@@ -152,23 +151,25 @@ M^{n{+}1} \= M e^{n \cdot \ln{M}}.
 \]
 
 \subparagraph{} %- semigroups of contractions
-In the special case,
-where $(M,\omega) \eq (0,1)$ or $\norm{S(t)} \leq 1$ for $t \geq 0$,
+In the special case
+$(M,\omega) \eq (0,1)$ and $\norm{S(t)} \leq 1$ for $t \geq 0$,
+respectively,
 the semigroup is said to be \textit{contracting}.
 
 \paragraph{} %- orbit maps
-By the \textit{orbit map} or \textit{trajectory} $\eta_x$
+By the \textit{orbit map} or the \textit{trajectory} $\eta_x$
 of a C$_0$-semigroup {\SG}
-and associated with an initial element $x \xeof \banX$
+associated with an initial element $x \xeof \banX$
 we mean the vector-valued mapping $\eta_x \: [\,0,\infty) \xto \banX$
 defined by $\eta_x(t) := S(t) \, x$.
 Both conditions (G-1) and (G-2) together imply
 that $\eta_x$ is continuous.
-But it is even differentiable under a very mild assumption:
-For each $x \xeof \banX$
-the mapping $\eta_x$ is differentiable in $(0,\infty)$
+But the orbit map is even differentiable under a very mild assumption.
+In fact,
+$\eta_x$ is differentiable in $(0,\infty)$
+for each $x \xeof \banX$
 iff
-it is right differentiable in $t \eq 0$ only.
+it is differentiable from the right in $t \eq 0$ only.
 
 \section{Infinitesimal Generators}
 %------------------------------------------------------------------------------%
@@ -185,21 +186,22 @@ y \= \lim_{\,h \downarrow 0} \, \frac{1}{h}(\linS(h)x-x) \mbox{ exists}\}.
 Hence the \textit{domain of definition} $\domain{\linA}$ of the mapping $\linA$
 consists of those elements $x \xeof \banX$,
 for which the orbit map $\eta_x$ is differentiable from the right in $t \eq 0$,
-that is,
+or equivalently,
 \[
-\domain{\linA} \eqdef \{x \xeof \banX \: \eta_x \mbox{ is differentiable}\}.
+\domain{\linA} \eqdef
+\{x \xeof \banX \: \eta_x\:[0,\infty) \xto \banX \mbox{ is differentiable}\}.
 \]
 It is not hard to show that
 $\domain{\linA}$ is a linear subspace of $\banX$
 and the mapping $\linA$ is linear,
-so $\linA$ constitutes a linear operator acting in $\banX$.
+so $\linA$ constitutes a "linear operator" in $\banX$.
 
 \paragraph{} %- theorem 3.1
 The following theorem contains a couple of assertions,
-which will be used in proving the main theorems of this text.
+which will later be used to prove the main theorems of this text.
 
 \begin{theorem}\label{XXX}
-Let {\SG} be a C$_0$-semigroup and let $\linA$ be its generator.
+Let {\SG} be a C$_0$-semigroup with infinitesimal generator $\linA$.
 Then
 \begin{itemize}[leftmargin=30pt]
 
@@ -275,23 +277,26 @@ assertion (iv) is deduced by integrating \eqref{XXX_3} from $0$ to $t$.
 
 \paragraph{} %- closed linear operators
 Let us turn to the concept of densely defined and closed linear operator.
-First, a linear operator $\linA$ is said to be densely defined in $\banX$,
-if $\domain{\linA}$ lies dense in $\banX$.
-Second, the operator $\linA$ is called \textit{closed},
+First,
+a linear operator $\linA$ is said to be \textit{densely defined} in $\banX$,
+if its domain of definition $\domain{\linA}$ lies dense in $\banX$.
+Second,
+the operator $\linA$ is called \textit{closed},
 if the set
 \[
 \Gamma_{\linA} \eqdef
 \{\,(x,\linA x) \:x \xeof \domain{\linA}\,\} \; \xsubset \; \banX \xtimes \banY,
 \]
 denoted the \textit{graph} of $\linA$,
-is closed in the space $\banX \xtimes \banY$
-{\wrt} the product topology $\topT_{\,\banX \xtimes \banY}$.
-This property especially implies that
-the kernel $\kernel{\linA}$ of $\linA$ forms a closed set in $\banX$.
+forms a closed subset of the space $\banX \xtimes \banY$
+{\wrt} the product topology $\topT_{\,\banX {\times} \banY}$.
+This property especially implies that the \textit{kernel}
+$\kernel{\linA} := \{x \xeof \domain{\linA}: \linA x \eq \0\}$
+is closed.
 
 \subparagraph{} %- sequentially closed operators
 It is a matter of fact
-that a linear operator $\linA$ is closed
+that a linear operator $\linA$ acting between normed linear spaces is closed
 iff it is \textit{sequentially closed},
 that is,
 $x_n \xto x$ and $\linA x_n \xto y$ implies
@@ -313,13 +318,13 @@ to prove that a given linear operator is graph-closed.
 
 \subparagraph{}
 We finally mention that if $\linA$ is closed,
-then every operator $\zeta-\linA$ ($\zeta \xeof \C$)
+then for $\zeta \xeof \C$ the operator $\zeta-\linA$
 with domain of definition $\domain{\zeta-\linA} \eq \domain{\linA}$ is closed,
 too.
 Moreover,
 if $\linA$ is closed and bijective,
 then the inverse operator
-$\linA^{-1}\: \range{\linA} \xsubset \banY \xto \domain{\linA} \xsubset \banX$
+$\linA^{-1}\: \range{\linA} \xsubset \banX \xto \domain{\linA} \xsubset \banX$
 is also linear and closed.
 The assertion of $\linA^{-1}$ being closed is based on the facts
 that\\
@@ -329,10 +334,10 @@ then $\Gamma_{A^{-1}}$ is closed in $\banY \xtimes \banX$ and\\
 between the spaces $\banX \xtimes \banY$ and $\banY \xtimes \banX$.
 
 \paragraph{} %- infinitesimal generators are densely defined and closed
-Our next theorem indicates that infinitesimal generators fit into the
-class of densely defined and closed linear operators:
+Our next theorem indicates that infinitesimal generators fit into
+the class of densely defined and closed linear operators:
 
-\begin{theorem}\label{YYY}
+\begin{theorem}\label{GENERATORS_ARE_DENSELY_DEFINED_AND_CLOSED}
 If $\linA$ is the generator of a strongly continuous semigroup,
 then $\linA$ is densely defined and closed.
 \end{theorem}
@@ -342,17 +347,17 @@ To show that $\linA$ is densely defined,
 consider the value $x_t$ as defined in \eqref{XXX_1}.
 From assertion \ref{XXX}\,(ii) we deduce $x_t \xeof \domain{\linA}$
 for all $t > 0$ and by \ref{XXX}\,(i) we have $x_t \to x$ as $t \downarrow 0$,
-which implies $\overline{\domain{\linA}} \eq \banX$.
+which implies that the closure of $\domain{\linA}$ is the whole of $\banX$.
 
 \subparagraph{}
 To show that $\linA$ is closed,
 let $x_n \xeof \domain{\linA}$ with $x_n \xto x$ and $\linA x_n \xto y$.
-By \ref{XXX}\,(iv) we have that
-\begin{equation}\label{YYY_1}
-S(t)x_n -x_n \= \int_0^t S(t)\,\linA x_n \, ds.
+By \ref{XXX}\,(iv) we have
+\begin{equation}\label{GDDC_1}
+S(t)x_n -x_n \= \int_0^t S(t)\,\linA x_n \, ds,
 \end{equation}
-The integrand converges to $S(s)y$ uniformly on bounded intervals.
-Thus letting $n \to \infty$ in \eqref{YYY_1}, we obtain
+where the integrand converges to $S(s)y$ uniformly on bounded intervals.
+Thus letting $n \to \infty$ in \eqref{GDDC_1}, we obtain
 \[
 S(t)x \,-\, x \= \int_0^t S(t)y \, ds.
 \]
@@ -362,12 +367,13 @@ and $\linA x \eq y$.
 \qed
 
 \paragraph{} %- the uniqueness theorem for generators
-Using the fact that an infinitesimal generator is densely defined,
-we are able to quote the following uniqueness theorem:
+Using the fact that infinitesimal generators are densely defined,
+we may quote the following uniqueness theorem:
 
 \begin{theorem}
 If $\linA$ and $\linB$ are generators of C$_0$-semigroups,
-then $\linA \eq \linB$ imply that the generated semigroups are equal, too.
+then $\linA \eq \linB$ imply that the semigroups generated by them
+are identical.
 \end{theorem}
 
 \subparagraph{}
@@ -390,7 +396,7 @@ and $s \eq t$ are the same,
 that is,
 $T(t)x \eq S(t)x$.
 This is true for any $x \xeof \domain{\linA}$,
-since from theorem \ref{YYY}
+since by theorem \ref{GENERATORS_ARE_DENSELY_DEFINED_AND_CLOSED}
 the domain of definition $\domain{\linA}$ is dense in $\banX$
 and $T(t)$ and $S(t)$ are bounded,
 thus $T(t)x \eq S(t)x$ for every $x \xeof \banX$.
@@ -399,24 +405,41 @@ thus $T(t)x \eq S(t)x$ for every $x \xeof \banX$.
 \section{C$_0$-Semigroups and Cauchy Problems}
 %------------------------------------------------------------------------------%
 The \textit{homogeneous Cauchy problem} of first order associated with
-a densely defined and closed linear operator $\linA$ acting in $\banX$
-is to find a solution
-of the initial value problem 
+a densely defined and closed linear operator $\linA$ acting in a Banach space
+$\banX$ is to find a solution of the initial value problem 
 
 \begin{equation}\label{HOMOGENEOUS_CAUCHY_PROBLEM}
 \begin{cases}[1.2]
 \quad \dot{x}(t) \= \linA \, x(t),\\
-\quad x(0) \= x_0 \xeof \banX,\\
+\quad x(0) \= x_0 \xeof \banX.\\
 \end{cases}
 \end{equation}
-where $\linA$ is a linear operator acting in a Banach space $\banX$
-and with domain of definition $\domain{\linA}$.
-Our task is to find \textit{vector-valued} solutions $x \: [0,\T) \xto \banX$
-of the equation $\dot{x} \eq \linA x$
-satisfying the initial value condition $x(0) \eq x_0$.
+The task is to find \textit{vector-valued} solutions $x \: [0,\T) \xto \banX$
+of $\dot{x} \eq \linA x$ with $x(0) \eq x_0$.
 
 \paragraph{} %- solution concepts for the Cauchy problem
-First of all we have to define concepts of solution for this problem:
+Remember that a vector-valued function $x \: [a,b] \xto \banX$
+is called \textit{classical differentiable} in $t_0 \xeof (a,b)$,
+if there is an element $x'(t_0) \xeof \banX$ such that
+\[
+\lim_{\,t \xto t_0} \,
+\norm{ \, \frac{x(t)-x(t_0)}{t-t_0}\, - x'(t_0) \, } \= 0.
+\]
+Moreover,
+the function $x$ is called {classical differentiable in} $(a,b)$,
+if $x$ is so in each $t \xeof (a,b)$.
+The linear space consisting of functions having \textit{continuous}
+classical derivatives in $(a,b)$ is denoted $C^1(a,b;\banX)$.
+
+\subparagraph{} %- spaces of k-times differentiable functions
+The spaces $C^k(a,b;\banX)$ ($k \xeof \N$) are defined recursively,
+and the space $C^{\infty}(a,b;\banX)$ is defined
+by taking the intersection of all spaces $C^k(a,b;\banX)$,
+$k \xeof \N_0$.
+
+\paragraph{} %- solution concepts for the Cauchy problem
+Concepts of solution for problem \eqref{HOMOGENEOUS_CAUCHY_PROBLEM}
+are given as follows:
 
 \begin{itemize}[leftmargin=12pt]
 \item[1.]
@@ -465,7 +488,7 @@ Notice that each classical solution is a mild solution,
 and reversely a mild solution is classical
 iff it is continuously differentiable in $(0,\T)$.
 Thus classical and mild solutions of homogeneous Cauchy problems
-only differ {\wrt} this regularity condition.
+only differ {\wrt} this regularity property.
 
 \paragraph{} %-- correctly and well-posed Cauchy problems
 After having the notions of classical and mild solution for the homogeneous
@@ -483,7 +506,7 @@ Second,
 it is denoted \textit{well-posed},
 if it is correctly posed and
 the solution $x$ depends continuously on the initial value $x_0$,
-or in other words,
+or equivalently,
 if for each $\T {\,>\,} 0$ there is $c_{\T} {\,>\,} 0$ such that
 \[
 \norm{x(t)} \leq c_{\T} \norm{x_0}
@@ -502,14 +525,15 @@ for $0 {\,<\,} t_0 < \T$.
 
 \subparagraph{}
 We mention without proof
-that problem \eqref{HOMOGENEOUS_CAUCHY_PROBLEM}
+that problem \eqref{HOMOGENEOUS_CAUCHY_PROBLEM} is well-posed
 iff
-it is correctly posed and $\linA$ is regular,
+it is correctly posed and the operator $\linA$ is \textit{regular},
 that is,
-$\rho(\linA) \ne \emptyset$ holds.
+$\rho(\linA) \ne \emptyset$ holds
+(for the definition of the set $\rho(\linA)$ see section 5).
 
 \paragraph{}
-The main theorem of this section claims the following statement
+The main theorem of this section provides the following equivalence
 and emphasizes the meaning of C$_0$-semigroups for the solution theory
 of abstract linear evolution equations:
 
@@ -526,7 +550,7 @@ theorem II.6.6 at p.\,112.
 
 \section{Resolvent Functions}
 %------------------------------------------------------------------------------%
-In this section we want to introduce some concepts of spectral theory.
+In this section we want to introduce some required concepts of spectral theory.
 Any complex number $\zeta \xeof \C$ is called a \textit{regular value}
 of the operator $\linA$,
 if $\linA - \zeta \: \domain{\linA} \xto \banX$ is bijective
@@ -550,8 +574,8 @@ $R(\linA,\zeta) \xeof \BO{\banX}$\footnote{
 one has in addition to require that
 for $\zeta \xeof \rho(\linA)$ the inverse operator $R(\linA,\zeta)$
 is bounded.}.
-The operator $R(\linA,\zeta)$ is called the \textit{resolvent} of $\linA$
-{\wrt} $\zeta \xeof \rho(\linA)$,
+The linear operator $R(\linA,\zeta)$ is called the \textit{resolvent}
+of $\linA$ {\wrt} $\zeta \xeof \rho(\linA)$,
 and the operator-valued mapping
 \begin{equation}\label{VI_RESOLVENT_FUNCTION}
 \begin{cases}[1.2]
@@ -635,8 +659,8 @@ are often called \textit{regular}.
 
 \paragraph{} %- Laplace transforms
 In the second part of this section we want to establish a relationship between
-strongly continuous semigroups and the resolvents of their generating operators,
-called the \textit{Laplace transform}.
+strongly continuous semigroups and the resolvents of their infinitesimal operators,
+denoted the \textit{Laplace transform} of the semigroup.
 
 \subparagraph{}
 Let the semigroup {\SG} be strongly continuous.
@@ -715,8 +739,8 @@ we have $(\omega,\infty) \xsubset \rho(\linA)$.
 \qed
 
 \paragraph{}
-Let us put together the necessary conditions for $\linA$ to be an infinitesimal
-generator:
+Let us put together the necessary conditions for the linear operator $\linA$
+to be an infinitesimal generator:
 
 \begin{corollary}
 In order $\linA$ to be the generator of a C$_0$-semigroup of type $(M,\omega)$,
@@ -728,8 +752,8 @@ $\linA$ is densely defined and closed.
 \item[(b)]
 $(\omega,\infty) \xsubset \rho(\linA)$ and
 \begin{equation}\label{RESOLVENT_ESTIMATION_HY}
-\norm{R(\linA,\zeta)^n} \leq M (\zeta- \omega)^{-n}
-\for \zeta \in (\omega,\infty) \and n \xeof \N.
+\norm{R(\linA,\zeta)^n} \leq M (\zeta - \omega)^{-n}
+\quad \for \zeta \in (\omega,\infty) \and n \xeof \N.
 \end{equation}
 \end{itemize}
 \end{corollary}
@@ -738,15 +762,42 @@ $(\omega,\infty) \xsubset \rho(\linA)$ and
 The family of inequalities quoted in (b) of this corollary is often denoted
 the \textit{Hille-Yosida condition}.
 
+\subparagraph{}
+In the case, where $(M,\omega) \eq (1,\omega)$,
+that is,
+the semigroup is \textit{quasi-contractive},
+we have $\norm{R(\linA,\zeta)} \leq (\zeta-\omega)^{-1}$ for $\zeta > \omega$ ($n \eq 1$),
+which implies that all the conditions for $n > 1$ are also fulfilled.
+Hence the family of conditions in \eqref{RESOLVENT_ESTIMATION_HY} reduces to
+a single one, and this can often verified very easily.
+Due to the importance of this fact,
+we quote this special case in a further corollary:
+
+\begin{corollary}
+In order $\linA$ to be the generator of a C$_0$-semigroup of type $(1,\omega)$,
+the following properties must be fulfilled.
+
+\begin{itemize}[leftmargin=15pt]
+\item[(a)]
+$\linA$ is densely defined and closed.
+\item[(b)]
+$(\omega,\infty) \xsubset \rho(\linA)$ and
+\begin{equation}\label{RESOLVENT_ESTIMATION_HY2}
+\norm{R(\linA,\zeta)} \leq \frac{1}{\zeta - \omega}
+\quad \for \zeta \in (\omega,\infty).
+\end{equation}
+\end{itemize}
+\end{corollary}
+
 \section{Generator Theorems of Hille-Yosida Type}
 %------------------------------------------------------------------------------%
-As it has already been elaborated in the last section,
-to each strongly continuous semigroup {\SG} there is a linear operator $\linA$
-as its infinitesimal generator.
+As it has already been elaborated in the third section,
+to each strongly continuous semigroup {\SG} of bounded operators
+there is a linear operator $\linA$ as its infinitesimal generator.
 Reversely,
 the question arises,
-under which conditions a linear operator forms
-the infinitesimal generator of any C$_0$-semigroup.
+under which conditions a linear operator constitutes
+the infinitesimal generator of a C$_0$-semigroup.
 For bounded operators the answer can be given quickly:
 if $\norm{\linA}$ is the operator norm of $\linA$,
 then the mappings
@@ -784,26 +835,15 @@ satisfies the Hille-Yosida conditions
 
 \subparagraph{}
 \Proof:
-It was already shown in the last section that (a) implies (b).
+It was already shown in the last section that (a) implies (b)
+(see corollary 5.1).
 Reversely,
-to prove that (b) implies (a),
-we shall reformulate the theorem for a special case and come back to the proof
+it is to prove that (b) implies (a).
+First of all,
+we shall reformulate and prove theorem \ref{GENERAL_HY-THEOREM}
+for the case of quasi-contractive semigroups
+and then come back to the proof of the implication (b) $\Rightarrow$ (a)
 at the end of this section.
-\qed
-
-\paragraph{} %- quasi-contractive semigroups
-In fact,
-before proving theorem \ref{GENERAL_HY-THEOREM},
-let us especially consider the case $M \eq 1$.
-If the C$_0$-semigroup {\SG} is of type $(1,\omega)$,
-then the estimation $\norm{S(t)} \leq e^{\omega t}$ holds
-for all $t \geq 0$,
-and the semigroup is denoted a \textit{semigroup of quasi-contractions}.
-Then the family \eqref{HILLE-YOSIDA_CONDITIONS} of resolvent estimates
-can be reduced to one single estimate,
-namely for that with $n \eq 1$,
-and theorem \ref{GENERAL_HY-THEOREM} simplifies
-to the classical \textit{Hille-Yosida} \textit{theorem}:
 
 \begin{theorem}\label{HY-THEOREM_2}
 A linear operator $\linA$ is the infinitesimal generator of a C$_0$-semigroup
@@ -824,12 +864,12 @@ $\norm{R(\linA,\zeta)} \leq (\zeta-\omega)^{-1}$ holds.
 \Proof:
 If $\linA$ is an infinitesimal generator,
 then the validness of conditions (a) and (b) was already quoted
-in corollary 5.1.
+in corollary 5.2.
 
 \subparagraph{}
 Reversely,
 we want to sketch how the assertions (a) and (b) imply
-that $\linA$ generates a contractional C$_0$-semigroup.
+that $\linA$ generates a quasi-contractional C$_0$-semigroup.
 First of all,
 it can be verified that \eqref{RESOLVENT_ESTIMATION_HY} implies
 $
@@ -866,15 +906,21 @@ S(t)x \eqdef \lim_{\,n \to \infty} e^{t \linA_n}\,x
 To be precise,
 one first has to verify property (S-1) and (S-2)
 and second the operator $\linA$ to be
-the generator of the semigroup \eqref{YOSIDA_SEMIGROUP}.
+the infinitesimal generator of the semigroup \eqref{YOSIDA_SEMIGROUP}.
+% --tbd
 \qed
 
 \paragraph{}
-Recall from section 2 that
-in the more special case,
+We now come back to the proof of theorem \ref{GENERAL_HY-THEOREM}
+by using the assertion of the already proved theorem \ref{HY-THEOREM_2}.
+% --tbd
+\qed
+
+\paragraph{}
+Recall that in the more special case,
 where $M \eq 1$ and $\omega \eq 0$,
 the semigroup of type $(1,0)$ is called a \textit{semigroup of contractions}.
-From theorem \ref{HY-THEOREM_2} we obtain the following
+From theorem \ref{HY-THEOREM_2} we deduce the following
 
 \begin{corollary}\label{HY-THEOREM_3}
 Let $\linA$ be a linear operator acting in a complex Banach space $\banX$
@@ -1286,7 +1332,7 @@ for the homogeneous Cauchy problem
 \end{cases}
 \]
 with initial mapping $u_0 \xeof H^2(\Rd)$.
-Moreover,
+Furthermore,
 it is possible to represent the semigroup {\GG}
 explicitly by means of the \textit{heat kernel} function
 \[
