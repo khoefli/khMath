@@ -354,52 +354,41 @@ const GSM_Data =
   { id:'143',a:'A. Bressan',                            t:'Lecture Notes on Functional Analysis',            y:'2013'},
   { id:'156',a:'M. Haase',                              t:'Functional Analysis: An Elementary Introduction', y:'2014'},
   { id:'166',a:'A. Torchinsky',                         t:'Problems in Real and Functional Analysis',        y:'2015'},
-  { id:'191',a:'T. Bühler, D. Salomon',                 t:'Functional Analysis',                             y:'2018'}
+  { id:'191',a:'T. Bühler, D. Salamon',                 t:'Functional Analysis',                             y:'2018'}
 ]
 
 const Mass_Data =
 [
-  {id:'5',a:'M.S. Birman, M.Z. Solomjak' ,t:'Spectral Theory of Self-Adjoint Operators in Hilbert Space',y:'1987'}
+  {a:'M.S. Birman, M.Z. Solomjak',t:'Spectral Theory of Self-Adjoint Operators in Hilbert Space',y:'1987'},
+  {a:'F.A. Berezin, M. Shubin' ,  t:'The Schrödinger Equation',                                  y:'1991'}
 ]
 
 const Journal_Data =
 [
-  { c:'', t:'Advances in Applied Mathematics'},
-  { c:'', t:'Advances in Mathematics'},
-  { c:'', t:'Archive for Rational Mechanics and Analysis'},
-  { c:'', t:'American Journal of Mathematics'},
-  { c:'', t:'Annali Della Scuola Normale Superiore di Pisa'},
-  { c:'', t:'<a href=\'https://annals.math.princeton.edu\'>Annals of Mathematics</a>'},
-  { c:'', t:'Applied Mathematical Letters'},
-  { c:'', t:'Applied Mathematics and Computation'},
-  { c:'', t:'Applied Numerical Mathematics'},
-  { c:'', t:'Bull. Amer. Math. Soc.'},
-  { c:'', t:'Bull. Soc. Math. France'},
-  { c:'', t:'Doklady Aka.d Nauk. USSR'},
-  { c:'', t:'Fundamentae Mathematica'},
-  { c:'', t:'Indiana University Mathematics Journal'},
-  { c:'', t:'Journal of Applied Mathematics and Mechanics (ZAMM)'},
-  { c:'', t:'Journal of Mathematical Analysis and Applications'},
-  { c:'', t:'Journal of Operator Theory'},
-  { c:'', t:'Mathematica Scandinavica'},
-  { c:'', t:'Osaka Math. J.'},
-  { c:'', t:'Pacific Journal of Mathematics'},
-  { c:'', t:'Philosophical Transactions'},
-  { c:'', t:'Philosophy of Science'},
-  { c:'', t:'Proceedings: Mathematical, Physical and Engineering Sciences'},
-  { c:'', t:'Proceedings of the American Mathematical Society'},
-  { c:'', t:'Proc. London Math. Soc.'},
-  { c:'', t:'Proc. Natl. Acad. Sci. USA (PNAS)'},
-  { c:'', t:'Pure and Applied Mathematics'},
-  { c:'', t:'SIAM Journal on Applied Mathematics'},
-  { c:'', t:'SIAM Journal on Numerical Analysis'},
-  { c:'', t:'SIAM Review'},
-  { c:'', t:'Synthese'},
-  { c:'', t:'Taiwanese Journal of Mathematics'},
-  { c:'', t:'The American Mathematical Monthly'},
-  { c:'', t:'The Rocky Mountain Journal of Mathematics'},
-  { c:'', t:'Transactions of the American Mathematical Society'},
-  { c:'', t:'Trans. Amer. Math. Soc.'},
+  { p:'Elsevier', t:'<a href=\'https://www.sciencedirect.com/journal/advances-in-applied-mathematics\'>Advances in Applied Mathematics</a>', d:'Adv. Appl. Math.'},
+  { p:'Elsevier', t:'<a href=\'https://shop.elsevier.com/journals/advances-in-mathematics/0001-8708\'>Advances in Mathematics</a>', d:'Adv. Math.'},
+  { p:'Springer', t:'<a href=\'https://link.springer.com/journal/205/volumes-and-issues\'>Archive for Rational Mechanics and Analysis</a>', d:'Arch. Ration. Mech. Anal.'},
+  { p:'John Hopkings University Press', t:'<a href=\'https://www.press.jhu.edu/journals/american-journal-mathematics?srsltid=AfmBOopRgk6DPUPowIy2l629LamZyp9dGebwQJd2LgI6FfXZUKFtp3wn\'a>American Journal of Mathematics</a>', d:'Am. J. Math.'},
+  { p:'Princeton University, Institute for Advanced Study', t:'<a href=\'https://annals.math.princeton.edu\'>Annals of Mathematics</a>', d:'Ann. Math.'},
+  { p:'Elsevier', t:'<a href=\'https://shop.elsevier.com/journals/applied-mathematics-and-computation/0096-3003\'>Applied Mathematics and Computation</a>', d:'Appl. Math. Comput.'},
+  { p:'Elsevier', t:'<a href=\'https://shop.elsevier.com/journals/applied-numerical-mathematics/0168-9274\'>Applied Numerical Mathematics</a>', d:'Appl. Numer. Math.'},
+  { p:'Polish Academy of Sciences', t:'<a href=\'https://www.impan.pl/en/publishing-house/journals-and-series/fundamenta-mathematicae\'>Fundamentae Mathematicae</a>', d:'Fundam. Math.'},
+  { p:'Indiana University', t:'<a href=\'https://www.iumj.indiana.edu/\'>Indiana University Mathematics Journal</a>', d:'Indiana Univ. Math. J.'},
+  { p:'Wiley-VCH', t:'<a href=\'https://www.wiley-vch.de/en/shop/journals/296-zamm-2233-en\'>Journal of Applied Mathematics and Mechanics (ZAMM)</a>', d:'J. Appl. Math. Mech.'},
+  { p:'American Mathematical Society', t:'<a href=\'https://pubs.ams.org/journals/tran\'>Journal of the American Mathematical Society</a>', d:'J. Am. Math. Soc.'},
+  { p:'Elsevier', t:'<a href=\'https://shop.elsevier.com/journals/journal-of-mathematical-analysis-and-applications/0022-247X\'>Journal of Mathematical Analysis and Applications</a>', d:'J. Math. Anal. Appl.'},
+  { p:'Theta Foundation Bukarest', t:'<a href=\'https://www.theta.ro/jot.html\'>Journal of Operator Theory</a>', d:'J. Oper. Theory'},
+  { p:'Mathematica Scandinavica', t:'<a href=\'https://www.mscand.dk\'>Mathematica Scandinavica</a>', d:'Math. Scand.'},
+  { p:'Univity of Osaka and Osaka Metropolitan Univity', t:'<a href=\'\'>Osaka Journal of Mathematics</a>', d:'Osaka Math. J.'},
+  { p:'Mathematical Science Publischers', t:'<a href=\'https://msp.org/pjm/2026/343-2/\'>Pacific Journal of Mathematics</a>', d:'Pac. J. Math.'},
+  { p:'The Royal Society', t:'<a href=\'https://royalsocietypublishing.org/rstl\'>Philosophical Transactions</a>', d:'Philos. Trans. R. Soc.'},
+  { p:'American Mathematical Society', t:'</a href=\'https://pubs.ams.org/journals/proc\'>Proceedings of the American Mathematical Society</a>', d:'Proc. Am. Math. Soc.'},
+  { p:'American Mathematical Society', t:'<a href=\'https://pubs.ams.org/journals/bull\'>Bulletin of the American Mathematical Society</a>', d:'Bull. Am. Math. Soc.'},
+  { p:'London Mathematical Society', t:'<a href=\'https://www.lms.ac.uk/publications/plms\'>Proceedings of the London Mathematical Society</a>', d:'Proc. London Math. Soc.'},
+  { p:'Society for Industrial and Applied Mathematics', t:'<a href=\'https://www.siam.org/publications/siam-journals/siam-journal-on-applied-mathematics/\'>SIAM Journal on Applied Mathematics</a>', d:'SIAM J. Appl. Math.'},
+  { p:'Society for Industrial and Applied Mathematics', t:'<a href=\'https://epubs.siam.org/journal/sjnaam\'>SIAM Journal of Numerical Analysis</a>', d:'SIAM J. Numer. Anal.'},
+  { p:'Rocky Mountain Mathematics Consortium', t:'<a href=\'https://rockymountainmathematics.github.io/rmmc/index.html\'>The Rocky Mountain Journal of Mathematics</a>', d:'Rocky Mt. J. Math.'},
+  { p:'American Mathematical Society', t:'<a href=\'https://pubs.ams.org/journals/tran\'>Transactions of the American Mathematical Society</a>', d:'Trans. Am. Math. Soc.'},
 ]
 
 const Book_Data =
@@ -478,7 +467,7 @@ const Book_Data =
   { a:'M. Einsiedler, T. Ward' ,t:'Functional Analysis, Spectral Theory, and Applications',p:'GTM',y:'2017'},
   { a:'B. MacCluer' ,t:'Elementary Functional Analysis',p:'GTM',y:'2009'},
   { a:'A. Taylor, D. Lay' ,t:'Functional Analysis',p:'John Wiley & Sons',y:'1980'},
-  { a:'T. Bühler, D. Salomon' ,t:'Functional Analysis',p:'AMS',y:'2018'},
+  { a:'T. Bühler, D. Salamon' ,t:'Functional Analysis',p:'AMS',y:'2018'},
   { a:'H. Triebel' ,t:'Higher Analysis',p:'Dt. Verlag. der Wiss.',y:'1991'},
   { a:'R. Zimmer' ,t:'Essential Results of Functional Analysis',p:'Chicago Lectures',y:'1990'},
   { a:'K. Schmüdgen' ,t:'Unbounded Self-adjoint Operators in Hilbert Space',p:'GTM',y:'2012'},
@@ -793,8 +782,7 @@ function createTable(title,classname)
   if(classname == 'mass')
   {
     for(i=0; i < Mass_Data.length; i++)
-      table.row.add([Mass_Data[i].id,
-                     Mass_Data[i].a,
+      table.row.add([Mass_Data[i].a,
                      Mass_Data[i].t,
                      Mass_Data[i].y]);
   }
@@ -820,7 +808,8 @@ function createTable(title,classname)
   {
     for(i=0; i < Journal_Data.length; i++)
       table.row.add([Journal_Data[i].t,
-                     Journal_Data[i].c]);
+                     Journal_Data[i].p,
+                     Journal_Data[i].d]);
   }
 
   if(classname == 'msc46')

@@ -117,7 +117,7 @@
               <li onclick="displayContainer('Yosida')">Yosida: Functional Analysis</li>
               <li onclick="displayContainer('Reed_Simon')">Reed & Simon: Methods of Modern Mathematical Physics I-IV</li>
               <li onclick="displayContainer('Fattorini')">Fattorini: The Cauchy Problem</li>
-              <li onclick="displayContainer('Rudin')">Rudin's Books on Mathematical Analysis</li>
+              <li onclick="displayContainer('Rudin')">Walter Rudin's Books on Mathematical Analysis</li>
             </ul>
           </li>
           <li>|</li>
@@ -285,7 +285,7 @@
               <li onclick="displayContainer('Reed_Simon')">Reed & Simon: Methods of Modern Math. Physics I-IV</li>
               <li onclick="displayContainer('Kato')">Kato: Perturbation Theory of Linear Operators</li>
               <li onclick="displayContainer('Fattorini')">Fattorini: The Cauchy Problem</li>
-              <li onclick="displayContainer('Rudin')">Rudin's Books on Mathematical Analysis</li>
+              <li onclick="displayContainer('Rudin')">Walter Rudin's Books on Mathematical Analysis</li>
               <li onclick="displayContainer('Yosida')">Yosida: Functional Analysis</li>
               <li onclick="displayContainer('Nagy')">Riesz & Sz.-Nagy: Functional Analysis</li>
               <li onclick="displayContainer('functional_analysis')">Functional Analysis</li>
@@ -312,7 +312,7 @@
 
       <div id='home' class='container'>
         <h1>Welcome to this web page!</h1>
-        Nowadays <b>functional analysis</b> is one of the most important areas in modern mathematics.
+        <b>Functional analysis</b> is one of the most important areas in modern mathematics.
         It deals with the theory of topological linear spaces and the linear rsp. nonlinear mappings between them.
         The subject was mainly developed in the first half of the 20<sup>th</sup> century,
         and valuable contributions have been done by
@@ -655,7 +655,8 @@
 
       <div id='gsm' class='container' style='display:none'>
         <h1>Graduate Studies in Mathematics</h1>
-        The following table lists textbooks in functional analysis and related topics provided by
+        The following table lists textbooks in functional analysis and related topics
+        provided by the AMS series
         '<a href="https://bookstore.ams.org/gsm">GSM</a>':
         <div class='datatables-content' id='gtm'>
           <table class="compact stripe cell-border" id="gsm-table">
@@ -674,15 +675,14 @@
 
       <div id='mass' class='container' style='display:none'>
         <h1>Mathematics and its Applications</h1>
-        The following table lists textbooks in functional analysis and related topics provided by
+        This series contains publications of Russian mathematicians by Springer, see also
         '<a href="https://link.springer.com/series/6255">Mathematics and Its Applications</a>':
         <div class='datatables-content' id='mass'>
           <table class="compact stripe cell-border" id="mass-table">
             <thead>
               <tr>
-                <th width= "5%" text-align="center">Vol.</th>
                 <th width="30%" text-align="center">Author(s)</th>
-                <th width="60%" text-align="center">Title</th>
+                <th width="65%" text-align="center">Title</th>
                 <th width= "5%" text-align="center">Year</th>
               </tr>
             </thead>
@@ -1198,7 +1198,7 @@
       </div>
 
       <div id='Rudin' class='container' style='display:none'>
-        <h1>Rudin's Books on Mathematical Analysis</h1>
+        <h1>Walter Rudin's Books on Mathematical Analysis</h1>
         <a href="https://en.wikipedia.org/wiki/Walter_Rudin">Walter Rudin</a> was an Austrian mathematician,
         who emigrated to the U.S.A. before second world war.
         He wrote a couple of excellent textbooks, and those dealing with mathematical analysis are:
@@ -1469,10 +1469,10 @@
           <table class="compact stripe cell-border" id="Mathematician-table">
             <thead>
               <tr>
-                <th width="50%" text-align="right">Name</th>
-                <th width="10%" text-align="center">Born</th>
-                <th width="10%" text-align="center">Died</th>
-                <th width="30%" text-align="center">Country</th>
+                <th width="70%" text-align="right">Name</th>
+                <th width= "5%" text-align="center">Born</th>
+                <th width= "5%" text-align="center">Died</th>
+                <th width="20%" text-align="center">Country</th>
               </tr>
             </thead>
             <tbody>
@@ -1502,10 +1502,10 @@
           <table class="compact stripe cell-border" id="Book-table">
             <thead>
               <tr>
-                <th width="20%" text-align="left">Author(s)</th>
+                <th width="22%" text-align="left">Author(s)</th>
                 <th width="62%" text-align="left">Title</th>
-                <th width="15%" text-align="left">Publisher</th>
-                <th width= "3%" text-align="left">Year</th>
+                <th width="14%" text-align="left">Publisher</th>
+                <th width= "2%" text-align="left">Year</th>
               </tr>
             </thead>
             <tbody>
@@ -1538,7 +1538,8 @@
             <thead>
               <tr>
                 <th width="40%" text-align="right">Name</th>
-                <th width="60%" text-align="center">Description</th>
+                <th width="40%" text-align="right">Publisher</th>
+                <th width="20%" text-align="center">ISO-4 Abbreviation</th>
               </tr>
             </thead>
             <tbody>
@@ -1555,17 +1556,17 @@
 <!--------------------------------------------------------------------------------
 |                                      FOOTER                                    |
 --------------------------------------------------------------------------------->
-    <div id="footer">
+    <div id='footer'>
       <p>
       </p>
       <hr><hr>
-      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 20/07/2026).
+      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 09/08/2026).
       <button onclick="displayContainer('about_me')">About me</button>
       <button onclick="displayContainer('impressum')">Impressum</button>
       <button onclick="displayContainer('sitemap')">Sitemap</button>
-      <a href="#top">&#8593;</a>
+      <a target='_self' href='#top'>&#8593;</a>
     </div>
 
-    <script src="main.js"></script>
+    <script src='main.js'></script>
   </body>
 </html>
