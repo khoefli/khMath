@@ -254,22 +254,22 @@ const Isem_Scripts =
 
 const GL_Data =
 [
-  { id:' 97', a:'W. Greub',                y:'1958', t:'Linear Algebra'},
-  { id:'111', a:'J.-L. Lions',             y:'1961', t:'Équations différentielles opérationnelles et problèmes aux limites'},
-  { id:'115', a:'E. Hewitt, K. Ross',      y:'1963', t:'Abstract Harmonic Analysis I'},
-  { id:'116', a:'L. Hörmander',            y:'1963', t:'Linear Partial Differential Operators'},
-  { id:'120', a:'L. Collatz',              y:'1964', t:'Funktionalanalysis und numerische Mathematik'},
-  { id:'123', a:'K. Yosida',               y:'1965', t:'Functional Analysis'},
-  { id:'132', a:'T. Kato',                 y:'1966', t:'<a href=\'https://webhomes.maths.ed.ac.uk/~v1ranick/papers/kato1.pdf\'>Perturbation Theory of Linear Operators</a>'},
-  { id:'136', a:'W. Greub',                y:'1967', t:'Multilinear Algebra'},
-  { id:'152', a:'E. Hewitt, K. Ross',      y:'1970', t:'Abstract Harmonic Analysis II'},
-  { id:'181', a:'J.-L. Lions, E. Magenes', y:'1972', t:'Non-Homogeneous Boundary Value Problems I'},
-  { id:'182', a:'J.-L. Lions, E. Magenes', y:'1972', t:'Non-Homogeneous Boundary Value Problems II'},
-  { id:'183', a:'J.-L. Lions, E. Magenes', y:'1973', t:'Non-Homogeneous Boundary Value Problems III'},
-  { id:'256', a:'L. Hörmander',            y:'1983', t:'The Analysis of Linear Partial Differential Operators I'},
-  { id:'257', a:'L. Hörmander',            y:'1983', t:'The Analysis of Linear Partial Differential Operators II'},
-  { id:'274', a:'L. Hörmander',            y:'1985', t:'The Analysis of Linear Partial Differential Operators III'},
-  { id:'275', a:'L. Hörmander',            y:'1985', t:'The Analysis of Linear Partial Differential Operators IV'}
+  { id:' 97', l:'en', a:'W. Greub',                y:'1958', t:'Linear Algebra'},
+  { id:'111', l:'fr', a:'J.-L. Lions',             y:'1961', t:'Équations différentielles opérationnelles et problèmes aux limites'},
+  { id:'115', l:'en', a:'E. Hewitt, K. Ross',      y:'1963', t:'Abstract Harmonic Analysis I'},
+  { id:'116', l:'en', a:'L. Hörmander',            y:'1963', t:'Linear Partial Differential Operators'},
+  { id:'120', l:'de', a:'L. Collatz',              y:'1964', t:'Funktionalanalysis und numerische Mathematik'},
+  { id:'123', l:'en', a:'K. Yosida',               y:'1965', t:'Functional Analysis'},
+  { id:'132', l:'en', a:'T. Kato',                 y:'1966', t:'<a href=\'https://webhomes.maths.ed.ac.uk/~v1ranick/papers/kato1.pdf\'>Perturbation Theory of Linear Operators</a>'},
+  { id:'136', l:'en', a:'W. Greub',                y:'1967', t:'Multilinear Algebra'},
+  { id:'152', l:'en', a:'E. Hewitt, K. Ross',      y:'1970', t:'Abstract Harmonic Analysis II'},
+  { id:'181', l:'en', a:'J.-L. Lions, E. Magenes', y:'1972', t:'Non-Homogeneous Boundary Value Problems I'},
+  { id:'182', l:'en', a:'J.-L. Lions, E. Magenes', y:'1972', t:'Non-Homogeneous Boundary Value Problems II'},
+  { id:'183', l:'en', a:'J.-L. Lions, E. Magenes', y:'1973', t:'Non-Homogeneous Boundary Value Problems III'},
+  { id:'256', l:'en', a:'L. Hörmander',            y:'1983', t:'The Analysis of Linear Partial Differential Operators I'},
+  { id:'257', l:'en', a:'L. Hörmander',            y:'1983', t:'The Analysis of Linear Partial Differential Operators II'},
+  { id:'274', l:'en', a:'L. Hörmander',            y:'1985', t:'The Analysis of Linear Partial Differential Operators III'},
+  { id:'275', l:'en', a:'L. Hörmander',            y:'1985', t:'The Analysis of Linear Partial Differential Operators IV'}
 ]
 
 const Mathematician_Data =
@@ -738,6 +738,7 @@ function createTable(title,classname)
   {
     for(i=0; i < GL_Data.length; i++)
       table.row.add([GL_Data[i].id,
+                     GL_Data[i].l,
                      GL_Data[i].a,
                      GL_Data[i].t,
                      GL_Data[i].y]);
