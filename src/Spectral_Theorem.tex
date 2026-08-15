@@ -1,0 +1,686 @@
+%------------------------------------------------------------------------------%
+% THE SPECTRAL THEOREM FOR SELF-ADJOINT OPERATORS                              %
+%------------------------------------------------------------------------------%
+% File  : Spectral_Theorem.tex                                                 %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                       DOCUMENT CLASS and INCLUDE FILES                       %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+%\renewcommand\thesection{\Roman{section}}
+
+\titleformat{\section}
+{\normalfont \bfseries \filcenter}
+{\thesection.\;}{0mm}{}
+
+\titleformat{\subsection}%[runin]
+{\normalfont \itshape}
+{}{}{}
+
+\titlespacing*{\section}   {0pt}{12pt}{4pt}
+\titlespacing*{\subsection}{0pt}{6pt}{0pt}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\def\Title{The Spectral Theorem for Self-Adjoint Operators}
+
+\centerline{{\textit{Topics in Spectral and Semigroup Theory}}}
+\vspace{22pt}
+\centerline{\large{\textbf{\Title}}}
+\vspace{4pt}
+\centerline{\small{{\textsc{\Author}}}}
+\vspace{15pt}
+
+\fancyhead[C] {\small{\textsc{\Title}}}
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+
+\myfootnote
+{
+  Version {\Version} from \today;
+  Email:  \textit{khoeflinger@\,t-online.de}
+}
+
+\begin{abstract}
+This exposition is a review on the spectral theorem for not necessarily bounded
+self-adjoint linear operators in Hilbert space and its proof.
+Some applications of the spectral theorem are given.
+\end{abstract}
+
+%------------------------------------------------------------------------------%
+\section{Introduction}                                                         %
+%------------------------------------------------------------------------------%
+The spectral theorem for self-adjoint linear operators in his most general form
+was formulated and proved in the twentieth of the last century
+primarily by the mathematicians \textsc{John von\,Neumann}
+and \textsc{Harvey\;M. Stone}
+and is one of the oldest and most important results in the upcoming mathematical
+theory of \textit{functional analysis}.
+
+\subparagraph{}
+Nowadays there are several formulations of this theorem available,
+and they are in fact equivalent to each another. 
+Let $\hilH$ be a complex Hilbert space.
+Then the classical form of the theorem quotes
+that each self-adjoint linear operator $\linA$ acting in $\hilH$
+is a \textit{spectral operator},
+that is,
+there is a representation of the form
+\begin{equation}\label{ST_1}
+\scalar{\linA \, x}{y} \=
+\int_{\,\R} \lambda \, d\scalar{P_{\lambda} \,x}{y}
+\quad \mbox{for } x \xeof \domain{\linA} \mbox{ and } y \xeof \hilH,
+\end{equation}
+and the \textit{domain of definition} $\domain{\linA}$
+of the operator $\linA$ is given by
+\begin{equation}\label{ST_2}
+\domain{\linA} \=
+\{\, x \xeof \hilH \:
+    \int_{\,\R}
+\lambda^2 \, d \scalar{P_{\lambda} \,x}{x} < \infty\,\}.
+\end{equation}
+
+\subparagraph{}
+Here by $P_{\lambda}$ is meant a member
+of any family of \textit{projections} in $\hilH$
+parametrized by the real numbers
+and usually denoted $\{P_{\lambda}\}_{\lambda \in \R}$.
+The integral in \eqref{ST_1} means to integrate
+the identity mapping $\lambda \xeof \R \mapsto \lambda$
+{\wrt} the family $\{P_{\lambda}\}_{\lambda \in \R}$ in the sense of vector-valued
+Riemann-Stieltjes integration and Bochner integration,
+respectively.
+
+\subparagraph{}
+We basically shall go ahead in this text step by step
+by giving well-understandable descriptions of all the upcoming concepts.
+
+%------------------------------------------------------------------------------%
+\section{Basic Facts on Operators in Hilbert Space}                            %
+%------------------------------------------------------------------------------%
+Let $\hilH$ be a complex Hilbert space,
+where we do not suppose that it is a separable one.
+Given elements $x,y \xeof \hilH$,
+let $\scalar{x}{y} \xeof \C$ be the inner product
+and $\norm{x} := \sqrt{\scalar{x}{x}}$ be the derived norm of $x \xeof \hilH$.
+
+\subparagraph{}
+We are dealing with \textit{linear} operators
+$\linA \:\domain{\linA} \xsubset \hilH \xto \hilH$,
+so they are fulfilling the computation rules
+\[
+\linA(\lambda x+ \mu y) = \lambda \linA x + \mu \linA y
+\quad \quad (x,y \xeof \domain{\linA}, \; \lambda,\mu \xeof \C).
+\]
+The set $\domain{\linA}$,
+called the \textit{domain of definition} of $\linA$,
+is assumed to be a linear subspace of $\hilH$.
+It is also supposed that this set lies dense in $\hilH$,
+so we may denote $\linA$ a \textit{densely defined} linear operator in $\hilH$.
+
+\subparagraph{}
+Since $\linA$ is densely defined,
+its \textit{adjoint operator} $\linA^*$ is uniquely defined
+due to \textsc{Riesz}'s representation theorem,
+and the domain of definition $\domain{\linA^*}$
+of $\linA^*$ consists of those elements $y \xeof \hilH$,
+for which there is $y^* \xeof \hilH$ fulfilling
+\[
+\scalar{\linA \,x}{y} \eq \scalar{x}{y^*} \fa x \xeof \domain{\linA}.
+\]
+We then define $\linA^* y := y^*$ and denote the linear operator $\linA^*$
+the \textit{Hilbert adjoint} of $\linA$.
+It is well-known
+that if $\linA$ is \textit{closable},
+then $\linA^*$ is densely defined,
+too,
+hence the bi-adjoint operator $\linA^{**} := (\linA^*)^*$ is well-defined
+and coincides with the \textit{closure} $\overline{\linA}$ of $\linA$.
+Adjoint operators are basically closed,
+which in fact is not hard to show.
+
+\paragraph{}
+A linear operator $\linA$ acting in $\hilH$
+and with domain of definition $\domain{\linA}$ dense in $\hilH$
+is called \textit{symmetric},
+if the adjoint $\linA^*$ forms an extension of $\linA$
+(notation: $\linA \prec \linA^*$),
+which is equivalent to
+\[
+\scalar{\linA x}{y} \= \scalar{x}{\linA y} \qfa x,y \in \domain{\linA}.
+\]
+
+\subparagraph{}
+Furthermore,
+a linear operator $\linA$ is called \textit{self-adjoint},
+if $\linA \eq \linA^*$.
+Clearly,
+each self-adjoint operator is symmetric.
+For a bounded linear operator,
+where $\domain{\linA} \eq \hilH$ can be assumed,
+there is obviously no difference between symmetry and self-adjointness.
+
+\paragraph{}
+We finally want to introduce some basic concepts from \textit{spectral theory}.
+Let again $\linA$ be a linear operator in $\hilH$,
+but not necessarily densely defined.
+The a complex number $\zeta \xeof \C$ is called a \textit{regular value}
+{\wrt} $\linA$,
+if $\linA-\zeta \1$
+(from now on shortly denoted $\linA-\zeta$)
+is bijective and the \textit{inverse operator}
+\[
+(\linA-\zeta)^{-1} \:\hilH \to \domain{\linA} \subset \hilH
+\]
+is bounded.
+The \textit{bounded inverse theorem} implies that
+if $\linA-\zeta$ is closed and bijective,
+then $(\linA-\zeta)^{-1}$ proves to be bounded,
+so boundedness of the inverse does not have to be postulated in addition
+to ensure regularity of $\zeta$.
+
+\subparagraph{}
+The set $\rho(\linA)$ consisting of all regular values of $\linA$ is called
+the \textit{resolvent set} of $\linA$,
+whereas the complementary set $\sigma(\linA) := \C \setminus \rho(\linA)$
+is called the \textit{spectrum} of $\linA$.
+Moreover,
+the mapping
+\[
+R(\linA,\cdot): \rho(\linA) \to \BO{\hilH}\footnote{
+\,$\BO{\hilH}$ is the Banach algebra of bounded linear operators
+$\linA\:\hilH \xto \hilH$ with operator norm
+$\norm{\linA} := \sup_{\norm{x}=1} \norm{\linA x}$
+for $\linA \xeof \BO{\hilH}$.}
+\]
+is called the \textit{resolvent function}
+or briefly the \textit{resolvent} of $\linA$.
+It is an operator-valued function, which is even holomorphic
+(in the sense of vector-valued functions).
+
+\paragraph{}
+The spectrum $\sigma(\linA)$ and the resolvent $R(\linA,\cdot)$
+of a self-adjoint linear operator $\linA$ enjoy nice properties,
+which we collect to the following
+
+\begin{theorem}
+\,
+\begin{itemize}[leftmargin=22pt]
+\item[(a)]
+$\linA$ is self-adjoint \iff $\sigma(\linA) \xsubset \R$.
+\item[(b)]
+If $\linA$ is self-adjoint and $\zeta \xeof \rho(\linA)$,
+then $\im \zeta \neq 0$ by (a) and
+\[
+\norm{R(\linA,\zeta)} \leq \frac{1}{\abs{\im \zeta} }.
+\]
+\end{itemize}
+\end{theorem}
+
+%------------------------------------------------------------------------------%
+\section{Projection Operators}                                                 %
+%------------------------------------------------------------------------------%
+Let $\setA \xsubset \hilH$ be a \textit{closed} linear subspace.
+Then the \textit{projection theorem} claims that
+for each $x \xeof \hilH$ there is exactly one $x_0 \xeof \setA$
+such that
+\[
+\norm{ x - x_0 } \= \inf \, \{ \, \norm {x-y} \: y \in \setA \,\}.
+\]
+The element $x_0$ is called the \textit{projection} of $x$ onto $\setA$
+and minimizes the distance between $\setA$ and $x$.
+The associated mapping
+$\pi_{\setA} \: x \xeof \hilH \mapsto x_0 \xeof \setA$
+is linear,
+denoted the \textit{projection} of $\hilH$ onto $\setA$.
+Alternatively,
+a \textit{projection} is a linear operator
+$\pi \:\hilH \xto \hilH$ fulfilling the conditions $\pi  \circ \pi  \eq \pi $
+and $\pi \eq \pi ^*$.
+Projections are important examples of symmetric rsp. self-adjoint operators.
+
+\subparagraph{}
+By the projection theorem,
+projections are in one-to-one relationship to closed linear subspaces in $\hilH$.
+Hence it is nearby
+to call two projections $\pi_1,\pi_2$ \textit{orthogonal} to each other,
+if their related closed subspaces have this property,
+and in this case the identity
+$\pi_1 \circ \pi_2 \eq \pi_2 \circ \pi_1 \eq \0$ holds,
+where $\0$ is the projection related
+with the trivial subspace $\{\0\} \subset \hilH$.
+
+\paragraph{} %- properties of projections
+In general,
+a projection mapping $\pi$ has the following properties:
+
+\begin{itemize}[leftmargin=12pt,itemsep=5pt]
+\item[1.]
+$\pi$ is bounded with $\norm{\pi} \leq 1$,
+hence $\pi \xeof \BO{\hilH}$.\\
+If $\setA_{\pi} := \pi(\hilH) \eq \{\0\}$,
+then $\norm{\pi} \eq 0$,
+else $\norm{\pi}=1$.
+The only possible eigenvalues of $\pi$ are the real numbers $0$ and $1$.
+
+\item[2.]
+Let $\setA_1,\setA_2$ be closed subspaces of $\hilH$
+with $\setA_1 \subseteq \setA_2$,
+then for the associated projections the equation
+$\pi_{\setA_1} \circ \pi_{\setA_2} \eq
+ \pi_{\setA_2} \circ \pi_{\setA_1} \eq \pi_{\setA_1}$
+holds.
+In this case,
+the operator $\pi_{\setA_2} - \pi_{\setA_1}$ is also a projection,
+and related subspace is given by the set
+$\setA_2 \ominus \setA_1 := \setA_2 \cap \setA_1^{\bot}$.
+
+\item[3.]
+$\pi \eq \pi^{*}$,
+that is,
+$\pi$ is symmetric.
+Conversely,
+each symmetric and idempotent linear operator is a projection.
+
+\item[4.]
+If $\setA$ is a \textit{finite}-dimensional subspace of $\hilH$,
+then $\setA$ is closed,
+and the projection $\pi_{\setA}$ can be represented
+by means of a set of base vectors $e_1,\ldots,e_n$ in $\setA$, namely
+\[
+\pi_{\setA} x \= \sum_{i=1}^n \scalar{x}{e_i} \, e_i.
+\]
+
+\item[5.]
+Let $\mathscr{P}(\hilH)$ be the set of projections in $\hilH$,
+then there is a partial order relation $\prec$ on $\mathscr{P}(\hilH)$,
+defined by means of inclusion between the related closed subspaces:
+\[
+\pi_{\setA_1} \prec \pi_{\setA_2} \quad
+: \Longleftrightarrow \quad \setA_2 \subseteq \setA_1.
+\]
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+\section{Tools from Measure Theory and Complex Analysis}                       %
+%------------------------------------------------------------------------------%
+The proof of the spectral theorem given in the next section requires some
+additional utilites from other mathematical areas.
+We especially need the the concept of \textit{complex measure} and the conept
+of a \textit{Herglotz function} from complex analysis.
+
+\paragraph{} %-- complex measures
+In contrast to positive measures,
+a \textit{complex measure} on the measurable space $(X,\salgB)$
+is a $\sigma$-additive set function $\mu \: \salgB \xto \C$.
+The condition $\mu(\emptyset) \eq 0$ is fulfilled by itself
+and need not be part of the definition.
+
+\subparagraph{}
+When dealing with complex measures,
+it is possible to define the concept of \textit{variation}.
+More precisely,
+the variation $\abs{\mu} $ of a complex measure $\mu$
+is that mapping $\abs{\mu} \: \salgB \xto [0,\infty]$,
+which assigns to each measurable set $A$ the value
+\[
+\abs{\mu} (A) \eqdef
+\sup \, \sum_{n=1}^{\infty} \, \norm{\mu(A_n)},
+\]
+where the sequences $(A_n)$ may be any mostly countable disjoint
+decompositions of $A$ in measurable subsets.
+It is a surprising result
+that for each complex measure $\mu$
+the variation $\abs{\mu} $ is actually a \textit{finite} positive measure.
+
+\subparagraph{}
+The \textit{total variation} of a complex measure $\mu$ is defined
+to be the variation of the entire set $X$,
+that is,
+$\abs{\mu} := \abs{\mu} (X)$.
+Since $\abs{\mu} < \infty$,
+each complex measure is said to be of \textit{bounded variation}.
+
+\paragraph{} %-- Herglotz functions
+
+%------------------------------------------------------------------------------%
+\section{Spectral Measures and Spectral Operators}                             %
+%------------------------------------------------------------------------------%
+Let $\Borel{\R}$ be the Borel $\sigma$-algebra of the real line.
+Then a \textit{projection-valued measure}
+is a mapping $P \: \Borel{\R} \xto \BO{\hilH}$,
+which fulfills the following properties:
+
+\begin{itemize}[leftmargin=12mm]
+\item[(P-1)]
+$P(\Omega)$ is a projection operator for each $\Omega \xeof \Borel{\R}$;
+
+\item[(P-2)]
+$\P(\R) \eq \1_{\hilH}$, the identity operator in $\hilH$;
+
+\item[(P-3)]
+$P$ is \textit{$\sigma$-additive},
+that is,
+if $\Omega_1, \Omega_2,\ldots$ are measurable subsets of the real line
+and $\Omega := \bigsqcup_{\,n \in \N} \Omega_n$,
+then
+\[
+P(\Omega) \= \lim_{n \xto \infty} \, \sum_{k=1}^n \, P(\Omega_k),
+\]
+where this kind of convergence has to be understood
+in the sense of the strong operator topology on the algebra $\BO{\hilH}$,
+that is,
+$P(\Omega) x \eq \lim_{n \xto \infty} \, \sum_{k=1}^n \, P(\Omega_k) x$
+for each $x \xeof \hilH$.
+\end{itemize}
+
+\subparagraph{}
+The projection-valued measure $P$ is also called
+a \textit{spectral measure} and owns the following properties:
+
+\begin{itemize}[leftmargin=12pt]
+\item[1.]
+$P(\emptyset) \eq 0$.
+\item[2.]
+$P(\R \setminus \Omega) \eq \1_{\hilH} - P(\Omega)$.
+\item[3.]
+$P(\Omega_1 \sqcup \Omega_2) \eq P(\Omega_1) + P(\Omega_2)$
+\item[4.]
+$P(\Omega_1 \cap \Omega_2) \eq P(\Omega_1) \circ P(\Omega_2)$
+\item[5.]
+$\Omega_1 \subset \Omega_2  \Longrightarrow P(\Omega_1) \prec P(\Omega_2)$
+\end{itemize}
+
+\subparagraph{}
+Notice that
+intervals of the form $(-\infty,\lambda]$ are Borel-measurable,
+so for each $\lambda \xeof \R$ 
+the projection $\linP((-\infty,\lambda])$ is well-defined.
+Let $\cal{P}(\lambda) := P((-\infty,\lambda))$.
+The one-parameter family $\{\cal{P}(\lambda)\}_{\lambda \in \R}$
+is called a \textit{resolution of the identity}
+and uniquely determines the original projection-valued measure $\linP$.
+
+\paragraph{} %-- sprectral integrals
+In the sequel
+it is our aim to introduce a \textit{spectral integral}
+for measurable functions $f\:\R \xto \C$
+according to a projection-valued measure $P$
+and a resolution of the identity $\cal{P}$,
+respectively.
+
+\subparagraph{}
+Let $B(\R)$ be the linear space of \textit{bounded} measurable functions
+$f\:\R \xto \C$ and endowed with the supremum norm
+\[
+\norm{f}_{\infty} \eqdef \sup_{x \in \R} \, \abs{f(x) } < \infty,
+\]
+which in fact proves to be a Banach space.
+Any function $e \xeof B(\R)$ is called \textit{simple},
+if it adopts only finitely many values $e_1,\ldots, e_N$.
+The norm of $e \xeof S(\R)$ is given by
+$\norm{e}_{\infty} := \max \, \{\abs{e_1} ,\ldots, \abs{e_N} \}$.
+The set
+\[
+S(\R) := \{\,f\:\R \xto \C: f \mbox{ is simple}\,\}
+\]
+constitutes a dense linear subspace of $B(\R)$,
+
+\paragraph{}
+After having these preliminaries available,
+the setup of the spectral integral will be carried out
+by the following five steps:
+
+\begin{itemize}[leftmargin=12pt,itemsep=2mm]
+\item[1.]
+First of all,
+each spectral measure $P$ gives rise
+to a complex and real-valued Borel measure on the real line.
+For arbitrary $x,y \xeof \hilH$
+let the complex measure $\mu_{x,y}$ be defined by
+\[
+\begin{cases}[1.2]
+\quad \mu_{x,y}\: \Borel{\R} \xto \C,\\
+\quad \Omega \mapsto \mu_{x,y}(\Omega) := \scalar{x}{P(\Omega)y}.\\
+\end{cases}
+\]
+Due to the symmetry of the projection $P(\Omega)$,
+the derived measure
+$\mu_x(\Omega) := \mu_{x,x}(\Omega)$
+for $\Omega \xeof \Borel{\R}$ is real-valued.
+
+\item[2.]
+We next make sense of the expression $\int_{\R} f \, dP$
+for measurable functions $f\:\R \xto \C$.
+Let us start with the case, where $f$ is \textit{simple},
+that is,
+$f$ takes values in the finite set $\{f_1,\ldots,f_N\}$.
+Define
+\[
+\int_{\R} f \, d\linP \eqdef \sum_{n=1}^N f_n \linP(\chi^{-1}(f_n)),
+\]
+where $\chi^{-1}(f_n)$ is the preimage of $f_n$ in $\Borel{\R}$.
+We further mention
+that
+\[
+I_{0,\linP}\:f \xto \int_{\R} f \, d\linP
+\]
+is a continuous linear mapping from the normed space
+$S(\R)$ consisting of simple functions
+to the Banach space $\BO{\hilH}$ with operator norm $\norm{I_{0,P}} \eq 1$.
+
+\item[3.]
+We shall continue with the integration
+of \textit{bounded measurable functions} {\wrt} $P$.
+Due to the B.L.T. theorem\footnote{
+\,The B.L.T. theorem claims that each continuous and densely defined linear operator
+may be extended to a continuous linear operator on the whole of the domain space,
+where the operator norm is preserved.},
+there exists a unique extension $I_P$ from $I_{0,P}$
+to the closure $B(\R) \eq \overline{S(\R)}$,
+where $\norm{I_P} \eq \norm{I_{0,P}}$.
+The mapping $I_P$ is also linear and fulfills
+\[
+\begin{cases}[1.2]
+\quad I_P(\1_{\R}) = \1_{\hilH}\\
+\quad I_P(fg) = I_P(f) \circ I_P(g)\\
+\quad I_P(\overline{f}) = I_P(f)^*\\
+\end{cases}
+\quad \quad f,g \in B(\R),
+\]
+where $\1_{\R}$ is the identity in $\R$,
+thus $I_P$ even forms a C*-algebra homomorphism between
+the function algebra $B(\R)$ and the operator algebra $\BO{\hilH}$.
+
+\item[4.]
+We will also define $I_P$
+for an \textit{arbitrary measurable function} $f\:\R \xto \C$.
+But this is only possible for those elements $x \xeof \hilH$ fulfilling
+\begin{equation}\label{PVM_OPERATOR}
+\int_{\R} \abs{f} ^2 \, d \mu_x < \infty.
+\end{equation}
+The set $D_f$ of elements $x \xeof \hilH$ satisfying \eqref{PVM_OPERATOR}
+forms a linear subspace lying dense in $\hilH$.
+For $f$ we introduce an approximating sequence $\{f_n\}_{n \in \N}$
+of functions $f_n \in B(\R)$ given by
+\[
+f_n \eqdef \chi_{ \{t \in \R: \abs{f(t)} \leq n\}} \cdot f
+\quad (n \in \N).
+\]
+One can show that $f_n$ is Cauchy in $L^2(\R)$,
+hence $I_P(f_n)$ is Cauchy in $\hilH$,
+where $I_P$ is the previously defined operator acting on the space $B(\R)$.
+
+\item[5.]
+To the end,
+for a fixed measurable function $f$
+we may define an operator $S(P,f)$ by virtue of
+\begin{equation}\label{SPECTRAL_OPERATOR}
+\int_{\R} f \, dP \: D_f \mapsto \hilH\,,
+\quad \quad
+x \in D_f \mapsto (\int_{\R} f \, d\linP\,) \, x \eqdef y\,,
+\end{equation}
+which enjoys the property
+\[
+(\int_{\R} f \, d\linP)^* \= \int_{\R} \overline{f} \, dP.
+\]
+The mapping $S(P,f)$ is called a \textit{spectral operator}
+with data $P$ and $f$.
+Especially for $f := \1_{\R}$ 
+we obtain the self-adjoint spectral operator $\linS_P := \linS(P,\1)$
+according to
+\[
+\domain{\linS_P} := D_{\1_{\R}},
+\quad \linS_P x \eqdef (\int_{\R} \1_{\R} \, dP) \, x.
+\]
+
+\subparagraph{}
+Let $\linS_P^*$ be the adjoint of $\linS_P$.
+Then we have
+\[
+\linS_P^* = (\int_{\R} \1_{\R} \, dP)^* = \int_{\R} \overline{\1_{\R}} \, dP = \linS_P,
+\]
+which shows that $\linS_P$ is self-adjoint.
+Rather similar,
+it can be shown that operator $S(P,f)$ is self-adjoint iff $f$ is real-valued.
+\end{itemize}
+
+\paragraph{}
+We denote a linear operator $\linA$ is \textit{spectrally decomposible},
+if there is a spectral operator $\linS_P$ such that $\linA \eq \linS_P$.
+Let $\linA$ be spectrally decomposible,
+then for any measurable function $f\:\R \to \C$ we may define the operator
+\[
+f(\linA) := \int_{\R} f\,dP,
+\]
+where the domain of definition $\domain{f(\linA)}$ is given by
+\[
+\domain{f(\linA)} \=
+\{ x \in \hilH \: \int_{\R} \abs{f} ^2\,d\mu_x(\lambda) < \infty \}.
+\]
+
+\subparagraph{}
+For example,
+let $f(\lambda) := e^{-\lambda}$,
+then the operator $\exp(A) := \linS(P,f)$ proves to be self-adjoint.
+If $f(\lambda) := e^{i \lambda}$, however,
+then $\exp(iA)$ constitutes an unitary operator in $\hilH$.
+Further operators like $\sqrt{\linA}$, $\sin(\linA)$, $\cos(\linA)$,
+$\abs{\linA} $ and so on are defined in the same way.
+It should be emphasized that the spectral operators
+$\exp(iA)$, $\sin(\linA)$, $\cos(\linA)$ are everywhere defined in $\hilH$.
+
+\subparagraph{}
+To the end,
+let $\linA$ be a spectrally decomposible operator and $\zeta \xeof \rho(\linA)$.
+Then the inverse operator $R(\linA,\zeta) := (\linA-\zeta)^{-1}$ exists and we
+obtain with $r_{\zeta}(\lambda) := (\lambda-\zeta)^{-1}$
+\[
+R(\linA,\zeta) \= r_{\zeta}(A) \= \int_{\R} r_{\zeta} \,dP
+\]
+and for every $x \in \hilH$
+\[
+\Phi_x(\zeta) \eqdef 
+\scalar{x}{R(\linA,\zeta)x} \=
+\int_{\R} \frac{1}{\lambda-\zeta} \,d\mu_x(\lambda).
+\]
+The mapping $\Phi_x \: \H^+ \xto \H^+$ is a Herglotz function,
+that is,
+$\im \zeta \geq 0$ implies $\im \Phi_x(\zeta) \geq 0$.
+This can be shown by
+\[
+\im \Phi_x(\zeta) = \im \int_{\R} \frac{1}{\lambda-\zeta} \,d\mu_x(\lambda) = 
+\int_{\R} \frac{\im \zeta}{\abs{\lambda-\zeta} ^2} \,d\mu_x(\lambda) =
+\im \zeta \cdot \phi(\zeta),
+\]
+where 
+\[
+\phi(\zeta) \eqdef \int_{\R} \frac{1}{\abs{\lambda-\zeta} ^2} \,d\mu_x(\lambda)
+\, \geq \, 0.
+\]
+
+%------------------------------------------------------------------------------%
+\section{Quotation and Proof of the Spectral Theorem}                          %
+%------------------------------------------------------------------------------%
+As already mentioned in the introductory section of this text,
+the spectral theorem for unbounded self-adjoint operators
+may be quoted as follows:
+
+\begin{theorem}\label{SPECTRAL_THEOREM}
+If a linear operator $\linA$ acting in a complex Hilbert space
+and with domain of definition $\domain{\linA}$ is self-adjoint,
+then there is projection-valued measure $P$ such that
+
+\begin{equation}
+\linA \=
+\int_{\,\R} \lambda \, d\,P_{\lambda},
+\end{equation}
+
+where the linear subspace $\domain{\linA}$ is given by
+\begin{equation}
+\domain{\linA} \=
+\{\, x \xeof \hilH \:
+    \int_{\,\R}
+\lambda^2 \, d \scalar{P_{\lambda} \,x}{x} < \infty\,\}.
+\end{equation}
+\end{theorem}
+
+\subparagraph{}
+In other words,
+the theorem quotes that each self-adjoint operator $\linA$
+is spectrally decomposible.
+Finally,
+since spectral operators of type $\linS(P,\1)$ are self-adjoint,
+we may conclude that there is a one-to-one relationship between
+the set of self-adjoint operators in $\hilH$ and
+the set of projection-valued measures on $\hilH$.
+
+\paragraph{}
+The remaining part of this section deals with the proof
+of our main theorem \ref{SPECTRAL_THEOREM}.
+
+%------------------------------------------------------------------------------%
+\section{Other Quotations and Proofs}                                          %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\section{Examples and Applications}                                            %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\newpage
+\thispagestyle{empty}
+
+\vspace{8mm}
+\begin{thebibliography}{99}
+\begin{small}
+
+\bibitem{RS1} M.\,Reed, B.\,Simon:
+\textit{Modern Methods of Mathematical Physics I: Functional Analysis}.
+Academic Press Inc., 1980.
+
+\bibitem{Yo}  K.\,Yosida:
+\textit{Functional Analysis}.
+Springer, 1980.
+
+\end{small}
+\end{thebibliography}
+
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}

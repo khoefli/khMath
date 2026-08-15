@@ -339,7 +339,7 @@ Mathematical Institute A of University Stuttgart.
  2. & Infinitesimal Generators                                       \Df &115 \\
  3. & Accretive Operators and Contractive Semigroups                 \Df &116 \\
  4. & Sectorial Operators and Analytic Semigroups                    \Df &118 \\
- 5. & Skew-Adjoint Operators and Unitary Groups                      \Df &120 \\
+ 5. & Skew-Adjoint Operators and Unitary Groups                      \Df &121 \\
  6. & Well-Posedness of Second-Order Cauchy Problems                 \Df &121 \\
 %------------------------------------------------------------------------------%
 \end{tabular}
@@ -357,13 +357,13 @@ Mathematical Institute A of University Stuttgart.
 {
 \begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
- 1. & Generalities on Sesquilinear Forms                             \Df &123 \\
- 2. & Coercive Forms and Variational Equations                       \Df &125 \\
- 3. & Triples of Hilbert Spaces                                      \Df &126 \\
- 4. & Linear Operators Associated with a H-Elliptic Form             \Df &126 \\
- 5. & Sectorial Forms and m-Sectorial Operators                      \Df &129 \\
- 6. & The Friedrichs Extension Theorem                               \Df &132 \\
- 7. & Variational Evolution Equations                                \Df &133 \\
+ 1. & Generalities on Sesquilinear Forms                             \Df &124 \\
+ 2. & Coercive Forms and Variational Equations                       \Df &126 \\
+ 3. & Triples of Hilbert Spaces                                      \Df &127 \\
+ 4. & Linear Operators Associated with a H-Elliptic Form             \Df &128 \\
+ 5. & Sectorial Forms and m-Sectorial Operators                      \Df &130 \\
+ 6. & The Friedrichs Extension Theorem                               \Df &133 \\
+ 7. & Variational Evolution Equations                                \Df &134 \\
 %------------------------------------------------------------------------------%
 \end{tabular}
 }
@@ -378,21 +378,21 @@ Mathematical Institute A of University Stuttgart.
 {
 \begin{tabular}{R{5mm}L{94mm}R{5mm}}
 %------------------------------------------------------------------------------%
- 1. & Free Space and Boundary Value Problems                         \Df &136 \\
- 2. & Operators of Elliptic, Parabolic and Hyperbolic Type           \Df &138 \\
- 3. & Functional Analytic Methods for Differential Operators         \Df &140 \\
- 4. & Realizations in {\HOELDER} and Lebesgue Spaces                 \Df &142 \\
- 5. & Closeness and Closability of Differential Operators            \Df &143 \\
- 6. & Formally Adjoint Differential Expressions                      \Df &144 \\
- 7. & {\GARDING}'s Inequality                                        \Df &146 \\
- 8. & Weak Solutions of Elliptic Boundary Value Problems             \Df &149 \\
- 9. & The Fredholm Property of Properly Elliptic Operators           \Df &149 \\
-10. & Spectral Theory of Strongly Elliptic Operators                 \Df &150 \\
-11. & Self-Adjoint Extensions of Half-Bounded Operators              \Df &152 \\
-12. & Eigenvalue Problems in Bounded Domains                         \Df &157 \\
-13. & Linear Differential Operators in Distributional Spaces         \Df &159 \\
-14. & Free Space Problems                                            \Df &162 \\
-15. & Fourier Transform Methods                                      \Df &165 \\
+ 1. & Free Space and Boundary Value Problems                         \Df &137 \\
+ 2. & Operators of Elliptic, Parabolic and Hyperbolic Type           \Df &139 \\
+ 3. & Functional Analytic Methods for Differential Operators         \Df &141 \\
+ 4. & Realizations in {\HOELDER} and Lebesgue Spaces                 \Df &143 \\
+ 5. & Closeness and Closability of Differential Operators            \Df &144 \\
+ 6. & Formally Adjoint Differential Expressions                      \Df &145 \\
+ 7. & {\GARDING}'s Inequality                                        \Df &147 \\
+ 8. & Weak Solutions of Elliptic Boundary Value Problems             \Df &150 \\
+ 9. & The Fredholm Property of Properly Elliptic Operators           \Df &150 \\
+10. & Spectral Theory of Strongly Elliptic Operators                 \Df &151 \\
+11. & Self-Adjoint Extensions of Half-Bounded Operators              \Df &153 \\
+12. & Eigenvalue Problems in Bounded Domains                         \Df &158 \\
+13. & Linear Differential Operators in Distributional Spaces         \Df &160 \\
+14. & Free Space Problems                                            \Df &163 \\
+15. & Fourier Transform Methods                                      \Df &166 \\
 %------------------------------------------------------------------------------%
 \end{tabular}
 }
@@ -8292,7 +8292,7 @@ $\linP(\Omega)$ is a projection operator for each $\Omega \xeof \Borel{\R}$;
 $\linP(\R) \eq \1_{\hilH}$, the identity operator in $\hilH$;
 
 \item[(P-3)]
-$\linP$ is \textit{$\sigma$-additiv},
+$\linP$ is \textit{$\sigma$-additive},
 that is,
 if $\Omega_1, \Omega_2,\ldots$ are measurable sets in the real line
 and $\Omega := \bigsqcup_{\,n \in \N} \Omega_n$,
@@ -8312,7 +8312,7 @@ intervals of the form $(-\infty,\lambda]$ are Borel-measurable,
 so each projection $\linP((-\infty,\lambda])$ is well-defined.
 In fact,
 the one-parameter family of these projections constitutes
-a projection-valued measure $\linP$ in $\hilH$.
+a projection-valued measure.
 
 \section{Functional Calculus and Spectral Operators}
 %------------------------------------------------------------------------------%
@@ -8334,12 +8334,12 @@ Moreover, the set
 \[
 S(\R) := \{\,f\:\R \xto \C: f \mbox{ is simple}\,\}
 \]
-forms dense subspace of $B(\R)$,
-and the supremum norm of $e \xeof S(\R)$ is given by
-$\norm{e}_{\infty} \eq \max \, \{\abs{e_1} ,\ldots, \abs{e_N} \}$.
+forms a dense subspace of $B(\R)$,
+and the supremum norm of a function $e \xeof S(\R)$ is given by
+$\norm{e}_{\infty} := \max \, \{\abs{e_1} ,\ldots, \abs{e_N} \}$.
 
 \paragraph{}
-After these preliminaries,
+After having these preliminaries available,
 the setup of the spectral integral will be carried out
 by the following five steps:
 
@@ -9216,27 +9216,49 @@ for some $\theta > 0$ and all $x \xeof \domain{\linA}$.
 It should be clear that
 every coercive operator is accretive.
 
+\subparagraph{}
 In the following we want to characterize the spectral properties (b) and (c)
 in theorem \ref{HILLE-YOSIDA_THEOREM}
 for a linear operator $\linA$ by equivalent conditions.
 
-\subparagraph{}
-By means of the concept of m-accretivity,
-the \textit{Lumer-Phillips} \textit{theorem} classifies those linear operators
-being infinitesimal generators of a contractive semigroup
-without the usage of spectral theoretical concepts:
+\paragraph{} %-- Lumer-Phillips theorem
+The usage of m-accretivity is illustrated by the next theorem.
+By means of this concept,
+the celebrated \textit{Lumer-Phillips} \textit{theorem}
+classifies those linear operators,
+which are infinitesimal generators of contractive C$_0$-semigroups:
 
 \begin{theorem1}\label{LUMER-PHILLIPS_THEOREM}
 Let $\linA$ be a linear operator in Hilbert space.
-Then the operator $-\linA$ generates a contractive C$_0$-semigroup
-\iff
-$\linA$ is m-accretive.
+Then ${-}\linA$ generates a contractive C$_0$-semigroup
+iff $\linA$ is m-accretive.
 \end{theorem1}
 
-\begin{comment}
-\Proof:
-\qed
-\end{comment}
+\subparagraph{}
+The proof of this theorem relies on the classical Hille-Yosida theorem
+for C$_0$-semigroups of type $(0,1)$.
+Indeed, $\linA$ is m-accretive,
+then $\linA$ is densely defined, closed
+and $-\linA$ fullfills the estimate \eqref{ACCRETIVE_PROPERTY},
+hence $-\linA$ is the generator of a contractive C$_0$-semigroup.
+
+\subparagraph{}
+Reversely,
+if $-\linA$ is the infinitesimal generator of a C$_0$-semigroup of contractions,
+then we have $(0,\infty) \xsubset \rho(\linA)$
+and therefore $\range{\linA {-} \zeta} \eq \hilH$ for all $\zeta > 0$.
+In addition, if $x \xeof \domain{\linA}$, then
+\[
+\abs{ \scalar{S(t) x}{x}} \,\leq\, \norm{S(t)x} \norm{x} \,\leq\, \norm{x}^2
+\]
+and
+\[
+\re \scalar{S(t)x-x}{x} \= \re \scalar{S(t)x}{x} \,-\,\norm{x}^2 \,\leq\, 0.
+\]
+Dividing this line by $t > 0$ and letting $t \downarrow 0$ yields
+$\re \scalar{\linA x}{x} \leq 0$,
+which shows that $-\linA$ is accretive,
+hence in summary the operator $\linA$ even proves to be m-accretive.
 
 \section{Sectorial Operators and Analytic Semigroups}
 %------------------------------------------------------------------------------%
@@ -9720,6 +9742,29 @@ This suggests to define $\linB_{\sql} x := \tilde{x}$ for every $x \xeof \hilH$.
 If \eqref{XI_FORM_REPRESENTATION} holds
 for some operator $\linB \xeof \BO{\hilH}$,
 then the form $\sql$ is said to be represented by $\linB$.
+
+\paragraph{} %- main theorem on continuity of sesquilinear forms
+The following theorem characterizes continuity of sesquilinear forms
+by equivalent assertions:
+
+\begin{theorem1}
+Let $\sql \: \hilH \xtimes \hilH \xto \C$ be a sesquilinear form.
+Then:
+
+\begin{itemize}[leftmargin=9mm]
+\item[(a)]
+$\sql$ is continuous;
+\item[(b)]
+$\sql$ is sequentially continuous in $(x,y)$ for every $x,y \xeof \hilH$;
+\item[(c)]
+$\sql$ is sequentially continuous in $(\0,\0) \xeof \hilH \xtimes \hilH$;
+\item[(d)]
+there is $\Theta \geq 0$ such that
+$\abs{\sql(x,y)} \leq \Theta \norm{x} \cdot \norm{y}$ for $x,y \xeof \hilH$;
+\item[(e)]
+The representation operator $\linA_{\sql}$ is continuous.
+\end{itemize}
+\end{theorem1}
 
 \section{Coercive Forms and Variational Equations}
 %------------------------------------------------------------------------------%
