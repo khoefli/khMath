@@ -47,10 +47,10 @@
         <ul>
           <li onclick="displayContainer('home')">Home</li>
           <li>|</li>
-          <li>MSC-2020
-            <ul style="width:250px">
-              <li><a href="https://msc2020.org/#">MSC-2020 home page</a></li>
-              <li onclick="displayContainer('msc46')">Entries for 46-XX (functional analysis)</li>
+          <li>MSC2020
+            <ul style="width:260px">
+              <li><a href="https://msc2020.org/#">MSC2020 home page</a></li>
+              <li onclick="displayContainer('msc46')">Entries for '46-XX' (functional analysis)</li>
             </ul>
           </li>
           <li>|</li>
@@ -110,14 +110,15 @@
           </li>
           <li>|</li>
           <li>Special Books
-            <ul style="width:400px">
+            <ul style="width:450px">
               <li onclick="displayContainer('Nagy')">Riesz & Sz.-Nagy: Functional Analysis</li>
               <li onclick="displayContainer('Dunford_Schwartz')">Dunford & Schwartz: Linear Operators I-III</li>
               <li onclick="displayContainer('Kato')">Kato: Perturbation Theory for Linear Operators</li>
               <li onclick="displayContainer('Yosida')">Yosida: Functional Analysis</li>
               <li onclick="displayContainer('Reed_Simon')">Reed & Simon: Methods of Modern Mathematical Physics I-IV</li>
               <li onclick="displayContainer('Fattorini')">Fattorini: The Cauchy Problem</li>
-              <li onclick="displayContainer('Rudin')">Walter Rudin's Books on Mathematical Analysis</li>
+              <li onclick="displayContainer('Rudin')">Rudin's Books on Mathematical Analysis</li>
+              <li onclick="displayContainer('Lions_Magenes')">Lions & Magenes: Non-Homogeneous Boundary Value Problems I-III</li>
             </ul>
           </li>
           <li>|</li>
@@ -261,18 +262,18 @@
         <h1>Sitemap</h1>
         <div class='left-to-right-container' style='font-size:90%'>
           <div>
-            <ul class='columns-2'>
+            <ul class='columns-2' style='column-gap:50px;width:1000px'>
               <li onclick="displayContainer('home')">Home</li>
               <li onclick="displayContainer('impressum')">Impressum</li>
               <li onclick="displayContainer('about_me')">About me</li>
-              <li onclick="displayContainer('msc46')">Mathematical Subject Classification for 46-XX</li>
+              <li onclick="displayContainer('msc46')">Mathematical Subject Classification for '46-XX'</li>
               <li onclick="displayContainer('my_documents')">my Texts</li>
               <li onclick="displayContainer('lecture_notes')">Lecture Notes</li>
               <li onclick="displayContainer('research_articles')">Research Articles</li>
               <li onclick="displayContainer('mathematicians')">Mathematicians</li>
               <li onclick="displayContainer('history')">History of Functional Analysis</li>
               <li onclick="displayContainer('textbooks')">Textbooks</li>
-              <li onclick="displayContainer('grundlehren')">Grundlehren der math. Wissenschaften (Springer)</li>
+              <li onclick="displayContainer('grundlehren')">Grundlehren der mathematischen Wissenschaften (Springer)</li>
               <li onclick="displayContainer('gtm')">Graduate Texts in Mathematics (Springer)</li>
               <li onclick="displayContainer('mass')">Mathematics and Its Applications (Springer)</li>
               <li onclick="displayContainer('lecture_notes_in_mathematics')">Lecture Notes in Mathematics (Springer)</li>
@@ -282,12 +283,13 @@
 <!--          <li onclick="displayContainer('topic_tree')">Topics Tree</li>  -->
               <li onclick="displayContainer('nonlinear_functional_analysis')">Nonlinear Functional Analysis</li>
               <li onclick="displayContainer('Dunford_Schwartz')">Dunford & Schwartz: Linear Operators I-III</li>
-              <li onclick="displayContainer('Reed_Simon')">Reed & Simon: Methods of Modern Math. Physics I-IV</li>
+              <li onclick="displayContainer('Reed_Simon')">Reed & Simon: Methods of Modern Mathematical Physics I-IV</li>
               <li onclick="displayContainer('Kato')">Kato: Perturbation Theory of Linear Operators</li>
               <li onclick="displayContainer('Fattorini')">Fattorini: The Cauchy Problem</li>
-              <li onclick="displayContainer('Rudin')">Walter Rudin's Books on Mathematical Analysis</li>
+              <li onclick="displayContainer('Rudin')">Rudin's Books on Mathematical Analysis</li>
               <li onclick="displayContainer('Yosida')">Yosida: Functional Analysis</li>
               <li onclick="displayContainer('Nagy')">Riesz & Sz.-Nagy: Functional Analysis</li>
+              <li onclick="displayContainer('Lions_Magenes')">Lions & Magenes: Non-Homogeneous Boundary Value Problems</li>
               <li onclick="displayContainer('functional_analysis')">Functional Analysis</li>
               <li onclick="displayContainer('topological_linear_spaces')">Topological and Normed Linear Spaces</li>
               <li onclick="displayContainer('spectral_theory')">Linear Operators and Spectral Theory</li>
@@ -1414,6 +1416,41 @@
         </div>
       </div>
 
+      <div id='Lions_Magenes' class='container' style='display:none'>
+        <h1>J.-L. Lions & E. Magenes: Non-Homogeneous Boundary Value Problems I-III</h1>
+        This series is the first systematic treatment on boundary value problems of elliptic, parabolic and hyperbolic type.
+        <div class='container'>
+          <details open>
+            <summary>Vol. I</summary>
+            <ol>
+              <li>Hilbert Theory of Trace and Interpolation Spaces</li>
+              <li>Elliptic Operators. Hilbert Theory</li>
+              <li>Variational Evolution Equations</li>
+            </ol>
+          </details>
+
+          <details open>
+            <summary>Vol. II</summary>
+            <ol start='4'>
+              <li>Parabolic Evolution Operators. Hilbert Theory</li>
+              <li>Hyperbolic Evolution Operators, of Petrowski and of Schroedinger. Hilbert Theory</li>
+              <li>Applications to Optimal Control Problems</li>
+            </ol>
+          </details>
+
+          <details open>
+            <summary>Vol. III</summary>
+            <ol start='7'>
+              <li>Scalar and Vector Ultra-Distributions</li>
+              <li>Elliptic Boundary Value Problems in Spaces of Distributions and Ultra-Distributions</li>
+              <li>Evolution Equations in Spaces of Distributions and Ultra-Distributions</li>
+              <li>Parabolic Boundary Value Problems in Spaces of Ultra-Distributions</li>
+              <li>Evolution Equations of the Second Order in \(t\) and Schroedinger Type Equations</li>
+            </ol>
+          </details>
+        </div>
+      </div>
+
       <div id='Reed_Simon' class='container' style='display:none'>
         <h1>M. Reed &  B. Simon: Methods of Modern Mathematical Physics I-IV</h1>
         This is a four-volume work by <i>Michael Reed</i> and <i>Barry Simon</i> done in the eigthies of the last century.
@@ -1516,8 +1553,8 @@
       </div>
 
       <div id='msc46' class='container' style='display:none'>
-        <h1>Mathematical Subject Classification for 46-XX (Functional Analysis)</h1>
-        The following table forms an extract of the general MSC-2020 catalogue for 'functional analysis'.
+        <h1>Mathematical Subject Classification for '46-XX' (Functional Analysis)</h1>
+        The following table forms an extract of the general MSC2020 catalogue for 'functional analysis'.
         <div class='datatables-content' id='msc46-FA'>
           <table class="compact stripe cell-border" id="msc46-table">
             <thead>
@@ -1562,7 +1599,7 @@
       <p>
       </p>
       <hr><hr>
-      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 09/08/2026).
+      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 15/08/2026).
       <button onclick="displayContainer('about_me')">About me</button>
       <button onclick="displayContainer('impressum')">Impressum</button>
       <button onclick="displayContainer('sitemap')">Sitemap</button>

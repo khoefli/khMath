@@ -47,6 +47,7 @@ const Menu_Data =
   'main_theorems',
 
   'Dunford_Schwartz',
+  'Lions_Magenes',
   'Reed_Simon',
   'Kato',
   'Yosida',
@@ -380,9 +381,10 @@ const Journal_Data =
   { p:'Theta Foundation Bukarest', t:'<a href=\'https://www.theta.ro/jot.html\'>Journal of Operator Theory</a>', d:'J. Oper. Theory'},
   { p:'Mathematica Scandinavica', t:'<a href=\'https://www.mscand.dk\'>Mathematica Scandinavica</a>', d:'Math. Scand.'},
   { p:'Univity of Osaka and Osaka Metropolitan Univity', t:'<a href=\'\'>Osaka Journal of Mathematics</a>', d:'Osaka Math. J.'},
-  { p:'Mathematical Science Publischers', t:'<a href=\'https://msp.org/pjm/2026/343-2/\'>Pacific Journal of Mathematics</a>', d:'Pac. J. Math.'},
+  { p:'Mathematical Science Publishers', t:'<a href=\'https://msp.org/pjm/2026/343-2/\'>Pacific Journal of Mathematics</a>', d:'Pac. J. Math.'},
   { p:'The Royal Society', t:'<a href=\'https://royalsocietypublishing.org/rstl\'>Philosophical Transactions</a>', d:'Philos. Trans. R. Soc.'},
   { p:'American Mathematical Society', t:'</a href=\'https://pubs.ams.org/journals/proc\'>Proceedings of the American Mathematical Society</a>', d:'Proc. Am. Math. Soc.'},
+  { p:'Wiley & Sons', t:'<a href=\'https://onlinelibrary.wiley.com/journal/10970312\'>Communications on Pure and Applied Mathematics</a>', d:'Commun. Pure Appl. Math.'},
   { p:'American Mathematical Society', t:'<a href=\'https://pubs.ams.org/journals/bull\'>Bulletin of the American Mathematical Society</a>', d:'Bull. Am. Math. Soc.'},
   { p:'London Mathematical Society', t:'<a href=\'https://www.lms.ac.uk/publications/plms\'>Proceedings of the London Mathematical Society</a>', d:'Proc. London Math. Soc.'},
   { p:'Society for Industrial and Applied Mathematics', t:'<a href=\'https://www.siam.org/publications/siam-journals/siam-journal-on-applied-mathematics/\'>SIAM Journal on Applied Mathematics</a>', d:'SIAM J. Appl. Math.'},
@@ -936,5 +938,5 @@ createTable('Functional Analysis Textbooks in \'Graduate Studies in Mathematics\
 createTable('Internet Seminars on Evolution Equations', 'isem');
 createTable('Monographs in \'Lecture Notes in Mathematics (Springer)\'', 'lecture_notes');
 createTable('Mathematics and its Applications', 'mass');
-createTable('Mathematical Subject Classification for Functional Analysis', 'msc46');
+createTable('MSC2020 Entries', 'msc46');
 counter();
