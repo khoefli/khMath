@@ -223,9 +223,9 @@ $\linA$ is self-adjoint \iff $\sigma(\linA) \xsubset \R$.
 \item[(b)]
 If $\linA$ is self-adjoint and $\zeta \xeof \rho(\linA)$,
 then $\im \zeta \neq 0$ by (a) and
-\[
+\begin{equation}\label{RESOLVENT_ESTIMATE}
 \norm{R(\linA,\zeta)} \leq \frac{1}{\abs{\im \zeta} }.
-\]
+\end{equation}
 \end{itemize}
 \end{theorem}
 
@@ -354,6 +354,55 @@ Since $\abs{\mu} < \infty$,
 each complex measure is said to be of \textit{bounded variation}.
 
 \paragraph{} %-- Herglotz functions
+What we are using from complex analysis, is a property
+of so-called \textit{Herglotz functions}.
+
+\subparagraph{}
+Let $\H^+ := \{z \xeof \C \: \im z > 0\}$ be the upper half plane of $\C$.
+Then a function $\Phi \: \H^+ \xto \C$ is called a {Herglotz-function}
+(sometimes also called a \textit{Nevanlinna function},
+if $\Phi$ is holomorphic and $\im \Phi(z) \geq 0$.
+Every such function admits an integral representation of the form
+\begin{equation}\label{Nevanlinna}
+\Phi(z) \= C + D\,z +
+\int_{\R} (\frac{1}{\lambda-z} -\frac{\lambda}{1+\abs{\lambda} ^2}) \, d\mu(\lambda)
+\end{equation}
+with $C \xeof \R$, $D \geq 0$ and $\mu$ being a Borel measure satisfying the estimate
+\[
+\int_{\R} \frac{1}{1+\abs{\lambda} ^2} \,d\mu < \infty.
+\]
+Reversely,
+every function defined by \eqref{Nevanlinna} is Herglotz.
+The Borel measure $\mu$ can be recovered from $\Phi$ by
+\begin{equation}\label{INVERSION_FORMULA}
+\mu((\lambda_1,\lambda_2]) \eq \lim_{\delta \to 0} \, \lim_{\epsilon \to 0}
+\int_{\lambda_1+\delta}^{\lambda_2+\delta}
+\im \Phi(\lambda + i \epsilon) \, d\lambda,
+\end{equation}
+called the \textit{Stieltjes inversion formula} for Herglotz functions
+and their integral representations.
+
+\subparagraph{}
+These considerations are meaningful,
+since the function
+\[
+\Phi_A(\zeta,x) \eqdef \scalar{R(\linA,\zeta)x}{x}
+\]
+is Herglotz for every self-adjoint linear operator $\linA$
+and every $x \xeof \domain{\linA}$.
+Moreover, due to \eqref{RESOLVENT_ESTIMATE} we have
+\[
+\abs{\Phi_A(\zeta,x)} \leq \frac{\norm{x}^2}{\abs{\im \zeta} }
+\quad \quad (x \xeof \domain{\linA}, \; \zeta \xeof \H^+)\,,
+\]
+and with respect to the integral representation \eqref{Nevanlinna}
+we can simplify equation \eqref{Nevanlinna} to
+\begin{equation}\label{Nevanlinna_2}
+\Phi_A(\zeta,x) \=
+\int_{\R} \frac{1}{\lambda-\zeta} \, d\mu_{A,x}(\lambda),
+\end{equation}
+where of course the Borel measure $\mu_{A,x}$ depends on the operator $\linA$
+and the fixed chosen vector $x \xeof \domain{\linA}$.
 
 %------------------------------------------------------------------------------%
 \section{Spectral Measures and Spectral Operators}                             %
@@ -368,7 +417,7 @@ which fulfills the following properties:
 $P(\Omega)$ is a projection operator for each $\Omega \xeof \Borel{\R}$;
 
 \item[(P-2)]
-$\P(\R) \eq \1_{\hilH}$, the identity operator in $\hilH$;
+$P(\R) \eq \1_{\hilH}$, the identity operator in $\hilH$;
 
 \item[(P-3)]
 $P$ is \textit{$\sigma$-additive},
@@ -588,26 +637,29 @@ let $\linA$ be a spectrally decomposible operator and $\zeta \xeof \rho(\linA)$.
 Then the inverse operator $R(\linA,\zeta) := (\linA-\zeta)^{-1}$ exists and we
 obtain with $r_{\zeta}(\lambda) := (\lambda-\zeta)^{-1}$
 \[
-R(\linA,\zeta) \= r_{\zeta}(A) \= \int_{\R} r_{\zeta} \,dP
+R(\linA,\zeta)
+\= r_{\zeta}(A)
+\= \int_{\R} r_{\zeta} \,dP
+\= \int_{\R} \frac{1}{\lambda-\zeta} \, dP(\lambda)
 \]
 and for every $x \in \hilH$
 \[
-\Phi_x(\zeta) \eqdef 
+\Phi(\zeta,x) \eqdef 
 \scalar{x}{R(\linA,\zeta)x} \=
 \int_{\R} \frac{1}{\lambda-\zeta} \,d\mu_x(\lambda).
 \]
-The mapping $\Phi_x \: \H^+ \xto \H^+$ is a Herglotz function,
+The mapping $\Phi(\cdot,x) \: \H^+ \xto \H^+$ is a Herglotz function,
 that is,
-$\im \zeta \geq 0$ implies $\im \Phi_x(\zeta) \geq 0$.
+$\im \zeta \geq 0$ implies $\im \Phi(\zeta,x) \geq 0$.
 This can be shown by
 \[
-\im \Phi_x(\zeta) = \im \int_{\R} \frac{1}{\lambda-\zeta} \,d\mu_x(\lambda) = 
+\im \Phi(\zeta,x) = \im \int_{\R} \frac{1}{\lambda-\zeta} \,d\mu_x(\lambda) = 
 \int_{\R} \frac{\im \zeta}{\abs{\lambda-\zeta} ^2} \,d\mu_x(\lambda) =
-\im \zeta \cdot \phi(\zeta),
+\im \zeta \cdot \phi(\zeta,x),
 \]
 where 
 \[
-\phi(\zeta) \eqdef \int_{\R} \frac{1}{\abs{\lambda-\zeta} ^2} \,d\mu_x(\lambda)
+\phi(\zeta,x) \eqdef \int_{\R} \frac{1}{\abs{\lambda-\zeta} ^2} \,d\mu_x(\lambda)
 \, \geq \, 0.
 \]
 
@@ -623,7 +675,7 @@ If a linear operator $\linA$ acting in a complex Hilbert space
 and with domain of definition $\domain{\linA}$ is self-adjoint,
 then there is projection-valued measure $P$ such that
 
-\begin{equation}
+\begin{equation}\label{ST_1}
 \linA \=
 \int_{\,\R} \lambda \, d\,P_{\lambda},
 \end{equation}
@@ -650,6 +702,103 @@ the set of projection-valued measures on $\hilH$.
 \paragraph{}
 The remaining part of this section deals with the proof
 of our main theorem \ref{SPECTRAL_THEOREM}.
+The basic idea is to construct a spectral measure $P$ for each Herglotz function
+\begin{equation}\label{REP_1}
+\Phi(\zeta,x)
+\eqdef \scalar{R(\linA,\zeta)x}{x}
+\= \int_{\R} \frac{1}{\lambda-\zeta} \, d\scalar{Px}{x}\,(d\lambda)
+\end{equation}
+for $x \in \domain{\linA}$ and $\im \zeta > 0$.
+The function $\Phi(\cdot,x)$ is well-defined in $\H^+$,
+since the spectrum of $\linA$ is a subset of the real line.
+It can be shown that \eqref{REP_1} is equivalent to the "vector-valued"
+variant
+\begin{equation}\label{REP_2}
+R(\linA,\zeta)x \= \int_{\R} \frac{1}{\lambda-\zeta} \, dP_{\lambda}x
+\quad \quad (\im \zeta \neq 0).
+\end{equation}
+Once this representation is established,
+we may obtain the spectral decomposition of $\linA$ as follows:
+let $\linA'(\zeta)$ be the spectral operator defined by
+\[
+\linA'(\zeta) x \eqdef \int_{\R} \frac{1}{\lambda-\zeta} \, dP_{\lambda}x.
+\]
+Then $\linA'(\zeta)$ is the resolvent of $\linA$ by \eqref{REP_2},
+but also the resolvent of the spectral operator 
+\[
+\linA' x \eqdef \int_{\R} \, dP_{\lambda}x,
+\]
+which implies $\linA \eq \linA'$, since the identity of resolvents causes
+the identity of the operators themselves,
+that is, \eqref{ST_1} must be valid.
+
+\paragraph{}
+So we have to show that the representation formula \eqref{REP_1}
+holds for some spectral measure $P$.
+Remember the integral representation of a Herglotz function
+and the Stieltjes inversion formula \eqref{INVERSION_FORMULA},
+quoting that there is a Borel measure $\mu$ such that
+\begin{equation}\label{INVERSION_FORMULA_2}
+\mu((\lambda_1,\lambda_2]) \eq \lim_{\delta \to 0} \, \lim_{\epsilon \to 0}
+\int_{\lambda_1+\delta}^{\lambda_2+\delta}
+\im \scalar{R(\linA,\lambda + i \epsilon)x}{x} \, d\lambda.
+\end{equation}
+
+We first want to calculate the term
+\[
+\Psi(x,\delta,\lambda_1,\lambda_2) \eqdef
+\lim_{\epsilon \to 0} \int_{\lambda_1+\delta}^{\lambda_2+\delta}
+\im \scalar{R(\linA,\lambda + i \epsilon)x}{x} \, d\lambda
+\]
+in order to compute
+\[
+\mu(\lambda_1,\lambda_2]) =
+\lim_{\delta \to 0} \Psi(x,\delta,\lambda_1,\lambda_2)
+\]
+in a second step.
+In fact, we have
+\[
+\Psi(x,\delta,\lambda_1,\lambda_2) 
+\=
+\lim_{\epsilon \to 0} \int_{\lambda_1+\delta}^{\lambda_2+\delta}
+\im \Phi(\lambda+ i \epsilon,x) \, d\lambda
+\]
+\[
+\=
+\lim_{\epsilon \to 0} \int_{\lambda_1+\delta}^{\lambda_2+\delta}
+\int_{\R} \frac{\epsilon}{\zeta-(\lambda +i \epsilon)} \, \mu_x \, d\zeta \, d\lambda,
+\]
+which by \textsc{Fubini}'s integration formula may be written as
+\[
+\lim_{\epsilon \to 0} \int_{\R}
+\int_{\lambda_1}^{\lambda_2} \frac{\epsilon}{(\zeta-\lambda)^2 + \epsilon^2} \, d\lambda \, \mu_x \, d\zeta.
+\]
+
+\subparagraph{}
+The calculation of the inner integral yields
+\[
+\int_{\lambda_1}^{\lambda_2} \frac{\epsilon}{(\zeta-\lambda)^2 + \epsilon^2} \, d\lambda \=
+\arctan(\frac{\zeta-\lambda}{\epsilon}) \bigg|_{\,\lambda_1}^{\,\lambda_2},
+\]
+hence
+\[
+\lim_{\epsilon \to 0} 
+\int_{\lambda_1}^{\lambda_2} \frac{\epsilon}{(\zeta-\lambda)^2 + \epsilon^2} \, d\lambda \=
+\pi \cdot \chi_{[\lambda_1,\lambda_2]}
+\]
+and
+\[
+\Psi(x,\delta,\lambda_1,\lambda_2) \=
+\pi \cdot \chi_{[\lambda_1,\lambda_2]} \, \mu_x \, d\zeta.
+\]
+In conclusion,
+it follows by the dominated convergence theorem
+\[
+\mu((\lambda_1,\lambda_2]) \= \pi \cdot
+\lim_{\delta \to 0} \int_{\lambda_1+\delta}^{\lambda_2+\delta} \chi_{[\lambda_1,\lambda_2]} \, \mu_x \, d\zeta.
+\= 
+\pi \cdot \int_{\lambda_1}^{\lambda_2} \mu_x \, d\zeta.
+\]
 
 %------------------------------------------------------------------------------%
 \section{Other Quotations and Proofs}                                          %
@@ -672,6 +821,10 @@ of our main theorem \ref{SPECTRAL_THEOREM}.
 \bibitem{RS1} M.\,Reed, B.\,Simon:
 \textit{Modern Methods of Mathematical Physics I: Functional Analysis}.
 Academic Press Inc., 1980.
+
+\bibitem{RN} F.\,Riesz, B.\,Sz.-Nagy:
+\textit{{Functional Analysis}}.
+Springer, 1956.
 
 \bibitem{Yo}  K.\,Yosida:
 \textit{Functional Analysis}.
