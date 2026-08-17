@@ -489,6 +489,12 @@ const Book_Data =
   { a:'Y. Eidelman, V. Milman, A. Tsolomitis', t:'Functional Analysis: An Introduction', p:'GSM', y:'2004'},
   { a:'M. Haase',   t:'Functional Analysis: An Elementary Introduction', p:'GSM',  y:'2014'},
   { a:'A. Bressan', t:'Lecture Notes on Functional Analysis',            p:'GSM',  y:'2013'},
+  { a:'G. Köthe',    t:'Topological Vector Spaces I-II', p:'Springer Verlag', y:'1969'},
+  { a:'A. Wilansky', t:'Modern Methods in Topological Vector Space', p:'Dover', y: '2013'},
+  { a:'J. Horváth',  t:'Topological Vector Spaces and Distributions', p:'Dover', y: '2012'},
+  { a:'F. Trèves',   t:'Topological Vector Spaces, Distributions and Kernels', p:'Elsevier', y:'2016'},
+  { a:'H. Schäfer', t:'Topological Vector Spaces', p:'Springer Verlag', y:'1971'},
+  { a:'L. Narici, E. Beckenstein', t:'Topological Vector Spaces', p:'Chapman & Hall', y:'2024'}
 ]
 
 const MSC46_Data =
