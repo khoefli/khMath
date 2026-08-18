@@ -36,7 +36,8 @@ html h1
   padding:0px;
   margin:0px;
   padding-top:5px;
-  padding-bottom:10px;
+  padding-bottom:12px;
+  border:0pt solid;
 }
 
 html h2
@@ -111,7 +112,7 @@ html body
 
 html img
 {
-  padding-left:30px;
+  padding-left:25px;
   padding-top:15px;
   border:0px solid;
   display:flex;
@@ -193,7 +194,7 @@ html button
   font-size:15px;
   color: #505050;
   padding: 0px;
-  padding-top:15px;
+  padding-top:5px;
   padding-bottom:15px;
   margin: 0px;
 }
@@ -212,7 +213,9 @@ html button
   display:inline;
   list-style:none;
   float:left;
+/*
   background-color:#f6f5f4;
+*/
 }
 
 #nav ul li a
@@ -277,7 +280,7 @@ html button
   font-size:12pt;
   text-align:left;
   margin:0px;
-  margin-top:20px;
+  margin-top:50px;
   margin-left:5%;
   margin-right:5%;
   padding:0px;
@@ -373,6 +376,7 @@ html button
 margin:0px;
 padding:0px;
 background-color:#f6f5f4;
+background-color:white;
 }
 
 /*----------------------------------------------------------------------------*/

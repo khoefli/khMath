@@ -39,19 +39,14 @@
 |                                 LOGO & MAIN MENU                               |
 --------------------------------------------------------------------------------->
     <div id='header' class='container'>
-      <div>
-        <img class='logo' src='../data/logo.png'>
-      </div>
-
       <div id="nav" class='container'>
         <ul>
-          <li onclick="displayContainer('home')">Home</li>
-          <li>|</li>
-          <li>MSC2020
+          <li><img class='logo' style='width:60%margin:0px;;padding:0px' src='../data/logo.png'></li>
+          <li>MSC
             <ul style="width:260px">
-              <li><a href="https://msc2020.org/#">MSC2020 home page</a></li>
+              <li><a href="https://msc2020.org/#">MSC-2020 home page</a></li>
               <li><a href="https://mathscinet.ams.org/mathscinet/searchMSC.html">MathSciNet (AMS)</a></li>
-              <li><a href="../pdf/MSC_2020.pdf">MSC2020 (pdf-version)</a></li>
+              <li><a href="../pdf/MSC_2020.pdf">MSC-2020 (pdf-version)</a></li>
               <li onclick="displayContainer('msc46')">Entries for '46-XX' (functional analysis)</li>
             </ul>
           </li>
@@ -69,10 +64,11 @@
           </li>
           <li>|</li>
           <li>Resources
-            <ul style="width:205px">
+            <ul style="width:220px">
               <li><a href="https://encyclopediaofmath.org/wiki/Main_Page">Encyclopedia of Mathematics</a></li>
               <li><a href="https://mathworld.wolfram.com/">Wolfram MathWorld</a></li>
               <li><a href="https://en.wikipedia.org/wiki/Glossary_of_functional_analysis">Glossary of functional analysis</a></li>
+              <li onclick="displayContainer('internet_seminar_evo')">Seminars on Evolution Equations</li>
             </ul>
           </li>
           <li>|</li>
@@ -84,13 +80,15 @@
               <li onclick="displayContainer('my_documents')">my Texts</li>
             </ul>
           </li>
+<!--
           <li>|</li>
           <li>Seminars
             <ul style="width:280px">
               <li onclick="displayContainer('internet_seminar_evo')">Internet Seminars on Evolution Equations</li>
             </ul>
+-->
           <li>|</li>
-          <li>Results & Data
+          <li>Data
             <ul style="width:115px">
               <li onclick="displayContainer('main_theorems')">Main Theorems</li>
               <li onclick="displayContainer('key_concepts')">Key Concepts</li>
@@ -112,8 +110,8 @@
             </ul>
           </li>
           <li>|</li>
-          <li>Special Books
-            <ul style="width:450px">
+          <li>Monographs
+            <ul style="width:440px">
               <li onclick="displayContainer('Nagy')">Riesz & Sz.-Nagy: Functional Analysis</li>
               <li onclick="displayContainer('Dunford_Schwartz')">Dunford & Schwartz: Linear Operators I-III</li>
               <li onclick="displayContainer('Kato')">Kato: Perturbation Theory for Linear Operators</li>
@@ -147,6 +145,8 @@
               <li onclick="displayContainer('abstract_harmonic_analysis')">Abstract Harmonic Analysis</li>
             </ul>
           </li>
+          <li>|</li>
+          <li onclick="displayContainer('home')">Home</li>
         </ul>
       </div>
     </div>
@@ -1570,7 +1570,7 @@
 
       <div id='msc46' class='container' style='display:none'>
         <h1>Mathematical Subject Classification for '46-XX' (Functional Analysis)</h1>
-        The following table forms an extract of the general MSC2020 catalogue for 'functional analysis'.
+        The following table forms an extract of the general MSC-2020 catalogue for 'functional analysis'.
         <div class='datatables-content' id='msc46-FA'>
           <table class="compact stripe cell-border" id="msc46-table">
             <thead>
