@@ -3,7 +3,6 @@
 /*----------------------------------------------------------------------------*/
 html
 {
-  font-family:arial;
   font-size:12pt;
   text-decoration:none;
   background-color:LightGray;
@@ -12,8 +11,8 @@ html
   border-right:1pt solid;
   margin-top:0px;
   margin-bottom:0px;
-  margin-left:10%;
-  margin-right:10%;
+  margin-left:8%;
+  margin-right:8%;
   padding:0px;
   height:100%;
   overflow:scroll;
@@ -28,16 +27,15 @@ html p
   width:100%;
 }
 
-html h1
+h1
 {
   color:DarkSlateGray;
-  font-size:15pt;
+  font-size:14pt;
   text-align:center;
   padding:0px;
   margin:0px;
-  padding-top:0px;
-  padding-bottom:10px;
-  border:0pt solid;
+  margin-top:20px;
+  margin-bottom:20px;
 }
 
 html h2
@@ -45,8 +43,10 @@ html h2
   color:DarkSlateGray;
   font-size:12pt;
   text-align:center;
-  padding-top:5px;
-  padding-bottom:5px;
+  padding:0px;
+  margin:0px;
+  margin-top:5px;
+  margin-bottom:5px;
 }
 
 html h3
@@ -79,7 +79,9 @@ html h4
 .kh-summary
 {
   font-size:13pt;
-//font-weight:bold;
+/*
+  font-weight:bold;
+*/
   color:DarkSlateGray;
   font-size:12pt;
   text-align:left;
@@ -116,6 +118,7 @@ html li
 
 html body
 {
+  font-family:"Ubuntu";
   background-color:white;
   text-align:center;
   width:auto;
@@ -130,6 +133,7 @@ html img
   border:0px solid;
   display:flex;
   justify-content:right;
+  z-index:9999;
 }
 
 a:link
@@ -213,12 +217,15 @@ html button
 #nav
 {
   width:100%;
-  font-size:15px;
-  color: #505050;
-  padding: 0px;
-  padding-top:10px;
-  padding-bottom:15px;
-  margin: 0px;
+  font-size:14px;
+  color:#505050;
+  padding:0px;
+  padding-top:0px;
+  padding-bottom:0px;
+  margin:0px;
+  margin-top:10px;
+  margin-bottom:15px;
+  border:0pt solid;
 }
 
 #nav ul
@@ -235,9 +242,6 @@ html button
   display:inline;
   list-style:none;
   float:left;
-/*
-  background-color:#f6f5f4;
-*/
 }
 
 #nav ul li a
@@ -270,7 +274,6 @@ html button
   z-index:9999;
   background-color:#f6f5f4;
   color:gray;
-  font-size:14px;
   list-style-type:none;
   text-align:left;
   margin-left:10px;
@@ -299,15 +302,16 @@ html button
 .main-container
 {
   z-index:1;
-  font-size:12pt;
+  font-size:11pt;
   text-align:left;
   margin:0px;
-  margin-top:50px;
+  margin-top:40px;
   margin-left:5%;
   margin-right:5%;
   padding:0px;
   padding-bottom:10px;
-  border: 0pt solid;
+  border:1pt solid;
+  border-color:white;
 }
 
 .main-container div
