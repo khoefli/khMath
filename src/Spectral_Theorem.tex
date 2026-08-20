@@ -66,8 +66,8 @@ The spectral theorem for self-adjoint linear operators in his most general form
 was formulated and proved in the twentieth of the last century
 primarily by the mathematicians \textsc{John von\,Neumann}
 and \textsc{Harvey\;M. Stone}
-and is one of the oldest and most important results in the upcoming mathematical
-theory of \textit{functional analysis}.
+and is one of the eldest and most important results
+in the mathematical theory of \textit{functional analysis}.
 
 \subparagraph{}
 Nowadays there are several formulations of this theorem available,
@@ -77,7 +77,7 @@ Then the classical form of the theorem quotes
 that each self-adjoint linear operator $\linA$ acting in $\hilH$
 is a \textit{spectral operator},
 that is,
-there is a representation of the form
+there is an integral representation of the form
 \begin{equation}\label{ST_1}
 \scalar{\linA \, x}{y} \=
 \int_{\,\R} \lambda \, d\scalar{P_{\lambda} \,x}{y}
@@ -93,19 +93,22 @@ of the operator $\linA$ is given by
 \end{equation}
 
 \subparagraph{}
-Here by $P_{\lambda}$ is meant a member
-of any family of \textit{projections} in $\hilH$
-parametrized by the real numbers
-and usually denoted $\{P_{\lambda}\}_{\lambda \in \R}$.
-The integral in \eqref{ST_1} means to integrate
-the identity mapping $\lambda \xeof \R \mapsto \lambda$
+Here $P_{\lambda}$ is a member
+of the family
+$\{P_{\lambda}\}_{\lambda \in \R}$
+of \textit{projection operators} in $\hilH$,
+parametrized by the real numbers.
+The family $P$ itself is called a \textit{spectral measure},
+and the integral in \eqref{ST_1} means to integrate
+the identity mapping $\1 \: \lambda \xeof \R \mapsto \lambda$
 {\wrt} the family $\{P_{\lambda}\}_{\lambda \in \R}$ in the sense of vector-valued
 Riemann-Stieltjes integration and Bochner integration,
 respectively.
 
 \subparagraph{}
-We basically shall go ahead in this text step by step
-by giving well-understandable descriptions of all the upcoming concepts.
+We basically shall go ahead in to achieve this theorem step by step
+by giving well-understandable explanations of all the upcoming concepts and
+statements.
 
 %------------------------------------------------------------------------------%
 \section{Basic Facts on Operators in Hilbert Space}                            %
@@ -211,6 +214,83 @@ It is an operator-valued function, which is even holomorphic
 (in the sense of vector-valued functions).
 
 \paragraph{}
+In the following we deduce an important criterion
+how to prove self-adjointness of a symmetric operator,
+usually called the \textit{range condition}:
+
+\begin{theorem}\label{RANGE_CONDITION1}
+Let $\linA$ be symmetric and closed
+with dense domain $\domain{\linA}$ in $\hilH$ such that
+\begin{equation}\label{EQ_RANGE_CONDITION}
+\range{\linA + i} \= \range{\linA - i} \= \hilH.
+\end{equation}
+Then $\linA$ is self-adjoint.
+\end{theorem}
+
+\Proof:
+Since $\linA \prec \linA^*$,
+we have only to show $\linA^* \prec \linA$, or equivalently,
+$y \in \domain{\linA^*}$ implies $y \in \domain{\linA}$.
+
+Now,
+since $(\linA-i)^*x = (\linA^* +i)x$ for $x \in \domain{\linA}$,
+we have
+\[
+\scalar{\,(\linA-i)x}{y} = \scalar{\linA x}{y} -i\scalar{x}{y} =
+\scalar{x}{\linA^*y} -\scalar{x}{-iy} = \scalar{x}{\,(\linA^* +i)y}.
+\]
+But since $\range{\linA+i} = \hilH$,
+there exists $z \in \domain{\linA}$ such that
+$
+(\linA + i)z = (\linA^* +i)y.
+$
+Inserting this in the right-hand side of the last equation, we obtain
+\[
+\scalar{\,(\linA-i)x}{y} = \scalar{x}{(\linA + i)z} = \scalar{\,(A-i)x}{z}.
+\]
+But since in addition $\range{\linA-i} = \hilH$, we obtain
+$\scalar{u}{y-z} = 0$ for every vector $u := (\linA-i)x \in \hilH$,
+which implies $y=z$.
+\qed
+
+\paragraph{}
+It should be noticed
+that the imaginary unit $i$ in \eqref{EQ_RANGE_CONDITION}
+may be replaced by any other number
+$\lambda \in \C \setminus \R$,
+since the images of the operators $\linA \pm \lambda \1$
+are locally constant for all numbers $\lambda$ with $\im \lambda \neq 0$.
+
+\subparagraph{}
+On the other hand,
+the following theorem shows that that the reverse statement is also true:
+
+\begin{theorem}\label{RANGE_CONDITION2}
+Let $\linA$ be self-adjoint.
+Then $\range{\linA - \lambda} = \hilH$ for each $\lambda \in C$ with
+$\im \lambda \neq 0$.
+\end{theorem}
+
+\Proof:
+We first show that $\range{\linA - \lambda}$ lies dense in $\hilH$,
+or equivalently, that $\kernel{\linA^* - \overline{\lambda}} = \{0\}$.
+We compute for $y \in \kernel{\linA^* - \overline{\lambda}}$
+\[
+\im \overline{\lambda} \norm{y}^2 =
+\im (\overline{\lambda} \scalar{y}{y}) =
+\im \scalar{\overline{\lambda}y}{y} =
+\im \scalar{\linA^* y}{y} =
+\im \scalar{\linA y}{y} = 0,
+\]
+since $\scalar{\linA y}{y}$ is real.
+
+To the end,
+remember from the previous subsection
+that $\linA-\lambda$ has closed range for $\im \lambda \neq 0$,
+which implies the assertion.
+\qed
+
+\paragraph{}
 The spectrum $\sigma(\linA)$ and the resolvent $R(\linA,\cdot)$
 of a self-adjoint linear operator $\linA$ enjoy nice properties,
 which we collect to the following
@@ -229,6 +309,28 @@ then $\im \zeta \neq 0$ by (a) and
 \end{itemize}
 \end{theorem}
 
+\Proof:
+To show the first assertion,
+let $\zeta \in \C$ such that $\im \zeta \neq 0$.
+Then $\zeta$ cannot be an eigenvalue of $\linA$, since $\linA$ is symmetric,
+and $\linA-\zeta$ is injective.
+But we also know from theorem \ref{RANGE_CONDITION2}
+that $\range{\linA-\zeta} = \hilH$,
+so $\linA-\zeta$ is also surjective.
+Hence $\zeta$ belongs to the resolvent set $\rho(\linA)$,
+which implies the assertion.
+
+The resolvent estimation \eqref{RESOLVENT_ESTIMATE} is a special form
+of a more general estimate,
+quoting that the norm of $R(\linA,\zeta)$ is bounded by the distance
+$\delta(\zeta,\sigma(\linA)$
+between the singleton $\{\zeta\}$ and the spectrum $\sigma(\linA)$
+according to
+\[
+\norm{R(\linA,\zeta)} \leq \frac{1}{\delta(\zeta,\sigma(\linA))}.
+\qed
+\]
+
 %------------------------------------------------------------------------------%
 \section{Projection Operators}                                                 %
 %------------------------------------------------------------------------------%
@@ -242,7 +344,9 @@ such that
 The element $x_0$ is called the \textit{projection} of $x$ onto $\setA$
 and minimizes the distance between $\setA$ and $x$.
 The associated mapping
-$\pi_{\setA} \: x \xeof \hilH \mapsto x_0 \xeof \setA$
+\[
+\pi_{\setA} \: x \xeof \hilH \mapsto x_0 \xeof \setA
+\]
 is linear,
 denoted the \textit{projection} of $\hilH$ onto $\setA$.
 Alternatively,
@@ -408,8 +512,8 @@ and the fixed chosen vector $x \xeof \domain{\linA}$.
 \section{Spectral Measures and Spectral Operators}                             %
 %------------------------------------------------------------------------------%
 Let $\Borel{\R}$ be the Borel $\sigma$-algebra of the real line.
-Then a \textit{projection-valued measure}
-is a mapping $P \: \Borel{\R} \xto \BO{\hilH}$,
+Then by a \textit{projection-valued measure}
+is meant a mapping $P \: \Borel{\R} \xto \BO{\hilH}$,
 which fulfills the following properties:
 
 \begin{itemize}[leftmargin=12mm]
