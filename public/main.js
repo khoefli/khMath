@@ -714,11 +714,13 @@ function displayContainer(id)
 /*----------------------------------------------------------------------------*/
 function createTable(title,classname)
 {
-  let table = new $('#'+classname+'-table').DataTable({pageLength:8});
+  let table = new $('#'+classname+'-table').DataTable({pageLength:6});
+/*
   if(title != "")
     table.caption('--- ' + title + ' ---','top');
   else
     table.caption('','top');
+*/
   table.select.style('single');
 
   table.on('click', 'tbody tr', function (e)
@@ -842,16 +844,6 @@ function appendContent()
 }
 
 /*----------------------------------------------------------------------------*/
-/* counter                                                                    */
-/*----------------------------------------------------------------------------*/
-let num = localStorage.getItem("counter");
-function counter()
-{
-  document.getElementById("counter").textContent = ++num;
-  localStorage.setItem("counter", document.getElementById("counter").textContent);
-}
-
-/*----------------------------------------------------------------------------*/
 /* Topics Tree                                                                */
 /*----------------------------------------------------------------------------*/
 function hasSubtopics(topic)
@@ -945,4 +937,3 @@ createTable('Internet Seminars on Evolution Equations', 'isem');
 createTable('Monographs in \'Lecture Notes in Mathematics (Springer)\'', 'lecture_notes');
 createTable('Mathematics and its Applications', 'mass');
 createTable('MSC2020 Entries', 'msc46');
-counter();

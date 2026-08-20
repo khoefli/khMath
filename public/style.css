@@ -3,7 +3,7 @@
 /*----------------------------------------------------------------------------*/
 html
 {
-  font-size:12pt;
+  font-size:11pt;
   text-decoration:none;
   background-color:LightGray;
   color:black;
@@ -60,7 +60,7 @@ html h3
 html h4
 {
   color:DarkSlateGray;
-  font-size:12pt;
+  font-size:10pt;
   padding-top:15px;
   padding-bottom:0px;
   text-align:left;
@@ -78,10 +78,6 @@ html h4
 
 .kh-summary
 {
-  font-size:13pt;
-/*
-  font-weight:bold;
-*/
   color:DarkSlateGray;
   font-size:12pt;
   text-align:left;
@@ -118,7 +114,6 @@ html li
 
 html body
 {
-  font-family:"Ubuntu";
   background-color:white;
   text-align:center;
   width:auto;
@@ -195,9 +190,6 @@ html button
 .internal-page:hover
 {
   color:gray;
-/*
-  background-color:white;
-*/
   text-decoration:none;
   background-color:#e9e6eb;
 }
@@ -205,9 +197,6 @@ html button
 .internal-page:visited
 {
   color:#505050;
-/*
-  background-color:white;
-*/
   background-color:#e9e6eb;
 }
 
@@ -217,15 +206,12 @@ html button
 #nav
 {
   width:100%;
-  font-size:14px;
   color:#505050;
+  font-size:95%;
   padding:0px;
-  padding-top:0px;
-  padding-bottom:0px;
   margin:0px;
   margin-top:10px;
   margin-bottom:15px;
-  border:0pt solid;
 }
 
 #nav ul
@@ -279,7 +265,7 @@ html button
   margin-left:10px;
   padding-top:0px;
   padding-bottom:1px;
-  border: 1pt solid;
+  border:1pt solid;
 }
 
 #nav ul li:hover ul li
@@ -302,14 +288,12 @@ html button
 .main-container
 {
   z-index:1;
-  font-size:11pt;
   text-align:left;
-  margin:0px;
   margin-top:40px;
+  margin-bottom:10px;
   margin-left:5%;
   margin-right:5%;
   padding:0px;
-  padding-bottom:10px;
   border:1pt solid;
   border-color:white;
 }
@@ -359,14 +343,14 @@ html button
 .kh-td1
 {
   text-align:center;
-  padding: 0px 3px;
+  padding:0px 3px;
   margin-left:5px;
 }
 
 .kh-td2
 {
   text-align:left;
-  padding: 0px 4px;
+  padding:0px 4px;
 }
 
 /*----------------------------------------------------------------------------*/
@@ -375,10 +359,10 @@ html button
 .left-to-right-container
 {
   display:flex;
+  text-align:left;
   flex-direction:row;
   padding:0px;
   margin:0px;
-  text-align:left;
 }
 
 /*----------------------------------------------------------------------------*/
@@ -403,27 +387,15 @@ html button
 }
 
 /*----------------------------------------------------------------------------*/
-/* header                                                                     */
-/*----------------------------------------------------------------------------*/
-#header
-{
-margin:0px;
-padding:0px;
-background-color:#f6f5f4;
-background-color:white;
-}
-
-/*----------------------------------------------------------------------------*/
 /* footer                                                                     */
 /*----------------------------------------------------------------------------*/
 #footer
 {
-  font-size:90%;
   text-align:left;
   margin-left:5%;
   margin-right:5%;
   margin-top:0px;
-  margin-bottom:2px;
+  margin-bottom:3px;
   padding:0px;
 }
 
