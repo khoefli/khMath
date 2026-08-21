@@ -79,7 +79,7 @@ html h4
 .kh-summary
 {
   color:DarkSlateGray;
-  font-size:12pt;
+  font-size:11pt;
   text-align:left;
 }
 
@@ -102,14 +102,14 @@ html ol
 
 html ul
 {
-  list-style:square;
+  list-style-type:square;
   margin-top:5pt;
   margin-bottom:5pt;
 }
 
 html li
 {
-  padding-left: 5px;
+  padding-left:5px;
 }
 
 html body
@@ -180,9 +180,6 @@ html button
 .internal-page
 {
   color:#505050;
-/*
-  background-color:white;
-*/
   text-decoration:none;
   background-color:#e9e6eb;
 }
@@ -207,7 +204,7 @@ html button
 {
   width:100%;
   color:#505050;
-  font-size:95%;
+  font-size:10pt;
   padding:0px;
   margin:0px;
   margin-top:10px;
@@ -217,35 +214,44 @@ html button
 #nav ul
 {
   text-align:center;
+  list-style-type:none;
   margin:0px;
-  padding:0px;
   margin-left:5%;
+  padding:0px;
   padding-bottom:15px;
 }
 
+#nav li 
+{
+}
+
+
 #nav ul li
 {
-  display:inline;
-  list-style:none;
   float:left;
+  list-style:none;
 }
 
 #nav ul li a
 {
   text-decoration:none;
   color:#505050;
+  float:none;
+  clear:left;
+  position:relative;
+  display:inline-block;
 }
 
 #nav ul li:hover
 {
   text-decoration:none;
-  color:gray;
 }
 
 #nav ul li a:hover
 {
   text-decoration:none;
   color:gray;
+  color:blue;
 }
 
 #nav ul li ul
@@ -255,16 +261,17 @@ html button
 
 #nav ul li:hover ul
 {
-  display:block;
-  position:absolute;
   z-index:9999;
+  display:flex;
+  flex-direction:column;
+  position:absolute;
   background-color:#f6f5f4;
   color:gray;
-  list-style-type:none;
+  list-style:none;
   text-align:left;
   margin-left:10px;
-  padding-top:0px;
-  padding-bottom:1px;
+  padding:0px;
+  padding-right:5px;
   border:1pt solid;
 }
 
@@ -337,6 +344,12 @@ html button
   color:gray;
 }
 
+.tree
+{
+  text-align:left;
+  margin-left:20px;
+}
+
 /*----------------------------------------------------------------------------*/
 /* kh-table                                                                   */
 /*----------------------------------------------------------------------------*/
@@ -359,8 +372,8 @@ html button
 .left-to-right-container
 {
   display:flex;
-  text-align:left;
   flex-direction:row;
+  text-align:left;
   padding:0px;
   margin:0px;
 }
@@ -391,11 +404,12 @@ html button
 /*----------------------------------------------------------------------------*/
 #footer
 {
+  font-size:10pt;
   text-align:left;
   margin-left:5%;
   margin-right:5%;
   margin-top:0px;
-  margin-bottom:3px;
+  margin-bottom:5px;
   padding:0px;
 }
 

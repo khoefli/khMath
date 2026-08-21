@@ -42,7 +42,7 @@
         <ul>
           <li><img class='logo' src='../data/logo.png'></li>
           <li>MSC
-            <ul style="width:270px">
+            <ul>
               <li><a href="https://msc2020.org/#">MSC-2020 home page</a></li>
               <li><a href="https://mathscinet.ams.org/mathscinet/searchMSC.html">MathSciNet (AMS)</a></li>
               <li><a href="../pdf/MSC_2020.pdf">MSC-2020 (pdf-version)</a></li>
@@ -51,7 +51,7 @@
           </li>
           <li>|</li>
           <li>Links
-            <ul style="width:255px">
+            <ul>
               <li><a href="https://projecteuclid.org">Project Euclid</a></li>
               <li><a href="https://www.ams.org">American Math. Society</a></li>
               <li><a href="https://euromathsoc.org">European Math. Society</a></li>
@@ -63,7 +63,7 @@
           </li>
           <li>|</li>
           <li>Resources
-            <ul style="width:220px">
+            <ul>
               <li><a href="https://encyclopediaofmath.org/wiki/Main_Page">Encyclopedia of Mathematics</a></li>
               <li><a href="https://mathworld.wolfram.com/">Wolfram MathWorld</a></li>
               <li><a href="https://en.wikipedia.org/wiki/Glossary_of_functional_analysis">Glossary of functional analysis</a></li>
@@ -72,7 +72,7 @@
           </li>
           <li>|</li>
           <li>Documents
-            <ul style="width:125px">
+            <ul>
               <li onclick="displayContainer('textbooks')">Textbooks</li>
               <li onclick="displayContainer('lecture_notes')">Lecture Notes</li>
               <li onclick="displayContainer('research_articles')">Research Articles</li>
@@ -82,35 +82,36 @@
 <!--
           <li>|</li>
           <li>Seminars
-            <ul style="width:280px">
+            <ul">
               <li onclick="displayContainer('internet_seminar_evo')">Internet Seminars on Evolution Equations</li>
             </ul>
 -->
           <li>|</li>
           <li>Data
-            <ul style="width:115px">
+            <ul>
               <li onclick="displayContainer('main_theorems')">Main Theorems</li>
               <li onclick="displayContainer('key_concepts')">Key Concepts</li>
               <li onclick="displayContainer('mathematicians')">Mathematicians</li>
-              <li onclick="displayContainer('history')">History of F.A.</li>
-              <li onclick="displayContainer('journals')">Journals&nbsp;&nbsp;&nbsp;</li>
+              <li onclick="displayContainer('history')">History of Functional Analysis</li>
+              <li onclick="displayContainer('journals')">Journals</li>
 <!--          <li onclick="displayContainer('topic_tree')">Topics Tree</li> -->
             </ul>
           </li>
           <li>|</li>
           <li>Series
-            <ul style="width:260px">
-              <li onclick="displayContainer('grundlehren')">Grundlehren der math. Wissenschaften&nbsp;</li>
-              <li onclick="displayContainer('dover')">Dover Publications&nbsp;</li>
-              <li onclick="displayContainer('lecture_notes_in_mathematics')">Lecture Notes in Mathematics&nbsp;</li>
-              <li onclick="displayContainer('gtm')">Graduate Texts in Mathematics (GTM)&nbsp;</li>
-              <li onclick="displayContainer('gsm')">Graduate Studies in Mathematics&nbsp;</li>
-              <li onclick="displayContainer('mass')">Mathematics and its Applications&nbsp;</li>
+            <ul>
+              <li onclick="displayContainer('grundlehren')">Grundlehren der math. Wissenschaften</li>
+              <li onclick="displayContainer('dover')">Dover Publications</li>
+              <li onclick="displayContainer('lecture_notes_in_mathematics')">Lecture Notes in Mathematics (LNM)</li>
+              <li onclick="displayContainer('gtm')">Graduate Texts in Mathematics (GTM)</li>
+              <li onclick="displayContainer('gsm')">Graduate Studies in Mathematics (GSM)</li>
+              <li onclick="displayContainer('mass')">Mathematics and its Applications</li>
+              <li onclick="displayContainer('bourbaki')">Éléments de mathématique (Bourbaki)</li>
             </ul>
           </li>
           <li>|</li>
           <li>Monographs
-            <ul style="width:440px">
+            <ul>
               <li onclick="displayContainer('Nagy')">Riesz & Sz.-Nagy: Functional Analysis</li>
               <li onclick="displayContainer('Dunford_Schwartz')">Dunford & Schwartz: Linear Operators I-III</li>
               <li onclick="displayContainer('Kato')">Kato: Perturbation Theory for Linear Operators</li>
@@ -118,12 +119,13 @@
               <li onclick="displayContainer('Reed_Simon')">Reed & Simon: Methods of Modern Mathematical Physics I-IV</li>
               <li onclick="displayContainer('Fattorini')">Fattorini, Kerber: The Cauchy Problem</li>
               <li onclick="displayContainer('Rudin')">Rudin's Books on Mathematical Analysis</li>
+              <li onclick="displayContainer('Hörmander')">Hörmander: The Analysis of Linar Partial Differential Operators I-IV</li>
               <li onclick="displayContainer('Lions_Magenes')">Lions & Magenes: Non-Homogeneous Boundary Value Problems I-III</li>
             </ul>
           </li>
           <li>|</li>
           <li>Subtopics
-            <ul style="width:290px">
+            <ul>
               <li onclick="displayContainer('topological_linear_spaces')">Topological Linear Spaces</li>
               <li onclick="displayContainer('spectral_theory')">Linear Operators and Spectral Theory</li>
               <li onclick="displayContainer('self-adjoint_operators')">Self-Adjoint Operators</li>
@@ -135,17 +137,15 @@
           </li>
           <li>|</li>
           <li>other Subjects
-            <ul style="width:220px">
-              <li onclick="displayContainer('general_topology')">General Topology&nbsp;</li>
-              <li onclick="displayContainer('linear_algebra')">Linear Algebra&nbsp;</li>
+            <ul>
+              <li onclick="displayContainer('general_topology')">General Topology</li>
+              <li onclick="displayContainer('linear_algebra')">Linear Algebra</li>
               <li onclick="displayContainer('measure_and_integration_theory')">Measure and Integration Theory</li>
               <li onclick="displayContainer('complex_analysis')">Complex Analysis</li>
               <li onclick="displayContainer('pde_theory')">Partial Differential Equations</li>
               <li onclick="displayContainer('abstract_harmonic_analysis')">Abstract Harmonic Analysis</li>
             </ul>
           </li>
-          <li>|</li>
-          <li onclick="displayContainer('home')">Home</li>
         </ul>
       </div>
     </div>
@@ -155,11 +155,11 @@
 --------------------------------------------------------------------------------->
     <div class="main-container">
 
-      <div id='topic_tree' style='display:none;text-align:left;margin-left:20px'>
+      <div id='topic_tree' class='tree' style='display:none'>
         <h2>Topics Tree</h2>
       </div>
 
-      <div id='impressum' class='container' style='display:none'>
+      <div id='impressum' class='container'>
         <h1>Impressum</h1>
         <div class='kh-content'>
           <p>
@@ -174,7 +174,7 @@
         </div>
       </div>
 
-      <div id='main_theorems' class='container' style='display:none'>
+      <div id='main_theorems' class='container'>
         <h1>Main Theorems in Functional Analysis</h1>
         This is a collection of the main theorems with links to Wikipedia pages.
         <div class='kh-content'>
@@ -217,7 +217,7 @@
         See also <a href="https://en.wikipedia.org/wiki/Category:Theorems_in_functional_analysis">Category: Theorems in functional analysis</a>.
       </div>
 
-      <div id='key_concepts' class='container' style='display:none'>
+      <div id='key_concepts' class='container'>
         <h1>Key Concepts in Functional Analysis</h1>
         <div class='kh-content'>
           <ul class='columns-3'>
@@ -279,10 +279,10 @@
         </div>
       </div>
 
-      <div id='sitemap' class='container' style='display:none'>
+      <div id='sitemap' class='container'>
         <h1>Sitemap</h1>
-        <div class='kh-content' style='font-size:90%'>
-          <ul class='columns-2' style='column-gap:50px;width:1000px'>
+        <div class='kh-content'>
+          <ul class='columns-2'>
             <li onclick="displayContainer('home')">Home</li>
             <li onclick="displayContainer('impressum')">Impressum</li>
             <li onclick="displayContainer('about_me')">About me</li>
@@ -294,11 +294,12 @@
             <li onclick="displayContainer('history')">History of Functional Analysis</li>
             <li onclick="displayContainer('textbooks')">Textbooks</li>
             <li onclick="displayContainer('grundlehren')">Grundlehren der mathematischen Wissenschaften (Springer)</li>
-            <li onclick="displayContainer('gtm')">Graduate Texts in Mathematics (Springer)</li>
+            <li onclick="displayContainer('gtm')">Graduate Texts in Mathematics (GTM)</li>
             <li onclick="displayContainer('mass')">Mathematics and Its Applications (Springer)</li>
-            <li onclick="displayContainer('lecture_notes_in_mathematics')">Lecture Notes in Mathematics (Springer)</li>
+            <li onclick="displayContainer('lecture_notes_in_mathematics')">Lecture Notes in Mathematics (LNM)</li>
             <li onclick="displayContainer('dover')">Dover Publications</li>
-            <li onclick="displayContainer('gsm')">Graduate Studies in Mathematics (AMS)</li>
+            <li onclick="displayContainer('gsm')">Graduate Studies in Mathematics (GSM)</li>
+            <li onclick="displayContainer('bourbaki')">Éléments de mathématique (Bourbaki)</li>
             <li onclick="displayContainer('journals')">Journals</li>
 <!--        <li onclick="displayContainer('topic_tree')">Topics Tree</li>  -->
             <li onclick="displayContainer('nonlinear_functional_analysis')">Nonlinear Functional Analysis</li>
@@ -306,6 +307,7 @@
             <li onclick="displayContainer('Reed_Simon')">Reed & Simon: Methods of Modern Mathematical Physics I-IV</li>
             <li onclick="displayContainer('Kato')">Kato: Perturbation Theory of Linear Operators</li>
             <li onclick="displayContainer('Fattorini')">Fattorini, Kerber: The Cauchy Problem</li>
+            <li onclick="displayContainer('Hörmander')">Hörmander: The Analysis of Linear Partial Differential Operators I-IV</li>
             <li onclick="displayContainer('Rudin')">Rudin's Books on Mathematical Analysis</li>
             <li onclick="displayContainer('Yosida')">Yosida: Functional Analysis</li>
             <li onclick="displayContainer('Nagy')">Riesz & Sz.-Nagy: Functional Analysis</li>
@@ -377,29 +379,30 @@
         </div>
       </div>
 
-      <div id='about_me' class='container' style='display:none'>
+      <div id='about_me' class='container'>
         <h1>About me</h1>
         <div class='left-to-right-container'>
-          <div class='kh-content' style="width:700px">
+          <div class='kh-content' style="width:70%">
             My name is <b>Klaus Höflinger</b> and I was born in 1960 in Wangen,
             a small village in the south of Germany.
-            My education is that of a mathematician, which I performed from 1980 to 1986 at University of Stuttgart.
-            Mathematics is one of my favourite hobbies during my life,
-            and after my retirement in 2025 I find enough time to setup again many topics
-            that I learned in the past.
+            My education is that of a mathematician,
+            which I performed from 1980 to 1986 at University of Stuttgart.
+            Indeed, mathematics has always been one of my favourite hobbies,
+            and after my retirement in 2025
+            I find enough time to setup again many topics that I learned in the past.
             <p>
               I wrote my texts in honour of one of my teachers <i>Prof. Dr. Peter Werner</i> (1932-2018),
               who conveyed my fascination of these beautiful mathematical subjects
               by his lessons hold in 1984 and 1985 at Mathematical Institute A of University Stuttgart.
             </p>
           </div>
-          <div>
-            <img src="../data/Klaus.jpg" alt="this is me" width="150%" height="auto">
+          <div style='width:30%'>
+            <img src='../data/Klaus.jpg'>
           </div>
         </div>
       </div>
 
-      <div id='my_documents' class='container' style='display:none'>
+      <div id='my_documents' class='container'>
         <h1>my Texts</h1>
         <div class='kh-content'>
           These are the articles written by myself.
@@ -452,7 +455,7 @@
         </div>
       </div>
 
-      <div id="lecture_notes" class='container' style='display:none'>
+      <div id="lecture_notes" class='container'>
         <h1>Lecture Notes</h1>
         <div class='kh-content'>
           <details open>
@@ -567,7 +570,7 @@
         </div>
       </div>
 
-      <div id="research_articles" class='container' style='display:none'>
+      <div id="research_articles" class='container'>
         <h1>Research Articles</h1>
         <div class='kh-content'>
           <details open>
@@ -591,7 +594,7 @@
         </div>
       </div>
 
-      <div id='internet_seminar_evo' class='container' style='display:none'>
+      <div id='internet_seminar_evo' class='container'>
         <h1>International Internet Seminars on Evolution Equations</h1>
         These events are organized once a year by a couple of universities in Europe
         (the entries 8,18,21,23 are online).
@@ -611,7 +614,33 @@
         </div>
       </div>
 
-      <div id='grundlehren' class='container' style='display:none'>
+      <div id='bourbaki' class='container'>
+        <h1>Éléments de mathématique (Bourbaki)</h1>
+        <div class='kh-content'>
+          This series of mathematical textbooks was written in the fifties and sixties of the last century by a group
+          of French mathematicians and published by the fictive author <i>Nicolas Bourbaki</i>.
+          The series was published by <i>Éditions Hermann</i>, Paris.
+          <p>The following volumes have been published:
+             (see also <a href="https://www.bourbaki.fr/index-en.html">here</a>)
+          </p>
+          <ul>
+            <li>Théorie des ensembles</li>
+            <li>Algèbre</li>
+            <li>Topologie générale</li>
+            <li>Fonctions d'une variable réelle</li>
+            <li>Espaces vectoriels topologiques</li>
+            <li>Intégration|||||Éditions Hermann</li>
+            <li>Groupes et algèbres de Lie</li>
+            <li>Algèbre commutative</li>
+            <li>Théories spectrales</li>
+            <li>Variétés différentielles et analytiques</li>
+            <li>Topologie algébrique</li>
+            <li>Éléments d'histoire des mathématiques</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id='grundlehren' class='container'>
         <h1>Die Grundlehren der mathematischen Wissenschaften in Einzeldarstellung</h1>
         The following table is an extract of the complete list of publications in this classical <i>Springer</i> series,
         see for example
@@ -634,7 +663,7 @@
         </div>
       </div>
 
-      <div id='dover' class='container' style='display:none'>
+      <div id='dover' class='container'>
         <h1>Dover Publications</h1>
         The following table lists textbooks in functional analysis and related topics provided by
         '<a href="https://store.doverpublications.com/pages/math-science?srsltid=AfmBOopIZf_V9yw1vAXY1KNFh69und2_Mx7m1JZ08HFE0wPtcFfVBGmk">Dover Publications</a>':
@@ -654,8 +683,8 @@
         </div>
       </div>
 
-      <div id='lecture_notes_in_mathematics' class='container' style='display:none'>
-        <h1>Lecture Notes in Mathematics</h1>
+      <div id='lecture_notes_in_mathematics' class='container'>
+        <h1>Lecture Notes in Mathematics (LNM)</h1>
         The following table partially lists textbooks in mathematical analysis
         provided by Springer's <a href="https://link.springer.com/series/304">
         Lecture&nbsp;Notes&nbsp;in&nbsp;Mathematics</a> (LNM):
@@ -676,8 +705,8 @@
         </div>
       </div>
 
-      <div id='gtm' class='container' style='display:none'>
-        <h1>Graduate Texts in Mathematics</h1>
+      <div id='gtm' class='container'>
+        <h1>Graduate Texts in Mathematics (GTM)</h1>
         The following table lists textbooks in functional analysis and related topics provided by
         '<a href="https://link.springer.com/series/0136">Springer GTM Series</a>':
         <div class='kh-content'>
@@ -697,8 +726,8 @@
         </div>
       </div>
 
-      <div id='gsm' class='container' style='display:none'>
-        <h1>Graduate Studies in Mathematics</h1>
+      <div id='gsm' class='container'>
+        <h1>Graduate Studies in Mathematics (GSM)</h1>
         The following table lists textbooks in functional analysis and related topics
         provided by the AMS series
         '<a href="https://bookstore.ams.org/gsm">GSM</a>':
@@ -719,7 +748,7 @@
         </div>
       </div>
 
-      <div id='mass' class='container' style='display:none'>
+      <div id='mass' class='container'>
         <h1>Mathematics and its Applications</h1>
         This series contains publications of Russian mathematicians by Springer, see also
         '<a href="https://link.springer.com/series/6255">Mathematics and Its Applications</a>':
@@ -739,13 +768,13 @@
         </div>
       </div>
 
-      <div id='linear_algebra' class='container' style='display:none'>
+      <div id='linear_algebra' class='container'>
         <h1>Linear Algebra</h1>
         <div class='kh-content'>
           This is a fundamental area in mathematics, which deals with <i> vector spaces</i>
           and the so-called <i>linear transformations</i> between them.
           We may divide up the subtopics in linear algebra as follows:
-          <ol style='list-style-type:square'>
+          <ul>
             <li>the general theory of rings and fields</li>
             <li>the basic theory of vector spaces (often called <i>linear spaces</i>),
                 including such concepts like linear independency, generator systems, Hamel bases, dimensions, 
@@ -756,7 +785,7 @@
             <li>the theory of linear functionals, dual spaces and determinants</li>
             <li>the theory of algebras, subalgebras and ideals</li>
             <li>the theory of inner product spaces and unitary transformations.</li>
-          </ol>
+          </ul>
           <p>
             One can for example study <i>Werner Greub</i>'s monograph 'Linear Algebra',
             which was published in Springer's
@@ -772,7 +801,7 @@
         </div>
       </div>
 
-      <div id='measure_and_integration_theory' class='container' style='display:none'>
+      <div id='measure_and_integration_theory' class='container'>
         <h1>Measure and Integration Theory</h1>
         <div class='kh-content'>
           The text behind the link below serves as a comprised review on the essentials
@@ -806,7 +835,7 @@
         </div>
       </div>
 
-      <div id='general_topology' class='container' style='display:none'>
+      <div id='general_topology' class='container'>
         <h1>General Topology</h1>
         <div class='kh-content'>
           This mathematical theory, often also denoted 'point-set topology',
@@ -854,7 +883,7 @@
         </div>
       </div>
 
-      <div id='complex_analysis' class='container' style='display:none'>
+      <div id='complex_analysis' class='container'>
         <h1>Complex Analysis</h1>
         <div class='kh-content'>
           By this topic is meant the general theory of holomorphic functions \(f: G \to \mathbb{C}\),
@@ -883,7 +912,7 @@
         </div>
       </div>
 
-      <div id='pde_theory' class='container' style='display:none'>
+      <div id='pde_theory' class='container'>
         <h1>Partial Differential Equations</h1>
         <div class='kh-content'>
           Applied functional analysis is the subject, which provides functional analytic tools and methods
@@ -936,7 +965,7 @@
         </div>
       </div>
 
-      <div id='abstract_harmonic_analysis' class='container' style='display:none'>
+      <div id='abstract_harmonic_analysis' class='container'>
         <h1>Abstract Harmonic Analysis</h1>
         <div class='kh-content'>
           Roughly spoken,
@@ -986,7 +1015,7 @@
         </div>
       </div>
 
-      <div id='functional_analysis' class='container' style='display:none'>
+      <div id='functional_analysis' class='container'>
         <h1>Summary of all Topics</h1>
         <div class='kh-content'>
           The main document of this web-page consists of the following chapters:
@@ -1010,40 +1039,39 @@
         </div>
       </div>
 
-      <div id='topological_linear_spaces' class='container' style='display:none'>
+      <div id='topological_linear_spaces' class='container'>
         <h1>Topological Linear Spaces</h1>
         <div class='left-to-right-container'>
-          <div class='kh-content'>
-            <div style="width:500px">
-              The theory of linear spaces endowed with a topological structure forms the fundament of functional analysis.
-              One often speaks of <i>topological linear spaces</i> in this case.
-              The most important subclasses of them are <i>locally convex spaces</i>,
-              <i>Fréchet spaces</i> and finally the well-known <i>Banach</i> and <i>Hilbert spaces</i>.
-              <p>
-                Visit this <a href="../pdf/Topological_and_Normed_Linear_Spaces.pdf">text</a>
-                to get an overview on these fundamental spaces.
-              </p>
+          <div class='kh-content' style='width:45%'>
+            The theory of linear spaces endowed with a topological structure forms
+            one of the fundaments of functional analysis.
+            Here one often speaks of <i>topological linear spaces</i>.
+            The most important subclasses of them are <i>locally convex spaces</i>,
+            <i>Fréchet spaces</i> and finally the well-known <i>Banach</i> and <i>Hilbert spaces</i>.
+            <p>
+              Visit this <a href="../pdf/Topological_and_Normed_Linear_Spaces.pdf">text</a>
+              to get an overview on these fundamental spaces.
+            </p>
 
-              <details open>
-                <summary class='kh-summary'>
-                  List of textbooks on topological or normed linear spaces:
-                </summary>
-                <ul>
-                  <li>Topological Vector Spaces, by <i>A.F. Robinson & W.J. Robinson</i>, Cambridge University Press, 1964</li>
-                  <li>Topological Vector Spaces I, by <i>G. Köthe</i>, Springer, Grundlehren der math. Wissenschaften Bd. 159, 1969</li>
-                  <li>Topological Vector Spaces II, by <i>G. Köthe</i>, Springer, Grundlehren der math. Wissenschaften Bd. 237, 1979</li>
-                </ul>
-              </details>
-            </div>
+            <details open>
+              <summary class='kh-summary'>
+                List of textbooks on topological or normed linear spaces:
+              </summary>
+              <ul>
+                <li>Topological Vector Spaces, by <i>A.F. Robinson & W.J. Robinson</i>, Cambridge University Press, 1964</li>
+                <li>Topological Vector Spaces I, by <a href='https://en.wikipedia.org/wiki/Gottfried_Köthe'>G. Köthe</a>, Springer, Grundlehren der math. Wissenschaften Bd. 159, 1969</li>
+                <li>Topological Vector Spaces II, by <a href='https://en.wikipedia.org/wiki/Gottfried_Köthe'>G. Köthe</a>, Springer, Grundlehren der math. Wissenschaften Bd. 237, 1979</li>
+              </ul>
+            </details>
           </div>
 
-          <div>
-            <img src="../data/hierarchy.png" alt="hierarchy" width="100%" height="auto">
+          <div style='width:45%'>
+            <img src="../data/hierarchy.png">
           </div>
         </div>
       </div>
 
-      <div id='spectral_theory' class='container' style='display:none'>
+      <div id='spectral_theory' class='container'>
         <h1>Linear Operators and Spectral Theory</h1>
         <div class='kh-content'>
           The theory of <i>linear operators</i> lies at the heart of functional analysis.
@@ -1067,7 +1095,7 @@
         </div>
       </div>
 
-      <div id='self-adjoint_operators' class='container' style='display:none'>
+      <div id='self-adjoint_operators' class='container'>
         <h1>Self-Adjoint Operators</h1>
         <div class='kh-content'>
           The theory of self-adjoint operators in Hilbert space is one of the earliest and well-elaborated topics
@@ -1105,7 +1133,7 @@
         </div>
       </div>
 
-      <div id='semigroup_theory' class='container' style='display:none'>
+      <div id='semigroup_theory' class='container'>
         <h1>Semigroup Theory and Evolution Equations</h1>
         <div class='kh-content'>
           Given a complex Banach space \(X\),
@@ -1137,7 +1165,7 @@
         </div>
       </div>
 
-      <div id='nonlinear_functional_analysis' class='container' style='display:none'>
+      <div id='nonlinear_functional_analysis' class='container'>
         <h1>Nonlinear Functional Analysis</h1>
         <div class='kh-content'>
           This important subtopic of functional analysis deals with <i>nonlinear</i> mappings \(f:D \subset X \to Y\),
@@ -1175,7 +1203,7 @@
         </div>
       </div>
 
-      <div id='coercive_sesquilinear_forms' class='container' style='display:none'>
+      <div id='coercive_sesquilinear_forms' class='container'>
         <h1>Coercive Sesquilinear Forms</h1>
         <div class='kh-content'>
           Besides linear operators acting in a Hilbert space,
@@ -1209,7 +1237,7 @@
         </div>
       </div>
 
-      <div id='distribution_theory' class='container' style='display:none'>
+      <div id='distribution_theory' class='container'>
         <h1>Distribution Theory</h1>
         <div class='kh-content'>
           A <i>distribution</i> my be regarded as the generalization of a function.
@@ -1251,7 +1279,7 @@
         </div>
       </div>
 
-      <div id='Nagy' class='container' style='display:none'>
+      <div id='Nagy' class='container'>
         <h1>F. Riesz & B. Szőkefalvi-Nagy: Functional Analysis</h1>
         <div class='kh-content'>
           This is one of the first monographs on functional analysis and was published in the fifties.
@@ -1278,7 +1306,7 @@
         </div>
       </div>
 
-      <div id='Rudin' class='container' style='display:none'>
+      <div id='Rudin' class='container'>
         <h1>Walter Rudin's Books on Mathematical Analysis</h1>
         <div class='kh-content'>
           <a href="https://en.wikipedia.org/wiki/Walter_Rudin">Walter Rudin</a> was an Austrian mathematician,
@@ -1354,7 +1382,7 @@
         </div>
       </div>
 
-      <div id='Fattorini' class='container' style='display:none'>
+      <div id='Fattorini' class='container'>
         <h1>Hector Fattorini, Adalbert Kerber: The Cauchy Problem</h1>
         <div class='kh-content'>
           The Argentinian mathematician <i>Hector Fattorini</i> (1938-2025) wrote a book
@@ -1381,7 +1409,78 @@
         </div>
       </div>
 
-      <div id='Yosida' class='container' style='display:none'>
+      <div id='Hörmander' class='container'>
+        <h1>L. Hörmander: The Analysis of Linear Partial Differential Operators I-IV</h1>
+        <div class='kh-content'>
+          This series written by <a href='https://en.wikipedia.org/wiki/Lars_Hörmander'>Lars Hörmander</a> deals with linear differential operators in the broadest sense,
+          that is,
+          it includes besides classical differential operators also those,
+          which are known as pseudo-differential operators and Fourier integral operators,
+          respectively.
+          The first two volumes can be seen as extensions to Hörmander's first book on this subject from 1963, having the simple title
+          <a href='https://link.springer.com/book/10.1007/978-3-662-30724-3'>Linear Partial Differential Operators</a>.
+          All these books appeared in Springer's Grundlehren der mathematischen Wissenschaften in Einzeldarstellung.
+          <div>
+            <p></p>
+            <details>
+              <summary class='kh-summary'>Volume I&nbsp;: Distribution Theory and Fourier Analysis</summary>
+              <ol type="I" start="0">
+                <li type='none'>Introduction</li>
+                <li>Test Functions</li>
+                <li>Definition and Basic Properties of Distributions</li>
+                <li>Differentiation and Multiplication by Functions</li>
+                <li>Convolution</li>
+                <li>Distributions in Product Spaces</li>
+                <li>Composition with Smooth Maps</li>
+                <li>The Fourier Transformation</li>
+                <li>Spectral Analysis of Singularities</li>
+                <li>Hyperfunctions</li>
+              </ol>
+            </details>
+            <details>
+              <summary class='kh-summary'>Volume II&nbsp;: Differential Operators with Constant Coefficients</summary>
+              <ol type="I" start="0">
+                <li type='none'>Introduction</li>
+                <li>Existence and Approximation of Solutions of Differential Equations</li>
+                <li>Interior Regularity of Solutions of Differential Equations</li>
+                <li>The Cauchy and Mixed Problems</li>
+                <li>Differential Operators of Constant Strength</li>
+                <li>Scattering Theory</li>
+                <li>Analytic Function Theory and Differential Equations</li>
+                <li>Convolution Equations</li>
+              </ol>
+            </details>
+            <details>
+              <summary class='kh-summary'>Volume III&nbsp;: Pseudo-Differential Operators</summary>
+              <ol type="I" start="0">
+                <li type='none'>Introduction</li>
+                <li>Second Order Elliptic Operators</li>
+                <li>Pseudo-Differential Operators</li>
+                <li>Elliptic Operators on a Compact Manifod Without Boundary</li>
+                <li>Boundary Problems for Elliptic Differential Operators</li>
+                <li>Symplectic Geometry</li>
+                <li>Some Classes of (Micro-)Hypoelliptic Operators</li>
+                <li>The Strictly Hyperbolic Cauchy Problem</li>
+                <li>The Mixed Dirichlet-Cauchy Problem</li>
+              </ol>
+            </details>
+            <details>
+              <summary class='kh-summary'>Volume IV&nbsp;: Fourier Integral Operators</summary>
+              <ol type="I" start="0">
+                <li type='none'>Introduction</li>
+                <li>Lagrangian Distributions and Fourier Integral Operators</li>
+                <li>Pseudo-Differential Operators of Principal Type</li>
+                <li>Subelliptic Operators</li>
+                <li>Uniqueness for the Cauchy Problem</li>
+                <li>Spectral Asymptotics</li>
+                <li>Long Range Scattering Theory</li>
+              <ol>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <div id='Yosida' class='container'>
         <h1>K. Yosida: Functional Analysis</h1>
         <div class='kh-content'>
           Yosida's book was published for the first time in 1965 as volume 123 of Springer's
@@ -1390,10 +1489,11 @@
           It is referenced from a lot of research articles.
           But I cannot emphasize this book for self studies --
           from my point of view, the sections are organized very chaotically.
+          <p></p>
           <div class='left-to-right-container'>
             <div>
               <details open>
-                <summary>Contents:</summary>
+                <summary class='kh-summary'>Contents:</summary>
                 <ol type="I" start="0">
                   <li>Preliminaries</li>
                   <li>Semi-norms</li>
@@ -1422,7 +1522,7 @@
         </div>
       </div>
 
-      <div id='Kato' class='container' style='display:none'>
+      <div id='Kato' class='container'>
         <h1>T. Kato: Perturbation Theory for Linear Operators</h1>
         <div class='kh-content'>
           <div class='left-to-right-container'>
@@ -1457,14 +1557,14 @@
         </div>
       </div>
 
-      <div id='Dunford_Schwartz' class='container' style='display:none'>
+      <div id='Dunford_Schwartz' class='container'>
         <h1>N. Dunford &  J.T. Schwartz: Linear Operators I-III</h1>
         <div class='kh-content'>
           This series consisting of three volumes is one of the fundamental monographs in functional analysis.
           To publish them needs in total more than ten years.
           <div class='container'>
             <details open>
-              <summary>Part I&nbsp;: &nbsp;&nbsp;General Theory (1957)</summary>
+              <summary class='kh-summary>Part I&nbsp;: &nbsp;&nbsp;General Theory (1957)</summary>
               <ol type='I'>
                 <li>Preliminary Concepts</li>
                 <li>Three Basic Principles of Linear Analysis</li>
@@ -1478,7 +1578,7 @@
             </details>
 
             <details open>
-              <summary>Part II&nbsp;: &nbsp;Spectral Theory (1961)</summary>
+              <summary class='kh-summary'>Part II&nbsp;: &nbsp;Spectral Theory (1961)</summary>
               <ol type='I' start='9'>
                 <li>B-Algebras</li>
                 <li>Bounded Normal Operators in Hilbert Space</li>
@@ -1490,7 +1590,7 @@
             </details>
 
             <details open>
-              <summary>Part III&nbsp;: Spectral Operators (1967)</summary>
+              <summary class='kh-summary'>Part III&nbsp;: Spectral Operators (1967)</summary>
               <ol type='I' start='15'>
                 <li>Spectral Operators</li>
                 <li>Spectral Operators: Sufficient Conditions</li>
@@ -1504,13 +1604,17 @@
         </div>
       </div>
 
-      <div id='Lions_Magenes' class='container' style='display:none'>
+      <div id='Lions_Magenes' class='container'>
         <h1>J.-L. Lions & E. Magenes: Non-Homogeneous Boundary Value Problems I-III</h1>
         <div class='kh-content'>
-          This series is the first systematic treatment on boundary value problems of elliptic, parabolic and hyperbolic type.
+          This series,
+          written by <a href='https://en.wikipedia.org/wiki/Jacques-Louis_Lions'>Jeaques-Louis Lions</a>
+          and <a href='https://de.wikipedia.org/wiki/Enrico_Magenes'>Enrico Magenes</a> in 1972 and 1973,
+          is one of the first systematic treatments of inhomogeneous boundary value problems
+          of elliptic, parabolic and hyperbolic type.
           <div class='container'>
             <details open>
-              <summary>Volume I</summary>
+              <summary class='kh-summary'>Volume I</summary>
               <ol>
                 <li>Hilbert Theory of Trace and Interpolation Spaces</li>
                 <li>Elliptic Operators. Hilbert Theory</li>
@@ -1519,7 +1623,7 @@
             </details>
 
             <details open>
-              <summary>Volume II</summary>
+              <summary class='kh-summary'>Volume II</summary>
               <ol start='4'>
                 <li>Parabolic Evolution Operators. Hilbert Theory</li>
                 <li>Hyperbolic Evolution Operators, of Petrowski and of Schroedinger. Hilbert Theory</li>
@@ -1528,7 +1632,7 @@
             </details>
 
             <details open>
-              <summary>Volume III</summary>
+              <summary class='kh-summary'>Volume III</summary>
               <ol start='7'>
                 <li>Scalar and Vector Ultra-Distributions</li>
                 <li>Elliptic Boundary Value Problems in Spaces of Distributions and Ultra-Distributions</li>
@@ -1541,7 +1645,7 @@
         </div>
       </div>
 
-      <div id='Reed_Simon' class='container' style='display:none'>
+      <div id='Reed_Simon' class='container'>
         <h1>M. Reed &  B. Simon: Methods of Modern Mathematical Physics I-IV</h1>
         <div class='kh-content'>
           This is a four-volume work by <i>Michael Reed</i> and <i>Barry Simon</i> done in the eigthies of the last century.
@@ -1593,7 +1697,7 @@
         </div>
       </div>
 
-      <div id='mathematicians' class='container' style='display:none'>
+      <div id='mathematicians' class='container'>
         <h1>Mathematicians</h1>
         This is an enumeration of mathematicians with important contributions to functional analysis.
         <div class='kh-content'>
@@ -1613,7 +1717,7 @@
         </div>
       </div>
 
-      <div id='history' class='container' style='display:none'>
+      <div id='history' class='container'>
         <h1>History of Functional Analysis</h1>
         There are a couple of publications on the history of functional analysis:
         <div class='kh-content'>
@@ -1630,7 +1734,7 @@
         </div>
       </div>
 
-      <div id='textbooks' class='container' style='display:none'>
+      <div id='textbooks' class='container'>
         <h1>Textbooks</h1>
         This is an enumeration of textbooks on functional analysis and related topics.
         <div class='kh-content'>
@@ -1650,7 +1754,7 @@
         </div>
       </div>
 
-      <div id='msc46' class='container' style='display:none'>
+      <div id='msc46' class='container'>
         <h1>Mathematical Subject Classification for '46-XX' (Functional Analysis)</h1>
         The following table forms an extract of the general MSC-2020 catalogue for 'functional analysis'.
         <div class='kh-content'>
@@ -1668,7 +1772,7 @@
         </div>
       </div>
 
-      <div id='journals' class='container' style='display:none'>
+      <div id='journals' class='container'>
         <h1>Journals</h1>
         This is an enumeration of well-known journals,
         where mathematical research articles on functional analysis have been published.
@@ -1687,13 +1791,6 @@
           </div>
         </div>
       </div>
-
-      <div id='statistics' class='container' style='display:none'>
-        <div class='kh-content'>
-          <div>Calls on this website since 03/06/2026:</div>
-          <div id='counter'></div>
-        </div>
-      </div>
     </div>
 
 <!--------------------------------------------------------------------------------
@@ -1703,7 +1800,9 @@
       <p>
       </p>
       <hr><hr>
-      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 18/08/2026).
+      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 21/08/2026).
+      &nbsp;&nbsp;&nbsp;
+      <button onclick="displayContainer('home')"     >Home</button>
       <button onclick="displayContainer('about_me')" >About me</button>
       <button onclick="displayContainer('impressum')">Impressum</button>
       <button onclick="displayContainer('sitemap')"  >Sitemap</button>
