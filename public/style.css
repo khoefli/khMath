@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------*/
-/* html                                                                       */
+/* html, body, h1, h2, ...                                                    */
 /*----------------------------------------------------------------------------*/
 html
 {
@@ -18,7 +18,16 @@ html
   overflow:scroll;
 }
 
-html p
+body
+{
+  background-color:white;
+  text-align:center;
+  width:auto;
+  height:100%;
+  overflow:scroll;
+}
+
+p
 {
   text-indent:20px;
   padding-top:3px;
@@ -30,7 +39,7 @@ html p
 h1
 {
   color:DarkSlateGray;
-  font-size:14pt;
+  font-size:12pt;
   text-align:center;
   padding:0px;
   margin:0px;
@@ -38,60 +47,24 @@ h1
   margin-bottom:20px;
 }
 
-html h2
-{
-  color:DarkSlateGray;
-  font-size:12pt;
-  text-align:center;
-  padding:0px;
-  margin:0px;
-  margin-top:5px;
-  margin-bottom:5px;
-}
-
-html h3
+h2
 {
   color:DarkSlateGray;
   font-size:11pt;
-  padding-top:0px;
-  padding-bottom:0px;
-}
-
-html h4
-{
-  color:DarkSlateGray;
-  font-size:10pt;
+  text-align:left;
+  margin:0px;
+  padding:0px;
   padding-top:15px;
-  padding-bottom:0px;
-  text-align:left;
 }
 
-.kh-content
-{
-  border:1px solid;
-  border-radius:10px;
-  padding:10px;
-  margin-top:5px;
-  margin-bottom:5px;
-  background-color:#e9e6eb;
-}
-
-.kh-summary
+summary
 {
   color:DarkSlateGray;
   font-size:11pt;
   text-align:left;
 }
 
-.logo
-{
-  margin:auto;
-  margin:0px;
-  margin-right:25px;
-  padding:0px;
-}
-
-html ol
+ol
 {
   margin:0 auto;
   margin-top:4px;
@@ -100,40 +73,31 @@ html ol
   padding-left:30px;
 }
 
-html ul
+ul
 {
   list-style-type:square;
   margin-top:5pt;
   margin-bottom:5pt;
 }
 
-html li
+li
 {
   padding-left:5px;
 }
 
-html body
+img
 {
-  background-color:white;
-  text-align:center;
-  width:auto;
-  height:100%;
-  overflow:scroll;
-}
-
-html img
-{
+  z-index:9999;
+  display:flex;
+  justify-content:right;
   padding-left:25px;
   padding-top:0px;
   border:0px solid;
-  display:flex;
-  justify-content:right;
-  z-index:9999;
 }
 
 a:link
 {
-  color:#505050;
+  color:gray;
   text-decoration:none;
 }
 
@@ -145,53 +109,35 @@ a:visited
 
 a:active
 {
-  color:#505050;
+  color:gray;
   text-decoration:none;
 }
 
-html button
+button
 {
-  border:none;
   cursor:pointer;
   background-color:white;
   color:gray;
   margin:0px;
   padding:0px 2px;
+  border:none;
 }
 
-/*----------------------------------------------------------------------------*/
-/* columns-2, columns-3                                                       */
-/*----------------------------------------------------------------------------*/
-.columns-2
-{
-  columns:2 400px;
-  column-gap:10px;
-}
-
-.columns-3
-{
-  columns:3 300px;
-  column-gap:10px;
-}
-
-/*----------------------------------------------------------------------------*/
-/* internal-page                                                              */
-/*----------------------------------------------------------------------------*/
-.internal-page
+mark
 {
   color:#505050;
   text-decoration:none;
   background-color:#e9e6eb;
 }
 
-.internal-page:hover
+mark:hover
 {
   color:gray;
   text-decoration:none;
   background-color:#e9e6eb;
 }
 
-.internal-page:visited
+mark:visited
 {
   color:#505050;
   background-color:#e9e6eb;
@@ -251,7 +197,6 @@ html button
 {
   text-decoration:none;
   color:gray;
-  color:blue;
 }
 
 #nav ul li ul
@@ -290,9 +235,24 @@ html button
 }
 
 /*----------------------------------------------------------------------------*/
-/* main-container                                                             */
+/* columns-2, columns-3                                                       */
 /*----------------------------------------------------------------------------*/
-.main-container
+.columns-2
+{
+  columns:2;
+  column-gap:5px;
+}
+
+.columns-3
+{
+  columns:3;
+  column-gap:5px;
+}
+
+/*----------------------------------------------------------------------------*/
+/* kh-classes                                                                 */
+/*----------------------------------------------------------------------------*/
+.kh-main-container
 {
   z-index:1;
   text-align:left;
@@ -305,54 +265,55 @@ html button
   border-color:white;
 }
 
-.main-container div
+.kh-main-container div
 {
 }
 
-.main-container a, a:hover, a:visited
-{
-  color:#505050;
-}
-
-.main-container li a
+.kh-main-container a, a:hover, a:visited
 {
   color:#505050;
 }
 
-.main-container ul li a
+.kh-main-container li a
 {
   color:#505050;
 }
 
-.main-container a:link
+.kh-main-container ul li a
 {
   color:#505050;
 }
 
-.main-container a:hover
+.kh-main-container a:link
+{
+  color:#505050;
+}
+
+.kh-main-container a:hover
 {
   color:gray;
 }
 
-.main-container ul li a:hover
+.kh-main-container ul li a:hover
 {
   color:gray;
 }
 
-.main-container a:focus
+.kh-main-container a:focus
 {
   color:gray;
 }
 
-.tree
+.kh-content
 {
-  text-align:left;
-  margin-left:20px;
+  border:1px solid;
+  border-radius:10px;
+  padding:10px;
+  margin-top:5px;
+  margin-bottom:5px;
+  background-color:#e9e6eb;
 }
 
-/*----------------------------------------------------------------------------*/
-/* kh-table                                                                   */
-/*----------------------------------------------------------------------------*/
 .kh-td1
 {
   text-align:center;
@@ -366,10 +327,13 @@ html button
   padding:0px 4px;
 }
 
-/*----------------------------------------------------------------------------*/
-/* left-to-right-container                                                    */
-/*----------------------------------------------------------------------------*/
-.left-to-right-container
+.kh-tree
+{
+  text-align:left;
+  margin-left:20px;
+}
+
+.kh-left-to-right-container
 {
   display:flex;
   flex-direction:row;
@@ -378,20 +342,22 @@ html button
   margin:0px;
 }
 
+#kh-logo
+{
+  padding:0px;
+  margin:0px;
+  margin-right:25px;
+}
+
 /*----------------------------------------------------------------------------*/
 /* datatables, datatables-content                                             */
 /*----------------------------------------------------------------------------*/
 #datatables
 {
-  height:100%;
-  font-size:10pt;
-  text-align:center;
   font-size:80%;
-}
-
-.table-content
-{
   font-size:10pt;
+  height:100%;
+  text-align:center;
 }
 
 .datatables-content
