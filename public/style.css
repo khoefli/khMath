@@ -144,94 +144,19 @@ mark:visited
 }
 
 /*----------------------------------------------------------------------------*/
-/* nav                                                                        */
+/* datatables, datatables-content                                             */
 /*----------------------------------------------------------------------------*/
-#nav
+#datatables
 {
-  width:100%;
-  color:#505050;
+  font-size:80%;
   font-size:10pt;
-  padding:0px;
-  margin:0px;
-  margin-top:10px;
-  margin-bottom:15px;
-}
-
-#nav ul
-{
+  height:100%;
   text-align:center;
-  list-style-type:none;
-  margin:0px;
-  margin-left:5%;
-  padding:0px;
-  padding-bottom:15px;
 }
 
-#nav li 
+.datatables-content
 {
-}
-
-
-#nav ul li
-{
-  float:left;
-  list-style:none;
-}
-
-#nav ul li a
-{
-  text-decoration:none;
-  color:#505050;
-  float:none;
-  clear:left;
-  position:relative;
-  display:inline-block;
-}
-
-#nav ul li:hover
-{
-  text-decoration:none;
-}
-
-#nav ul li a:hover
-{
-  text-decoration:none;
-  color:gray;
-}
-
-#nav ul li ul
-{
-  display:none;
-}
-
-#nav ul li:hover ul
-{
-  z-index:9999;
-  display:flex;
-  flex-direction:column;
-  position:absolute;
-  background-color:#f6f5f4;
-  color:gray;
-  list-style:none;
-  text-align:left;
-  margin-left:10px;
-  padding:0px;
-  padding-right:5px;
-  border:1pt solid;
-}
-
-#nav ul li:hover ul li
-{
-  display:block;
-  text-decoration:none;
-  color:#505050;
-}
-
-#nav ul li ul li:hover
-{
-  display:block;
-  text-decoration:none;
-  color:gray;
+  font-size:10pt;
 }
 
 /*----------------------------------------------------------------------------*/
@@ -349,26 +274,7 @@ mark:visited
   margin-right:25px;
 }
 
-/*----------------------------------------------------------------------------*/
-/* datatables, datatables-content                                             */
-/*----------------------------------------------------------------------------*/
-#datatables
-{
-  font-size:80%;
-  font-size:10pt;
-  height:100%;
-  text-align:center;
-}
-
-.datatables-content
-{
-  font-size:10pt;
-}
-
-/*----------------------------------------------------------------------------*/
-/* footer                                                                     */
-/*----------------------------------------------------------------------------*/
-#footer
+#kh-footer
 {
   font-size:10pt;
   text-align:left;
@@ -379,9 +285,101 @@ mark:visited
   padding:0px;
 }
 
-#footer hr
+#kh-footer hr
 {
   margin:0px;
   padding:0px;
   margin-bottom:1pt;
 }
+
+/*----------------------------------------------------------------------------*/
+/* kh-nav                                                                     */
+/*----------------------------------------------------------------------------*/
+#kh-nav
+{
+  width:100%;
+  color:#505050;
+  font-size:10pt;
+  padding:0px;
+  margin:0px;
+  margin-top:10px;
+  margin-bottom:15px;
+}
+
+#kh-nav ul
+{
+  text-align:center;
+  list-style-type:none;
+  margin:0px;
+  margin-left:5%;
+  padding:0px;
+  padding-bottom:15px;
+}
+
+#kh-nav li 
+{
+}
+
+
+#kh-nav ul li
+{
+  float:left;
+  list-style:none;
+}
+
+#kh-nav ul li a
+{
+  text-decoration:none;
+  color:#505050;
+  float:none;
+  clear:left;
+  position:relative;
+  display:inline-block;
+}
+
+#kh-nav ul li:hover
+{
+  text-decoration:none;
+}
+
+#kh-nav ul li a:hover
+{
+  text-decoration:none;
+  color:gray;
+}
+
+#kh-nav ul li ul
+{
+  display:none;
+}
+
+#kh-nav ul li:hover ul
+{
+  z-index:9999;
+  display:flex;
+  flex-direction:column;
+  position:absolute;
+  background-color:#f6f5f4;
+  color:gray;
+  list-style:none;
+  text-align:left;
+  margin-left:10px;
+  padding:0px;
+  padding-right:5px;
+  border:1pt solid;
+}
+
+#kh-nav ul li:hover ul li
+{
+  display:block;
+  text-decoration:none;
+  color:#505050;
+}
+
+#kh-nav ul li ul li:hover
+{
+  display:block;
+  text-decoration:none;
+  color:gray;
+}
+

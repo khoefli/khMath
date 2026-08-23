@@ -37,7 +37,7 @@
 |                                 LOGO & MAIN MENU                               |
 --------------------------------------------------------------------------------->
     <div class='container'>
-      <div id="nav" class='container'>
+      <div id="kh-nav" class='container'>
         <ul>
           <li><img id='kh-logo' src='../data/logo.png'></li>
           <li>MSC
@@ -155,7 +155,53 @@
 --------------------------------------------------------------------------------->
     <div class="kh-main-container">
 
-      <div id='topic_tree' class='kh-tree' style='display:none'>
+      <div id='home' class='container' style='display:block'>
+        <h1>Welcome to this web page!</h1>
+        <div class='kh-content'>
+          <b>Functional analysis</b> is one of the most important areas in modern mathematics.
+          It deals with the theory of topological linear spaces and the linear rsp. nonlinear mappings between them.
+          The subject was mainly developed in the first half of the 20<sup>th</sup> century,
+          and valuable contributions have been done by
+          <i>I.&nbsp;Fredholm</i>,
+          <i>D.&nbsp;Hilbert</i>,
+          <i>S.&nbsp;Banach</i>,
+          <i>F.&nbsp;Riesz</i>,
+          <i>J.&nbsp;von&nbsp;Neumann</i>,
+          <i>L.&nbsp;Schwartz</i>,
+          <i>F.&nbsp;E.&nbsp;Browder</i>
+<!--
+          <i>J.-L.&nbsp;Lions</i>
+-->
+          and many others.
+          <p>
+            Meanwhile there are a lot of subtopics within functional analysis,
+            and we want to emphasize a couple of them:
+          </p>
+          <ul>
+            <li><mark onclick="displayContainer('topological_linear_spaces')">basic theory on topological and normed linear spaces</mark></li>
+            <li>duality (adjoint spaces, dual pairs, adjoint operators)</li>
+            <li>the calculus of vector-valued functions</li>
+            <li><mark onclick="displayContainer('spectral_theory')">linear operators and spectral theory</mark></li>
+            <li><mark onclick="displayContainer('semigroup_theory')">semigroup theory and evolution equations</mark></li>
+            <li><mark onclick="displayContainer('distribution_theory')">distribution theory</mark></li>
+            <li><mark onclick="displayContainer('nonlinear_functional_analysis')">nonlinear functional analysis</mark> (monotone mappings, fixpoint and degree theorems)</li>
+            <li>applied functional analysis (elliptic boundary value problems, Hilbert space methods, Schrödinger equation, ...)</li>
+          </ul>
+          <p>
+            One can claim without doubt that functional analysis relies
+            on four main columns of other mathematical subjects:
+            <mark onclick="displayContainer('linear_algebra')">linear&nbsp;algebra</mark>,
+            <mark onclick="displayContainer('general_topology')">general&nbsp;topology</mark>,
+            <mark onclick="displayContainer('measure_and_integration_theory')">measure&nbsp;and&nbsp;integration&nbsp;theory</mark> and
+            <mark onclick="displayContainer('complex_analysis')">complex&nbsp;analysis</mark>.
+          </p>
+          <p>
+            It is my wish that visitors of this website will find inspirating hints and texts for further extended studies.
+          </p>
+        </div>
+      </div>
+
+      <div id='topic_tree' class='kh-tree'>
         <h1>Topics Tree</h1>
       </div>
 
@@ -330,52 +376,6 @@
             <li onclick="displayContainer('pde_theory')">Partial Differential Equations</li>
             <li onclick="displayContainer('abstract_harmonic_analysis')">Abstract Harmonic Analysis</li>
           </ul>
-        </div>
-      </div>
-
-      <div id='home' class='container'>
-        <h1>Welcome to this web page!</h1>
-        <div class='kh-content'>
-          <b>Functional analysis</b> is one of the most important areas in modern mathematics.
-          It deals with the theory of topological linear spaces and the linear rsp. nonlinear mappings between them.
-          The subject was mainly developed in the first half of the 20<sup>th</sup> century,
-          and valuable contributions have been done by
-          <i>I.&nbsp;Fredholm</i>,
-          <i>D.&nbsp;Hilbert</i>,
-          <i>S.&nbsp;Banach</i>,
-          <i>F.&nbsp;Riesz</i>,
-          <i>J.&nbsp;von&nbsp;Neumann</i>,
-          <i>L.&nbsp;Schwartz</i>,
-          <i>F.&nbsp;E.&nbsp;Browder</i>
-<!--
-          <i>J.-L.&nbsp;Lions</i>
--->
-          and many others.
-          <p>
-            Meanwhile there are a lot of subtopics within functional analysis,
-            and we want to emphasize a couple of them:
-          </p>
-          <ul>
-            <li><mark onclick="displayContainer('topological_linear_spaces')">basic theory on topological and normed linear spaces</mark></li>
-            <li>duality (adjoint spaces, dual pairs, adjoint operators)</li>
-            <li>the calculus of vector-valued functions</li>
-            <li><mark onclick="displayContainer('spectral_theory')">linear operators and spectral theory</mark></li>
-            <li><mark onclick="displayContainer('semigroup_theory')">semigroup theory and evolution equations</mark></li>
-            <li><mark onclick="displayContainer('distribution_theory')">distribution theory</mark></li>
-            <li><mark onclick="displayContainer('nonlinear_functional_analysis')">nonlinear functional analysis</mark> (monotone mappings, fixpoint and degree theorems)</li>
-            <li>applied functional analysis (elliptic boundary value problems, Hilbert space methods, Schrödinger equation, ...)</li>
-          </ul>
-          <p>
-            One can claim without doubt that functional analysis relies
-            on four main columns of other mathematical subjects:
-            <mark onclick="displayContainer('linear_algebra')">linear&nbsp;algebra</mark>,
-            <mark onclick="displayContainer('general_topology')">general&nbsp;topology</mark>,
-            <mark onclick="displayContainer('measure_and_integration_theory')">measure&nbsp;and&nbsp;integration&nbsp;theory</mark> and
-            <mark onclick="displayContainer('complex_analysis')">complex&nbsp;analysis</mark>.
-          </p>
-          <p>
-            It is my wish that visitors of this website will find inspirating hints and texts for further extended studies.
-          </p>
         </div>
       </div>
 
@@ -861,7 +861,7 @@
           </ol>
           <details open>
             <summary>
-              A couple of standard monographs on general topology are available, for example:
+              Here are a couple of standard monographs on general topology:
             </summary>
             <ul>
               <li>Mengentheoretische Topologie; by <i>Boto&nbsp;von&nbsp;Querenburg</i> (in German)</li>
@@ -877,8 +877,8 @@
             denoted <i>differential topology</i> and <i>algebraic topology</i>,
             respectively.
             both not having any intersections with our core topic functional analysis of this website.
-            Currently I am also writing introductary texts on them,
-            which soon will be published on this website.
+            Currently I am writing introductary texts on them,
+            which will soon be published on this website.
           </p>
         </div>
       </div>
@@ -1796,11 +1796,11 @@
 <!--------------------------------------------------------------------------------
 |                                      FOOTER                                    |
 --------------------------------------------------------------------------------->
-    <div id='footer'>
+    <div id='kh-footer'>
       <p>
       </p>
       <hr><hr>
-      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 21/08/2026).
+      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 23/08/2026).
       &nbsp;&nbsp;&nbsp;
       <button onclick="displayContainer('home')"     >Home</button>
       <button onclick="displayContainer('about_me')" >About me</button>
