@@ -55,9 +55,10 @@ h2
   color:DarkSlateGray;
   font-size:11pt;
   text-align:left;
-  margin:0px;
   padding:0px;
-  padding-top:15px;
+  margin:0px;
+  margin-top:15px;
+  margin-bottom:3px;
 }
 
 summary
