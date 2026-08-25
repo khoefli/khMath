@@ -147,6 +147,24 @@ mark:visited
   background-color:#e9e6eb;
 }
 
+footer
+{
+  font-size:10pt;
+  text-align:left;
+  margin-left:6%;
+  margin-right:6%;
+  margin-top:0px;
+  margin-bottom:5px;
+  padding:0px;
+}
+
+footer hr
+{
+  margin:0px;
+  padding:0px;
+  margin-bottom:1pt;
+}
+
 /*----------------------------------------------------------------------------*/
 /* datatables, datatables-content                                             */
 /*----------------------------------------------------------------------------*/
@@ -279,24 +297,6 @@ mark:visited
   padding:0px;
   margin:0px;
   margin-right:25px;
-}
-
-#kh-footer
-{
-  font-size:10pt;
-  text-align:left;
-  margin-left:6%;
-  margin-right:6%;
-  margin-top:0px;
-  margin-bottom:5px;
-  padding:0px;
-}
-
-#kh-footer hr
-{
-  margin:0px;
-  padding:0px;
-  margin-bottom:1pt;
 }
 
 /*----------------------------------------------------------------------------*/

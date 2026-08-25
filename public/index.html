@@ -36,118 +36,116 @@
 <!--------------------------------------------------------------------------------
 |                                 LOGO & MAIN MENU                               |
 --------------------------------------------------------------------------------->
-    <div class='container'>
-      <div id="kh-nav" class='container'>
-        <ul>
-          <li><img id='kh-logo' src='../data/logo.png'></li>
-          <li>MSC
-            <ul>
-              <li><a href="https://msc2020.org/#">MSC-2020 home page</a></li>
-              <li><a href="https://mathscinet.ams.org/mathscinet/searchMSC.html">MathSciNet (AMS)</a></li>
-              <li><a href="../pdf/MSC_2020.pdf">MSC-2020 (pdf-version)</a></li>
-              <li onclick="displayContainer('msc46')">Entries for '46-XX' (functional analysis)</li>
-            </ul>
-          </li>
-          <li>|</li>
-          <li>Links
-            <ul>
-              <li><a href="https://projecteuclid.org">Project Euclid</a></li>
-              <li><a href="https://www.ams.org">American Math. Society</a></li>
-              <li><a href="https://euromathsoc.org">European Math. Society</a></li>
-              <li><a href="https://mathematik.de">Deutsche Mathematiker-Vereinigung</a></li>
-              <li><a href="https://mathshistory.st-andrews.ac.uk/Societies">Mathematical Societies</a></li>
-              <li><a href="https://www.mfo.de">Math. Forschungsinstitut Oberwolfach</a></li>
-              <li><a href="https://www.bourbaki.fr/index-en.html">Association ... de Nicolas Bourbaki</a></li>
-              <li><a href="https://mathshistory.st-andrews.ac.uk">MacTutor</a></li>
-            </ul>
-          </li>
-          <li>|</li>
-          <li>Resources
-            <ul>
-              <li><a href="https://encyclopediaofmath.org/wiki/Main_Page">Encyclopedia of Mathematics</a></li>
-              <li><a href="https://mathworld.wolfram.com/">Wolfram MathWorld</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Glossary_of_functional_analysis">Glossary of functional analysis</a></li>
-              <li onclick="displayContainer('internet_seminar_evo')">Seminars on Evolution Equations</li>
-            </ul>
-          </li>
-          <li>|</li>
-          <li>Documents
-            <ul>
-              <li onclick="displayContainer('textbooks')">Textbooks</li>
-              <li onclick="displayContainer('lecture_notes')">Lecture Notes</li>
-              <li onclick="displayContainer('research_articles')">Research Articles</li>
-              <li onclick="displayContainer('my_documents')">my Texts</li>
-            </ul>
-          </li>
+    <div id="kh-nav" class='container'>
+      <ul>
+        <li><img id='kh-logo' src='../data/logo.png'></li>
+        <li>MSC
+          <ul>
+            <li><a href="https://msc2020.org/#">MSC-2020 home page</a></li>
+            <li><a href="https://mathscinet.ams.org/mathscinet/searchMSC.html">MathSciNet (AMS)</a></li>
+            <li><a href="../pdf/MSC_2020.pdf">MSC-2020 (pdf-version)</a></li>
+            <li onclick="displayContainer('msc46')">Entries for '46-XX' (functional analysis)</li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>Links
+          <ul>
+            <li><a href="https://projecteuclid.org">Project Euclid</a></li>
+            <li><a href="https://www.ams.org">American Math. Society</a></li>
+            <li><a href="https://euromathsoc.org">European Math. Society</a></li>
+            <li><a href="https://mathematik.de">Deutsche Mathematiker-Vereinigung</a></li>
+            <li><a href="https://mathshistory.st-andrews.ac.uk/Societies">Mathematical Societies</a></li>
+            <li><a href="https://www.mfo.de">Math. Forschungsinstitut Oberwolfach</a></li>
+            <li><a href="https://www.bourbaki.fr/index-en.html">Association ... de Nicolas Bourbaki</a></li>
+            <li><a href="https://mathshistory.st-andrews.ac.uk">MacTutor</a></li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>Resources
+          <ul>
+            <li><a href="https://encyclopediaofmath.org/wiki/Main_Page">Encyclopedia of Mathematics</a></li>
+            <li><a href="https://mathworld.wolfram.com/">Wolfram MathWorld</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Glossary_of_functional_analysis">Glossary of functional analysis</a></li>
+            <li onclick="displayContainer('internet_seminar_evo')">Seminars on Evolution Equations</li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>Documents
+          <ul>
+            <li onclick="displayContainer('textbooks')">Textbooks</li>
+            <li onclick="displayContainer('lecture_notes')">Lecture Notes</li>
+            <li onclick="displayContainer('research_articles')">Research Articles</li>
+            <li onclick="displayContainer('my_documents')">my Texts</li>
+          </ul>
+        </li>
 <!--
-          <li>|</li>
-          <li>Seminars
-            <ul">
-              <li onclick="displayContainer('internet_seminar_evo')">Internet Seminars on Evolution Equations</li>
-            </ul>
+        <li>|</li>
+        <li>Seminars
+          <ul">
+            <li onclick="displayContainer('internet_seminar_evo')">Internet Seminars on Evolution Equations</li>
+          </ul>
 -->
-          <li>|</li>
-          <li>Data
-            <ul>
-              <li onclick="displayContainer('main_theorems')">Main Theorems</li>
-              <li onclick="displayContainer('key_concepts')">Key Concepts</li>
-              <li onclick="displayContainer('mathematicians')">Mathematicians</li>
-              <li onclick="displayContainer('history')">History of Functional Analysis</li>
-              <li onclick="displayContainer('journals')">Journals</li>
-<!--          <li onclick="displayContainer('topic_tree')">Topics Tree</li> -->
-            </ul>
-          </li>
-          <li>|</li>
-          <li>Series
-            <ul>
-              <li onclick="displayContainer('grundlehren')">Grundlehren der math. Wissenschaften</li>
-              <li onclick="displayContainer('dover')">Dover Publications</li>
-              <li onclick="displayContainer('lecture_notes_in_mathematics')">Lecture Notes in Mathematics (LNM)</li>
-              <li onclick="displayContainer('gtm')">Graduate Texts in Mathematics (GTM)</li>
-              <li onclick="displayContainer('gsm')">Graduate Studies in Mathematics (GSM)</li>
-              <li onclick="displayContainer('mass')">Mathematics and its Applications</li>
-              <li onclick="displayContainer('bourbaki')">Éléments de mathématique (Bourbaki)</li>
-            </ul>
-          </li>
-          <li>|</li>
-          <li>Monographs
-            <ul>
-              <li onclick="displayContainer('Nagy')">Riesz & Sz.-Nagy: Functional Analysis</li>
-              <li onclick="displayContainer('Dunford_Schwartz')">Dunford & Schwartz: Linear Operators I-III</li>
-              <li onclick="displayContainer('Kato')">Kato: Perturbation Theory for Linear Operators</li>
-              <li onclick="displayContainer('Yosida')">Yosida: Functional Analysis</li>
-              <li onclick="displayContainer('Reed_Simon')">Reed & Simon: Methods of Modern Mathematical Physics I-IV</li>
-              <li onclick="displayContainer('Fattorini')">Fattorini & Kerber: The Cauchy Problem</li>
-              <li onclick="displayContainer('Rudin')">Walter Rudin's Books on Mathematical Analysis</li>
-              <li onclick="displayContainer('Hörmander')">Hörmander: The Analysis of Linar Partial Differential Operators</li>
-              <li onclick="displayContainer('Lions_Magenes')">Lions & Magenes: Non-Homogeneous Boundary Value Problems</li>
-            </ul>
-          </li>
-          <li>|</li>
-          <li>Subtopics
-            <ul>
-              <li onclick="displayContainer('topological_linear_spaces')">Topological Linear Spaces</li>
-              <li onclick="displayContainer('spectral_theory')">Linear Operators and Spectral Theory</li>
-              <li onclick="displayContainer('self-adjoint_operators')">Self-Adjoint Operators</li>
-              <li onclick="displayContainer('semigroup_theory')">Semigroup Theory and Evolution Equations</li>
-              <li onclick="displayContainer('coercive_sesquilinear_forms')">Coercive Sesquilinear Forms</li>
-              <li onclick="displayContainer('distribution_theory')">Distribution Theory</li>
-              <li onclick="displayContainer('nonlinear_functional_analysis')">Nonlinear Functional Analysis</li>
-            </ul>
-          </li>
-          <li>|</li>
-          <li>other Subjects
-            <ul>
-              <li onclick="displayContainer('general_topology')">General Topology</li>
-              <li onclick="displayContainer('linear_algebra')">Linear Algebra</li>
-              <li onclick="displayContainer('measure_and_integration_theory')">Measure and Integration Theory</li>
-              <li onclick="displayContainer('complex_analysis')">Complex Analysis</li>
-              <li onclick="displayContainer('pde_theory')">Partial Differential Equations</li>
-              <li onclick="displayContainer('abstract_harmonic_analysis')">Abstract Harmonic Analysis</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+        <li>|</li>
+        <li>Data
+          <ul>
+            <li onclick="displayContainer('main_theorems')">Main Theorems</li>
+            <li onclick="displayContainer('key_concepts')">Key Concepts</li>
+            <li onclick="displayContainer('mathematicians')">Mathematicians</li>
+            <li onclick="displayContainer('history')">History of Functional Analysis</li>
+            <li onclick="displayContainer('journals')">Journals</li>
+<!--        <li onclick="displayContainer('topic_tree')">Topics Tree</li> -->
+          </ul>
+        </li>
+        <li>|</li>
+        <li>Series
+          <ul>
+            <li onclick="displayContainer('grundlehren')">Grundlehren der math. Wissenschaften</li>
+            <li onclick="displayContainer('dover')">Dover Publications</li>
+            <li onclick="displayContainer('lecture_notes_in_mathematics')">Lecture Notes in Mathematics (LNM)</li>
+            <li onclick="displayContainer('gtm')">Graduate Texts in Mathematics (GTM)</li>
+            <li onclick="displayContainer('gsm')">Graduate Studies in Mathematics (GSM)</li>
+            <li onclick="displayContainer('mass')">Mathematics and its Applications</li>
+            <li onclick="displayContainer('bourbaki')">Éléments de mathématique (Bourbaki)</li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>Monographs
+          <ul>
+            <li onclick="displayContainer('Nagy')">Riesz & Sz.-Nagy: Functional Analysis</li>
+            <li onclick="displayContainer('Dunford_Schwartz')">Dunford & Schwartz: Linear Operators I-III</li>
+            <li onclick="displayContainer('Kato')">Kato: Perturbation Theory for Linear Operators</li>
+            <li onclick="displayContainer('Yosida')">Yosida: Functional Analysis</li>
+            <li onclick="displayContainer('Reed_Simon')">Reed & Simon: Methods of Modern Mathematical Physics I-IV</li>
+            <li onclick="displayContainer('Fattorini')">Fattorini & Kerber: The Cauchy Problem</li>
+            <li onclick="displayContainer('Rudin')">Rudin's Books on Mathematical Analysis</li>
+            <li onclick="displayContainer('Hörmander')">Hörmander: The Analysis of Linar Partial Differential Operators I-IV</li>
+            <li onclick="displayContainer('Lions_Magenes')">Lions & Magenes: Non-Homogeneous Boundary Value Problems I-III</li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>Subtopics
+          <ul>
+            <li onclick="displayContainer('topological_linear_spaces')">Topological Linear Spaces</li>
+            <li onclick="displayContainer('spectral_theory')">Linear Operators and Spectral Theory</li>
+            <li onclick="displayContainer('self-adjoint_operators')">Self-Adjoint Operators</li>
+            <li onclick="displayContainer('semigroup_theory')">Semigroup Theory and Evolution Equations</li>
+            <li onclick="displayContainer('coercive_sesquilinear_forms')">Coercive Sesquilinear Forms</li>
+            <li onclick="displayContainer('distribution_theory')">Distribution Theory</li>
+            <li onclick="displayContainer('nonlinear_functional_analysis')">Nonlinear Functional Analysis</li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>other Subjects
+          <ul>
+            <li onclick="displayContainer('general_topology')">General Topology</li>
+            <li onclick="displayContainer('linear_algebra')">Linear Algebra</li>
+            <li onclick="displayContainer('measure_and_integration_theory')">Measure and Integration Theory</li>
+            <li onclick="displayContainer('complex_analysis')">Complex Analysis</li>
+            <li onclick="displayContainer('pde_theory')">Partial Differential Equations</li>
+            <li onclick="displayContainer('abstract_harmonic_analysis')">Abstract Harmonic Analysis</li>
+          </ul>
+        </li>
+      </ul>
     </div>
 
 <!--------------------------------------------------------------------------------
@@ -354,7 +352,7 @@
             <li onclick="displayContainer('Kato')">Kato: Perturbation Theory of Linear Operators</li>
             <li onclick="displayContainer('Fattorini')">Fattorini & Kerber: The Cauchy Problem</li>
             <li onclick="displayContainer('Hörmander')">Hörmander: The Analysis of Linear Partial Differential Operators</li>
-            <li onclick="displayContainer('Rudin')">Walter Rudin's Books on Mathematical Analysis</li>
+            <li onclick="displayContainer('Rudin')">Rudin's Books on Mathematical Analysis</li>
             <li onclick="displayContainer('Yosida')">Yosida: Functional Analysis</li>
             <li onclick="displayContainer('Nagy')">Riesz & Sz.-Nagy: Functional Analysis</li>
             <li onclick="displayContainer('Lions_Magenes')">Lions & Magenes: Non-Homogeneous Boundary Value Problems</li>
@@ -1307,7 +1305,7 @@
       </div>
 
       <div id='Rudin' class='container'>
-        <h1>Walter Rudin's Books on Mathematical Analysis</h1>
+        <h1>Rudin's Books on Mathematical Analysis</h1>
         <div class='kh-content'>
           <a href="https://en.wikipedia.org/wiki/Walter_Rudin">Walter Rudin</a> was an Austrian mathematician,
           who emigrated to the U.S.A. before second world war.
@@ -1410,7 +1408,7 @@
       </div>
 
       <div id='Hörmander' class='container'>
-        <h1>L. Hörmander: The Analysis of Linear Partial Differential Operators</h1>
+        <h1>Hörmander: The Analysis of Linear Partial Differential Operators I-IV</h1>
         <div class='kh-content'>
           This four-volume series written by <a href='https://en.wikipedia.org/wiki/Lars_Hörmander'>Lars Hörmander</a> deals with linear differential operators in the broadest sense,
           that is,
@@ -1605,7 +1603,7 @@
       </div>
 
       <div id='Lions_Magenes' class='container'>
-        <h1>J.-L. Lions & E. Magenes: Non-Homogeneous Boundary Value Problems</h1>
+        <h1>J.-L. Lions & E. Magenes: Non-Homogeneous Boundary Value Problems I-III</h1>
         <div class='kh-content'>
           This series,
           written by <a href='https://en.wikipedia.org/wiki/Jacques-Louis_Lions'>Jeaques-Louis Lions</a>
@@ -1796,7 +1794,7 @@
 <!--------------------------------------------------------------------------------
 |                                      FOOTER                                    |
 --------------------------------------------------------------------------------->
-    <div id='kh-footer'>
+    <footer>
       <p>
       </p>
       <hr><hr>
@@ -1807,7 +1805,7 @@
       <button onclick="displayContainer('impressum')">Impressum</button>
       <button onclick="displayContainer('sitemap')"  >Sitemap</button>
       <a target='_self' href='#top'>&#8593;</a>
-    </div>
+    </footer>
 
     <script src='main.js'></script>
   </body>
