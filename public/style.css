@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------*/
-/* html, body, h1, h2, ...                                                    */
+/* html, body, ...                                                            */
 /*----------------------------------------------------------------------------*/
 html
 {
@@ -27,6 +27,21 @@ body
   overflow:scroll;
   padding:0px;
   margin:0px;
+}
+
+article
+{
+}
+
+section
+{
+  border:1px solid;
+  border-radius:10px;
+  padding:10px;
+  margin:0px;
+  margin-top:5px;
+  margin-bottom:5px;
+  background-color:#e9e6eb;
 }
 
 p
@@ -165,6 +180,144 @@ footer hr
   margin-bottom:1pt;
 }
 
+nav
+{
+  width:100%;
+  color:#505050;
+  font-size:10pt;
+  padding:0px;
+  margin:0px;
+  margin-top:10px;
+  margin-bottom:15px;
+}
+
+nav ul
+{
+  text-align:center;
+  list-style-type:none;
+  margin:0px;
+  margin-left:5%;
+  padding:0px;
+  padding-bottom:15px;
+}
+
+nav li 
+{
+}
+
+
+nav ul li
+{
+  float:left;
+  list-style:none;
+}
+
+nav ul li a
+{
+  text-decoration:none;
+  color:#505050;
+  float:none;
+  clear:left;
+  position:relative;
+  display:inline-block;
+}
+
+nav ul li:hover
+{
+  text-decoration:none;
+}
+
+nav ul li a:hover
+{
+  text-decoration:none;
+  color:gray;
+}
+
+nav ul li ul
+{
+  display:none;
+}
+
+nav ul li:hover ul
+{
+  z-index:9999;
+  display:flex;
+  flex-direction:column;
+  position:absolute;
+  background-color:#f6f5f4;
+  color:gray;
+  list-style:none;
+  text-align:left;
+  margin-left:10px;
+  padding:0px;
+  padding-right:5px;
+  border:1pt solid;
+}
+
+nav ul li:hover ul li
+{
+  display:block;
+  text-decoration:none;
+  color:#505050;
+}
+
+nav ul li ul li:hover
+{
+  display:block;
+  text-decoration:none;
+  color:gray;
+}
+
+main
+{
+  z-index:1;
+  text-align:left;
+  padding:0px;
+  margin-top:40px;
+  margin-bottom:10px;
+  margin-left:5%;
+  margin-right:5%;
+}
+
+main div
+{
+}
+
+main a, a:hover, a:visited
+{
+  color:#505050;
+}
+
+main li a
+{
+  color:#505050;
+}
+
+main ul li a
+{
+  color:#505050;
+}
+
+main a:link
+{
+  color:#505050;
+}
+
+main a:hover
+{
+  color:gray;
+}
+
+main ul li a:hover
+{
+  color:gray;
+}
+
+main a:focus
+{
+  color:gray;
+}
+
 /*----------------------------------------------------------------------------*/
 /* datatables, datatables-content                                             */
 /*----------------------------------------------------------------------------*/
@@ -199,71 +352,6 @@ footer hr
 /*----------------------------------------------------------------------------*/
 /* kh-classes                                                                 */
 /*----------------------------------------------------------------------------*/
-.kh-main-container
-{
-  z-index:1;
-  text-align:left;
-  padding:0px;
-  margin-top:40px;
-  margin-bottom:10px;
-  margin-left:5%;
-  margin-right:5%;
-/*
-  border:1pt solid;
-  border-color:white;
-*/
-}
-
-.kh-main-container div
-{
-}
-
-.kh-main-container a, a:hover, a:visited
-{
-  color:#505050;
-}
-
-.kh-main-container li a
-{
-  color:#505050;
-}
-
-.kh-main-container ul li a
-{
-  color:#505050;
-}
-
-.kh-main-container a:link
-{
-  color:#505050;
-}
-
-.kh-main-container a:hover
-{
-  color:gray;
-}
-
-.kh-main-container ul li a:hover
-{
-  color:gray;
-}
-
-.kh-main-container a:focus
-{
-  color:gray;
-}
-
-.kh-content
-{
-  border:1px solid;
-  border-radius:10px;
-  padding:10px;
-  margin:0px;
-  margin-top:5px;
-  margin-bottom:5px;
-  background-color:#e9e6eb;
-}
-
 .kh-td1
 {
   text-align:center;
@@ -299,93 +387,3 @@ footer hr
   margin-right:25px;
 }
 
-/*----------------------------------------------------------------------------*/
-/* kh-nav                                                                     */
-/*----------------------------------------------------------------------------*/
-#kh-nav
-{
-  width:100%;
-  color:#505050;
-  font-size:10pt;
-  padding:0px;
-  margin:0px;
-  margin-top:10px;
-  margin-bottom:15px;
-}
-
-#kh-nav ul
-{
-  text-align:center;
-  list-style-type:none;
-  margin:0px;
-  margin-left:5%;
-  padding:0px;
-  padding-bottom:15px;
-}
-
-#kh-nav li 
-{
-}
-
-
-#kh-nav ul li
-{
-  float:left;
-  list-style:none;
-}
-
-#kh-nav ul li a
-{
-  text-decoration:none;
-  color:#505050;
-  float:none;
-  clear:left;
-  position:relative;
-  display:inline-block;
-}
-
-#kh-nav ul li:hover
-{
-  text-decoration:none;
-}
-
-#kh-nav ul li a:hover
-{
-  text-decoration:none;
-  color:gray;
-}
-
-#kh-nav ul li ul
-{
-  display:none;
-}
-
-#kh-nav ul li:hover ul
-{
-  z-index:9999;
-  display:flex;
-  flex-direction:column;
-  position:absolute;
-  background-color:#f6f5f4;
-  color:gray;
-  list-style:none;
-  text-align:left;
-  margin-left:10px;
-  padding:0px;
-  padding-right:5px;
-  border:1pt solid;
-}
-
-#kh-nav ul li:hover ul li
-{
-  display:block;
-  text-decoration:none;
-  color:#505050;
-}
-
-#kh-nav ul li ul li:hover
-{
-  display:block;
-  text-decoration:none;
-  color:gray;
-}
