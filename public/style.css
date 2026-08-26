@@ -21,6 +21,7 @@ html
 body
 {
   background-color:white;
+  font-family:"times new roman" "standard (noto serif)" ubuntu;
   text-align:left;
   width:auto;
   height:100%;
@@ -386,4 +387,3 @@ main a:focus
   margin:0px;
   margin-right:25px;
 }
-
