@@ -277,40 +277,36 @@ const GL_Data =
 
 const Mathematician_Data =
 [
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Martin_Schechter_(mathematician)\'>Martin Schechter</a>',b:'1930',d:'2021',c:'U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Jaques-Louis_Lions\'>Jaques-Louis Lions</a>',b:'1928',d:'2001',c:'France'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Sergei_Sobolev\'>Sergei Sobolev</a>',b:'1908',d:'1989',c:'Russia'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Laurent_Schwartz\'>Laurent Schwartz</a>',b:'1915',d:'2002',c:'France'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Stefan_Banach\'>Stefan Banach</a>',b:'1892',d:'1945',c:'Poland'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Hugo_Steinhaus\'>Hugo Steinhaus</a>',b:'1887',d:'1992',c:'Poland'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Felix_Browder\'>Felix E. Browder</a>',b:'1927',d:'2016',c:'U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Felix_Browder\'>Nikolai N. Lusin</a>',b:'1883',d:'1950',c:'Russia'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Leonidas_Alaoglu\'>Leonidas Alaoglu</a>',b:'1914',d:'1981',c:'Canada'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/David_Hilbert\'>David Hilbert</a>',b:'1862',d:'1943',c:'Germany'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Erhard_Schmidt\'>Erhard Schmidt</a>',b:'1876',d:'1958',c:'Germany'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Tosio_Kato\'>Tosio Kato</a>',b:'1917',d:'1999',c:'Japan'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Frigyes_Riesz\'>Frigyes Riesz</a>',b:'1880',d:'1956',c:'Hungary'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Walter_Rudin\'>Walter Rudin</a>',b:'1921',d:'2010',c:'Austria, U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Juliusz_Schauder\'>Juliusz Schauder</a>',b:'1899',d:'1943',c:'Poland'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Kosaku_Yosida\'>Kosaku Yosida</a>',b:'1909',d:'1990',c:'Japan'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/John_von_Neumann\'>John von Neumann</a>',b:'1903',d:'1957',c:'Hungary, U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Erik_Ivar_Fredholm\'>Erik Fredholm</a>',b:'1866',d:'1927',c:'Sweden'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Israel_Gelfand\'>Israel Gelfand</a>',b:'1913',d:'2009',c:'Ukrain, U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Nelson_Dunford\'>Nelson Dunford</a>',b:'1906',d:'1986',c:'U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Marshall_H_Stone\'>Marshall H. Stone</a>',b:'1903',d:'1989',c:'U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Aurel_Wintner\'>Aurel Wintner</a>',b:'1903',d:'1958',c:'Hungary, U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Einar_Hille\'>Einar Hille</a>',b:'1894',d:'1980',c:'U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Ralph_S._Phillips\'>Ralph S. Phillips</a>',b:'1913',d:'1998',c:'U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Peter_Lax\'>Peter Lax</a>',b:'1926',d:'2025',c:'Hungary,U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Shmuel_Agmon\'>Shmuel Agmon</a>',b:'1922',d:'2025',c:'Israel'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Lars_Hörmander\'>Lars Hörmander</a>',b:'1931',d:'2012',c:'Sweden'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Barry_Simon\'>Barry Simon</a>',b:'1946',d:'',c:'U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Franz_Rellich\'>Franz Rellich</a>',b:'1906',d:'1955',c:'Germany'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Salomon_Bochner\'>Salomon Bochner</a>',b:'1899',d:'1982',c:'U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Robert_C._James\'>Robert C. James</a>',b:'1918',d:'2004',c:'U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/James_A._Clarkson\'>James A. Clarkson</a>',b:'1906',d:'1970',c:'U.S.A.'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Otto_Hölder\'>Otto Hölder</a>',b:'1959',d:'1937',c:'Germany'},
-  { n:'<a target=\'new\' href=\'https://en.wikipedia.org/wiki/Kurt_Otto_Friedrichs\'>Kurt O. Friedrichs</a>',b:'1901',d:'1982',c:'Germany, U.S.A.'},
+  { n:'Otto Hölder',        b:'1859',d:'1937',c:'Germany',         a:'https://en.wikipedia.org/wiki/Otto_Hölder'},
+  { n:'David Hilbert',      b:'1862',d:'1943',c:'Germany',         a:'https://en.wikipedia.org/wiki/David_Hilbert'},
+  { n:'Erik Fredholm',      b:'1866',d:'1927',c:'Sweden',          a:'https://en.wikipedia.org/wiki/Erik_Ivar_Fredholm'},
+  { n:'Erhard Schmidt',     b:'1876',d:'1958',c:'Germany',         a:'https://en.wikipedia.org/wiki/Erhard_Schmidt'},
+  { n:'Frigyes Riesz',      b:'1880',d:'1956',c:'Hungary',         a:'https://en.wikipedia.org/wiki/Frigyes_Riesz'},
+  { n:'Nikolai N. Luzin',   b:'1883',d:'1950',c:'Russia',          a:'https://en.wikipedia.org/wiki/Nikolai_Luzin'},
+  { n:'Hugo Steinhaus',     b:'1887',d:'1992',c:'Poland',          a:'https://en.wikipedia.org/wiki/Hugo_Steinhaus'},
+  { n:'Stefan Banach',      b:'1892',d:'1945',c:'Poland',          a:'https://en.wikipedia.org/wiki/Stefan_Banach'},
+  { n:'Einar Hille',        b:'1894',d:'1980',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Einar_Hille'},
+  { n:'Juliusz Schauder',   b:'1899',d:'1943',c:'Poland',          a:'https://en.wikipedia.org/wiki/Juliusz_Schauder'},
+  { n:'Salomon Bochner',    b:'1899',d:'1982',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Salomon_Bochner'},
+  { n:'Kurt O. Friedrichs', b:'1901',d:'1982',c:'Germany, U.S.A.', a:'https://en.wikipedia.org/wiki/Kurt_Otto_Friedrichs'},
+  { n:'John von Neumann',   b:'1903',d:'1957',c:'Hungary',         a:'https://en.wikipedia.org/wiki/John_von_Neumann'},
+  { n:'Marshall H. Stone',  b:'1903',d:'1989',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Marshall_H_Stone'},
+  { n:'Aurel Wintner',      b:'1903',d:'1958',c:'Hungary, U.S.A.', a:'https://en.wikipedia.org/wiki/Aurel_Wintner'},
+  { n:'Nelson Dunford',     b:'1906',d:'1986',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Nelson_Dunford'},
+  { n:'Franz Rellich',      b:'1906',d:'1955',c:'Germany',         a:'https://en.wikipedia.org/wiki/Franz_Rellich'},
+  { n:'Sergei Sobolev',     b:'1908',d:'1989',c:'Russia',          a:'https://en.wikipedia.org/wiki/Sergei_Sobolev'},
+  { n:'Kosaku Yosida',      b:'1909',d:'1990',c:'Japan',           a:'https://en.wikipedia.org/wiki/Kosaku_Yosida'},
+  { n:'Israel Gelfand',     b:'1913',d:'2009',c:'Ukrain, U.S.A.',  a:'https://en.wikipedia.org/wiki/Israel_Gelfand'},
+  { n:'Ralph S. Phillips',  b:'1913',d:'1998',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Ralph_S._Phillips'},
+  { n:'Leonidas Alaoglu',   b:'1914',d:'1981',c:'Canada',          a:'https://en.wikipedia.org/wiki/Leonidas_Alaoglu'},
+  { n:'Laurent Schwarz',    b:'1915',d:'2002',c:'France',          a:'https://en.wikipedia.org/wiki/Laurent_Schwartz'},
+  { n:'Tosio Kato',         b:'1917',d:'1999',c:'Japan',           a:'https://en.wikipedia.org/wiki/Tosio_Kato'},
+  { n:'Shmuel Agmon',       b:'1922',d:'2025',c:'Israel',          a:'https://en.wikipedia.org/wiki/Shmuel_Agmon'},
+  { n:'Peter Lax',          b:'1926',d:'2025',c:'Hungary, U.S.A.', a:'https://en.wikipedia.org/wiki/Peter_Lax'},
+  { n:'Felix E. Browder',   b:'1927',d:'2016',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Felix_Browder'},
+  { n:'Jaques-Louis Lions', b:'1928',d:'2001',c:'France',          a:'https://en.wikipedia.org/wiki/Jaques-Louis_Lions'},
+  { n:'Martin Schechter',   b:'1930',d:'2021',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Martin_Schechter_(mathematician)'},
+  { n:'Lars Hörmander',     b:'1931',d:'2012',c:'Sweden',          a:'https://en.wikipedia.org/wiki/Lars_Hörmander'},
 ]
 
 const LN_Data =
@@ -924,6 +920,22 @@ function TopicsTree()
     console.log('element with id=\'topic_tree\* does not exist.')
 }
 
+function createListOfMathematicians()
+{
+  const list_element = document.getElementById('mathematician_list');
+  for(let i=0; i < Mathematician_Data.length;i++)
+  {
+    const textNode = document.createTextNode(Mathematician_Data[i].n);
+    const a_Node   = document.createElement('a');
+    const li_Node  = document.createElement('li');
+    a_Node.appendChild(textNode);
+    a_Node.setAttribute('href',Mathematician_Data[i].a);
+    a_Node.setAttribute('target','_new');
+    li_Node.appendChild(a_Node);
+    list_element.appendChild(li_Node);
+  }
+}
+
 /*----------------------------------------------------------------------------*/
 /* call main functions                                                        */
 /*----------------------------------------------------------------------------*/
@@ -931,7 +943,6 @@ function TopicsTree()
 undisplayAllContainers()
 createTable('Journals', 'Journal');
 createTable('Textbooks', 'Book');
-createTable('Mathematicians', 'Mathematician');
 createTable('Monographs in \'Grundlehren der mathematischen Wissenschaften in Einzeldarstellung\'', 'Grundlehren');
 createTable('Functional Analysis Textbooks in \'Dover Publications\'', 'dover');
 createTable('Functional Analysis Textbooks in Springer\'s \'Graduate Texts in Mathematics\' (GTM)', 'gtm');
@@ -940,4 +951,5 @@ createTable('Internet Seminars on Evolution Equations', 'isem');
 createTable('Monographs in \'Lecture Notes in Mathematics (Springer)\'', 'lecture_notes');
 createTable('Mathematics and its Applications', 'mass');
 createTable('MSC2020 Entries', 'msc46');
-displayContainer('home')
+createListOfMathematicians();
+displayContainer('home');

@@ -231,7 +231,7 @@
       <article id='sitemap' class='container'>
         <h1>Sitemap</h1>
         <section>
-          <ul class='columns-2'>
+          <ul style='columns:2;column-gap:0px'>
             <li onclick="displayContainer('home')">Home</li>
             <li onclick="displayContainer('impressum')">Impressum</li>
             <li onclick="displayContainer('about_me')">About me</li>
@@ -469,7 +469,7 @@
         <section>
           <details open>
             <summary>
-              This is a list of impressible research articles on functional analysis and mathematical physics:
+              This is a list of impressible research articles on functional analysis and its applications:
             </summary>
             <ul>
               <li>
@@ -548,7 +548,7 @@
         <h1>Main Theorems</h1>
         <section>
           This is a collection of main theorems in functional analysis (with links to Wikipedia pages).
-          <ul class='columns-3'>
+          <ul style='columns:3'>
             <li><a href="https://en.wikipedia.org/wiki/Arzelà-Ascoli_theorem">Arzelà-Ascoli theorem</a></li>
             <li><a href="https://en.wikipedia.org/wiki/Atkinson's">Atkinson's theorem</a></li>
             <li><a href="https://en.wikipedia.org/wiki/Bourbaki-Alaoglu_theorem">Bourbaki-Alaoglu theorem</a></li>
@@ -591,7 +591,7 @@
         <h1>Key Concepts</h1>
         <section>
           This is a collection of key concepts in functional analysis (with links to Wikipedia pages).
-          <ul class='columns-3'>
+          <ul style='columns:3'>
             <li><a href="https://en.wikipedia.org/wiki/Dissipative_operator">accretive linear operator</a></li>
             <li><a href="https://en.wikipedia.org/wiki/Hermitian_adjoint">adjoint operator</a></li>
             <li><a href="https://en.wikipedia.org/wiki/Banach_algebra">Banach algebra</a></li>
@@ -653,20 +653,10 @@
       <article id='mathematicians' class='container'>
         <h1>Mathematicians</h1>
         <section>
-          This is an enumeration of mathematicians with important contributions to functional analysis.
-          <div class='datatables-content' id='Mathematicians'>
-            <table class="compact stripe cell-border" id="Mathematician-table">
-              <thead>
-                <tr>
-                  <th width="80%" text-align="right">Name</th>
-                  <th width= "3%" text-align="center">Born</th>
-                  <th width= "3%" text-align="center">Died</th>
-                  <th width="14%" text-align="center">Country</th>
-                </tr>
-              </thead>
-              <tbody>
-            </table>
-          </div>
+          This is an enumeration of mathematicians with important contributions to functional analysis
+          (with links to Wikipedia pages).
+          <ul id='mathematician_list' style='columns:4'>
+          </ul>
         </section>
       </article>
 
@@ -927,7 +917,7 @@
             <summary>
               Content:
             </summary>
-            <ol type="1" class='columns-2'>
+            <ol type="1" style='columns:2'>
               <li>Abstract Integration</li>
               <li>Positive Borel Measures</li>
               <li>\(L^p\) Spaces</li>
