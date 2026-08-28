@@ -24,8 +24,9 @@ const Menu_Data =
   'bourbaki',
   'lecture_notes_in_mathematics',
 
+  'key_concepts',
+  'main_theorems',
   'mathematicians',
-  'history',
   'journals',
   'topic_tree',
 
@@ -44,8 +45,7 @@ const Menu_Data =
   'coercive_sesquilinear_forms',
   'distribution_theory',
   'nonlinear_functional_analysis',
-  'key_concepts',
-  'main_theorems',
+  'history',
 
   'Dunford_Schwartz',
   'Lions_Magenes',
@@ -275,6 +275,45 @@ const GL_Data =
   { id:'275', l:'en', a:'L. Hörmander',            y:'1985', t:'The Analysis of Linear Partial Differential Operators IV'}
 ]
 
+const Main_Theorem_Data =
+[
+  { a:'Arzelà-Ascoli_theorem',                                   n:'Arzelà-Ascoli theorem'},
+  { a:'Atkinson\'s_theorem',                                     n:'Atkinson\'s theorem'},
+  { a:'Bourbaki-Alaoglu_theorem',                                n:'Bourbaki-Alaoglu theorem'},
+  { a:'Open_mapping_theorem_(functional_analysis)#Consequences', n:'bounded inverse theorem'},
+  { a:'Closed_graph_theorem',                                    n:'closed graph theorem'},
+  { a:'Closed_range_theorem',                                    n:'closed range theorem'},
+  { a:'Rellich–Kondrachov_theorem',                              n:'Rellich-Kondrachov theorem'},
+  { a:'Riesz-Fischer_theorem',                                   n:'Fischer-Riesz theorem'},
+  { a:'Fredholm\'s_alternative',                                 n:'Fredholm\'s alternative theorem'},
+  { a:'Gelfand–Mazur',                                           n:'Gelfand-Mazur theorem'},
+  { a:'Gelfand–Naimark_theorem',                                 n:'Gelfand-Naimark theorem'},
+  { a:'Hahn_Banach_theorem',                                     n:'Hahn-Banach theorem'},
+  { a:'Hellinger-Toeplitz_theorem',                              n:'Hellinger-Toeplitz theorem'},
+  { a:'Hille-Yosida_theorem',                                    n:'Hille-Yosida theorem'},
+  { a:'Hölder\'s_inequality',                                    n:'Hölder\'s inequality'},
+  { a:'Weak_formulation#The_Lax–Milgram_theorem',                n:'Lax-Milgram theorem'},
+  { a:'Lumer-Phillips_theorem',                                  n:'Lumer-Phillips theorem'},
+  { a:'Meyers-Serrin_theorem',                                   n:'Meyers-Serrin theorem'},
+  { a:'Malgrange-Ehrenpreis_theorem',                            n:'Malgrange-Ehrenpreis theorem'},
+  { a:'Milman–Pettis_theorem',                                   n:'Milman-Pettis theorem'},
+  { a:'Open_mapping_theorem',                                    n:'open mapping theorem'},
+  { a:'Hilbert_projection_theorem',                              n:'projection theorem'},
+  { a:'Poincaré_inequality',                                     n:'Poincaré inequality'},
+  { a:'Satz_von_Kato-Rellich',                                   n:'Rellich-Kato theorem'},
+  { a:'Riesz–Markov–Kakutani_representation_theorem',            n:'Riesz-Markov theorem'},
+  { a:'Riesz_representation_theorem',                            n:'Riesz representation theorem'},
+  { a:'Schwartz_kernel_theorem',                                 n:'Schwartz kernel theorem'},
+  { a:'Spectral_theory_of_compact_operators#Compact_operators',  n:'Riesz-Schauder spectral theorem'},
+  { a:'Hilbert-Schmidt_theorem',                                 n:'Hilbert-Schmidt spectral theorem'},
+  { a:'spectral_theorem',                                        n:'spectral theorem for self-adjoint operators'},
+  { a:'Schauder_fixed-point_theorem',                            n:'Schauder fixpoint theorem'},
+  { a:'Sobolev_inequality#Sobolev_embedding_theorem',            n:'Sobolev embedding theorem'},
+  { a:'Stone\'s_theorem_on_one-parameter_unitary_groups',        n:'Stone\'s theorem'},
+  { a:'Uniform_boundedness_principle',                           n:'uniform boundedness principle'},
+  { a:'Von_Neumann\'s_theorem',                                  n:'von Neumann\'s theorem'}
+]
+
 const Mathematician_Data =
 [
   { n:'Otto Hölder',        b:'1859',d:'1937',c:'Germany',         a:'https://en.wikipedia.org/wiki/Otto_Hölder'},
@@ -307,6 +346,64 @@ const Mathematician_Data =
   { n:'Jaques-Louis Lions', b:'1928',d:'2001',c:'France',          a:'https://en.wikipedia.org/wiki/Jaques-Louis_Lions'},
   { n:'Martin Schechter',   b:'1930',d:'2021',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Martin_Schechter_(mathematician)'},
   { n:'Lars Hörmander',     b:'1931',d:'2012',c:'Sweden',          a:'https://en.wikipedia.org/wiki/Lars_Hörmander'},
+]
+
+const Key_Concept_Data =
+[
+  { a:'Dissipative_operator',                                                       n:'accretive linear operator'},
+  { a:'Hermitian_adjoint',                                                          n:'adjoint operator'},
+  { a:'Banach_algebra',                                                             n:'Banach algebra'},
+  { a:'Banach_space',                                                               n:'Banach space'},
+  { a:'Bochner_space',                                                              n:'Bochner space'},
+  { a:'Bounded_linear_operator',                                                    n:'bounded linear operator'},
+  { a:'Cauchy_sequence',                                                            n:'Cauchy sequence'},
+  { a:'Cauchy_problem',                                                             n:'Cauchy problem'},
+  { a:'Closed_linear_operator',                                                     n:'closed linear operator'},
+  { a:'Compact_linear_operator',                                                    n:'compact linear operator'},
+  { a:'Complemented_subspace',                                                      n:'complemented subspace'},
+  { a:'Group_algebra_of_a_locally_compact_group#The_convolution_algebra_L1.28G.29', n:'convolution algebra'},
+  { a:'C0-semigroup#Contraction_semigroups',                                        n:'contraction semigroup'},
+  { a:'C*-algebra',                                                                 n:'C*-algebra'},
+  { a:'Differential_operator',                                                      n:'differential operator'},
+  { a:'Discrete_spectrum',                                                          n:'discrete spectrum'},
+  { a:'Dual_space',                                                                 n:'dual space'},
+  { a:'Essential_spectrum',                                                         n:'essential spectrum'},
+  { a:'Finite_rank_operator',                                                       n:'finite rank operator'},
+  { a:'Fourier_transformation',                                                     n:'Fourier transformation'},
+  { a:'Fourier_Plancherel_transformation',                                          n:'Fourier-Plancherel transformation'},
+  { a:'Frechet_space',                                                              n:'Fréchet space'},
+  { a:'Fredholm_operator',                                                          n:'Fredholm operator'},
+  { a:'Functional_calculus',                                                        n:'functional calculus'},
+  { a:'Gelfand_representation',                                                     n:'Gelfand representation'},
+  { a:'Hilbert_space',                                                              n:'Hilbert space'},
+  { a:'Hilbert_Schmidt_operator',                                                   n:'Hilbert-Schmidt operator'},
+  { a:'Holomorphic_functional_calculus',                                            n:'holomorphic functional calculus'},
+  { a:'Holomorphic_semigroup',                                                      n:'holomorphic semigroup'},
+  { a:'Hoelder_space',                                                              n:'Hölder space'},
+  { a:'C0-semigroup#Infinitesimal_generator',                                       n:'infinitesimal generator'},
+  { a:'Inner_product_space',                                                        n:'inner product space'},
+  { a:'Laplace_transformation',                                                     n:'Laplace transformation'},
+  { a:'Lp_space',                                                                   n:'Lebesgue space \(L^p\)'},
+  { a:'Linear_functional',                                                          n:'linear functional'},
+  { a:'Linear_operator',                                                            n:'linear operator'},
+  { a:'Locally_convex_topological_vector_space',                                    n:'locally convex linear space'},
+  { a:'Metric_space',                                                               n:'metric space'},
+  { a:'Metrizable_topological_vector_space',                                        n:'metrizable topological linear space'},
+  { a:'Normal_linear_operator',                                                     n:'normal linear operator'},
+  { a:'Normed_vector_space',                                                        n:'normed linear space'},
+  { a:'Orthonormal_basis',                                                          n:'orthonormal basis'},
+  { a:'Spectrum_(functional_analysis)#Point_spectrum',                              n:'point spectrum'},
+  { a:'Reflexive_space',                                                            n:'reflexive space'},
+  { a:'Resolvent_set',                                                              n:'resolvent set'},
+  { a:'Schauderbasis',                                                              n:'Schauder basis'},
+  { a:'Self-adjoint_operator',                                                      n:'self-adjoint linear operator'},
+  { a:'Sesquilinear_form',                                                          n:'sesquilinear form'},
+  { a:'Sobolev_space',                                                              n:'Sobolev space'},
+  { a:'Spectrum_(functional_analysis)',                                             n:'spectrum'},
+  { a:'C0_semigroup',                                                               n:'strongly continuous semigroup'},
+  { a:'Topological_vector_space',                                                   n:'topological linear space'},
+  { a:'Uniformly_convex_space',                                                     n:'uniformly convex space'},
+  { a:'Unitary_operator',                                                           n:'unitary linear operator'}
 ]
 
 const LN_Data =
@@ -920,12 +1017,49 @@ function TopicsTree()
     console.log('element with id=\'topic_tree\* does not exist.')
 }
 
+function createListOfMainTheorems()
+{
+  const list_element = document.getElementById('main_theorem_list');
+  for(let i=0; i < Main_Theorem_Data.length;i++)
+  {
+    const text     = Main_Theorem_Data[i].n;
+    const textNode = document.createTextNode(text);
+    const a_Node   = document.createElement('a');
+    const li_Node  = document.createElement('li');
+    a_Node.appendChild(textNode);
+    a_Node.setAttribute('href','https:\/\/en.wikipedia.org\/wiki\/' + Main_Theorem_Data[i].a);
+    a_Node.setAttribute('target','_new');
+    li_Node.appendChild(a_Node);
+    list_element.appendChild(li_Node);
+  }
+}
+
+function createListOfKeyConcepts()
+{
+  const list_element = document.getElementById('key_concept_list');
+  for(let i=0; i < Key_Concept_Data.length;i++)
+  {
+    const text     = Key_Concept_Data[i].n;
+    const textNode = document.createTextNode(text);
+    const a_Node   = document.createElement('a');
+    const li_Node  = document.createElement('li');
+    a_Node.appendChild(textNode);
+    a_Node.setAttribute('href','https:\/\/en.wikipedia.org\/wiki\/' + Key_Concept_Data[i].a);
+    a_Node.setAttribute('target','_new');
+    li_Node.appendChild(a_Node);
+    list_element.appendChild(li_Node);
+  }
+}
+
 function createListOfMathematicians()
 {
   const list_element = document.getElementById('mathematician_list');
   for(let i=0; i < Mathematician_Data.length;i++)
   {
-    const textNode = document.createTextNode(Mathematician_Data[i].n);
+    const text     = Mathematician_Data[i].n + ' (' 
+                   + Mathematician_Data[i].b + '-'
+                   + Mathematician_Data[i].d + ')';
+    const textNode = document.createTextNode(text);
     const a_Node   = document.createElement('a');
     const li_Node  = document.createElement('li');
     a_Node.appendChild(textNode);
@@ -952,4 +1086,6 @@ createTable('Monographs in \'Lecture Notes in Mathematics (Springer)\'', 'lectur
 createTable('Mathematics and its Applications', 'mass');
 createTable('MSC2020 Entries', 'msc46');
 createListOfMathematicians();
+createListOfMainTheorems();
+createListOfKeyConcepts();
 displayContainer('home');
