@@ -316,36 +316,36 @@ const Main_Theorem_Data =
 
 const Mathematician_Data =
 [
-  { n:'Otto Hölder',        b:'1859',d:'1937',c:'Germany',         a:'https://en.wikipedia.org/wiki/Otto_Hölder'},
-  { n:'David Hilbert',      b:'1862',d:'1943',c:'Germany',         a:'https://en.wikipedia.org/wiki/David_Hilbert'},
-  { n:'Erik Fredholm',      b:'1866',d:'1927',c:'Sweden',          a:'https://en.wikipedia.org/wiki/Erik_Ivar_Fredholm'},
-  { n:'Erhard Schmidt',     b:'1876',d:'1958',c:'Germany',         a:'https://en.wikipedia.org/wiki/Erhard_Schmidt'},
-  { n:'Frigyes Riesz',      b:'1880',d:'1956',c:'Hungary',         a:'https://en.wikipedia.org/wiki/Frigyes_Riesz'},
-  { n:'Nikolai N. Luzin',   b:'1883',d:'1950',c:'Russia',          a:'https://en.wikipedia.org/wiki/Nikolai_Luzin'},
-  { n:'Hugo Steinhaus',     b:'1887',d:'1992',c:'Poland',          a:'https://en.wikipedia.org/wiki/Hugo_Steinhaus'},
-  { n:'Stefan Banach',      b:'1892',d:'1945',c:'Poland',          a:'https://en.wikipedia.org/wiki/Stefan_Banach'},
-  { n:'Einar Hille',        b:'1894',d:'1980',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Einar_Hille'},
-  { n:'Juliusz Schauder',   b:'1899',d:'1943',c:'Poland',          a:'https://en.wikipedia.org/wiki/Juliusz_Schauder'},
-  { n:'Salomon Bochner',    b:'1899',d:'1982',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Salomon_Bochner'},
-  { n:'Kurt O. Friedrichs', b:'1901',d:'1982',c:'Germany, U.S.A.', a:'https://en.wikipedia.org/wiki/Kurt_Otto_Friedrichs'},
-  { n:'John von Neumann',   b:'1903',d:'1957',c:'Hungary',         a:'https://en.wikipedia.org/wiki/John_von_Neumann'},
-  { n:'Marshall H. Stone',  b:'1903',d:'1989',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Marshall_H_Stone'},
-  { n:'Aurel Wintner',      b:'1903',d:'1958',c:'Hungary, U.S.A.', a:'https://en.wikipedia.org/wiki/Aurel_Wintner'},
-  { n:'Nelson Dunford',     b:'1906',d:'1986',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Nelson_Dunford'},
-  { n:'Franz Rellich',      b:'1906',d:'1955',c:'Germany',         a:'https://en.wikipedia.org/wiki/Franz_Rellich'},
-  { n:'Sergei Sobolev',     b:'1908',d:'1989',c:'Russia',          a:'https://en.wikipedia.org/wiki/Sergei_Sobolev'},
-  { n:'Kosaku Yosida',      b:'1909',d:'1990',c:'Japan',           a:'https://en.wikipedia.org/wiki/Kosaku_Yosida'},
-  { n:'Israel Gelfand',     b:'1913',d:'2009',c:'Ukrain, U.S.A.',  a:'https://en.wikipedia.org/wiki/Israel_Gelfand'},
-  { n:'Ralph S. Phillips',  b:'1913',d:'1998',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Ralph_S._Phillips'},
-  { n:'Leonidas Alaoglu',   b:'1914',d:'1981',c:'Canada',          a:'https://en.wikipedia.org/wiki/Leonidas_Alaoglu'},
-  { n:'Laurent Schwarz',    b:'1915',d:'2002',c:'France',          a:'https://en.wikipedia.org/wiki/Laurent_Schwartz'},
-  { n:'Tosio Kato',         b:'1917',d:'1999',c:'Japan',           a:'https://en.wikipedia.org/wiki/Tosio_Kato'},
-  { n:'Shmuel Agmon',       b:'1922',d:'2025',c:'Israel',          a:'https://en.wikipedia.org/wiki/Shmuel_Agmon'},
-  { n:'Peter Lax',          b:'1926',d:'2025',c:'Hungary, U.S.A.', a:'https://en.wikipedia.org/wiki/Peter_Lax'},
-  { n:'Felix E. Browder',   b:'1927',d:'2016',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Felix_Browder'},
-  { n:'Jaques-Louis Lions', b:'1928',d:'2001',c:'France',          a:'https://en.wikipedia.org/wiki/Jaques-Louis_Lions'},
-  { n:'Martin Schechter',   b:'1930',d:'2021',c:'U.S.A.',          a:'https://en.wikipedia.org/wiki/Martin_Schechter_(mathematician)'},
-  { n:'Lars Hörmander',     b:'1931',d:'2012',c:'Sweden',          a:'https://en.wikipedia.org/wiki/Lars_Hörmander'},
+  { n:'Otto Hölder',        b:'1859',d:'1937',c:'Germany',         a:'Otto_Hölder'},
+  { n:'David Hilbert',      b:'1862',d:'1943',c:'Germany',         a:'David_Hilbert'},
+  { n:'Erik Fredholm',      b:'1866',d:'1927',c:'Sweden',          a:'Erik_Ivar_Fredholm'},
+  { n:'Erhard Schmidt',     b:'1876',d:'1958',c:'Germany',         a:'Erhard_Schmidt'},
+  { n:'Frigyes Riesz',      b:'1880',d:'1956',c:'Hungary',         a:'Frigyes_Riesz'},
+  { n:'Nikolai N. Luzin',   b:'1883',d:'1950',c:'Russia',          a:'Nikolai_Luzin'},
+  { n:'Hugo Steinhaus',     b:'1887',d:'1992',c:'Poland',          a:'Hugo_Steinhaus'},
+  { n:'Stefan Banach',      b:'1892',d:'1945',c:'Poland',          a:'Stefan_Banach'},
+  { n:'Einar Hille',        b:'1894',d:'1980',c:'U.S.A.',          a:'Einar_Hille'},
+  { n:'Juliusz Schauder',   b:'1899',d:'1943',c:'Poland',          a:'Juliusz_Schauder'},
+  { n:'Salomon Bochner',    b:'1899',d:'1982',c:'U.S.A.',          a:'Salomon_Bochner'},
+  { n:'Kurt O. Friedrichs', b:'1901',d:'1982',c:'Germany, U.S.A.', a:'Kurt_Otto_Friedrichs'},
+  { n:'John von Neumann',   b:'1903',d:'1957',c:'Hungary',         a:'John_von_Neumann'},
+  { n:'Marshall H. Stone',  b:'1903',d:'1989',c:'U.S.A.',          a:'Marshall_H_Stone'},
+  { n:'Aurel Wintner',      b:'1903',d:'1958',c:'Hungary, U.S.A.', a:'Aurel_Wintner'},
+  { n:'Nelson Dunford',     b:'1906',d:'1986',c:'U.S.A.',          a:'Nelson_Dunford'},
+  { n:'Franz Rellich',      b:'1906',d:'1955',c:'Germany',         a:'Franz_Rellich'},
+  { n:'Sergei Sobolev',     b:'1908',d:'1989',c:'Russia',          a:'Sergei_Sobolev'},
+  { n:'Kosaku Yosida',      b:'1909',d:'1990',c:'Japan',           a:'Kosaku_Yosida'},
+  { n:'Israel Gelfand',     b:'1913',d:'2009',c:'Ukrain, U.S.A.',  a:'Israel_Gelfand'},
+  { n:'Ralph S. Phillips',  b:'1913',d:'1998',c:'U.S.A.',          a:'Ralph_S._Phillips'},
+  { n:'Leonidas Alaoglu',   b:'1914',d:'1981',c:'Canada',          a:'Leonidas_Alaoglu'},
+  { n:'Laurent Schwarz',    b:'1915',d:'2002',c:'France',          a:'Laurent_Schwartz'},
+  { n:'Tosio Kato',         b:'1917',d:'1999',c:'Japan',           a:'Tosio_Kato'},
+  { n:'Shmuel Agmon',       b:'1922',d:'2025',c:'Israel',          a:'Shmuel_Agmon'},
+  { n:'Peter Lax',          b:'1926',d:'2025',c:'Hungary, U.S.A.', a:'Peter_Lax'},
+  { n:'Felix E. Browder',   b:'1927',d:'2016',c:'U.S.A.',          a:'Felix_Browder'},
+  { n:'Jaques-Louis Lions', b:'1928',d:'2001',c:'France',          a:'Jaques-Louis_Lions'},
+  { n:'Martin Schechter',   b:'1930',d:'2021',c:'U.S.A.',          a:'Martin_Schechter_(mathematician)'},
+  { n:'Lars Hörmander',     b:'1931',d:'2012',c:'Sweden',          a:'Lars_Hörmander'},
 ]
 
 const Key_Concept_Data =
@@ -383,7 +383,7 @@ const Key_Concept_Data =
   { a:'C0-semigroup#Infinitesimal_generator',                                       n:'infinitesimal generator'},
   { a:'Inner_product_space',                                                        n:'inner product space'},
   { a:'Laplace_transformation',                                                     n:'Laplace transformation'},
-  { a:'Lp_space',                                                                   n:'Lebesgue space \(L^p\)'},
+  { a:'Lp_space',                                                                   n:'Lebesgue space'},
   { a:'Linear_functional',                                                          n:'linear functional'},
   { a:'Linear_operator',                                                            n:'linear operator'},
   { a:'Locally_convex_topological_vector_space',                                    n:'locally convex linear space'},
@@ -784,7 +784,7 @@ const MSC46_Data =
 ];
 
 /*----------------------------------------------------------------------------*/
-/* displayContainer()                                                         */
+/* undisplayAllContainers(), displayContainer()                               */
 /*----------------------------------------------------------------------------*/
 function undisplayAllContainers()
 {
@@ -929,13 +929,61 @@ function createTable(title,classname)
 }
 
 /*----------------------------------------------------------------------------*/
-/* appendContent()                                                            */
+/* fill list elements                                                         */
 /*----------------------------------------------------------------------------*/
-function appendContent()
+const wiki_base = 'https:\/\/en.wikipedia.org\/wiki\/';
+
+function fillListOfMainTheorems()
 {
-  const p = document.createElement("p");
-  p.textContent = "this is nonlinear functional analysis.";
-  document.querySelector("#nonlinear_fa").appendChild(p);
+  const list_element = document.getElementById('main_theorem_list');
+  for(let i=0; i < Main_Theorem_Data.length;i++)
+  {
+    const text     = Main_Theorem_Data[i].n;
+    const textNode = document.createTextNode(text);
+    const a_Node   = document.createElement('a');
+    const li_Node  = document.createElement('li');
+    a_Node.appendChild(textNode);
+    a_Node.setAttribute('href',wiki_base + Main_Theorem_Data[i].a);
+    a_Node.setAttribute('target','_new');
+    li_Node.appendChild(a_Node);
+    list_element.appendChild(li_Node);
+  }
+}
+
+function fillListOfKeyConcepts()
+{
+  const list_element = document.getElementById('key_concept_list');
+  for(let i=0; i < Key_Concept_Data.length;i++)
+  {
+    const text     = Key_Concept_Data[i].n;
+    const textNode = document.createTextNode(text);
+    const a_Node   = document.createElement('a');
+    const li_Node  = document.createElement('li');
+    a_Node.appendChild(textNode);
+    a_Node.setAttribute('href',wiki_base + Key_Concept_Data[i].a);
+    a_Node.setAttribute('target','_new');
+    li_Node.appendChild(a_Node);
+    list_element.appendChild(li_Node);
+  }
+}
+
+function fillListOfMathematicians()
+{
+  const list_element = document.getElementById('mathematician_list');
+  for(let i=0; i < Mathematician_Data.length;i++)
+  {
+    const text     = Mathematician_Data[i].n + ' (' 
+                   + Mathematician_Data[i].b + '-'
+                   + Mathematician_Data[i].d + ')';
+    const textNode = document.createTextNode(text);
+    const a_Node   = document.createElement('a');
+    const li_Node  = document.createElement('li');
+    a_Node.appendChild(textNode);
+    a_Node.setAttribute('href',wiki_base + Mathematician_Data[i].a);
+    a_Node.setAttribute('target','_new');
+    li_Node.appendChild(a_Node);
+    list_element.appendChild(li_Node);
+  }
 }
 
 /*----------------------------------------------------------------------------*/
@@ -997,9 +1045,10 @@ function insertNode(node,topic,level)
 function TopicsTree()
 {
   const start = Date.now();
-  const intro_text = 'This is an approach to classify the many topics in functional analysis by a tree structure.  It may serve as a table of contents for textbooks.';
+  const intro_text1 = 'This is an approach to classify the many topics in functional analysis by a tree structure. '
+  const intro_text2 = 'It may serve as a table of contents for textbooks.';
   const root_div = document.getElementById('topic_tree');
-  const textNode = document.createTextNode(intro_text);
+  const textNode = document.createTextNode(intro_text1 + intro_text2);
   const newNode = document.createElement('p');
   newNode.style.setProperty('font-weight','normal');
   newNode.appendChild(textNode);
@@ -1017,64 +1066,21 @@ function TopicsTree()
     console.log('element with id=\'topic_tree\* does not exist.')
 }
 
-function createListOfMainTheorems()
+/*----------------------------------------------------------------------------*/
+/* appendContent()                                                            */
+/*----------------------------------------------------------------------------*/
+/*
+function appendContent(id,text)
 {
-  const list_element = document.getElementById('main_theorem_list');
-  for(let i=0; i < Main_Theorem_Data.length;i++)
-  {
-    const text     = Main_Theorem_Data[i].n;
-    const textNode = document.createTextNode(text);
-    const a_Node   = document.createElement('a');
-    const li_Node  = document.createElement('li');
-    a_Node.appendChild(textNode);
-    a_Node.setAttribute('href','https:\/\/en.wikipedia.org\/wiki\/' + Main_Theorem_Data[i].a);
-    a_Node.setAttribute('target','_new');
-    li_Node.appendChild(a_Node);
-    list_element.appendChild(li_Node);
-  }
+  const p = document.createElement("p");
+  p.textContent = text;
+  document.querySelector(id).appendChild(p);
 }
-
-function createListOfKeyConcepts()
-{
-  const list_element = document.getElementById('key_concept_list');
-  for(let i=0; i < Key_Concept_Data.length;i++)
-  {
-    const text     = Key_Concept_Data[i].n;
-    const textNode = document.createTextNode(text);
-    const a_Node   = document.createElement('a');
-    const li_Node  = document.createElement('li');
-    a_Node.appendChild(textNode);
-    a_Node.setAttribute('href','https:\/\/en.wikipedia.org\/wiki\/' + Key_Concept_Data[i].a);
-    a_Node.setAttribute('target','_new');
-    li_Node.appendChild(a_Node);
-    list_element.appendChild(li_Node);
-  }
-}
-
-function createListOfMathematicians()
-{
-  const list_element = document.getElementById('mathematician_list');
-  for(let i=0; i < Mathematician_Data.length;i++)
-  {
-    const text     = Mathematician_Data[i].n + ' (' 
-                   + Mathematician_Data[i].b + '-'
-                   + Mathematician_Data[i].d + ')';
-    const textNode = document.createTextNode(text);
-    const a_Node   = document.createElement('a');
-    const li_Node  = document.createElement('li');
-    a_Node.appendChild(textNode);
-    a_Node.setAttribute('href',Mathematician_Data[i].a);
-    a_Node.setAttribute('target','_new');
-    li_Node.appendChild(a_Node);
-    list_element.appendChild(li_Node);
-  }
-}
+*/
 
 /*----------------------------------------------------------------------------*/
 /* call main functions                                                        */
 /*----------------------------------------------------------------------------*/
-//TopicsTree();
-undisplayAllContainers()
 createTable('Journals', 'Journal');
 createTable('Textbooks', 'Book');
 createTable('Monographs in \'Grundlehren der mathematischen Wissenschaften in Einzeldarstellung\'', 'Grundlehren');
@@ -1085,7 +1091,8 @@ createTable('Internet Seminars on Evolution Equations', 'isem');
 createTable('Monographs in \'Lecture Notes in Mathematics (Springer)\'', 'lecture_notes');
 createTable('Mathematics and its Applications', 'mass');
 createTable('MSC2020 Entries', 'msc46');
-createListOfMathematicians();
-createListOfMainTheorems();
-createListOfKeyConcepts();
+fillListOfMathematicians();
+fillListOfMainTheorems();
+fillListOfKeyConcepts();
+// TopicsTree();
 displayContainer('home');
