@@ -1,63 +1,6 @@
 /*----------------------------------------------------------------------------*/
 /* static data                                                                */
 /*----------------------------------------------------------------------------*/
-const Menu_Data =
-[
-  'home',
-  'impressum',
-  'about_me',
-  'sitemap',
-  'msc46',
-
-  'textbooks',
-  'lecture_notes',
-  'research_articles',
-  'my_documents',
-
-  'internet_seminar_evo',
-
-  'grundlehren',
-  'dover',
-  'gtm',
-  'gsm',
-  'mass',
-  'bourbaki',
-  'lecture_notes_in_mathematics',
-
-  'key_concepts',
-  'main_theorems',
-  'mathematicians',
-  'journals',
-  'topic_tree',
-
-  'linear_algebra',
-  'general_topology',
-  'complex_analysis',
-  'measure_and_integration_theory',
-  'pde_theory',
-  'abstract_harmonic_analysis',
-
-  'functional_analysis',
-  'topological_linear_spaces',
-  'spectral_theory',
-  'self-adjoint_operators',
-  'semigroup_theory',
-  'coercive_sesquilinear_forms',
-  'distribution_theory',
-  'nonlinear_functional_analysis',
-  'history',
-
-  'Dunford_Schwartz',
-  'Lions_Magenes',
-  'Reed_Simon',
-  'Kato',
-  'Yosida',
-  'Nagy',
-  'Rudin',
-  'Fattorini',
-  'Hörmander'
-];
-
 const Topics_Data =
 [
   { c:'root',  p:'',     t:'Functional Analysis'},
@@ -784,24 +727,18 @@ const MSC46_Data =
 ];
 
 /*----------------------------------------------------------------------------*/
-/* undisplayAllContainers(), displayContainer()                               */
+/* displayArticle()                                                           */
 /*----------------------------------------------------------------------------*/
-function undisplayAllContainers()
+let openArticle = document.getElementById('home');
+function displayArticle(id)
 {
-  for(i=0; i < Menu_Data.length; i++)
-  {
-    let element = document.getElementById(Menu_Data[i]);
-    if(element != null)
-      element.style.display = 'none';
-  }
-}
-
-function displayContainer(id)
-{
-  undisplayAllContainers();
   let element = document.getElementById(id);
-  if(element != null)
-    element.style.display = 'block';
+  if(element != null && element != openArticle)
+  {
+    openArticle.style.display = 'none';
+    openArticle = element;
+    openArticle.style.display = 'block';
+  }
 }
 
 /*----------------------------------------------------------------------------*/
@@ -1094,5 +1031,3 @@ createTable('MSC2020 Entries', 'msc46');
 fillListOfMathematicians();
 fillListOfMainTheorems();
 fillListOfKeyConcepts();
-// TopicsTree();
-displayContainer('home');
