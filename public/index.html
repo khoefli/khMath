@@ -28,6 +28,12 @@
     <link rel="stylesheet"                 href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.css"/>
+
+<!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+-->
     <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
 
@@ -39,7 +45,7 @@
     <nav class='container'>
       <ul>
         <li><img id='kh-logo' src='../data/logo.png'></li>
-        <li>MSC Codes
+        <li>MSC
           <ul>
             <li><a href="https://msc2020.org/#">MSC-2020 home page</a></li>
             <li><a href="https://mathscinet.ams.org/mathscinet/searchMSC.html">MathSciNet (AMS)</a></li>
@@ -97,21 +103,21 @@
             <li onclick="displayArticle('gtm')">Graduate Texts in Mathematics (GTM)</li>
             <li onclick="displayArticle('gsm')">Graduate Studies in Mathematics (GSM)</li>
             <li onclick="displayArticle('mass')">Mathematics and its Applications</li>
-            <li onclick="displayArticle('bourbaki')">Éléments de mathématique (Bourbaki)</li>
           </ul>
         </li>
         <li>|</li>
         <li>Monographs
           <ul>
-            <li onclick="displayArticle('Nagy')">Riesz & Sz.-Nagy: Functional Analysis</li>
-            <li onclick="displayArticle('Dunford_Schwartz')">Dunford & Schwartz: Linear Operators I-III</li>
-            <li onclick="displayArticle('Kato')">Kato: Perturbation Theory for Linear Operators</li>
-            <li onclick="displayArticle('Yosida')">Yosida: Functional Analysis</li>
-            <li onclick="displayArticle('Reed_Simon')">Reed & Simon: Methods of Modern Mathematical Physics I-IV</li>
-            <li onclick="displayArticle('Fattorini')">Fattorini & Kerber: The Cauchy Problem</li>
-            <li onclick="displayArticle('Rudin')">Rudin's Books on Mathematical Analysis</li>
-            <li onclick="displayArticle('Hörmander')">Hörmander: The Analysis of Linar Partial Differential Operators I-IV</li>
-            <li onclick="displayArticle('Lions_Magenes')">Lions & Magenes: Non-Homogeneous Boundary Value Problems I-III</li>
+            <li onclick="displayArticle('Nagy')">F. Riesz & B. Sz.-Nagy: Functional Analysis</li>
+            <li onclick="displayArticle('Dunford_Schwartz')">N. Dunford & J.T. Schwartz: Linear Operators I-III</li>
+            <li onclick="displayArticle('Kato')">T. Kato: Perturbation Theory for Linear Operators</li>
+            <li onclick="displayArticle('Yosida')">K. Yosida: Functional Analysis</li>
+            <li onclick="displayArticle('Reed_Simon')">M. Reed & B. Simon: Methods of Modern Mathematical Physics I-IV</li>
+            <li onclick="displayArticle('Fattorini')">H. Fattorini & J. Kerber: The Cauchy Problem</li>
+            <li onclick="displayArticle('Rudin')">W. Rudin's Books on Mathematical Analysis</li>
+            <li onclick="displayArticle('Hörmander')">L. Hörmander: The Analysis of Linar Partial Differential Operators I-IV</li>
+            <li onclick="displayArticle('Lions_Magenes')">J.-L. Lions & E. Magenes: Non-Homogeneous Boundary Value Problems I-III</li>
+            <li onclick="displayArticle('bourbaki')">N. Bourbaki: Éléments de mathématique</li>
           </ul>
         </li>
         <li>|</li>
@@ -231,54 +237,56 @@
       <article id='sitemap' class='container'>
         <h1>Sitemap</h1>
         <section>
-          <ul style='columns:2;column-gap:0px'>
-            <li onclick="displayArticle('home')">Home</li>
-            <li onclick="displayArticle('impressum')">Impressum</li>
-            <li onclick="displayArticle('about_me')">About me</li>
-            <li onclick="displayArticle('msc46')">Mathematical Subject Classification for '46-XX'</li>
-            <li onclick="displayArticle('my_documents')">my Texts</li>
-            <li onclick="displayArticle('lecture_notes')">Lecture Notes</li>
-            <li onclick="displayArticle('research_articles')">Research Articles</li>
-            <li onclick="displayArticle('mathematicians')">Mathematicians</li>
-            <li onclick="displayArticle('history')">History of Functional Analysis</li>
-            <li onclick="displayArticle('textbooks')">Textbooks</li>
-            <li onclick="displayArticle('grundlehren')">Grundlehren der mathematischen Wissenschaften (Springer)</li>
-            <li onclick="displayArticle('gtm')">Graduate Texts in Mathematics (GTM)</li>
-            <li onclick="displayArticle('mass')">Mathematics and Its Applications (Springer)</li>
-            <li onclick="displayArticle('lecture_notes_in_mathematics')">Lecture Notes in Mathematics (LNM)</li>
-            <li onclick="displayArticle('dover')">Dover Publications</li>
-            <li onclick="displayArticle('gsm')">Graduate Studies in Mathematics (GSM)</li>
-            <li onclick="displayArticle('bourbaki')">Éléments de mathématique (Bourbaki)</li>
-            <li onclick="displayArticle('journals')">Journals</li>
-<!--        <li onclick="displayArticle('topic_tree')">Topics Tree</li>  -->
-            <li onclick="displayArticle('nonlinear_functional_analysis')">Nonlinear Functional Analysis</li>
-            <li onclick="displayArticle('Dunford_Schwartz')">Dunford & Schwartz: Linear Operators I-III</li>
-            <li onclick="displayArticle('Reed_Simon')">Reed & Simon: Methods of Modern Mathematical Physics I-IV</li>
-            <li onclick="displayArticle('Kato')">Kato: Perturbation Theory of Linear Operators</li>
-            <li onclick="displayArticle('Fattorini')">Fattorini & Kerber: The Cauchy Problem</li>
-            <li onclick="displayArticle('Hörmander')">Hörmander: The Analysis of Linear Partial Differential Operators</li>
-            <li onclick="displayArticle('Rudin')">Rudin's Books on Mathematical Analysis</li>
-            <li onclick="displayArticle('Yosida')">Yosida: Functional Analysis</li>
-            <li onclick="displayArticle('Nagy')">Riesz & Sz.-Nagy: Functional Analysis</li>
-            <li onclick="displayArticle('Lions_Magenes')">Lions & Magenes: Non-Homogeneous Boundary Value Problems</li>
-            <li onclick="displayArticle('functional_analysis')">Summary of all Subtopics</li>
-            <li onclick="displayArticle('topological_linear_spaces')">Topological and Normed Linear Spaces</li>
-            <li onclick="displayArticle('spectral_theory')">Linear Operators and Spectral Theory</li>
-            <li onclick="displayArticle('self-adjoint_operators')">Self-Adjoint Operators</li>
-            <li onclick="displayArticle('semigroup_theory')">Semigroup Theory and Evolution Equations</li>
-            <li onclick="displayArticle('internet_seminar')">Internet Seminar on Evolution Equations</li>
-            <li onclick="displayArticle('coercive_sesquilinear_forms')">Coercive Sesquilinear Forms</li>
-            <li onclick="displayArticle('distribution_theory')">Distribution Theory</li>
-            <li onclick="displayArticle('nonlinear_functional_analysis')">Nonlinear Functional Analysis</li>
-            <li onclick="displayArticle('key_concepts')">Key Concepts in Functional Analysis</li>
-            <li onclick="displayArticle('main_theorems')">Main Theorems</li>
-            <li onclick="displayArticle('linear_algebra')">Linear Algebra</li>
-            <li onclick="displayArticle('general_topology')">General Topology</li>
-            <li onclick="displayArticle('measure_and_integration_theory')">Measure and Integration Theory</li>
-            <li onclick="displayArticle('complex_analysis')">Complex Analysis</li>
-            <li onclick="displayArticle('pde_theory')">Partial Differential Equations</li>
-            <li onclick="displayArticle('abstract_harmonic_analysis')">Abstract Harmonic Analysis</li>
-          </ul>
+          <small>
+            <ul style='columns:2;column-gap:0px'>
+              <li onclick="displayArticle('home')">Home</li>
+              <li onclick="displayArticle('impressum')">Impressum</li>
+              <li onclick="displayArticle('about_me')">About me</li>
+              <li onclick="displayArticle('msc46')">Mathematical Subject Classification for '46-XX'</li>
+              <li onclick="displayArticle('my_documents')">my Texts</li>
+              <li onclick="displayArticle('lecture_notes')">Lecture Notes</li>
+              <li onclick="displayArticle('research_articles')">Research Articles</li>
+              <li onclick="displayArticle('mathematicians')">Mathematicians</li>
+              <li onclick="displayArticle('history')">History of Functional Analysis</li>
+              <li onclick="displayArticle('textbooks')">Textbooks</li>
+              <li onclick="displayArticle('grundlehren')">Grundlehren der mathematischen Wissenschaften (Springer)</li>
+              <li onclick="displayArticle('gtm')">Graduate Texts in Mathematics (GTM)</li>
+              <li onclick="displayArticle('mass')">Mathematics and Its Applications (Springer)</li>
+              <li onclick="displayArticle('lecture_notes_in_mathematics')">Lecture Notes in Mathematics (LNM)</li>
+              <li onclick="displayArticle('dover')">Dover Publications</li>
+              <li onclick="displayArticle('gsm')">Graduate Studies in Mathematics (GSM)</li>
+              <li onclick="displayArticle('journals')">Journals</li>
+<!--          <li onclick="displayArticle('topic_tree')">Topics Tree</li>  -->
+              <li onclick="displayArticle('nonlinear_functional_analysis')">Nonlinear Functional Analysis</li>
+              <li onclick="displayArticle('Dunford_Schwartz')">N. Dunford & J.T. Schwartz: Linear Operators I-III</li>
+              <li onclick="displayArticle('Reed_Simon')">M. Reed & B. Simon: Methods of Modern Mathematical Physics I-IV</li>
+              <li onclick="displayArticle('Kato')">T. Kato: Perturbation Theory of Linear Operators</li>
+              <li onclick="displayArticle('Fattorini')">H. Fattorini & J. Kerber: The Cauchy Problem</li>
+              <li onclick="displayArticle('Hörmander')">L. Hörmander: The Analysis of Linear Partial Differential Operators I-IV</li>
+              <li onclick="displayArticle('Rudin')">W. Rudin's Books on Mathematical Analysis</li>
+              <li onclick="displayArticle('Yosida')">K. Yosida: Functional Analysis</li>
+              <li onclick="displayArticle('Nagy')">F. Riesz & B. Sz.-Nagy: Functional Analysis</li>
+              <li onclick="displayArticle('Lions_Magenes')">J.-L. Lions & E. Magenes: Non-Homogeneous Boundary Value Problems I-III</li>
+              <li onclick="displayArticle('bourbaki')">N. Bourbaki: Éléments de mathématique</li>
+              <li onclick="displayArticle('functional_analysis')">Summary of all Subtopics</li>
+              <li onclick="displayArticle('topological_linear_spaces')">Topological and Normed Linear Spaces</li>
+              <li onclick="displayArticle('spectral_theory')">Linear Operators and Spectral Theory</li>
+              <li onclick="displayArticle('self-adjoint_operators')">Self-Adjoint Operators</li>
+              <li onclick="displayArticle('semigroup_theory')">Semigroup Theory and Evolution Equations</li>
+              <li onclick="displayArticle('internet_seminar')">Internet Seminar on Evolution Equations</li>
+              <li onclick="displayArticle('coercive_sesquilinear_forms')">Coercive Sesquilinear Forms</li>
+              <li onclick="displayArticle('distribution_theory')">Distribution Theory</li>
+              <li onclick="displayArticle('nonlinear_functional_analysis')">Nonlinear Functional Analysis</li>
+              <li onclick="displayArticle('key_concepts')">Key Concepts in Functional Analysis</li>
+              <li onclick="displayArticle('main_theorems')">Main Theorems</li>
+              <li onclick="displayArticle('linear_algebra')">Linear Algebra</li>
+              <li onclick="displayArticle('general_topology')">General Topology</li>
+              <li onclick="displayArticle('measure_and_integration_theory')">Measure and Integration Theory</li>
+              <li onclick="displayArticle('complex_analysis')">Complex Analysis</li>
+              <li onclick="displayArticle('pde_theory')">Partial Differential Equations</li>
+              <li onclick="displayArticle('abstract_harmonic_analysis')">Abstract Harmonic Analysis</li>
+            </ul>
+          </small>
         </section>
       </article>
 
@@ -711,7 +719,7 @@
       </article>
 
       <article id='bourbaki' class='container'>
-        <h1>Éléments de mathématique (Bourbaki)</h1>
+        <h1>N. Bourbaki: Éléments de mathématique</h1>
         <section>
           This series of mathematical textbooks was written in the fifties and sixties of the last century by a group
           of French mathematicians and published by the fictive author <i>Nicolas Bourbaki</i>.
@@ -977,10 +985,12 @@
             <div>
               <a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/kato1.pdf">This</a> is <i>Kato</i>'s main book,
               first published in 1967.
-              Rather its title contains the phrase 'perturbation theory',
-              it covers many topics from classical functional analysis.
-              But the main subjects are spectral and semigroup theory.
-              Chapter VI gives a good account on sesquilinear forms and their relationships to linear operators.
+              Rather the title contains the phrase 'perturbation theory',
+              the book covers many topics from classical functional analysis.
+              But the main subjects are in fact spectral and semigroup theory.
+              Moreover,
+              chapter VI gives a good account on <i>sesquilinear forms</i> and their relationships to linear operators,
+              which is still today a good introduction to this fundamental concept in Hilbert space methods.
         
               <ul></ul>
               <ol type="I">
@@ -1008,8 +1018,8 @@
       <article id='Dunford_Schwartz' class='container'>
         <h1>N. Dunford &  J.T. Schwartz: Linear Operators I-III</h1>
         <section>
-          This series consisting of three volumes is one of the fundamental monographs in functional analysis.
-          To publish them needs in total more than ten years.
+          This series consisting of three volumes constitutes one of the fundamental monographs in functional analysis.
+          To publish them (Interscience&nbsp;Pub.) needs in total more than ten years.
           <div class='container'>
             <details open>
               <summary>Part I&nbsp;: &nbsp;&nbsp;General Theory (1957)</summary>
@@ -1056,8 +1066,9 @@
         <h1>J.-L. Lions & E. Magenes: Non-Homogeneous Boundary Value Problems I-III</h1>
         <section>
           This series,
-          written by <a href='https://en.wikipedia.org/wiki/Jacques-Louis_Lions'>Jeaques-Louis Lions</a>
-          and <a href='https://de.wikipedia.org/wiki/Enrico_Magenes'>Enrico Magenes</a> in 1972 and 1973,
+          publishes by the 'Grundlehren' (vol. 181-183)
+          and written by <a href='https://en.wikipedia.org/wiki/Jacques-Louis_Lions'>Jeaques-Louis Lions</a>
+          together with <a href='https://de.wikipedia.org/wiki/Enrico_Magenes'>Enrico Magenes</a> in 1972 and 1973,
           is one of the first systematic treatments of inhomogeneous boundary value problems
           of elliptic, parabolic and hyperbolic type.
           <div class='container'>
@@ -1474,7 +1485,7 @@
           and the so-called <i>linear transformations</i> between them.
           We may divide up the subtopics in linear algebra as follows:
           <ul>
-            <li>the general theory of rings and fields</li>
+            <li>the general theory of Abelian groups, rings and fields</li>
             <li>the basic theory of vector spaces (often called <i>linear spaces</i>),
                 including such concepts like linear independency, generator systems,
                 Hamel&nbsp;bases, dimensions, convex sets and so on</li>
@@ -1483,10 +1494,11 @@
                 considered as linear transformations between finite-dimensional spaces</li>
             <li>the theory of linear functionals, dual spaces and determinants</li>
             <li>the theory of algebras, subalgebras and ideals</li>
-            <li>the theory of inner product spaces and unitary transformations.</li>
+            <li>the theory of inner product spaces and normal linear transformations.</li>
           </ul>
           <p>
-            One can for example study <i>Werner Greub</i>'s monograph 'Linear Algebra',
+            One can for example study <a href ='https://de.wikipedia.org/wiki/Werner_H._Greub'>Werner Greub</a>'s
+            monograph 'Linear Algebra',
             which was published in Springer's
             <mark onclick="displayArticle('grundlehren')">Grundlehren der mathematischen Wissenschaften</mark>
             as vol. 97 in 1958.
@@ -1671,7 +1683,7 @@
 --------------------------------------------------------------------------------->
     <footer>
       <hr><hr>
-      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 31/08/2026).
+      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 01/09/2026).
       &nbsp;&nbsp;&nbsp;
       <button onclick="displayArticle('home')"     >Home</button>
       <button onclick="displayArticle('about_me')" >About me</button>

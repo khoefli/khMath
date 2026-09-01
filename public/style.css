@@ -21,7 +21,8 @@ html
 body
 {
   background-color:white;
-  font-family:"times new roman" "standard (noto serif)" ubuntu;
+  font-family:"PT Sans Narrow";
+  font-family:"standard (noto serif)", ubuntu;
   text-align:left;
   width:auto;
   height:100%;
