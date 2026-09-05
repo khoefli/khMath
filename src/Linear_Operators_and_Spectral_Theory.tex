@@ -111,7 +111,7 @@ by the presence of a particular mapping $\norm{\,\cdot\,}\: \banX \xto \R$,
 denoted the \textit{norm} on $\banX$,
 which fulfills for all $x,y \xeof \banX$ and $\lambda \xeof \F$
 
-\begin{itemize}[leftmargin=40pt,itemsep=2pt]
+\begin{itemize}[leftmargin=40pt,topsep=2pt,itemsep=2pt]
 \item[(N-1)]
 \,$\norm{x} \, \geq \, 0$,
 
@@ -127,7 +127,6 @@ which fulfills for all $x,y \xeof \banX$ and $\lambda \xeof \F$
 \end{itemize}
 
 \paragraph{} %- norm topology
-%------------------------------------------------------------------------------%
 Linear spaces may of course be furnished with different norms.
 We shall call arbitrary norms
 $\norm{\,\cdot\,}_{\alpha}$ and $\norm{\,\cdot\,}_{\beta}$
@@ -146,7 +145,7 @@ called the \textit{norm topology} on $\banX$.
 Its definition is given either by the assertion
 that $\topT := \topT_{\norm{\cdot}}$ is the smallest topology on $\banX$
 such that the norm mapping remains continuous,
-or by the metric topology $\topT_d$,
+or by the \textit{metric} topology $\topT := \topT_d$,
 when $\banX$ is considered as a metric space with metric function
 $d(x,y) := \norm{x-y} \fa x,y \xeof \banX$.
 In fact,
@@ -157,16 +156,17 @@ which justifies to speak of \textit{the} topology of a normed linear space.
 Hence a multiplicity of topological concepts,
 like the \textit{closure} of a set,
 the \textit{neighbourhood} of a point,
-the \textit{convergence} of a series and many others are meaningful
-in the setting of normed linear spaces.
+the \textit{convergence} of a series and many others
+are meaningful in the setting of normed linear spaces.
 Notice
-that equivalent norms on $\banX$ are creating one and the same topology.
+that equivalent norms on $\banX$ give rise to one and the same topology.
 For example,
 if $\banX$ is a finite-dimensional linear space,
-then all norms are equivalent
-and consequently there is exactly one topology on $\banX$ induced by them.
+then all norms on $\banX$ are equivalent
+and consequently there is exactly one topology induced by these norms.
 
 \subsection{} %-- sequentially complete normed spaces, Banach spaces
+%------------------------------------------------------------------------------%
 Recall from metric space theory
 that a sequence $(x_n)$ in a normed linear space $\banX$
 is called \textit{Cauchy},
@@ -192,9 +192,8 @@ The general procedure readily follows the way
 how to construct the set of real numbers out of that of the rational ones.
 
 \paragraph{} %- embeddings
-%------------------------------------------------------------------------------%
 We go ahead with the notion of \textit{embedding},
-which is a special kind of mappings between normed linear spaces
+which is a special kind of mapping between normed linear spaces
 and leads to the concept of {norm-isomorphism}.
 Preliminary,
 a mapping $f \: \banX \xto \banY$ is called continuous
@@ -208,15 +207,16 @@ that is,
 \[
 \iota(x + y) \= \iota x + \iota y \;\and\; \iota(\lambda x) = \lambda \iota x
 \]
-holds for $x,y \xeof \banX$ and $\lambda \xeof \F$.
+for $x,y \xeof \banX$ and $\lambda \xeof \F$.
 If $\iota$ is even surjective,
-it is said to be a linear isomorphism between the spaces $\banX$ and\,$\banY$.
-Then \textsc{Banach}\textit{'s isomorphism theorem} claims that % in this case
+it is said to be a \textit{linear isomorphism}
+between the spaces $\banX$ and\,$\banY$.
+Then \textsc{Banach}\textit{'s isomorphism theorem} claims that
 the inverse mapping $\iota^{-1}$ is also an embedding,
 so $\iota$ and $\iota^{-1}$ both constitute linear homeomorphisms
-between $\banX$ and $\banY$.
+between these spaces.
 Furthermore,
-the embedding $\iota$ is said to be a \textit{norm-isomorphism},
+the embedding $\iota$ is denoted a \textit{norm-isomorphism},
 if it is surjective and $\norm{\iota x} \eq \norm{x}$ holds
 for all $x \xeof \banX$ (notation:\,$\banX \cong \banY$).
 It should be clear that
@@ -428,7 +428,6 @@ $\sum_{\, e_{\alpha} \xeof \orthO} \,
 \end{itemize}
 
 \paragraph{} %- existence of orthonormal bases
-%------------------------------------------------------------------------------%
 It is also nearby to ask for the existence of orthonormal bases.
 First of all,
 the collection of all orthonormal systems in a Hilbert space $\hilH$
@@ -506,7 +505,6 @@ and to pay attention to the slightly modified but densely defined operator
 $\linA_0\:\domain{\linA} \xsubset \banX_0 \xto \banY$.
 
 \paragraph{} %- sums and compositions of linear operators
-%------------------------------------------------------------------------------%
 Rather the domains of definition for operators $\linA_1$ and $\linA_2$
 with same domain space $\banX$ and range space\,$\banY$
 may be proper linear sub\-spaces of $\banX$,
@@ -618,7 +616,6 @@ In this case the \textit{operator norm} of $\linA$ is well-defined according to
 \end{equation}
 
 \paragraph{} %- the B.L.T. theorem
-%------------------------------------------------------------------------------%
 If a linear operator $\linA$ is continuous and 
 $\domain{\linA}$ is a dense subset of the domain space $\banX$,
 then $\linA$ can uniquely be extended to a linear mapping
@@ -670,7 +667,6 @@ It is called the \textit{operator algebra} associated with $\banX$
 and actually forms a Banach algebra if\,$\banY$ is complete.
 
 \paragraph{} %- main theorem on continuous linear operators
-%------------------------------------------------------------------------------%
 Let us collect the obtained results 
 to the following main theorem on continuous linear operators,
 where $\banX$ and\,$\banY$ are assumed to be normed linear spaces:
@@ -707,7 +703,6 @@ the identity operator $\1_{\banX} \: \banX \xto \banX$ is compact
 iff $\banX$ is finite-dimensional.
 
 \paragraph{} %- properties of compact operators
-%------------------------------------------------------------------------------%
 Compact operator own a couple of useful properties:
 
 \begin{itemize}[leftmargin=9mm]
@@ -733,7 +728,6 @@ the limit of a norm convergent sequence of compact operators is compact.
 \end{itemize}
 
 \paragraph{} %- finite-rank operators
-%------------------------------------------------------------------------------%
 A linear operator $\linFR \: \banX \xto \banY$ is said
 to have \textit{finite rank},
 if the range $\range{\linFR}$ is finite-dimensional.
@@ -758,7 +752,6 @@ $\compA$ is the norm-limit of a sequence of finite-rank operators
 (but this is not necessarily true in the general setting of Banach spaces).
 
 \paragraph{} %- Hilbert Schmidt operators
-%------------------------------------------------------------------------------%
 Let $\basB \eq \{e_1,e_2,\ldots\}$ be any orthonormal base
 of a separable Hilbert space $\hilH$ and let $\linA \xeof \BO{\hilH}$.
 We define the number $S(\linA)$ according to
@@ -841,7 +834,6 @@ This equivalence provides a further method
 to verify closeness of a given linear operator.
 
 \paragraph{} %- closeness of operators based on Schauder estimates
-%------------------------------------------------------------------------------%
 The following theorem
 uses the possible validness of an abstract \textit{Schauder} \textit{estimate}
 to ensure sequentially closenss:
@@ -899,7 +891,6 @@ is called a \textit{core} of $\linA$,
 if the closure of $\linA$ restricted to $\cal{L}$ resembles $\linA$.
 
 \paragraph{} %- criterion for closability
-%------------------------------------------------------------------------------%
 There is a well-known criterion for closability:
 
 \begin{theorem}
@@ -1006,7 +997,6 @@ so both concepts are equivalent to each other
 under this restrictive condition.
 
 \paragraph{} %- bounded inverse theorem
-%------------------------------------------------------------------------------%
 The following application of the closed graph theorem is of outstanding meaning:
 if a linear operator $\linA$ is closed and bijective,
 then its inverse $\linA^{-1}$ is also linear and closed,
@@ -1022,8 +1012,7 @@ $\linA \: \banX \xto \banY$,
 which is an immediate consequence
 of \textsc{Banach}'s \textit{open mapping theorem}.
 
-\paragraph{} %- summary
-%------------------------------------------------------------------------------%
+\paragraph{} %- summary on continuous and closed linear operators
 In conclusion,
 if the domain of definition $\domain{\linA}$ of a linear operator $\linA$
 is a \textit{closed} subspace of the domain space $\banX$,
@@ -1121,7 +1110,6 @@ by the same formula \eqref{REPRESENTATION_OPERATOR},
 called the \textit{representation operator} of $\sql$.
 
 \paragraph{} %- main theorem on continuity of sesquilinear forms
-%------------------------------------------------------------------------------%
 Similar to theorem \ref{CONTINUITY_THEOREM},
 the following theorem characterizes continuity of sesquilinear forms
 by equivalent assertions:
@@ -1147,6 +1135,7 @@ The representation operator $\linA_{\sql}$ is continuous.
 \end{itemize}
 
 \subsection{} %-- Riesz's representation theorem
+%------------------------------------------------------------------------------%
 Let us especially consider the case $\sql(x,y) \= \scalar{x}{y}$.
 In this case the representation operator $\Phi$
 of the inner product is called the \textit{Riesz map} of $\hilH$.
@@ -1168,7 +1157,6 @@ The proof of this theorem can be found in nearly every textbook
 on functional analysis.
 
 \paragraph{} %- inner product in the conjugate space
-%------------------------------------------------------------------------------%
 Theorem \ref{RIESZ_REPRESENTATION_THEOREM} implies that
 for $\phi \xeof \hilH_a^*$ there is a unique element $x_{\phi} \xeof \hilH$,
 which fulfills the equation
@@ -1271,7 +1259,6 @@ is elementary,
 hence we do not want to elaborate this in detail.
 
 \paragraph{} %- properties of the adjoint
-%------------------------------------------------------------------------------%
 Adjoint operators probably enjoy a couple of properties:
 
 \begin{theorem}\label{MAIN_THEOREM_ON_ADJOINT_OPERATORS}
@@ -1350,7 +1337,6 @@ Hence $\linA^*$ must be densely defined.
 \end{comment}
 
 \paragraph{} %- formally adjoint pairs
-%------------------------------------------------------------------------------%
 We also introduce the concept of \textit{adjoint pair} of linear operators.
 The both densely defined linear operators
 $\linA \: \domain{\linA} \xsubset \banX   \xto \banY$ and
@@ -1386,7 +1372,6 @@ lying between $\linA$ and $\linB_r$,
 so $\linA \prec R \prec \linB_r$ must hold.
 
 \paragraph{} %- compactness of the adjoint
-%------------------------------------------------------------------------------%
 Recall that the adjoint $\linA^*$ of a linear operator $\linA$ forms
 a mapping from the adjoint space $\banY^*$ to the adjoint space $\banX^*$.
 With respect to the question of compactness of $\linA$ and $\linA^*$,
@@ -1426,7 +1411,6 @@ We then define $\linA^* y := y^*$ and denote $\linA^*$
 the \textit{Hilbert adjoint} of $\linA$.
 
 \paragraph{}
-%------------------------------------------------------------------------------%
 Recall that if a linear operator is closable,
 then its adjoint operator is densely defined and the bi-adjoint is well-defined.
 In the Hilbert space setting,
@@ -1533,8 +1517,8 @@ and $\linA^{-1} \eq \linA^*$.
 \end{itemize}
 
 \subparagraph{}
-It should be clear that every self-adjoint or skew-adjoint or unitary operator
-is normal.
+It should be clear
+that every self-adjoint or skew-adjoint or unitary operator is normal.
 Symmetric and self-adjoint operators and their spectral theory
 will be discussed more in detail in sections 7 and 8.
 
@@ -1690,7 +1674,6 @@ the linear operators $R(\linA,\zeta_1)$ and $R(\linA,\zeta_2)$
 commute with each another.
 
 \paragraph{} %- norm estimate of the resolvent
-%------------------------------------------------------------------------------%
 Estimates for the operator norm of resolvents play an important role
 in later sections.
 In fact,
@@ -1708,7 +1691,6 @@ $\mbox{dist}(\zeta,\sigma(\linA))$ is the minimal distance
 between the singleton $\{\zeta\}$ and the spectrum $\sigma(\linA)$.
 
 \paragraph{} %- spectral mapping theorem
-%------------------------------------------------------------------------------%
 The estimate \eqref{RESOLVENT_ESTIMATE_I} is a consequence
 of the so-called \textit{spectral mapping theorem},
 establishing a connection between the spectra of the resolvents
@@ -1785,7 +1767,6 @@ The decomposition of the spectrum into these three parts
 is the classical approach.
 
 \paragraph{} %- approximate point spectrum
-%------------------------------------------------------------------------------%
 The \textit{approximate point spectrum} $\sigma_{ap}(\linA)$
 of a closed linear operator $\linA$ is the set of $\lambda \xeof \C$,
 for which $\linA {-} \lambda$ is not injective
@@ -1809,7 +1790,6 @@ But $\sigma_{ap}(\linA)$ can be empty only in the case,
 where $\sigma(\linA) \eq \emptyset$ or $\sigma(\linA) \eq \C$.
 
 \paragraph{} %- resolvent set and spectrum of adjoint operators
-%------------------------------------------------------------------------------%
 Up to now we did not assume that
 the linear operators under consideration are densely defined.
 But if this is true for a linear operator $\linA$,
@@ -1854,7 +1834,6 @@ Notice that inequality \eqref{RESOLVENT_ESTIMATE_2} is a consequence
 of the spectral mapping theorem.
 
 \paragraph{} %-  Riesz-Dunford calculus
-%------------------------------------------------------------------------------%
 A further main subject in this section
 is the exposition of the \textit{holomorphic functional calculus},
 sometimes also called the \textsc{Riesz-Dunford} \textit{calculus}
@@ -1883,7 +1862,6 @@ is called the \textit{contour integral} of $f$ {\wrt} the function $g$,
 where $\gamma$ is the image of $[a,b]$ under $g$.
 
 \paragraph{} %- Cauchy's integral theorem
-%------------------------------------------------------------------------------%
 \textsc{Cauchy}\textit{'s integral theorem} is a corner stone in
 complex analysis and quotes that if $f$ is analytic in $\G$,
 then
@@ -1993,7 +1971,6 @@ called the \textsc{Riesz} \textit{projection} of $\linA$
 {\wrt} the spectral value $\lambda$.
 
 \paragraph{} %- properties of the Riesz projection
-%------------------------------------------------------------------------------%
 To the end,
 we collect the properties of the mapping $\pi_{\lambda}$ to the following list:
 
@@ -2178,7 +2155,6 @@ and consequently $\chi(\linA) \xeof \Z$,
 the operator $\linA$ is said to have \textit{finite index}.
 
 \paragraph{} %- definition of semi-Fredholm operator
-%------------------------------------------------------------------------------%
 The linear operator $\linA \: \domain{\linA} \xsubset \banX \xto \banY$
 is called \textit{semi-Fredholm},
 if
@@ -2221,7 +2197,6 @@ theorem \ref{BOUNDED_BELOW_THEOREM} implies that
 these operators are upper semi-Fredholm with vanishing nullity index.
 
 \paragraph{} %- Schauder estimates and Peetre's lemma
-%------------------------------------------------------------------------------%
 If a continuous linear operator $\linA$ satisfies
 an abstract \textit{Schauder estimate},
 one may quote a sufficient condition for $\linA$ to be upper semi-Fredholm,
@@ -2311,7 +2286,6 @@ if $\linA$ is at once self-adjoint and Fredholm,
 we have $\chi(\linA) \eq 0$.
 
 \paragraph{} %- the Fredholm property of closed linear operators
-%------------------------------------------------------------------------------%
 We have introduced the Fredholm property of linear operators
 under the assumption that
 these are continuous and everywhere defined in their domain spaces.
@@ -2326,7 +2300,6 @@ the pair $(\domain{\linA},\norm{\,\cdot\,}_{\linA})$
 constitutes a Banach space due since $\linA$ is assumed to be closed.
 
 \paragraph{} %- properties of Fredholm operators
-%------------------------------------------------------------------------------%
 We first collect a couple of properties of Fredholm operators:
 
 \begin{itemize}[leftmargin=4mm]
@@ -2354,7 +2327,6 @@ and $\chi(\linB) \eq \chi(\linA)$ holds.
 \end{itemize}
 
 \paragraph{} %- left and right parametrix
-%------------------------------------------------------------------------------%
 Our next subject is the representation of Fredholm operators
 using compact linear operators.
 More precisely,
@@ -2383,7 +2355,6 @@ that is,
 they have finite-dimensional ranges.
 
 \paragraph{} %- Fredholm's alternative theorem
-%------------------------------------------------------------------------------%
 In the following we cite the \textit{Fredholm} \textit{alternative theorem}
 as the outstanding result in Fredholm theory
 {\wrt} the solvability of the linear equation $\linA x \eq y$.
@@ -2425,6 +2396,7 @@ $y \xeof \,^{\bot}\kernel{\linA^*}$.
 \end{theorem}
 
 \subsection{} %-- essential spectrum
+%------------------------------------------------------------------------------%
 The various concepts of semi-Fredholm operators can be used to characterize
 the \textit{essential spectrum} $\sigma_{ess,0}(\linA)$
 of a closed operator $\linA$ acting in a complex Banach space $\banX$:
@@ -2579,7 +2551,6 @@ if $\Theta(\linA) \xsubset ({-}\infty,a)$
 or $\Theta(\linA) \xsubset (b,\infty)$ holds.
 
 \paragraph{} %- properties of symmetric operators
-%------------------------------------------------------------------------------%
 Densely defined and symmetric linear operators distinguish
 by a couple of properties.
 Indeed, if $\linA$ is symmetric, then
@@ -2611,6 +2582,7 @@ The values $d_{\pm} := d(\pm i) \xeof \N_0 \cup \{\infty\}$
 are called the \textit{defect indices} of $\linA$.
 
 \subsection{} %-- spectrum of symmetric operators
+%------------------------------------------------------------------------------%
 Now the decisional question is
 whether the operators $\linA \pm \zeta$ are surjective and
 the defect indices $d_{\pm}$ of $\linA$ are zero,
@@ -2655,7 +2627,7 @@ The spectrum $\sigma(\linA)$ forms a subset of the real line in this case.
 %------------------------------------------------------------------------------%
 It should be notified that the adjoint $\linA^*$ of a symmetric linear operator
 $\linA$ is not necessarily symmetric again.
-If $\linA$ is symmetric,
+But if $\linA$ is symmetric,
 then every other linear operator $\linS$ having the property
 $\linA \prec \linS$ is called a \textit{symmetric extension} of $\linA$.
 Notice 
@@ -2704,7 +2676,6 @@ or equivalently,
 if $\linA \eq \linA^*$.
 
 \paragraph{} %- Fredholm property of self-adjoint linear operators
-%------------------------------------------------------------------------------%
 Let us mention
 that if a self-adjoint linear operator $\linA$ is Fredholm,
 then $\chi(\linA) \eq 0$,
@@ -2724,7 +2695,7 @@ Hence we have
 which gives rise to define $\sigma_{ess}(\linA) := \sigma_{ess,k}$
 for any $1 \leq k \leq 6$.
 
-\subparagraph{} %- Weyl sequence
+\subparagraph{} %- discrete spectrum and Weyl sequences
 Recall that the discrete spectrum
 $\sigma_d(\linA) := \sigma(\linA) \setminus \sigma_{ess}(\linA)$
 is nothing but the set of isolated eigenvalues of $\linA$
@@ -2738,7 +2709,6 @@ such that $\norm{\linA x_n - \lambda x_n} \xto 0$ for $n \xto \infty$,
 which is denoted a \textit{Weyl} \textit{sequence} {\wrt} $\lambda$.
 
 \paragraph{} %- range condition
-%------------------------------------------------------------------------------%
 To ensure self-adjointess of a symmetric linear operator $\linA$,
 the \textit{range condition} reflects the forth case in our considerations
 on the defect indices of $\linA$
@@ -2760,7 +2730,6 @@ $\range{\linA {+}\zeta} \eq \hilH$,
 then $\linA$ also proves to be self-adjoint.
 
 \paragraph{} %- essentially self-adjointness
-%------------------------------------------------------------------------------%
 A symmetric linear operator is denoted \textit{essentially self-adjoint},
 if its closure proves to be self-adjoint.
 There is a comparable criterion for essentially self-adjointness available:
@@ -2821,7 +2790,6 @@ the validness of the estimate
 is a sufficient condition for \eqref{A_BOUNDEDNESS} to be true.
 
 \paragraph{} %- Kato-Rellich theorem
-%------------------------------------------------------------------------------%
 The \textsc{Kato-Rellich} \textit{theorem}
 provides a criterion on self-adjoint\-ness of the operator $\linA {+} \linB$:
 
@@ -2976,7 +2944,6 @@ associated with the resolution $\{\linP_{\lambda}\}_{\lambda \xeof \R}$
 and proves to be linear and even self-adjoint.
 
 \paragraph{} %-- the spectral theorem
-%------------------------------------------------------------------------------%
 The \textit{spectral theorem} for self-adjoint operators claims
 that the inverse statement also holds:
 
@@ -3004,7 +2971,6 @@ self-adjoint linear operators are in a one-to-one relationship
 to spectral operators defined by formula \eqref{SPECTRAL_INTEGRAL}.
 
 \paragraph*{} %- relationship between the spectral resolution and the spectrum
-%------------------------------------------------------------------------------%
 We next want to point out the relationship between
 the shape of the spectrum $\sigma(\linA)$ and the spectral resolution of $\linA$.
 The following theorem shows
@@ -3081,7 +3047,6 @@ the following properties:
 \end{itemize}
 
 \paragraph{} %- functional calculus for self-adjoint positive operators
-%------------------------------------------------------------------------------%
 We are especially interested in the case,
 where the self-adjoint operator $\linA$ is positive and
 $f(\lambda) := 0$ for $t<0$ and $e^{-\lambda t}$ for $t \geq 0$,
@@ -3156,7 +3121,6 @@ and especially the space $C^{\infty}(a,b;\banX)$ is defined
 by taking the intersection of all spaces $C^k(a,b;\banX)$ for $k \xeof \N_0$.
 
 \paragraph{} % initial-value problems governed by self-adjoint linear operators
-%------------------------------------------------------------------------------%
 The initial-value problems we want to consider in this section
 are the homogeneous Cauchy problems of first and second order
 and the abstract {\SCHROEDINGER} equation.
@@ -3243,7 +3207,6 @@ if $x \xeof C([0,\T],\hilH) \cap C^2((0,\T),\hilH)$
 and the initial conditions are satisfied.
 
 \paragraph{} %- functional calculus approach for the second-order Cauchy problem
-%------------------------------------------------------------------------------%
 The functional calculus for self-adjoint linear operators
 may also be applied to this problem.
 Preliminary,
@@ -3526,7 +3489,6 @@ where the domain of definition $\domain{\linA}$ is furnished with
 the \textit{operator norm} $\norm{x}_A := \norm{x} + \norm{\linA x}$.
 
 \paragraph{} %- order of the eigenvalues
-%------------------------------------------------------------------------------%
 The eigenvalues of a linear operator $\linA$ with pure point spectrum
 are mostly countable and can be ordered by their moduli,
 that is,
@@ -3601,7 +3563,6 @@ hence the mappings $P_{\lambda}$ are constant for
 $\lambda \xeof [\lambda_k,\lambda_{k+1})$.
 
 \paragraph{} %- equivalence of linear equations
-%------------------------------------------------------------------------------%
 Let us in the second part of this section
 turn back to the class of Fredholm operators
 and illustrate the interplay of Fredholm theory
@@ -3645,7 +3606,6 @@ that the element $x$ is a solution of the first one
 it is a solution of the second one.
 
 \paragraph{}
-%------------------------------------------------------------------------------%
 We summarize the result of the previous computation to the following
 
 \begin{theorem}\label{FREDHOLM_ALTERNATIVE_THEOREM_II}
@@ -3822,7 +3782,6 @@ the infinitesimal generator of a strongly continuous semigroup is linear,
 so it forms a linear operator in $\banX$.
 
 \paragraph{} % infinitesimal generators are densely defined and closed
-%------------------------------------------------------------------------------%
 Our first theorem in this section describes two basic properties
 of infinitesimal generators:
 
@@ -3860,7 +3819,6 @@ was constructed by means of the spectral resolution of $\linA$
 and the functional calculus for unbounded self-adjoint operators.
 
 \paragraph{} %- classical and mild solutions
-%------------------------------------------------------------------------------%
 We first have to define concepts of solution
 for problem \eqref{HOMOGENEOUS_CAUCHY_PROBLEM_IB}:
 
@@ -3920,7 +3878,6 @@ whereas for a mild solution $x$
 the initial value $x_0$ may be an arbitrary element in $\banX$.
 
 \paragraph{} %- correctly posed and well-posed problems
-%------------------------------------------------------------------------------%
 The homogeneous Cauchy problem \eqref{HOMOGENEOUS_CAUCHY_PROBLEM_IB}
 is called \textit{correctly posed},
 if there is a unique classical solution $x$
@@ -3941,7 +3898,6 @@ $\norm{x(t)} \leq c_{\T} \norm{x_0}$
 for all $t \xeof (0,\T)$ and all $x_0 \xeof \banX$.
 
 \paragraph{} %- well-posedness theorem for the Cauchy problem
-%------------------------------------------------------------------------------%
 The following fundamental theorem describes
 well-posedness of \eqref{HOMOGENEOUS_CAUCHY_PROBLEM_IB}
 in terms of the property of the linear operator ${-}\linA$
@@ -3973,7 +3929,6 @@ iff
 it is correctly posed and $\rho(\linA) \ne \emptyset$ holds.
 
 \paragraph{} %- necessary conditions to be a generator
-%------------------------------------------------------------------------------%
 Besides the fact that
 the operator $\linA$ has to be densely defined and closed,
 the further conditions on ${-}\linA$ to be the infinitesimal generator
@@ -4172,7 +4127,6 @@ that is,
 they are injective and own closed ranges in case of $\linA$ being closed.
 
 \paragraph{} %- m-accretive operators
-%------------------------------------------------------------------------------%
 Finally,
 the operator $\linA$ is said to be \textit{m-accretive},
 if it is accretive and does not have any proper accretive extension.
@@ -4200,7 +4154,6 @@ then $\linA {-} \zeta$ is surjective even for every $\zeta \xeof (-\infty,0)$,
 so $\zeta_0$ may be replaced by any other number $\zeta < 0$.
 
 \paragraph{} %- dense definiteness and closeness of m-accretive operators
-%------------------------------------------------------------------------------%
 A m-accretive operator fits into the main class of densely defined and
 closed linear operators,
 as the following theorem shows:
@@ -4323,7 +4276,6 @@ and satisfies both initial conditions as well as
 the differential equation in each point $t \xeof (0,\T)$.
 
 \paragraph{} %- the semigroup approach to second order Cauchy problems
-%------------------------------------------------------------------------------%
 To apply results from semigroup theory to the second order Cauchy problem,
 let $U := (x,\dot{x})$.
 We suppose that $\linA$ is a \textit{positive} and
@@ -4359,7 +4311,6 @@ is the Hilbert space $\domain{\sqrt{\linA} }$
 furnished with the graph norm.
 
 \paragraph{} %- Lumer-Phillips theorem for second order problems
-%------------------------------------------------------------------------------%
 The following theorem is for example proved in \cite{Go}, p.\,111:
 
 \begin{theorem}\label{LUMER-PHILLIPS_THEOREM_2}
@@ -4412,7 +4363,6 @@ is represented by the inner product of $x$ and $v$ in $\hilH$,
 {\ie} $f_x(v) \eq \scalar{x}{\iota_1 \, v}$ holds for all $v \xeof \vecV$.
 
 \paragraph{} %- coercive forms and the Lax-Milgram theorem
-%------------------------------------------------------------------------------%
 Furthermore,
 a continuous sesquilinear form $\sql \: \vecV \xtimes \vecV \xto \C$
 is called \textit{coercive}
@@ -4473,7 +4423,6 @@ if $\sql_{\lambda_0}$ is coercive for some $\lambda_0 \xeof \R$,
 then $\sql_{\lambda}$ is so for $\lambda {\,>\,} \lambda_0$.
 
 \paragraph{} %- operators associated with H-elliptic forms
-%------------------------------------------------------------------------------%
 Quasi-coercive sesquilinear forms can be used
 to define densely defined and closed linear operators
 acting in the pivot space $\hilH$ of a Gelfand triple.
@@ -4516,7 +4465,6 @@ we have $\sql{x,y} \= \scalar{\linA x}{y}$
 for all $x \xeof \domain{\linA}$ and $y \xeof \vecV$.
 
 \paragraph{} %- main theorem on H-elliptic forms and associated operators
-%------------------------------------------------------------------------------%
 Our last theorem in this section
 collects a couple of properties of the operator $\linA_{\sql}$
 associated with a quasi-coercive form $\sql$:
@@ -4684,7 +4632,6 @@ It should be clear that each sectorial operator is quasi-m-accretive
 if the resolvent estimate \eqref{RESOLVENT_ESTIMATE_II} holds with $M \leq 1$.
 
 \paragraph{} %- criterion for sectorialness
-%------------------------------------------------------------------------------%
 The following theorem is useful to ensure sectorialness:
 
 \begin{theorem}\label{CRITERION_FOR_SECTORIALNESS}
@@ -4708,7 +4655,6 @@ Then $\linA$ is sectorial with vertex $\omega$.
 The proof of this theorem can be found in \cite{Lu}, p.\,43.
 
 \paragraph{} %- properties of sectorial operators in Hilbert spaces
-%------------------------------------------------------------------------------%
 We next quote two properties of a sectorial linear operator $\linA$,
 when acting in a Hilbert space $\hilH$:
 
@@ -4755,6 +4701,7 @@ which is strongly continuous
 if $\linA$ is assumed to be densely defined.
 
 \subsection{} %-- analytic semigroups
+%------------------------------------------------------------------------------%
 Recall that a semigroup of bounded linear operators is usually parametrized
 by the half line $[0,\infty)$.
 But it is also customary to study possible extensions of a semigroup to a
@@ -4825,7 +4772,6 @@ and the semigroup is called \textit{sectorially contractive analytic}
 of angle $\theta$,
 
 \paragraph{}
-%------------------------------------------------------------------------------%
 The generation theorem for the class of sectorially contractive 
 analytic semigroups reads as follows:
 
@@ -4914,10 +4860,9 @@ as quoted in theorem \ref{CRITERION_FOR_SECTORIALNESS} is fulfilled.
 %--     ---------------------------------------------
 This final section deals with applications of abstract functional analysis
 to partial differential operators and the problems associated with them.
-We want to start with the concept
-of \textit{linear partial differential operator}
+Let us start with the concept of \textit{linear partial differential operator}
 and continue with the consideration of specific problems
-associated with this kind of operators.
+associated with this kind of mapping.
 
 \subsection{} %-- linear partial differential operators
 %------------------------------------------------------------------------------%
@@ -4946,15 +4891,14 @@ is defined by
 \sum_{\abs{\alpha} \leq 2m} c_{\alpha}(x) \, \PA
 \end{equation}
 for $x \xeof \clG$,
-the closure of a \textit{domain} $\G$,
-that is,
-an open and connected subset of an Euclidean space $\Rd$.
+the topological closure of a \textit{domain} $\G$,
+which is nothing but an open and connected subset of an Euclidean space $\Rd$.
 This domain may be bounded or unbounded and even the whole of $\Rd$.
 
 \subparagraph{} %- essentially real differential operators
 We shall call $\A$ \textit{essentially real},
 if the coefficients $c_{\alpha}$ of highest order $\abs{\alpha} \eq 2m$
-are real-valued.
+in \eqref{EVEN_ORDER_LPDO} are real-valued.
 Moreover,
 the expression $\A$ is said to be
 an \textit{operator with constant coefficients},
@@ -4986,27 +4930,25 @@ posed in a domain $\G \subsetneq \Rd$ is of the form
 \end{cases}
 \end{equation}
 where $\A$ is a {linear} differential operator of order $2m$
-and $\BDO_0,\ldots,\BDO_{m-1}$ are \textit{boundary operators} of order $m_k$,
-each of them defined by
+and $\BDO_0,\ldots,\BDO_{m-1}$ are \textit{boundary operators}
+of order $m_k \leq 2m{-}1$,
+each of them given by the expression
 \[
-\BDO_k(x,u) \=
+\BDO_k(x,u) \eqdef
 \sum_{\abs{\alpha} \leq m_k} b_{k,\alpha}(x) \, \PA u(x).
 \]
 
 \subparagraph{}
 To introduce the boundary operators $\BDO_k$,
-it is sufficent
-that the real or complex-valued functions $b_{k,\alpha}$
+it is sufficent that the real or complex-valued functions $b_{k,\alpha}$
 are defined in a neighbourhood of the boundary $\bndG$ only.
 Then each operator $\BDO_k$ is a linear differential operator in its own right
-of order $m_k {\,\leq\,} 2m{-}1$,
-which maps the function $u \: \clG \xto \C$
+that maps any sufficiently differentiable function $u \: \clG \xto \C$
 to a function $\BDO_k u \: \bndG \xto \C$
 belonging to a so-called \textit{boundary space} $B_k(\bndG)$.
 
 \paragraph{} %- homogeneous and normal boundary operators
-%------------------------------------------------------------------------------%
-The collection $\{B_k\}_{k=0}^{m-1}$ of boundary operators in \eqref{LEBVP}
+The collection $\{B_k\}_{k=0}^{m{-}1}$ of boundary operators in \eqref{LEBVP}
 is said to be \textit{homogeneous}
 if $\BDO_k(x,\cdot) \eq 0$ for $x \xeof \bndG$ and $k \eq 0,\ldots,m{-}1$.
 Moreover,
@@ -5033,7 +4975,7 @@ of the set $\{0,\ldots,m{-}1\}$,
 so one may reorder the operators $\BDO_k$ to obtain $m_k \eq k$
 ($0 \leq k \leq m{-}1$).
 The most regarded set of boundary conditions in applications
-is the \textit{homogeneous Dirichlet system} defined by
+is the \textit{homogeneous Dirichlet system}
 \begin{equation}\label{HOMOGENEOUS_DIRICHLET_SYSTEM}
 \BDO_k(x,u) \eqdef (\partial_{\nu}^k u)(x) \= 0
 \end{equation}
@@ -5042,9 +4984,8 @@ where $(\partial_{\nu}^k u)(x)$ is the $k$-th derivative of a function $u$
 along the outer normal vector $\nu$ in $x \xeof \bndG$.
 
 \subparagraph{} %- classical solutions of BVP endowed with a Dirichlet system
-If the set of boundary conditions in \eqref{LEBVP} is a Dirichlet system,
-then we denote a solution $u \: \clG \xto \C$
-of this problem \textit{classical},
+If the set of boundary conditions in problem \eqref{LEBVP} is a Dirichlet system,
+then we denote any solution $u \: \clG \xto \C$ \textit{classical},
 if
 \begin{itemize}[leftmargin=9mm]
 \item[(a)] $u \xeof C^{2m}(\G) \, \cap \, C^{m-1}(\clG)$,
@@ -5054,7 +4995,6 @@ if
 \end{itemize}
 
 \paragraph{} %- boundary condition for second-order problems
-%------------------------------------------------------------------------------%
 Especially to each \textit{second-order} boundary value problem
 there is assigned exactly one boundary operator $\BDO_0$,
 hence problem \eqref{LEBVP} becomes into
@@ -5067,7 +5007,7 @@ hence problem \eqref{LEBVP} becomes into
 
 \subparagraph{} %- enumeration of boundary conditions for second-order problems
 Boundary value problems of the form \eqref{SECOND_ORDER_BOUNDARY_VALUE_PROBLEM}
-and governed by a linear differential operator $\A$ of second order
+and governed by a linear partial differential operator $\A$ of second order
 are obtained by various boundary operators $\BDO_0$.
 We denote
 
@@ -5091,16 +5031,15 @@ where the functions $\alpha, \beta$ must fulfill
 Due to physical reasons,
 one often has to split the boundary set $\bndG$
 into disjoint subsets $\Gamma_1,\Gamma_2,\Gamma_3$,
-on which the conditions (BC-1), (BC-2) and (BC-3) are prescribed.
-We then shall speak of \textit{mixed} boundary value problems
-for the second-order operator $\A$.
+on which (BC-1), (BC-2) and (BC-3) are prescribed.
+In this case we want to speak of \textit{mixed} boundary value problems.
 
 \subsection{} %-- operators of elliptic, parabolic and hyperbolic type
 %------------------------------------------------------------------------------%
 The concept of \textit{ellipticity} has been shown to be helpful in order
 to classify linear partial differential expressions
 by a simple algebraic criterion.
-Let $\A$ be a linear differential operator of order $2m$ be given
+Let $\A$ be a linear partial differential operator of order $2m$ be given
 by \eqref{EVEN_ORDER_LPDO} and let
 \[
 p(x,\xi) \eqdef \sum_{\abs{\alpha} = 2m} c_{\alpha}(x) \, \xi^{\alpha}
@@ -5118,8 +5057,8 @@ if
 \]
 and $\A$ is said to be \textit{uniformly elliptic} in $\G$ (in $\clG$),
 if it is elliptic in \textit{each} point $x \xeof \G$ (in $x \xeof \clG$).
-We then call a boundary value problem $\A \,u \eq f$ \textit{elliptic},
-if $\A$ is so.
+We then denote the problem \eqref{LEBVP} \textit{elliptic},
+if the operator $\A$ is so.
 
 \item[(E-2)]
 $\A$ is called \textit{properly elliptic} in $\clG$,
@@ -5131,12 +5070,12 @@ exactly $m$ roots with positive imaginary part and
 exactly $m$ roots with negative imaginary part.
 It can be shown that
 if $\A$ is \textit{essentially real} or $\G \xsubset \Rd$ with $d \geq 3$,
-then any elliptic differential operator is also {properly elliptic}.
+then any elliptic differential operator is properly elliptic.
 
 \item[(E-3)]
 The concept of ellipticity is often not good enough
 to obtain satisfying results.
-Hence the expression $\A$ of order $2m$
+Hence the expression $\A$ of even order $2m$ 
 is called \textit{strongly elliptic} in $x \xeof \clG$,
 if there is $\theta_x> 0$ such that
 \[
@@ -5167,14 +5106,13 @@ is the \textit{Laplacian}
        + \partial^2 / \partial {x_d}^2,
 \]
 whose negative version $-\Delta$ constitutes the prototype
-of what is meant by an {uniformly strongly elliptic operator}.
+of what is meant by an {uniformly strongly elliptic} differential operator.
 One easily computes
 $\re -p_{-\Delta}(x,\xi) \eq \abs{\xi} ^2$ for $\xi \xeof \Rd$,
 hence the expression $-\Delta$ often serves as a first example
 when studying linear-elliptic operators.
 
 \paragraph{} %- parabolic and hyperbolic differential operators
-%------------------------------------------------------------------------------%
 Besides the class of {linear-elliptic} operators
 there are two further important classes
 of linear partial differential operators.
@@ -5218,10 +5156,9 @@ where we especially have in mind the homogeneous Dirichlet boundary conditions
 However,
 in case of $\G \eq \Rd$,
 we obtain free space problems or pure initial value problems
-for the differential operators of parabolic or hyperbolic type.
+for the differential operators under consideration.
 
 \paragraph{} %- overview on the section
-%------------------------------------------------------------------------------%
 It is the aim of this section to apply
 all the presented functional analytic tools to the just enumerated problems.
 Let $\A$ be a linear partial differential operator of order $k \xeof \N$
@@ -5230,14 +5167,15 @@ Let $\A$ be a linear partial differential operator of order $k \xeof \N$
 \A(x,u) \eqdef
 \sum_{\abs{\alpha} \leq k} c_{\alpha}(x) \, \PA u.
 \end{equation}
-Then by a \textit{realization} of $\A$ in a Banach space $\mathbb{E}(\G)$
+Then by a \textit{realization} of $\A$ in some
+Banach spaces $\mathbb{E}(\G)$ and $\mathbb{E}(\G)$
 of functions $u \: \G \xto \C$ is meant any linear operator
 \[
-\linA: \domain{\linA} \subset \mathbb{E}(G) \xto \mathbb{E}(G)
+\linA: \domain{\linA} \subset \mathbb{E}(G) \xto \mathbb{F}(G)
 \]
 with domain of definition $\domain{\linA}$.
-The Banach space $\mathbb{E}(\G)$ should contain the space $\TF$ 
-of test functions\footnote{
+The Banach space $\mathbb{E}(\G)$ should at least contain
+the space $\TF$ of test functions\footnote{
 \,The space $\TF$ consists of indefinitely differentiable functions
 having \textit{compact} support
 \[
@@ -5248,78 +5186,83 @@ This space plays an out\-standing role in analysis,
 since it lies dense in a multiplicity of other functional spaces.}
 as a dense linear subspace.
 We also require for each $u \xeof \domain{\linA}$ that
-first $\A \, u$ is well-defined by
-$\linA u \eq \A \, u$ and second
-$\A \, u \xeof \mathbb{E}(\G)$ holds.
+$\A \, u$ is well-defined by
+$\linA u \eq \A \, u$ and of course
+$\A \, u \xeof \mathbb{F}(\G)$ holds.
 Clearly,
 our first condition means that the set $\domain{\linA}$
-may contain only functions $u \: \G \xto \C$ being sufficiently often
-differentiable in some sense.
-But $\domain{\linA}$ should also include the space $\TF$ of test functions,
-so $\domain{\linA}$ lies dense in $\mathbb{E}(\G)$ as well 
-and $\linA$ appears as a densely defined operator in $\mathbb{E}$.
+contains only functions $u \: \G \xto \C$
+being sufficiently often differentiable in some sense.
+Since $\domain{\linA}$ includes the space $\TF$,
+the subspace $\domain{\linA}$ lies dense in $\mathbb{E}(\G)$
+and $\linA$ appears as a densely defined operator
+with domain space $\mathbb{E}(\G)$ and range space $\mathbb{F}(\G)$.
+One often choses $\mathbb{F}(\G) \eq \mathbb{E}(\G)$,
+so $\linA$ is an operator purely acting in $\mathbb{E}(\G)$
+and we may apply concepts and results from spectral theory,
 
 \paragraph{} %- content of the section
-%------------------------------------------------------------------------------%
-In the second part of this section we shall point out that
+In the second part of this section we want to present some results
+in applied functional analysis {\wrt} linear differential operators.
+To be precise, we want to point out that
 
 \begin{itemize}[leftmargin=2mm,itemsep=4pt]
 \item[-] 
 for a linear partial differential expression $\A$
-there can be defined a couple of densely defined and closable linear operators
-$\linA$ acting either in the {\HOELDER} spaces $C^{k,\gamma}(\G)$
+there can be defined a couple of densely defined and closable realizations
+acting either in the {\HOELDER} spaces $C^{k,\gamma}(\G)$
 ($k \xeof \N_0$, $0 < \gamma \leq 1$)
 or in the Lebesgue spaces $\Lp$ ($1 \leq p < \infty$);
 
 \item[-] 
-using elliptic estimates,
-the realization of a strongly elliptic differentiable operator
+using \textit{elliptic estimates},
+the realization of a strongly elliptic linear differentiable operator
 acting in Sobolev spaces
-under homogeneous Dirichlet boundary conditions is closed;
+and restricted by homogeneous Dirichlet boundary conditions
+is graph-closed;
 
 \item[-] 
-the study on realizations of differential operators can be supported
-by that on their adjoints,
-where those are determined by so-called \textit{adjointness theorems};
+the study on realizations $\linA$ of a differential operator $\A$
+can be supported by that of their adjoints $\linA^*$,
+which are determined by so-called \textit{adjointness theorems};
 
 \item[-] 
 by starting with quasi-coercive sesquilinear forms,
-created by strongly elliptic differential expressions,
-we can obtain realizations in $\Lh$,
+induced by strongly elliptic differential expressions,
+we can obtain realizations in Hilbert space $\Lh$,
 which prove to be densely defined and closed;
 
 \item[-] 
-weak solutions of initial-boundary value problems exist and are unique,
+weak solutions of elliptic boundary value problems exist and are unique,
 supposed the governing sesquilinear form is the Dirichlet form
 of a strongly elliptic differential operator;
 
 \item[-] 
-the realizations of a regularly elliptic expression $\A$ in $\Lh$ are Fredholm,
+the realizations of a regularly elliptic expression $\A$
+in Hilbert space $\Lh$ fulfilling homogeneous Dirichlet conditions are Fredholm,
 so the alternative theorem \eqref{FREDHOLM_ALTERNATIVE_THEOREM}
-may be applied to the equation $\A \, u \eq f$;
+may be applied to the related boundary value problem $\A \, u \eq f$;
 
 \item[-] 
 strongly elliptic expressions give rise to m-accretive and 
-sectorial realizations in $\Lh$,
-so the related parabolic and hyperbolic initial value problem
-prove to be well-posed;
+sectorial realizations in Hilbert space $\Lh$,
+so the related parabolic and hyperbolic initial value problem are well-posed;
 
 \item[-] 
 formally self-adjoint and half-bounded differential expressions
-lead to self-adjoint realizations in $\Lh$;
+lead to self-adjoint realizations in Hilbert space $\Lh$;
 \end{itemize}
 
 \subparagraph{}
-This enumeration is of course only a small selection 
-within the totality of applications of functional analytic methods
-to linear partial differential operators and related equations,
-but may give a good impression of their capabilities.
+This enumeration is of course only a small selection of results,
+but may give a good impression
+how functional analysis tools help to give insight into these problems.
 
 \def\TITLEA{Realizations in the spaces $C^{\gamma}(\G)$ and $\Lp$.}
 \def\TITLEB{The closeness of strongly elliptic Dirichlet operators.}
 \def\TITLEC{Formally adjoint expressions and adjointness theorems.}
 \def\TITLED{{\GARDING}'s inequality and quasi-coercive Dirichlet forms.}
-\def\TITLEE{Weak solutions of boundary and initial-boundary value problems.}
+\def\TITLEE{Weak solutions of elliptic boundary value problems.}
 \def\TITLEF{The Fredholm property of elliptic operators.}
 \def\TITLEG{Spectral theory and sectorialness of strongly elliptic operators.}
 \def\TITLEH{Self-adjoint extensions of half-bounded operators.}
@@ -5327,8 +5270,10 @@ but may give a good impression of their capabilities.
 %-- realizations of differential equations in C^{k,\gamma}(G) and L^2(G)
 %------------------------------------------------------------------------------%
 \subsubsection{I. \TITLEA}
-We basically want to distinguish between two classes of functional spaces,
-in which realizations of a linear differential operator $\A$ are studied:
+We basically want to distinguish between two fundamental classes
+of functional spaces,
+in which realizations of a linear differential operator $\A$
+are usually studied:
 
 \begin{itemize}[leftmargin=4mm]
 \item[1.] %- realizations in Hölder spaces
@@ -5433,7 +5378,6 @@ for which
 \]
 
 \paragraph{} %- weak derivatives
-%------------------------------------------------------------------------------%
 We next turn to the notation of \textit{weak derivative}.
 Preliminary,
 any \textit{locally integrable function}\footnote{
@@ -5537,7 +5481,6 @@ By this reason it is reasonable to denote the realization $\linA_D$
 a \textit{Dirichlet operator}.
 
 \paragraph{} %- closeness of strongly elliptic differential operators
-%------------------------------------------------------------------------------%
 We turn to the question of closeness of the realization $\linA_D$.
 Let the domain $\G$ and the expression $\A$ fulfill the following conditions:
 
@@ -5691,7 +5634,6 @@ as realizations of $\A$,
 too.
 
 \paragraph{} %- adjointness theorems
-%------------------------------------------------------------------------------%
 To the end,
 the question arises whether any realization
 of the formally adjoint expression $\A^{\dag}$ is in relationship
@@ -5815,7 +5757,6 @@ and thus can continuously be extended to the product space
 $\HN{m}{\G} \xtimes \HN{m}{\G}$.
 
 \paragraph{} %- Garding's inequality
-%------------------------------------------------------------------------------%
 We are mainly interested in a $2m$-order linear differential operator $\A$
 given in divergence form,
 which together with the underlying domain $\G$ fulfills the already 
@@ -5845,7 +5786,6 @@ It should be clear that this assertion also holds
 for all $\lambda {\,>\,} \lambda_0$.
 
 \paragraph{} %- Garding's inequality for second order operators
-%------------------------------------------------------------------------------%
 The most important class of linear partial differential operators
 in divergence form {\wrt} applications is that of \textit{second order},
 that is,
@@ -5920,11 +5860,11 @@ where $a_0$ is the uniform lower bound of the eigenvalues
 of the matrices $A(x)$ with $x \xeof \G$.
 \end{theorem}
 
-%-- weak solutions of boundary and initial-boundary value problems
+%-- weak solutions of elliptic boundary boundary value problems
 %------------------------------------------------------------------------------%
 \subsubsection{V. \TITLEE}
-The variational approach to stationary and evolutional boundary value problems
-provides the concept of weak solution,
+The variational approach to stationary (and also evolutional)
+boundary value problems provides the concept of weak solution,
 and in this part of the section we want to apply the abstract theory
 boundary value problems governed by strictly elliptic differential operators
 by quoting the related existence and uniqueness assertions.
@@ -5944,7 +5884,6 @@ and the top-order coefficients are uniformly continuous in $\clG$.
 \end{itemize}
 
 \paragraph{} %- homogeneous Dirichlet problem
-%------------------------------------------------------------------------------%
 It is our first aim to solve the \textit{homogeneous Dirichlet problem}
 \[
 \begin{cases}[1.2]
@@ -6072,7 +6011,6 @@ $u \xeof C^{2m}(\G) \cap C^m(\clG)$,
 methods of \textit{regularity theory} for elliptic problems have to be applied.
 
 \paragraph{} %- spectrum of the Dirichlet operator
-%------------------------------------------------------------------------------%
 Let us turn to the spectrum of $\linA_D$.
 Since $-\Delta_D + \lambda$ forms a bijective and closed operator
 between the spaces $H^{2m}(\G) \cap \HN{m}{\G}$ and $\Lh$
@@ -6088,7 +6026,6 @@ if $\G$ is bounded,
 then $\linA_D$ is an operator with pure point spectrum.
 
 \paragraph{} %- sectorialness of the Dirichlet operator
-%------------------------------------------------------------------------------%
 We can also make assertions on the accretivity and sectorialness
 of the operator $\linA_D$.
 As theorem \eqref{QUASI-COERCIVE_FORMS_AND_ASSOCIATED_OPERATORS}
@@ -6102,7 +6039,6 @@ By perturbation theory of semigroups,
 this is also true for both problems governed by the operator $\linA_D$ itself.
 
 \paragraph{} %- Gauss-Weierstrass semigroup
-%------------------------------------------------------------------------------%
 Let us finally consider the heat equation
 for the negative Laplacian $-\Delta_D$ in the entire space $\Rd$,
 which of course is a free space problem.
@@ -6150,7 +6086,6 @@ $c_{\alpha} \xeof \R$ for $\abs{\alpha} $ even
 and $c_{\alpha} \xeof i \, \R$ for $\abs{\alpha} $ odd.
 
 \paragraph{} %- examples of formally self-adjoint differential expressions
-%------------------------------------------------------------------------------%
 In the following let us collect a couple of
 formally self-adjoint linear differential expressions
 and describe some self-adjoint realizations of them:
@@ -6249,7 +6184,6 @@ that the operator $\linA_{-\Delta,0}$ owns at least one self-adjoint extension,
 and this assertion is true actually for arbitrary domains $\G \xsubset \Rd$.
 
 \paragraph{} % realizations of the Laplacian
-%------------------------------------------------------------------------------%
 In the following enumeration we consider various self-adjoint realizations
 of the negative Laplacian in a domain $\G$,
 all of them being extensions of the operator $\linA_{-\Delta,0}$:
@@ -6399,7 +6333,6 @@ so the operator $\HAM_q$ can be seen as a perturbation
 of the negative Laplacian by the operator $M_q$.
 
 \paragraph{} %- Schroedinger equation
-%------------------------------------------------------------------------------%
 By the time-dependent \textit{{\SCHROEDINGER} equation} is meant
 the initial value problem
 \[
@@ -6419,7 +6352,6 @@ which implies $u(t) \eq U(t) u_0$ for every $t \xeof \R$
 (see also section 5 for the treatment of the abstract {\SCHROEDINGER} equation).
 
 \paragraph{} %- spectral analysis of Schroedinger operators
-%------------------------------------------------------------------------------%
 The study of \textit{time-independent solutions}
 of the {\SCHROEDINGER} equation leads to the eigenvalue problem
 \begin{equation}\label{SCHROEDINGER_EIGENVALUE_PROBLEM}
@@ -6492,6 +6424,7 @@ if $q \xeof L_{loc}^{\infty}(\Rd)$ and
 then the operator $\HAM_q$ does not own any positive eigen\-value.
 \end{itemize}
 \end{itemize}
+
 %------------------------------------------------------------------------------%
 %                                 BIBLIOGRAPHY                                 %
 %------------------------------------------------------------------------------%
@@ -6658,14 +6591,14 @@ Springer, 1980.
     --------------------------------------
     strongly continuous semigroups of bounded linear operators
     infinitesimal generators
-    well-posedness of first order Cauchy problems
+    well-posedness of first-order Cauchy problems
     generator theorems for strongly continuous semigroups
 
 10. ACCRETIVE OPERATORS
     -------------------
     concepts of accretivity
     Lumer-Phillips theorem
-    well-posedness of second order Cauchy problems
+    well-posedness of second-order Cauchy problems
     regularly accretive operators
 
 11. SECTORIAL OPERATORS AND ANALYTIC SEMIGROUPS
@@ -6681,11 +6614,10 @@ Springer, 1980.
     linear partial differential operators
     free space and boundary value problems
     operators of elliptic, parabolic and hyperbolic type
-    realizations in the spaces C^{k,\gamma}(G) and L^2(G)
+    realizations in the spaces C^{k,\gamma}(G) and L^p(G)
     the closeness of strongly elliptic Dirichlet operators
     formally adjoint expressions and adjointness theorems
     Gardings's inequality and quasi-coercive Dirichlet forms
-    weak solutions of boundary and initial-boundary value problems
+    weak solutions of elliptic boundary value problems
     the Fredholm property of elliptic operators
     spectral theory and sectorialness of strongly elliptic operators
-    self-adjoint extensions of half-bounded operators
