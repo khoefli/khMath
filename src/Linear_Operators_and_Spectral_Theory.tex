@@ -5199,7 +5199,7 @@ and $\linA$ appears as a densely defined operator
 with domain space $\mathbb{E}(\G)$ and range space $\mathbb{F}(\G)$.
 One often choses $\mathbb{F}(\G) \eq \mathbb{E}(\G)$,
 so $\linA$ is an operator purely acting in $\mathbb{E}(\G)$
-and we may apply concepts and results from spectral theory,
+and we may apply concepts and results from spectral theory.
 
 \paragraph{} %- content of the section
 In the second part of this section we want to present some results
@@ -5209,7 +5209,9 @@ To be precise, we want to point out that
 \begin{itemize}[leftmargin=2mm,itemsep=4pt]
 \item[-] 
 for a linear partial differential expression $\A$
-there can be defined a couple of densely defined and closable realizations
+with differentiable coefficients up to a certain order
+there can be defined densely defined and closable rsp. closed 
+realizations,
 acting either in the {\HOELDER} spaces $C^{k,\gamma}(\G)$
 ($k \xeof \N_0$, $0 < \gamma \leq 1$)
 or in the Lebesgue spaces $\Lp$ ($1 \leq p < \infty$);
@@ -5233,9 +5235,9 @@ we can obtain realizations in Hilbert space $\Lh$,
 which prove to be densely defined and closed;
 
 \item[-] 
-weak solutions of elliptic boundary value problems exist and are unique,
+\textit{weak solutions} of elliptic boundary value problems exist and are unique,
 supposed the governing sesquilinear form is the Dirichlet form
-of a strongly elliptic differential operator;
+of a strongly elliptic linear differential operator;
 
 \item[-] 
 the realizations of a regularly elliptic expression $\A$
@@ -5250,13 +5252,14 @@ so the related parabolic and hyperbolic initial value problem are well-posed;
 
 \item[-] 
 formally self-adjoint and half-bounded differential expressions
-lead to self-adjoint realizations in Hilbert space $\Lh$;
+give rise to self-adjoint realizations in Hilbert space $\Lh$;
 \end{itemize}
 
 \subparagraph{}
 This enumeration is of course only a small selection of results,
 but may give a good impression
-how functional analysis tools help to give insight into these problems.
+how functional analysis tools help to have insight into these problems.
+Let us turn to the details of the mentioned assertions:
 
 \def\TITLEA{Realizations in the spaces $C^{\gamma}(\G)$ and $\Lp$.}
 \def\TITLEB{The closeness of strongly elliptic Dirichlet operators.}
@@ -5596,15 +5599,15 @@ Then $\linA$ is closable.
 \end{theorem}
 
 \subparagraph{} %- description of the domain of definition of the closure
-Note that the domain of definition $\domain{\linA}$
-of the operator $\linA$ considered in theorem \ref{L2_CLOSABILITY_THEOREM}
+Notice that the domain of definition $\domain{\linA}$
+of the linear operator $\linA$ considered in theorem \ref{L2_CLOSABILITY_THEOREM}
 is not restricted to any boundary conditions.
 It should also be mentioned that
 rather the closability of the differential operator $\linA$
 with domain of definition $\domain{\linA}$
 like in theorem \ref{L2_CLOSABILITY_THEOREM} is ensured,
 it is not an easy task to give an exact description
-for the domain of definition of its closure.
+for the domain of definition of its closure $\overline{\linA}$.
 But if the coefficients of $\A$ are constant,
 then the set $\domain{\overline{\linA} }$ can be determined
 and coincides with the Hilbert-Sobolev space $H^k(\G)$.
@@ -5627,11 +5630,10 @@ and often any operator $\linA$ fulfilling
 \linA_{min} \prec \linA \prec \linA_{max}
 \]
 is called a \textit{realization} of $\A$,
-in opposite to our selected definition of this concept.
+in opposite to our previously given definition of this concept.
 Using this definition,
-we also want to consider the linear operators $\linA_{min}$ and $\linA_{max}$
-as realizations of $\A$,
-too.
+we consider the linear operators $\linA_{min}$ and $\linA_{max}$
+also as realizations of $\A$.
 
 \paragraph{} %- adjointness theorems
 To the end,
@@ -5666,7 +5668,7 @@ ${\linA}^* \eq \linA^{\dag}$.
 
 \subparagraph{} %- adjointness theorem in L^p
 A similar result holds in the setting of the spaces $\Lp$ for $1 < p < \infty$.
-As it is quoted in \cite{Pa}, lemma 7.3.4,
+Asis quoted in \cite{Pa} by lemma 7.3.4,
 we have 
 ${\linA_p}^* \eq {{\linA}^{\dag}}_q$,
 where $q \eq p/(p-1)$ respectively $\frac{1}{p} + \frac{1}{q} \eq 1$
@@ -5768,7 +5770,7 @@ to abstract functional analysis:
 \begin{theorem}\label{GARDING_INEQUALITY_THEOREM}
 Let the domain $\G$ fulfill (I),\,(I') 
 and let the linear differential expression $\A$ of order $2m$ fulfill
-(II),\,\,(III),\,(III').\\
+(II),\,\,(III),\,(III').
 Then there is $\lambda_0 \xeof \R$ and $a_0 {\,>\,} 0$ such that
 for all $u \xeof \HN{m}{\G}$
 \begin{equation}\label{GARDING_INEQUALITY}
@@ -6076,19 +6078,19 @@ for all $t > 0$ and $x \xeof \Rd$
 %-- self-adjoint extensions of half-bounded operators
 %------------------------------------------------------------------------------%
 \subsubsection{VIII. \TITLEH}
-Remember the definition of the differential expression $\DO^{\dag}$.
-We then denote a linear differential expression $\DO$
-\textit{formally self-adjoint} in case of $\DO^{\dag} \eq \DO$.
-If $\DO$ has constant coefficients,
+Given a differential expression $\A$,
+Remember the definition of the formally adjoint expression $\A^{\dag}$.
+We then denote a linear differential expression $\A$
+\textit{formally self-adjoint} in case of $\A^{\dag} \eq \A$.
+If $\A$ has constant coefficients,
 then $\A$ proves to be formally self-adjoint
 iff
 $c_{\alpha} \xeof \R$ for $\abs{\alpha} $ even
 and $c_{\alpha} \xeof i \, \R$ for $\abs{\alpha} $ odd.
 
 \paragraph{} %- examples of formally self-adjoint differential expressions
-In the following let us collect a couple of
-formally self-adjoint linear differential expressions
-and describe some self-adjoint realizations of them:
+In the following we collect a couple of formally self-adjoint linear
+differential expressions and describe some self-adjoint $L^2$-realizations:
 
 \begin{itemize}[leftmargin=17pt]
 \item[(a)] \textit{Sturm-Liouville operators.}

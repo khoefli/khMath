@@ -561,6 +561,11 @@ R(\linA,\zeta) \eqdef (\zeta -\linA)^{-1} \: \banX \xto \domain{\linA}
 is continuous.
 The set $\rho(\linA)$ of regular values is denoted
 the \textit{resolvent set} of $\linA$.
+It should be noted that for $\lambda \xeof \R$ and $\omega > 0$
+we have $\rho(\linA+\lambda) \eq \{\zeta+\lambda \: \zeta \xeof \rho(\linA)\}$
+and $\rho(\omega \linA) \eq \{\omega \zeta \: \zeta \xeof \rho(\linA)\}$.
+
+\paragraph{} %-- resolvents
 If $\zeta \xeof \rho(\linA)$,
 then $R(\linA,\zeta)$ is everywhere defined in $\banX$.
 Since we assume $\linA$ to be closed,
@@ -623,7 +628,7 @@ This implies that
 $R(\linA,\cdot)$ is locally holomorphic in $\rho(\linA)$.
 
 \paragraph{}
-Our next theorem ephasizes the meaning of operators to be assumed as closed:
+Our next theorem emphasizes the meaning of operators to be assumed as closed:
 
 \begin{theorem}
 If $\rho(\linA)\,{\neq}\,\emptyset$, then $\linA$ is closed.
@@ -842,8 +847,8 @@ it is to prove that (b) implies (a).
 First of all,
 we shall reformulate and prove theorem \ref{GENERAL_HY-THEOREM}
 for the case of quasi-contractive semigroups
-and then come back to the proof of the implication (b) $\Rightarrow$ (a)
-at the end of this section.
+and then come back with a remark on the proof of the implication
+(b) $\Rightarrow$ (a) at the end of this section.
 
 \begin{theorem}\label{HY-THEOREM_2}
 A linear operator $\linA$ is the infinitesimal generator of a C$_0$-semigroup
@@ -895,31 +900,85 @@ e^{t \linA_n}\,x \eqdef
 \quad \quad (x \xeof \banX).
 \]
 It follows that $\snorm{e^{t \linA_n}} \leq 1$ for $t > 0$,
-so we obtain even semigroups of contractions.
+so we obtain even semigroups of contractions, since
+\[
+\norm{S_n(t)} \leq e^{-nt} e^{\norm{n^2R(\linA,n)}t} \leq e^{-nt}e^{nt} = 1
+\]
+for $t \geq 0$.
+It suffices to prove convergence on the domain of definition $\domain{\linA}$
+only.
+The vector-valued version of the fundamental theorem of calculus applied
+to the functions $s \mapsto S_m(t-s)\,S_(s)x$ for $0 \leq s \leq t$ and
+$x \xeof \domain{\linA}$,
+also using teh mutual commutativity of the semigroups $\{S_n(t)\}_{t \geq 0}$
+for $n \xeof \N$,
+yields
+\[
+S_n(t)x - S_m(t)x \= \int_0^t \frac{d}{ds} (S_m(t-s)S_n(t)x)\,ds
+\]
+\[
+\= \int_0^t S_m(t-s)S_n(s)(\linA_nx - \linA_mx) \,ds,
+\]
+hence
+\begin{equation}\label{YYY}
+\norm{S_n(t)x - S_m(t)x} \, \leq \, t \norm{\linA_n x - \linA_m x}.
+\end{equation}
+The sequence $\{\linA_n\}_{n \in \N}$ is Cauchy
+for each $x \xeof \domain{\linA}$,
+which implies that $\{S_n(t)\}_{t \geq 0}$ converges
+for every $x \xeof \domain{\linA}$,
+hence for each $x \xeof \banX$ and even uniformly on each interval $[0,t_0]$.
+
+\subparagraph{}
 Now the main part of the proof is to show that
 this sequence of semigroups is Cauchy and the semigroup generated
 by the operator $\linA$ is given by
 \begin{equation}\label{YOSIDA_SEMIGROUP}
 S(t)x \eqdef \lim_{\,n \to \infty} e^{t \linA_n}\,x
-\quad \quad (x \xeof \banX).
+\quad \quad (x \xeof \banX),
 \end{equation}
-To be precise,
-one first has to verify property (S-1) and (S-2)
+that is,
+one has first to verify property (S-1) and (S-2)
 and second the operator $\linA$ to be
 the infinitesimal generator of the semigroup \eqref{YOSIDA_SEMIGROUP}.
-% --tbd
+
+\subparagraph{}
+The pointwise convergence of the sequence $\{S_n(t)x\}_{n \in \N}$ implies
+that the limit family $\{S(t)\}_{t \geq 0}$ satisfies the property (S-1),
+so it is a semigroup consisting of contractions.
+But the orbit map $\eta \: t \mapsto S(t)x$, $0 \leq t \leq t_0$
+is also the uniform limit of continuous functions and consequently
+continuous as well,
+so we obtain strong continuity from the right in $t \eq 0$.
+
+\subparagraph{}
+We finally have to show that
+the generator of the semigroup $\{S(t)\}_{t \geq 0}$ coincides
+with the operator $\linA$.
+For this, let $G$ be the generator with domain of definition $\domain{G}$.
+Letting $x \xeof \domain{\linA}$ fixed,
+the functions $\eta_n \: t \mapsto S_n(t)x$ converge uniformly
+to a function $\eta_x$ on each compact interval $[0,t_0]$ by \eqref{YYY},
+and the differentiated functions
+\[
+\frac{d \eta_n}{dt} \: t \mapsto S_n(t) \linA_n x
+\]
+converge uniformly to $\eta:t \mapsto S(t)\,\linA x$.
+This implies that $\eta$ is differentiable with $\dot{\eta}(0) \eq \eta(0)$,
+hence $\domain{\linA} \subset \domain{G}$ and $\linA x \eq Gx$
+for $x \xeof \domain{\linA}$.
+We still have to show that $G$ is not a proper extension of $\linA$.
+For this, let $\lambda > 0$.
+The $\lambda -\linA$ is a bijection from $\domain{\linA}$ onto $\banX$.
+Since $G$ is the generator of a contraction semigroup,
+we have $\lambda \xeof \rho(G)$.
+Hence $\lambda - G$ is also a bijection from $\domain{G}$ onto $\banX$.
+But $\lambda-G$ coincides with $\lambda-\linA$ on $\domain{\linA}$,
+which is only possible in case of $\domain{\linA} \eq \domain{G}$
+and $\linA \eq G$.
 \qed
 
 \paragraph{}
-We now come back to the proof of theorem \ref{GENERAL_HY-THEOREM}
-by using the assertion of the already proved theorem \ref{HY-THEOREM_2}.
-% --tbd
-\qed
-
-\paragraph{}
-Recall that in the more special case,
-where $M \eq 1$ and $\omega \eq 0$,
-the semigroup of type $(1,0)$ is called a \textit{semigroup of contractions}.
 From theorem \ref{HY-THEOREM_2} we deduce the following
 
 \begin{corollary}\label{HY-THEOREM_3}
@@ -947,6 +1006,14 @@ The statement $(0,\infty) \xsubset \rho(\linA)$ in this corollary means that
 one has to verify the existence and uniqueness of a solution
 for each stationary equation $\linA x - \zeta x \eq y$,
 where $\zeta > 0$ and $y \xeof \banX)$ is arbitrary.
+
+\paragraph{}
+To the end we come back to theorem \ref{GENERAL_HY-THEOREM}
+that can be proved
+by using the assertion of the already proved theorem \ref{HY-THEOREM_2}
+together with certain rescaling techniques.
+For details of this proof see \cite{EN}, page\,70.
+\qed
 
 \section{The Lumer-Phillips Theorem}
 %------------------------------------------------------------------------------%
