@@ -1699,24 +1699,24 @@ $R(\linA,\zeta)$ and the operator $\linA$ itself and reads as follows:
 \begin{theorem}
 Let $\linA$ be a linear operator with spectrum $\sigma(\linA)$ and resolvent
 function $R(\linA,\cdot)$.
-Then for $\zeta \xeof \rho(\linA)$ we have
-\[
-\sigma(R(\linA,\zeta)) \setminus \{0\} \=
-\{(\lambda-\zeta)^{-1} \: \lambda \xeof \sigma(\linA)\}.
-\]
+Then for $\zeta \xeof \rho(\linA)$
+$\sigma(R(\linA,\zeta)) \setminus \{0\} \eq
+\{(\lambda-\zeta)^{-1} \: \lambda \xeof \sigma(\linA)\}$.
 \end{theorem}
 
 \subsection{} %-- various kinds of spectra
 %------------------------------------------------------------------------------%
-We next will have a look at the spectral values
-of a closed linear operator $\linA$ acting in a Banach space $\banX$
-and study for $\lambda \xeof \sigma(\linA)$ the possible reasons
-that prevent the operator $\linA {-} \lambda$ to be bijective.
+We next will have a look at the spectrum 
+of a linear operator $\linA$ acting in a Banach space $\banX$.
+First notice that the spectrum of $\linA+\zeta$ ($\zeta \xeof \C$) is given by
+$\{\lambda+\zeta \: \lambda \xeof \sigma(\linA)\}$.
+Here are the possible reasons for $\lambda \xeof \sigma(\linA)$ 
+that prevent the operator $\linA {-} \lambda$ from being bijective:
 
 \begin{itemize}[leftmargin=4mm,itemsep=5pt]
 \item[1.]
 Recall from linear algebra
-that a complex number $\lambda$ is called an \textit{eigen\-value}
+that a complex number $\lambda$ is called an \textit{eigenvalue}
 of a linear operator $\linA$,
 if there is an element $x \xeof \banX$ such that
 $x \neq 0$ and $\linA \,x \eq \lambda x$.
@@ -2100,9 +2100,11 @@ if there is $\theta {\,>\,} 0$ such that
 \norm{\linA x}_Y \, \geq \, \theta \norm{x}_{\banX} \fa x \xeof \domain{\linA}.
 \end{equation}
 
-\subparagraph{} %- bounded below theorem
+\paragraph{} %- bounded below theorem
 The \textit{bounded-below theorem} provides a fundamental assertion
-in operator theory and is helpful to verify the closeness of $\range{\linA}$:
+in operator theory
+and is helpful to verify closeness of the set $\range{\linA}$:
+\newpage
 
 \begin{theorem}\label{BOUNDED_BELOW_THEOREM}
 If $\linA$ fulfills \eqref{BOUNDED_BELOW_CONDITION},
@@ -2618,9 +2620,8 @@ whereas the lower complex half-plane belongs to $\rho(\linA)$.
 \item[4.]
 $d_+ \eq 0$ and $d_- \eq 0$.
 The operators $\linA {+} i$ and $\linA {-} i$ are surjective,
-hence the upper and lower complex half-plane belong
-to the resolvent set $\rho(\linA)$.
-The spectrum $\sigma(\linA)$ forms a subset of the real line in this case.
+hence the upper and lower complex half-plane belong to $\rho(\linA)$,
+and the spectrum $\sigma(\linA)$ forms a subset of the real line in this case.
 \end{itemize}
 
 \subsection{} %-- self-adjoint operators
@@ -2694,40 +2695,35 @@ Hence we have
 \]
 which gives rise to define $\sigma_{ess}(\linA) := \sigma_{ess,k}$
 for any $1 \leq k \leq 6$.
-
-\subparagraph{} %- discrete spectrum and Weyl sequences
-Recall that the discrete spectrum
-$\sigma_d(\linA) := \sigma(\linA) \setminus \sigma_{ess}(\linA)$
-is nothing but the set of isolated eigenvalues of $\linA$
-having finite algebraic multiplicity,
-so $\kernel{\linA {-} \lambda}$ is finite-dimensional
-for every $\lambda \xeof \sigma_d(\linA)$.
-On the other hand,
-any value $\lambda$ belongs to $\sigma_{ess}(\linA)$,
-if there is a sequence $\{x_n\}_{n \xeof \N}$ of orthonormal elements in $\hilH$
+Then any value $\lambda$ belongs to $\sigma_{ess}(\linA)$,
+if there is a sequence $\{x_n\}_{n \in \N}$ of orthonormal elements in $\hilH$
 such that $\norm{\linA x_n - \lambda x_n} \xto 0$ for $n \xto \infty$,
 which is denoted a \textit{Weyl} \textit{sequence} {\wrt} $\lambda$.
+On the other hand,
+the discrete spectrum
+$\sigma_d(\linA) {:=} \sigma(\linA) \setminus \sigma_{ess}(\linA)$
+is nothing but the set of \textit{isolated} eigenvalues of $\linA$
+with finite geometric multiplicity.
 
 \paragraph{} %- range condition
-To ensure self-adjointess of a symmetric linear operator $\linA$,
+To ensure self-adjointess of a symmetric operator $\linA$,
 the \textit{range condition} reflects the forth case in our considerations
 on the defect indices of $\linA$
-and serves as the main tool to verify this pleasant property:
+and serves as the main tool to verify this feature:
 
 \begin{theorem}\label{RANGE_CONDITION}
-A densely defined, closed and symmetric linear operator $\linA$
-acting in $\hilH$ is self-adjoint iff there is $\zeta \xeof \C$ such that
+A densely defined, closed and symmetric operator $\linA$
+acting in $\hilH$ is self-adjoint
+iff there is $\zeta \xeof \C$ such that
 \[
-\range{\linA + \zeta} \= \range{\linA + \overline{\zeta}} \= \hilH,
+\range{\linA + \zeta} \= \range{\linA + \overline{\zeta}} \= \hilH.
 \]
-or equivalently,
-if the defect indices of $\linA \pm \zeta$ fulfill $d(\pm \zeta) \eq 0$.
 \end{theorem}
 
 \subparagraph{}
-If it is even possible to find $\zeta \xeof \R$ fulfilling the range condition 
-$\range{\linA {+}\zeta} \eq \hilH$,
-then $\linA$ also proves to be self-adjoint.
+If it is even possible to find $\zeta \xeof \R$
+fulfilling the range condition $\range{\linA {+} \zeta} \eq \hilH$,
+then of course $\linA$ also proves to be self-adjoint.
 
 \paragraph{} %- essentially self-adjointness
 A symmetric linear operator is denoted \textit{essentially self-adjoint},
@@ -2739,15 +2735,17 @@ A densely defined and symmetric linear operator $\linA$
 acting in $\hilH$ is essentially self-adjoint
 iff there is $\zeta \xeof \C$ such that
 \[
-\overline{\range{\linA + i}} \=
-\overline{\range{\linA - i}} \= \hilH.
+\overline{\range{\linA + \zeta}} \=
+\overline{\range{\linA + \overline{\zeta}}} \= \hilH.
 \]
 \end{theorem}
 
 \subparagraph{}
 Essentially self-adjointness can also be characterized by means of the adjoint:
 a densely defined and symmetric linear operator $\linA$ is essentially
-self-adjoint iff the adjoint $\linA^*$ is symmetric, too.
+self-adjoint
+iff
+the adjoint $\linA^*$ is symmetric, too.
 
 \subsection{} %-- perturbation theory of self-adjoint operators
 %------------------------------------------------------------------------------%
@@ -2819,14 +2817,14 @@ $\overline{\linA {+} \linB} \eq \overline{\linA} + \overline{\linB}$.
 %------------------------------------------------------------------------------%
 We finally want to mention an important class of symmetric and self-adjoint
 linear operators.
-Remember from integration theory
+Remember from \textsc{Lebesgue}'s integration theory
 that for a given measure space $(X,\salgB,\mu)$
 the linear space $L^2(X)$ of measurable and square-integrable functions
 $f\:X \xto \C$ forms a Hilbert space with inner product
 \[
 \scalar{f}{g} \eqdef \int_X f \, \overline{g} \, d\mu.
 \]
-If $m \: X \xto \C$ is a measurable function,
+If $m \: X \xto \C$ is measurable,
 then the linear mapping $\linM_m$ defined by
 \[
 \begin{cases}[1.2]
@@ -2840,7 +2838,7 @@ It turns out that the mapping $\linM_m$ is symmetric
 iff
 $m$ is real-valued,
 and since the domains of definition
-of the operators $\linM_m$ and $\linM_m^*$ coincide,
+of the operators $\linM_m$ and ${\linM_m}^*$ coincide,
 each multiplication operator with real-valued generator is self-adjoint.
 
 %------------------------------------------------------------------------------%
@@ -3121,11 +3119,11 @@ and especially the space $C^{\infty}(a,b;\banX)$ is defined
 by taking the intersection of all spaces $C^k(a,b;\banX)$ for $k \xeof \N_0$.
 
 \paragraph{} % initial-value problems governed by self-adjoint linear operators
-The initial-value problems we want to consider in this section
+The initial-value problems under consideration in this section
 are the homogeneous Cauchy problems of first and second order
 and the abstract {\SCHROEDINGER} equation.
-Let us notice in advance that they can be solved as well by semigroup methods,
-see also the sections 9,\,10 and 11.
+We notice in advance
+that they can be solved also by semigroup methods (see sections 9,\,10 and 11).
 
 \begin{itemize}[leftmargin=12pt,itemsep=2mm,topsep=1mm]
 \item[1.]
