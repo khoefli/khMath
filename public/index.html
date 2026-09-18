@@ -988,8 +988,8 @@
           'Grundlehren der mathematischen Wissenschaften in Einzeldarstellung'.
           The latest edition is the sixth one from 1980.
           It is referenced from a lot of research articles.
-          But I cannot emphasize this book for self studies --
-          from my point of view, the sections are organized very chaotically.
+          But I cannot emphasize this book for self studies &ndash;
+          from my point of view, the sections are organized a litte bit chaotically.
 
           <div class='kh-left-to-right-container'>
             <div>
@@ -1014,9 +1014,9 @@
                 </ol>
               </details>
             </div>
-            <div style="width:300px">
+            <div style="width:400px;margin-top:20px">
               <center>
-                <img src="../data/yosida.png" width="auto" height="auto">
+                <img src="../data/yosida.png">
               </center>
             </div>
           </div>
@@ -1028,8 +1028,9 @@
         <section>
           <div class='kh-left-to-right-container'>
             <div>
-              <a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/kato1.pdf">This</a> is <i>Kato</i>'s main book,
-              first published in 1967.
+              This is <i>Kato</i>'s main book, first published in 1967
+              (online version is available 
+              <a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/kato1.pdf">here</a>).
               Rather the title contains the phrase 'perturbation theory',
               the book covers many topics from classical functional analysis.
               But the main subjects are in fact spectral and semigroup theory.
@@ -1153,8 +1154,8 @@
         <h1>M. Reed &  B. Simon: Methods of Modern Mathematical Physics I-IV</h1>
         <section>
           This is a four-volume work by <i>Michael Reed</i> and <i>Barry Simon</i> done in the eigthies of the last century.
-          Especially the first volume is nearly pure mathematics and seems to be one of the best functional
-          analysis text books. But the other volumes are of interest for mathematicians as well,
+          Especially the first volume is nearly pure mathematics and seems for me to be one of the best functional analysis text books.
+          But the other volumes are of interest for mathematicians as well,
           since they offer applications of functional analysis to the basic problems of quantum mechanics.
 
           <details>
@@ -1260,19 +1261,18 @@
             <i>Spectral theory</i> deals with the well-posedness of the linear operator equation
           </p>
           <center>\(A x - \lambda x = y\),</center>
-          <p>
             where \(\lambda\) is a complex parameter.
-            For every linear operator \(A\) the complex plane is splitted into disjoint sets \(\rho(A)\) and \(\sigma(A)\),
+            Then for every linear operator \(A\) the complex plane is splitted into disjoint sets \(\rho(A)\) and \(\sigma(A)\),
             called the <i>resolvent set</i> and the <i>spectrum</i> of \(A\).
             The resolvent set contains all numbers \(\lambda\), for which the operator \(A-\lambda\) is bijective
-            and the inverse operator \((A-\lambda)^{-1}\) proves to be continuous.
-          </p>
+            and the inverse operator \((A-\lambda)^{-1}\) proves to be continuous, whereas the spectrum is its complementary set in \(\mathbb{C}\).
           <p>
             My survey article on this topic and others based on operator and spectral theory is available
             <a href="../pdf/Linear_Operators_and_Spectral_Theory.pdf">here</a>.
           </p>
           <p>
-            Furthermore, look at a couple of scripts containing different themes in spectral theory:
+            Also have a look at a these scripts,
+            containing different themes in spectral theory:
           </p>
           <ul>
             <li><a href="../pdf/Highlights_in_the_History_of_Spectral_Theory.pdf">Highlights in the History of Spectral Theory</a>; by L.A.&nbsp;Steen; 1973</li>
@@ -1307,7 +1307,8 @@
           </p>
 
           <p>
-            The linked document below consists of three parts:
+            I wrote a treatise on this topic,
+            which consists of the following three parts:
           </p>
           <ol type="I">
             <li>Functional Analysis</li>
@@ -1568,20 +1569,21 @@
       <article id='measure_and_integration_theory' class='container'>
         <h1>Measure and Integration Theory</h1>
         <section>
-          The text behind the link below serves as a comprised review on the essentials
-          of <i>measure and integration theory</i>,
-          a fundamental area in modern mathematics with many applications
-          to functional and harmonic analysis and other fields of importance.
+          This is a fundamental area in modern mathematics with many applications
+          especially to functional and harmonic analysis.
           <p>
-          The content is presented within three parts:
-          the first one describes abstract measure spaces and different kinds of
-          measures, the second one deals with Lebesgue's integration theory
-          and the final one considers measures on locally compact topological spaces.
+            A <i>measure</i> is a way of assigning a numerical value to certain subsets of a given base set,
+            which can be considered as the length, the area or the volume of such sets.
+            One may think of the situation in the real line,
+            where each bounded interval [a, b]
+            is measured by the real number b−a.
+            Indeed, this mapping can easily be extended to finite or actually countable many unions of finite intervals under the assumption
+            that the involved intervals are pairwise disjoint.
           </p>
           <p>
-            Here is the link to the pdf-document regarding this subject:
-            <a href="../pdf/Measure_and_Integration_Theory.pdf">&nbsp;Measure and Integration Theory</a>,
-            consisting of the following three parts:
+            Here is the link to my survey article on this subject:
+            <a href="../pdf/Measure_and_Integration_Theory.pdf">&nbsp;Measure and Integration Theory</a>.
+            It consists of the following three parts:
           </p>
           <ol type="I">
             <li>measure spaces</li>
@@ -1606,23 +1608,27 @@
           where \(G\) is a <i>domain</i>,
           that is,
           an open and connect subset of the complex plane \(\mathbb{C}\).
-          The function \(f\) is said to be holomorphic in \(G\), if it is complex differentiable in each point of \(G\),
-          or equivalently, if \(f\) can locally be represented by a power series.
+          The function \(f\) is said to be <i>holomorphic</i> in \(G\),
+          if it is complex differentiable as often as needed in each point of \(G\),
+          or equivalently,
+          if \(f\) can locally be represented by a power series at any element of \(G\).
           <p>
-            Complex analysis has important applications in functional analysis, where we want to mention
+            The results of complex analysis has important applications in functional analysis,
+            where we want to mention
           </p>
           <ol>
             <li><i>Cauchy's integral formula</i>
             $$ f(z) = \frac{1}{2 \pi i} \int_{\gamma} \frac{f(\zeta)}{z-\zeta} \, d\zeta $$
             with useful extension to a similar formula for bounded linear operators \(A: X \to X\)
-            <i>(Riesz-Dunford formula)</i>,</li>
+            (the so-called <i>Riesz-Dunford functional calculus</i>),</li>
             <li><i>Liouville's theorem</i>,
             claiming that a <i>bounded</i> holomorphic function
             defined in the entire space \(\mathbb{C}\) is constant.</li>
           </ol>
           <p>
-            A highly recommended text containing all these things is W. Rudin's so-called <i>red book</i>
-            <a href="https://perso.telecom-paristech.fr/decreuse/_downloads/c22155fef582344beb326c1f44f437d2/rudin.pdf">Real and Complex Analysis</a>, especially chapter 10.
+            A highly recommended text presenting all these things is Rudin's so-called <i>red book</i>
+            <a href="https://perso.telecom-paristech.fr/decreuse/_downloads/c22155fef582344beb326c1f44f437d2/rudin.pdf">Real and Complex Analysis</a>
+            (especially chapter 10).
           </p>
         </section>
       </article>
@@ -1735,7 +1741,7 @@
 --------------------------------------------------------------------------------->
     <footer>
       <hr><hr>
-      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 17/09/2026).
+      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 18/09/2026).
       &nbsp;&nbsp;&nbsp;
       <button onclick="displayArticle('home')"     >Home</button>
       <button onclick="displayArticle('about_me')" >About me</button>
