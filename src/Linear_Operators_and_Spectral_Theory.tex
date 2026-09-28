@@ -1063,12 +1063,12 @@ is meant the linear space of continuous linear functionals
 $\phi \: \banX \xto \F$,
 which itself forms a Banach space with norm
 \[
-\norm{\phi} \eqdef \sup_{\norm{x}=1} \abs{f(x)} \,.
+\norm{\phi} \eqdef \sup_{\norm{x}=1} \abs{\phi(x)} \,.
 \]
 The \textit{Hahn-Banach theorem} claims
 that $\banX^* \neq \{\0\}$,
 so there are non-trivial continuous linear functionals on $\banX$.
-Any Banach space $\banX$ is called \textit{reflexive},
+A Banach space $\banX$ is called \textit{reflexive},
 if $\banX$ is norm-isomorphic to the \textit{bi-adjoint space}
 $\banX^{**} := (\banX^*)^*$.
 
@@ -1088,15 +1088,16 @@ which distinguish by the property
 \phi(\lambda \cdot x) \eq \overline{\lambda} \, \phi(x)
 \; \fa x \in \hilH \and \lambda \in \C.
 \]
-The linear space $\hilH_a^*$ is denoted the \textit{conjugate space} of $\hilH$
-and can be endowed with the norm
+The linear space $\hilH_a^*$ is denoted the \textit{conjugate space} of $\hilH$ and,
+like an adjoint space,
+can be endowed with the norm
 \[
 \norm{\phi} \eqdef \sup_{\,\norm{x} \eq 1} \, \abs{\phi(x)} \,.
 \]
 
 \subparagraph{} %- sesquilinear forms
-For each operator $\linA$ with domain space $\hilH$ and
-range space $\hilH_a^*$ we can associate a \textit{sesquilinear form}
+For each operator $\linA \: \hilH \xto \hilH_a^*$
+we can associate a \textit{sesquilinear form}
 $\sql_{\linA} \: \hilH \xtimes \hilH \xto \C$ by
 \begin{equation}\label{REPRESENTATION_OPERATOR}
 \sql(x,y) \eqdef (\linA x)y
