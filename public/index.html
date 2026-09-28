@@ -29,11 +29,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.css"/>
 
-<!--
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
--->
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://googleapis.com">
     <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
 
@@ -94,17 +92,6 @@
           </ul>
         </li>
         <li>|</li>
-        <li>Series
-          <ul>
-            <li onclick="displayArticle('grundlehren')">Grundlehren der math. Wissenschaften</li>
-            <li onclick="displayArticle('dover')">Dover Publications</li>
-            <li onclick="displayArticle('lecture_notes_in_mathematics')">Lecture Notes in Mathematics (LNM)</li>
-            <li onclick="displayArticle('gtm')">Graduate Texts in Mathematics (GTM)</li>
-            <li onclick="displayArticle('gsm')">Graduate Studies in Mathematics (GSM)</li>
-            <li onclick="displayArticle('mass')">Mathematics and its Applications</li>
-          </ul>
-        </li>
-        <li>|</li>
         <li>Monographs
           <ul>
             <li onclick="displayArticle('Nagy')">F. Riesz & B. Sz.-Nagy: Functional Analysis</li>
@@ -117,6 +104,17 @@
             <li onclick="displayArticle('Hörmander')">L. Hörmander: The Analysis of Linar Partial Differential Operators I-IV</li>
             <li onclick="displayArticle('Lions_Magenes')">J.-L. Lions & E. Magenes: Non-Homogeneous Boundary Value Problems I-III</li>
             <li onclick="displayArticle('bourbaki')">N. Bourbaki: Éléments de mathématique</li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>Series
+          <ul>
+            <li onclick="displayArticle('grundlehren')">Grundlehren der math. Wissenschaften</li>
+            <li onclick="displayArticle('dover')">Dover Publications</li>
+            <li onclick="displayArticle('lecture_notes_in_mathematics')">Lecture Notes in Mathematics (LNM)</li>
+            <li onclick="displayArticle('gtm')">Graduate Texts in Mathematics (GTM)</li>
+            <li onclick="displayArticle('gsm')">Graduate Studies in Mathematics (GSM)</li>
+            <li onclick="displayArticle('mass')">Mathematics and its Applications</li>
           </ul>
         </li>
         <li>|</li>
@@ -492,7 +490,7 @@
               </li>
               <li>
                 <a href="../pdf/Partial_Differential_Equations_in_the_20th_Century.pdf">
-                Partial Differential Equations in the 20th Century</a>;
+                Partial Differential Equations in the 20<sup>th</sup> Century</a>;
                 by&nbsp;<i>H.&nbsp;Brezis, F.E.&nbsp;Browder</i>, 1997.
               </li>
             </ul>
@@ -1344,7 +1342,7 @@
           </p>
           <center>\(\dot{x}(t) + A x(t) = 0\)</center>
           has one and only one solution \(x:[0,\infty) \to X\) for a given initial value \(x(0) = x_0\).
-          In this case the solution functions \(x\) continuously depend on the values \(x_0\).
+          In this case the solutions \(x\) depend continuously on the values \(x_0\).
           <p>
             The <i>Hille-Yosida theorem</i> gives the complete answer to this question.
             My text on this theorem and its proof can be found
@@ -1365,8 +1363,8 @@
           that is, the linear space of all continuous antilinear functionals \(f: H \to \mathbb{C}\).
           <p>
             Mostly one studies sesquilinear forms, which are continuous and <i>coercive</i> at the same time.
-            The latter property means that there is a real constant \( \theta \geq 0 \) such that
-            $$ Re \; \mathfrak{a}(x,x) \geq \theta {\left\lVert x \right\rVert }^2 \; \mbox{ for all } x \in H.$$
+            The latter property means that there is a real constant \( \theta > 0 \) such that
+            $$ Re \; \mathfrak{a}(x,x) \geq \theta \cdot {\lVert x \rVert }^2 \; \mbox{ for all } x \in H.$$
           </p>
           <p>
             See <a href="../pdf/Coercive_Sesquilinear_Forms.pdf">here</a>
@@ -1429,7 +1427,7 @@
           A <i>distribution</i> my be regarded as the generalization of a function.
           The corresponding subject in functional analysis,
           called the <i>theory of distributions</i>,
-          was developed by <i>Laurent Schwartz</i> in the midth of the 20th century
+          was developed by <i>Laurent Schwartz</i> in the midth of the 20<sup>th</sup> century
           to describe ideas and concepts of theoretical physics
           by an exact mathematical formalism.
           Distribution theory can be seen as a direct application
@@ -1474,7 +1472,7 @@
             <li>The establishment of functional analysis, by <i>G. Birkhoff & E. Kreyszig</i>, 1984</li>
           </ul>
           <ul><h2>Books</h2>
-           <li>History of functional analysis, by <i>J. Dieudonné</i>. North Holland, Vol. 49, 1981</li>
+           <li>History of functional analysis, by <i>J. Dieudonné</i>, North Holland, Vol. 49, 1981</li>
            <li>History of Banach Spaces and Linear Operators, by <i>A. Pietsch</i>. Birkhäuser Verlag, 2007</li>
           </ul>
         </section>
@@ -1575,8 +1573,8 @@
             A <i>measure</i> is a way of assigning a numerical value to certain subsets of a given base set,
             which can be considered as the length, the area or the volume of such sets.
             One may think of the situation in the real line,
-            where each bounded interval [a, b]
-            is measured by the real number b−a.
+            where each bounded interval \([a,b]\)
+            is measured by the number \(b{−}a\).
             Indeed, this mapping can easily be extended to finite or actually countable many unions of finite intervals under the assumption
             that the involved intervals are pairwise disjoint.
           </p>
@@ -1743,7 +1741,7 @@
 --------------------------------------------------------------------------------->
     <footer>
       <hr><hr>
-      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 25/09/2026).
+      © Copyright 2026 by <i>K.&nbsp;Höflinger</i> (latest change: 28/09/2026).
       &nbsp;&nbsp;&nbsp;
       <button onclick="displayArticle('home')"     >Home</button>
       <button onclick="displayArticle('about_me')" >About me</button>
