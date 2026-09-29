@@ -1406,7 +1406,7 @@ then the domain of definition $\domain{\linA^*}$
 of the adjoint $\linA^*$ consists of those elements $y \xeof \hilH$,
 for which there is $y^* \xeof \hilH$ fulfilling
 \[
-\scalar{\linA \,x}{y} \eq \scalar{x}{y^*} \fa x \xeof \domain{\linA}.
+\scalar{\linA \,x}{y} \= \scalar{x}{y^*} \; \fa x \in \domain{\linA}.
 \]
 We then define $\linA^* y := y^*$ and denote $\linA^*$
 the \textit{Hilbert adjoint} of $\linA$.
@@ -1510,7 +1510,7 @@ A densely defined linear operator $\linA$ acting in $\hilH$ is called
 \item[2.]
 \textit{self-adjoint} if $\linA \eq \linA^*$;
 \item[3.]
-\textit{skew-adjoint} if $\linA \eq - \linA^*$;
+\textit{skew-adjoint} if $\linA \eq {-}\linA^*$;
 \item[4.]
 \textit{unitary},
 if $\domain{\linA} \eq \hilH$, $\linA$ is bijective
@@ -1536,16 +1536,22 @@ as well as of eigen\-value equations of type $\linA x {-} \lambda x \eq y$.
 
 \subparagraph{} %- complexification of a real Banach space
 In spectral theory one is working with complex Banach spaces.
-But notice that each real Banach space $\banX$ can be made
+But this is not a restriction
+since each real Banach space $\banX$ can be made
 into a complex Banach space $\banX_{\C}$,
-where the related procedure is denoted the \textit{complexification} of $\banX$:
-let $\banX_{\C} := \banX + i \banX \eq \{x+iy: x,y \xeof \banX\}$
+where the underlying procedure is denoted the \textit{complexification}
+of $\banX$:
+let 
+\[
+\banX_{\C} \eqdef \banX + i \banX \= \{ x+iy \: x,y \in \banX \}
+\]
 and furnished with the addition and multiplication
 derived from those in $\banX$.
 Then the norm in $\banX_{\C}$ is defined according to
 \[
 \norm{x+iy} \eqdef
-\sup \, \{\norm{x} \cos \theta + \norm{y} \sin \theta: \theta \xeof [0,2\pi)\},
+\sup \,
+\{ \norm{x} \cos \theta + \norm{y} \sin \theta \: \theta \xeof [0,2\pi) \},
 \]
 in which the space $\banX_{\C}$ proves to be complete.
 
@@ -1692,17 +1698,17 @@ $\mbox{dist}(\zeta,\sigma(\linA))$ is the minimal distance
 between the singleton $\{\zeta\}$ and the spectrum $\sigma(\linA)$.
 
 \paragraph{} %- spectral mapping theorem
-The estimate \eqref{RESOLVENT_ESTIMATE_I} is a consequence
-of the so-called \textit{spectral mapping theorem},
-establishing a connection between the spectra of the resolvents
-$R(\linA,\zeta)$ and the operator $\linA$ itself and reads as follows:
+Estimate \eqref{RESOLVENT_ESTIMATE_I} is a consequence
+of the \textit{spectral mapping theorem}
+that establishes a relationship
+between the spectrum of a linear operator and the spectra of its resolvents:
 
 \begin{theorem}
-Let $\linA$ be a linear operator with spectrum $\sigma(\linA)$ and resolvent
+Let $\linA$ be a linear operator.
 function $R(\linA,\cdot)$.
-Then for $\zeta \xeof \rho(\linA)$
-$\sigma(R(\linA,\zeta)) \setminus \{0\} \eq
-\{(\lambda-\zeta)^{-1} \: \lambda \xeof \sigma(\linA)\}$.
+Then $\sigma(R(\linA,\zeta)) \setminus \{0\} \eq
+\{(\lambda-\zeta)^{-1} \: \lambda \xeof \sigma(\linA)\}$
+for all $\zeta \xeof \rho(\linA)$.
 \end{theorem}
 
 \subsection{} %-- various kinds of spectra
@@ -2082,7 +2088,7 @@ Then it is equivalent to quote:
 For a proof of this theorem see for example \cite{Yo}, pp. 205-207.
 The statement was originally proved by \textsc{S.\,Banach}
 for continuous linear operators and
-have later been extended to closed linear operators by \textsc{F.\,Browder},
+have later been extended to closed linear operators by \textsc{F.\,E.\,Browder},
 see \cite{Br1}, theorem\,1.1 and theorem\,1.2.
 
 \subsection{} %- operators bounded below
