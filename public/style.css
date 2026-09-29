@@ -3,7 +3,6 @@
 /*----------------------------------------------------------------------------*/
 html
 {
-  font-size:11pt;
   text-decoration:none;
   background-color:LightGray;
   color:black;
@@ -20,15 +19,34 @@ html
 
 body
 {
-  background-color:white;
-  font-family:"PT Sans Narrow";
-  font-family:"standard (noto serif)", ubuntu;
+/*
+  font-family:"Old Standard TT";
+  font-family:"Baskervville";
+  font-family:"Libre Baskerville";
+  font-family:"Crimson Pro";
+  font-family:"Fredericka the Great";
+  font-family:Tinos;
+  font-family:Gupter;
+  font-family:"Source Sance 3";
+  font-family:"Source Code Pro";
+  font-family:"Inter";
+  font-family:"JetBrains Mono";
+  font-family:"PT Mono";
+  font-family:"PT Sans";
+  font-family:"PT Serif";
+  font-family:Lora;
+  font-family:"ubuntu";
+*/
+  line-height:130%;
+  font-family: Lora,'Old Standard TT','Source Sance 3','PT Serif','Crimson Pro','Fredericka the Great',Gupter,'Libre Baskerville',Inter,'PT Mono',Georgia,Tinos,'Source Serif 4','Times New Roman',serif,ubuntu;
+  font-size:12pt;
   text-align:left;
   width:auto;
   height:100%;
   overflow:scroll;
   padding:0px;
   margin:0px;
+  background-color:white;
 }
 
 article
@@ -59,7 +77,8 @@ p
 h1
 {
   color:DarkSlateGray;
-  font-size:12pt;
+  font-weight:bolder;
+  font-size:larger;
   text-align:center;
   padding:0px;
   margin:0px;
@@ -71,7 +90,6 @@ h1
 h2
 {
   color:DarkSlateGray;
-  font-size:11pt;
   text-align:left;
   padding:0px;
   margin:0px;
@@ -87,7 +105,6 @@ details
 summary
 {
   color:DarkSlateGray;
-  font-size:11pt;
   text-align:left;
 }
 
@@ -172,7 +189,7 @@ mark:visited
 
 footer
 {
-  font-size:10pt;
+  font-size:smaller;
   text-align:left;
   margin-left:6%;
   margin-right:6%;
@@ -190,10 +207,10 @@ footer hr
 
 nav
 {
+  line-height:120%;
   width:100%;
   color:#505050;
-  font-size:10pt;
-  padding:0px;
+  font-size:smaller;
   margin:0px;
   margin-top:10px;
   margin-bottom:15px;
@@ -257,7 +274,7 @@ nav ul li:hover ul
   list-style:none;
   text-align:left;
   margin-left:10px;
-  padding:0px;
+  padding:2px;
   padding-right:5px;
   border:1pt solid;
 }
@@ -331,15 +348,13 @@ main a:focus
 /*----------------------------------------------------------------------------*/
 #datatables
 {
-  font-size:80%;
-  font-size:10pt;
   height:100%;
   text-align:center;
 }
 
 .datatables-content
 {
-  font-size:10pt;
+  font-size:smaller;
 }
 
 /*----------------------------------------------------------------------------*/
