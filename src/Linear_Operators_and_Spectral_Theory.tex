@@ -1,4 +1,4 @@
-%------------------------------------------------------------------------------%
+% ------------------------------------------------------------------------------%
 % LINEAR OPERATORS AND SPECTRAL THEORY                                         %
 %------------------------------------------------------------------------------%
 % File  : Linear_Operators_and_Spectral_Theory.tex                             %
@@ -1703,7 +1703,7 @@ of the \textit{spectral mapping theorem}
 that establishes a relationship
 between the spectrum of a linear operator and the spectra of its resolvents:
 
-\begin{theorem}
+\begin{theorem}\label{SPECTRAL_MAPPING_THEOREM}
 Let $\linA$ be a linear operator.
 function $R(\linA,\cdot)$.
 Then $\sigma(R(\linA,\zeta)) \setminus \{0\} \eq
@@ -1715,8 +1715,6 @@ for all $\zeta \xeof \rho(\linA)$.
 %------------------------------------------------------------------------------%
 We next will have a look at the spectrum 
 of a linear operator $\linA$ acting in a Banach space $\banX$.
-First notice that the spectrum of $\linA+\zeta$ ($\zeta \xeof \C$) is given by
-$\{\lambda+\zeta \: \lambda \xeof \sigma(\linA)\}$.
 Here are the possible reasons for $\lambda \xeof \sigma(\linA)$ 
 that prevent the operator $\linA {-} \lambda$ from being bijective:
 
@@ -1946,18 +1944,22 @@ Due to these properties,
 $\Phi_{\linA}$ is called a \textit{functional calculus},
 which in addition deserves the appendix "analytic",
 since the space $H^{\infty}(\openO)$ consists of analytic functions.
-
-\subparagraph{}
-It should be mentioned 
-that for this kind of functional calculus the
-\textit{spectral mapping theorem} is valid,
-that is,
-$\sigma(f(\linA)) \eq f(\sigma(\linA))$
-for $\linA \xeof \BO{\banB}$ and $f \xeof H^{\infty}(\openO)$.
 The resulting operator $f(\linA) \xeof \BO{\banX}$
 defined by \eqref{RIESZ-DUNFORD_FORMULA}
 is called the \textsc{Riesz-Dunford} \textit{operator}
 associated with $\linA$ and $f \xeof H^{\infty}(\G)$.
+
+\paragraph{} %-- spectral mapping theorems
+It should be mentioned 
+that for this kind of functional calculus the
+\textit{spectral mapping theorem} is also valid,
+namely
+$\sigma(f(\linA)) \eq f(\sigma(\linA))$
+for $\linA \xeof \BO{\banB}$ and $f \xeof H^{\infty}(\openO)$,
+which is a generalization of theorem \ref{SPECTRAL_MAPPING_THEOREM}.
+It implies that the spectrum of the perturbed operator
+$\linA+\zeta$ ($\zeta \xeof \C$) is nothing but the set
+$\{\lambda+\zeta \: \lambda \xeof \sigma(\linA)\}$.
 
 \subsection{} %-- projections in a Banach space
 %------------------------------------------------------------------------------%
