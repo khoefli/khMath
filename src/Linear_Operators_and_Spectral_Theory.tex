@@ -1,4 +1,4 @@
-% ------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
 % LINEAR OPERATORS AND SPECTRAL THEORY                                         %
 %------------------------------------------------------------------------------%
 % File  : Linear_Operators_and_Spectral_Theory.tex                             %
@@ -68,34 +68,34 @@
 %------------------------------------------------------------------------------%
 %                                 INTRODUCTION                                 %
 %------------------------------------------------------------------------------%
-This elaboration is a review on the theory of linear operators
-acting in complex Banach or Hilbert spaces and their spectral properties.
-The subject belongs to the mathematical area of \textit{functional analysis}
+The present paper is a review of the theory of linear operators
+acting in complex Banach or Hilbert spaces and of their spectral properties.
+This subject belongs to the mathematical field of \textit{functional analysis}
 and has many useful applications,
-especially to linear partial differential operators
-of elliptic and parabolic type
-and their associated boundary and initial value problems.
+particularly in the context of linear partial differential operators
+of elliptic and parabolic types
+as well as their associated boundary and initial value problems.
 
 \subparagraph{}
-By use of spectral theory one can study resonance phenomena appearing
+Spectral theory is a common tool to study resonance phenomena appearing
 in mathematical physics and engineering science.
-Here we are led to so-called \textit{eigenvalue problems},
+This leads us to so-called \textit{eigenvalue problems},
 that is,
 equations of the form $\A \, u \eq \lambda\,u$
-with $\A$ being a linear-elliptic partial differential operator,
-where the question arises,
+where $\A$ is a linear-elliptic partial differential operator
+and the question arises,
 for which complex parameters $\lambda \xeof \C$ this equation
 has non-trivial solutions.
 But spectral theory also forms the foundation for \textit{semigroup theory},
-which is a decicional tool to solve evolution equations
+which is a useful tool for solving evolution equations
 of the form $\dot{u} + \A \, u \eq f$ and $\ddot{u} + \A \, u \eq f$,
 respectively.
 
 \subparagraph{} %- honoration to Prof. Dr. Werner
-I wrote this treatise in honour of Prof.\;Dr.\;P.\;Werner (1932-2018),
-who conveyed my fascination for these beautiful mathematical topics
-by his lessons hold in 1984 and 1985
-at Mathematical Institute A of University Stuttgart.
+I wrote this treatise in honour of Prof.\;Dr. Peter Werner (1932-2018),
+whose lessons
+at the Mathematical Institute A of University Stuttgart in 1984 and 1985
+sparked my fascination with these nice mathematical topics.
 
 %------------------------------------------------------------------------------%
 \section{Banach and Hilbert Spaces}                                            %
@@ -139,26 +139,25 @@ c_2 \norm{x}_{\alpha}$
 for all $x \xeof \banX$.
 
 \subparagraph{}
-Each normed linear space $\banX$ can be furnished
-with a very natural topology $\topT$,
+Each normed linear space $\banX$ is furnished with a natural topology $\topT$,
 called the \textit{norm topology} on $\banX$.
-Its definition is given either by the assertion
-that $\topT := \topT_{\norm{\cdot}}$ is the smallest topology on $\banX$
+This can be defined either as the smallest topology
+$\topT := \topT_{\norm{\cdot}}$ on $\banX$
 such that the norm mapping remains continuous,
-or by the \textit{metric} topology $\topT := \topT_d$,
+or as the \textit{metric} topology $\topT := \topT_d$,
 when $\banX$ is considered as a metric space with metric function
 $d(x,y) := \norm{x-y} \fa x,y \xeof \banX$.
 In fact,
 both definitions lead to the same collection of so-called
 "open" subsets in $\banX$,
 so we have $\topT := \topT_{\norm{\cdot}} \eq \topT_d$,
-which justifies to speak of \textit{the} topology of a normed linear space.
-Hence a multiplicity of topological concepts,
-like the \textit{closure} of a set,
+justifying the term "topology of a normed linear space".
+This gives rise to a variety of topological concepts,
+such as the \textit{closure} of a set,
 the \textit{neighbourhood} of a point,
-the \textit{convergence} of a series and many others
-are meaningful in the setting of normed linear spaces.
-Notice
+the \textit{convergence} of a series and many others,
+which are all meaningful in the context of normed linear spaces.
+Note
 that equivalent norms on $\banX$ give rise to one and the same topology.
 For example,
 if $\banX$ is a finite-dimensional linear space,
@@ -173,7 +172,7 @@ is called \textit{Cauchy},
 if to each $\epsilon > 0$ there is $N_{\epsilon} \xeof \N$
 such that $m,n > N_{\epsilon}$ implies $\norm{x_m{-}x_n} < \epsilon$.
 The normed space $\banX$ is called \textit{sequentially complete}
-(or shortly \textit{complete}),
+(or simply \textit{complete}),
 if for any Cauchy sequence $(x_n)$ %in $\banX$
 there is $x \xeof \banX$
 such that $\lim_{\,n \xto \infty} \norm{x_n{-}x} \eq 0$.
@@ -186,20 +185,20 @@ there is $x \xeof \banX$ such that $\norm{x{-}x_n} \xto 0$ for $n \xto \infty$.
 A complete normed linear space is called a \textit{Banach space}.
 
 \subparagraph{}
-It should be mentioned that each uncomplete normed linear space can be regarded
-as a dense linear subspace of a certain Banach space.
+It should be mentioned that each incomplete normed linear space can be regarded
+as a dense linear subspace of a given Banach space.
 The general procedure readily follows the way
-how to construct the set of real numbers out of that of the rational ones.
+how the real numbers are constructed out of the rational numbers.
 
 \paragraph{} %- embeddings
-We go ahead with the notion of \textit{embedding},
-which is a special kind of mapping between normed linear spaces
+We proceed with the notion of \textit{embedding},
+which is a special type of mapping between normed linear spaces
 and leads to the concept of {norm-isomorphism}.
 Preliminary,
 a mapping $f \: \banX \xto \banY$ is called continuous
 if for every open set $\openO \xsubset \banY$
 the pre-image $f^{-1}(\openO)$ is open in $\banX$.
-Then by an embedding $\iota$ is meant
+Then by an embedding $\iota$ is defined as
 a continuous and injective mapping from a normed linear space $\banX$
 into a further normed linear space $\banY$,
 which is \textit{linear},
@@ -215,8 +214,9 @@ Then \textsc{Banach}\textit{'s isomorphism theorem} claims that
 the inverse mapping $\iota^{-1}$ is also an embedding,
 so $\iota$ and $\iota^{-1}$ both constitute linear homeomorphisms
 between these spaces.
-Furthermore,
-the embedding $\iota$ is denoted a \textit{norm-isomorphism},
+
+\subparagraph{} %- embeddings
+An embedding $\iota$ is denoted a \textit{norm-isomorphism},
 if it is surjective and $\norm{\iota x} \eq \norm{x}$ holds
 for all $x \xeof \banX$ (notation:\,$\banX \cong \banY$).
 It should be clear that
@@ -244,8 +244,8 @@ which is
 linear in the first argument,
 
 \item[(I-2)]
-either linear or antilinear in the second argument (conditional upon,
-whether $\F$ is the real or the complex number field),
+either linear or antilinear in the second argument
+(depending on whether $\F$ is the real or the complex number field),
 \end{itemize}
 together with the additional properties
 
@@ -260,10 +260,11 @@ $\scalar{x}{x} \eq 0$ implies $x \eq 0$.
 \end{itemize}
 
 \subparagraph{}
-Property (I-3) is denoted the \textit{Hermitean symmetry}
+Property (I-3) is known as the \textit{Hermitean symmetry}
 of $\scalar{\,\cdot\,}{\,\cdot\,}$,
-while (I-4) and (I-5) together mean \textit{positive definiteness}.
-The presence of the inner product gives rise to define a norm in $\hilH$
+while (I-4) and (I-5) together imply \textit{positive definiteness}.
+Moreover,
+the presence of the inner product enables us to define a norm in $\hilH$
 according to
 \begin{equation}\label{DERIVED_NORM}
 \norm{x} \eqdef \scalar{x}{x} ^{1/2} \quad \quad (x \xeof \hilH),
@@ -279,12 +280,12 @@ the \textit{Cauchy-Schwarz} \textit{inequality}
 which implies that the mapping
 $\scalar{\,\cdot\,}{\,\cdot\,}\:\hilH \xtimes \hilH \xto \F$ is continuous.
 An inner product space $\hilH$ is called a \textit{Hilbert space}
-or shortly \textit{Hilbertian},
+or simply \textit{Hilbertian},
 if it is complete {\wrt} the norm defined by \eqref{DERIVED_NORM}.
 
 \subparagraph{} %- parallelogram equation and polarization formula
 The pleasant geometric properties of inner product spaces
-may be attributed to the validness of the \textit{parallelogram equation}
+can be attributed to the validity of the \textit{parallelogram equation}
 \begin{equation}\label{PARALLELOGRAM_EQUATION}
 2 \norm{x}^2 + 2 \norm{y}^2 \= \norm{x+y}^2 + \norm{x-y}^2
 \quad \quad (x,y \xeof \hilH).
@@ -583,8 +584,8 @@ A first classification of linear operators
 between a domain space $\banX$ and a range space\,$\banY$
 can be performed by checking certain properties,
 which are defined by means of the norm topologies in these spaces.
-It leads in conclusion to the concepts of \textit{continuous}, \textit{compact},
-\textit{closed} and \textit{closable} operator.
+This ultimately leads to the concepts of \textit{continuous}, \textit{compact},
+\textit{closed} and \textit{closable} operators.
 
 \begin{itemize}[leftmargin=12pt,itemsep=3pt]
 \item[1.] %--  - continuous and bounded operators
@@ -594,22 +595,23 @@ $\linA \: \domain{\linA} \xsubset \banX \xto \banY$
 is \textit{continuous},
 if the pre-image $\linA^{-1}(\openO)$ of each open set $\openO \xsubset \banY$
 is open in the domain space $\banX$.
-However,
-in the setting of normed linear spaces
-we may replace continuity by \textit{sequential continuity},
-which means that $\linA$ is continuous in $x \xeof \banX$
-if for each convergent series $(x_n)$ with limit element $x \xeof \banX$
-we have $\lim_{n \to \infty} \linA x_n  \eq \linA x$.
+In the context of normed linear spaces,
+however,
+we can replace continuity by \textit{sequential continuity}.
+This means that $\linA$ is continuous in $x \xeof \banX$
+if
+$\lim_{n \to \infty} \linA x_n  \eq \linA x$
+for each convergent series $(x_n)$ with limit element $x \xeof \banX$
 
 \subparagraph{} %- bounded linear operators and operator norm
 Moreover,
 a linear operator $\linA$ between normed linear spaces $\banX$
-and\,$\banY$ is denoted \textit{norm-bounded} or simply \textit{bounded},
+and\,$\banY$ is said to be \textit{norm-bounded} or simply \textit{bounded},
 if there is $c \geq 0$
 such that $\norm{\linA x} \leq c \cdot \norm{x}$
 for each $x \xeof \domain{\linA}$.
 It is easy to check that $\linA$ is continuous iff $\linA$ is bounded,
-hence these concepts are equivalent to each other.
+hence these concepts are equivalent.
 In this case the \textit{operator norm} of $\linA$ is well-defined according to
 \begin{equation}\label{OPERATOR_NORM}
 \norm{\linA} \eqdef \sup_{x \in \domain{\linA}, \norm{x}=1} \norm{\linA x}.
@@ -783,7 +785,7 @@ of compact linear operators in $\hilH$.
 \item[3.] %--   - graph-closed operators
 %------------------------------------------------------------------------------%
 A linear operator $\linA \: \domain{\linA} \xsubset \banX \xto \banY$
-is called \textit{graph-closed} (or shortly \textit{closed}) if the set
+is called \textit{graph-closed} (or simply \textit{closed}) if the set
 \[
 \Gamma_{\linA} \eqdef
 \{(x,\linA x) \: x \xeof \domain{\linA}\} \, \subset \, \banX \xtimes \banY,
@@ -835,7 +837,7 @@ to verify closeness of a given linear operator.
 
 \paragraph{} %- closeness of operators based on Schauder estimates
 The following theorem
-uses the possible validness of an abstract \textit{Schauder} \textit{estimate}
+uses the possible validity of an abstract \textit{Schauder} \textit{estimate}
 to ensure sequentially closenss:
 
 \begin{theorem}\label{BROWDER_THEOREM}
@@ -1232,7 +1234,7 @@ depends essentially on the closability of the operator $\linA$,
 see assertion (d) in theorem \ref{MAIN_THEOREM_ON_ADJOINT_OPERATORS} below.
 
 \subparagraph{} %- orthogonality relationships
-The usage of the adjoint operator is founded by the validness
+The usage of the adjoint operator is founded by the validity
 of two relationships between the kernels and ranges
 of the operators $\linA$ and $\linA^*$,
 namely
@@ -1255,7 +1257,7 @@ are defined by
 \]
 and $\scalar{x}{x^*} := x^*(x)$ denotes the pairing of elements in $\banX$
 and $\banX^*$.
-Checking the validness of the relations \eqref{ORTHOGONALITY_RELATIONS}
+Checking the validity of the relations \eqref{ORTHOGONALITY_RELATIONS}
 is elementary,
 hence we do not want to elaborate this in detail.
 
@@ -2140,11 +2142,11 @@ let $\alpha(\linA)$ (the \textit{nullity index} of $\linA$)
 and $\beta(\linA)$ (the \textit{deficiency index} of $\linA$)
 be the Hamel dimensions of the linear subspaces
 $\kernel{\linA} \xsubset \banX$ and $\cokernel{\linA} \xsubset \banY$
-of a given linear operator $\linA \: \domain{\linA} \xsubset \banX \xto \banY$.
+of a linear operator $\linA \: \domain{\linA} \xsubset \banX \xto \banY$.
 
 \subparagraph{} %- Fredholm index
 Both integers together can be used
-to measure the deviation of $\linA$ from bijectivity.
+to measure the deviation of this operator from bijectivity.
 Moreover,
 if at least one of them is finite,
 then the so-called \textit{Fredholm index}
@@ -2788,7 +2790,7 @@ is called the $\linA$\textit{-bound} of $\linB$.
 Notice that if $\linB$ is a bounded operator,
 then it is $\linA$-bounded with $\linA$-bound $\theta <1$ for any $\linA$.
 In addition,
-the validness of the estimate
+the validity of the estimate
 \[
 \norm{\linB \,x}^2 \, \leq \,
 \theta^2 \norm{\linA \,x}^2 \, + \, c^2 \norm{x}^2
@@ -3264,7 +3266,7 @@ of problem \eqref{HOMOGENEOUS_CAUCHY_PROBLEM_II}.
 
 \item[3.]
 By the \textit{abstract {\SCHROEDINGER} equation} is meant
-the linear evolution equation
+the linear initial-value problem
 \begin{equation}\label{ABSTRACT_SCHROEDINGER_EQUATION}
 \begin{cases}[1.2]
 \quad \dot{x}(t) \, + \, i \linA \, x(t) \= \0,\\
@@ -3287,7 +3289,7 @@ which immediately follows from
 If an initial value $x(0) \eq x_0$ is given,
 then \eqref{ENERGY_CONSERVATION_LAW} implies
 that the solution of the initial-value problem 
-for \eqref{ABSTRACT_SCHROEDINGER_EQUATION} is unique.
+\eqref{ABSTRACT_SCHROEDINGER_EQUATION} is unique.
 
 \subparagraph{}
 To construct a solution
@@ -3308,7 +3310,7 @@ of the abstract {\SCHROEDINGER} problem:
 
 \begin{theorem}\label{EXISTENCE_THEOREM_FOR_ABSTRACT_SCHROEDINGER_EQUATION}
 The mapping $t \xeof \R \mapsto \linL_t(x_0)$ is the unique solution
-of the Cauchy problem for \eqref{ABSTRACT_SCHROEDINGER_EQUATION}.
+of the Cauchy problem \eqref{ABSTRACT_SCHROEDINGER_EQUATION}.
 \end{theorem}
 
 \subparagraph{}
@@ -3353,7 +3355,7 @@ of isolated points $\lambda \xeof \sigma(\linA)$
 having finite algebraical multiplicity
 (this magnitude is the Hamel dimension of the linear space
 \[
-E_{gen}(\linA,\lambda) \eqdef \cup_{n \in \N} E(\linA^n,\lambda)
+E_{gen}(\linA,\lambda) \eqdef \bigcup_{n \in \N} \, E(\linA^n,\lambda)
 \]
 of \textit{generalized} eigenvalues of $\linA$).
 Elements of the set $\sigma_d(\linA)$ are called \textit{normal eigenvalues}.
@@ -3696,7 +3698,7 @@ in the study of linear evolution equations.
 \subparagraph{} %-- strongly continuous semigroups of bounded linear operators
 Given a complex Banach space $\banX$,
 a \textit{strongly continuous semigroup of bounded linear operators}
-(shortly denoted a \textit{C$_0$-semigroup}) is an operator-valued mapping
+(simply denoted a \textit{C$_0$-semigroup}) is an operator-valued mapping
 $
 \linS \: [0,\infty) \xto \BO{\banX},
 $
@@ -4076,7 +4078,7 @@ one may define semigroups for each of them by letting
 \[
 e^{-t \linA_n}\,x \eqdef
 \sum_{k=0}^{\infty} \frac{(-t \linA_n)^k}{k!}\;x
-\quad \quad (x \xeof \banX).
+\quad \quad (t > 0,\, x \xeof \banX).
 \]
 It follows that $\snorm{e^{-t \linA_{\zeta}}} \leq 1$ for $t > 0$,
 so we obtain even semigroups of contractions.
@@ -4085,7 +4087,7 @@ this sequence of semigroups is Cauchy and
 the semigroup generated by the operator $-\linA$ is given by
 \begin{equation}\label{YOSIDA_SEMIGROUP}
 S(t)x \eqdef \lim_{\,n \to -\infty} e^{-t \linA_n}\,x
-\quad \quad (x \xeof \banX).
+\quad \quad (t > 0,\, x \xeof \banX).
 \end{equation}
 
 To be precise,
@@ -5522,7 +5524,7 @@ $\clG$ of $\G$.
 \end{itemize}
 
 Then,
-by showing the validness of the \textit{elliptic estimate}
+by showing the validity of the \textit{elliptic estimate}
 \[
 \abs{u} _{2m} \, \leq \, c \cdot \{ \,\abs{u} _p + \abs{\linA_D u} _p \, \}
 \]
