@@ -37,15 +37,19 @@ body
   font-family:"PT Sans";
   font-family:"PT Serif";
   font-family:Lora;
+  font-family:Inter;
+  font-family:"Libertinus Math";
+  font-family:"Libertinus Serif";
+  font-family:"EB Garamond";
   font-family:"Merryweather";
   font-family:"DM Sans";
   font-family:"Sans-serif";
   font-family:"ubuntu";
   font-family: Lora,'Old Standard TT','Source Sance 3','PT Serif','Crimson Pro','Fredericka the Great',Gupter,'Libre Baskerville',Inter,'PT Mono',Georgia,Tinos,'Source Serif 4','Times New Roman',serif,ubuntu;
-*/
   line-height:130%;
-  font-family:"tinos";
-  font-size:12pt;
+*/
+  font-family:"DM Sans";
+  font-size:11pt;
   text-align:left;
   width:auto;
   height:100%;
@@ -224,9 +228,9 @@ footer hr
 nav
 {
   font-family:"Tinos";
-  font-size:11pt;
 /*
   font-size:smaller;
+  font-size:11pt;
   line-height:120%;
 */
   width:100%;
