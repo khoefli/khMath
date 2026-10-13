@@ -1,20 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tinos&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+/*
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baskervville&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libertinus+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libertinus+Math&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4&display=swap');
+*/
 
 /*----------------------------------------------------------------------------*/
 /* html, body, ...                                                            */
@@ -37,23 +40,24 @@ html
 
 body
 {
-  font-family:"Old Standard TT";
-  font-family:"Crimson Text";
-  font-family:"Crimson Pro";
-  font-family:"Cormorant Garamond";
-  font-family:"Lora";
-  font-family:"EB Garamond";
-  font-family:"Libertinus Serif";
-  font-family:"Libertinus Math";
-  font-family:"Tinos";
-  font-family:"Stix Two Text";
-  font-family:"Source Serif 4";
-  font-family:"Bodoni Moda";
-  font-family:"Baskervville";
-  font-family:"Times New Roman";
-  font-family:'Merriweather';
-  font-family:"Georgia";
-  font-family:"PT Serif";
+  font-family:'Old Standard TT';
+  font-family:'Crimson Text';
+  font-family:'Cormorant Garamond';
+  font-family:Lora;
+  font-family:'Libertinus Serif';
+  font-family:'Libertinus Math';
+  font-family:'Bodoni Moda';
+  font-family:Baskervville;
+  font-family:'Times New Roman';
+  font-family:Gelasio;
+  font-family:Tinos;
+  font-family:'Source Serif 4';
+  font-family:'Crimson Pro';
+  font-family:Merriweather;
+  font-family:Georgia;
+  font-family:'EB Garamond';
+  font-family:'Stix Two Text';
+  font-family:'PT Serif';
 
   font-size:11pt;
   text-align:left;
@@ -88,6 +92,19 @@ p
   padding-bottom:3px;
   margin:0px;
   width:100%;
+}
+
+h1
+{
+  color:DarkSlateGray;
+  font-weight:bolder;
+  font-size:larger;
+  text-align:center;
+  padding:0px;
+  margin:0px;
+  margin-top:0px;
+  margin-bottom:20px;
+  clear:both;
 }
 
 h2
@@ -383,7 +400,7 @@ main a:focus
 
 .datatables-content
 {
-  font-size:smaller;
+  font-size:10pt;
 }
 
 /*----------------------------------------------------------------------------*/
