@@ -144,15 +144,15 @@ called the \textit{norm topology} on $\banX$.
 This can be defined either as the smallest topology
 $\topT := \topT_{\norm{\cdot}}$ on $\banX$
 such that the norm mapping remains continuous,
-or as the \textit{metric} topology $\topT := \topT_d$,
-when $\banX$ is considered as a metric space with metric function
-$d(x,y) := \norm{x-y} \fa x,y \xeof \banX$.
+or as the \textit{metric topology} $\topT := \topT_d$.
+In the latter case $\banX$ is considered as a metric space
+endowed with metric function $d(x,y) := \norm{x-y} \fa x,y \xeof \banX$.
 In fact,
 both definitions lead to the same collection of so-called
 "open" subsets in $\banX$,
 so we have $\topT := \topT_{\norm{\cdot}} \eq \topT_d$,
-justifying the term "topology of a normed linear space".
-This gives rise to a variety of topological concepts,
+which justifies to speak of \textit{the} topology of a normed linear space.
+This enables the usage of a variety of topological concepts,
 such as the \textit{closure} of a set,
 the \textit{neighbourhood} of a point,
 the \textit{convergence} of a series and many others,
@@ -161,7 +161,7 @@ Note
 that equivalent norms on $\banX$ give rise to one and the same topology.
 For example,
 if $\banX$ is a finite-dimensional linear space,
-then all norms on $\banX$ are equivalent
+then all norms are equivalent
 and consequently there is exactly one topology induced by these norms.
 
 \subsection{} %-- sequentially complete normed spaces, Banach spaces
@@ -214,13 +214,13 @@ Then \textsc{Banach}\textit{'s isomorphism theorem} claims that
 the inverse mapping $\iota^{-1}$ is also an embedding,
 so $\iota$ and $\iota^{-1}$ both constitute linear homeomorphisms
 between these spaces.
-
-\subparagraph{} %- embeddings
-An embedding $\iota$ is denoted a \textit{norm-isomorphism},
+Finally,
+an embedding $\iota$ is denoted a \textit{norm-isomorphism},
 if it is surjective and $\norm{\iota x} \eq \norm{x}$ holds
 for all $x \xeof \banX$ (notation:\,$\banX \cong \banY$).
 It should be clear that
-in this case the inverse mapping $\iota^{-1}$ is a norm-isomorphism, too.
+in this case the inverse mapping $\iota^{-1}$ is a norm-isomorphism,
+too.
 
 \subsection{} %-- inner products and Hilbert spaces
 %------------------------------------------------------------------------------%
@@ -3315,8 +3315,8 @@ of the Cauchy problem \eqref{ABSTRACT_SCHROEDINGER_EQUATION}.
 
 \subparagraph{}
 Moreover,
-for each $t \xeof \R$ the operator $\linL_t$ is unitary,
-and we have $\linL_t^{-1} \eq \linL_{-t}$ for all $t \xeof \R$.
+the operators $\linL_t$ are unitary
+with $\linL_t^{-1} \eq \linL_{-t}$ for all $t \xeof \R$.
 \end{itemize}
 
 %------------------------------------------------------------------------------%
@@ -3775,8 +3775,8 @@ is defined as the mapping $\linA \: \domain{\linA} \xsubset \banX \xto \banX$
 given by the graph
 \[
 \Gamma_{\linA} \eqdef
-\{\,(x,y) \xeof X \xtimes X: \;
-y \= \lim_{\,h \downarrow 0} \, \frac{1}{h}(\linS(h)x-x) \mbox{ exists} \}.
+\{\,(x,y) \xeof X \xtimes X \: \,
+y := \lim_{\,h \downarrow 0} \, \frac{1}{h}(\linS(h)x-x) \mbox{ exists} \}.
 \]
 Hence the domain of definition $\domain{\linA}$ consists
 of those elements $x \xeof \banX$,
