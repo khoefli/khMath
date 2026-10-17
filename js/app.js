@@ -747,7 +747,7 @@ function displayArticle(id)
 /*----------------------------------------------------------------------------*/
 function createTable(title,classname)
 {
-  let table = new $('#'+classname+'-table').DataTable({pageLength:6});
+  let table = new $('#'+classname+'-table').DataTable({pageLength:7});
 /*
   if(title != "")
     table.caption('--- ' + title + ' ---','top');
