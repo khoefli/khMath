@@ -85,6 +85,7 @@ body
 */
   font-family:'MlModern';
 
+  background-color:white;
   line-height:normal;
   font-size:12pt;
   text-align:left;
@@ -93,7 +94,6 @@ body
   overflow:scroll;
   padding:0px;
   margin:0px;
-  background-color:white;
 }
 
 article
@@ -126,6 +126,7 @@ h1
   color:DarkSlateGray;
   font-weight:bolder;
   font-size:larger;
+  line-height:140%;
   text-align:center;
   padding:0px;
   margin:0px;
@@ -174,8 +175,8 @@ ol
   margin:0 auto;
   margin-top:4px;
   margin-bottom:6px;
+  padding-left:50px;
   list-style-position:outside;
-  padding-left:30px;
 }
 
 ul
@@ -183,6 +184,7 @@ ul
   list-style-type:square;
   margin-top:4pt;
   margin-bottom:4pt;
+  padding-left:30px;
 }
 
 li
@@ -265,7 +267,7 @@ footer
   margin-left:6%;
   margin-right:6%;
   margin-top:3px;
-  margin-bottom:5px;
+  margin-bottom:10px;
   padding:0px;
 }
 
