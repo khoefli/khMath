@@ -46,7 +46,7 @@
 <!--------------------------------------------------------------------------------
 |                                 LOGO & MAIN MENU                               |
 --------------------------------------------------------------------------------->
-    <nav class='container'>
+    <nav id='nav' class='container'>
       <ul>
         <li><img id='kh-logo' alt='logo' src='assets/images/logo.png'></li>
         <li>MSC
@@ -92,6 +92,7 @@
           <ul>
             <li onclick="displayArticle('main_theorems')">Main Theorems</li>
             <li onclick="displayArticle('key_concepts')">Key Concepts</li>
+            <li onclick="displayArticle('symbols')">Symbols and Notations</li>
             <li onclick="displayArticle('mathematicians')">Mathematicians</li>
             <li onclick="displayArticle('journals')">Journals</li>
 <!--        <li onclick="displayArticle('topic_tree')">Topics Tree</li> -->
@@ -158,7 +159,7 @@
     <main>
       <h1 style='display:none'>A View on Functional Analysis and Related Topics</h1>
 
-      <article id='home' class='container' style='display:block'>
+      <article id='home' class='container'>
         <h2>Welcome to this web page!</h2>
         <section>
           <b>Functional analysis</b> is one of the most important areas of modern mathematics.
@@ -169,7 +170,7 @@
           <i>D.&thinsp;Hilbert</i>,
           <i>S.&thinsp;Banach</i>,
           <i>F.&thinsp;Riesz</i>,
-          <i>J.&thinsp;von&nbsp;Neumann</i>,
+          <i>J.&thinsp;von&thinsp;Neumann</i>,
           <i>L.&thinsp;Schwartz</i>,
           <i>F.&thinsp;E.&thinsp;Browder</i>
           and many others.
@@ -255,21 +256,26 @@
               <li onclick="displayArticle('impressum')">Impressum</li>
               <li onclick="displayArticle('about_me')">About me</li>
               <li onclick="displayArticle('msc46')">Mathematical Subject Classification for '46-XX'</li>
-              <li onclick="displayArticle('my_documents')">my Texts</li>
+
+              <li onclick="displayArticle('textbooks')">Textbooks</li>
               <li onclick="displayArticle('lecture_notes')">Lecture Notes</li>
               <li onclick="displayArticle('research_articles')">Research Articles</li>
+              <li onclick="displayArticle('my_documents')">my Texts</li>
+
+              <li onclick="displayArticle('main_theorems')">Main Theorems</li>
+              <li onclick="displayArticle('key_concepts')">Key Concepts in Functional Analysis</li>
+              <li onclick="displayArticle('symbols')">Symbols and Notations</li>
               <li onclick="displayArticle('mathematicians')">Mathematicians</li>
-              <li onclick="displayArticle('history')">History of Functional Analysis</li>
-              <li onclick="displayArticle('textbooks')">Textbooks</li>
+              <li onclick="displayArticle('journals')">Journals</li>
+
               <li onclick="displayArticle('grundlehren')">Grundlehren der mathematischen Wissenschaften (Springer)</li>
               <li onclick="displayArticle('gtm')">Graduate Texts in Mathematics (GTM)</li>
               <li onclick="displayArticle('mass')">Mathematics and Its Applications (Springer)</li>
               <li onclick="displayArticle('lecture_notes_in_mathematics')">Lecture Notes in Mathematics (LNM)</li>
               <li onclick="displayArticle('dover')">Dover Publications</li>
               <li onclick="displayArticle('gsm')">Graduate Studies in Mathematics (GSM)</li>
-              <li onclick="displayArticle('journals')">Journals</li>
 <!--          <li onclick="displayArticle('topic_tree')">Topics Tree</li>  -->
-              <li onclick="displayArticle('nonlinear_functional_analysis')">Nonlinear Functional Analysis</li>
+
               <li onclick="displayArticle('Dunford_Schwartz')">N.&thinsp;Dunford &amp; J.&thinsp;T.&thinsp;Schwartz: Linear Operators I-III</li>
               <li onclick="displayArticle('Reed_Simon')">M.&thinsp;Reed &amp; B.&thinsp;Simon: Methods of Modern Mathematical Physics I-IV</li>
               <li onclick="displayArticle('Kato')">T.&thinsp;Kato: Perturbation Theory of Linear Operators</li>
@@ -289,8 +295,8 @@
               <li onclick="displayArticle('coercive_sesquilinear_forms')">Coercive Sesquilinear Forms</li>
               <li onclick="displayArticle('distribution_theory')">Distribution Theory</li>
               <li onclick="displayArticle('nonlinear_functional_analysis')">Nonlinear Functional Analysis</li>
-              <li onclick="displayArticle('key_concepts')">Key Concepts in Functional Analysis</li>
-              <li onclick="displayArticle('main_theorems')">Main Theorems</li>
+              <li onclick="displayArticle('history')">History of Functional Analysis</li>
+
               <li onclick="displayArticle('linear_algebra')">Linear Algebra</li>
               <li onclick="displayArticle('general_topology')">General Topology</li>
               <li onclick="displayArticle('measure_and_integration_theory')">Measure and Integration Theory</li>
@@ -357,10 +363,10 @@
             <table class="compact stripe cell-border" id="Book-table">
               <thead>
                 <tr>
+                  <th width= "1%" text-align="left">Year</th>
                   <th width="20%" text-align="left">Author(s)</th>
                   <th width="64%" text-align="left">Title</th>
                   <th width="15%" text-align="left">Publisher</th>
-                  <th width= "1%" text-align="left">Year</th>
                 </tr>
               </thead>
               <tbody>
@@ -610,6 +616,104 @@
         </section>
       </article>
 
+      <article id='symbols' class='container'>
+        <h2>Symbols and Notations</h2>
+        <section>
+          In this page we want to summarize the usual symbols and notations,
+          which are frequently used in texts on functional analysis.
+            <small>
+            <table style='line-height:140%'>
+              <tr><td class='kh-td1'>&nbsp;</td>                    <td class='kh-td2'></td></tr>
+              <tr><td class='kh-td1'>\(\mathbb{N}, \mathbb{Z}\)</td><td class='kh-td2'>signed and unsigned integers</td></tr>
+              <tr><td class='kh-td1'>\(\mathbb{R}, \mathbb{C}\)</td><td class='kh-td2'>real and complex integers</td></tr>
+              <tr><td class='kh-td1'>\(\mathbb{R}^d\)</td>          <td class='kh-td2'>Euclidean space of dimension \(d\)</td></tr>
+              <tr><td class='kh-td1'>\(\mathbb{T}\)</td>            <td class='kh-td2'>unit circle in \(\mathbb{C}\)</td></tr>
+              <tr><td class='kh-td1'>\(\mathbb{H}^+, \mathbb{H}^-\)</td> <td class='kh-td2'>upper and lower complex half plane</td></tr>
+              <tr><td class='kh-td1'>\(\left| A \right| \)</td>     <td class='kh-td2'>Lebesgue measure of \(A \subset \mathbb{R}^d\)</td></tr>
+              <tr><td class='kh-td1'>&nbsp;</td>                    <td class='kh-td2'></td></tr>
+
+              <tr><td class='kh-td1'>\(X,Y, \ldots\)</td>        <td class='kh-td2'>normed linear spaces with norms \(\lVert x \rVert_X, \lVert y \rVert_Y, \ldots\)</td></tr>
+              <tr><td class='kh-td1'>\(X \cong Y\)</td>          <td class='kh-td2'>\(X\) and \(Y\) are norm-isomorphic to each other</td></tr>
+              <tr><td class='kh-td1'>\(\mathscr{B}(X,Y)\)</td>   <td class='kh-td2'>set of bounded linear operators \(A:X \to Y\)</td></tr>
+              <tr><td class='kh-td1'>\(\mathscr{B}(X)\)</td>     <td class='kh-td2'>set of bounded linear operators \(A:X \to X\)</td></tr>
+              <tr><td class='kh-td1'>\(\mathsf{1}_X\)</td>       <td class='kh-td2'>identity operator in \(X\)</td></tr>
+              <tr><td class='kh-td1'>\(X^*\)</td>                <td class='kh-td2'>adjoint space of \(X\)</td></tr>
+              <tr><td class='kh-td1'>\(M^{\bot}\)</td>           <td class='kh-td2'>annihilator of \(M \subset X\)</td></tr>
+              <tr><td class='kh-td1'>\(^{\bot}N\)</td>           <td class='kh-td2'>pre-annihilator of \(N \subset X^*\)</td></tr>
+              <tr><td class='kh-td1'>\(B_r(x)\)</td>             <td class='kh-td2'>open ball around \(x\) with radius \(r\)</td></tr>
+              <tr><td class='kh-td1'>&nbsp;</td>                 <td class='kh-td2'></td></tr>
+
+              <tr><td class='kh-td1'>\(H\)</td>                  <td class='kh-td2'>real or complex Hilbert space</td></tr>
+              <tr><td class='kh-td1'>\(\left| H \right| \)</td>  <td class='kh-td2'>Hilbert space dimension of \(H\)</td></tr>
+              <tr><td class='kh-td1'>\(\langle x,y \rangle\)</td><td class='kh-td2'>inner product in \(H\)</td></tr>
+              <tr><td class='kh-td1'>\(M^{\bot}\)</td>           <td class='kh-td2'>orthonormal space of \(M \subset H\)</td></tr>
+              <tr><td class='kh-td1'>&nbsp;</td>                 <td class='kh-td2'></td></tr>
+
+              <tr><td class='kh-td1'>\(A,B, \ldots\)</td>        <td class='kh-td2'>linear operators with domain space \(X\) and range space \(Y\)</td></tr>
+              <tr><td class='kh-td1'>\(A \prec B\)</td>          <td class='kh-td2'>\(B\) is an extension of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(A^*\)</td>                <td class='kh-td2'>adjoint operator of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(A^*\)</td>                <td class='kh-td2'>adjoint operator of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\mathfrak{N}(A)\)</td>    <td class='kh-td2'>kernel of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\mathfrak{R}(A)\)</td>    <td class='kh-td2'>range of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\mathfrak{C}(A)\)</td>    <td class='kh-td2'>cokernel of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\mathfrak{D}(A)\)</td>    <td class='kh-td2'>domain of definition of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\mathfrak{G}(A)\)</td>    <td class='kh-td2'>graph of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\alpha(A)\)</td>          <td class='kh-td2'>nullity index of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\beta(A)\)</td>           <td class='kh-td2'>defect index of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\chi(A)\)</td>            <td class='kh-td2'>Fredholm index of \(A\)</td></tr>
+
+              <tr><td class='kh-td1'>&nbsp;</td>                 <td class='kh-td2'></td></tr>
+              <tr><td class='kh-td1'>\(\sigma(A)\)</td>          <td class='kh-td2'>spectrum of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\sigma(A)_{p}\)</td>      <td class='kh-td2'>point spectrum of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\sigma(A)_{c}\)</td>      <td class='kh-td2'>continuous spectrum of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\sigma(A)_{r}\)</td>      <td class='kh-td2'>residual spectrum of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\sigma(A)_{d}\)</td>      <td class='kh-td2'>discrete spectrum of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\sigma(A)_{ess}\)</td>    <td class='kh-td2'>essential spectrum of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\lambda_1,\lambda_2, \ldots\)</td> <td class='kh-td2'>eigenvalues of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\Theta(A)\)</td>          <td class='kh-td2'>numerical range of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\Pi(A)\)</td>             <td class='kh-td2'>field of regularity of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\Delta(A)\)</td>          <td class='kh-td2'>external field of regularity of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(\rho(A)\)</td>            <td class='kh-td2'>resolvent set of \(A\)</td></tr>
+              <tr><td class='kh-td1'>\(R(A,\xi)\)</td>           <td class='kh-td2'>resolvent of \(A\) in \(\xi \in \rho(A)\)</td></tr>
+              <tr><td class='kh-td1'>&nbsp;</td>                 <td class='kh-td2'></td></tr>
+
+              <tr><td class='kh-td1'>\(X,Y, \ldots\)</td>        <td class='kh-td2'>topological spaces</td></tr>
+              <tr><td class='kh-td1'>\(X \cong Y\)</td>          <td class='kh-td2'>\(X\) and \(Y\) are homeomorphic to each other</td></tr>
+              <tr><td class='kh-td1'>\(\Omega\)</td>             <td class='kh-td2'>open set in \(\mathbb{R}^d\)</td></tr>
+              <tr><td class='kh-td1'>\(\partial \Omega\)</td>    <td class='kh-td2'>boundary set of \(\Omega\)</td></tr>
+              <tr><td class='kh-td1'>\(C(X,Y)\)</td>             <td class='kh-td2'>set of continuous functions \(f:X \to Y\)</td></tr>
+              <tr><td class='kh-td1'>\(C(X)\)</td>               <td class='kh-td2'>set of continuous functions \(f:X \to \mathbb{C}\)</td></tr>
+              <tr><td class='kh-td1'>\(C_b(X)\)</td>             <td class='kh-td2'>set of bounded continuous functions \(f:X \to \mathbb{C}\)</td></tr>
+              <tr><td class='kh-td1'>\(C_0(X)\)</td>             <td class='kh-td2'>set of continuous functions \(f:X \to \mathbb{C}\) vanishing at infinity</td></tr>
+              <tr><td class='kh-td1'>\(L^{p}(X)\)</td>           <td class='kh-td2'>Lebesgue space \(1 \leq p \leq \infty\)</td></tr>
+              <tr><td class='kh-td1'>\(L^{p}(a,b;X)\)</td>       <td class='kh-td2'>Bochner space \(1 \leq p \leq \infty\)</td></tr>
+              <tr><td class='kh-td1'>&nbsp;</td>                 <td class='kh-td2'></td></tr>
+
+              <tr><td class='kh-td1'>\(C^k(\Omega)\)</td>          <td class='kh-td2'>set of \(k\)-times continuously differentiable functions \(f:G \to \mathbb{C}\)</td></tr>
+              <tr><td class='kh-td1'>\(C^{\infty}(\Omega)\)</td>   <td class='kh-td2'>set of indefinitely continuously differentiable functions \(f:G \to \mathbb{C}\)</td></tr>
+              <tr><td class='kh-td1'>\(C_0^{\infty}(\Omega)\)</td> <td class='kh-td2'>set of indefinitely continuously differentiable functions \(\phi:G \to \mathbb{C}\) with compact support (<i>L.&thinsp;Schwartz</i>' space of test functions)</td></tr>
+              <tr><td class='kh-td1'>\(C^{k,\alpha}(\Omega)\)</td> <td class='kh-td2'>Hölder space</td></tr>
+              <tr><td class='kh-td1'>\(W^{k,p}(\Omega)\)</td>      <td class='kh-td2'>Sobolev space (\(k \in \mathbb{N}_0, 1 \leq p \leq \infty\))</td></tr>
+              <tr><td class='kh-td1'>\(W_0^{k,p}(\Omega)\)</td>    <td class='kh-td2'>Sobolev space (\(k \in \mathbb{N}_0, 1 \leq p \leq \infty\)) with homogeneous boundary conditions</td></tr>
+              <tr><td class='kh-td1'>&nbsp;</td>                   <td class='kh-td2'></td></tr>
+
+              <tr><td class='kh-td1'>\(F,G, \ldots\)</td>        <td class='kh-td2'>distributions</td></tr>
+              <tr><td class='kh-td1'>\(F \ast G\)</td>           <td class='kh-td2'>convolution product</td></tr>
+              <tr><td class='kh-td1'>\(F \otimes G\)</td>        <td class='kh-td2'>tensor product</td></tr>
+              <tr><td class='kh-td1'>\(\mathscr{D}'(G)\)</td>    <td class='kh-td2'>space of Schwartz distributions</td></tr>
+              <tr><td class='kh-td1'>\(\mathscr{E}'(G)\)</td>    <td class='kh-td2'>space of Schwartz distributions with compact support</td></tr>
+              <tr><td class='kh-td1'>\(\mathscr{S}'(\mathbb{R}^d)\)</td> <td class='kh-td2'>space of tempered distributions</td></tr>
+
+              <tr><td class='kh-td1'>&nbsp;</td>                 <td class='kh-td2'></td></tr>
+              <tr><td class='kh-td1'>\(\cal{F}\)</td>            <td class='kh-td2'>Fourier transformation</td></tr>
+              <tr><td class='kh-td1'>\(\cal{F}^{-1}\)</td>       <td class='kh-td2'>inverse Fourier transformation</td></tr>
+              <tr><td class='kh-td1'>\(\hat{\phi}\)</td>         <td class='kh-td2'>Fourier transform of \(\phi\)</td></tr>
+              <tr><td class='kh-td1'>\(\Delta\)</td>             <td class='kh-td2'>Laplace operator</td></tr>
+            </table>
+            </small>
+        </section>
+      </article>
+
 <!--------------------------------------------------------------------------------
 |                                    SERIES                                      |
 --------------------------------------------------------------------------------->
@@ -625,10 +729,10 @@
               <thead>
                 <tr>
                   <th width= "5%" text-align="right">Vol.</th>
+                  <th width= "5%" text-align="center">Year</th>
                   <th width= "5%" text-align="right">Lang.</th>
                   <th width="25%" text-align="center">Author(s)</th>
                   <th width="60%" text-align="center">Title</th>
-                  <th width= "5%" text-align="center">Year</th>
                 </tr>
               </thead>
               <tbody>
@@ -646,9 +750,9 @@
             <table class="compact stripe cell-border" id="dover-table">
               <thead>
                 <tr>
+                  <th width= "5%" text-align="center">Year</th>
                   <th width="30%" text-align="center">Author(s)</th>
                   <th width="65%" text-align="center">Title</th>
-                  <th width= "5%" text-align="center">Year</th>
                 </tr>
               </thead>
               <tbody>
@@ -668,9 +772,9 @@
               <thead>
                 <tr>
                   <th width= "5%" text-align="center">Vol.</th>
+                  <th width= "5%" text-align="center">Year</th>
                   <th width="30%" text-align="center">Author(s)</th>
                   <th width="60%" text-align="center">Title</th>
-                  <th width= "5%" text-align="center">Year</th>
                 </tr>
               </thead>
               <tbody>
@@ -689,9 +793,9 @@
               <thead>
                 <tr>
                   <th width= "5%" text-align="center">Vol.</th>
+                  <th width= "5%" text-align="center">Year</th>
                   <th width="30%" text-align="center">Author(s)</th>
                   <th width="60%" text-align="center">Title</th>
-                  <th width= "5%" text-align="center">Year</th>
                 </tr>
               </thead>
               <tbody>
@@ -709,10 +813,10 @@
             <table class="compact stripe cell-border" id="gsm-table">
               <thead>
                 <tr>
+                  <th width= "5%" text-align="center">Year</th>
                   <th width= "5%" text-align="center">Vol.</th>
                   <th width="30%" text-align="center">Author(s)</th>
                   <th width="60%" text-align="center">Title</th>
-                  <th width= "5%" text-align="center">Year</th>
                 </tr>
               </thead>
               <tbody>
@@ -730,9 +834,9 @@
             <table class="compact stripe cell-border" id="mass-table">
               <thead>
                 <tr>
+                  <th width= "5%" text-align="center">Year</th>
                   <th width="30%" text-align="center">Author(s)</th>
                   <th width="65%" text-align="center">Title</th>
-                  <th width= "5%" text-align="center">Year</th>
                 </tr>
               </thead>
               <tbody>
@@ -1307,7 +1411,7 @@
             <a href="assets/documents/Linear_Operators_and_Spectral_Theory.pdf">here</a>.
           </p>
           <p>
-            Also have a look at the following scripts,
+            Also have a look at the following texts,
             containing different themes of spectral theory:
           </p>
           <ul>
@@ -1337,9 +1441,9 @@
             such as the Sturm-Liouville eigenvalue problem,
             the Dirichlet and the Neumann boundary value problem for the negative Laplacian \(-\Delta\),
             also lead to the theory of self-adjoint operators
-            in the respective Hilbert spaces \(L^2(I)\) and \(L^2(G)\),
+            in the respective Hilbert spaces \(L^2(I)\) and \(L^2(\Omega)\),
             where \(I \subset \mathbb{R}\) is a finite interval
-            and \(G\) is a bounded domain in some Euclidean space \(\mathbb{R}^d\).
+            and \(\Omega\) is a bounded domain in some Euclidean space \(\mathbb{R}^d\).
           </p>
 
           <p>
@@ -1405,6 +1509,7 @@
             <li>Functional analysis and semi-groups; by <i>E.&thinsp;Hille</i> & <i>R.&thinsp;S.&thinsp;Phillips</i>; 1948</li>
             <li>Equations of Evolution; by <i>H.&thinsp;Tanabe</i>; 1979</li>
             <li>Semigroups of Linear Operators and Applications to Partial Differential Equations; by <i>A.&thinsp;Pazy</i>; 1983</li>
+            <li>C<sub>0</sub>-Semigroups and Applications; by <i>I.&thinsp;Vrabie</i>; 2001</li>
             <li>A Short Course on Operator Semigroups; by <i>K.-J.&thinsp;Engel</i> & <i>R.&thinsp;Nagel</i>; 2006</li>
           </ul>
         </section>
@@ -1473,12 +1578,13 @@
           <p>
           </p>
           <details open>
-            <summary>Further monographs on nonlinear functional analysis are for example:</summary>
+            <summary>Further monographs on nonlinear functional analysis and its applications are for example:</summary>
             <ul>
              <li>Nonlinear Functional Analysis; by <i>K.&thinsp;Deimling</i>, Springer, 1985</li>
-             <li>Nonlinear Functional Analysis: A First Course; by <i>S.&thinsp;Kesavan</i>, Springer, 2022</li>
+             <li><a href='https://ftp.mi.fu-berlin.de/pub/klima/NavierStokes/Temam-NavierStokesEquationsAndNonlinearFunctionalAnalysis.pdf'>Navier-Stokes Equations and Nonlinear Functional Analysis</a>; by <i>R.&thinsp;Temam</i>, SIAM, 1993</li>
              <li><a href="https://www.dim.uchile.cl/~chermosilla/Nonlinear%20Functional%20Analysis.pdf">Nonlinear Functional Analysis</a>;
              by <a href='https://www.mat.univie.ac.at/~gerald/'>G.&thinsp;Teschl</a>, University of Vienna, 2005</li>
+             <li>Nonlinear Functional Analysis: A First Course; by <i>S.&thinsp;Kesavan</i>, Springer, 2022</li>
             </ul>
           </details>
         </section>
@@ -1781,10 +1887,10 @@
           </details>
 
           <details>
-            <summary>Moreover, the following articles and script can be found in the web:</summary>
+            <summary>Moreover, the following articles and script are available in the Web:</summary>
             <ul>
               <li><a href="https://raum-brothers.eu/sven/data/teaching/2016-17/AHA/aha-lecture-notes-2017-05-18.pdf">Lecture notes on abstract harmonic analysis</a>
-              (by <i>Sven Raum</i>, Lausanne 2017)</li>
+              (by <i>S.&thinsp;Raum</i>, Lausanne 2017)</li>
               <li><a href="https://www.cimat.mx/~moralesjh/remarksSA.pdf">Remarks on history of abstract harmonic analysis</a>,
               (by <i>R.&thinsp;S.&thinsp;Stankovi&cacute;, J.&thinsp;T.&thinsp;Astola, M.&thinsp;G.&thinsp;Karpovsky</i>)</li>
             </ul>
@@ -1802,9 +1908,9 @@
 <!--------------------------------------------------------------------------------
 |                                      FOOTER                                    |
 --------------------------------------------------------------------------------->
-    <footer>
+    <footer id='footer'>
       <hr><hr>
-      © Copyright 2026 by <i>Klaus Höflinger</i> (latest change:&thinsp;24/10/2026).
+      © Copyright 2026 by <i>Klaus Höflinger</i> (latest change:&thinsp;25/10/2026).
       &nbsp;&nbsp;&nbsp;
       <button onclick="displayArticle('home')"     >Home</button>
       <button onclick="displayArticle('about_me')" >About me</button>
