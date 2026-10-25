@@ -624,9 +624,11 @@
             <small>
             <table style='line-height:140%'>
               <tr><td class='kh-td1'>&nbsp;</td>                    <td class='kh-td2'></td></tr>
-              <tr><td class='kh-td1'>\(\mathbb{N}, \mathbb{Z}\)</td><td class='kh-td2'>signed and unsigned integers</td></tr>
-              <tr><td class='kh-td1'>\(\mathbb{R}, \mathbb{C}\)</td><td class='kh-td2'>real and complex integers</td></tr>
+              <tr><td class='kh-td1'>\(\mathbb{N}\)</td>            <td class='kh-td2'>unsigned integers</td></tr>
+              <tr><td class='kh-td1'>\(\mathbb{Z}\)</td>            <td class='kh-td2'>signed integers</td></tr>
+              <tr><td class='kh-td1'>\(\mathbb{R}\)</td>            <td class='kh-td2'>real numbers</td></tr>
               <tr><td class='kh-td1'>\(\mathbb{R}^d\)</td>          <td class='kh-td2'>Euclidean space of dimension \(d\)</td></tr>
+              <tr><td class='kh-td1'>\(\mathbb{C}\)</td>            <td class='kh-td2'>complex numbers</td></tr>
               <tr><td class='kh-td1'>\(\mathbb{T}\)</td>            <td class='kh-td2'>unit circle in \(\mathbb{C}\)</td></tr>
               <tr><td class='kh-td1'>\(\mathbb{H}^+, \mathbb{H}^-\)</td> <td class='kh-td2'>upper and lower complex half plane</td></tr>
               <tr><td class='kh-td1'>\(\left| A \right| \)</td>     <td class='kh-td2'>Lebesgue measure of \(A \subset \mathbb{R}^d\)</td></tr>
@@ -652,7 +654,6 @@
               <tr><td class='kh-td1'>\(A,B, \ldots\)</td>        <td class='kh-td2'>linear operators with domain space \(X\) and range space \(Y\)</td></tr>
               <tr><td class='kh-td1'>\(A \prec B\)</td>          <td class='kh-td2'>\(B\) is an extension of \(A\)</td></tr>
               <tr><td class='kh-td1'>\(A^*\)</td>                <td class='kh-td2'>adjoint operator of \(A\)</td></tr>
-              <tr><td class='kh-td1'>\(A^*\)</td>                <td class='kh-td2'>adjoint operator of \(A\)</td></tr>
               <tr><td class='kh-td1'>\(\mathfrak{N}(A)\)</td>    <td class='kh-td2'>kernel of \(A\)</td></tr>
               <tr><td class='kh-td1'>\(\mathfrak{R}(A)\)</td>    <td class='kh-td2'>range of \(A\)</td></tr>
               <tr><td class='kh-td1'>\(\mathfrak{C}(A)\)</td>    <td class='kh-td2'>cokernel of \(A\)</td></tr>
@@ -677,31 +678,31 @@
               <tr><td class='kh-td1'>\(R(A,\xi)\)</td>           <td class='kh-td2'>resolvent of \(A\) in \(\xi \in \rho(A)\)</td></tr>
               <tr><td class='kh-td1'>&nbsp;</td>                 <td class='kh-td2'></td></tr>
 
-              <tr><td class='kh-td1'>\(X,Y, \ldots\)</td>        <td class='kh-td2'>topological spaces</td></tr>
+              <tr><td class='kh-td1'>\(X,Y,Z \ldots\)&nbsp;</td> <td class='kh-td2'>\(X,Y\) topological spaces, \(Z\) Banach space</td></tr>
               <tr><td class='kh-td1'>\(X \cong Y\)</td>          <td class='kh-td2'>\(X\) and \(Y\) are homeomorphic to each other</td></tr>
-              <tr><td class='kh-td1'>\(\Omega\)</td>             <td class='kh-td2'>open set in \(\mathbb{R}^d\)</td></tr>
-              <tr><td class='kh-td1'>\(\partial \Omega\)</td>    <td class='kh-td2'>boundary set of \(\Omega\)</td></tr>
               <tr><td class='kh-td1'>\(C(X,Y)\)</td>             <td class='kh-td2'>set of continuous functions \(f:X \to Y\)</td></tr>
               <tr><td class='kh-td1'>\(C(X)\)</td>               <td class='kh-td2'>set of continuous functions \(f:X \to \mathbb{C}\)</td></tr>
               <tr><td class='kh-td1'>\(C_b(X)\)</td>             <td class='kh-td2'>set of bounded continuous functions \(f:X \to \mathbb{C}\)</td></tr>
               <tr><td class='kh-td1'>\(C_0(X)\)</td>             <td class='kh-td2'>set of continuous functions \(f:X \to \mathbb{C}\) vanishing at infinity</td></tr>
               <tr><td class='kh-td1'>\(L^{p}(X)\)</td>           <td class='kh-td2'>Lebesgue space \(1 \leq p \leq \infty\)</td></tr>
-              <tr><td class='kh-td1'>\(L^{p}(a,b;X)\)</td>       <td class='kh-td2'>Bochner space \(1 \leq p \leq \infty\)</td></tr>
+              <tr><td class='kh-td1'>\(L^{p}(a,b;Z)\)</td>       <td class='kh-td2'>Bochner space \(1 \leq p \leq \infty\)</td></tr>
               <tr><td class='kh-td1'>&nbsp;</td>                 <td class='kh-td2'></td></tr>
 
-              <tr><td class='kh-td1'>\(C^k(\Omega)\)</td>          <td class='kh-td2'>set of \(k\)-times continuously differentiable functions \(f:G \to \mathbb{C}\)</td></tr>
-              <tr><td class='kh-td1'>\(C^{\infty}(\Omega)\)</td>   <td class='kh-td2'>set of indefinitely continuously differentiable functions \(f:G \to \mathbb{C}\)</td></tr>
-              <tr><td class='kh-td1'>\(C_0^{\infty}(\Omega)\)</td> <td class='kh-td2'>set of indefinitely continuously differentiable functions \(\phi:G \to \mathbb{C}\) with compact support (<i>L.&thinsp;Schwartz</i>' space of test functions)</td></tr>
+              <tr><td class='kh-td1'>\(\Omega\)</td>               <td class='kh-td2'>open set in \(\mathbb{R}^d\)</td></tr>
+              <tr><td class='kh-td1'>\(\partial \Omega\)</td>      <td class='kh-td2'>boundary set of \(\Omega\)</td></tr>
+              <tr><td class='kh-td1'>\(C^k(\Omega)\)</td>          <td class='kh-td2'>set of \(k\)-times continuously differentiable functions \(f:\Omega \to \mathbb{C}\)</td></tr>
+              <tr><td class='kh-td1'>\(C^{\infty}(\Omega)\)</td>   <td class='kh-td2'>set of indefinitely continuously differentiable functions \(f:\Omega \to \mathbb{C}\)</td></tr>
+              <tr><td class='kh-td1'>\(C_0^{\infty}(\Omega)\)</td> <td class='kh-td2'>set of indefinitely continuously differentiable functions \(\phi:\Omega \to \mathbb{C}\) with compact support (<i>L.&thinsp;Schwartz</i>' space of test functions)</td></tr>
               <tr><td class='kh-td1'>\(C^{k,\alpha}(\Omega)\)</td> <td class='kh-td2'>Hölder space</td></tr>
               <tr><td class='kh-td1'>\(W^{k,p}(\Omega)\)</td>      <td class='kh-td2'>Sobolev space (\(k \in \mathbb{N}_0, 1 \leq p \leq \infty\))</td></tr>
               <tr><td class='kh-td1'>\(W_0^{k,p}(\Omega)\)</td>    <td class='kh-td2'>Sobolev space (\(k \in \mathbb{N}_0, 1 \leq p \leq \infty\)) with homogeneous boundary conditions</td></tr>
               <tr><td class='kh-td1'>&nbsp;</td>                   <td class='kh-td2'></td></tr>
 
-              <tr><td class='kh-td1'>\(F,G, \ldots\)</td>        <td class='kh-td2'>distributions</td></tr>
-              <tr><td class='kh-td1'>\(F \ast G\)</td>           <td class='kh-td2'>convolution product</td></tr>
-              <tr><td class='kh-td1'>\(F \otimes G\)</td>        <td class='kh-td2'>tensor product</td></tr>
-              <tr><td class='kh-td1'>\(\mathscr{D}'(G)\)</td>    <td class='kh-td2'>space of Schwartz distributions</td></tr>
-              <tr><td class='kh-td1'>\(\mathscr{E}'(G)\)</td>    <td class='kh-td2'>space of Schwartz distributions with compact support</td></tr>
+              <tr><td class='kh-td1'>\(F,G, \ldots\)</td>          <td class='kh-td2'>distributions</td></tr>
+              <tr><td class='kh-td1'>\(F \ast G\)</td>             <td class='kh-td2'>convolution product</td></tr>
+              <tr><td class='kh-td1'>\(F \otimes G\)</td>          <td class='kh-td2'>tensor product</td></tr>
+              <tr><td class='kh-td1'>\(\mathscr{D}'(\Omega)\)</td> <td class='kh-td2'>space of Schwartz distributions</td></tr>
+              <tr><td class='kh-td1'>\(\mathscr{E}'(\Omega)\)</td> <td class='kh-td2'>space of Schwartz distributions with compact support</td></tr>
               <tr><td class='kh-td1'>\(\mathscr{S}'(\mathbb{R}^d)\)</td> <td class='kh-td2'>space of tempered distributions</td></tr>
 
               <tr><td class='kh-td1'>&nbsp;</td>                 <td class='kh-td2'></td></tr>
