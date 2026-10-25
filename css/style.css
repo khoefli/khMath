@@ -262,6 +262,7 @@ mark:visited
 
 footer
 {
+  display:none;
   font-size:smaller;
   text-align:left;
   margin-left:6%;
@@ -280,6 +281,7 @@ footer hr
 
 nav
 {
+  display:none;
   font-family:'MlModern';
   font-size:10pt;
   width:100%;
