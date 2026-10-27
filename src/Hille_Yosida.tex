@@ -1493,6 +1493,74 @@ and $\linA u := u'$ for $u$ in the domain of definition
 Then $\linA$ is the generator of the \textit{translation} C$_0$-semigroup
 {\TG} in $\R$ given by $T(t)u(s) := u(s+t)$
 for $u \xeof C_{ub}(\R)$ and $t,s \xeof \R$.
+
+\item[6.]
+The operator-theoretic formulation of the wave equation with damping
+translates a second-order hyperbolic partial differential equation (PDE)
+into a first-order linear evolutionary equation on a Hilbert space.
+This is typically achieved using the theory of strongly continuous semigroups.
+
+\subparagraph{}
+Consider the abstract damped wave equation on a bounded domain $\G$
+with a smooth boundary and homogeneous Dirichlet boundary conditions
+\[
+\begin{cases}[1.2]
+\quad \ddot{u} + 2\gamma - \Delta u = 0,\\
+\quad u(t,x) = 0 \for x \in \partial \G,\\
+\quad u(0,x) = x_0 \and \dot{u}(0,x) = x_1 \for x \in \G,\\
+\end{cases}
+\]
+where $\gamma \: \G \xto \R$ represents a nonnegative damping coefficient.
+
+\subparagraph{}
+To reformulate this into a first-order system, we define the \textit{state vector}
+$U := (u,\dot{u})$ and the natural \textit{energy state space}
+\[
+\cal{H} \eqdef \HN{1}{\G} \times \Lh,
+\]
+endowed with the inner product representing total (kinetic and potential) energy
+\[
+\scalar{u}{v} \eqdef \int_{\G} \nabla u_1 \nabla u_2 \,dx \+ \int_{\G} v_1 v_2\,dx.
+\]
+The second-order PDE can now be written as a first-order system
+\[
+\dot{U} \+ \linA U \= \0,
+\]
+where the linear operator $\linA$ is defined by
+\[
+\linA \eqdef \begin{pmatrix} \0 & \1 \\ \Delta & -2 \gamma \end{pmatrix}
+\]
+and domain of definition
+\[
+\domain{\linA} \eqdef (\HN{1}{\G} \times \Lh) \times \HN{1}{\G},
+\]
+so it captures both,
+the boundary conditions and the necessary regularity to map back the operator
+into $\cal{H}$.
+
+\subparagraph{}
+By the Lumer-Phillips theorem,
+the operator $\linA$ generates a semigroup $\{S(t)\}_{t \geq 0}$ of contractions,
+where dissipativity of $\linA$ is a consequence of the condition $\gamma \geq 0$.
+
+\subparagraph{}
+Framing the problem this way allows us to use spectral theory
+to determine the long-term behavior of the solution $u$.
+To be precise,
+if $\gamma > 0$ on a sufficiently large subset of $\G$
+(satisfying the \textit{geometric control condition}),
+the spectrum $\sigma(\linA)$ lies entirely in the left complex half-plane,
+meaning $\norm{S(t)} \to 0$ for $t \to \infty$.
+Furthermore,
+if the damping is \textit{uniform},
+that is,
+$\gamma > \gamma_0$ for some $\gamma_0 > 0$,
+the semigroup is \textit{exponentially stable},
+that is,
+there is $M > 0$ and $\omega > 0$ such that
+\[
+\norm{S(t)} \, \leq \, M e^{-\omega t}.
+\]
 \end{itemize}
 
 %------------------------------------------------------------------------------%
