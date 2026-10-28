@@ -549,7 +549,7 @@ We introduce the partial ordered relation
 and denote $\linA_2$ an \textit{extension} of $\linA_1$
 if $\linA_1 \prec \linA_2$.
 The operators $\linA_1$ and $\linA_2$ are said to be \textit{equal}
-(briefly $\linA_1 \eq \linA_2$)
+(or $\linA_1 \eq \linA_2$ for short)
 iff $\linA_1 \prec \linA_2$ and $\linA_2 \prec \linA_1$,
 or equivalently,
 if $\domain{\linA_1} \eq \domain{\linA_2}$ and
@@ -802,7 +802,7 @@ that an operator $\linA$ is closed \iff it is \textit{sequentially closed},
 that is,
 $x_n \xto x$ and $\linA x_n \xto y$ implies
 $x \xeof \domain{\linA}$ and $\linA x \eq y$,
-briefly written
+for short
 \[
 \begin{rcases}
  x_n       \xto x \quad \\
@@ -901,7 +901,7 @@ is closable,
 if each sequence $(x_n,\linA x_n)_{n \in \N}$
 with $x_n \xeof \domain{\linA}$ for $n \xeof \N$ and converging to $(\0,y)$
 implies $y \eq \0$,
-briefly written
+for short
 \[
 \begin{rcases}
  x_n       \xto \0 \quad \\
@@ -1643,7 +1643,7 @@ defined by
 \zeta \mapsto R(\linA,\zeta) \eqdef (\linA {-} \zeta)^{-1}
 \]
 is called the \textit{resolvent function}
-or briefly the \textit{resolvent} of $\linA$.
+or the \textit{resolvent} of $\linA$ for short.
 
 \subparagraph{} %- vector-valued holomorphic functions
 Remember the concept of a vector-valued holomorphic function:
@@ -3103,7 +3103,7 @@ Let $x \xeof \hilH$ be arbitrary, then
 \subsection{} %-- evolution equations governed by self-adjoint operators
 %------------------------------------------------------------------------------%
 The presented functional calculus provides applications
-to initial-value problems for evolution equations
+to initial value problems for evolution equations
 governed by self-adjoint and positive linear operators.
 In the rest of this section we shall elaborate the usage of this method.
 
@@ -3129,8 +3129,8 @@ The spaces $C^k(a,b;\banX)$ ($k \xeof \N$) are defined recursively as usual,
 and especially the space $C^{\infty}(a,b;\banX)$ is defined
 by taking the intersection of all spaces $C^k(a,b;\banX)$ for $k \xeof \N_0$.
 
-\paragraph{} % initial-value problems governed by self-adjoint linear operators
-The initial-value problems under consideration in this section
+\paragraph{} % initial value problems governed by self-adjoint linear operators
+The initial value problems under consideration in this section
 are the homogeneous Cauchy problems of first and second order
 and the abstract {\SCHROEDINGER} equation.
 We notice in advance
@@ -3139,7 +3139,7 @@ that they can be solved also by semigroup methods (see sections 9,\,10 and 11).
 \begin{itemize}[leftmargin=12pt,itemsep=2mm,topsep=1mm]
 \item[1.]
 The \textit{homogeneous Cauchy problem of first order}
-is the initial-value problem given by
+is the initial value problem given by
 \begin{equation}\label{HOMOGENEOUS_CAUCHY_PROBLEM_I}
 \begin{cases}[1.2]
 \quad \dot{x}(t) \+ \linA \, x(t) \= 0,\\ 
@@ -3266,7 +3266,7 @@ of problem \eqref{HOMOGENEOUS_CAUCHY_PROBLEM_II}.
 
 \item[3.]
 By the \textit{abstract {\SCHROEDINGER} equation} is meant
-the linear initial-value problem
+the linear initial value problem
 \begin{equation}\label{ABSTRACT_SCHROEDINGER_EQUATION}
 \begin{cases}[1.2]
 \quad \dot{x}(t) \, + \, i \linA \, x(t) \= \0,\\
@@ -3288,7 +3288,7 @@ which immediately follows from
 \]
 If an initial value $x(0) \eq x_0$ is given,
 then \eqref{ENERGY_CONSERVATION_LAW} implies
-that the solution of the initial-value problem 
+that the solution of the initial value problem 
 \eqref{ABSTRACT_SCHROEDINGER_EQUATION} is unique.
 
 \subparagraph{}
@@ -3770,7 +3770,7 @@ iff $\eta_x$ is right-differentiable in $t \eq 0$.
 The last statement serves as motivation for the following notion:
 if {\SG} is strongly continuous,
 its \textit{infinitesimal generator} of the semigroup
-(briefly denoted the \textit{generator} or the \textit{generating operator})
+(or the \textit{generator} rsp. the \textit{generating operator} for short)
 is defined as the mapping $\linA \: \domain{\linA} \xsubset \banX \xto \banX$
 given by the graph
 \[
@@ -4451,7 +4451,7 @@ Indeed,
 the domain of definition $\domain{\linA_{\sql}}$ is defined
 to be the subspace of those elements $u \xeof \vecV$,
 for which $\repA \, u \xeof \iota_2(\hilH) \xsubset \vecV_a^*$ holds,
-briefly
+for short
 \[
 \domain{\linA_{\sql}} \eqdef \{u \xeof \vecV \: \repA \, u \xeof \hilH \}.
 \]
@@ -5564,11 +5564,11 @@ such that the identity
 \int_{\,\G} \phi \, \overline{\A^{\dag} \, \psi} \, dx 
 \]
 holds for $\phi,\psi \xeof \TF$,
-briefly
+or
 $
 \scalar{\A\,\phi}{\psi} \eq \scalar{\phi}{\A^{\dag}\,\psi}
 $
-by means of the inner product in $\TF$.
+for short by means of the inner product in $\TF$.
 Using \textsc{Leibniz}'s rule to compute the terms
 $\PA(\overline{c_{\alpha}} \, u)$ in \eqref{FAO},
 there are functions $c_{\alpha}'\: \G \xto \C$
@@ -6119,7 +6119,7 @@ Then the corresponding Dirichlet form reads as
 \int_a^b \,
 (p \, u'\, \overline{v}' \+ q \, u \, \overline{v}) \, dx,
 \]
-which shows that the expression $\A_{sl}$ is symmetric and half-bounded
+which shows that the expression $\A_{sl}$ is symmetric as well as half-bounded
 on the domain of definition $\TF$.
 The energetic space $H_{\A_{sl}}$ is the Hilbert-Sobolev space $\HN{1}{a,b}$
 containing the restrictions of 
@@ -6127,16 +6127,16 @@ containing the restrictions of
 with boundary conditions $u(a) \eq u(b) \eq 0$ to the interval $(a,b)$.
 
 \subparagraph{}
-The self-adjoint extension $\linA_{sl,F}$
-of the {Sturm-Liouville} operator in $L^2(a,b)$ has domain of definition
+The self-adjoint extension $\linA_{sl,F}$ of $\linA_{sl}$ in $L^2(a,b)$
+has domain of definition
 \[
 \domain{\linA_{sl,F}} = H^2(a,b) \, \cap \, \HN{1}{a,b}.
 \]
-The operator $\linA_{sl,F}$ has pure point spectrum,
-since the interval $(a,b)$ is assumed to be bounded.
+This operator owns pure point spectrum,
+since the interval $(a,b)$ is bounded.
 Especially in case of $p(x) \eq 1$ and $q(x) \eq 0$ for $x \xeof [a,b]$, 
 the eigen\-values and eigen\-functions
-of the operator $\A_{sl,F} \eq - {d^2} / {dx^2}$ can exactly be determined.
+of the negative Laplacian $u \mapsto -u''$ can exactly be determined.
 In fact,
 the eigenvalue distribution of $\A_{sl,F}$ is given by
 \[
@@ -6277,7 +6277,7 @@ and defined by
 \] 
 is self-adjoint,
 called the \textit{negative Laplacian with Dirichlet boundary conditions}
-or briefly the \textit{Dirichlet-Laplacian}.
+or the \textit{Dirichlet-Laplacian} for short.
 
 \subparagraph{}
 We obviously have
@@ -6312,21 +6312,19 @@ be defined by
 \]
 The realization $\linA_N$ is said to be the
 \textit{(negative) Laplacian with Neumann boundary condition}
-or briefly the \textit{Neumann-Laplacian}.
+or the \textit{Neumann-Laplacian} for short.
 It owns $\lambda \eq 0$ as the minimal eigen\-value,
 and all constant functions in $\domain{\linA_N}$ are eigen\-functions
 of $\lambda \eq 0$.
 \end{itemize}
 
 \item[(c)] \textit{{\SCHROEDINGER} operators.}
-By the \textit{{\SCHROEDINGER} operator} is meant
-the linear partial differential expression given by
+These are linear differential expressions of type
 \[
 \HAM_q(u,x) \eqdef (-\Delta u)(x) \+ q(x),
 \]
 defined in the entire Euclidean space $\Rd$.
-In the special case,
-where $q \eq 0$,
+In the special case $q \eq 0$,
 self-adjointness of the operator $-\Delta$ acting in $L^2(\Rd)$
 and with domain of definition $H^2(\Rd)$ is well-known.
 
@@ -6349,7 +6347,7 @@ the initial value problem
 \[
 i \, \dot{u} \= -\Delta u \+ M_q u
 \]
-with prescribed initial value $u(0) \eq u_0 \xeof H^2(\Rd)$,
+with initial value $u(0) \eq u_0 \xeof H^2(\Rd)$,
 where it is supposed that $\HAM_q \eq -\Delta + M_q$
 is a self-adjoint operator in $L^2(\Rd)$
 with domain of definition $\domain{\HAM_q} \eq H^2(\Rd)$.
@@ -6377,9 +6375,9 @@ since the eigen\-functions of eigen\-values $\lambda \xeof \sigma_d(\HAM_q)$
 describe the stationary states of a quantum mechanical system.
 
 \subparagraph{} %- spectrum of Schroedinger operators
-The presence of a potential function $q$
-can fairly change the spectrum of a {\SCHROEDINGER} operator 
-like the example of the \textit{harmonic oscillator} shows:
+Certain choices of a potential function $q$
+can fairly change the spectrum of a {\SCHROEDINGER} operator,
+as the example of the \textit{harmonic oscillator} shows:
 the spectrum of the negative Laplacian is the connected set $[0,\infty)$,
 but the spectrum of the operator $-\Delta {\,+\,} M_q$ 
 with $q \: x \mapsto \frac{1}{2}x^2$ consists of discrete points only.
@@ -6393,7 +6391,7 @@ which contain information on the bounds of the set $\sigma_d(\HAM_q)$,
 namely
 the \textit{Birman-Schwinger} \textit{bound}, 
 the \textit{Lieb-Cwikel-Rozenblum} \textit{bound} and
-    \textsc{Kato}\textit{'s theorem}:
+    \textit{Kato}\textit{'s theorem}:
 
 \begin{itemize}[leftmargin=4mm]
 \item[1.]
