@@ -4275,42 +4275,50 @@ a function $x$ is called
 a {classical solution} of the \textit{second-order} homogeneous Cauchy problem
 \begin{equation}\label{HOMOGENEOUS_CAUCHY_PROBLEM_2}
 \begin{cases}[1.2]
-\quad \ddot{x}(t) + \linA x(t) \= \0,\\
+\quad \ddot{x}(t) + \linB \, \dot{x}(t) + \linA \, x(t) \= \0,\\
 \quad x(0) \= x_0 \xeof \banX,\\
 \quad \dot{x}(0) \= x_1 \xeof \banX,\\
 \end{cases}
 \end{equation}
 if $x \xeof C([0,\T),\domain{\linA}) \, \cap \, C^2((0,\T),\banX)$
-and satisfies both initial conditions as well as
-the differential equation in each point $t \xeof (0,\T)$.
+and satisfies both,
+the initial conditions and the differential equation
+in each point $t \xeof (0,\T)$.
+Note that the term $\linB \dot{x}$ represents the possible damping
+of the underlying physical system.
 
-\paragraph{} %- the semigroup approach to second order Cauchy problems
+\subparagraph{} %- transformation to a first order system
 To apply results from semigroup theory to the second order Cauchy problem,
 let $U := (x,\dot{x})$.
-We suppose that $\linA$ is a \textit{positive} and
-\textit{self-adjoint} linear operator in a Hilbert space $\hilH$.
-Then the differential equation $\ddot{x}(t) + \linA \, x(t) \eq \0$
+Then the differential equation
+$\ddot{x}(t) + \linB \,\dot{x}(t) + \linA \, x(t) \eq \0$
 in \eqref{HOMOGENEOUS_CAUCHY_PROBLEM_2}
 can be written as first order problem
 \begin{equation}\label{TRANSFORMED_SECOND_ORDER_EQUATION}
 \begin{cases}[1.2]
-\quad U'(t) \= \linB \, U(t) \\
+\quad U'(t) \= \cal{C} \, U(t) \\
 \quad U(0) = (x_0,x_1),\\
 \end{cases}
 \end{equation}
-where the operator $\linB$ is defined by
+where the \textit{matrix operator} $\cal{C}$ is defined by
 \begin{equation}\label{BLOCK_MATRIX}
-\linB \eqdef \begin{pmatrix} \0 & \1 \\ \sqrt{\linA} & \0 \end{pmatrix}.
+\cal{C} \eqdef \begin{pmatrix} \0 & \1 \\ \linA & \linB \end{pmatrix}.
 \end{equation}
 
-\subparagraph{}
+\subparagraph{} %- the semigroup approach to second order Cauchy problems
 The main idea in proving existence and uniqueness of a solution is to show
 that
-the operator $\linB$ defined on a suitable chosen domain $\domain{\linB}$
+the operator $\cal{C}$,
+defined on a suitable chosen domain $\domain{\cal{C}}$,
 is the infinitesimal generator of a semigroup of contractions.
-Its domain of definition $\domain{\linB}$ is given by
+For this it is often supposed that
+$\linA$ is a \textit{positive} and
+\textit{self-adjoint} linear operator in a Hilbert space $\hilH$.
+
+\begin{comment}
+Its domain of definition $\domain{\cal{C}}$ is given by
 \[
-\domain{\linB} \eqdef
+\domain{\cal{C}} \eqdef
 \domain{\linA} \times \domain{\sqrt{\linA} }
 \, \subset \,
 \domain{\sqrt{\linA} }_{\norm{\cdot}_{\linA}} \times \hilH,
@@ -4324,11 +4332,12 @@ The following theorem is for example proved in \cite{Go}, p.\,111:
 
 \begin{theorem}\label{LUMER-PHILLIPS_THEOREM_2}
 Let the linear operator $\linA$ be positive self-adjoint
-and the operator $\linB$ be defined by \eqref{BLOCK_MATRIX}.
-Then $\linB$ is m-accretive,
+and the operator $\cal{C}$ be defined by \eqref{BLOCK_MATRIX}.
+Then $\cal{C}$ is m-accretive,
 hence the Cauchy problem \eqref{TRANSFORMED_SECOND_ORDER_EQUATION}
 is well-posed.
 \end{theorem}
+\end{comment}
 
 \subsection{} %-- regularly accretive operators
 %------------------------------------------------------------------------------%
