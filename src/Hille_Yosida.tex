@@ -1529,15 +1529,15 @@ The second-order PDE can now be written as a first-order system
 where the linear operator $\linA \: \domain{\linA} \xsubset \cal{H} \xto \cal{H}$
 is defined by
 \[
-\linA \eqdef \begin{pmatrix} \0 & \1 \\ \Delta & -\gamma \end{pmatrix}
+\linA \eqdef \begin{pmatrix} \0 & \1 \\ -\Delta & -\gamma \end{pmatrix},
 \]
-and with domain of definition
+having domain of definition
 \[
-\domain{\linA} \eqdef (\HN{1}{\G} \cap \Lh) \times \HN{1}{\G},
+\domain{\linA} \eqdef (\HN{1}{\G} \cap H^2(\G)) \times \HN{1}{\G},
 \]
 so it captures both,
-the boundary conditions and the necessary regularity to map back the operator
-into $\cal{H}$.
+the boundary conditions and the necessary regularity
+to map back the operator into $\cal{H}$.
 
 \subparagraph{}
 By the Lumer-Phillips theorem,
