@@ -302,6 +302,7 @@
               <li onclick="displayArticle('measure_and_integration_theory')">Measure and Integration Theory</li>
               <li onclick="displayArticle('complex_analysis')">Complex Analysis</li>
               <li onclick="displayArticle('pde_theory')">Partial Differential Equations</li>
+              <li onclick="displayArticle('stationary_problems')">Stationary Problems</li>
               <li onclick="displayArticle('abstract_harmonic_analysis')">Abstract Harmonic Analysis</li>
             </ul>
           </small>
@@ -1385,14 +1386,14 @@
           or in the more specific setting of normed linear spaces and especially Banach and Hilbert spaces.
           <p>
             <i>Spectral theory</i> deals with the well-posedness of the linear operator equation
-          </p>
-          <center>\(A x - \lambda x = y\),</center>
+            \[ A x - \lambda x = y,\]
             where \(\lambda\) is a complex parameter.
             Then for every linear operator \(A\) the complex plane is splitted into disjoint sets \(\rho(A)\) and \(\sigma(A)\),
             called the <i>resolvent set</i> and the <i>spectrum</i> of \(A\).
             The resolvent set contains all numbers \(\lambda\), for which the operator \(A-\lambda\) is bijective
             and the inverse operator \((A-\lambda)^{-1}\) proves to be continuous,
             whereas by definition the spectrum is its complementary set in \(\mathbb{C}\).
+          </p>
           <p>
            There are a couple of subtopics within spectral theory, where we want to mention
           </p>
@@ -1482,13 +1483,11 @@
             under which conditions a linear operator \(A\) is the infinitesimal generator of a strongly continuous semigroup.
             If \(A\) fulfills these conditions,
             then the related homogeneous <i>Cauchy problem</i> of first order
-          </p>
-          <center>\(\dot{x}(t) + A x(t) = 0\)</center>
-          has one and only one solution \(x:[0,\infty) \to X\) for a given initial value \(x(0) = x_0\).
-          In this case the solutions \(x\) depend continuously on the values \(x_0\).
-          <p>
-            The <i>Hille-Yosida theorem</i> gives the complete answer to this question.
-            My text on this theorem and its proof can be found
+            \[ \dot{x}(t) + A x(t) = 0 \]
+            has one and only one solution \(x:[0,\infty) \to X\) for a given initial value \(x(0) = x_0\).
+            In this case the solutions \(x\) depend continuously on the values \(x_0\).
+            The <i>Hille-Yosida theorem</i> gives the complete answer to this question,
+            and my text on this theorem and its proof can be found
             <a href="assets/documents/Hille_Yosida.pdf">here</a>.
           </p>
           <p>
@@ -1809,7 +1808,8 @@
           to solve linear and nonlinear partial differential equations.
           We can divide them up roughly into three categories:
           <ul>
-            <li>stationary problems governed by elliptic differential operators and often endowed with boundary conditions</li>
+            <li><mark onclick="displayArticle('stationary_problems')">Stationary Problems</mark> governed by elliptic differential operators,
+               often endowed with boundary conditions</li>
             <li>eigenvalue problems (in bounded domains)</li>
             <li>evolutional problems (especially transport, diffusion and propagation problems)</li>
           </ul>
@@ -1849,6 +1849,161 @@
               </li>
             </ul>
           </details>
+        </section>
+      </article>
+
+      <article id='stationary_problems' class='container'>
+        <h2>Stationary Problems</h2>
+        <section>
+          We are dealing with equations of the form \(L\,u = f\),
+          where \(L\) is a linear-elliptic partial differential operator,
+          the function \(f\) is the external source and \(u\) is the seeked function satisfying this equation.
+          By the usage of multi-indices,
+          a <i>linear partial differential operator</i> \(L\) of even order \(2m\)
+          is defined by
+          \( \begin{equation}
+            L(x,\,\cdot\,) =
+            \sum_{\mid{\alpha}\mid \leq 2m} c_{\alpha}(x) \, D^{\alpha} \quad \quad (x \in \Omega),
+          \end{equation} \)
+          the topological closure of a domain \(\Omega\),
+          which is nothing but an open and connected subset of an Euclidean space \(\mathbb{R}^d\).
+          This domain may be bounded or unbounded and even the whole of \(\mathbb{R}^d\).
+          We shall call \(L\) <i>essentially real</i>,
+          if the coefficients \(c_{\alpha}\) of highest order \(| \alpha | = 2m\) are real-valued.
+          Moreover,
+          the expression \(L\) is said to be
+          an <i>operator with constant coefficients</i>,
+          if all functions \(c_{\alpha}\) are constant in \(\overline{\Omega}\).
+          <p>
+            In case of \(\Omega = \mathbb{R}^d\) respectively \(\partial \Omega = \emptyset\),
+            where \(\partial \Omega := \overline{\Omega} \setminus \mathring{\Omega}\) is the boundary of \(\Omega\),
+            we denote the linear partial differential equation \(L \, u = f\)
+            a <i>free space problem</i>.
+            On the other hand,
+            partial differential equations considered in domains
+            with non-empty boundary are usually furnished with <i>boundary conditions</i>,
+            which fix possible solutions and their normal derivatives up to a certain order
+            in the boundary \(\partial \Omega\).
+            Thus,
+            when having in mind linear equations of the form \(L \,u = f\)
+            with imposed boundary conditions,
+            we shall speak of <i>linear boundary value problems</i>.
+          </p>
+          <p>
+            The most general form of a boundary value problem
+            posed in a domain \(\Omega \subsetneq \mathbb{R}^d\) is of the form
+            \(\begin{equation}
+              \begin{cases}
+              \quad L(x,u)   = f(x)   & (x \in \Omega),\\
+              \quad B_k(x,u) = g_k(x) & (x \in \partial \Omega, \quad k = 0,\ldots,m{-}1),\\
+              \end{cases}
+            \end{equation} \)
+            where 
+            \(B_0,\ldots,B_{m-1}\) are <i>boundary operators</i>
+            of order \(m_k \leq 2m{-}1\),
+            each of them given by the expression
+            \( \begin{equation}
+            B_k(x,u) :=
+            \sum_{\mid \alpha \mid \leq m_k} b_{k,\alpha}(x) \, D\,u(x).
+            \end{equation} \)
+          </p>
+          <p>
+            To introduce the boundary operators \(B_k\),
+            it is sufficent that the real or complex-valued functions \(b_{k,\alpha}\)
+            are defined in a neighbourhood of the boundary \(\partial \Omega\) only.
+            Then each operator \(B_k\) is a linear differential operator in its own right
+            that maps any sufficiently differentiable function
+            \(u: \overline{\Omega} \to \mathbb{C}\)
+            to a function \(B_k u \: \partial \Omega \to \mathbb{C}\)
+            belonging to a so-called <i>boundary space</i> \(B_k(\partial \Omega)\).
+          </p>
+          <p>
+            The collection \(\{B_k\}_{k=0}^{m-1}\) of boundary operators is said to be <i>homogeneous</i>
+            if \(B_k(x,\cdot) = 0\) for \(x \in \partial \Omega\) and \(k = 0,\ldots,m{-}1\).
+            Moreover,
+            it is denoted <i>normal</i> if
+          </p>
+
+          <ul style='list-style-type:none'>
+            <li>(N-1) \(m_i \neq m_j\) for \(i \neq j\),</li>
+            
+            <li>(N-2) for all \(\xi \neq 0\) being normally positioned in \(x \in \partial \Omega\)
+            we have
+            \[ \sum_{\mid {\alpha} \mid = m_k} b_{k,\alpha}(x) \, \xi^{\alpha} \neq 0
+            \quad \quad (k=0,\ldots,m{-}1).
+            \] </li>
+          </ul>
+            
+          <p>
+            Finally,
+            our collection of boundary operators is called a <i>Dirichlet system</i>,
+            if it is normal and the values \(m_k\) form a permutation
+            of the set \(\{0,\ldots,m{-}1\}\),
+            so one may reorder the operators \(B_k\) to obtain \(m_k = k\)
+            (\(0 \leq k \leq m{-}1\)).
+            The most regarded set of boundary conditions in applications
+            is the <i>homogeneous Dirichlet system</i>
+            \begin{equation}\label{HOMOGENEOUS_DIRICHLET_SYSTEM}
+            B_k(x,u) := (\partial_{\nu}^k u)(x) = 0
+            \end{equation}
+            for \(x \in \partial \Omega\) and \(k = 0,\ldots,m{-}1\),
+            where \((\partial_{\nu}^k u)(x)\) is the \(k\)-th derivative of a function \(u\)
+            along the outer normal vector \(\nu\) in \(x \in \partial \Omega\).
+          </p>
+          <p>
+            If the set of boundary conditions in our problem is a Dirichlet system,
+            then we denote any solution \(u : \overline{\Omega} \to \mathbb{C}\) <i>classical</i>,
+            if
+          </p>
+
+          <ul style='list-style-type:none'>
+            <li>(a) \(u \in C^{2m}(\Omega) \, \cap \, C^{m-1}(\overline{\Omega})\),</li>
+            <li>(b) \(u\) fullfills \(L(x,u) = f(x)\) in each \(x \in G\) and</li>
+            <li>(c) the \(m{-}1\) equations \(B_k(x,u) = g_k(x)\) hold
+                       in every \(x \in \partial \Omega\).</li>
+          </ul>
+            
+          <p>
+            Especially to each <i>second-order</i> boundary value problem
+            there is assigned exactly one boundary operator \(B_0\),
+            hence the problem becomes into
+            \begin{equation}
+            \begin{cases}
+            \quad L(x,u)   = f(x)   & (x \in \Omega),\\
+            \quad B_0(x,u) = g_0(x) & (x \in \partial \Omega).\\
+            \end{cases}
+            \end{equation}
+          </p>
+          <p>
+            Boundary value problems of this form 
+            and governed by a linear partial differential operator \(L\) of second order
+            are obtained by various boundary operators \(B_0\).
+            We denote
+          </p>
+            
+          <ul style='list-style-type:none'>
+            <li>(BC-1)
+            \(\; B_0(x,u) = u(x)\) for \(x \in \partial \Omega\) a <i>Dirichlet condition</i>,</li>
+            
+            <li>(BC-2)
+            \(\; B_0(x,u) = u_{\nu}(x)\) for \(x \in \partial \Omega\) a <i>Neumann condition</i>,</li>
+            
+            <li>(BC-3)
+            \(\; B_0(x,u) = \alpha(x)u(x)+\beta(x) u_{\nu}(x) = 1\) for \(x \in \partial \Omega\)
+            a <i>Robin condition</i>,
+            where the functions \(\alpha, \beta\) must fulfill 
+            \[
+            \alpha(x)^2 + \beta(x)^2 \neq 0 \quad \quad (x \in \partial \Omega).
+            \]</li>
+          </ul>
+
+          <p>
+            Due to physical reasons,
+            one often has to split the boundary set \(\partial \Omega\)
+            into disjoint subsets \(\Gamma_1,\Gamma_2,\Gamma_3\),
+            on which (BC-1), (BC-2) and (BC-3) are prescribed.
+            In this case we want to speak of <i>mixed</i> boundary value problems.
+          </p>
         </section>
       </article>
 
@@ -1912,7 +2067,7 @@
 --------------------------------------------------------------------------------->
     <footer id='footer'>
       <hr><hr>
-      © Copyright 2026 by <i>Klaus Höflinger</i> (latest change:&thinsp;01/11/2026).
+      © Copyright 2026 by <i>Klaus Höflinger</i> (latest change:&thinsp;02/11/2026).
       &nbsp;&nbsp;&nbsp;
       <button onclick="displayArticle('home')"     >Home</button>
       <button onclick="displayArticle('about_me')" >About me</button>
