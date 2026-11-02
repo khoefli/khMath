@@ -61,95 +61,99 @@
 %------------------------------------------------------------------------------%
 Basically,
 a \textit{distribution} can be seen as a generalization of a function.
-The corresponding subject in {\FA},
+The corresponding subject in functional analysis,
 called the \textit{theory of distributions},
 was developed by \textsc{L.\,Schwartz} in the midth of the 20th century
 to describe ideas and concepts of theoretical physics
 by an exact mathematical formalism.
-Distribution theory can be seen as a direct application
-of the theory of locally convex spaces, continuous linear functionals and
-transposed linear operators.
+From the functional analysis point of view,
+distribution theory relies mainly on the concepts
+of locally convex topological linear space,
+continuous linear functional and adjoint linear operator.
 
 %------------------------------------------------------------------------------%
-\section{Continuous Linear Operators Revisited}                                %
+\section{Continuous Linear Operators}                                          %
 %------------------------------------------------------------------------------%
 As for normed spaces,
 the notion of \textit{continuity} is of fundamental interest
-for linear operators between topological linear spaces $\vecV$ and $\vecW$.
-A linear operator $\linA \: \vecV \xto \vecW$ is continuous
+for linear operators between topological linear spaces.
+Let $\vecV$ and $\vecW$ be topological linear spaces with underlying field 
+$\R$ or $\C$.
+Then a  linear operator $\linA \: \vecV \xto \vecW$ is continuous
 \iff
 it is continuous in $0 \xeof \vecV$ or in any other point $x \neq 0$.
-But continuity is not equivalent to boundedness in this general setting.
+But continuity of $\linA$ is not equivalent to boundedness
+in this more general setting.
 
-\subsubsection*{} % continuous linear maps between topological linear spaces
-If $\vecV$ and $\vecW$ are topological linear spaces,
-then $\vecV$ is called \textit{continuously embedded} into $\vecW$,
+\paragraph{} %-- continuous linear maps between topological linear spaces
+The space $\vecV$ is called \textit{continuously embedded} into the space $\vecW$,
 if there is an injective and continuous linear operator
 $\iota \: \vecV \xto \vecW$.
 In addition,
 if this mapping is surjective and both spaces are {\FRECHET},
 then the \textit{open mapping theorem} claims that $\iota^{-1}$ is continuous,
 too,
-and therefore forms a \textit{linear homeomorphism}
+hence both mappings $\iota$ and $\iota^{-1}$ are \textit{linear homeomorphisms}
 between these spaces (notation: $\vecV \cong \vecW$).
 
-\subsubsection*{} % transposed operators in topological linear spaces
-The concept of \textit{transposed operator} is useful to generalize the domains
+\subparagraph{} %-- adjoint operators in topological linear spaces
+The concept of \textit{adjoint operator} is useful to generalize the domains
 of linear partial differential operators and Fourier transformation
 to the very extensive spaces of distributions.
 Let $\vecV$ and $\vecW$ be locally convex and $\vecV^*, \vecW^*$
 the dual spaces of them.
 Given a continuous linear operator $\linA \: \vecV \xto \vecW$,
 each linear functional $f \xeof \vecW^*$ gives rise to
-a linear functional $g \xeof \vecV^*$ by the composition $g:= f \circ \linA$.
+a linear functional $g \xeof \vecV^*$ by the composition $g := f \circ \linA$.
 The assignment $f \mapsto g$ induces a continuous mapping
-$\linA^t \, \: \vecW^* \xto \vecV^*$,
+$\linA^* \, \: \vecW^* \xto \vecV^*$,
 called the \textit{trans\-posed operator} of $\linA$.
 One says that
 the continuous linear functional $g$ is the \textit{pullback} of $f$
 along the operator $\linA$.
 
-\subparagraph*{}
-The transposed operator $\linA^t$ is also linear.
+\subparagraph{}
+The adjoint operator $\linA^*$ is also linear.
 If $\vecV, \vecW$ are locally convex linear spaces
 and $\linA \: \vecV \xto \vecW$ is continuous,
-then $\linA^t$ is injective
+then $\linA^*$ is injective
 if and only if $\range{\linA} $ is dense in $\vecW$.
 If $\linA$ is bijective,
-then $\linA^t$ is bijective, too,
-and its inverse $(\linA^t)^{-1}$ is the trans\-posed of $\linA^{-1}$.
+then $\linA^*$ is bijective, too,
+and its inverse ${\linA^*}^{-1}$ is the adjoint of $\linA^{-1}$.
 
-\subparagraph*{}
+\subparagraph{}
 Finally,
 if $\vecV$ and $\vecW$ are {\FRECHET} spaces,
 then the solvability of the linear equation $\linA x \eq y$ 
-is related to certain properties of the transposed operator $\linA^t$:
-the linear operator $\linA \: \vecV \xto \vecW$ is surjective
+is related to certain properties of the operator $\linA^*$:
+in fact,
+the operator $\linA \: \vecV \xto \vecW$ is surjective
 iff
-$\linA^t$ is injective and $\range{\linA^t} $ is closed in $\vecV^*$.
+$\linA^*$ is injective and $\range{\linA^*} $ is closed in $\vecV^*$.
 
 %------------------------------------------------------------------------------%
 \section{Distributions}                                                        %
 %------------------------------------------------------------------------------%
-The space $\TF$ of test functions is of fundamental meaning
+The space $\TF$ of \textit{test functions} is of fundamental meaning
 in distribution theory.
 Recall that this space forms a linear subspace of $\SF$
 consisting of smooth functions with \textit{compact} support
 \[
-\supp{\,\phi} \, := \, \overline{\{x \xeof \G: \phi(x) \neq 0\,\} }.
+\supp{\,\phi} \eqdef \overline{\{x \xeof \G: \phi(x) \neq 0\,\} }.
 \]
 There is neither a countable family of seminorms
 making $\TF$ into a {\FRECHET} space nor there is a metric making 
 $\TF$ into a F-space.
 
-\subparagraph*{}
+\subparagraph{}
 But it is still possible to define a locally convex topology $\topT$ on $\TF$
 such that this space is complete in the sense of a topological linear space.
 Instead of saying how the open sets of this topology $\topT$ look like,
 we define $\topT$ by means of a suitable concept of convergence,
 known as $\D$-convergence in $\TF$.
 
-\subparagraph*{}
+\subparagraph{}
 A sequence $(\phi_n)$ in $\TF$ is said to be convergent to $\phi \xeof \TF$,
 if there is a compact set $K \xsubset \G$
 such that
@@ -169,12 +173,12 @@ that is,
 the space $\D(\G)$ is continuously embedded into the space $\E(\G)$
 {\wrt} their locally convex topologies.
 
-\subsubsection*{} % linear functionals on the space of test functions
+\paragraph{} %-- linear functionals on the space of test functions
 The benefit of the function space $\TF$ relies on the fact that,
 due to the smoothness and compact support property of its elements,
 the integral
 \begin{equation}\label{REGULAR_DISTRIBUTION}
-\disF_f(\phi) \, := \, \int_{\,\G} f \, \phi \, dx, \quad \quad \phi \xeof \TF
+\disF_f(\phi) \eqdef \int_{\,\G} f \, \phi \, dx, \quad \quad \phi \xeof \TF
 \end{equation}
 is well defined for a multiplicity of real or complex-valued functions $f$.
 The largest class of functions
@@ -190,7 +194,7 @@ Moreover,
 if $\mu$ is a positive measure on $\G$,
 the integral
 \begin{equation}\label{RADON_DISTRIBUTION}
-\disF_{\mu}(\phi) \, := \, \int_{\,\G} \phi \, d\mu, \quad \, \phi \xeof \TF
+\disF_{\mu}(\phi) \eqdef \int_{\,\G} \phi \, d\mu, \quad \, \phi \xeof \TF
 \end{equation}
 especially makes sense for all the Radon measures $\mu$ on $\G$,
 since such measures are finite on compact sets by definition.
@@ -199,7 +203,7 @@ as defined in \eqref{REGULAR_DISTRIBUTION} and \eqref{RADON_DISTRIBUTION}
 act linearly on $\TF$ and hence give rise to linear functionals.
 But both of them are also continuous on the topological linear space $\D(\G)$.
 
-\subsubsection*{} % Schwartz distributions
+\paragraph{} %-- Schwartz distributions
 Let us denote each continuous linear functional $\disF \: \D(\G) \xto \C$ 
 a \textit{Schwartz distribution}.
 We call $\D'(\G)$ the dual space of $\D(\G)$,
@@ -211,7 +215,7 @@ is denoted a Schwartz distribution,
 if $\disF(\phi_n) \xto 0$ for any $\D$-convergent sequence $(\phi_n)$
 converges to the zero function.
 
-\subparagraph*{}
+\subparagraph{}
 As already mentioned,
 all linear functionals derived from locally integrable functions
 and Radon measures are continuous and therefore Schwartz distributions.
@@ -222,7 +226,7 @@ amongst others the functions
 belonging to the well-known spaces $\Lp$, $\Li$, $C(\G)$,
 $C(\clG)$ and $C_0(\G)$.
 
-\subparagraph*{}
+\subparagraph{}
 A distribution is said to be \textit{regular},
 if it is the continuous linear functional $\disF_f$
 induced by a locally integrable function $f$,
@@ -230,18 +234,18 @@ otherwise it is called \textit{singular}.
 Well-known examples of singular distributions are
 the \textit{Dirac distributions}
 \[
-\delta_a(\phi) \, := \, \phi(a)
+\delta_a(\phi) \eqdef \phi(a)
 \qfa \phi \xeof \TF
 \quad \quad  (a \xeof \G).
 \]
 
-\subsubsection*{} % space of distributions with compact support
+\paragraph{} %-- space of distributions with compact support
 Regarding the space $\E(\G)$,
 which is the space $\SF$ in the locally convex topology
 induced by the family of seminorms
 \[
 \abs{\phi} _{N,n}
-\, := \,
+\eqdef
 \max_{x \xeof K_n} \;
 \{ \, \abs{\, (\PA \phi)(x) \,} : \abs{\alpha} \leq N \}
 \quad \quad (N,n \xeof \N)
@@ -262,7 +266,7 @@ such that
 $\disF \phi \eq 0$ for all smooth functions $\phi$
 having support in $\G \setminus K_F$.
 
-\subparagraph*{}
+\subparagraph{}
 The denotation for this class of distributions is motivated as follows:
 if $\disF_f \xeof \E'(\G)$ is regular,
 then the function $f \xeof \Lc$ related to $\disF_f$
@@ -287,11 +291,11 @@ if the notion of \textit{convolution} between elements
 of the spaces $\D'(\Rd)$ and $\E'(\Rd)$ has been introduced
 as far as possible.
 
-\subparagraph*{}
+\subparagraph{}
 The convolution $\phi \ast \psi$ of functions $\phi, \psi \xeof \SRd$
-is defined according to
+is defined by
 \[
-(\phi \ast \psi) (x) \, := \, \int_{\,\Rd} \phi(y) \, \psi(x-y) \, dy
+(\phi \ast \psi) (x) \eqdef \int_{\,\Rd} \phi(y) \, \psi(x-y) \, dy
 \]
 and always exists,
 hence the space of Schwartz functions forms an algebra
@@ -301,10 +305,10 @@ convolution between a regular distribution
 $\disF_f \xeof \D'(\Rd)$ and a test function $\phi \xeof \D(\Rd)$
 is similarly defined:
 \[
-(\disF_f \ast \phi) (x) \, := \, \int_{\,\Rd} f(y) \, \phi(x-y) \, dy.
+(\disF_f \ast \phi) (x) \eqdef \int_{\,\Rd} f(y) \, \phi(x-y) \, dy.
 \]
 
-\subparagraph*{}
+\subparagraph{}
 More general,
 the convolution $\disF * \disG$ of distributions
 $\disF, \disG \xeof \D'(\Rd)$ exists,
@@ -318,7 +322,7 @@ K_{\disF,\disG} :=
 is compact, too.
 In this case we may define the convolution $\disF \ast \disG$ according to
 \[
-(\disF \ast \disG) \, \phi \, := \,
+(\disF \ast \disG) \, \phi \eqdef
 \iint \limits_{\compK_{\disF,\disG}}
 \disF(x)\,\disG(y)\,\phi(x+y) \, dx \, dy, \quad \phi \xeof C_c^{\infty}(\Rd).
 \]
@@ -332,9 +336,9 @@ is compactly supported.
 Notice also that
 convolution on the space $\D'(\Rd)$ is commutative, if exists.
 
-\subparagraph*{}
+\subparagraph{}
 Especially the convolution between $\disF \xeof \D'(\G)$
-and the Dirac distribution $\delta_0$ always exists and
+and the special distribution $\delta_0$ always exists and
 satisfies the equation $\disF \ast \delta_0 \eq \disF$,
 thus $\delta_0$ serves as identity element of this operation.
 But convolution is also associative,
@@ -345,12 +349,12 @@ hence for distributions $\disF, \disG, \disH \xeof \D'(\Rd)$ the equality
 holds provided that
 the involved convolutions involved exist.
 
-\subparagraph*{}
+\subparagraph{}
 Besides the notion of convolution one also requires
 that of \textit{tensor product} between distributions.
 Tensor products are useful to transform an inital value
 of a distributional differential equation
-into an inhomogeneous part of that equation.
+into an inhomogeneous part of this equation.
 Based on the fact
 that for $\phi \xeof \D(\R^{d_1})$ and $\psi \xeof \D(\R^{d_2})$ 
 the tensor product $\phi \otimes \psi$ defined by
@@ -382,27 +386,27 @@ that is
  \disF \otimes (\disG \otimes \disH).
 \]
 
-\subparagraph*{}
+\subparagraph{}
 Let $\PA$ be the elementary differential expression
 given by the multi-index $\alpha$.
 Then $\PA$ is a continuous linear operator $\PA \:\D(\G) \xto \D(\G)$,
 due to the fact
 that the space $\D(\G)$ is endowed with a very fine topology.
 
-\subparagraph*{}
+\subparagraph{}
 The action $\PA_{\D}$ of the expression $\PA$
 on the distributional space $\D'(\G)$
 is defined by transposition of the \textit{formally adjoint} expression
 $(\PA)^* := (-1)^{\alpha} \PA$,
 or equivalently
 \begin{equation}\label{DISTRIBUTIONAL_DERIVATIVE}
-(\PA_{\D} \disF) \, \phi \, := \, \disF((\PA)^* \phi)
+(\PA_{\D} \disF) \, \phi \eqdef \disF((\PA)^* \phi)
 \= (-1)^{\abs{\alpha} } \, \disF(\PA \phi)
 \end{equation}
 for all $\disF \xeof \D'(\G)$ and $\phi \xeof \D(\G)$.
 
-\subparagraph*{}
-It should be emphasized
+\subparagraph{}
+It should be noted
 that this definition is chosen in order
 to obtain compatibility with possible classical derivatives
 of \textit{regular} distributions.
@@ -412,7 +416,7 @@ by a differentiable function $f \:\G \xto \C$
 as defined in \eqref{REGULAR_DISTRIBUTION},
 then $\PA_{\D} F_f \eq F_{\PA f}$ holds.
 
-\subparagraph*{}
+\subparagraph{}
 The mapping $\disF \mapsto \PA_{\D} \disF$ proves to be continuous
 on the Schwartz space $\D'(\G)$.
 We also have the following compatibility rules
@@ -428,7 +432,7 @@ between convolutions and tensor products:
  \disF \otimes (\PA_{\D} \disG).
 \]
 
-\subsubsection*{} % Schwartz space
+\paragraph{} %-- Schwartz space
 We continue with the introduction of the \textit{Schwartz space} $\SRd$,
 the linear space of all smooth functions $\phi \xeof C^{\infty}(\Rd)$
 having the additional property
@@ -444,20 +448,20 @@ Hence Schwartz functions and all their derivatives vanish at infinity
 faster then the reciprocal of any polynomial.
 The most famous example of a Schwartz function is the Hermite function
 \[
-\cal{H}_0(x) \, := \, e^{- \frac{\abs{x} ^2}{2}}, \quad x \xeof \Rd.
+\cal{H}_0(x) \eqdef e^{- \frac{\abs{x} ^2}{2}}, \quad x \xeof \Rd.
 \]
 
-\subparagraph*{}
+\subparagraph{}
 Rather similar to the space $\SF$,
 one can find for the Schwartz space $\SRd$
 a family of seminorms as follows:
 define for $\phi \xeof C^{\infty}(\Rd)$ and multi-indices $\alpha, \beta$
 \begin{equation}\label{X_SRN_FAMILY_OF_SEMINORMS}
-p_{\alpha,\beta}(\phi) \, := \,
+p_{\alpha,\beta}(\phi) \eqdef
 \sup_{x \xeof \Rd} \abs{ \, x^{\alpha} \partial^{\beta} \phi(x) \, } .
 \end{equation}
 
-\subparagraph*{}
+\subparagraph{}
 Then $\phi$ is a Schwartz function
 iff $p_{\alpha,\beta}(\phi) < \infty$
 holds for all multi-indices $\alpha, \beta$.
@@ -468,7 +472,7 @@ Moreover,
 since the Schwartz space is complete {\wrt} $\topT_{\mathscr{S}}$,
 it actually forms a \textit{{\FRECHET} space}.
 
-\subparagraph*{}
+\subparagraph{}
 Comparing the Schwartz space $\SRd$ with the function spaces
 $\D(\Rd)$ and $\E(\Rd)$,
 it is easy to see that there is the chain of inclusions
@@ -479,7 +483,7 @@ Moreover,
 by comparing the locally convex topologies of these spaces,
 it turns out that these inclusions are actually continuous.
 
-\subsubsection*{} % space of tempered distributions
+\paragraph{} %-- space of tempered distributions
 Similar to the spaces $\D(\G)$,
 we introduce the concept of \textit{tempered distribution}
 as a continuous linear functional $T \:\SRd \xto \C$.
@@ -487,7 +491,7 @@ The space of tempered distributions is usually denoted $\TD$.
 A tempered distribution generalizes the class of bounded and slow-growing
 locally integrable functions.
 
-\subparagraph*{}
+\subparagraph{}
 The following criterion determines
 under which conditions a linear functional $f$ on $\SRd$
 forms a tempered distribution:
@@ -502,7 +506,7 @@ C \cdot \sum_{\abs{\alpha} \leq l, \abs{\beta} \leq m} \, p_{\alpha,\beta}(\phi)
 where the functions $p_{\alpha,\beta}$ are the seminorms
 defined by \eqref{X_SRN_FAMILY_OF_SEMINORMS}.
 
-\subsubsection*{} % comparison of distributional spaces
+\paragraph{} %-- comparison of distributional spaces
 Comparing the known kinds of distributional spaces,
 we obtain a chain of inclusions,
 which is dual to that of the base spaces:
@@ -520,7 +524,8 @@ which in turn gives rise to a Schwartz distribution.
 %------------------------------------------------------------------------------%
 In this section we shall elaborate that Fourier transformation can be
 extended to the space $\TD$ of tempered distributions.
-\subparagraph*{}
+
+\subparagraph{}
 First notice 
 that the Fourier transform $\hat{\phi}$
 of a Schwartz function $\phi \xeof \SRd$ is well defined,
@@ -537,7 +542,7 @@ $\hat{\phi} \xeof \SRd$ according to the well-known formula
 \quad (x \xeof \Rd).
 \end{equation}
 
-\subparagraph*{}
+\subparagraph{}
 The extraordinary meaning of Schwartz functions is founded by the fact that
 the Fourier transformation has excellent properties on the space $\SRd$.
 More precisely,
@@ -553,12 +558,12 @@ and is described by the \textit{Fourier inversion formula}
 \quad \quad (\xi \xeof \Rd).
 \]
 
-\subparagraph*{}
+\subparagraph{}
 We next extend Fourier transformation in $\SRd$ to the space $\TD$
 of tempered distributions by transposition,
 that is
 \[
-(\FT \disT) \, \phi \, := \, \disT(\FT \phi),
+(\FT \disT) \, \phi \eqdef \disT(\FT \phi),
 \quad \quad \; \phi \xeof \SRd, \; \disT \xeof \TD.
 \]
 This mapping is bijective in the space $\TD$
@@ -566,18 +571,18 @@ and even continuous {\wrt} the weak*-topology on $\TD$.
 The inverse Fourier transform of a tempered distribution $\disT$
 is represented by the formula
 \[
-\FT^{-1}(\disT)(\phi) \, := \, \disT(\FT^{-1} \phi)
-\quad \quad (\phi \xeof \SRd).
+\FT^{-1}(\disT)(\phi) \eqdef \disT(\FT^{-1} \phi)
+\quad \quad (\phi \xeof \Rd).
 \]
 For example,
 the Fourier transform $\FT(\delta_0)$ of the Dirac distribution
 $\delta_0 \xeof \cal{S}'(\R)$ is the continuous linear functional
 \[
-\FT(\delta_0)(\phi) \, := \,
+\FT(\delta_0)(\phi) \eqdef
 \delta_0(\FT(\phi)) \= \hat{\phi}(0) \=
-\frac{1}{\sqrt{2\pi}} \, \int_{\,\R} \phi(x) \, dx,
-\quad \phi \xeof \SR1\,,
+\frac{1}{\sqrt{2\pi}} \, \int_{\,\R} \phi(x) \, dx
 \]
+with $\phi \xeof \SR1$,
 so $\FT(\delta_0)$ is nothing but the distribution induced by
 the constant function $x \mapsto \frac{1}{\sqrt{2\pi}}$.
 
@@ -590,7 +595,7 @@ First recall
 that if $\psi \xeof \SF$ and $\disF \xeof \D'(\G)$,
 then $\psi \disF$ defined by
 \[
-(\psi \disF) \phi \, := \, \disF (\psi \phi), \quad \quad \phi \xeof \TF
+(\psi \disF) \phi \eqdef \disF (\psi \phi), \quad \quad \phi \xeof \TF
 \]
 also belongs to $\D'(\G)$. 
 This implies that the linear differential operators $c_{\alpha} \, \PA$ 
@@ -601,22 +606,21 @@ By taking linear combinations of such operators,
 we conclude that the action
 of a linear partial differential operator
 \[
-\DO(x,u) \, := \,
-\sum_{\abs{\alpha} \leq 2m} c_{\alpha}(x) \; \PA u(x)
+\DO(x,u) \eqdef \sum_{\abs{\alpha} \leq 2m} c_{\alpha}(x) \; \PA u(x)
 \]
 having smooth coefficients and acting on the space $\D'(\G)$ is well-defined,
 which of course is especially true in case of $\G \eq \Rd$.
 
-\subsubsection*{} % definition of fundamental solution
+\paragraph{} %-- definition of fundamental solution
 In the following we introduce the concept of \textit{fundamental solution}
 for a linear partial differential operators $\DO$
 having smooth coefficients $c_{\alpha}$.
 It is nothing but a distribution $\Phi_{\DO} \xeof \D'(\Rd)$
 that forms a solution of the differential equation
 $\DO \Phi_{\DO} \eq \delta_0$,
-where $\delta_0$ is the Dirac distribution {\wrt} the origin $x=0$.
+where $\delta_0$ is the Dirac distribution {\wrt} the origin $x \eq 0$.
 
-\subparagraph*{}
+\subparagraph{}
 It is useful to know a fundamental solution of $\DO$
 as the following computation shows:
 let $\disF \xeof \D'(\Rd)$ be any Schwartz distribution and consider the
@@ -635,7 +639,7 @@ Notice that
 there is a distributional solution $\disU$ of this equation
 especially for all distributions $\disF$ having compact support.
 
-\subparagraph*{}
+\subparagraph{}
 The fundamental solution of a linear differential operator
 need not be unique,
 which can be showed by the following example:
@@ -644,7 +648,7 @@ $\DO \, \disU \eq 0$,
 then the distribution $\Phi_{\DO} + \disU\,$
 is a fundamental solution of $\DO$, too.
 
-\subsubsection*{} % Malgrange-Ehrenpreis theorem
+\paragraph{} %-- Malgrange-Ehrenpreis theorem
 Regarding the existence of fundamental solutions for linear 
 differential operators,
 the \textsc{Malgrange-Ehrenpreis} \textit{theorem}
@@ -658,13 +662,13 @@ has a fundamental solution in the distributional space $\D'(\Rd)$.
 
 %\input{PROOF_MALGRANGE-EHRENPREIS_THEOREM}
 
-\subparagraph*{}
+\subparagraph{}
 It should be mentioned 
 that there are counterexamples which demonstrate
 that this theorem is not valid for differential operators
 whose coefficients are non-constant.
 
-\subsubsection*{} % examples of fundamental solutions
+\paragraph{} %-- examples of fundamental solutions
 In the following we describe the fundamental solutions
 of three linear differential operators,
 namely
@@ -718,7 +722,7 @@ When investigating the fundamental solutions
 of the hyperbolic \textit{wave operator} $\Box := \partial_{tt} - \Delta u$,
 one has to distinguish between even and odd spatial dimensions.
 
-\subparagraph*{}
+\subparagraph{}
 Let $H$ be the \textit{Heaviside function},
 defined by $H(t) := 0$ for $t<0$ and $H(t) := 1$ for $t \geq 0$.
 Then we obtain for $d \leq 3$ 
@@ -731,7 +735,7 @@ Then we obtain for $d \leq 3$
 \end{cases}
 \]
 
-\subparagraph*{}
+\subparagraph{}
 It is a notable fact
 that all the higher fundamental solutions of the wave operator
 can be derived from the functions $\Phi_{\Box}^1$ and $\Phi_{\Box}^2$.
@@ -745,19 +749,19 @@ the functions $\Phi_{\Box}^{d+2}$ ($d \xeof \N$) are recursively given by
 To determine the support of a fundamental solution $\Phi_{\Box}^d$,
 we first define for fixed $x_0 \xeof \Rd$ the \textit{light cone}
 \[
-C^+(x_0) \, := \, \{(t,x): t > 0, \abs{x-x_0} < t \}
+C^+(x_0) \eqdef \{(t,x): t > 0, \abs{x-x_0} < t \}
 \]
 and obtain the support of the fundamental solution according to
 \[
 \supp{\Phi_{\Box}^d} \=
 \begin{cases}[1.5]
 \quad \partial C^+(0),   \quad     d \mbox{ odd  or } d \geq 3,\\
-\quad \overline{C^+(0)}, \quad\;\; d \mbox{ even or } d=1.\\
+\quad \overline{C^+(0)}, \quad\;\; d \mbox{ even or } d =    1.\\
 \end{cases}
 \]
 \end{itemize}
 
-\subsubsection*{} % hypoelliptic differential operators
+\paragraph{} %-- hypoelliptic differential operators
 A linear differential operator $\DO$ is called \textit{hypoelliptic},
 if {\wrt} the linear differential equation $\DO u \eq f$
 the condition $f \xeof \SF$ implies $u \xeof \SF$.
@@ -771,7 +775,7 @@ where $\disF_f$ is a regular distribution
 with generating function $f$ being indefinitely differentiable
 in every $x \neq 0$.
 
-\subparagraph*{}
+\subparagraph{}
 We next introduce the concept of \textit{singular support} $\Sigma(\disF)$
 for $\disF \xeof \D'(\Rd)$:
 it is the smallest subset $S \xeof \Rd$
@@ -786,7 +790,7 @@ is hypoelliptic
 $\,\Sigma(\DO_c \, \disF) \eq \Sigma(\disF)$ for all $\disF \xeof \D'(\Rd)$.
 \end{theorem}
 
-\subparagraph*{}
+\subparagraph{}
 Knowing the fundamental solutions of the elliptic operator $\Delta$ and
 the parabolic heat operator $\partial_t-\Delta$,
 it turns out that both operators are hypoelliptic.
@@ -809,7 +813,7 @@ The \textit{Poisson equation} in the entire space $\Rd$ is given by
 \Delta \, u \= - 4\pi \,f, \quad f \xeof C(\Rd).
 \end{equation}
 
-\subsubsection*{} % Poisson equation
+\paragraph{} %-- Poisson equation
 A function $u \:\Rd \xto \R$ is called a \textit{classical solution}
 of \eqref{CLASSICAL_POISSON_EQUATION},
 if it is twice continuously differentiable
@@ -823,7 +827,7 @@ if
 \end{equation}
 holds in the sense of distributions.
 
-\subparagraph*{}
+\subparagraph{}
 Let $\Phi_{\Delta}$ be the fundamental solution of the Laplacian.
 If the convolutional product $\Phi_{\Delta} \ast \disF$ exists,
 which is especially true for each regular distribution $\disF_f$
@@ -833,8 +837,8 @@ is obtained by convolution,
 that is,
 $\disU \eq \Phi_{\Delta} \ast \disF$.
 
-\subparagraph*{}
-For the physically interesting case $d=3$
+\subparagraph{}
+For the physically interesting case $d \eq 3$
 and for $f \xeof C_c(\R^3)$ we get a classical solution $u_f$,
 called the \textit{Newton potential} for the function $f$:
 \[
@@ -852,7 +856,7 @@ the inital value problem
 \end{cases}
 \end{equation}
 
-\subsubsection*{} % heat equation
+\paragraph{} %-- heat equation
 We first define the concept of distributional solution
 for problem \eqref{CLASSICAL_HEAT_EQUATION}:
 let $\disU_0 \xeof \D'(\Rd)$ and $\disF \xeof \D'(\R^{d+1})$ are
@@ -867,7 +871,7 @@ where $\delta_0 \xeof \D'(\R)$ is the Dirac distribution.
 Here the initial condition of the problem has been transformed
 into an inhomogeneous part of the differential equation.
 
-\subparagraph*{}
+\subparagraph{}
 The existence of a solution for \eqref{DISTRIBUTIONAL_HEAT_EQUATION}
 is ensured,
 if $\disU_0 \xeof \E'(\Rd)$ and $\disF \xeof \E'(\R^{d+1})$.
@@ -880,7 +884,7 @@ with the inhomogeneous parts of \eqref{DISTRIBUTIONAL_HEAT_EQUATION},
 \Phi_d \ast \disF \, + \, \Phi_d \ast \disU_0.
 \]
 
-\subparagraph*{}
+\subparagraph{}
 Given a classical solution $u$ of \eqref{CLASSICAL_HEAT_EQUATION},
 the related Schwartz distribution $\disF_u$ is a solution
 in the distributional sense.
@@ -914,14 +918,14 @@ is given by
 \end{cases}
 \end{equation}
 
-\subsubsection*{} % wave equation
+\paragraph{} %-- wave equation
 As for the heat equation,
 we define for \eqref{CLASSICAL_WAVE_EQUATION}
 the concept of distributional solution,
 where again both initial value conditions are transformed
 into inhomogeneous parts of the equation by means of tensor products.
 
-\paragraph*{}
+\subparagraph{}
 Let $\disU_0 \xeof \D'(\Rd)$, $\disU_1 \xeof \D'(\Rd)$
 and $\disF \xeof \D'(\R^{d+1})$ be distributions,
 then $\disU$ is called a distributional solution
@@ -931,11 +935,11 @@ if
 \disU_{tt} - \Delta \disU \=
 \disF + \disU_0 \otimes \delta_0' \, + \, \disU_1 \otimes \delta_0 \,,
 \end{equation}
-where $\delta_0$ is the Dirac distribution for $t=0$ 
+where $\delta_0$ is the Dirac distribution for $t \eq 0$ 
 and $\delta_0'$ is the distributional derivative of $\delta_0$
 {\wrt} the variable $t$.
 
-\subparagraph*{}
+\subparagraph{}
 Since the support of the function
 $\disU_0 \, \otimes \, \delta_0' \, + \, \disU_1 \, \otimes \, \delta_0$
 belongs to the set $\R^{d+1}$,
@@ -953,7 +957,7 @@ $
 which in fact solves the distributional differential equation
 \eqref{DISTRIBUTIONAL_WAVE_EQUATION}.
 
-\subparagraph*{}
+\subparagraph{}
 Each classical solution of \eqref{CLASSICAL_WAVE_EQUATION}
 is also a distributional solution.
 However,
@@ -992,7 +996,7 @@ we always have
 i \, x_k \phi(x) \, \overset{\FT}{\longmapsto}
 \, \partial_k \, \hat{\phi}(\xi)\,,
 \]
-for $k=1,\ldots,d$,
+for $k \eq 1,\ldots,d$,
 as one can verify by partial integration.
 For any linear differential operator $\DO_c$
 with constant coefficients $c_{\alpha}$
@@ -1014,7 +1018,7 @@ is conjugated to its symbol function $S_{\DO_c}$ in the sense of
 \qfa \phi \xeof \SRd.
 \]
 
-\subsubsection*{} % the general usage of the Fourier transform in PDE theory
+\paragraph{} %-- the general usage of the Fourier transform in PDE theory
 We want incident
 how Fourier transformation can be used
 to solve linear differential equations in the whole space $\Rd$
@@ -1026,7 +1030,7 @@ Once these are solved,
 inverse Fourier transformation is applied
 to get the solution of the original problem.
 
-\subparagraph*{}
+\subparagraph{}
 Two examples for these methods will be presented.
 In the first one,
 the bijectivity of Fourier transformation on the Schwartz space
@@ -1076,14 +1080,14 @@ P_{\DO_c}(i \xi) \= P_{\DO_c^*}(-\xi)
 \]
 holds,
 the formally adjoint operator $\DO_c^*$
-is bijective on $\SRd$ and so its transposed operator
-$\DO_c \eq (\DO_c^*)^t$ is bijective on the dual space $\TD$.
+is bijective on $\SRd$ and so its adjoint operator
+$\DO_c \eq (\DO_c^*)^*$ is bijective on the dual space $\TD$.
 Thus,
 if \eqref{SYMBOL_CONDITION} is valid,
 the equation $\DO_c \, \disU \eq \disF$
 is uniquely solvable for each tempered distribution $\disF$.
 
-\subparagraph*{}
+\subparagraph{}
 Especially for the differential operator 
 $\Delta{_\lambda} := -\Delta + \lambda$ and $\lambda > 0$ we obtain
 \[
@@ -1099,7 +1103,7 @@ u(x) \=
 \]
 \end{itemize}
 
-\subsubsection*{} % partial Fourier transformation
+\paragraph{} %-- partial Fourier transformation
 Partial Fourier transformation is a method
 where the operator $\FT$ is applied only to the spatial variables
 of the partial differential equation.
@@ -1108,7 +1112,7 @@ The result is an ordinary differential equation
 Then solving this equation and applying inverse Fourier transformation
 leads to the solution of the original problem.
 
-\subsubsection*{} % examples of partial Fourier tranformation
+\subparagraph{} %-- examples of partial Fourier tranformation
 In the following we sketch
 how {partial Fourier transformation} is useful to solve
 the initial-value problem of the heat and wave equation
@@ -1132,10 +1136,9 @@ we obtain
 \quad \quad \quad
 \hat{u}(0,\xi) = \hat{f}(\xi),
 \end{equation}
-where $\xi = (\xi_1,\ldots,\xi_d)$ are the variables
-in the \textit{phase space}.
+where $\xi = (\xi_1,\ldots,\xi_d)$ are the spatial variables.
 
-\subparagraph*{}
+\subparagraph{}
 Then multiplying both sides of the first equation
 in \eqref{PARTIAL_FOURIER_TRANSFORMATION_I} by $e^{\abs{\xi} ^2 t}$ leads to
 \[
@@ -1146,14 +1149,14 @@ $\hat{u}(t,\xi) \eq \phi(\xi) \, e^{- \abs{\xi} ^2 t}$.
 The mapping $\xi \mapsto \phi(\xi)$ is
 the integration constant for each fixed point $\xi$.
 The second equation in \eqref{PARTIAL_FOURIER_TRANSFORMATION_I}
-implies $\phi(\xi)=\hat{f}(\xi)$,
+implies $\phi(\xi) \eq \hat{f}(\xi)$,
 hence the Fourier trans\-formed solution $\hat{u}$ 
 of the initial-value problem is nothing but
 \begin{equation}\label{PARTIAL_FOURIER_TRANSFORMATION_II}
 \hat{u}(t,\xi) \eq \hat{f}(\xi) \cdot e^{- \abs{\xi} ^2 t}.
 \end{equation}
 
-\subparagraph*{}
+\subparagraph{}
 The solution of the original equation is obtained
 by applying inverse Fourier transformation and the rule
 $
@@ -1173,28 +1176,28 @@ u(t,x) \=
 \]
 The function
 \[
-H_t(x,y) \, := \,
-\frac{1}{\sqrt{4\pi t}} \, e^{- \abs{x-y} ^2/(4t)}
+H_t(x,y) \eqdef \frac{1}{\sqrt{4\pi t}} \, e^{- \abs{x-y} ^2/(4t)}
 \=
 \Phi_{\partial_t - \Delta}(t,x-y)
 \]
 is called a \textit{heat kernel},
 since it constitutes the kernel of the integral operator
-$\cal{H}_t:f \mapsto H_t \ast f$.
+$\cal{H}_t \: f \mapsto H_t \ast f$.
 
 \item[2.]
 The method also enables to solve the initial-value problem
 for the wave equation
 \[
 \begin{cases}[1.2]
-\quad u_{tt} - \, \Delta u \= 0  & (t > 0),    \\
-\quad u(0,x) \= f(x)             & (x \xeof \Rd),\\
+\quad u_{tt} - \, \Delta u \= 0  & (t > 0),      \\
+\quad u(0,x)   \= f(x)           & (x \xeof \Rd),\\
 \quad u_t(0,x) \= g(x)           & (x \xeof \Rd).\\
 \end{cases}
 \]
 
-\subparagraph*{}
-Partial Fourier transformation let become this equation into
+\subparagraph{}
+Applying partial Fourier transformation,
+this equation becomes into
 \[
 \hat{u}_{tt}(t,\xi) \= \abs{\xi} ^2 \hat{u}(t,\xi),
 \quad \quad
@@ -1208,15 +1211,15 @@ in phase space is
 \hat{u}(t,\xi)
 \=
 \hat{f}(\xi) \, \cos( t \abs{\xi} )
-\, + \,
+\+
 \hat{g}(\xi) \: \frac{\sin(t \abs{\xi} )}{\abs{\xi} }.
 \]
 
-\subparagraph*{}
+\subparagraph{}
 Unfortunately,
 performing inverse Fourier transformation to $\hat{u}$
-for any $n >1$ is not an easy task.
-But for $n=1$ we obtain
+for any $d >1$ is not an easy task.
+But for $d \eq 1$ we obtain
 \[
 u_1(x,t) \=
 \FT^{-1}\left(\hat{f}(\xi) \cdot \cos(\abs{\xi} ) \right)
@@ -1235,7 +1238,7 @@ known as the \textsc{d'Alembert} \textit{solution}
 \[
 u(t,x) \=
 \frac{1}{2} \, [f(x+t) \, + \, f(x-t)]
-\, + \,
+\+
 \frac{1}{2t}\, \int_{-t}^{+t} g(x+s) \, ds.
 \]
 \end{itemize}
