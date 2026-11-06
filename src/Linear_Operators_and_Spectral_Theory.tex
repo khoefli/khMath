@@ -101,8 +101,8 @@ sparked my fascination with these nice mathematical topics.
 \section{Banach and Hilbert Spaces}                                            %
 %------------------------------------------------------------------------------%
 %-- 
-%-- 1. BANACH AND HILBERT SPACES
-%--    -------------------------
+%--  1. BANACH AND HILBERT SPACES
+%--     -------------------------
 %-- normed linear spaces
 Throughout this text let $\F$ be one of the fields $\R$ and $\C$.
 By a \textit{normed space} $\banX$ we mean a $\F$-linear space
@@ -164,6 +164,17 @@ if $\banX$ is a finite-dimensional linear space,
 then all norms are equivalent
 and consequently there is exactly one topology induced by these norms.
 
+\subparagraph{}
+The following assertion,
+known as \textit{Riesz's lemma},
+quotes
+that if $\banX$ is a normed space
+and $U \subsetneq \banX$ is a proper closed subspace,
+then for every $0 < \alpha < 1$ there is a unit vector $v \xeof \banX$
+such that $\norm{v{-}u} \geq \alpha$ for all $u \xeof U$.
+This is a useful tool,
+which can help to prove a couple of other theorems in functional analysis.
+
 \subsection{} %-- sequentially complete normed spaces, Banach spaces
 %------------------------------------------------------------------------------%
 Recall from metric space theory
@@ -190,7 +201,7 @@ as a dense linear subspace of a given Banach space.
 The general procedure readily follows the way
 how the real numbers are constructed out of the rational numbers.
 
-\paragraph{} %- embeddings
+\paragraph{} %-- embeddings
 We proceed with the notion of \textit{embedding},
 which is a special type of mapping between normed linear spaces
 and leads to the concept of {norm-isomorphism}.
@@ -357,7 +368,7 @@ where $x_0 \xeof \setA$ and $x^{\bot} \xeof \setA^{\bot}$,
 so the entire space $\hilH$ is norm-isomorphic
 to the direct sum $\setA \, \oplus \, \setA^{\bot}$
 of the closed linear subspaces $\setA$ and $\setA^{\bot}$.
-This fact is known as the \textit{decomposition theorem} in Hilbert space.
+This fact is known as the \textit{decomposition theorem}.
 
 \subparagraph{}
 A closed linear subspace $\setA$ of a Banach space $\banX$
@@ -371,6 +382,7 @@ to the product space $\setA \xtimes \setB$.
 Using this notation, the decomposition theorem quotes that
 in the Hilbert space setting every closed subspace $\setA$ is topologically
 complemented by the orthogonal space $\setA^{\bot}$.
+However, this assertion is not true in the general Banach space setting.
 
 \item[4.] \textit{Existence of Orthonormal Bases}.
 An orthogonal system $\orthO \xsubset \hilH$ is denoted
@@ -471,9 +483,9 @@ $f \: \N \xto \F$.
 \section{Basic Theory of Linear Operators}                                     %
 %------------------------------------------------------------------------------%
 %-- 
-%-- 2. BASIC THEORY OF LINEAR OPERATORS
-%--    --------------------------------
-%--    generalities on linear operators
+%--  2. BASIC THEORY OF LINEAR OPERATORS
+%--     --------------------------------
+%-- generalities on linear operators
 In this section we want to sketch the fundamentals of operator theory.
 If we assume $\banX,\,\banY$ to be normed linear spaces,
 then by a \textit{linear operator} between $\banX$ and $\banY$
@@ -588,7 +600,7 @@ This ultimately leads to the concepts of \textit{continuous}, \textit{compact},
 \textit{closed} and \textit{closable} operators.
 
 \begin{itemize}[leftmargin=12pt,itemsep=3pt]
-\item[1.] %--  - continuous and bounded operators
+\item[1.] %-- continuous and bounded operators
 %------------------------------------------------------------------------------%
 Remember that a linear operator
 $\linA \: \domain{\linA} \xsubset \banX \xto \banY$
@@ -686,7 +698,7 @@ the subsequent assertions are equivalent to each other:
 \end{itemize}
 \end{theorem}
 
-\item[2.] %--   - compact operators
+\item[2.] %-- compact operators
 %------------------------------------------------------------------------------%
 A linear operator $\compA \: \banX \xto \banY$ between Banach spaces
 $\banX,\,\banY$ is called \textit{compact},
@@ -782,7 +794,7 @@ Each {Hilbert-Schmidt} operator is compact,
 so $\HS{\hilH}$ forms a two-sided ideal within the space $\CO{\hilH}$
 of compact linear operators in $\hilH$.
 
-\item[3.] %--   - graph-closed operators
+\item[3.] %-- graph-closed operators
 %------------------------------------------------------------------------------%
 A linear operator $\linA \: \domain{\linA} \xsubset \banX \xto \banY$
 is called \textit{graph-closed} (or simply \textit{closed}) if the set
@@ -1031,8 +1043,8 @@ then the following chain of implications is valid:
 \section{Adjoint Spaces and Operators}                                         %
 %------------------------------------------------------------------------------%
 %-- 
-%-- 3. ADJOINT SPACES AND OPERATORS
-%--    ----------------------------
+%--  3. ADJOINT SPACES AND OPERATORS
+%--     ----------------------------
 %--    classification of linear operators by choice of the range space
 So far we have described and classified linear operators
 by various topological properties.
@@ -1057,7 +1069,7 @@ and $\1_{\banX}$ denotes the \textit{identity operator} in $\banX$,
 and this is performed in what is called \textit{spectral theory}
 (see section 4).
 
-\item[2.]
+\item[2.] %-- continuous linear functionals
 $\domain{\linA} \eq \banX$ and $\banY \eq \F$,
 leading to \textit{linear functionals} $\linA \: \banX \xto \F$.
 By the \textit{adjoint space} $\banX^*$ of a normed linear space $\banX$
@@ -1073,8 +1085,10 @@ so there are non-trivial continuous linear functionals on $\banX$.
 A Banach space $\banX$ is called \textit{reflexive},
 if $\banX$ is norm-isomorphic to the \textit{bi-adjoint space}
 $\banX^{**} := (\banX^*)^*$.
+A Banach space $\banX$ is reflexive iff {Ries's lemma} is valid
+even for $\alpha \eq 1$.
 
-\item[3.]
+\item[3.] %-- adjoint spaces
 $\domain{\linA} \eq \banX$ and $\banY \eq \banX^*$,
 the \textit{adjoint space} of $\banX$,
 so the linear operator adopts the form $\linA \: \banX \xto \banX^*$.
@@ -1097,7 +1111,7 @@ can be endowed with the norm
 \norm{\phi} \eqdef \sup_{\,\norm{x} \eq 1} \, \abs{\phi(x)} \,.
 \]
 
-\subparagraph{} %- sesquilinear forms
+\subparagraph{} %-- sesquilinear forms
 For each operator $\linA \: \hilH \xto \hilH_a^*$
 we can associate a \textit{sesquilinear form}
 $\sql_{\linA} \: \hilH \xtimes \hilH \xto \C$ by
@@ -1529,8 +1543,8 @@ will be discussed more in detail in sections 7 and 8.
 \section{Resolvent and Spectrum}                                               %
 %------------------------------------------------------------------------------%
 %-- 
-%-- 4. RESOLVENT AND SPECTRUM
-%--    ----------------------
+%--  4. RESOLVENT AND SPECTRUM
+%--     ----------------------
 \textit{Spectral theory} is a subject within functional analysis
 that proves to be helpful in the study of abstract linear equations
 of type $\linA x \eq y$
@@ -2042,8 +2056,8 @@ by any connected component $\sigma_0(\linA)$ of the set $\sigma(\linA)$.
 \section{Normally Solvable Operators}                                          %
 %------------------------------------------------------------------------------%
 %-- 
-%-- 5. NORMALLY SOLVABLE OPERATORS
-%--    ---------------------------
+%--  5. NORMALLY SOLVABLE OPERATORS
+%--     ---------------------------
 The general subject in this section is the review of linear operators
 having closed range.
 In fact,
@@ -2095,7 +2109,7 @@ for continuous linear operators and
 have later been extended to closed linear operators by \textsc{F.\,E.\,Browder},
 see \cite{Br1}, theorem\,1.1 and theorem\,1.2.
 
-\subsection{} %- operators bounded below
+\subsection{} %-- operators bounded below
 %------------------------------------------------------------------------------%
 It is natural to search for further conditions
 that imply normal solvability of operators, and the first of them is
@@ -2249,8 +2263,8 @@ first quote \textit{Yood}\textit{'s theorem}:
 
 \begin{theorem}\label{YOOD_THEOREM}
 Let $\linA \: \banX \xto \banY$ be semi-Fredholm
-and $\linB \: \banX \xto \banY$ be linear and bounded
-with sufficiently small norm $\norm{\linB}$.
+and $\linB \: \banX \xto \banY$ be either linear and bounded
+with sufficiently small norm $\norm{\linB}$ or compact.
 Then $\linA {+} \linB$ remains semi-Fredholm
 with $\chi(\linA {+} \linB) \eq \chi(\linA)$.
 \end{theorem}
@@ -2272,7 +2286,7 @@ such that for all $\lambda \xeof (0,\lambda_0)$ we have
 $\alpha(\linA {+}\lambda) \leq \alpha(\linA)$,
 $\beta (\linA {+}\lambda) \leq \beta (\linA)$
 and
-$\chi  (\linA {+}\lambda) \eq  \chi  (\linA)$.
+$\chi (\linA {+}\lambda) \eq  \chi (\linA)$.
 \end{theorem}
 
 \subsection{} %-- Fredholm operators
@@ -2365,7 +2379,8 @@ it owns a left and right parametrix,
 where the involved compact operators $\compA_l$ and $\compA_r$
 are even of \textit{finite-rank},
 that is,
-they have finite-dimensional ranges.
+they own finite-dimensional ranges.
+This assertion is known as \textit{Atkinson's theorem}.
 
 \paragraph{} %- Fredholm's alternative theorem
 In the following we cite the \textit{Fredholm} \textit{alternative theorem}
@@ -2476,8 +2491,8 @@ for every compact linear operator $\compA \xeof \BO{\banX}$
 \section{Symmetry and Self-Adjointness}                                        %
 %------------------------------------------------------------------------------%
 %-- 
-%-- 6. SYMMETRY AND SELF-ADJOINTNESS
-%--    -----------------------------
+%--  6. SYMMETRY AND SELF-ADJOINTNESS
+%--     -----------------------------
 This section serves as an overview on symmetric and self-adjoint linear
 operators acting in a Hilbert space.
 Let us begin with some remarks on the numerical range.
@@ -2856,8 +2871,8 @@ each multiplication operator with real-valued generator is self-adjoint.
 \section{Spectral Theory of Self-Adjoint Operators}                            %
 %------------------------------------------------------------------------------%
 %-- 
-%-- 7. SPECTRAL THEORY OF SELF-ADJOINT OPERATORS
-%--    -----------------------------------------
+%--  7. SPECTRAL THEORY OF SELF-ADJOINT OPERATORS
+%--     -----------------------------------------
 The spectral theory of self-adjoint linear operators is one of the pearls
 in the mathematical area of functional analysis
 and has important applications in physics and engineering science
@@ -3323,8 +3338,8 @@ with $\linL_t^{-1} \eq \linL_{-t}$ for all $t \xeof \R$.
 \section{Operators with Pure Point Spectrum}                                   %
 %------------------------------------------------------------------------------%
 %-- 
-%-- 8. OPERATORS WITH PURE POINT SPECTRUM
-%--    ----------------------------------
+%--  8. OPERATORS WITH PURE POINT SPECTRUM
+%--     ----------------------------------
 %-- discrete spectrum
 %------------------------------------------------------------------------------%
 Recall from section 5 that we have introduced various notations of essential
@@ -3442,7 +3457,7 @@ A simple example of a non-diagonalizable matrix is
 which has the eigenvalue $0$ with algebraic multiplicity $2$
 but geometric multiplicity $1$.
 
-\paragraph{} %- Riesz-Schauder spectral theorem
+\subsection{} %- Riesz-Schauder spectral theorem
 A linear operator $\compA$ acting from a normed linear space $\banX$
 into a normed linear space $\banY$ is called \textit{compact},
 if it maps the unit ball $B_1(\0) \xsubset \banX$
@@ -3687,8 +3702,8 @@ if it is solvable and $\linA^{-1}$ is compact.
 \section{Infinitesimal Generators of Semigroups}                               %
 %------------------------------------------------------------------------------%
 %-- 
-%-- 9. INFINITESIMAL GENERATORS OF SEMIGROUPS
-%--    --------------------------------------
+%--  9. INFINITESIMAL GENERATORS OF SEMIGROUPS
+%--     --------------------------------------
 This section contains a short outlook to \textit{semigroup theory},
 the subject that deals with families of bounded linear operators
 fulfilling two fundamental features.
@@ -4268,6 +4283,59 @@ $\re \scalar{\linA x}{x} \leq 0$,
 which shows that $-\linA$ is accretive,
 hence in summary the operator $\linA$ even proves to be m-accretive.
 
+\subsection{} %-- Stone's theorem on unitary groups
+%------------------------------------------------------------------------------%
+Recall that a bijective linear operator $\linU$ in Hilbert space
+is called \textit{unitary},
+if $\domain{\linU} \eq \hilH$ and $\linU^{-1} \eq \linU^*$.
+The spectrum $\sigma(\linU)$ of such an operator $\linU$ forms a subset
+of the unit circle in the complex plane.
+
+\subparagraph{} %- unitary groups
+A semigroup $\{\linU(t)\}_{t \geq 0}$ of bounded linear operators
+acting in a Hilbert space $\hilH$ is called \textit{unitary},
+if each operator $U(t)$ is unitary.
+Furthermore,
+let $\linU_{-t} := \linU_t$ for $t > 0$,
+then a \textit{group} $(\linU_t)_{t \in \R}$ of unitary operators is defined,
+which fulfills the group property
+\[
+\linU_{s+t} \= \linU_s \circ \linU_t \quad \quad (t,s \in \R).
+\]
+
+\subparagraph{} %- Stone's theorem
+Reversely,
+\textsc{Stone}'s theorem claims
+that the infinitesimal generator of a unitary group is skew-adjoint:
+
+\begin{theorem}\label{STONE_THEOREM_FOR_UNITARY_GROUPS}
+Each unitary group $(\linU_t)_{t \in \R}$ in a Hilbert space
+is infinitesimally generated by a linear operator of type $i \linA$,
+where $\linA$ is self-adjoint.
+\end{theorem}
+
+\subparagraph{}
+It should be mentioned that
+if a self-adjoint linear operator $\linA$ is given,
+then the unitary group $(\linU_t)_{t \in \R}$ can be constructed
+by means of the spectral decomposition of $\linA$ and the functional calculus
+for spectral operators with respect to the function $t \mapsto e^{it}$,
+that is,
+we have for each $t > 0$
+\[
+\linU_t x \eqdef \int_{\,\R} e^{i \lambda t} \, dP_{\lambda} \,x
+\quad (x \in \hilH).
+\]
+
+\subparagraph{}
+Notice also that if $\linA$ is self-adjoint, then $i \linA$ is m-accretive,
+since the spectrum $\sigma(i \linA)$ is a subset of the imaginary axis
+and hence the accretivity condition \eqref{ACCRETIVE_PROPERTY} holds.
+The unitary group surely solves the initial value problem
+\eqref{ABSTRACT_SCHROEDINGER_EQUATION} and coincides with the solution
+of this problem constructed 
+by means of the functional calculus for self-adjoint operators.
+
 \subsection{} %-- well-posedness of second-order Cauchy problems
 %------------------------------------------------------------------------------%
 Similar to the first-order Cauchy problem,
@@ -4462,7 +4530,7 @@ to be the subspace of those elements $u \xeof \vecV$,
 for which $\repA \, u \xeof \iota_2(\hilH) \xsubset \vecV_a^*$ holds,
 for short
 \[
-\domain{\linA_{\sql}} \eqdef \{u \xeof \vecV \: \repA \, u \xeof \hilH \}.
+\domain{\linA_{\sql}} \eqdef \{ u \xeof \vecV \: \repA \, u \xeof \hilH \}.
 \]
 
 \subparagraph{} %- variational operator
@@ -4502,13 +4570,13 @@ $\linA_{\sql}$ is closed.
 $\linA_{\sql}$ is densely defined in $\hilH$.
 
 \item[(c)]
-If the embedding of $\vecV$ into $\hilH$ is \textit{compact},
-then the operator $\linA_{\sql} + \lambda$
+If the embedding $\vecV \hookrightarrow \hilH$ is {compact},
+then the operator $\linA_{\sql} {+} \lambda$
 owns a compact inverse $(\linA_{\sql} +\lambda)^{-1}$
 for each $\re \lambda \geq \lambda_0$.
 
 \item[(d)]
-The operator $\linA_{\sql} + \lambda$ is m-accretive
+The operator $\linA_{\sql} {+} \lambda$ is m-accretive
 for each $\re \lambda \geq \lambda_0$.
 
 \end{itemize}
