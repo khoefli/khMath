@@ -20,8 +20,6 @@
 
 \renewcommand\thesection{\arabic{section}}
 
-\def\Title {Functional Analysis}
-
 \titleformat{\part}[display]
 {\normalfont \large \rmfamily \bfseries \centering}
 {\small{\thepart.}}{2pt}{}
@@ -50,24 +48,21 @@
 \begin{document}
 \thispagestyle{empty}
 
-\centerline{\Large{\textbf{Functional Analysis}}}
+\def\Title{Functional Analysis}
 
+\centerline{\Large{\textbf{\Title}}}
 \vspace{5pt}
 \centerline{\small{\textsc{\Author}}}
 \vspace{20pt}
 
-\myfootnote
-{
-  Version {\Version} from \today;
-  Email:  \textit{khoeflinger@\,t-online.de}
-}
+\input{footnote}
 
 %------------------------------------------------------------------------------%
 %                                INTRODUCTION                                  %
 %------------------------------------------------------------------------------%
 This text consists of a series of articles
 on the mathematical area of {functional analysis}
-and of a final article concerning with the applications of the abstract theory
+and of a final one concerning with the applications of the abstract theory
 to linear partial differential equations,
 which arise as models for problems
 in mathematical physics and engineering science.
@@ -2387,7 +2382,7 @@ The closed graph theorem,
 the open mapping theorem and
 the bounded inverse theorem
 are equivalent to each another
-and can be derived from \textit{\textsc{Baire}'s category theorem},
+and can be derived from \textit{{Baire}'s category theorem},
 which is a fundamental result in general topology.
 
 \subparagraph{} %- summary
@@ -6225,6 +6220,18 @@ $x$ is unitary
 iff $\sigma(x) \subseteq \T \eq \{z \xeof \C: \abs{z} \eq 1\}$.
 \end{itemize}
 
+\paragraph{}
+\Proof:
+To prove the first statement,
+let $\zeta \in \C$ such that $\im \zeta \neq 0$.
+Then $\zeta$ cannot be an eigenvalue of $\linA$, since $\linA$ is symmetric,
+and $\linA-\zeta$ proves to be injective.
+But we also know from theorem \ref{RANGE_CONDITION}
+that $\range{\linA-\zeta} = \hilH$,
+so $\linT-\zeta$ is surjective.
+Hence $\zeta$ belongs to the resolvent set $\rho(\linA)$,
+which implies the assertion.
+
 \section{The Gelfand-Naimark Theorem}
 %------------------------------------------------------------------------------%
 In this paragraph we want to elaborate the Gelfand-Naimark theorem
@@ -9239,7 +9246,7 @@ The proof of this theorem relies on the classical Hille-Yosida theorem
 for C$_0$-semigroups of type $(0,1)$.
 Indeed, $\linA$ is m-accretive,
 then $\linA$ is densely defined, closed
-and $-\linA$ fullfills the estimate \eqref{ACCRETIVE_PROPERTY},
+and $-\linA$ fullfills the estimate \eqref{X_ACCRETIVE_PROPERTY_1},
 hence $-\linA$ is the generator of a contractive C$_0$-semigroup.
 
 \subparagraph{}

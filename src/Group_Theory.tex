@@ -9,6 +9,7 @@
 % DOCUMENT CLASS and INCLUDE FILES                                             %
 %------------------------------------------------------------------------------%
 \documentclass[11pt,twoside]{article}
+%\usepackage[hang,flushmargin]{footmisc} 
 \input{Geometry}
 \input{Article}
 \input{Definitions}
@@ -31,26 +32,25 @@
 \begin{document}
 \thispagestyle{empty}
 
-\centerline{\textrm{\large{\textbf{Group Theory}}}}
+\def\Title{Group Theory}
+
+\centerline{\large{\textbf{\Title}}}
 \vspace{4pt}
-\centerline{\textsc{\small{\Author}}}
+\centerline{\small{\textsc{\Author}}}
 \vspace{10pt}
 
 \fancyhead[OL]{\small{\thepage}}
 \fancyhead[ER]{\small{\thepage}}
-\fancyhead[OC] {\small{\textsc{Group Theory}}}
+\fancyhead[OC] {\small{\textsc{\Title}}}
 \fancyhead[EC]{\small{\thesection}. \textsc{\sectionname}}
+
+\input{footnote}
+%\myfootnote { Latest Version: \today.}
+%\myfootnote { Email: \textit{{\Email}}, Url: \href{\khMath}{\textit{\khMath}}.}
+
 
 %------------------------------------------------------------------------------%
 %                                  CONTENT                                     %
-%------------------------------------------------------------------------------%
-\myfootnote
-{
-  Version {\Version} from \today;
-  Email:  \textit{\Email}
-}
-
-
 %------------------------------------------------------------------------------%
 \fancyhead[OC] {\small{\textsc{I. Sets, Relations and Mappings}}}
 \fancyhead[EC] {\small{\textsc{I. Sets, Relations and Mappings}}}
@@ -118,43 +118,44 @@ and operations dealing with sets:
 
 \begin{itemize}[leftmargin=5mm]
 \item[a.] \textit{Subsets.}
-Let $\setM,N$ be sets.
+Let $\setM$ and $N$ be sets.
 Then $\setM$ is called a \textit{subset} of $\setN$
-(notation: $\setM \subseteq N$),
+(notation: $\setM \subset \setN$ or $\setM \subseteq \setN$),
 if each element of $\setM$ is also an element of $\setN$.
 In this case $\setN$ is called a \textit{superset} of $\setM$.
 The set $\setM$ is said to be a \textit{proper} subset of $\setN$,
-if there is an element $y \xeof N$ with $y \notin \setM$
-(notation: $\setM \subset N$).
+if there is an element $y \xeof \setN$ with $y \notin \setM$
+(notation: $\setM \subsetneq \setN$).
 
 \item[b.] \textit{Equality of sets.}
 Two sets $\setM$ and $\setN$ are called \textit{equal}
 (notation: $\setM \eq \setN$),
 if they contain one and the same elements.
-In this case $\setM \subseteq N$ and $\setN \subseteq \setM$ are both valid.
+In this case $\setM \subseteq \setN$ and $\setN \subseteq \setM$ are both valid.
 Otherwise,
-it is usual to write $\setM \neq N$.
+it is usual to write $\setM \neq \setN$.
 
 \item[c.] \textit{The empty set.}
 The \textit{empty set} (notation: $\emptyset$) is that set,
-which does not contain any elements. 
-Since two sets are only equal if they own 	the same elements,
+which does not contain any element. 
+Since two sets are only equal if they own the same elements,
 there is only one empty set,
-which can be seen as a subset of any other set.
+which can be regarded as a subset of any other set.
 
 \item[d.] \textit{Intersections.}
-The set $\setM \cap N$ is the \textit{intersection} of the sets $\setM,N$ and 
-contains all elements
+The set $\setM \cap \setN$ is the \textit{intersection}
+of the sets $\setM, \setN$ and contains all elements
 that are contained in $\setM$ \textit{and} in $\setN$.
 If there are no common elements in $\setM$ and $\setN$,
-then $\setM \cap N \eq \emptyset$ holds and the sets are denoted \textit{disjoint}.
+then $\setM \cap \setN \eq \emptyset$ holds
+and the sets are denoted \textit{disjoint}.
 
 \item[e.] \textit{Unions.}
-The set $\setM \cup N$ is the \textit{union} of the sets $\setM$ and $\setN$
-and contains all elements,
+The set $\setM \cup \setN$ is the \textit{union}
+of the sets $\setM$ and $\setN$ and contains all elements,
 which belong to $\setM$ \textit{or} to $\setN$.
 If $\setM$ and $\setN$ are disjoint,
-then one often writes $\setM \sqcup N$ instead of $\setM \cup N$.
+then one often writes $\setM \sqcup N$ instead of $\setM \cup \setN$.
 
 \item[f.] \textit{Complementary sets.}
 Let $\setM$ be a subset of $\setN$.
@@ -163,22 +164,24 @@ which are \textit{not} contained in $\setM$,
 called the complementary set rsp. the \textit{complement} of $\setM$ in $\setN$.
 
 \item[g.] \textit{Cartesian products.}
-For given sets $\setM,N$,
-the set $\cross{M}{N}$ is called the \textit{cartesian product} of $\setM$ and $\setN$.
+For given sets $\setM, \setN$,
+the set $\cross{\setM}{\setN}$ is called the \textit{cartesian product}
+of $\setM$ and $\setN$.
 It contains all \textit{ordered pairs} $(x,y)$ of elements $x \xeof \setM$
-and $y \xeof N$.
+and $y \xeof \setN$.
 Notice
-that for $\setM \neq N$ the cartesian product $\cross{M}{N}$ differs
-from the cartesian product $\cross{N}{M}$.
+that for $\setM \neq \setN$ the cartesian product $\cross{\setM}{\setN}$ differs
+from the cartesian product $\cross{\setN}{\setM}$.
 The $n$-fold kartesian product of a set $\setM$ with itself is denoted $\setM^n$.
 \end{itemize}
 
 \section{Collections of Sets}
 %------------------------------------------------------------------------------%
 If $\setM$ is any set,
-then the collection $\pot{M} $ containing all subsets of $\setM$ is called
-the \textit{power set} of $\setM$.
-The empty set $\emptyset$ and the set $\setM$ itself is contained in $\pot{M}$.
+then the collection $\pot{M} $ consisting of all subsets of $\setM$
+is called the \textit{power set} of $\setM$.
+The empty set $\emptyset$ and the set $\setM$ itself
+is contained in $\pot{\setM}$.
 For a set with $n$ elements the power set contains exactly $2^n$ elements.
 
 \subparagraph{}
@@ -220,7 +223,7 @@ is meant the collection of sets
 \]
 which contains each set being a member in some $\cal{F}_i$.
 
-\section{Equivalence and Order Relations}
+\section{Relations}
 %------------------------------------------------------------------------------%
 The concept of \textit{relation} is fundamental in mathematics
 and defined as follows:
@@ -232,9 +235,9 @@ cartesian product $\cross{M}{N}$.
 and \textit{mappings} are the most important specializations
 of the general notion of relation:
 
-\paragraph{}
+\paragraph{} %-- equivalence relations
 Let $\setM$ be a set.
-Any relation $R \subseteq \cross{M}{M}$ is called
+A relation $R \subseteq \cross{\setM}{\setM}$ is called
 an \textit{equivalence relation} on $\setM$ if
 
 \begin{itemize}[leftmargin=15pt]
@@ -255,11 +258,11 @@ that the elements $x,y$ are \textit{equivalent to each another}.
 The relation $\setM/\sim$ causes a disjoint decomposition of the set $\setM$.
 
 \subparagraph{}
-Given an equivalence relation $(M,\sim)$,
+Given an equivalence relation $(\setM,\sim)$,
 the subset of all elements being equivalent to each another is called an 
 \textit{equivalence class}.
 Every element $x \xeof \setM$ is obviously contained
-in one and only one equivalence class within $(M,\sim)$,
+in one and only one equivalence class within $(\setM,\sim)$,
 denoted $[x]$.
 
 \subparagraph{}
@@ -272,12 +275,13 @@ a \textit{representative} of $[x]$.
 Reversely,
 every disjoint decomposition of a set $\setM$ into a family $\cal{F}$
 of subsets corresponds to an equivalence relation on $\setM$,
-hence $\cal{F} \eq M/\sim$.
+hence $\cal{F} \eq \setM/\sim$.
 We define $x \sim y \, :\Leftrightarrow \, x \xeof F_i$
 and $y \xeof F_i$ for some $F_i \xeof \cal{F}$.
 
-\paragraph{}
-Any relation $R \subset \cross{M}{M}$ is called a \textit{order relation}
+\paragraph{} %-- order relations
+Let $\setM$ be a set.
+A relation $R \subset \cross{\setM}{\setM}$ is called a \textit{order relation}
 respective a \textit{semi-order} on $\setM$ if
 
 \begin{itemize}[leftmargin=15mm]
@@ -293,8 +297,8 @@ $(x,y) \xeof R$ and $(y,z) \xeof R$ implies $(x,z) \xeof R$
 
 \subparagraph{}
 For example,
-the natural order on the set $\Z$ fulfills all the properties
-of an order relation.
+the natural order on the set $\Z$ of unsigned integers
+fulfills all the properties of an order relation.
 
 \subparagraph{}
 An order relation $R$ on $\setM$ is usually denoted $(\setM,\leq)$,
@@ -325,22 +329,22 @@ if $m \leq x$ (rsp. $x \leq m$) for each $x \xeof \setM$ implies $x \eq m$.
 
 \subparagraph{}
 For example,
-the set of even rsp. odd integers in $\N$ are bounded above chains.
-The number $1$ forms a minimal element of $\N$.
+the subset of even rsp. odd integers in $\N$ are bounded above chains,
+where the number $1$ forms a minimal element of $\N$.
 
 \subparagraph{}
-For certain order relatios the existence of a maximal elements
-is postulated axiomatically by Zorn's lemma:
+For certain order relations the existence of a maximal elements
+is postulated axiomatically by \textsc{Zorn}'s lemma:
 
 \begin{theorem}
-Let $\setM$ be a set and $(M,\leq)$ be an order relation on $\setM$
+Let $\setM$ be a set and $(\setM,\leq)$ be an order relation on $\setM$
 such that each chain $K \subset \setM$ is bounded above.
 Then there is a maximal element in $\setM$.
 \end{theorem}
 
 \subparagraph{}
 \textsc{Ernst Zermelo} formulated in 1904
-the so-called  \textit{axiom of choice},
+the so-called \textit{axiom of choice},
 which proves to be equivalent to Zorn's lemma:
 
 \begin{theorem}
@@ -356,7 +360,7 @@ if $\setM$ is totally ordered and owns a lower bound $m \xeof \setM$.
 The standard example of a well-ordered set is that of natural numbers
 endowed with the natural semi-order.
 The following well-ordering theorem is equivalent
-to Zorn's lemma and the axiom of choice:
+to \textsc{Zorn}'s lemma and the axiom of choice:
 
 \begin{theorem}
 Each set can be well-ordered.
@@ -367,21 +371,22 @@ Each set can be well-ordered.
 \textit{Mappings} rsp. \textit{functions} form the most important subclass
 within that of relations and are of fundamental meaning in modern mathematics.
 They are defined as follows:
-let $\setM,N$ be sets and
-$f \subset \cross{M}{N}$ be a relation between $\setM$ and $\setN$.
-The triple $(M,N,f)$ is called a \textit{mapping} or a \textit{Funktion}
+let $\setM, \setN$ be sets and
+$f \subset \cross{\setM}{\setN}$ be a relation between $\setM$ and $\setN$.
+The triple $(\setM,\setN,f)$ is called a \textit{mapping} or a \textit{function}
 from $\setM$ to $\setN$,
-if for each $x \xeof \setM$ there is \textit{exactly} one element $y \xeof N$
+if for each $x \xeof \setM$ there is \textit{exactly} one element $y \xeof \setN$
 such that $(x,y) \xeof f$.
 
 \subparagraph{}
-For a mapping $f$ from $\setM$ to $\setN$ we often write $f\:M \xto N$.
+For a mapping $f$ from $\setM$ to $\setN$ we often write $f \: \setM \xto \setN$.
 The set $\setM$ is called the \textit{domain}
 and $\setN$ is called the \textit{range}.
-The relation $f \subseteq \cross{M}{N}$ itself is denoted the \textit{graph} of $f$.
+The relation $f \subseteq \cross{\setM}{\setN}$ itself is denoted
+the \textit{graph} of $f$.
 
 \paragraph{}
-The following concepts are often used when dealing with mappings:
+The following concepts are useful when dealing with mappings:
 
 \begin{itemize}[leftmargin=12mm]
 \item image, pre-image
@@ -398,103 +403,111 @@ The following concepts are often used when dealing with mappings:
 \end{itemize}
 
 \paragraph{}
+We want to make them precise.
 In what follows, let $\setM, \setN$ be arbitrary sets
-and $f\:\setM \xto \setN$ be a mapping.
+and $f \: \setM \xto \setN$ be a mapping.
 
 \begin{itemize}[leftmargin=15pt]
 \item[1.] \textit{Image and pre-image.}
 The element $y \xeof \setN$,
 uniquely assigned to the element $x \xeof \setM$,
 is called the \textit{image} of $x$ and is denoted by $f(x)$.
-The set $f(\setM) := \{ y \xeof \setN \: y \eq f(x) \mbox{ for some } x \xeof \setM\}$
+The set
+$f(\setM) := \{ y \xeof \setN \: y \eq f(x) \mbox{ for some } x \xeof \setM \}$
 is called the \textit{image set} of $\setM$ by the mapping $f$,
 and for a subset $\setN'$ of $\setN$ the set
 $f^{-1}(\setN') := \{x \xeof \setM \: f(x) \xeof \setN'\}$
-is called the \textit{pre-image} of the set $\setN'$ in $\setM$.
+is called the \textit{pre-image} of $\setN'$ in $\setM$.
 
 \item[2.] \textit{Composition.}
-If $M_1,M_2,M_3$ are ordinary sets and $f\:M_1 \xto M_2$ rsp.
-$g\:M_2 \xto M_3$ are mappings,
-then there is a further mapping $g \circ f\:M_1 \xto M_3$ defined by
+If $M_1,M_2,M_3$ are ordinary sets and $f \: M_1 \xto M_2$ rsp.
+$g \: M_2 \xto M_3$ are mappings,
+then there is a further mapping $g \circ f \: M_1 \xto M_3$ defined by
 $(g \circ f)(x) := g(f(x))$ for all $x \xeof M_1$,
 called the \textit{composition} of $f$ and $g$.
 
 \item[3.] \textit{Injection, surjection, bijection.}
-The mapping $f\:M \xto N$ is called \textit{injective},
+The mapping $f \: \setM \xto \setN$ is called \textit{injective},
 if $f(x) \eq f(x')$ for $x,x' \xeof \setM$ implies $x \eq x'$.
-Hence each element $y \xeof f(M)$ of an injective mapping $f$ owns exactly
-one pre-image.
+Hence each element $y \xeof f(M)$ of an injective mapping $f$
+owns exactly one pre-image.
 
 \subparagraph*{}
-A mapping $f\:M \xto N$ is called \textit{surjective},
-if $f(M) \eq N$,
+A mapping $f \: \setM \xto \setN$ is called \textit{surjective},
+if $f(\setM) \eq \setN$,
 that is
-each element $y \xeof N$ is the image of at least one element $x \xeof \setM$.
+each element $y \xeof \setN$ is the image
+of at least one element $x \xeof \setM$.
 
 \subparagraph*{}
-A mapping $f\:M \xto N$ is called \textit{bijektiv} or a \textit{bijection}, 
+A mapping $f \: \setM \xto \setN$
+is called \textit{bijective} rsp. a \textit{bijection}, 
 if $f$ is injective and surjective at the same time.
 Then there is an \textit{inverse mapping}
-$f^{-1}:N \xto \setM$ with $f^{-1}(y) := x$ in case of $y \eq f(x)$. 
+$f^{-1} \: \setN \xto \setM$ with $f^{-1}(y) := x$ in case of $y \eq f(x)$. 
 The mapping $f^{-1}$ is bijective as well,
 and its inverse mapping is $f$,
 hence $(f^{-1})^{-1} \eq f$.
 
 \item[4.] \textit{Embedding.}
-Let $M'$ a subset of $\setM$.
-Then the mapping $\iota \: M' \xto \setM$ defined by
-$\iota(x) \eq x$ for $x \xeof M'$ 
+Let $\setM'$ a subset of $\setM$.
+Then the mapping $\iota \: \setM' \xto \setM$ defined by
+$\iota(x) \eq x$ for $x \xeof \setM'$ 
 is called the \textit{embedding mapping} rsp. the \textit{inclusion}
-of $M'$ into $\setM$.
+of $\setM'$ into $\setM$.
 
 \item[5.] \textit{Restriction.}
-Let $f\:\setM \xto \setN$ be a mapping and $M' \subset \setM$.
-Then the mapping $f':M' \xto N$ with $f'(x) \eq f(x)$ for $x \xeof M'$
-is called the \textit{restriction} of $f$ to $M'$.
+Let $f\:\setM \xto \setN$ be a mapping and $\setM' \subset \setM$.
+Then the mapping $f' \: \setM' \xto \setN$
+with $f'(x) \eq f(x)$ for $x \xeof \setM'$ is called
+the \textit{restriction} of $f$ to $\setM'$.
 
 \item[6.] \textit{Constant mapping.}
-A mapping $f\:M \xto N$ is called \textit{constant},
-if  $y \xeof N$ exists such that $f(x) \eq y$ for all $x \xeof \setM$.
+A mapping $f \: \setM \xto  \setN$ is called \textit{constant},
+if $y \xeof \setN$ exists such that $f(x) \eq y$ for all $x \xeof \setM$.
 
 \item[7.] \textit{Identity mapping, involution.}
-Let $f\:M \xto \setM$ be a mapping.
+Let $f \: \setM \xto \setM$ be a mapping.
 If $f(x) \eq x$ for all $x \xeof \setM$,
 then $f$ is called the \textit{identity mapping} on $\setM$
-(notation: $Id \:M \xto \setM$).
+(notation: $Id \: \setM \xto \setM$).
 Moreover,
 if $f \circ f \eq Id$, then $f$ is denoted an \textit{involution}.
 
 \item[8.] \textit{Fixpoint.}
-An element $x \xeof \setM$ is called a \textit{fixpoint} of a mapping $f\:M \xto \setM$,
+An element $x \xeof \setM$ is called a \textit{fixpoint}
+of a mapping $f \: \setM \xto \setM$,
 if $f(x) \eq x$.
 
 \item[9.] \textit{Permutation and transposition.}
 For a \textit{finite} set $\setM \eq \{x_1,\ldots,x_n\}$
-a bijective mapping $\pi:M \xto \setM$ is called a \textit{permutation} of $\setM$.
+a bijective mapping $\pi \: \setM \xto \setM$
+is called a \textit{permutation} of $\setM$.
 If in a permutation $\pi$ only two elements are permuted,
 then $\pi$ is said to be a \textit{transposition},
-and in this case all other elements are fixpoints of the permutation.
+and in this case all other elements are fixpoints of $\pi$.
 
 \subparagraph{}
 Each permutation $\pi$ can be represented as a composition
 of $n$ transpositions,
 where $n$ is either even or odd.
-This enables the definition of a mapping
+This enables to introduce the definition of a mapping
 $\pi \mapsto \operatorname{sgn}(\pi) \xeof \{-1,1\}$,
 called the \textit{signature} of the permutation.
 Let $\operatorname{sgn}(\pi) := 1$, if $n$ is even,
 and $\operatorname{sgn}(\pi) := -1$, if $n$ is odd.
 
 \subparagraph{}
-In case of $\setM \eq \N$ each mapping $f\:\N \xto N$ is called a \textit{sequence}
-of elements in $N$.
+In case of $\setM \eq \N$ each mapping $f \: \N \xto \setN$
+is called a \textit{sequence} of elements in $\setN$.
 One often writes $\{f_n\}_{n=1}^{\infty}$ for such a mapping.
 
 \item[10.] \textit{Projection.}
-Let $(M,\sim)$ be an equivalence relation and $\setM/\sim$ be the collection
-of sets of the related equivalence classes.
-Then the mapping $\pi:M \xto M/\sim$ with $x \mapsto [x]$ is called
-the \textit{projection} of $\setM$ onto the quotient set $\setM/\sim$.
+Let $(\setM,\sim)$ be an equivalence relation and $\setM / \sim$ be
+the collection of sets of the related equivalence classes.
+Then the mapping $\pi \: \setM \xto \setM / \sim$ with $x \mapsto [x]$
+is called the \textit{projection} of $\setM$
+onto the quotient set $\setM / \sim$.
 
 \item[11.] \textit{Fiber bundle.}
 A \textit{fiber bundle} is another point of view to a mapping.
@@ -502,28 +515,29 @@ While for mappings the images are in the focus of interest,
 for fiber bundles the pre-images of given elements are considered.
 
 \subparagraph{}
-If $f\:M \xto N$ is a mapping, 
+If $f \: \setM \xto \setN$ is a mapping, 
 then an equivalence relation on the set $\setM$ may be defined as follows:
 \[
-x \sim y \, :\Leftrightarrow \, f(x) \eq f(y), \quad x,y \xeof M.
+x \sim y \, :\Leftrightarrow \, f(x) \eq f(y), \quad x,y \xeof \setM.
 \]
-Each image $z \xeof N$ is associated with an equivalence class in $\setM$,
-which is denoted the \textit{fiber} for $z \xeof N$ of the mapping $f$
+Each image $z \xeof \setN$ is associated with an equivalence class in $\setM$,
+which is denoted the \textit{fiber} for $z \xeof \setN$ of the mapping $f$
 (notation $f^{-1}(z)$).
-Hence the fibers are the preimages of the singletons of $N$ by $f$,
-and for a mapping $f\:M \xto N$ the set $\setM$ is the union of fibers.
-The mapping $f$ can be considered as a \textit{fiber bundle} $(M,f,N)$.
+Hence the fibers are the preimages of the singletons of $\setN$ by $f$,
+and for a mapping $f \: \setM \xto \setN$
+the set $\setM$ is nothing but the union of fibers.
+The mapping $f$ can be considered as a \textit{fiber bundle} $(\setM,f,\setN)$.
 
 \subparagraph{}
-A \textit{cut} into a fiber bundle $(M,f,N)$ is a mapping $s:N \xto \setM$
-having the property $f \circ s \eq Id$.
-To each bijective mapping $f\:M \xto N$ there is exactly one cut into
-the corresponding fiber bundle,
-namely the inverse mapping $f^{-1}$.
+A \textit{cut} into a fiber bundle $(\setM,f,\setN)$ is a mapping
+$s \: \setN \xto \setM$ having the property $f \circ s \eq Id$.
+To each bijective mapping $f \: \setM \xto  \setN$ there is exactly
+one cut into the corresponding fiber bundle
+given the inverse mapping $f^{-1}$.
 
 \subparagraph{}
 By a fiber bundle with \textit{typical} fiber $F$ is meant
-a projection mapping $f\:\cross{M}{F} \xto \setM$ with $f(x,y) \eq x$,
+a projection mapping $f \: \cross{\setM}{F} \xto \setM$ with $f(x,y) \eq x$,
 where mapping $f$ is the projection on the first factor
 of the cartesian product,
 and for the fibers of $y \xeof \setM$ the equality
@@ -541,19 +555,19 @@ otherwise it said to be \textit{infinite}.
 \subparagraph{}
 To obtain a classification for \textit{infinite sets},
 we introduce the concept of \textit{identical cardinality} of sets.
-Two sets $\setM$ and $N$ are called to have {identical cardinality}, 
-if there is at least one bijective mapping $\iota\:M \xto N$.
+Two sets $\setM$ and $\setN$ are called to have {identical cardinality}, 
+if there is at least one bijective mapping $\iota \: \setM \xto \setN$.
 This defines an equivalence relation on the system of all sets.
 The related equivalence classed are called \textit{cardinal numbers}.
 
-\subparagraph{}
+\paragraph{}
 A well-known criterion to establisch identical cardinality of sets
 is the \textit{Cantor-Bernstein equivalence theorem}:
 
 \begin{theorem}
-Let a set $\setM$ have same cardinality as a subset of a set $N$
-and let $N$ have same cardinality as a subset of $\setM$.
-Then $\setM$ and $N$ have identical cardinality.
+Let a set $\setM$ have same cardinality as a subset of a set $\setN$
+and let $\setN$ have same cardinality as a subset of $\setM$.
+Then $\setM$ and $\setN$ have identical cardinality.
 \end{theorem}
 
 \paragraph{}
@@ -562,8 +576,9 @@ that the power set of a given set has always larger cardinality
 as the set itself.
 
 \begin{theorem}
-Let $\setM$ be a set and $\pot{M} $ be the power set.
-Then there is \textit{no} bijective mapping between $\setM$ and $\pot{M} $.
+Let $\setM$ be a set and $\pot{\setM} $ be the power set.
+Then there is \textit{no} bijective mapping
+between $\setM$ and $\pot{\setM} $.
 \end{theorem}
 
 \subparagraph{}
@@ -611,16 +626,17 @@ consisting of a set $\grpH$ and an associative inner operation $\circ$
 on $\grpH$,
 is called a \textit{semigroup}.
 An element $\1 \xeof \grpH$ of a semigroup $\grpH$ is said to be
-a \textit{unital element} rsp. a \textit{unit} of $\grpH$,
+a \textit{unital} rsp. a \textit{unit} of $\grpH$,
 if
 \[
 x \circ \1 \= \1 \circ x \= x \quad \mbox{ for all }
 x \in \grpH.
 \]
-A unit element of a semigroup is always unique,
+A unit of a semigroup is always unique,
 that is,
 $x \circ \1' \eq \1' \circ x \eq x$ and
-$x \circ \1 \eq \1  \circ x \eq x$ for all $x \xeof \grpH$ implies $\1' \eq \1$.
+$x \circ \1 \eq \1  \circ x \eq x$
+for all $x \xeof \grpH$ implies $\1' \eq \1$.
 If a semigroup $\grpH$ owns a unital element,
 then it is called a \textit{monoid}.
 
@@ -641,7 +657,7 @@ Any semigroup $(\grpH,\circ)$ is called \textit{commutative} rsp.
 if $Z_{\grpH} \eq \grpH$.
 So in this case we have $x \circ y \eq y \circ x$
 for all elements $x,y \xeof \grpH$
-(for a commutativee group the inner operation $\circ$ is usually denoted by $+$.
+(for a commutativee group the inner operation $\circ$ is usually denoted by $+$).
 If a unital element is present,
 then it is mostly denoted $0$).
 
@@ -650,14 +666,16 @@ The following assertions are valid:
 
 \begin{itemize}[leftmargin=15pt]
 \item[1.]
-For each set $\setM$ the collection of mappings $f\:M \xto \setM$ forms
+For each set $\setM$ the collection of mappings $f \: \setM \xto \setM$ forms
 a non-commutative monoid,
 where the unital element is given by the identity mapping.
+
 \item[2.]
 The set of natural numbers $(\N,+)$ is a semigroup,
-but the pair $(\N,\cdot)$ is a monoid.
+but the pair $(\N,\cdot)$ is a monoid only.
+
 \item[3.]
-Let $\setM$ be a set and $\mathfrak{P}(M)$ its power set.
+Let $\setM$ be a set and $\mathfrak{P}(\setM)$ its power set.
 Then the pair $(\mathfrak{P}(\setM),\cap)$ forms a commutative monoid,
 where $\cap(\setA,\setB) := \setA \cap \setB$ is the union
 of $\setA,\setB \subset \setM$.
@@ -688,45 +706,50 @@ a unital element exists and each element is invertible.
 \begin{itemize}[leftmargin=15pt]
 \item[1.]
 Each singleton forms a group, called a \textit{trivial group}.
+
 \item[2.]
 Each set $\{\1,x\}$ forms a group by the operation $x \circ x \mapsto \1$.
+
 \item[3.]
-The number sets $\Z,\Q,\R$ and $\C$ with addition as operation
-are groups.
+The number sets $\Z,\Q,\R$ and $\C$ with addition are groups.
+
 \item[4.]
 The sets $m \Z := \set{n \xeof \Z}{ n \eq m \cdot z, \, z \xeof \Z}$
 with addition are groups.
+
 \item[5.]
-The set $\R^{\times} := \R \setminus \{0\}$ with 
-multiplication aas operation is a group
-as well as the set $\C^{\times} := \C \setminus \{0\}$.
+The sets $\R^{\times} := \R \setminus \{0\}$
+and      $\C^{\times} := \C \setminus \{0\}$
+with multiplication are groups.
+
 \item[6.]
 The set of regular $(n,n)$-matrices with real entries
-forms a group by matrix multiplication,
-called  the \textit{linear group} $\GL{n,\R} $.
+with matrix multiplication forms a group,
+called the \textit{linear group} $\GL{n,\R} $.
+
 \item[7.]
 Let for of a set $\setM$ the \textit{symmetric difference}
 of two subsets $A,B \subseteq \setM$ be defined according to
 \[
 A \, \triangle \, B
 \eqdef
-(A \setminus B) \, \cup \, (B \setminus A),
+(A \setminus B) \, \cup \, (B \setminus A).
 \]
-then the collection of sets $\pot{\setM}$ forms a commutative group
-by the operation $\triangle$.
+Then the collection of sets $\pot{\setM}$ with operation $\triangle$
+forms a commutative group.
 The unit element is the empty set,
-and the inverse element of $A$ is the complementary set $\setM \setminus A$.
+and the inverse element of $A \xeof \pot{\setM}$
+is the complementary set $\setM \setminus A$.
 \end{itemize}
 
 \section{Subgroups}
 %------------------------------------------------------------------------------%
-The concept of \textit{subgroup}.
-is of fundamental meaning in group theory.
+The concept of \textit{subgroup}.  is of fundamental meaning in group theory.
 Let $(\grpG,\circ)$ be a group and $\grpU \subset \grpG$ be a subset.
 Then $\grpU$ is called a \textit{subgroup} of $\grpG$,
-if for all $x,y \xeof \grpU$ we have $x \circ y \xeof \grpU$ and
-$x^{-1} \xeof \grpU$.
-Similar to this definition we introduce the notion of \textit{sub-semigroup}
+if for all $x,y \xeof \grpU$ we have
+$x \circ y \xeof \grpU$ and $x^{-1} \xeof \grpU$.
+Similar to this definition we introduce the notions of \textit{sub-semigroup}
 and \textit{sub-monoid},
 respectively.
 
@@ -740,16 +763,20 @@ iff for all $x,y \xeof \grpU$ we have $x \circ y^{-1} \xeof \grpU$.
 \begin{itemize}[leftmargin=15pt]
 \item[1.]
 $(\Z,+) \subset (\Q,+) \subset (\R,+) \subset (\C,+)$.
+
 \item[2.]
 $(m \Z,+)$ is a subgroup of $(\Z,+)$ for $m > 1$.
+
 \item[3.]
 $\GL{n,\R} := \{A \xeof \GL{n,\R} \: \abs{ \det(A)} \eq 1\}$.
 The \textit{special linear group}, is a subgroup of $\GL{n,\R} $.
+
 \item[4.]
 The set $\OG{n} $ of \textit{orthogonal} $(n,n)$-matrices
 ({\ie} $A^{-1} \eq A^T$ for $A \xeof \GL{n,\R} $) forms a subgroup
 of the linear group $\GL{n,\R} $,
 called the \textit{orthogonale group}.
+
 \item[5.]
 The \textit{special orthogonal group}
 $\SOG{n} := \{A \xeof \OG{n} \: \det(A) \eq 1\}$ is a subgroup of $\OG{n} $,
@@ -758,7 +785,7 @@ where $\SOG{n} \eq \OG{n} \,\cap\, \GL{n,\R} $ holds.
 
 \subparagraph{}
 Each group $\grpG$ owns two natural subgroups:
-these are the trivial group $\{\1\}$ and the group $\grpG$ itself.
+the trivial group $\{\1\}$ and the group $\grpG$ itself.
 
 \subparagraph{}
 If $\grpU_1,\grpU_2$ are two subgroups of $\grpG$,
@@ -931,13 +958,12 @@ The group operation in $\grpG_1 \* \grpG_2$ is given
 by concatenating the elements $f_1,f_2 \xeof \grpG_1 \* \grpG_2$.
 
 \subparagraph{}
-Example:
-Let $\grpG := \{g_1,g_2,    \ldots\}$ and
+For example,
+let $\grpG := \{g_1,g_2,    \ldots\}$ and
     $\topH := \{h_1,h_2,h_3,\ldots\}$ be groups and
 $f_1 := \{g_1,h_2,g_2\}$, $f_2 := \{g_3,h_3,g_4,h_4\}$
-elements of $\grpG_1 \* \grpG_2$.
-Then $f_1 \* f_2$ is the element
-$\{g_1,h_2,g_2 g_3,h_3,g_4,h_4\}$.
+elements of $\grpG_1 \* \grpG_2$,
+then $f_1 \* f_2$ is the element $\{g_1,h_2,g_2 g_3,h_3,g_4,h_4\}$.
 
 \section{Translation and Conjugation}
 %------------------------------------------------------------------------------%
@@ -948,7 +974,7 @@ L_g\: G \xto G, \quad \phi_g(x) := g \circ x, \quad x \in \grpG,
 called the \textit{left translation} of $\grpG$ {\wrt} $g$.
 Accordingly the mapping
 \[
-R_g\: G \xto G, \quad \phi_g(x) := x \circ g^{-1} \quad x \in \grpG,
+R_g\: G \xto G, \quad \phi_g(x) := x \circ g^{-1} \quad (x \in \grpG),
 \]
 is called the \textit{right translation} of $\grpG$ {\wrt} $g$.
 Both mappings are bijective
@@ -956,7 +982,7 @@ and $L_g^{-1} \eq L_{g^{-1}}$ rsp. $R_g^{-1} \eq R_{g^{-1}}$ holds.
 Combining left and right translation of $\grpG$ with $g \xeof \grpG$,
 we obtain the mapping $\phi_g := L_g \circ R_g$ by
 \[
-\quad \phi_g(x) \eqdef g \circ x \circ g^{-1} \quad \for x \in \grpG,
+\quad \phi_g(x) \eqdef g \circ x \circ g^{-1} \quad (x \in \grpG),
 \]
 denoted the \textit{conjugation} of $\grpG$ with the element $g$.
 Two elements $x,y \xeof \grpG$ are called \textit{conjugated},
@@ -974,6 +1000,7 @@ The following examples of translations and conjugation classes are known:
 \item[1.]
 For the additive group $(\Z,+)$ the left and right translations
 are given by the mappings $z \mapsto z-1$ rsp. $z \mapsto z+1$.
+
 \item[2.]
 If $(\grpG,+)$ is commutative,
 then the conjugation classs of $\grpG$ are the singletons of $\grpG$.
@@ -1006,7 +1033,7 @@ if $N_{\grpU} \eq \grpG$ rsp. $g \circ \grpU \circ g^{-1} \eq \grpU$
 for all $g \xeof \grpG$.
 
 \subparagraph{}
-Any subgroup $\grpU$ is normal iff
+A subgroup $\grpU$ is normal iff
 $g \, \grpU \eq \grpU \, g$ for all $g \xeof \grpG$,
 or in other words,
 if for each element $g \xeof \grpG$ the left cosets $g \, \grpU$
@@ -1023,15 +1050,15 @@ if $x$ is contained in the right coset $\grpU \, y$.
 Let $\grpG/\grpU$ be the set of equivalence classes of this relation.
 Then we can define an operation
 \[
-\bullet \: \grpG/\grpU \times \grpG/\grpU \mapsto G/\grpU
+\bullet \: \grpG / \grpU \times \grpG / \grpU \mapsto \grpG / \grpU
 \]
 according to $[x \bullet y] := [x] \circ [y]$,
 which is independent of the representants \iff
 $\grpU$ is a normal subgroup in $\grpG$.
-In this case $\grpG/\grpU$ is the set of left rsp. right cosets,
-and $\grpG/\grpU$ endowed with the operation $\bullet$
+In this case $\grpG / \grpU$ is the set of left rsp. right cosets,
+and $\grpG / \grpU$ endowed with the operation $\bullet$
 owns the structure of a group.
-The group $(\grpG/\grpU,\bullet)$ is called the \textit{factor group}
+The group $(\grpG / \grpU,\bullet)$ is called the \textit{factor group}
 of $\grpG$ by $\grpU$.
 
 \subparagraph{}
@@ -1043,13 +1070,16 @@ We enumerate a couple of factor groups:
 \item[1.]
 All subgroups of an Abelian group are normal,
 hence one can factorize every Abelian group by any subgroup.
+
 \item[2.]
 Each subgroup $\grpU \subset \grpG$ is a normal subgroup in $N_{\grpU}$.
+
 \item[3.]
 For $m > 1$ the subsets
 $m \, \Z := \{z \xeof Z \: z \eq mx, \, x\xeof \Z \}$ normal subgroup in $\Z$.
 The related factor groups $\Z_m := \Z / m \, \Z$ are finite
 and own the order $\abs{\Z_m} \eq m$.
+
 \item[4.]
 Each subgroup $\grpU$ of a finite group $\grpG$ with $[G:\grpU] \eq 2$
 is normal.
@@ -1095,6 +1125,7 @@ In this case the monoid is called \textit{decomposable}.
 \begin{itemize}[leftmargin=15pt]
 \item[1.]
 The group $(\R^n,+)$ is the $n$-fold direct sum of the group $(\R \, ,+)$.
+
 \item[2.]
 Each direct sum $\grpG_1 \bigoplus \grpG_2$ of groups $\grpG_1,\grpG_2$
 ist the inner direct sum of the groups
@@ -1116,7 +1147,7 @@ They constitute an important tool for classifying groups.
 
 \subparagraph{}
 Let $(\grpG_1,\circ)$, $(\grpG_2,\bullet)$ be arbitrary groups.
-Any mapping $\phi\:\grpG_1 \xto \grpG_2$ is called
+Any mapping $\phi \: \grpG_1 \xto \grpG_2$ is called
 a \textit{group homomorphism} between $\grpG_1$ and $\grpG_2$,
 if
 \[
@@ -1133,9 +1164,11 @@ especially the image $\phi(\grpG_1)$ forms a subgroup of $\grpG_2$.
 \subparagraph{}
 A group homomorphism $\phi$ is called a \textit{monomorphism},
 if the mapping $\phi$ is injective,
-and it is called an \textit{epimorphism}, if $\phi$ is surjective.
-If $\phi$ is bijectiv ({\ie} a monomorphism and a epimorphism at once),
-then it is called $\phi$ an \textit{isomorphism}.
+and it is called an \textit{epimorphism},
+if $\phi$ is surjective.
+Moreover,
+if $\phi$ is bijective ({\ie} a monomorphism and an epimorphism at once),
+then $\phi$ is called an \textit{isomorphism}.
 
 \section{Isomorphisms}
 %------------------------------------------------------------------------------%
@@ -1145,8 +1178,7 @@ Two groups $(\grpG_1,\circ)$ and $(\grpG_2,\bullet)$ are said to be
 if there is a group isomorphism $\phi \: \grpG_1 \xto \grpG_2$.
 In this case we can talk of \textit{structural identity}
 of these groups.
-It is a basic task in group theory
-to classify all groups up to isomorphisms.
+It is a basic task in group theory to classify all groups up to isomorphisms.
 
 \begin{itemize}[leftmargin=15pt]
 \item[1.]
@@ -1202,37 +1234,37 @@ that is,
 \]
 Obviously,
 $\phi$ is injective if and only if $\kernel{\phi} \eq \{\1\}$.
+The kernel of a homomorphism $\phi \: \grpG_1 \xto \grpG_2$
+forms a normal subgroup of $\grpG_1$,
+hence one can perform the factor group $\grpG_1 / \kernel{\phi}$.
 
-\subparagraph{}
-The kernel of a homomorphism $\phi\:\grpG_1 \xto \grpG_2$ forms
-a normal subgroup of $\grpG_1$,
-hence one can perform the factor group $\grpG_1/\kernel{\phi}$.
+\paragraph{}
 The \textit{homomorphism theorem of group theory} quotes
-that the faktor group $\grpG_1/\kernel{\phi}$ and the image
-$\phi(\grpG_1)$ are structural identical.
+that the factor group $\grpG_1 / \kernel{\phi}$ and the image
+$\phi(\grpG_1)$ are structurally identical.
 
 \begin{theorem}
-Let $\grpG_1$, $\grpG_2$ be groups and $\phi\:\grpG_1 \xto \grpG_2$
+Let $\grpG_1$, $\grpG_2$ be groups and $\phi \: \grpG_1 \xto \grpG_2$
 be a homomorphism.
-Then the groups $\grpG_1/\kernel{\phi}$ and $\phi(\grpG_1)$
+Then the groups $\grpG_1 / \kernel{\phi}$ and $\phi(\grpG_1)$
 are isomorphic to each other.
 \end{theorem}
 
 \subparagraph{}
 On the other hand,
-if $N \subset \grpG_1$ is a normal subgroup of $\grpG_1$
+if $\setN \subset \grpG_1$ is a normal subgroup of $\grpG_1$
 and $\grpG_2$ a further group,
 then there is a group homomorphism $\phi \: \grpG_1 \xto \grpG_2$
-with $\kernel{\phi} \eq N$.
-The normal subgroups of a group correspond with the kernels
-of group homomorphisms for further groups.
+with $\kernel{\phi} \eq \setN$.
+The normal subgroups of a group $\grpG$ correspond with the kernels
+of group homomorphisms from $\grpG$ to other groups.
 
 \subparagraph{}
 Each group $\grpG_{\alpha}$ of a direct product
 $\prod_{\alpha \xeof I} \grpG_{\alpha}$
 is a normal subgroup up to homomorphisms.
 On the other hand,
-every group $\grpG_{\alpha}$ is always the image of a homomorphim 
+every group $\grpG_{\alpha}$ is always the image of a homomorphism
 of the direct product $\prod_{\alpha \in I} \grpG_{\alpha}$
 (choose the canonical epimorphism
 $\pi_{\alpha}\:\prod_{\alpha \in I} \grpG_{\alpha} \xto \grpG_{\alpha}$).
@@ -1250,8 +1282,9 @@ then $\phi$ is called an \textit{automorphism} on $\grpG$,
 and the inverse mapping $\phi^{-1}$ is also an automorphism on $\grpG$.
 
 \subparagraph{}
-The automorphism $\phi\:\grpG \xto \grpG$ of a group $\grpG$ forms
-with the composition mappings a group $\operatorname{Aut}(\grpG)$,
+The automorphism $\phi \: \grpG \xto \grpG$ of a group $\grpG$
+together with the composition mappings
+forms a group $\operatorname{Aut}(\grpG)$,
 called the \textit{automorphism group} of $\grpG$.
 It is a subgroup of the permutation group $\operatorname{per}(\grpG)$.
 
@@ -1261,7 +1294,7 @@ is an automorphism on $\grpG$.
 The set of all conjugations on $\grpG$ constitutes a normal subgroup of
 $\operatorname{Aut}(\grpG)$,
 the so-called \textit{inner automorphism group} of $\grpG$.
-Any conjugation is hence denoted an \textit{inner automorphism}.
+Hence every conjugation is denoted an \textit{inner automorphism}.
 
 \section{Exact Sequences of Groups}
 %-------------------------------------------------------------------------------
@@ -1323,7 +1356,7 @@ $\OG{3}$ and the subgroup $\R^3$ of translations.
 Let us repeat that \textit{Abelian groups} are those groups,
 whose group operation is {commutative}.
 For each Abelian group $(\grpA,+)$ there is a natural outer multiplication
-$\cdot\: \cross{\Z}{\grpA} \xto \grpA$ according to
+$\cdot \: \cross{\Z}{\grpA} \xto \grpA$ according to
 \[
 m \cdot x := \underbrace{ x + \ldots + x}_m, \quad
 x^0 := e, \quad
@@ -1332,6 +1365,8 @@ x^0 := e, \quad
 for all $m \xeof \N$.
 This multiplication is compatible with the group addition in the sense
 that the distributive laws are valid.
+
+\subparagraph{}
 The generalization of the outer multiplication with $\Z$ to a ring
 $\riR$ with unit element leads to the concept of \textit{$\riR$-module}.
 Hence the theory of Abelian groups is embedded into the theory of
@@ -1353,8 +1388,7 @@ from $\grpA$ to $\grpA'$ forms a commutativee semigroup,
 which in case of $\grpA \eq \grpA'$ actually is a commutative monoid.
 
 \subparagraph{}
-If $(\grpA,+)$ is a commutative semigroup
-and $S \subset \grpA$ is a subset,
+If $(\grpA,+)$ is a commutative semigroup and $S \subset \grpA$ is a subset,
 then this subset is called a \textit{base}
 if for each $g \xeof \grpA$ there are elements $s_1,\ldots,s_n$
 such that $g \eq \sum_{i=1}^n \,s_i$.
@@ -1386,10 +1420,10 @@ is always Abelian.
 
 \subparagraph{}
 We also have a natural epimorphism $\pi \: \grpG \xto G^{ab}$.
-If $\phi\:\grpG \xto H$ is a group homomorphism
-to an Abelian group $\topH$,
+If $\phi \: \grpG \xto \grpA$ is a group homomorphism
+to an Abelian group $\grpA$,
 then there is exactly one mapping
-$\psi\: G^{ab} \xto H$ with $\phi \eq \psi \circ \pi$.
+$\psi\: G^{ab} \xto \grpA$ with $\phi \eq \psi \circ \pi$.
 
 \subparagraph{}
 For an Abelian group $\grpA$ the unit element
@@ -1400,7 +1434,8 @@ and $\grpA \eq \grpA^{ab}$ holds.
 %------------------------------------------------------------------------------%
 For finitely generated Abelian groups there is a classification theorem,
 which describes the structure of such groups up to isomorphisms.
-It was proved in the recent version by \textsc{Leopold\,Kronecker} (1823-1891) in 1870.
+It was proved in the recent version by \textsc{Leopold\,Kronecker} (1823-1891)
+in 1870.
 
 \begin{theorem}
 Let $\grpA$ be a {finitely generated} Abelian group.
@@ -1424,7 +1459,8 @@ that each cyclic group is isomorphic to one of the groups
 $\Z$ and $\Z_m$ ($m > 1$).
 
 \paragraph{}
-Let $\setM$ be a set and $\cal{F}(\setM)$ be the set of all mappings $f\:\setM \xto \Z$
+Let $\setM$ be a set and $\cal{F}(\setM)$ be
+the set of all mappings $f \: \setM \xto \Z$
 having the property $f(x) \neq 0$ for finitely many $x \xeof \setM$ only.
 With element-wise addition,
 $\cal{F}(\setM)$ forms an Abelian group,
@@ -1437,15 +1473,15 @@ which identifies $\setM$ as a subset of $\cal{F}(\setM)$.
 \subparagraph{}
 The group $\cal{F}(\setM)$ together with the embedding $\iota$ is characterized
 by the following universal property:
-for each mapping $f\:\setM \xto \grpA$ into a further Abelian group $\grpA$
-there is exactly one group homomorphism $\phi\:\cal{F}(\setM) \xto \grpA$
+for each mapping $f \: \setM \xto \grpA$ to an Abelian group $\grpA$
+there is exactly one group homomorphism $\phi \: \cal{F}(\setM) \xto \grpA$
 such that $\phi \circ \iota \eq f$.
 
 \section{Free-Abelian Groups}
 %------------------------------------------------------------------------------%
 In general, an Abelian group $\grpA$ is called \textit{free-Abelian},
 if there is a subset $\setM$ of $\grpA$
-such that the homomorphism $\phi\:\cal{F}(\setM) \xto \grpA$
+such that the homomorphism $\phi \: \cal{F}(\setM) \xto \grpA$
 belonging to the inclusion $\setM \xto \grpA$ forms an \textit{isomorphism}.
 
 \begin{itemize}[leftmargin=15pt]
@@ -1465,7 +1501,8 @@ To apply group theory,
 it is advantagous to construct a commutativee group
 out of the elements of the  monoid,
 which is {embedded} into the monoid.
-The prototypical example for this approach is the number extension from $\N$ to $\Z$.
+The prototypical example for this approach is the number extension
+from $\N$ to $\Z$.
 
 \subparagraph{}
 Let $(\grpG,\circ)$ be a commutative monoid.
@@ -1492,14 +1529,14 @@ Each class $[(x,y)]$ is invertible,
 and its inverse element is given by the class $[(y,x)]$.
 Hence the set $A(\grpG) := \cross{\grpG}{\grpG} / \sim$
 becomes into an Abelian group.
-The monoid $\grpG$ can be embedded into the group $\cross{\grpG}{\grpG}/\sim$
+The monoid $\grpG$ can be embedded into the group $\cross{\grpG}{\grpG} / \sim$
 by means of the mapping $x \mapsto [(x,\1)]$.
-The group $A(\grpG)$ itself is called \textit{associated with $\grpG$}.
+The group $A(\grpG)$ itself is called \textit{associated with} $\grpG$.
 
 \subparagraph{}
 As an example,
-the just given construction yields for the commutativee monoid $(\N_0,+)$
-the Abelian group $(\Z,+)$ of entire numbers.
+the just given construction yields for the commutative monoid $(\N_0,+)$
+the Abelian group $(\Z,+)$ of unsigned integers.
 
 \section{The Tensor Product of Abelian Groups}
 %-------------------------------------------------------------------------------
@@ -1533,7 +1570,8 @@ then we have
 a \otimes (b_1 + b_2) = a \otimes b_1 + a \otimes b_2.
 \]
 Moreover,
-the isomorphism $\Hom{\grpA \otimes \grpB,\grpC} \cong \Hom{\grpA, \Hom{\grpB,\grpC}}$
+the isomorphism
+$\Hom{\grpA \otimes \grpB,\grpC} \cong \Hom{\grpA, \Hom{\grpB,\grpC}}$
 holds for any further Abelian group $\grpC$.
 Now,
 performing the tensor product is compatible with taking the direct sums,
@@ -1545,7 +1583,9 @@ that is,
 \]
 
 \subparagraph{}
-If $\alpha \:\grpA \xto \grpA'$ and $\beta \: \grpB \xto \grpB'$ are group homomorphisms,
+If $\alpha \: \grpA \xto \grpA'$ and
+   $\beta  \: \grpB \xto \grpB'$
+are group homomorphisms,
 then there is exactly one homomorphism
 \[
 \alpha \otimes \beta\: \grpA \otimes \grpB \xto \grpA' \otimes \grpB',
@@ -1662,8 +1702,8 @@ the dieder group $D_2$ owns four elements and is isomorphic to $V_4$.
 
 \vspace{1mm}
 
-For $n \eq 5,7,11$ (and all further prime numbers) there is  exactly one group
-with $\abs{\grpG} \eq n$.
+For $n \eq 5,7,11$ (and all further prime numbers)
+there is exactly one group with $\abs{\grpG} \eq n$.
 In each case it is the cyclic group $\Z_5, \Z_7, \Z_{11}, \ldots$.
 
 \vspace{1mm}
@@ -1686,11 +1726,13 @@ $\Z_8$, $\Z_4 \oplus \Z_4$, $V_4 \oplus \Z_2$.
 \vspace{1mm}
 
 For $n \eq 10$ we have two groups being not isomorphic to each other.
-These are the cyclic group $\Z_{10}$ and the non-commutative dieder group $D_5$.
+These are the cyclic group $\Z_{10}$
+and the non-commutative dieder group $D_5$.
 
 \vspace{1mm}
 
-In case of $n \eq 12$ we obtain the Abelian groups $\Z_{12}$ and $\Z_2 \oplus \Z_6$.
+In case of $n \eq 12$ we obtain the Abelian groups
+$\Z_{12}$ and $\Z_2 \oplus \Z_6$.
 Further non-Abelian groups of order $12$ are the dieder group $D_6$,
 the alternating group $A_4$ and the so-called $T$-group.
 
@@ -1709,22 +1751,26 @@ the following classes:
 \begin{itemize}[leftmargin=15pt]
 \item[1.]
 Cyclic groups $\Z_p$ having the order of a prime number $p$.
+
 \item[2.]
 Alternating groups $A_n$ with $n \geq 5$
+
 \item[3.]
 Lie-type Chevalley groups.
+
 \item[4.]
 Twisted Lie-type Chevalley groups.
+
 \item[5.]
 $26$ so-called \textit{sporadic} groups.
 \end{itemize}
 \end{theorem}
 
 %------------------------------------------------------------------------------%
-\fancyhead[OC] {\small{\textsc{VI. Group Operations on Arbitrary Sets}}}
-\fancyhead[EC] {\small{\textsc{VI. Group Operations on Arbitrary Sets}}}
+\fancyhead[OC] {\small{\textsc{VI. Group Operations on Sets}}}
+\fancyhead[EC] {\small{\textsc{VI. Group Operations on Sets}}}
 
-\part{Group Operations on Arbitrary Sets}
+\part{Group Operations on Sets}
 %------------------------------------------------------------------------------%
 The theory of group operations on sets requires the usage of permutation groups,
 so we shall start with this important class of groups.
@@ -1835,6 +1881,7 @@ Consider the following examples:
 The elements of the permutation group $S_3$ are the idemtity mapping $Id$,
 the $2$-cycles $(12)$, $(13)$, $(23)$ and the $3$-Zykeln $(123)$,$(132)$.
 Finally, $(123) \eq (12)(23)$ and $(132) \eq (23)(12)$ holds.
+
 \item[2]
 The alternating group $A_3$ consists of the cycles $Id,(123),(132)$.
 \end{itemize}
@@ -1870,8 +1917,8 @@ in an abstract manner as follows:
 let $(\grpG,\circ)$ be a group and $\setM$ be a set.
 Then the group $\grpG$ is called \textit{operating on $\setM$
 (by left)},
-if ther is a mapping $T \:
-\cross{\grpG}{\setM} \xto \setM$ having the properties
+if ther is a mapping $T \: \cross{\grpG}{\setM} \xto \setM$
+having the properties
 
 \begin{itemize}[leftmargin=15pt]
 \item[1.]
@@ -1884,13 +1931,13 @@ for all $g,h \xeof \grpG$ and all $x \xeof \setM$.
 
 \subparagraph{}
 The mapping $T$ is called an \textit{operation} of $\grpG$ on $\setM$.
-If the operation forms a mapping $T\:\cross{\setM}{\grpG} \xto \setM$,
+If the operation forms a mapping $T \: \cross{\setM}{\grpG} \xto \setM$,
 then $T$ is called to be \textit{operating from the right} on $\setM$.
 
 \subparagraph{}
 For any element $T(g,x)$ we briefly write $g \, x$.
 For each fixed element $g \xeof \grpG$ the operation of
-$\grpG$ on $\setM$ gives rise to a mapping $f_g \: M \xto \setM$.
+$\grpG$ on $\setM$ gives rise to a mapping $f_g \: \setM \xto \setM$.
 The mapping $f_g$ is even bijective,
 since
 \[
@@ -1943,11 +1990,11 @@ x \sim y
 \quad :\Longleftrightarrow \quad
 g \, x \eq y \, \mbox{ for a } g \in \grpG.
 \]
-Let $\setM/\grpG$ be the set of all orbits in $\setM$.
-Then $\setM/\grpG$ is denoted the \textit{orbit space} of $\grpG$ in $\setM$.
-The mapping $\pi\:\setM \xto \setM/\grpG$,
+Let $\setM / \grpG$ be the set of orbits in $\setM$.
+It is denoted the \textit{orbit space} of $\grpG$ in $\setM$.
+The mapping $\pi \: \setM \xto \setM / \grpG$,
 which assigns to each element $x \xeof \setM$ the corresponding orbit,
-is called the \textit{canonical projection} of $\setM$ on $\setM/\grpG$.
+is called the \textit{canonical projection} of $\setM$ on $\setM / \grpG$.
 
 \section{Transitive Operations and Fixpoints}
 %------------------------------------------------------------------------------%
@@ -1962,7 +2009,7 @@ there is exactly \textit{one} element $g \xeof \grpG$ such that $g\,x \eq y$.
 
 \subparagraph{}
 The elements of a group $\grpG$,
-which let for a given group operation $T\:\cross{T}{\setM} \xto \setM$
+which let for a given group operation $T \: \cross{T}{\setM} \xto \setM$
 a given element $x \xeof \setM$ unchanged,
 form a subgroup of $\grpG$.
 Let $\grpG$ a group, $T$ an operation of $\grpG$ on a set $\setM$
@@ -1988,17 +2035,18 @@ if it does not own any fixpoint.
 If two elements $x,y \xeof \setM$ belong to one and the same orbit,
 then the related isotropy groups $\grpG_x,\grpG_y$
 are conjugated to each another,
-where each $g \xeof \grpG$ fulfilling $g\,x \eq y$ forms a conjugating element.
+where each $g \xeof \grpG$ fulfilling $g\,x \eq y$
+forms a conjugating element.
 
 \subparagraph{}
 If the base set $\setM$ is finite,
 then the cardinality of an orbit $\operatorname{Orb}(x)$
 is defined by the index of the isotropy group
 $\grpG_x$ of any element in the orbit:
-$\abs{\operatorname{Orb}(x) } \eq [\grpG:\grpG_x]$.
+$\abs{\operatorname{Orb}(x) } := [\grpG:\grpG_x]$.
 
 \paragraph{}
-The following examples of group operations on sets are well-known:
+The following examples of group operations are known:
 
 \begin{itemize}[leftmargin=15pt]
 \item[1.]

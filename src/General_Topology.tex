@@ -32,10 +32,17 @@
 \begin{document}
 \thispagestyle{empty}
 
-\centerline{\textrm{\large{\textbf{Fundamental Concepts in General Topology}}}}
+\def\Title{Fundamental Concepts in General Topology}
+
+%\centerline{{\textit{Topics in Functional Analysis}}}
+%\vspace{22pt}
+
+\centerline{\large{\textbf{\Title}}}
 \vspace{4pt}
-\centerline{\textsc{\small{\Author}}}
+\centerline{\small{\textsc{\Author}}}
 \vspace{10pt}
+
+\input{footnote}
 
 \fancyhead[OL]{\small{\thepage}}
 \fancyhead[ER]{\small{\thepage}}
@@ -43,16 +50,9 @@
 %------------------------------------------------------------------------------%
 %                                  CONTENT                                     %
 %------------------------------------------------------------------------------%
-\myfootnote
-{
-  Version {\Version} from \today;
-  Email:  \textit{\Email}
-}
-
 \setcounter{page}{1}
-
 %\newpage
-\thispagestyle{empty}
+%\thispagestyle{empty}
 
 Our text is a short review of the core notations of general topology,
 often purely called \textit{point-set topology}.

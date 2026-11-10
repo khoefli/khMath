@@ -8,10 +8,13 @@ include $(CONFIG)
 .tex.pdf: ; $(LUATEX) $<
 
 SOURCES = Geometry.tex Titles.tex Article.tex Definitions.tex
-TARGET  = ../../khMath/pdf
+TARGET  = ../../khMath/assets/documents
 
-all:	gt la top dtop atop mit ca aha fade fa last sao spaces com dis forms hy fred weid
+all:	kh fred weid
 	@echo "target 'all' done."
+
+kh:	gt la top dtop atop mit ca aha fa faaa nfa lost loe sao spaces dis forms hy st test
+	@echo "target 'kh' done."
 
 gt:	Group_Theory.tex $(SOURCES)
 	$(LUATEX) Group_Theory
@@ -45,9 +48,9 @@ aha:	Abstract_Harmonic_Analysis.tex $(SOURCES)
 	$(LUATEX) Abstract_Harmonic_Analysis
 	@echo "target 'aha' done."
 
-fade:	Functional_Analysis_and_Differential_Equations.tex $(SOURCES)
-	$(LUATEX) Functional_Analysis_and_Differential_Equations
-	@echo "target 'fade' done."
+faaa:	Functional_Analysis_and_Applications.tex $(SOURCES)
+	$(LUATEX) Functional_Analysis_and_Applications
+	@echo "target 'faaa' done."
 
 fa:	Functional_Analysis.tex $(SOURCES)
 	$(LUATEX) Functional_Analysis
@@ -57,9 +60,13 @@ nfa:	Nonlinear_Functional_Analysis.tex $(SOURCES)
 	$(LUATEX) Nonlinear_Functional_Analysis
 	@echo "target 'nfa' done."
 
-last:	Linear_Operators_and_Spectral_Theory.tex $(SOURCES)
+lost:	Linear_Operators_and_Spectral_Theory.tex $(SOURCES)
 	$(LUATEX) Linear_Operators_and_Spectral_Theory
-	@echo "target 'last' done."
+	@echo "target 'lost' done."
+
+loe:	Linear_Operator_Equations.tex $(SOURCES)
+	$(LUATEX) Linear_Operator_Equations
+	@echo "target 'loe' done."
 
 sao:	Self-Adjoint_Operators.tex $(SOURCES)
 	$(LUATEX) Self-Adjoint_Operators
@@ -68,10 +75,6 @@ sao:	Self-Adjoint_Operators.tex $(SOURCES)
 spaces:	Topological_and_Normed_Linear_Spaces.tex $(SOURCES)
 	$(LUATEX) Topological_and_Normed_Linear_Spaces
 	@echo "target 'spaces' done."
-
-com:	Commutative_Banach_Algebras.tex $(SOURCES)
-	$(LUATEX) Commutative_Banach_Algebras
-	@echo "target 'com' done."
 
 dis:	Distribution_Theory.tex $(SOURCES)
 	$(LUATEX) Distribution_Theory
@@ -85,6 +88,10 @@ hy:	Hille_Yosida.tex $(SOURCES)
 	$(LUATEX) Hille_Yosida
 	@echo "target 'hy' done."
 
+st:	Spectral_Theorem.tex $(SOURCES)
+	$(LUATEX) Spectral_Theorem
+	@echo "target 'st' done."
+
 fred:	Fredholm_Operators_and_the_Essential_Spectrum.tex
 	$(LUATEX) Fredholm_Operators_and_the_Essential_Spectrum
 	@echo "target 'fred' done."
@@ -93,34 +100,39 @@ weid:	Spectral_Theory_of_Partial_Differential_Operators.tex
 	$(LUATEX) Spectral_Theory_of_Partial_Differential_Operators
 	@echo "target 'weid' done."
 
+test:	test.tex $(SOURCES)
+	$(LUATEX) test
+	@echo "target 'test' done."
+
 xxx:	xxx.tex $(SOURCES)
 	$(LUATEX) xxx
 	@echo "target 'xxx' done."
 
-test:	test.tex $(SOURCES)
-	$(LUATEX) test
-	@echo "target 'test' done."
+yyy:	yyy.tex $(SOURCES)
+	$(LUATEX) yyy
+	@echo "target 'yyy' done."
 
 deploy:	
 	cp -p ../target/Group_Theory.pdf $(TARGET)
 	cp -p ../target/Linear_Algebra.pdf $(TARGET)
 	cp -p ../target/Measure_and_Integration_Theory.pdf $(TARGET)
 	cp -p ../target/General_Topology.pdf $(TARGET)
+#	cp -p ../target/Differential_Topology.pdf $(TARGET)
+#	cp -p ../target/Algebraic_Topology.pdf $(TARGET)
+#	cp -p ../target/Complex_Analysis.pdf $(TARGET)
+#	cp -p ../target/Functional_Analysis_and_Applications.pdf $(TARGET)
 	cp -p ../target/Functional_Analysis.pdf $(TARGET)
+	cp -p ../target/Abstract_Harmonic_Analysis.pdf $(TARGET)
 	cp -p ../target/Linear_Operators_and_Spectral_Theory.pdf $(TARGET)
-	cp -p ../target/Self-Adjoint_Operators.pdf $(TARGET)
+	cp -p ../target/Topological_and_Normed_Linear_Spaces.pdf $(TARGET)
 	cp -p ../target/Coercive_Sesquilinear_Forms.pdf $(TARGET)
 	cp -p ../target/Distribution_Theory.pdf $(TARGET)
+	cp -p ../target/Self-Adjoint_Operators.pdf $(TARGET)
 	cp -p ../target/Hille_Yosida.pdf $(TARGET)
-	cp -p ../target/Fredholm_Operators_and_the_Essential_Spectrum.pdf $(TARGET)
-	cp -p ../target/Abstract_Harmonic_Analysis.pdf $(TARGET)
-	cp -p ../target/Topological_and_Normed_Linear_Spaces.pdf $(TARGET)
-#	cp -p ../target/Complex_Analysis.pdf $(TARGET)
-#	cp -p ../target/Algebraic_Topology.pdf $(TARGET)
-#	cp -p ../target/Differential_Topology.pdf $(TARGET)
 #	cp -p ../target/Nonlinear_Functional_Analysis.pdf $(TARGET)
-#
+#	cp -p ../target/Spectral_Theorem.pdf $(TARGET)
 #	cp -p ../target/Spectral_Theory_of_Partial_Differential_Operators.pdf $(TARGET)
+	cp -p ../target/Fredholm_Operators_and_the_Essential_Spectrum.pdf $(TARGET)
 	@echo "target 'deploy' done."
 
 clean:

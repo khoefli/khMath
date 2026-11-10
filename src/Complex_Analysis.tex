@@ -16,8 +16,6 @@
 \input{Titles}
 \input{Titles}
 
-\def\Title{Complex Analysis}
-
 \titleformat{\part}%[display]
 {\normalfont \rmfamily \bfseries \centering}
 {{\thepart.}}{3pt}{}
@@ -35,23 +33,21 @@
 \begin{document}
 \thispagestyle{empty}
 
+\def\Title{Complex Analysis}
+
 \centerline{\large{\textbf{\Title}}}
 \vspace{4pt}
 \centerline{\small{{\textsc{\Author}}}}
 \vspace{10pt}
 
+\input{footnote}
+
 \fancyhead[C] {\small{\textsc{\Title}}}
 \fancyhead[OL]{\small{\thepage}}
 \fancyhead[ER]{\small{\thepage}}
 
-\myfootnote
-{
-  Version {\Version} from \today;
-  Email:  \textit{khoeflinger@\,t-online.de}
-}
-
 %------------------------------------------------------------------------------%
-%                                 INTRODUCTION                                 %
+%                                    CONTENT                                   %
 %------------------------------------------------------------------------------%
 
 \fancyhead[C] {\small{\textsc{I. Holomorphic Functions}}}

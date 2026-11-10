@@ -35,26 +35,23 @@
 \begin{document}
 \thispagestyle{empty}
 
-\centerline{\textrm{\large{\textbf{Linear Algebra}}}}
+\def\Title{Linear Algebra}
+
+\centerline{\large{\textbf{\Title}}}
 \vspace{4pt}
-\centerline{\textsc{\small{\Author}}}
+\centerline{\small{\textsc{\Author}}}
 \vspace{10pt}
+
+\input{footnote}
 
 \fancyhead[OL]{\small{\thepage}}
 \fancyhead[ER]{\small{\thepage}}
-\fancyhead[OC] {\small{\textsc{Linear Algebra}}}
+\fancyhead[OC] {\small{\textsc{\Title}}}
 \fancyhead[EC]{\small{\thesection}. \textsc{\sectionname}}
-
 
 %------------------------------------------------------------------------------%
 %                                  CONTENT                                     %
 %------------------------------------------------------------------------------%
-\myfootnote
-{
-  Version {\Version} from \today;
-  Email:  \textit{\Email}
-}
-
 \textit{Linear algebra} is the mathematical subject of modules and linear spaces
 together with the linear mappings defined between them.
 It is the fundament for a couple of other topics in mathematics,

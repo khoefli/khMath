@@ -15,10 +15,6 @@
 \input{Definitions}
 \input{Titles}
 
-%\renewcommand\thesection{\Roman{section}}
-
-\def\Title {Coercive Sesquilinear Forms}
-
 \titleformat{\section}
 {\normalfont \bfseries \filcenter}
 {\thesection.\;}{0mm}{}
@@ -41,27 +37,28 @@
 \begin{document}
 \thispagestyle{empty}
 
+\def\Title {Coercive Sesquilinear Forms}
+
+%\centerline{{\textit{Topics in Functional Analysis}}}
+%\vspace{22pt}
+
 \centerline{\large{\textbf{\Title}}}
 \vspace{4pt}
 \centerline{\small{{\textsc{\Author}}}}
 \vspace{10pt}
 
+\input{footnote}
+
 \fancyhead[C] {\small{\textsc{\Title}}}
 \fancyhead[OL]{\small{\thepage}}
 \fancyhead[ER]{\small{\thepage}}
-
-\myfootnote
-{
-  Version {\Version} from \today;
-  Email:  \textit{khoeflinger@\,t-online.de}
-}
 
 %------------------------------------------------------------------------------%
 %                                 INTRODUCTION                                 %
 %------------------------------------------------------------------------------%
 Our aim in this text
 is to present the general theory of coercive sesquilinear forms
-and its applications to stationary linear equations.
+and its applications to stationary and evolutional linear equations.
 Sesquilinear forms are mostly efficient
 when studying abstract problems in the Hilbert space setting.
 

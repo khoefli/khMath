@@ -15,10 +15,6 @@
 \input{Definitions}
 \input{Titles}
 
-%\renewcommand\thesection{\Roman{section}}
-
-\def\Title{Distribution Theory}
-
 \titleformat{\section}
 {\normalfont \bfseries \filcenter}
 {\thesection.\;}{0mm}{}
@@ -41,20 +37,21 @@
 \begin{document}
 \thispagestyle{empty}
 
+\def\Title{Distribution Theory}
+
+%\centerline{{\textit{Topics in Functional Analysis}}}
+%\vspace{22pt}
+
 \centerline{\large{\textbf{\Title}}}
 \vspace{4pt}
-\centerline{\small{{\textsc{\Author}}}}
+\centerline{\small{\textsc{\Author}}}
 \vspace{10pt}
+
+\input{footnote}
 
 \fancyhead[C] {\small{\textsc{\Title}}}
 \fancyhead[OL]{\small{\thepage}}
 \fancyhead[ER]{\small{\thepage}}
-
-\myfootnote
-{
-  Version {\Version} from \today;
-  Email:  \textit{khoeflinger@\,t-online.de}
-}
 
 %------------------------------------------------------------------------------%
 %                                 INTRODUCTION                                 %

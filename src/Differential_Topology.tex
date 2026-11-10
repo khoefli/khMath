@@ -15,10 +15,6 @@
 \input{Definitions}
 \input{Titles}
 
-%\renewcommand\thesection{\Roman{section}}
-
-\def\Title{Differential Topology}
-
 \titleformat{\part}%[display]
 {\normalfont \rmfamily \bfseries \centering}
 {{\thepart.}}{3pt}{}
@@ -36,20 +32,21 @@
 \begin{document}
 \thispagestyle{empty}
 
+\def\Title{Differential Topology}
+
+%\centerline{{\textit{Topics in Functional Analysis}}}
+%\vspace{22pt}
+
 \centerline{\Large{\textbf{\Title}}}
 \vspace{4pt}
 \centerline{\small{{\textsc{\Author}}}}
 \vspace{10pt}
 
+\input{footnote}
+
 \fancyhead[C] {\small{\textsc{\Title}}}
 \fancyhead[OL]{\small{\thepage}}
 \fancyhead[ER]{\small{\thepage}}
-
-\myfootnote
-{
-  Version {\Version} from \today;
-  Email:  \textit{khoeflinger@\,t-online.de}
-}
 
 %------------------------------------------------------------------------------%
 %                                DEFINITIONS                                   %
@@ -2719,11 +2716,11 @@ In the special case of a closed manifold $\difM$,
 holds for each $(n{-}1)$-form $\omega \in \Omega^{n-1} \difM$.
 
 \begin{examples}
-There are some classical variants for \textsc{Stokes}' integral theorem:
+There are some classical variants for Stokes' integral theorem:
 
 \begin{itemize}[leftmargin=15pt]
 \item[1.]
-\textit{(\textsc{Gau\"ss}' integral theorem)}
+\textit{({Gau\"ss}' integral theorem)}
 Let $\Omega \subseteq \R^3$ be open
 and $\vecX$ be a differentiable vector field auf $\Omega$.
 Then for each compacte subset $K \subseteq \Omega$ with sufficiently
@@ -2733,7 +2730,7 @@ smooth boundary
 \]
 
 \item[2.]
-\textit{(\textsc{Stokes}' integral theorem)}.
+\textit{({Stokes}' integral theorem)}.
 Let $\Omega \subseteq \R^3$ be open
 and $\vecX$ be a differentiable vector field auf $\Omega$.
 Then for each oriented compact subset $K \subseteq \Omega$ with

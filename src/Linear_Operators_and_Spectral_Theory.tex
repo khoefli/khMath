@@ -15,10 +15,6 @@
 \input{Definitions}
 \input{Titles}
 
-%\renewcommand\thesection{\Roman{section}}
-
-\def\Title{Linear Operators and Spectral Theory}
-
 \titleformat{\section}
 {\normalfont \bfseries \filcenter}
 {\thesection.\;}{0mm}{}
@@ -35,38 +31,30 @@
 \titlespacing*{\subsection}   {0pt}{ 6pt}{12pt}
 \titlespacing*{\subsubsection}{0pt}{ 6pt}{ 3pt}
 
-\def\SG{$\{S(t)\}_{t \geq 0}$}
-
 %------------------------------------------------------------------------------%
 %                                BEGIN OF DOCUMENT                             %
 %------------------------------------------------------------------------------%
 \begin{document}
 \thispagestyle{empty}
 
-%\centerline{\fontfamily{lmr}\selectfont \small{\textbf{\Title}}}
-%\centerline{\fontfamily{lmss}\selectfont \small{\textbf{\Title}}}
-%\centerline{\fontfamily{bodoni}\selectfont {\textbf{\Title}}}
-%\centerline{\fontfamily{lmtt}\selectfont \large{\textbf{\Title}}}
-%\centerline{\fontfamily{bch}\selectfont {\textbf{\Title}}}
-%\centerline{\fontfamily{pcr}\selectfont \large{\textbf{\Title}}}
-\centerline{\large{\textbf{\Title}}}
+\def\Title{Linear Operators and Spectral Theory}
 
+%\centerline{{\textit{Topics in Functional Analysis}}}
+%\vspace{22pt}
+
+\centerline{\large{\textbf{\Title}}}
 \vspace{4pt}
 \centerline{\small{{\textsc{\Author}}}}
 \vspace{10pt}
+
+\input{footnote}
 
 \fancyhead[C] {\small{\textsc{\Title}}}
 \fancyhead[OL]{\small{\thepage}}
 \fancyhead[ER]{\small{\thepage}}
 
-\myfootnote
-{
-  Version {\Version} from \today;
-  Email:  \textit{khoeflinger@\,t-online.de}
-}
-
 %------------------------------------------------------------------------------%
-%                                 INTRODUCTION                                 %
+%                                INTRODUCTION                                  %
 %------------------------------------------------------------------------------%
 The present paper is a review of the theory of linear operators
 acting in complex Banach or Hilbert spaces and of their spectral properties.
@@ -1003,7 +991,7 @@ Hence continuous linear operators of the form $\linA \: \banX \xto \banY$
 fit in a natural way
 into the class of densely defined and closed linear operators.
 
-\subparagraph{} %-- closed graph theorem
+\subparagraph{} %-- the closed graph theorem
 Reversely,
 the \textit{closed graph theorem} claims that if $\domain{\linA}$ is closed,
 then closeness implies continuity,
@@ -1826,7 +1814,7 @@ and the point spectrum of $\linA^*$,
 namely
 $\sigma_r(\linA) \eq \sigma_p(\linA^*)$ (see \cite{EN}, p.\,161).
 
-\subsection{} %-- spectrum and functional calculus for bounded operators
+\subsection{} %-- the functional calculus for bounded operators
 %------------------------------------------------------------------------------%
 If a linear operator $\linA$ is bounded and defined in the entire space $\banX$,
 we have $\sigma(\linA) \neq \emptyset$,

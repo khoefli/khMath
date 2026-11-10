@@ -15,10 +15,6 @@
 \input{Definitions}
 \input{Titles}
 
-%\renewcommand\thesection{\Roman{section}}
-
-\def\Title{Generators of Strongly Continuous Semigroups}
-
 \titleformat{\section}
 {\normalfont \bfseries \filcenter}
 {\thesection.\;}{0mm}{}
@@ -36,33 +32,25 @@
 \begin{document}
 \thispagestyle{empty}
 
-%\renewcommand{\ttdefault}{pcr}
+\def\Title{Generators of Strongly Continuous Semigroups}
 
-\centerline{{\textit{Topics in Spectral and Semigroup Theory}}}
-\vspace{22pt}
+%\centerline{{\textit{Topics in Functional Analysis}}}
+%\vspace{22pt}
+
 \centerline{\large{\textbf{\Title}}}
 \vspace{4pt}
-\centerline{\small{{\textsc{\Author}}}}
-\vspace{15pt}
+\centerline{\small{\textsc{\Author}}}
+\vspace{10pt}
+
+\input{footnote}
 
 \fancyhead[C] {\small{\textsc{\Title}}}
 \fancyhead[OL]{\small{\thepage}}
 \fancyhead[ER]{\small{\thepage}}
 
-\myfootnote
-{
-  Version {\Version} from \today;
-  Email:  \textit{khoeflinger@\,t-online.de}
-}
-
 %------------------------------------------------------------------------------%
-%                                 INTRODUCTION                                 %
+%                                    CONTENT                                   %
 %------------------------------------------------------------------------------%
-
-\def\SG{$\{S(t)\}_{t \geq 0}$}
-\def\TG{$\{T(t)\}_{t \geq 0}$}
-\def\GG{$\{G(t)\}_{t \geq 0}$}
-\def\EG{$\{\cal{E}(t)\}_{t \geq 0}$}
 
 \section{Introduction}
 %------------------------------------------------------------------------------%

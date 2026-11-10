@@ -1,7 +1,7 @@
 %------------------------------------------------------------------------------%
 % SELF-ADJOINT LINEAR OPERATORS                                                %
 %------------------------------------------------------------------------------%
-% File  : khMATH/src/sao.tex                                                   %
+% File  : khMATH/src/Self-Adjoint_Operators.tex                                %
 % Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
 % Email : khoeflinger@t-online.de                                              %
 %------------------------------------------------------------------------------%
@@ -10,26 +10,14 @@
 % DOCUMENT CLASS und INCLUDE FILES                                             %
 %------------------------------------------------------------------------------%
 \documentclass[11pt,twoside]{article}
-\include{Geometry}
-\include{Article}
-\include{Definitions}
-\include{Titles}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
 
 %------------------------------------------------------------------------------%
 %                              DOCUMENT SETTINGS                               %
 %------------------------------------------------------------------------------%
-\def\Title  {Self-Adjoint Linear Operators}
-\def\Author {Klaus H\"{o}flinger}
-\def\Version{1.0}
-\def\Date   {30.10.2021}
-\def\Email  {khoeflinger@t-online.de}
-
-%------------------------------------------------------------------------------%
-%                                BEGIN OF DOCUMENT                             %
-%------------------------------------------------------------------------------%
-\begin{document}
-\thispagestyle{empty}
-
 \titleformat{\part}[display]
 {\normalfont \large \rmfamily \bfseries \centering}
 {\small{Part \thepart}}{2pt}{}
@@ -40,28 +28,34 @@
 
 \titlespacing*{\section}{0pt}{16pt}{ 4pt}
 
+\pagenumbering{roman}
+\renewcommand*{\thepage}{(\roman{page})}
+
 %------------------------------------------------------------------------------%
-% FOOTNOTE                                                                     %
+%                                BEGIN OF DOCUMENT                             %
 %------------------------------------------------------------------------------%
-\myfootnote
-{
-  Version {\Version}, {\today};
-  Email: \textit{\Email}
-}
+\begin{document}
+\thispagestyle{empty}
+
+\def\Title{Self-Adjoint Linear Operators}
+
+%\centerline{{\textit{Topics in Functional Analysis}}}
+%\vspace{22pt}
 
 \centerline{\large{\textbf{\Title}}}
 \vspace{4pt}
-
 \centerline{\small{\textsc{\Author}}}
-\vspace{9pt}
+\vspace{10pt}
 
-\pagenumbering{roman}
+\input{footnote}
+
 \fancyhead[C]{\small{\textsc{\Title}}}
 \fancyhead[R]{\small{\thepage}}
 \fancyhead[EC]{\small{\textsc{Introduction}}}
-\renewcommand*{\thepage}{(\roman{page})}
-\setcounter{page}{1}
 
+%------------------------------------------------------------------------------%
+%                                 INTRODUCTION                                 %
+%------------------------------------------------------------------------------%
 The theory of \textit{self-adjoint linear operators} in Hilbert space
 proves to be one of the first well-elaborated subjects
 within the mathematical area of Functional Analysis.
@@ -1985,7 +1979,7 @@ are called \textit{equivalent to each other},
 since $x$ is a solution of the first one
 \iff
 it is a solution of the second one.
-By theorem \textsc{Atkinson}'s theorem \ref{ATKINSON_THEOREM},
+By \textsc{Atkinson}'s theorem,
 the operator $\1 + \tilde{\compA}$ is Fredholm with vanishing index,
 so theorem \ref{FREDHOLM_ALTERNATIVE_THEOREM} is applicable
 and provides assertions also for the solution of the equation $\linA x \eq y$.

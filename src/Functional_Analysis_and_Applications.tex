@@ -1,0 +1,582 @@
+%------------------------------------------------------------------------------%
+% FUNCTIONAL ANALYSIS AND APPLICATIONS                                         %
+%------------------------------------------------------------------------------%
+% File  : Functional_Analysis_and_Applications.tex                             %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                       DOCUMENT CLASS and INCLUDE FILES                       %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+\usepackage{newunicodechar}
+\newunicodechar{²}{\ifmmode{}^2\else\texttwosuperior\fi}
+
+\renewcommand\thesection{\arabic{section}}
+
+\titleformat{\part}[display]
+{\normalfont \large \rmfamily \bfseries \centering}
+{\small{\thepart.}}{2pt}{}
+
+\titleformat{\section}%[runin]
+{\normalfont \bfseries \filcenter}
+{\S \thesection.\;}{0mm}{}
+
+\titlespacing*{\section}   {0pt}{16pt}{ 4pt}
+\titlespacing*{\subsection}{0pt}{10pt}{12pt}
+
+\def\G{G}
+
+\newlength{\bibitemsep}\setlength{\bibitemsep}{.5\baselineskip plus .05\baselineskip minus .05\baselineskip}
+\newlength{\bibparskip}\setlength{\bibparskip}{0pt}
+\let\oldthebibliography\thebibliography
+\renewcommand\thebibliography[1]{%
+  \oldthebibliography{#1}%
+  \setlength{\parskip}{\bibitemsep}%
+  \setlength{\itemsep}{\bibparskip}%
+}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\def\Title{Functional Analysis and Applications}
+
+\centerline{\Large{\textbf{\Title}}}
+\vspace{4pt}
+\centerline{\small{\textsc{\Author}}}
+\vspace{10pt}
+
+\input{footnote}
+
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+
+%------------------------------------------------------------------------------%
+%                                 INTRODUCTION                                 %
+%------------------------------------------------------------------------------%
+This text consists of a series of articles
+on the mathematical area of {functional analysis}
+and of a final one concerning with the applications of the abstract theory
+to linear partial differential equations,
+which arise as models for problems
+in mathematical physics and engineering science.
+
+\subparagraph{}
+Functional analysis was mainly developed
+in the first half of the 20$^{\textrm{th}}$ century,
+and valuable contributions have been done by
+{D.\;Hilbert},
+{S.\;Banach},
+{F.\;Riesz},
+{J.\;von Neumann},
+{F.\,E.\;Browder},
+{L.\;Schwartz},
+{J.-L.\;Lions} and others.
+
+\subparagraph{}
+The topics within functional analysis are mainly divided into two parts:
+the linear and the non-linear theory.
+In our treatise we shall exclusively deal with the linear one,
+hence the fundamental concept of {"linear operator"}
+will play a central role in our considerations.
+Especially
+what historically is meant by the concept of unbounded operator
+is of great importance,
+since the theory of this specific class of mappings can be successfully applied
+to the study of partial differential operators
+and their related boundary and initial-value problems.
+
+\paragraph{}
+It is assumed that
+the reader is familiar with elementary concepts in linear algebra,
+general topology and measure theory.
+In fact,
+functional analysis can be seen as the synthesis of the both first subjects,
+especially {\wrt} infinite-dimensional linear spaces.
+Further preliminaries
+will be introduced as soon as there is the need to use them.
+
+\subparagraph{}
+It is not the idea of this text to give all the proofs of the stated theorems,
+except in the case where these are elementary.
+Instead,
+the main purpose is a transparent and overall presentation of the topics,
+especially for readers, which have learned functional analysis in the past
+and want to have a refresh of the main results now.
+
+\paragraph{} %- honoration to Prof. Dr. Werner
+I wrote the treatise in honour of Prof.\;Dr.\;P.\;Werner (1932-2018),
+who conveyed my fascination of these beautiful mathematical topics
+by his lessons hold in 1984 and 1985 at
+Mathematical Institute A of University Stuttgart.
+
+%------------------------------------------------------------------------------%
+%                              TABLE OF CONTENTS                               %
+%------------------------------------------------------------------------------%
+\newpage
+\thispagestyle{empty}
+\section*{Table of Contents}
+\vspace{1pt}
+%------------------------------------------------------------------------------%
+
+\begin{small}
+\vspace{7pt}
+\centerline{{\footnotesize{Part I}}}
+\vspace{1pt}
+\centerline{\textbf{Topological and Normed Linear Spaces}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{97mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Generalities on Topological Linear Spaces                      \Df &  1 \\
+ 2. & Seminorms and Locally Convex Spaces                            \Df &  3 \\
+ 3. & Normed Linear Spaces                                           \Df &  4 \\
+ 4. & Strictly and Uniformly Convex Spaces                           \Df &  5 \\
+ 5. & Banach and Hilbert Spaces                                      \Df &  6 \\
+ 6. & Spaces of Scalar-Valued Functions and Measures                 \Df &  9 \\
+ 7. & Hierarchy of Topological and Normed Linear Spaces              \Df & 18 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+\centerline{{\footnotesize{Part II}}}
+\vspace{1pt}
+\centerline{\textbf{Linear Operators in Banach Spaces}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{97mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Fundamentals of Operator Theory                                \Df & 19 \\
+ 2. & Continuous Linear Operators                                    \Df & 20 \\
+ 3. & Compact Linear Operators                                       \Df & 22 \\
+ 4. & Closed and Closable Linear Operators                           \Df & 23 \\
+ 5. & The Closed Graph Theorem                                       \Df & 25 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+\centerline{{\footnotesize{Part III}}}
+\vspace{1pt}
+\centerline{\textbf{Adjoint Spaces and Operators}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{97mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Continuous Linear Functionals                                  \Df & 34 \\
+ 2. & Weak and Weak*-Topologies; Reflexivity                         \Df & 36 \\
+ 3. & Weak Topologies, Bidual Spaces and Reflexivity                 \Df & 38 \\
+ 4. & Representation Theorems for Adjoint Spaces                     \Df & 39 \\
+ 5  & Spaces of Distributions                                        \Df & 52 \\
+ 6. & Adjoint Operators in Locally Convex Spaces                     \Df & 39 \\
+ 7. & Adjoint Operators in Banach Spaces                             \Df & 39 \\
+ 8. & Hilbert Adjoints and Normal Operators                          \Df & 40 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+\centerline{{\footnotesize{Part IV}}}
+\vspace{1pt}
+\centerline{\textbf{Normally Solvable Operators}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{97mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Banach's Closed Range Theorem                                  \Df & 54 \\
+ 2. & Operators Bounded Below                                        \Df & 56 \\
+ 3. & The Fredholm Index                                             \Df & 56 \\
+ 4. & Perturbations of Semi-Fredholm Operators                       \Df & 58 \\
+ 5. & Basic Theory on Fredholm Operators                             \Df & 59 \\
+ 6. & Fredholm's Alternative Theorem                                 \Df & 60 \\
+ 7. & Concepts of Solvability for Linear Equations                   \Df & 63 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\newpage
+\thispagestyle{empty}
+\centerline{{\footnotesize{Part V}}}
+\vspace{1pt}
+\centerline{\textbf{Calculus of Vector-Valued Functions}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{97mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Spaces of Classical Differentiable Functions                   \Df & 90 \\
+ 2. & Riemann Integration                                            \Df & 90 \\
+ 3. & Linear Evolution Equations                                     \Df & 90 \\
+ 4. & Bochner Integration                                            \Df & 90 \\
+ 5. & Inhomogeneous Cauchy Problems                                  \Df & 90 \\
+ 6. & Weak Derivatives and Bochner Sobolev-Spaces                    \Df & 90 \\
+ 7. & Hilbert-Bochner-Sobolev Spaces                                 \Df & 90 \\
+ 8. & Holomorphic Vector-Valued Functions                            \Df & 90 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+\centerline{{\footnotesize{Part VI}}}
+\vspace{1pt}
+\centerline{\textbf{General Spectral Theory}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{97mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Resolvent Sets and Resolvent Functions                         \Df & 72 \\
+ 2. & Different Kinds of Spectra                                     \Df & 74 \\
+ 3. & Riesz-Schauder Spectral Theory                                 \Df & 78 \\
+ 4. & Linear Operators with Pure Point Spectrum                      \Df & 80 \\
+ 5. & The Riesz-Dunford Functional Calculus                          \Df & 75 \\
+ 6. & Essential and Discrete Spectrum                                \Df & 75 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+\centerline{{\footnotesize{Part VII}}}
+\vspace{1pt}
+\centerline{\textbf{Commutative Banach Algebras}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{97mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Normed Algebras                                                \Df & 72 \\
+ 2. & Resolvent and Spectrum of Banach Algebra Elements              \Df & 72 \\
+ 3. & Gelfand Representation                                         \Df & 90 \\
+ 4. & Involutional Algebras and C*-Algebras                          \Df & 90 \\
+ 5. & The Gelfand-Naimark Theorem                                    \Df & 90 \\
+ 6. & Topological and Locally Compact Abelian Groups                 \Df & 90 \\
+ 7. & Abstract Fourier Transformation                                \Df & 90 \\
+ 8. & Fourier Transformation in Euclidean Spaces                     \Df & 90 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+\centerline{{\footnotesize{Part VIII}}}
+\vspace{1pt}
+\centerline{\textbf{Linear Operators in Hilbert Space}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{97mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Numerical Range and External Field of Regularity               \Df & 90 \\
+ 2. & Unitary Operators and Isometries                               \Df & 90 \\
+ 3. & Symmetric Linear Operators                                     \Df & 95 \\
+ 4. & Self-Adjoint Operators                                         \Df & 97 \\
+ 5. & Essentially Self-Adjointness                                   \Df & 99 \\
+ 6. & The von\,Neumann Extension Theory                              \Df & 98 \\
+ 7. & Perturbations of Self-Adjoint Operators                        \Df &101 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\newpage
+\thispagestyle{empty}
+\centerline{{\footnotesize{Part IX}}}
+\vspace{1pt}
+\centerline{\textbf{Spectral Theory of Self-Adjoint Operators}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{97mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Spectral Properties of Normal Operators                        \Df &103 \\
+ 2. & Properties of the Resolvent and the Spectrum                   \Df &105 \\
+ 3. & The Discrete Spectral Theorem                                  \Df &113 \\
+ 4. & Projections and Projection-Valued Measures                     \Df &113 \\
+ 5. & Functional Calculus and Spectral Operators                     \Df &115 \\
+ 6. & The Spectral Theorem for Self-Adjoint Operators                \Df &117 \\
+ 7. & Positive Self-Adjoint Operators and Cauchy Problems            \Df &125 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+\centerline{{\footnotesize{Part X}}}
+\vspace{1pt}
+\centerline{\textbf{Semigroup Theory and Evolution Equations}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{97mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Strongly Continuous Semigroups                                 \Df &130 \\
+ 2. & Infinitesimal Generators                                       \Df &140 \\
+ 3. & Accretive Operators and Contractive Semigroups                 \Df &141 \\
+ 4. & Sectorial Operators and Analytic Semigroups                    \Df &143 \\
+ 5. & Skew-Adjoint Operators and Unitary Groups                      \Df &145 \\
+ 6. & Well-Posedness of Second-Order Cauchy Problems                 \Df &148 \\
+ 7. & The Cosine Family Approach                                     \Df &149 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+\centerline{{\footnotesize{Part XI}}}
+\vspace{1pt}
+\centerline{\textbf{Coercive Sesquilinear Forms}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{97mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Generalities on Sesquilinear Forms                             \Df &160 \\
+ 2. & Coercive Forms and Variational Equations                       \Df &162 \\
+ 3. & Triples of Hilbert Spaces                                      \Df &164 \\
+ 4. & Linear Operators Associated with a H-Elliptic Form             \Df &165 \\
+ 5. & Sectorial Forms and m-Sectorial Operators                      \Df &167 \\
+ 6. & The Friedrichs Extension Theorem                               \Df &168 \\
+ 7. & Variational Evolution Equations                                \Df &169 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+\centerline{{\footnotesize{Part XII}}}
+\vspace{1pt}
+\centerline{\textbf{Applications to Differential Operators}}
+\vspace{2pt}
+
+\centerline
+{
+\begin{tabular}{R{5mm}L{97mm}R{5mm}}
+%------------------------------------------------------------------------------%
+ 1. & Free Space and Boundary Value Problems                         \Df &172 \\
+ 2. & Operators of Elliptic, Parabolic and Hyperbolic Type           \Df &173 \\
+ 3. & Realizations in Banach Spaces of Functions                     \Df &175 \\
+ 4. & Closeness and Closability of Differential Operators            \Df &176 \\
+ 5. & The Fredholm Property of Properly Elliptic Operators           \Df &177 \\
+ 6. & Self-Adjoint Extensions                                        \Df &178 \\
+ 7. & Eigenvalue Problems in Bounded Domains                         \Df &179 \\
+ 8. & Variational Boundary Value Problems                            \Df &180 \\
+ 9. & Linear Differential Operators in Distributional Spaces         \Df &181 \\
+10. & Fourier Transform Methods                                      \Df &182 \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+
+\vspace{7pt}
+\centerline
+{
+\begin{tabular}{R{5mm}L{97mm}R{5mm}}
+%------------------------------------------------------------------------------%
+    & Bibliography                                                   \Df &    \\
+%------------------------------------------------------------------------------%
+\end{tabular}
+}
+\end{small}
+
+%------------------------------------------------------------------------------%
+%                                   CONTENT                                    %
+%------------------------------------------------------------------------------%
+\pagenumbering{arabic}
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+\setcounter{page}{0}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C]{\small{I. Topological and Normed Linear Spaces}}
+%------------------------------------------------------------------------------%
+\part{Topological and Normed Linear Spaces}                                    %
+%------------------------------------------------------------------------------%
+\section{Generalities on Topological Linear Spaces}
+\section{Seminorms and Locally Convex Spaces}
+\section{Normed Linear Spaces}
+\section{Strictly and Uniformly Convex Spaces}
+\section{Banach and Hilbert Spaces}
+\section{Spaces of Scalar-Valued Functions and Measures}
+\section{Hierarchy of Topological and Normed Linear Spaces}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C]{\small{II. Linear Operators in Banach Spaces}}
+%------------------------------------------------------------------------------%
+\part{Linear Operators in Banach Spaces}                                       %
+%------------------------------------------------------------------------------%
+\section{Fundamentals of Operator Theory}
+\section{Continuous Linear Operators}
+\section{Compact Linear Operators}
+\section{Closed and Closable Linear Operators}
+\section{The Closed Graph Theorem}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C]{\small{III. Adjoint Spaces and Operators}}
+%------------------------------------------------------------------------------%
+\part{Adjoint Spaces and Operators}                                            %
+%------------------------------------------------------------------------------%
+\section{Continuous Linear Functionals}
+\section{Weak and Weak*-Topologies; Reflexivity}
+\section{Weak Topologies, Bidual Spaces and Reflexivity}
+\section{Representation Theorems for Adjoint Spaces}
+\section{Spaces of Distributions}
+\section{Adjoint Operators in Locally Convex Spaces}
+\section{Adjoint Operators in Banach Spaces}
+\section{Hilbert Adjoints and Normal Operators}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C]{\small{IV. Normally Solvable Operators}}
+%------------------------------------------------------------------------------%
+\part{Normally Solvable Operators}                                             %
+%------------------------------------------------------------------------------%
+\section{Banach's Closed Range Theorem}
+\section{Operators Bounded Below}
+\section{The Fredholm Index}
+\section{Perturbations of Semi-Fredholm Operators}
+\section{Basic Theory on Fredholm Operators}
+\section{Fredholm's Alternative Theorem}
+\section{Concepts of Solvability for Linear Equations}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C]{\small{V. Calculus of Vector-Valued Functions}}
+%------------------------------------------------------------------------------%
+\part{Calculus of Vector-Valued Functions}                                     %
+%------------------------------------------------------------------------------%
+\section{Spaces of Classical Differentiable Functions}
+\section{Riemann Integration}
+\section{Linear Evolution Equations}
+\section{Bochner Integration}
+\section{Inhomogeneous Cauchy Problems}
+\section{Weak Derivatives and Bochner Sobolev-Spaces}
+\section{Hilbert-Bochner-Sobolev Spaces}
+\section{Holomorphic Vector-Valued Functions}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C]{\small{VI. General Spectral Theory}}
+%------------------------------------------------------------------------------%
+\part{General Spectral Theory}                                                 %
+%------------------------------------------------------------------------------%
+\section{Resolvent Sets and Resolvent Functions}
+\section{Different Kinds of Spectra}
+\section{Riesz-Schauder Spectral Theory}
+\section{Linear Operators with Pure Point Spectrum}
+\section{The Riesz-Dunford Functional Calculus}
+\section{Essential and Discrete Spectrum}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C]{\small{VII. Commutative Banach Algebras}}
+%------------------------------------------------------------------------------%
+\part{Commutative Banach Algebras}                                             %
+%------------------------------------------------------------------------------%
+\section{Normed Algebras}
+\section{Resolvent and Spectrum of Banach Algebra Elements}
+\section{Gelfand Representation}
+\section{Involutional Algebras and C*-Algebras}
+\section{The Gelfand-Naimark Theorem}
+\section{Topological and Locally Compact Abelian Groups}
+\section{Abstract Fourier Transformation}
+\section{Fourier Transformation in Euclidean Spaces}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C]{\small{VIII. Linear Operators in Hilbert Space}}
+%------------------------------------------------------------------------------%
+\part{Linear Operators in Hilbert Space}                                       %
+%------------------------------------------------------------------------------%
+\section{Numerical Range and External Field of Regularity}
+\section{Unitary Operators and Isometries}
+\section{Symmetric Linear Operators}
+\section{Self-Adjoint Operators}
+\section{Essentially Self-Adjointness}
+\section{The von\,Neumann Extension Theory}
+\section{Perturbations of Self-Adjoint Operators}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C]{\small{IX. Spectral Theory of Self-Adjoint Operators}}
+%------------------------------------------------------------------------------%
+\part{Spectral Theory of Self-Adjoint Operators}                               %
+%------------------------------------------------------------------------------%
+\section{Spectral Properties of Normal Operators}
+\section{Properties of the Resolvent and the Spectrum}
+\section{The Discrete Spectral Theorem}
+\section{Projections and Projection-Valued Measures}
+\section{Functional Calculus and Spectral Operators}
+\section{The Spectral Theorem for Self-Adjoint Operators}
+\section{Positive Self-Adjoint Operators and Cauchy Problems}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C]{\small{X. Semigroups of Bounded Linear Operators}}
+%------------------------------------------------------------------------------%
+\part{Semigroups of Bounded Linear Operators}                                  %
+%------------------------------------------------------------------------------%
+\section{Strongly Continuous Semigroups}
+\section{Infinitesimal Generators}
+\section{Accretive Operators and Contractive Semigroups}
+\section{Sectorial Operators and Analytic Semigroups}
+\section{Skew-Adjoint Operators and Unitary Groups}
+\section{Well-Posedness of Second-Order Cauchy Problems}
+\section{The Cosine Family Approach}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C]{\small{XI. Coercive Sesquilinear Forms}}
+%------------------------------------------------------------------------------%
+\part{Coercive Sesquilinear Forms}                                             %
+%------------------------------------------------------------------------------%
+\section{Generalities on Sesquilinear Forms}
+\section{Coercive Forms and Variational Equations}
+\section{Triples of Hilbert Spaces}
+\section{Linear Operators Associated with a H-Elliptic Form}
+\section{Sectorial Forms and m-Sectorial Operators}
+\section{The Friedrichs Extension Theorem}
+\section{Variational Evolution Equations}
+
+\newpage
+\thispagestyle{empty}
+\fancyhead[C]{\small{XII. Applications to Differential Operators}}
+%------------------------------------------------------------------------------%
+\part{Applications to Differential Operators}                                  %
+%------------------------------------------------------------------------------%
+\section{Free Space and Boundary Value Problems}
+\section{Operators of Elliptic, Parabolic and Hyperbolic Type}
+\section{Realizations in Banach Spaces of Functions}
+\section{Closeness and Closability of Differential Operators}
+\section{The Fredholm Property of Properly Elliptic Operators}
+\section{Self-Adjoint Extensions}
+\section{Eigenvalue Problems in Bounded Domains}
+\section{Variational Boundary Value Problems}
+\section{Linear Differential Operators in Distributional Spaces}
+\section{Fourier Transform Methods}
+
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}

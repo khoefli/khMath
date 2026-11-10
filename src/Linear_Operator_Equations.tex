@@ -1,0 +1,394 @@
+%------------------------------------------------------------------------------%
+% LINEAR OPERATOR EQUATIONS                                                    %
+%------------------------------------------------------------------------------%
+% File  : Linear_Operator_Equations.tex                                        %
+% Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
+% Email : khoeflinger@t-online.de                                              %
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                       DOCUMENT CLASS and INCLUDE FILES                       %
+%------------------------------------------------------------------------------%
+\documentclass[11pt,twoside]{article}
+\input{Geometry}
+\input{Article}
+\input{Definitions}
+\input{Titles}
+
+\titleformat{\section}
+{\normalfont \bfseries \filcenter}
+{\thesection.\;}{0mm}{}
+
+\titleformat{\subsection}%[runin]
+{\normalfont \itshape}
+{}{}{}
+
+\titlespacing*{\section}   {0pt}{12pt}{4pt}
+\titlespacing*{\subsection}{0pt}{6pt}{0pt}
+
+%------------------------------------------------------------------------------%
+%                                BEGIN OF DOCUMENT                             %
+%------------------------------------------------------------------------------%
+\begin{document}
+\thispagestyle{empty}
+
+\def\Title{Linear Operator Equations}
+
+%\centerline{{\textit{Topics in Functional Analysis}}}
+%\vspace{22pt}
+
+\centerline{\large{\textbf{\Title}}}
+\vspace{4pt}
+\centerline{\small{{\textsc{\Author}}}}
+\vspace{10pt}
+
+\input{footnote}
+
+\fancyhead[C] {\small{\textsc{\Title}}}
+\fancyhead[OL]{\small{\thepage}}
+\fancyhead[ER]{\small{\thepage}}
+
+
+%------------------------------------------------------------------------------%
+%                                   CONTENT                                    %
+%------------------------------------------------------------------------------%
+
+\section{Introduction}
+%------------------------------------------------------------------------------%
+The study of so-called \textit{linear equations} is one of the main topics in
+functional analysis, the mathematical theory generalizing linear algebra to
+infinite-dimensional topological vector spaces.
+This text serves as a gentle review of the fundamental functional analytic
+methods to solve this type of equations, where we differ between
+\begin{itemize}
+\item[-]\textit{stationary equations} of the form $\linA x \eq y$,
+\item[-]\textit{eigenvalue equations} of the form $\linA x - \lambda x \eq y$
+        for arbitrary complex numbers $\lambda \xeof \C$, and finally
+\item[-]\textit{evolutional equations} of the form
+        $\dot{x}  + \linA x \eq y$ and
+        $\ddot{x} + \linA x \eq y$,
+        respectively.
+\end{itemize}
+
+The enumerated equations are supposed to be governed
+by a \textit{linear operator} $\linA$
+acting between complex Banach spaces $\banX$ and $\banY$,
+called the \textit{domain space} and the \textit{range space} of $\linA$.
+
+\subparagraph{}
+It is often assumed that
+the mapping $\linA$ is only defined
+in a dense linear subspace $\domain{\linA} \xsubset \banX$,
+called the \textit{domain of definition} of $\linA$,
+so the operator under consideration appears as a mapping
+\[
+\linA \: \domain{\linA} \xsubset \banX \xto \banY
+\]
+fulfilling the linearity properties
+\[
+(L) \;
+\begin{cases}[1.3]
+\; \linA (x+y) = \linA x + \linA y,   \\
+\; \linA(\lambda x) = \lambda \linA x \\
+\end{cases}
+\]
+for all $x,y \xeof \domain{\linA}$ and $\lambda \xeof \C$.
+
+\paragraph{}
+In the special case $\banY \eq \banX$ we say that
+$\linA$ is an operator \textit{acting in} $\banX$.
+Furthermore,
+good results in the analysis of the mentioned equations are obtained,
+if $\banX \eq \hilH$ is a complex Hilbert space
+with inner product $\scalar{x}{y} \xeof \C$
+and norm $\norm{x} {:=} \, \scalar{x}{x}$ for $x,y \xeof \hilH$.
+
+\section{The Basic Theory of Linear Operators}
+%------------------------------------------------------------------------------%
+Banach and Hilbert spaces can be seen as special classes of topological linear
+spaces.
+Hence they are endowed with a specific topology $\topT$,
+called the \textit{norm topology} of such a space.
+In fact, the collection $\topT$ of open sets is the coarsest topology
+such that the norm mapping $x \mapsto \norm{x}$ remains continuous.
+
+\paragraph{}
+Given complex Banach spaces $\banX$ and $\banY$,
+it makes sense to speak of \textit{continuous} linear operators between them.
+From general topology it is known that a mapping $\phi\:\banX \xto \banY$
+is continuous by definition,
+if $\phi^{-1}(\openO)$ is open in $\banX$
+for every open set $\openO \xsubset \banY$.
+
+\subparagraph{}
+Especially for linear operators the concept of continuity is well-defined.
+It is strongly related to \textit{boundedness} of operators.
+To be precise,
+let $\linA$ be a linear operator, then $\linA$ is continuous \iff
+$\linA$ is bounded in the sense that
+\[
+\norm{A} \eqdef \norm{\linA x}_{x \xeof \domain{\linA}, \norm{x} \eq 1} 
+< \infty.
+\]
+In this case the value $\norm{A}$ is called the \textit{operator norm}
+of $\linA$.
+It is possible to extend the domain of definition of $\linA$ to the closure
+of the linear subspace $\domain{\linA}$ in order to get a further bounded
+linear operator $\linA_{ext}$ preserving the norm of $\linA$,
+that is,
+$\norm{A_{ext}} \eq \norm{A}$.
+
+\paragraph{}
+A linear operator $\compA \: \banX \xto \banY$ between Banach spaces
+$\banX,\,\banY$ is called \textit{compact},
+if the image of each bounded set under $\compA$ is relative compact,
+or equivalently,
+if $\{x_n\}_{n \in \N}$ is a bounded sequence in $\banX$,
+then the sequence $\{\compA \, x_n\}_{n \in \N}$ in $\banY$
+owns a convergent subsequence.
+
+\subparagraph{}
+For example,
+a linear operator $\compA$ is compact,
+if at least one of the spaces $\banX$ and $\banY$ is finite-dimensional.
+In case of $\banY \eq \banX$,
+the identity operator $\1_{\banX} \: \banX \xto \banX$ is compact
+iff $\banX$ is finite-dimensional.
+Compact operator own a couple of useful properties:
+
+\begin{itemize}[leftmargin=9mm]
+\item[(a)]
+every compact linear operator is continuous;
+
+\item[(b)]
+the composition $\linA_1 \circ \linA_2$ of bounded linear operators
+is compact,
+if one of them is so;
+
+\item[(c)]
+the first and second property together imply that
+the set $\CO{\banX}$ of compact linear operators $\compA\:\banX \xto \banX$
+is a \textit{closed} ideal within the Banach algebra $\BO{\banX} $
+of bounded linear operators $\linA \: \banX \xto \banX$,
+hence it is complete and forms a Banach algebra in its own right;
+
+\item[(d)]
+finite linear combinations of compact linear operators are compact, too;
+
+\item[(e)]
+the limit of a norm convergent sequence of compact operators is compact.
+\end{itemize}
+
+\paragraph{} %- finite-rank operators
+A linear operator $\linFR \: \banX \xto \banY$ is said
+to have \textit{finite rank},
+if the range $\range{\linFR}$ is finite-dimensional.
+It is obvious that $\linFR$ is compact.
+
+\subparagraph{}
+Suppose that $(\linFR_n)$ is a sequence of finite-rank operators
+converging to the operator $\linA$ {\wrt} the norm of $\BO{\banX,\banY}$.
+Then $\linA$ is compact
+and the set $\CO{\banX,\banY}$ of compact linear operators
+proves to be a subset of the closure of the set $\FR{\banX,\banY}$
+of finite-rank operators,
+{\ie}
+$\CO{\banX,\banY} \xsubset \overline{\FR{\banX,\banY}}$.
+
+\subparagraph{}
+Reversely,
+in the setting of Hilbert spaces 
+each compact linear operator $\compA$ appears in this way,
+that is,
+$\compA$ is the norm-limit of a sequence of finite-rank operators
+(but this is not necessarily true in the general setting of Banach spaces).
+
+\paragraph{}
+We finally want to introduce a third class of Banach space operators,
+defined by a special topological feature.
+
+\subparagraph{}
+A linear operator $\linA \: \domain{\linA} \xsubset \banX \xto \banY$
+is called \textit{graph-closed} (or simply \textit{closed}) if the set
+\[
+\Gamma_{\linA} \eqdef
+\{(x,\linA x) \: x \xeof \domain{\linA}\} \, \subset \, \banX \xtimes \banY,
+\]
+denoted the \textit{graph} of $\linA$,
+is closed in the space $\banX \xtimes \banY$
+{\wrt} the product topology $\topT_{\,\banX \xtimes \banY}$.
+This property especially implies that
+the kernel $\kernel{\linA}$ of $\linA$ forms a closed set in $\banX$.
+
+\subparagraph{} %- sequentially closed operators
+It is a matter of fact
+that an operator $\linA$ is closed \iff it is \textit{sequentially closed},
+that is,
+$x_n \xto x$ and $\linA x_n \xto y$ implies
+$x \xeof \domain{\linA}$ and $\linA x \eq y$,
+for short
+\[
+\begin{rcases}
+ x_n       \xto x \quad \\
+ \linA x_n \xto y \quad \\
+\end{rcases}
+\quad \Longrightarrow \quad
+x \xeof \domain{\linA} \, \and \, \linA x \eq y.
+\]
+This can easily proved by the fact
+that a subset of a normed linear space is closed
+\iff it is sequentially closed.
+Checking the sequentially closeness is the usual method
+to verify that a given linear operator is graph-closed.
+But notice that the equivalence of these both notations is in general not valid,
+if $\banX$ and $\banY$ are non-metrizable topological linear spaces.
+
+\subparagraph{} %- graph norm
+It is often helpful to make the domain of definition $\domain{\linA}$
+of a linear operator $\linA$ into a normed linear space by its own.
+This can be done by introducing the so-called \textit{graph norm}
+\[
+\norm{x}_{\linA} \eqdef \norm{x}_{\banX} \+ \norm{\linA x}_{\banY}
+\]
+for $x \xeof \domain{\linA}$.
+In fact,
+the pair $(\domain{\linA},\norm{\,\cdot\,}_{\linA})$
+forms a normed linear space,
+which constitutes a Banach space \iff 
+$\linA$ is sequentially closed.
+This equivalence provides a further method
+to verify closeness of a given linear operator.
+
+\paragraph{} %- closeness of operators based on Schauder estimates
+The following theorem
+uses the possible validity of an abstract \textit{Schauder} \textit{estimate}
+to ensure sequentially closenss:
+
+\begin{theorem}\label{BROWDER_THEOREM}
+Let $\linA_0 \: \banX \xto \banY$ be a continuous linear operator,
+where the Banach space $\banX$ is continuously and densely embedded
+into the Banach space $\banY$ by a mapping $\iota \: \banX \xto \banY$.
+If the estimate
+\begin{equation}\label{SCHAUDER_ESTIMATE}
+\norm{x}_{\banX} \, \leq \,
+c \cdot
+\{ \,\norm{\iota x}_{\banY} + \norm{\linA_0 \, x}_{\banY} \, \}
+\end{equation}
+is fulfilled for some $c {\,>\,} 0$ and all $x \xeof \banX$,
+then the linear operator $\linA$ acting in $\banY$ with
+$\domain{\linA} := \iota(\banX)$ and
+$\linA\, \iota x := \linA_0 \, x$ for $x \xeof \banX$ is closed.
+\end{theorem}
+
+\paragraph{}
+Let us emphasize that in general 
+the concepts of closeness and continuity of a linear operator $\linA$
+are not comparable.
+However,
+if $\banX$ and $\banY$ are Banach or Hilbert spaces
+and $\domain{\linA}$ is a \textit{closed} set in $\banX$,
+then closeness of $\linA$ is an easy consequence of continuity of $\linA$.
+This is especially true in the following situation:
+if $\linA$ is densely defined and continuous,
+then $\linA$ can be extended to a continuous linear operator
+$\linA_{ext} \: \banX \xto \banY$,
+and since $\banX$ itself is closed,
+the extension $\linA_{ext}$ is a closed operator.
+Hence continuous linear operators of the form $\linA \: \banX \xto \banY$
+fit in a natural way
+into the class of densely defined and closed linear operators.
+
+\subparagraph{} %-- the closed graph theorem
+Reversely,
+the \textit{closed graph theorem} claims that if $\domain{\linA}$ is closed,
+then closeness implies continuity,
+so both concepts are equivalent to each other
+under this restrictive condition.
+
+\paragraph{} %- bounded inverse theorem
+The following application of the closed graph theorem is of outstanding meaning:
+if a linear operator $\linA$ is closed and bijective,
+then its inverse $\linA^{-1}$ is also linear and closed,
+and since the domain of definition $\domain{\linA^{-1}}$
+is the entire space $\banY$,
+the closed graph theorem implies that $\linA^{-1} \: \banY \xto \banX$
+is continuous and bounded,
+respectively.
+This fact is known as the \textit{bounded inverse theorem}
+for closed linear operators.
+But notice that the quotation is also valid for continuous linear operators
+$\linA \: \banX \xto \banY$,
+which is an immediate consequence
+of \textsc{Banach}'s \textit{open mapping theorem}.
+
+\paragraph{} %- summary on continuous and closed linear operators
+In conclusion,
+if the domain of definition $\domain{\linA}$ of a linear operator $\linA$
+is a \textit{closed} subspace of the domain space $\banX$,
+then the following chain of implications is valid:
+\[
+\linA \mbox{ compact }    \Longrightarrow
+\linA \mbox{ bounded }    \Longleftrightarrow
+\linA \mbox{ continuous } \Longleftrightarrow
+\linA \mbox{ closed}. %  \Longrightarrow
+%\linA \mbox{ closable}.
+\]
+
+\section{Stationary Equations}
+%------------------------------------------------------------------------------%
+
+\section{Spectral Theory and Eigenvalue Equations}
+%------------------------------------------------------------------------------%
+
+\section{Semigroups of Bounded Linear Operators}
+%------------------------------------------------------------------------------%
+
+\section{Evolution Equations of First Order}
+%------------------------------------------------------------------------------%
+
+\section{Evolution Equations of Second Order}
+%------------------------------------------------------------------------------%
+
+\section{The Spectral Decomposition Approach}
+%------------------------------------------------------------------------------%
+
+\section{Transformation Methods}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%                                 BIBLIOGRAPHY                                 %
+%------------------------------------------------------------------------------%
+\newpage
+\thispagestyle{empty}
+
+\vspace{8mm}
+\begin{thebibliography}{99}
+\begin{small}
+
+\bibitem{EN}  K.-J.\,Engel, R.\,Nagel:
+\textit{A Short Course on Operator Semigroups}.
+Universitext, Springer, 2006.
+
+\bibitem{Go}  J.\,Goldstein:
+\textit{Semigroups of Linear Operators and Applications}.
+Oxford University Press, 1985.
+
+\bibitem{Ka} T.\,Kato:
+\textit{Perturbation Theory for Linear Operators}, Springer Verlag.
+Grundlehren der mathematischen Wissenschaften, Band 132, 1995.
+
+\bibitem{Pa}  A.\,Pazy:
+\textit{Semigroups of Linear Operators
+        and Applications to Partial Differential Equations}.
+Applied Mathematical Sciences Vol.\,44, Springer, 1983.
+
+\bibitem{Yo}  K.\,Yosida:
+\textit{Functional Analysis}.
+Springer, 1980.
+
+\end{small}
+\end{thebibliography}
+%------------------------------------------------------------------------------%
+%                               END OF DOCUMENT                                %
+%------------------------------------------------------------------------------%
+\end{document}

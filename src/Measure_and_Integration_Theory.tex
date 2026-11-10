@@ -32,10 +32,13 @@
 \begin{document}
 \thispagestyle{empty}
 
-\centerline{\textrm{\large{\textbf{Measure and Integration Theory}}}}
+\def\Title{Measure and Integration Theory}
+\centerline{\large{\textbf{\Title}}}
 \vspace{4pt}
-\centerline{\textsc{\small{\Author}}}
+\centerline{\small{\textsc{\Author}}}
 \vspace{10pt}
+
+\input{footnote}
 
 \fancyhead[OL]{\small{\thepage}}
 \fancyhead[ER]{\small{\thepage}}
@@ -43,13 +46,6 @@
 %------------------------------------------------------------------------------%
 %                                  CONTENT                                     %
 %------------------------------------------------------------------------------%
-\myfootnote
-{
-  Version {\Version} from \today;
-  Email:  \textit{\Email}
-}
-
-\thispagestyle{empty}
 This text serves as a comprised review on the essentials
 of \textit{measure and integration theory},
 a fundamental area in modern mathematics with many applications
@@ -61,6 +57,7 @@ and the final one considers measures on locally compact topological spaces.
 
 \fancyhead[OC] {\small{\textsc{I. Measure Spaces}}}
 \fancyhead[EC] {\small{\textsc{I. Measure Spaces}}}
+
 \part{Measure Spaces}
 %-------------------------------------------------------------------------------
 In mathematics a \textit{measure} is

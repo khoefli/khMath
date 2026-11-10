@@ -15,8 +15,6 @@
 \input{Definitions}
 \input{Titles}
 
-%\renewcommand\thesection{\Roman{section}}
-
 \titleformat{\section}
 {\normalfont \bfseries \filcenter}
 {\thesection.\;}{0mm}{}
@@ -36,23 +34,23 @@
 
 \def\Title{The Spectral Theorem for Self-Adjoint Operators}
 
-\centerline{{\textit{Topics in Spectral and Semigroup Theory}}}
-\vspace{22pt}
+%\centerline{{\textit{Topics in Functional Analysis}}}
+%\vspace{22pt}
+
 \centerline{\large{\textbf{\Title}}}
 \vspace{4pt}
 \centerline{\small{{\textsc{\Author}}}}
 \vspace{15pt}
 
+\input{footnote}
+
 \fancyhead[C] {\small{\textsc{\Title}}}
 \fancyhead[OL]{\small{\thepage}}
 \fancyhead[ER]{\small{\thepage}}
 
-\myfootnote
-{
-  Version {\Version} from \today;
-  Email:  \textit{khoeflinger@\,t-online.de}
-}
-
+%------------------------------------------------------------------------------%
+%                                  CONTENT                                     %
+%------------------------------------------------------------------------------%
 \begin{abstract}
 This exposition is a review on the spectral theorem for not necessarily bounded
 self-adjoint linear operators in Hilbert space and its proof.
@@ -779,7 +777,7 @@ If a linear operator $\linA$ acting in a complex Hilbert space
 and with domain of definition $\domain{\linA}$ is self-adjoint,
 then there is projection-valued measure $P$ such that
 
-\begin{equation}\label{ST_1}
+\begin{equation}\label{ST_3}
 \linA \=
 \int_{\,\R} \lambda \, d\,P_{\lambda},
 \end{equation}
@@ -834,7 +832,7 @@ but also the resolvent of the spectral operator
 \]
 which implies $\linA \eq \linA'$, since the identity of resolvents causes
 the identity of the operators themselves,
-that is, \eqref{ST_1} must be valid.
+that is, \eqref{ST_2} must be valid.
 
 \paragraph{}
 So we have to show that the representation formula \eqref{REP_1}
