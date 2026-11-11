@@ -55,27 +55,29 @@
 \textit{Linear algebra} is the mathematical subject of modules and linear spaces
 together with the linear mappings defined between them.
 It is the fundament for a couple of other topics in mathematics,
-which in fact relies on the concepts provided by linear algebra.
+which relies on the concepts provided by linear algebra.
+
+\subparagraph{}
 The content is divided up into three main parts,
 namely \textit{rings and fields}, \textit{linear spaces and mappings}
 and finally \textit{algebras}.
-
-\paragraph{}
 Let us first recall from group theory
-that an \textit{Abelian group} is a set $\grpG$ together with
-an associative operation $+ \:\grpG \times \grpG \xto \grpG$
+that an \textit{Abelian group} is a set $\grpG$ together
+with an associative operation $+ \:\grpG \times \grpG \xto \grpG$
 such that
 
-\begin{itemize}[leftmargin=15pt,itemsep=2pt]
+\begin{itemize}[leftmargin=15pt]
 \item[1.]
 there is exactly one element $\0 \xeof \grpG$
 such that the computation rule
 $x + \0 \eq \0 + x \eq x$ holds for all other $x \xeof \grpG$,
 and $\0$ is called the \textit{unit element} in $\grpG$.
+
 \item[2.]
 to each $x \xeof \grpG$ there is a unique element $-x \xeof \grpG$,
 called the \textit{inverse} of $x$
 such that $x + (-x) \eq -x + x \eq \0$.
+
 \item[3.]
 the operation $+$ is \textit{commutative} or \textit{Abelian},
 {\ie} $x+y \eq y+x$ for all $x,y \xeof \grpG$.
@@ -86,7 +88,7 @@ the operation $+$ is \textit{commutative} or \textit{Abelian},
 \fancyhead[EC] {\small{I. \textsc{Rings and Fields}}}
 \fancyhead[OC] {\small{I. \textsc{Rings and Fields}}}
 
-\part{Rings and Fields}  
+\part{Rings and Fields}
 %------------------------------------------------------------------------------%
 The concepts of \textit{ring} and \textit{field}
 constitute algebraic structures,
@@ -97,12 +99,12 @@ like \textit{modules}, \textit{vector spaces} and \textit{algebras}.
 
 \paragraph{}
 In the following let $(R,+)$ be an Abelian group
-and $\circ \:R \times R \xto R$ be a further associative operation.
+and $\circ \: R \times R \xto R$ be a further associative operation.
 The triple $(R,+,\circ)$ is called a \textit{ring},
 if the operations $+$ and $\circ$ satisfy the following computation rules,
 denoted as \textit{distributive laws}:
 \[
-\begin{cases}[1.4]
+\begin{cases}[1.2]
 \quad x \circ (a + b) = (x \circ a) + (x \circ b), \\
 \quad (a + b) \circ y = (a \circ y) + (b \circ y), \\
 \end{cases}
@@ -112,51 +114,51 @@ The pair $(R,\circ)$ especially forms a semigroup,
 and the operation $\circ$ is usually called the \textit{ring multiplication} in $R$.
 
 \subparagraph{}
-Any ring $R$ is called a \textit{ring with unit element},
-if there is a element $1 \xeof R$ such that $x \circ \1 \eq \1 \circ x \eq x$
-for all $x \xeof R$.
+A ring $R$ is called \textit{unitary},
+if there is a element $\1 \xeof R$
+such that $x \circ \1 \eq \1 \circ x \eq x$ for all $x \xeof R$.
 Moreover,
 a ring is called \textit{commutative},
 if the multiplication is so,
 that is,
-$(R,\circ)$ constitutes a commutativee semigroup.
+$(R,\circ)$ is a commutativee semigroup.
 
 \paragraph{}
 The following examples of rings are well-known:
 
-\begin{itemize}[leftmargin=12pt]
+\begin{itemize}[leftmargin=15pt]
 \item[1.]
 $(\Z,+,\cdot)$ with unit element $1 \xeof \Z$ is a commutative ring.
 
 \item[2.]
 Let $\setM$ be a set, $(R,+,\circ)$ be a ring
-and $\cal{A}(M,R)$ be the set of mappings from $\setM$ to $R$.
+and $\cal{A}(\setM,R)$ be the set of mappings from $\setM$ to $R$.
 We introduce addition and multiplication of mappings
-$f,g \xeof \cal{A}(M,R)$ according to
+$f,g \xeof \cal{A}(\setM,R)$ according to
 \[
-\begin{cases}[1.4]
+\begin{cases}[1.2]
 \quad (f + g)(x) := f(x) + g(x),\\
 \quad (f \cdot g)(x) := f(x) \cdot g(x),\\
 \end{cases}
 \]
-for all $x \xeof M$.
-The set $(\cal{A}(M,\R), +, \cdot)$ forms a ring as well.
+for all $x \xeof \setM$.
+The set $(\cal{A}(\setM,\R), +, \cdot)$ forms a ring as well.
 
 \item[3.]
-Let $(A,+)$ be an Abelian group
-and $\cal{A}(A)$ be the set of mappings $f \: A \xto A$.
-Let for $f,g \xeof \cal{A}(A)$ the sum $f + g$ and the prodzct
-$f \circ g$ be given by
+Let $(\grpA,+)$ be an Abelian group
+and $\cal{A}(\grpA)$ be the set of mappings $f \: \grpA \xto \grpA$.
+Let for $f,g \xeof \cal{\grpA}(\grpA)$ the sum $f + g$
+and the product $f \circ g$ be given by
 \[
-(f + g)(x) := f(x) + g(x), \quad (f \circ g)(x) := f(g(x))
+(f + g)(x) \eqdef f(x) \+ g(x), \quad \quad (f \circ g)(x) \eqdef f(g(x))
 \]
-for all $x \xeof A$.
-Then $(\cal{A}(A),+,\circ)$ is a non-commutative ring with unit element $\1$,
-where $\1$ is nothing but the identity mapping in $A$.
+for all $x \xeof \grpA$.
+Then $(\cal{A}(\grpA),+,\circ)$ is a non-commutative ring with unit element $\1_A$,
+where $\1_A$ is the identity mapping in $\grpA$.
 
 \item[4.]
-The set of $(n,n)$-matrices with coefficients in $\R$ or 
-$\C$ forms a ring with unit element {\wrt} matrix multiplication,
+The set of $(n,n)$-matrices with coefficients in $\R$ or $\C$ forms a ring
+having an unit element {\wrt} matrix multiplication,
 which is non-commutative for $n > 1$.
 \end{itemize}
 
@@ -167,27 +169,26 @@ by posing some additional requirements regarding the ring multiplication:
 \subparagraph{}
 Let $(R,+,\circ)$ be a ring.
 An element $r \xeof R$ is called a \textit{zero divisor} of $R$,
-if $r \neq 0$ and there is $x \xeof R$
+if $r \neq \0$ and there is $x \xeof R$
 such that $x \neq 0$ and $r \circ x \eq 0$.
 A ring $R$ is called \textit{without zero divisors},
 if it does not contain a zero divisor.
 
 \subparagraph{}
-The absence of a zero divisor in a ring can be characterized
-by means of the \textit{reduction rule}:
-a ring is without zero divisors
+The absence of a zero divisor can be characterized by means of
+the \textit{reduction rule}:
+a ring do not own zero divisors
 \iff
 for $x,y,z \xeof R$ and $x \neq 0$ the equation $x \circ y \eq x \circ z$
 implies $y \eq z$.
-Damit gelangen we zum Begriff des \textit{Integrit\"{a}ts ring}:
-a ring $R$ is called a \textit{Integrit\"{a}tsring},
-if it is without zero divisors and commutative 
-and owns a unit element $1 \neq 0$.
+This leads to the notion of \textit{integrity ring}:
+a commutative unital ring $R$ is called an \textit{integrity ring},
+if there are no zero divisors.
 
 \subparagraph{}
-Let $(R,+,\circ)$ be a ring with unit element $1 \xeof R$.
+Let $(R,+,\circ)$ be a ring with unit element $\1 \xeof R$.
 An element $r \xeof R$ is called a \textit{unit} rsp. \textit{invertible},
-if there is $r' \xeof R$ such that $r \circ r' \eq 1$.
+if there is $r' \xeof R$ such that $r \circ r' \eq \1$.
 If $r'$ exists, then it is uniquely defined by $r$
 (notation: $r' \eq r^{-1}$).
 If $r$ and $r^{-1}$ are both units, then $(r^{-1})^{-1} \eq r$ holds.
@@ -200,15 +201,15 @@ The pair $(E(R),\circ)$ forms an Abelian group for every ring $R$.
 %------------------------------------------------------------------------------%
 Subrings are defined in a smiliar way as subgroups.
 Let $(R,+,\circ)$ be a ring.
-Then yny set $U \subset R$ is called a \textit{subring} of $R$, 
+Then a set $U \xsubset R$ is called a \textit{subring} of $R$, 
 if for all $r,s \xeof U$ we have $r+s \xeof U$ and $r \circ s \xeof U$.
 
 \subparagraph{}
-Hence a subring is closed {\wrt} the algebraic operations $+$ and $\circ$.
+Hence a subring is closed {\wrt} the operations $+$ and $\circ$.
 Each subring $(U,+)$ is an (Abelian) subgroup of $(R,+)$,
 and $(U,\circ)$ is a sub-semigroup of $(R,\circ)$.
 The intersection of arbitrarily many subrings of a ring is a subring again.
-If $R$ is a ring and $S \subset R$ is a non-empty subset,
+If $R$ is a ring and $S \xsubset R$ is a non-empty subset,
 then the \textit{generated subring} $[S]$ of $S$ is defined
 to be the intersection of all subrings $U$ of $R$
 having the property $S \xsubset U$.
@@ -216,15 +217,16 @@ having the property $S \xsubset U$.
 \section{Ideals}
 %------------------------------------------------------------------------------%
 One of the most important concepts in ring theory is that of \textit{ideal}.
-Let $(R,+,\circ)$ be a ring and $I \subset R$ be a subring:
+Let $(R,+,\circ)$ be a ring and $I \xsubset R$ be a subring:
 
 \begin{itemize}[leftmargin=15pt]
 \item[1.]
 $I$ is called a \textit{left-sided ideal} in $R$,
-if for each $r \xeof R$ and each $x \xeof I$ is $r \circ x \xeof I$.
+if $r \circ x \xeof I$
+for each $r \xeof R$ and $x \xeof I$.
 \item[2.]
 $I$ is called a \textit{right-sided ideal} in $R$,
-if $x \circ r \xeof I$ for each $r \xeof R$ and each $x \xeof I$.
+if $x \circ r \xeof I$ for each $r \xeof R$ and $x \xeof I$.
 \item[3.]
 $I$ is called \textit{two-sided},
 if it is a left and right-sided ideal at the same time.
@@ -232,15 +234,15 @@ if it is a left and right-sided ideal at the same time.
 
 \subparagraph{}
 It follows from this definition
-that for ideals in a \textit{commutative} ring all this notations
+that for ideals of a \textit{commutative} ring all this notations
 are equivalent to each other.
 
 \subparagraph{}
 The intersection of arbitrarily many ideals in $R$ forms an ideal again.
-Hence we can assign to each non-empty subset $S \subset R$ a \textit{smallest} ideal,
-wich contains the set $S$.
-The ideal generated by the set $S$ is denoted $[S]$ and is defined
-as the intersection of all ideals in $R$ containing the set $S$.
+Hence we can assign to each non-empty subset $S \xsubset R$
+a \textit{smallest} ideal containing $S$.
+The ideal generated by $S$ is denoted $[S]$ and can be defined
+as the intersection of all ideals in $R$ containing $S$.
 
 \paragraph{}
 Let $(R,+,\circ)$ be a ring and $I \neq R$ be an ideal in $R$.
@@ -249,16 +251,18 @@ Let $(R,+,\circ)$ be a ring and $I \neq R$ be an ideal in $R$.
 \item[1.]
 $I$ is called a \textit{maximal ideal}, 
 if it is not contained in a larger ideal besides $R$ itself.
+
 \item[2.]
 $I$ is called a \textit{primary ideal}, if the following is true:
 If $x,y \xeof R \setminus I$, then $x \circ y \xeof R \setminus I$,
 that is,
 the set $R \setminus I$ is closed {\wrt} multiplication.
+
 \item[3.]
 The set $\operatorname{Spec}(R)$ of all primary ideals in $R$
 is called the \textit{spectrum} of $R$.
-The set of all maximal ideals in $R$ is called the \textit{maximal spectrum}
-of $R$.
+The set of all maximal ideals in $R$ is called the \textit{maximal spectrum} of $R$.
+
 \item[4.]
 $I$ is called a \textit{principal ideal},
 if it is multiplicatively generated by one element,
@@ -270,13 +274,16 @@ $I \eq \set{x \xeof R}{x \eq r \cdot y, \, r \xeof R}$ rsp. $I \eq [y]$.
 \paragraph{} %- principal ideal rings
 Let $R$ a commutative ring without zero divisors,but with unit element.
 Then $R$ is called a \textit{principal ideal ring},
-if each ideal in $R$ is a principal one.
+if each ideal in $R$ is principal.
 
 \begin{itemize}[leftmargin=15pt]
 \item[1.]
-Each ring $R$ and the mutually existing unit element $\{1\}$ is a ideal.
+Each ring $R$ itself is an ideal.
 
 \item[2.]
+The singleton $\{1\}$ with $\1$ being the unital element of a ring is an ideal.
+
+\item[3.]
 Let $I$ be an interval
 and $(C(I),+,\cdot)$ be the ring of continuous functions $f \:I \xto \R$.
 For $x \xeof I$ let $I_x := \{f \xeof C(I) \: f(x) \eq 0 \}$.
@@ -284,18 +291,18 @@ Then $I_x$ is a maximal ideal in $C(I)$.
 Moreover,
 each maximal ideal in $C(I)$ is a set $I_x$ for an element $x \xeof I$.
 
-\item[3.]
+\item[4.]
 Let $R \eq (\Z,+,\cdot)$ and 
 $m \, \Z := \{z \xeof \Z \: z = m \cdot i, \, i \xeof \Z \}$ for $m \xeof \N$.
 Then the sets $m \, \Z$ are principal ideals in $\Z$.
-The ring $\Z$ is commutative and withour zero divisors.
+The ring $\Z$ is commutative and does not own zero divisors.
 Since each ideal in $\Z$ is principal, 
-$\Z$ proves to be a principal ideal ring.
+the ring $\Z$ is a principal ideal ring.
 \end{itemize}
 
 \section{Factor Rings}
 %------------------------------------------------------------------------------%
-Let $(R,+,\circ)$ be a ring and $I \subset R$ be a two-sided ideal. 
+Let $(R,+,\circ)$ be a ring and $I \xsubset R$ be a two-sided ideal. 
 Since $I$ forms an Abelian subgroup of $R$,
 we can consider the (Abelian) factor group $(R/I,+)$.
 
@@ -303,7 +310,7 @@ we can consider the (Abelian) factor group $(R/I,+)$.
 For each pair of elements $[x],[y] \xeof R/I$ the multiplicative operation
 $[x] \circ [y] := [x \circ y]$ is well-defined.
 The ideal $I$ is two-sided in $R$,
-hence the multiplication is indepenedent of the representatives
+hence the multiplication is independent of the representatives
 $x \xeof [x]$ and $y \xeof [y]$.
 Now,
 the triple $(R/I,+,\circ)$ has also the structure of a ring,
@@ -328,22 +335,25 @@ Then a \textit{ring homomorphism} is a group homomorphism $\phi \:R \xto S$
 that is compatible with the multiplicative operations in $R$ and $S$
 in the sense of
 \[
-\phi(x \circ y) = \phi(x) \bullet \phi(y), \qquad x,y \in R.
+\phi(x \circ y) = \phi(x) \bullet \phi(y), \qquad (x,y \in R).
 \]
 
 \subparagraph{}
-Other concepts like epimorphisms,
-monomorphisms, isomorphisms and endomorphisms are defined for rings as well.
+Other concepts like
+epimorphisms,
+monomorphisms,
+isomorphisms and
+endomorphisms are defined for rings as well.
 The rings form together with their homomorphisms a category.
 
 \subparagraph{}
-Let $(R,+,\circ)$ a ring and $I$ a two-sided ideal in $R$.
-Then the residual class assignment $\pi\:R \xto R/I$, $x \mapsto [x]$
+Let $(R,+,\circ)$ be a ring and $I$ be a two-sided ideal in $R$.
+Then the residual class assignment $\pi \: R \xto R/I$, $x \mapsto [x]$
 is a ring homomorphism,
 denoted the \textit{canonical epimorphism} of $R$ to $R/I$.
 
 \subparagraph{}
-The \textit{kernel} $\kernel{\phi}$ of a ring homomorphism $\phi\:R_1 \xto R_2$
+The \textit{kernel} $\kernel{\phi}$ of a ring homomorphism $\phi \: R_1 \xto R_2$
 is the set of all $x \xeof R_1$ with $\phi(x) \eq 0$.
 If $\phi$ is surjective,
 then $\kernel{\phi}$ forms a two-sided ideal in $R_1$.
@@ -360,7 +370,7 @@ Then the ideals $R_1 / \kernel{\phi}$ and $R_2$ are isomorphic to each other.
 In some cases a variant of the concept of ring homomorphisms is meaningful,
 which is denoted \textit{derivations} over a given ring:
 Let $(R_1,+,\circ)$ and $(R_2,+,\bullet)$ be rings.
-Then a \textit{derivative} is a group homomorphism $\phi\:R_1 \xto R_2$,
+Then a \textit{derivative} is a group homomorphism $\phi \: R_1 \xto R_2$,
 if it is compatible with the ring multiplications,
 that is
 \[
@@ -371,17 +381,17 @@ that is
 \subparagraph{}
 Look at the following example:
 let $R := C^1(\R)$ be the ring of countinuously differentiable functions
-$f\:\R \xto \R$
-and $S := C(\R)$ be the ring of continuous functions $f\:\R \xto \R$.
+$f \: \R \xto \R$
+and $S := C(\R)$ be the ring of continuous functions $f \: \R \xto \R$.
 Then the differential operator $\phi \: R \xto S$ 
 defined by $\phi(f) := f'$ for $f \xeof C^1(\R)$ forms a derivation
 from $R$ to $S$,
-since the product rule $(fg)' \eq f'g \, + \, fg'$ holds.
+since the product rule $(fg)' \eq f'g \+ fg'$ holds.
 
 \section{Polynomial Rings}
 %------------------------------------------------------------------------------%
 For a commutative ring $R$ with unit element
-let $R_0$ be the set of \textit{terminating sequences} $f\:\N \xto R$.
+let $R_0$ be the set of \textit{terminating sequences} $f \: \N \xto R$.
 It should be clear
 that for two sequences $p,q \xeof R_0$ the addition
 $p + q \xeof R_0$ is defined component-wise.
@@ -397,26 +407,26 @@ Hence a ring structure on $R_0$ is defined by these operations.
 The triple $(R_0,+,\bullet)$ is called the \textit{polynomial ring}
 associated with $R$,
 and each element $p \xeof R_0$ is called a \textit{polynomial}.
-The unit elements of a polynomial ring are given by the sequences
+The unit elements of $R_0$ are given by the sequences
 \[
-\0 : = (0,0,\ldots), \, \mbox{ and } \, 1 := (1,0,\ldots).
+\0 : = (0,0,\ldots) \; \and \; \1 := (1,0,\ldots).
 \]
-Morover,
-if a poynomial ring owns a generating element $x := (0,1,0,\ldots)$,
+Moreover,
+if $R_0$ owns a generating element $x := (0,1,0,\ldots)$,
 {\ie} $R_0 \eq [x]$, 
-then each other element $p$ of the polynomial ring can be represented by
+then each other element $p \xeof R_0$ can be represented by the formula
 \[
-p = a_0 + a_1 \circ x + a_2 + x^2 + \ldots + a_n \circ x^n,
+p \= a_0 + a_1 \circ x + a_2 + x^2 + \ldots + a_n \circ x^n,
 \]
 which coincides with the usual notations for polynomials.
-We call the elements $a_i$ the \textit{coefficients} of this polynomial.
+The elements $a_i$ are called the \textit{coefficients} of this polynomial.
 
 \subparagraph{}
 By the \textit{degree} of a polynomial $p$ is meant the number
 $\grad{p} := \max \set{a_k}{k \xeof \N_0}$.
-The following computation rules are valid for all $p,q \xeof R_0$:
+The following computation rules are valid for arbitrary $p,q \xeof R_0$:
 \[
-\begin{cases}[1.4]
+\begin{cases}[1.2]
 \quad \grad{p+q}         \, \leq \, \max \{ \grad{p}, \grad{q} \},\\
 \quad \grad{p \bullet q} \, \leq \, \grad{p} + \grad{q}.\\
 \end{cases}
@@ -425,7 +435,7 @@ It is of interest to know
 that by inserting a ring element $x \xeof R$ into a polynomal $p \xeof R_0$
 we obtain a ring homomorphism
 \[
-\phi_x\:R_0 \to R, \quad p \mapsto p(x),
+\phi_x \: R_0 \to R, \quad p \mapsto p(x),
 \]
 which is often called the \textit{insertion homomorphism}.
 
@@ -433,52 +443,53 @@ which is often called the \textit{insertion homomorphism}.
 %------------------------------------------------------------------------------%
 By a \textit{field} is meant a ring $(R,+,\circ)$,
 for which all its elements besides $\0 \xeof R$ own an inverse element.
-Let $(K,+,\circ)$ a ring with unit element $\1$.
+In what follows,
+let $(K,+,\circ)$ be a ring with unit element $\1$.
 
 \begin{itemize}[leftmargin=15pt]
 \item[1.]
 $K$ is called a \textit{skew field},
 if for each element $x \xeof K \setminus \{0\}$ there is $x^{-1} \xeof K$ 
 such that $x \circ x^{-1} \eq x^{-1} \circ x \eq \1$.
+
 \item[2.]
-In addition,
-if $K$ is commutative, then $K$ is denoted a \textit{field}.
+If $K$ is commutative, then $K$ is denoted a \textit{field}.
 \end{itemize}
 
 \subparagraph{}
 If $K$ is a skew field,
 then the pair $(K \setminus \{0\},\circ)$ forms a group.
-The sets $\Q, \R, \C$ of rational, real and complex number
-constitute also fields,
-but the set of \textit{quaternions} however is only a skew field.
+The sets $\Q, \R, \C$ of rational, real and complex numbers
+constitute fields,
+but the set of \textit{quaternions} is only a skew field.
 
 \paragraph{}
 We next answer the question,
-whether for a given ring $R$ and ideal $I$ in $R$
+whether for a given ring $R$ and an ideal $I$ in $R$
 the factor ring $R/I$ forms a field.
 The following result is valid:
-let $(R,+,\circ)$ be a commutative ring with unit element 
-and $I$ an ideal in $R$. 
-Then $R/I$ is a field \iff
+let $(R,+,\circ)$ be a commutative ring with unit element and $I$ an ideal in $R$. 
+Then $R/I$ is a field
+\iff
 $I$ is a \textit{maximal} ideal.
 
 \subparagraph{}
 Let $K$ be a field and $\1 \xeof K$ be the unit element {\wrt} multiplication.
 Then the smallst integer $\chi(K)$ having the property
 \[
-\underbrace{\1 \,+\, \ldots \,+\, \1}_{\chi(K)} \= 0
+\underbrace{\1 \+ \ldots \+ \1}_{\chi(K)} \= 0
 \]
-is called the \textit{characteristic} of $K$.
+is called the \textit{characteristics} of $K$.
 If no such number exists,
-then the field $K$ is said to have characteristic $\chi(K) \eq 0$.
-An example of a field with $\chi(K) \eq 0$ is the field $\Q$ of rational numbers.
+then $K$ is said to have characteristics $\chi(K) \eq 0$.
+An example of a field with $\chi(K) \eq 0$
+is given by the field $\Q$ of rational numbers.
 
 \subparagraph{}
-Given an integrity ring $R$,
-one can construct a field,
-called the \textit{quotient field} of $R$:
+For every integrity ring $R$ it is possible to construct a specific field,
+called the \textit{quotient field} of $R$.
 First define an equivalence relation on the cartesian product
-$\setM := R \times R \setminus \{0\}$ according to
+$\setM := R \times R {\setminus} \{0\}$ according to
 \[
 (a,b) \sim (c,d) \, \Leftrightarrow : \, a \circ d = b \circ c.
 \]
@@ -502,14 +513,14 @@ of the equivalence classes.
 There is still the task to identify the unit elements {\wrt}
 addition and multiplication:
 \[
-0 \eqdef \frac{0}{1},
+\0 \eqdef \frac{0}{1},
 \quad
-1 \eqdef \frac{1}{1}.
+\1 \eqdef \frac{1}{1}.
 \]
 Then the triple $(Q,+,\bullet)$ forms a field,
 in which the original ring $R$ can be embedded by an injective mapping $\iota$,
 that is,
-there is a monomorphism $\iota \:R \xto Q$ given by $x \mapsto \frac{x}{1}$.
+there is a monomorphism $\iota \: R \xto Q$ given by $x \mapsto \frac{x}{\1}$.
 
 \subparagraph{}
 The most well-known example for this construction is the definition
@@ -552,14 +563,15 @@ so $\vecU$ forms a linear space in its own right.
 One can verify
 that the intersection of arbitrarily many subspaces of a given linear space
 is a subspace again.
-So for each non-empty set $\genG \subset \vecV$
+So for each non-empty set $\genG \xsubset \vecV$
 it is possible to define (like in case of groups and rings)
 a smallest subspace $[\genG]$ containing $\genG$,
 which is said to be generated by $\genG$:
 the set $[\genG]$ is the intersection of all subspaces $U \supseteq \genG$
 and forms the smallest subspace in $\vecV$ containing the set $\genG$.
 The subspace $[\genG]$ is called the \textit{span} of the set $\genG$.
-Any vector $x \xeof \vecV$ is an element of $[\genG]$, if and only if
+Any vector $x \xeof \vecV$ is an element of $[\genG]$
+\iff
 $x$ can be represented as \textit{linear combination} of vectors in $\genG$,
 that is, there are vectors $x_1,\ldots,x_n \xeof \genG$ and
 coefficients $\xi_1,\ldots,\xi_n \xeof \F$ such that
@@ -569,7 +581,7 @@ $x \eq \xi_1 x_1 + \xi_2 x_2 + \ldots + \xi_n x_n$.
 One of the main concepts in the theory of linear spaces
 is that of a \textit{Hamel base}.
 Preliminary,
-a non-empty set $B \subset \vecV$ is called \textit{linearly independent},
+a non-empty set $B \xsubset \vecV$ is called \textit{linearly independent},
 if for each selection $\{e_1,\ldots,e_n\}$ of vectors in $B$
 the condition
 $\xi_1 \, e_1 + \xi_2 \, e_2 + \ldots + \xi_n \, e_n \eq \0$ implies
@@ -590,8 +602,7 @@ The question arises,
 whether each linear space has a Hamel basis.
 Indeed,
 this is true if the \textit{axiom of choice} in set theory is provided:
-{\em
-assume the axiom of choice to be valid,
+\textit{assume the axiom of choice to be valid,
 then each linear space $\vecV \neq \{\0\}$ has a Hamel basis.}
 Induced by set inclusion,
 there is a natural partial order on the family
@@ -643,7 +654,7 @@ which satisfy this equation for $\lambda \xeof (0,1)$.
 So an alternative definition for the concept of convexity is possible:
 a subset $\convC$ is convex,
 if and only if
-$(x,y) \subset \convC$ for each pair of vectors $x,y \xeof \convC$.
+$(x,y) \xsubset \convC$ for each pair of vectors $x,y \xeof \convC$.
 
 \subparagraph{}
 Notice
@@ -736,10 +747,10 @@ on $\vecV$ is clearly a linear space again,
 called the \textit{algebraic dual space} of $\vecV$.
 Notice
 that if $\vecU_1,\vecU_2$ are subspaces of $\vecV$ with
-$\vecU_1 \subset \vecU_2$,
+$\vecU_1 \xsubset \vecU_2$,
 then each linear functional $f \xeof \vecU_2^*$ induces
 a linear functional $f' \xeof \vecU_1^*$ by restriction to $\vecU_1$,
-that is, we have $\vecU_2^* \subset \vecU_1^*$.
+that is, we have $\vecU_2^* \xsubset \vecU_1^*$.
 This means
 that it is possible to increase the dual space by decreasing the base space.
 
@@ -887,12 +898,12 @@ the concept of \textit{orthogonality} in such spaces is really new
 in comparison to ordinary linear spaces.
 Two vectors $x,y \xeof \vecV$ are called \textit{orthogonal} to each other,
 if $\scalar{x}{y} \eq 0$ (notation: $x \bot y$).
-A subset $\orthO \subset \vecV$ is called \textit{orthogonal}
+A subset $\orthO \xsubset \vecV$ is called \textit{orthogonal}
 or an \textit{orthogonal system},
 if any pairs of vectors $x,y \xeof \orthO$ are orthogonal to each other.
 It is easy to verify
 that an orthogonal system forms a linearly independent set.
-For a subset $\setA \subset \vecV$ we introduce the \textit{orthogonal space}
+For a subset $\setA \xsubset \vecV$ we introduce the \textit{orthogonal space}
 $ \setA^{\bot}$ of $\setA$ by means of
 \[
 \setA^{\bot} \eqdef
@@ -970,12 +981,12 @@ and the factor algebra $\algB/\algA$ is isomorphic to the field $\F$
 \section{Subalgebras}
 %------------------------------------------------------------------------------%
 Let $(\algA,+,\circ)$ be a $\F$-algebra.
-A subset $\algU \subset \algA$ is called a \textit{subalgebra} of $\algA$,
+A subset $\algU \xsubset \algA$ is called a \textit{subalgebra} of $\algA$,
 if $\algU$ is a subspace of $\algA$ and a subring of $(\algA,+,\circ)$ together.
 Similar to subspaces of linear spaces,
 the intersection of arbitrarily many subalgebras of $\algA$ is a subalgebra
 of $\algA$, too.
-If $\genG \subset \algA$ is a non-empty subset,
+If $\genG \xsubset \algA$ is a non-empty subset,
 then the intersection $[\genG]$ of all subalgebras $\algA'$ with the property
 $\algA' \supseteq \genG$ is called the subalgebra \textit{generated by $\genG$}.
 Finally,
@@ -1008,12 +1019,12 @@ The construction of the group algebra can be done basically for each ring $R$.
 
 \section{Ideals}
 %------------------------------------------------------------------------------%
-A subset $\idI \subset \algA$ is called an \textit{ideal} in $\algA$,
+A subset $\idI \xsubset \algA$ is called an \textit{ideal} in $\algA$,
 if $\idI$ is a subspace in the linear space $(\algA,+)$
 and an ideal in the ring $(\algA,+,\circ)$ together.
 Because the intersection of arbitrarily many ideals in $\algA$
 is an ideal in $\algA$ again,
-we can assign to each non-empty subset $\genG \subset \algA$
+we can assign to each non-empty subset $\genG \xsubset \algA$
 the minimal ideal $[\genG]$, which is called the
 \textit{ideal generated by $\genG$}.
 
