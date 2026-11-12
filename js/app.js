@@ -1124,15 +1124,10 @@ function displayArticle(id)
 /*----------------------------------------------------------------------------*/
 /* createTable(), fillTable()                                                 */
 /*----------------------------------------------------------------------------*/
-function createTable(title,classname)
+function createTable(classname)
 {
-  let table = new $('#'+classname+'-table').DataTable({pageLength:7});
-/*
-  if(title != "")
-    table.caption('--- ' + title + ' ---','top');
-  else
-    table.caption('','top');
-*/
+  let tname = '#' + classname + '-table';
+  let table = new $(tname).DataTable({pageLength:7});
   table.select.style('single');
 
   table.on('click', 'tbody tr', function (e)
@@ -1156,7 +1151,7 @@ function createTable(title,classname)
                      Isem_Scripts[i].y]);
   }
 
-  if(classname == 'Grundlehren')
+  if(classname == 'grundlehren')
   {
     for(i=0; i < GL_Data.length; i++)
       table.row.add([GL_Data[i].id,
@@ -1166,16 +1161,7 @@ function createTable(title,classname)
                      GL_Data[i].t]);
   }
 
-  if(classname == 'Mathematician')
-  {
-    for(i=0; i < Mathematician_Data.length; i++)
-      table.row.add([Mathematician_Data[i].n,
-                     Mathematician_Data[i].b,
-                     Mathematician_Data[i].d,
-                     Mathematician_Data[i].c]);
-  }
-
-  if(classname == 'lecture_notes')
+  if(classname == 'lnm')
   {
     for(i=0; i < LNM_Data.length; i++)
       table.row.add([LNM_Data[i].id,
@@ -1218,7 +1204,7 @@ function createTable(title,classname)
                      Dover_Data[i].t]);
   }
 
-  if(classname == 'Book')
+  if(classname == 'textbook')
   {
     for(i=0; i < Book_Data.length; i++)
       table.row.add([Book_Data[i].y,
@@ -1227,7 +1213,7 @@ function createTable(title,classname)
                      Book_Data[i].p]);
   }
 
-  if(classname == 'Journal')
+  if(classname == 'journal')
   {
     for(i=0; i < Journal_Data.length; i++)
       table.row.add([Journal_Data[i].t,
@@ -1408,16 +1394,17 @@ function showHome()
 /*----------------------------------------------------------------------------*/
 /* call main functions                                                        */
 /*----------------------------------------------------------------------------*/
-createTable('Journals', 'Journal');
-createTable('Textbooks', 'Book');
-createTable('Monographs in \'Grundlehren der mathematischen Wissenschaften in Einzeldarstellung\'', 'Grundlehren');
-createTable('Functional Analysis Textbooks in \'Dover Publications\'', 'dover');
-createTable('Functional Analysis Textbooks in Springer\'s \'Graduate Texts in Mathematics\' (GTM)', 'gtm');
-createTable('Functional Analysis Textbooks in \'Graduate Studies in Mathematics\' (GSM), by AMS', 'gsm');
-createTable('Internet Seminars on Evolution Equations', 'isem');
-createTable('Monographs in \'Lecture Notes in Mathematics (Springer)\'', 'lecture_notes');
-createTable('Mathematics and its Applications', 'mass');
-createTable('MSC2020 Entries', 'msc46');
+createTable('textbook');
+createTable('journal');
+createTable('grundlehren');
+createTable('dover');
+createTable('gtm');
+createTable('gsm');
+createTable('isem');
+createTable('lnm');
+createTable('mass');
+createTable('msc46');
+
 fillListOfMathematicians();
 fillListOfMainTheorems();
 fillListOfKeyConcepts();
