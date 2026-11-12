@@ -1,5 +1,5 @@
 %------------------------------------------------------------------------------%
-% FUNDAMENTAL CONCEPTS IN GENERAL TOPOLOGY                                     %
+% GENERAL TOPOLOGY                                                             %
 %------------------------------------------------------------------------------%
 % File  : General_Topology.tex                                                 %
 % Author: Klaus Hoeflinger, Beethovenstrasse 11, D-73117 Wangen                %
@@ -32,10 +32,7 @@
 \begin{document}
 \thispagestyle{empty}
 
-\def\Title{Fundamental Concepts in General Topology}
-
-%\centerline{{\textit{Topics in Functional Analysis}}}
-%\vspace{22pt}
+\def\Title{General Topology}
 
 \centerline{\large{\textbf{\Title}}}
 \vspace{4pt}
@@ -67,16 +64,6 @@ mathematical analysis on a high and abstract level.
 One may justly claim
 that analysis today is unthinkable
 without including the extremely useful notions provided by topology.
-
-\subparagraph{}
-The content is divided into four parts: first of all,
-we outline the basic concepts of topology.
-In the subsequent parts we shall have a look at specific kinds
-of topological spaces,
-which especially are
-\textit{metric spaces} and
-\textit{topological groups}.
-%and \textit{manifolds}.
 
 \fancyhead[OC]{\small{\textsc{I. Topological Spaces}}}
 \fancyhead[EC]{\small{\textsc{I. Topological Spaces}}}
@@ -138,7 +125,7 @@ then the set $\interior{\setA}$ denotes the union
 of all open subsets of $\setA$,
 or equivalently,
 it is the largest open set $\openO$
-such that $\openO \subset \setA$.
+such that $\openO \xsubset \setA$.
 
 \item[(b)]
 The set $\interior{\setA}$ is said to be the \textit{interior} of $\setA$,
@@ -156,24 +143,24 @@ of $\setA$.
 \end{itemize}
 
 In summary,
-for each subset $\setA \subset \topX$ there is always
+for each subset $\setA \xsubset \topX$ there is always
 the sequence of inclusions
 \begin{equation}\label{CHAIN}
 \emptyset
 \subseteq \, \interior{\setA} \,
 \subseteq \, \setA            \,
-\subseteq \, \overline{\setA}  \,
+\subseteq \, \overline{\setA} \,
 \subseteq \, \topX.
 \end{equation}
 
-We take care of the midth subchain
+Let us regard the midth subchain
 $\interior{\setA} \, \subseteq \, \setA \, \subseteq \, \overline{\setA}$.
-If the inclusions can be replaced by equality,
+If these inclusions can be replaced by equality,
 that is,
-$\interior{\setA} \eq \setA$ on the left side,
+$\interior{\setA} \eq \setA$,
 then and only then the set $\setA$ is open.
 Similarly,
-if $\setA \eq \overline{\setA}$ on the right side,
+if $\setA \eq \overline{\setA}$,
 then and only then the set $\setA$ is closed.
 
 \subparagraph{} %- discrete sets
@@ -189,16 +176,16 @@ every point $x \xeof \topX$ can be obtained as a limit point of $\setA$.
 
 \subparagraph{} %- boundary points and boundary
 Finally,
-for a given subset $\setA \subset \topX$,
+for a given subset $\setA \xsubset \topX$,
 the relative complement set
 $\partial \setA := \overline{\setA} \setminus \interior{\setA}$
 is called the \textit{boundary} of $\setA$,
 and each element of $\partial \setA$ is said
 to be a \textit{boundary point} of $\setA$.
 It can be shown
-that a set $\openO \subset \topX$ is open
+that a set $\openO \xsubset \topX$ is open
 iff it contains no boundary points,
-and a set $\setA \subset \topX$ is closed
+and a set $\setA \xsubset \topX$ is closed
 iff it contains all its boundary points.
 We obtain the boundary of $\setA$ as the intersection
 of the sets $\overline{\setA}$ and $\overline{\topX \setminus \setA}$,
@@ -213,7 +200,7 @@ Roughly spoken,
 any set constitutes a neighbourhood of a point $x \xeof \topX$,
 if it contains all points sufficiently close to $x$.
 The exact definition states as follows:
-a subset $\U \subset \topX$ is called a \textit{neighbourhood}
+a subset $\U \xsubset \topX$ is called a \textit{neighbourhood}
 of $x \xeof \topX$,
 iff $x$ is an interior point of $\U$.
 For example,
@@ -232,7 +219,7 @@ In particular,
 a sequence $(\phi_n)$ is called \textit{convergent} to
 an element $x \xeof \topX$,
 if for each neighbourhood $\U$ of $x$ there are only
-finitely many members of $(\phi_n)$ being outside $\U$.
+finitely many members of $(\phi_n)$ being not in $\U$.
 We will study the convergence of sequences again
 in the setting of metric spaces (see Part II).
 
@@ -241,7 +228,7 @@ A \textit{neighbourhood base} of a point $x$ is a family $\famF$
 of neighbourhoods of $x$ with the additional property
 that each open set $\openO_x$ with $x \xeof \openO_x$
 contains a neighbourhood $\U_x \xeof \famF$ as a subset:
-$\U_x \subset \openO_x$.
+$\U_x \xsubset \openO_x$.
 Furthermore,
 a topological space is said to satisfy the \textit{first countability axiom},
 if each point has a mostly \textit{countable} neighbourhood base.
@@ -353,11 +340,11 @@ Each open and connected set is usually called a \textit{domain}.
 
 \subparagraph{}
 Clearly,
-the property of a set $C \subset \topX$ being connected
+the property of a set $C \xsubset \topX$ being connected
 depends on the topology of the underlying space.
 Connected sets mapped by a continuous function do not lose this property.
 More precisely,
-if $\setA \subset \topX$ is connected and the mapping $f \: \topX \xto \topY$
+if $\setA \xsubset \topX$ is connected and the mapping $f \: \topX \xto \topY$
 is continuous,
 then $f(\setA) \subseteq \topY$ is connected as well.
 Connectedness is actually a topological invariant.
@@ -406,7 +393,7 @@ Let $\topX$ be any set and
 let $f_i \: \topX \xto \topY_i$ ($i \xeof \indI$) be a family of mappings
 into arbitrarily many topological spaces $\topY_i$.
 We consider the collection $\setS$ of preimages $f_i^{-1}(\openO)$
-for all the open sets $\openO \subset \topY_i$.
+for all the open sets $\openO \xsubset \topY_i$.
 Then the topology $[\setS]$ generated by $\setS$ is the coarsest
 topology on $\topX$ such that all mappings $f_i$ remain still continuous.
 It is called the \textit{initial topology} {\wrt} the family
@@ -419,7 +406,7 @@ we introduce the \textit{subset topology} and the \textit{product topology}:
 \begin{itemize}[leftmargin=12pt,itemsep=2pt]
 \item[1.]
 Let $\topX$ be a topological space
-and $\setM \subset \topX$ be a proper subset of $\topX$.
+and $\setM \xsubset \topX$ be a proper subset of $\topX$.
 We define the \textit{subset topology}
 $\topT_{\setM}$ on $\setM$
 as the initial topology {\wrt} the inclusion mapping
@@ -428,7 +415,7 @@ that is,
 the subset topology is the smallest one such that
 the inclusion of $\setM$ into $\topX$ is continuous.
 The pair $(\setM,\topT_{\setM})$ is a topological space in its own right,
-and a subset $\openO \subset \setM$ is open {\wrt} $\topT_{\setM}$
+and a subset $\openO \xsubset \setM$ is open {\wrt} $\topT_{\setM}$
 iff there is an open set $\openO'$ in $\topX$
 such that $\openO \eq \setM \cap \openO'$.
 
@@ -454,8 +441,7 @@ $\pi_Y \: \cross{\topX}{\topY} \xto \topY$.
 In other words,
 it is the coarsest topology
 for which the both mappings are continuous.
-Note
-that this definition of the product topology can be extended
+This definition of the product topology can be extended
 to the cartesian product of arbitrarily many topological spaces.
 Another way to define the product topology on the set $\cross{\topX}{\topY}$
 is given by the following one:
@@ -497,7 +483,7 @@ when examining a topological problem
 it is a benefite to consider primarily the compact case if possible.
 Note that compactness is an {inner property} of a subset,
 that is,
-a subset $\compK \subset \topX$ is compact
+a subset $\compK \xsubset \topX$ is compact
 {\wrt} the topology $\topT$ on $\topX$
 \iff it is compact in its subset topology $\topT_{\compK}$.
 
@@ -551,14 +537,14 @@ Given the two sets $\topX$ and $\topY$,
 we denote $\topY^{\topX}$ the set of all mappings $f \: \topX \xto \topY$.
 In additon,
 if both sets are topological spaces,
-let $C(\topX,\topY) \subset \topY^{\topX}$ be the subset
+let $C(\topX,\topY) \xsubset \topY^{\topX}$ be the subset
 of \textit{continuous} mappings $f \: \topX \xto \topY$.
 It is our goal to equip the set $C(\topX,\topY)$ with a suitable topology.
 
 \subparagraph{} %- definition of compact-open topologies
 Preliminary,
-for a compact subset $\compK \subset \topX$ and an open subset
-$\topU \subset \topY$ we introduce the family of mappings
+for a compact subset $\compK \xsubset \topX$ and an open subset
+$\topU \xsubset \topY$ we introduce the family of mappings
 \[
 S(\compK,\openO) \eqdef \{f \in C(\topX,\topY): f(\compK) \subset \openO \}.
 \]
@@ -681,7 +667,7 @@ We then introduce open sets in $\metrS$ by means of $\epsilon$-balls:
 a subset $\openO \subseteq \metrS$ is called open,
 if for every point $x \xeof \openO$
 there is a ball $B_{\epsilon}(x)$
-such that $B_{\epsilon}(x) \subset \openO$.
+such that $B_{\epsilon}(x) \xsubset \openO$.
 
 \subparagraph{}
 Indeed,
@@ -774,7 +760,7 @@ in terms of convergent sequences:
 
 \begin{itemize}[leftmargin=12pt,itemsep=1pt]
 \item[1.]
-a subset $\setA \subset \metrS$ is closed,
+a subset $\setA \xsubset \metrS$ is closed,
 iff the limit point of any convergent sequence in $\setA$ belongs to $\setA$,
 too,
 
@@ -878,14 +864,14 @@ and relatively compactness:
 
 \begin{theorem}
 If a metric space $\metrS$ is complete,
-then a subset $\setA \subset \metrS$ is relatively compact,
+then a subset $\setA \xsubset \metrS$ is relatively compact,
 if and only if it is totally bounded.
 \end{theorem}
 
 \subparagraph{}
 For the Euclidean spaces $\Rd$ the notion of totally boundedness
 and usual boundedness are equivalent, 
-so a subset $\compK \subset \R^n$ is compact
+so a subset $\compK \xsubset \R^n$ is compact
 iff $\compK$ is closed and bounded.
 
 \paragraph{}
@@ -940,7 +926,7 @@ More precisely,
 the question arises,
 under which conditions a subset of $C(\topX)$ is relatively compact.
 The main condition in this problem is called \textit{equicontinuity}:
-a family $\famF \subset C(\topX)$  is called \textit{equicontinuous},
+a family $\famF \xsubset C(\topX)$  is called \textit{equicontinuous},
 if for each $\epsilon > 0$ there exists a $\delta > 0$ such that
 \[
 \abs{(f(x)-f(y)} < \epsilon, \, \mbox{ whenever } \, \d(x,y) < \delta
@@ -956,7 +942,7 @@ by the \textit{{\ARZELA}-Ascoli theorem}:
 \begin{theorem}\label{ARZELA_ASCOLI_THEOREM}
 Let $\topX$ be a compact space and $C(\topX)$ the
 space of continuous complex-valued functions.
-Then a subset $\famF \subset C(\topX)$ is relatively compact,
+Then a subset $\famF \xsubset C(\topX)$ is relatively compact,
 iff $\famF$ is equicontinuous and uniformly bounded for each $x \xeof \topX$.
 \end{theorem}
 
@@ -1095,7 +1081,8 @@ If the group operation is commutative,
 then the identity element is often denoted $\0$
 and each inverse element $x^{-1}$ is denoted $-x$.
 
-\section{Generalities on Topological Groups}
+%------------------------------------------------------------------------------%
+\section{Generalities on Topological Groups}                                   %
 %------------------------------------------------------------------------------%
 These are mathematical objects having the algebraic structure of a group
 and a topological structure together.
@@ -1180,7 +1167,7 @@ In particular,
 
 \begin{itemize}[leftmargin=9mm,itemsep=1pt]
 \item[1.]
-$\topU \subset \topG$ is open, iff $\1$ is an inner point of $\topU$.
+$\topU \xsubset \topG$ is open, iff $\1$ is an inner point of $\topU$.
 
 \item[2.]
 $\topU$ is discrete, iff $\1$ is an isolated point of $\topU$.
@@ -1204,7 +1191,8 @@ continuous functions $f \: \topG \xto \mathbb{T}$.
 We equip this set with the compact-open topology,
 so $C(\topG,\mathbb{T})$ becomes into a Hausdorff space.
 
-\section{Characters and Dual Groups}
+%------------------------------------------------------------------------------%
+\section{Characters and Dual Groups}                                           %
 %------------------------------------------------------------------------------%
 A \textit{character} is a group homomorphism from a
 topological group $\topG$ to the circle group $\mathbb{T}$
@@ -1222,9 +1210,9 @@ $\chi_1,\chi_2 \xeof \topG^*$ by
 \[
 \chi_1 \circ \chi_2 \: g \mapsto \chi_1(g) \cdot \chi_2(g),
 \]
-we obtain a further character $\chi_1 \circ \chi_2 \xeof \topG^*$.
-This operation has all the properties of a group operation,
-and since it is commutative,
+we obtain a further character $\chi_1 \circ \chi_2 \xeof \topG^*$,
+which owns all the properties of a group operation.
+Since it is commutative,
 the set $\topG^*$ of all characters of $\topG$
 has the structure of an Abelian group,
 called the \textit{character group} or the \textit{dual group} of $\topG$.
@@ -1267,10 +1255,11 @@ we have
 As a consequence,
 the group isomorphisms $(\Rd)^* \cong \Rd$ hold for any integer $d$.
 
-\section{Pontryagin Duality}
 %------------------------------------------------------------------------------%
-The abbreviation \textit{LCA group} usually stands
-for a \textit{locally compact Abelian group}.
+\section{Pontryagin Duality}                                                   %
+%------------------------------------------------------------------------------%
+By the abbreviation \textit{LCA group} is usually meant
+a \textit{locally compact Abelian group}.
 The meaning of locally compact groups is based on the fact
 that they own non-trivial characters,
 that is,
@@ -1321,89 +1310,138 @@ $\topG$ is compact  if and only if ${\topG}^*$ is discrete.
 $\topG$ is discrete if and only if ${\topG}^*$ is compact.
 \end{itemize}
 
-\begin{comment}
-\section{Homogene Räume}
 %------------------------------------------------------------------------------%
-Sei im folgenden $(\topG,T,\topX)$ ein G-Raum,
-$p \in \topX$ ein fest gewählter Punkt,
-$[p] \in \topX/\topG$ der Orbit von $p$ unter $T$
-und $\grpG_p$ seine Isotropiegruppe.
-Es ist leicht zu zeigen,
-dass die Zuordnung $\topG/\topG_p \mapsto [p]$ stetig und bijektiv ist.
+\section{Continuous Group Actions}                                             %
+%------------------------------------------------------------------------------%
+The notion of \textit{group action} on a given set is already known
+from group theory:
+a group $\grpG$ is said to act on a set $\setM$,
+if there is a mapping $T \: \cross{\grpG}{\setM} \xto \setM$ such that
+
+\begin{itemize}[leftmargin=22pt]
+\item[(1)]
+$T(e,x) \eq x$ for all $x \xeof \setM$;
+
+\item[(2)]
+$T(g,T(h,x)) \eq T(g \circ h,x)$
+for all $g,h \xeof \grpG$ and all $x \in \setM$.
+\end{itemize}
+
+\subparagraph{}
+A group action $T$ can of course be defined
+for \textit{topological} groups and \textit{topological} spaces.
+More precisely,
+a topological group is called \textit{continuously} acting
+on a topological space $\topX$,
+if the group action $T:(g,x) \mapsto T(g,x)$ is continuous.
+Moreover,
+the concept of \textit{G-space} is introduced as follows:
+it is a triple $(\topG,T,\topX)$
+consisting of a topological group $\topG$,
+a topological space $\topX$
+and a continuous action $T$ of $\topG$ on $\topX$.
+
+\subparagraph{}
+By the \textit{orbit} of an element $p \xeof \topX$ and an action $T$
+is meant the set of all elements $q \xeof \topX$,
+which are generated from $p$ by applying any group element:
+$[p] := \{ q \xeof \topX \: q \eq T(g,p), \, g \xeof \grpG \}$.
+The set of all orbits of $\topX$ under the action $T$
+forms a disjoint decomposition of the space $\topX$ in equivalence classes,
+called the \textit{orbit space} $\topX/\topG$ of $\topX$ {\wrt} $T$.
+This space can be made into a topological space
+by means of the quotient topology,
+but it is in general not a Hausdorff space.
+
+\subparagraph{}
+A group action $T \: \grpG \to \topX$ is called \textit{transitive},
+if there is only one orbit.
+In this case two points $p,q \xeof \topX$ can be joined by a group element.
+For given $p \xeof \topG$,
+the subgroup $\grpG_p := \set{g \in \grpG}{T(g,p) \eq p}$
+is said to be the \textit{isotropy group} $\grpG_p$ of $p$.
+The elements of $\grpG_p$ let the point $p$ invariant under the action $T$.
+
+%------------------------------------------------------------------------------%
+\section{Homogeneous Spaces}                                                   %
+%------------------------------------------------------------------------------%
+In the following let the triple $(\topG,T,\topX)$ be a G-space,
+$p \xeof \topX$ a fixed chosen point,
+$[p] \xeof \topX/\topG$ the orbit of $p$ by $T$
+and $\grpG_p$ its isotropy group.
+It is not difficult to prove
+that the assignment $\topG/\topG_p \mapsto [p]$ is continuous and bijective.
+
+\subparagraph{}
+In the special case,
+where $\topG$ is compact and $\topX$ is Hausdorff,
+the inverse mapping $\phi^{-1}$ is continuous,
+too,
+and for each point $p \xeof \topX$ the orbit $[p]$
+and the space $\topG/\topG_p$ are homeomorphic to each other.
+Thus,
+if these conditions are fulfilled,
+the orbits can be regarded as quotient spaces $\topG/\topG_p$.
+
+\subparagraph{}
+A topological space is called \textit{homogeneous},
+if two points each can be transfered by a homeomorphism.
+In other words,
+the topological space is the orbit of a transitive group action and
+homeomorphic to the quotient of a topological group by a suitable subgroup.
+The formal definition of the concept of homogeneneous space is given as follows:
+let $\topG$ be a topological group,
+$\topU \xsubset \topG$ be a subgroup
+and $\topG/\topU$ be the set of left co-sets endowed with the quotient topology,
+then the quotient $\topG/\topU$ is called a \textit{homogeneous space}.
 
 \paragraph{}
-Im Falle, dass $\topG$ kompakt und $\topX$ ein Hausdorff-Raum ist,
-ist auch die Umkehrabbildung $\phi^{-1}$ stetig,
-und für jeden Punkt $p \in \topX$ ist der Orbit $[p]$
-zum Raum $\topG/\topG_p$ homöomorph.
-Die Orbits können also unter diesen Voraussetzungen
-als Quotientenräume $\topG/\topG_p$ angesehen werden.
+The following examples of homogeneous spaces are known:
 
-\paragraph{}
-Einfach gesprochen heißt eine topologischer Raum {\em homogen},
-falls je zwei Punkte durch einen Homöomorphismus ineinander
-übergeführt werden können.
-Mit anderen Worten,
-der topologische Raum ist der Orbit einer transitiven Gruppenoperation und
-homöo\-morph zum Quotienten einer topologischen Gruppe
-nach einer geeigneten Untergruppe.
-Wir definieren daher den Begriff des {\em homogenen Raumes} wie folgt:
-
-\paragraph{}
-Sei $\topG$ eine topologische Gruppe, $\topU \subset \topG$ eine Untergruppe
-und $\topG/\topU$ die Menge der Linksnebenklassen,
-versehen mit der Quotienten-Topologie.
-Dann heißt der topologische Raum $\topG/\topU$ ein {\em homogener Raum}.
-
-\begin{itemize}[leftmargin=15pt]
+\begin{itemize}[leftmargin=22pt]
 \item[1.]
-Der Torus $\T := \R / \Z$ ist ein homogener Raum,
-der homöomorph zum Einheitskreis $S^1 \subset \C$ ist.
+the torus $\T := \R / \Z$ is a homogeneous space,
+which is homeomorphic to the unit circle $S^1 \xsubset \C$.
 
 \item[2.]
-Die Menge $S^1 \subset \C$ ist eine kompakte topologische Gruppe,
-die auf dem Hausdorff-Raum $\C$ durch folgende Operation stetig operiert:
+The set $S^1 \xsubset \C$ is a compact topological group
+that is continuously acting on the Hausdorff space $\C$ by the following operation:
 $T(e^{i \phi},z) := e^{i \phi} \cdot z$.
-Die Isotropie-Gruppe für ein Element $z \in \C^{\times}$ ist
-die ein-elementige Menge $\enumeration{1} \subset S^1$,
-also gilt $\topG/\topG_z \cong S^1$.
-Die Räume $[z]$ und $\topG/\topG_z$ sind zueinander homöomorph,
-und folglich stellt die Menge $S^1$ einen homogenen Raum dar.
+Here the isotropy group for some $z \in \C^{\times}$
+is the singleton $\{1\} \xsubset S^1$,
+hence $\topG/\topG_z \cong S^1$.
+The spaces $[z]$ and $\topG/\topG_z$ are homeomorphic,
+that is,
+the set $S^1$ constitutes a homogeneneous space.
 
 \item[3.]
-Jeder Quotientenraum $\R^{k+m} / \R^k$ heißt
-eine {\em Graß\-mann-Mannig\-faltig\-keit}.
-Die Graß\-mann-Mannig\-faltig\-keit ist also die Menge
-aller $k$-dimensionaler Untervektorräume von $\R^{k+m}$.
+Each quotient space $\R^{n+k}/\R^k$ is denoted a \textit{{\GRASSMANN} manifold},
+so it is the set of all
+$k$-dimensional subspaces of $\R^{n+k}$.
 \end{itemize}
 
 \paragraph{}
-Die topologischen Eigenschaften der homogenen Räume $\topG/\topU$ hängen
-auf folgende Weise mit denen der Untergruppen $\topU$ab:
+The topological properties of a homogeneous space of type $\topG/\topU$
+are related to those of the subgroup $\topU$ as follows:
 
-\begin{theorem}
-Sei $\topG$ eine topologische Gruppe und $U$ eine Untergruppe von $\topG$.
-Dann gilt:
-
-\begin{itemize}[leftmargin=15pt]
+\begin{itemize}[leftmargin=22pt]
 \item[1.]
-$\topG/\topU$ ist genau dann ein Hausdorff-Raum,
-wenn $\topU$ abgeschlossen in $\topG$ ist.
+$\topG/\topU$ is Hausdorff \iff
+$\topU$ is closed in $\topG$.
+
 \item[2.]
-Die Topologie von $\topG/\topU$ ist genau dann diskret,
-wenn $\topU$ offen in $\topG$ ist.
+The topology of $\topG/\topU$ is discrete,
+if $\topU$ is open in $\topG$.
 \end{itemize}
-\end{theorem}
 
 \paragraph{}
-Dieser Satz kommt insbesondere dann zur Anwendung,
-wenn die Untergruppe $\topU$ ein Normalteiler von $\topG$ ist.
-Sei $\overline{\topU}$ der Abschluss von $\topU$,
-dann ist der homogene Raum $\topG/\overline{\topU}$ eine
-Hausdorffsche topologische Gruppe,
-und die Projektionsabbildung $\pi:\topG \to \topG/\overline{\topU}$ ist
-ein Epimorphismus topologischer Gruppen.
-\end{comment}
+This theorem can especially applied in the situation,
+when the subgroup $\topU$ is normal in $\topG$.
+Let $\overline{\topU}$ be the closure of $\topU$,
+then the homogeneous space $\topG/\overline{\topU}$ is a
+Hausdorff topological group,
+and the projection mapping $\pi \: \topG \xto \topG/\overline{\topU}$ is
+an epimorphism of topological groups.
 
 %------------------------------------------------------------------------------%
 %                                 BIBLIOGRAPHY                                 %
@@ -1420,13 +1458,6 @@ Wiley-Interscience, 1962.
 \end{thebibliography}
 \end{small}
 \end{comment}
-
-%\newpage
-%\thispagestyle{empty}
-%\fancyhead[OC]{\small{\textsc{IV. Manifolds}}}
-%\fancyhead[EC]{\small{\textsc{IV. Manifolds}}}
-%\part{Manifolds}
-%-------------------------------------------------------------------------------
 
 %------------------------------------------------------------------------------%
 %                                 BIBLIOGRAPHY                                 %
