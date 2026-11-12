@@ -19,17 +19,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <base target='_new'>
 
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js" id="MathJax-script" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.2.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/select/3.0.0/js/dataTables.select.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js" id="MathJax-script" async></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
     <link rel="stylesheet"                 href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.css"/>
-    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>   
 
 <!-- Clarity tracking code for https://khoefli.github.io/khMath/ -->
   <script>
@@ -316,7 +316,7 @@
         <h2>Mathematical Subject Classification for '46-XX' (Functional Analysis)</h2>
         <section>
           The following table forms an extract of the general MSC-2020 catalogue for 'functional analysis'.
-          <div class='datatables-content' id='msc46-FA'>
+          <div class='datatables-content'>
             <table class="compact stripe cell-border" id="msc46-table">
               <thead>
                 <tr>
@@ -338,7 +338,7 @@
         <section>
           These events are organized once a year by a couple of universities in Europe
           (the entries 8,18,21,23 are online).
-          <div class='datatables-content' id='isem'>
+          <div class='datatables-content'>
             <table class="compact stripe cell-border" id="isem-table">
               <thead>
                 <tr>
@@ -360,8 +360,8 @@
         <h2>Textbooks</h2>
         <section>
           This is an enumeration of well-known textbooks on functional analysis and related topics.
-          <div class='datatables-content' id='Books'>
-            <table class="compact stripe cell-border" id="Book-table">
+          <div class='datatables-content'>
+            <table class="datatables-content compact stripe cell-border" id="textbook-table">
               <thead>
                 <tr>
                   <th width= "1%" text-align="left">Year</th>
@@ -603,8 +603,8 @@
         <section>
           This is an enumeration of well-known journals,
           where mathematical research articles on functional analysis have been published.
-          <div class='datatables-content' id='Journals'>
-            <table class="compact stripe cell-border" id="Journal-table">
+          <div class='datatables-content'>
+            <table class="compact stripe cell-border" id="journal-table">
               <thead>
                 <tr>
                   <th width="40%" text-align="right">Name</th>
@@ -727,8 +727,8 @@
           in this classical <i>Springer</i> series,
           see for example
           <a href="https://de.wikipedia.org/wiki/Grundlehren_der_mathematischen_Wissenschaften">here</a>:
-          <div class='datatables-content' id='Grundlehren'>
-            <table class="compact stripe cell-border" id="Grundlehren-table">
+          <div class='datatables-content'>
+            <table class="compact stripe cell-border" id="grundlehren-table">
               <thead>
                 <tr>
                   <th width= "5%" text-align="right">Vol.</th>
@@ -749,7 +749,7 @@
         <section>
           The following table lists textbooks in functional analysis and related topics provided by
           '<a href="https://store.doverpublications.com/pages/math-science?srsltid=AfmBOopIZf_V9yw1vAXY1KNFh69und2_Mx7m1JZ08HFE0wPtcFfVBGmk">Dover Publications</a>':
-          <div class='datatables-content' id='dover'>
+          <div class='datatables-content'>
             <table class="compact stripe cell-border" id="dover-table">
               <thead>
                 <tr>
@@ -770,8 +770,8 @@
           The following table partially lists textbooks in mathematical analysis
           provided by Springer's <a href="https://link.springer.com/series/304">
           Lecture&nbsp;Notes&nbsp;in&nbsp;Mathematics</a> (LNM):
-          <div class='datatables-content' id='dover'>
-            <table class="compact stripe cell-border" id="lecture_notes-table">
+          <div class='datatables-content'>
+            <table class="compact stripe cell-border" id="lnm-table">
               <thead>
                 <tr>
                   <th width= "5%" text-align="center">Vol.</th>
@@ -791,7 +791,7 @@
         <section>
           The following table lists textbooks in functional analysis and related topics provided by
           '<a href="https://link.springer.com/series/0136">Springer GTM Series</a>':
-          <div class='datatables-content' id='gtm'>
+          <div class='datatables-content'>
             <table class="compact stripe cell-border" id="gtm-table">
               <thead>
                 <tr>
@@ -812,7 +812,7 @@
         <section>
           The following table lists textbooks in functional analysis and related topics
           provided by the AMS series '<a href="https://bookstore.ams.org/gsm">GSM</a>':
-          <div class='datatables-content' id='gtm'>
+          <div class='datatables-content'>
             <table class="compact stripe cell-border" id="gsm-table">
               <thead>
                 <tr>
@@ -833,7 +833,7 @@
         <section>
           This series contains publications of Russian mathematicians by Springer, see also
           '<a href="https://link.springer.com/series/6255">Mathematics and Its Applications</a>':
-          <div class='datatables-content' id='mass'>
+          <div class='datatables-content'>
             <table class="compact stripe cell-border" id="mass-table">
               <thead>
                 <tr>
@@ -886,12 +886,12 @@
           in Hilbert space.
           <ul></ul>
           <div>
-            <ol type="I" start="1"> Part One: <b>MODERN THEORIES OF DIFFERENTIATION AND INTEGRATION</b>
+            <ol type="I" start="1"> Part One: <b>Modern Theories of Differentiation and Integration</b>
               <li>Differentiation</li>
               <li>The Lebesgue Integral</li>
               <li>The Stieltjes Integral and its Generalizations</li>
             </ol>
-            <ol type="I" start="4"> Part Two: <b>INTEGRAL EQUATIONS. LINEAR TRANSFORMATIONS</b>
+            <ol type="I" start="4"> Part Two: <b>Integral Equations. Linear Transformations</b>
               <li>Integral Equations</li>
               <li>Hilbert and Banach Spaces</li>
               <li>Completely Continuous Symmetric Transformations of Hilbert Space</li>
@@ -2067,7 +2067,7 @@
 ------------------------------------------------------------------------------->
     <footer id='footer'>
       <hr><hr>
-      © Copyright 2026 by <i>Klaus Höflinger</i> (latest change:&thinsp;11/11/2026).
+      © Copyright 2026 by <i>Klaus Höflinger</i> (latest change:&thinsp;12/11/2026).
       &nbsp;&nbsp;&nbsp;
       <button onclick="displayArticle('home')"     >Home</button>
       <button onclick="displayArticle('about_me')" >About me</button>
