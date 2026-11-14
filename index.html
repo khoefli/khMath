@@ -130,6 +130,7 @@
             <li onclick="displayArticle('functional_analysis')"><i>Summary of all Subtopics</i></li>
             <li onclick="displayArticle('topological_linear_spaces')">Topological Linear Spaces</li>
             <li onclick="displayArticle('spectral_theory')">Linear Operators and Spectral Theory</li>
+            <li onclick="displayArticle('fredholm_theory')">Normally Solvable Operators</li>
             <li onclick="displayArticle('self-adjoint_operators')">Self-Adjoint Operators</li>
             <li onclick="displayArticle('semigroup_theory')">Semigroup Theory and Evolution Equations</li>
             <li onclick="displayArticle('coercive_sesquilinear_forms')">Coercive Sesquilinear Forms</li>
@@ -289,6 +290,7 @@
               <li onclick="displayArticle('functional_analysis')">Summary of all Subtopics</li>
               <li onclick="displayArticle('topological_linear_spaces')">Topological and Normed Linear Spaces</li>
               <li onclick="displayArticle('spectral_theory')">Linear Operators and Spectral Theory</li>
+              <li onclick="displayArticle('fredholm_theory')">Normally Solvable Operators</li>
               <li onclick="displayArticle('self-adjoint_operators')">Self-Adjoint Operators</li>
               <li onclick="displayArticle('semigroup_theory')">Semigroup Theory and Evolution Equations</li>
               <li onclick="displayArticle('internet_seminar')">Internet Seminar on Evolution Equations</li>
@@ -547,7 +549,7 @@
             <summary>My reprints of articles/books written by other authors:</summary>
             <ul>
               <li><a href="assets/documents/Fredholm_Operators_and_the_Essential_Spectrum.pdf">Fredholm Operators and the Essential Spectrum</a>;
-              by <i>M. Schechter</i></li>
+              by <i>M.&thinsp;Schechter</i></li>
               <li><a href="assets/documents/Fourier_Analysis_on_Groups.pdf">Abstract Harmonic Analysis</a>;
               based on <i>W.&thinsp;Rudin</i>'s book 'Fourier Analysis on Groups'.</li>
             </ul>
@@ -1387,12 +1389,12 @@
           <p>
             <i>Spectral theory</i> deals with the well-posedness of the linear operator equation
             \[ A x - \lambda x = y,\]
-            where \(\lambda\) is a complex parameter.
-            Then for every linear operator \(A\) the complex plane is splitted into disjoint sets \(\rho(A)\) and \(\sigma(A)\),
+            where \(A\) is a densely defined linear operator acting in a Banach space \(X\) and \(\lambda\) is a complex parameter.
+            Then the complex plane is splitted into disjoint sets \(\rho(A)\) and \(\sigma(A)\),
             called the <i>resolvent set</i> and the <i>spectrum</i> of \(A\).
-            The resolvent set contains all numbers \(\lambda\), for which the operator \(A-\lambda\) is bijective
-            and the inverse operator \((A-\lambda)^{-1}\) proves to be continuous,
-            whereas by definition the spectrum is its complementary set in \(\mathbb{C}\).
+            The resolvent set contains all numbers \(\xi\),
+            for which the operator \(A-\xi\) is bijective and the inverse operator \((A-\xi)^{-1}\) proves to be continuous,
+            whereas by definition the spectrum \(\sigma(A)\) is the complementary set of \(\rho(A)\) in \(\mathbb{C}\).
           </p>
           <p>
            There are a couple of subtopics within spectral theory, where we want to mention
@@ -1429,6 +1431,40 @@
             <li><a target="_new" href="https://iana.math.kit.edu/downloads/iana3/schnaubelt/Skripten/st-skript.pdf">Spectral Theory</a>;
                  by <i>R.&thinsp;Schnaubelt</i>; Lecture Notes of Summer Semester; 2025</li>
           </ul>
+        </section>
+      </article>
+
+      <article id='fredholm_theory' class='container'>
+        <h2>Normally Solvable Operators</h2>
+        <section>
+          A linear operator \(A:D(A) \subset X \to Y\) with domain of definition \(D(A)\) lying dense in a Banach space \(X\)
+          and mapping the set \(D(A)\) to a Banach space \(Y\) is called <i>normally solvable</i>,
+          if its range \(\mathfrak{R}(A)\) is a closed subspace in \(Y\).
+          The assumption that \(A\) is densely defined in \(X\) implies that the <i>adjoint operator</i>
+          \(A^*: D(A^*) \subset Y^* \to X^*\) is well-defined.
+          <p>
+            A special class of normally solvable operators is obtained,
+            if in addition it is assumed
+            that \(A\) has finite-dimensional kernel \(\mathfrak{K}(A)\) or finite-dimensional range \(\mathfrak{R}(A)\).
+            In this case we can assign to \(A\) the so-called <i>Fredholm index</i>
+            \[ \chi(A) := \alpha(A) - \beta(A) \in \{-\infty\} \cup \mathbb{N} \cup \{\infty\}, \]
+            where \(\alpha(A) := \dim \mathfrak{K}(A) \) is the <i>nullity index</i> and
+                  \(\beta(A)  := \dim \mathfrak{R}(A) \) is the <i>deficiency index</i> of \(A\).
+            If both values are finite, then \(A\) is said to be <i>of Fredholm type</i>.
+          </p>
+          <p>
+            Fredholm operators are useful to study the solvability of linear equations of the form \(A x = y\),
+            and the most prominent result in this field is
+            <a href='https://en.wikipedia.org/wiki/Fredholm's_alternative'>Fredholm's alternative theorem</a>
+            with important applications to stationary boundary value problems governed by linear-elliptic differential operators.
+          </p>
+          <p>
+            Please visit the article
+            <a href="assets/documents/Fredholm_Operators_and_the_Essential_Spectrum.pdf">Fredholm Operators and the Essential Spectrum</a>,
+            which is my reprint of <i>M.&thinsp;Schechter</i>'s original paper written in 1965 in modern TeX format,
+            or section 5 of my survey article
+            <a href="assets/documents/Linear_Operators_and_Spectral_Theory.pdf">Linear Operators and Spectral Theory</a>.
+          </p>
         </section>
       </article>
 
