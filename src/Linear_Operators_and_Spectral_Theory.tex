@@ -2117,7 +2117,6 @@ if there is $\theta {\,>\,} 0$ such that
 The \textit{bounded-below theorem} provides a fundamental assertion
 in operator theory
 and is helpful to verify closeness of the set $\range{\linA}$:
-\newpage
 
 \begin{theorem}\label{BOUNDED_BELOW_THEOREM}
 If $\linA$ fulfills \eqref{BOUNDED_BELOW_CONDITION},
@@ -3308,18 +3307,17 @@ e^{-it \linA} x
 \]
 where $P_{\lambda}$ again is the spectral resolution of $\linA$
 having support in the whole real line.
-Then the solution of the abstract {\SCHROEDINGER} problem
+The operators $\linL_t$ are unitary
+with $\linL_t^{-1} \eq \linL_{-t}$ for all $t \xeof \R$.
+
+\subparagraph{} %- existence theorem for the Schrödinger equation
+The solution of the abstract {\SCHROEDINGER} problem
 is obtained by means of the family $\{L_t\}_{t \in \R}$ of linear operators:
 
 \begin{theorem}\label{EXISTENCE_THEOREM_FOR_ABSTRACT_SCHROEDINGER_EQUATION}
 The mapping $t \xeof \R \mapsto \linL_t(x_0)$ is the unique solution
 of the Cauchy problem \eqref{ABSTRACT_SCHROEDINGER_EQUATION}.
 \end{theorem}
-
-\subparagraph{}
-Moreover,
-the operators $\linL_t$ are unitary
-with $\linL_t^{-1} \eq \linL_{-t}$ for all $t \xeof \R$.
 \end{itemize}
 
 %------------------------------------------------------------------------------%
@@ -3618,7 +3616,7 @@ that the element $x$ is a solution of the first one
 it is a solution of the second one.
 
 \paragraph{}
-We summarize the result of the previous computation to the following
+We summarize the result of the previous computation as follows:
 
 \begin{theorem}\label{FREDHOLM_ALTERNATIVE_THEOREM_II}
 Let $\linA \: \domain{\linA} \xsubset \banX \xto \banX$
