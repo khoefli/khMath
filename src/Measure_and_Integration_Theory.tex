@@ -56,11 +56,11 @@ the first one describes abstract measure spaces and different kinds of
 measures, the second one deals with \textsc{Lebesgue}'s integration theory
 and the final one considers measures on locally compact topological spaces.
 
-\fancyhead[OC] {\small{\textsc{I. Measure Spaces}}}
-\fancyhead[EC] {\small{\textsc{I. Measure Spaces}}}
-
-\part{Measure Spaces}
-%-------------------------------------------------------------------------------
+\fancyhead[OC]{\small{\textsc{Measure and Integration Theory}}}
+\fancyhead[EC]{\small{\textsc{I. Measure Spaces}}}
+%------------------------------------------------------------------------------%
+\part{Measure Spaces}                                                          %
+%------------------------------------------------------------------------------%
 In mathematics a \textit{measure} is
 a way of assigning a numerical value to certain subsets of a given base set,
 which can be considered as the length, the area or the volume of such sets.
@@ -86,7 +86,7 @@ called a \textit{$\sigma$-algebra}.
 In particular,
 a $\sigma$-algebra $\salgB$ on $X$ is defined by the following properties:
 
-\begin{itemize}[leftmargin=15pt]
+\begin{itemize}[leftmargin=22pt]
 \item[1.]
 $\salgB$ contains the empty set $\emptyset$.
 
@@ -189,7 +189,7 @@ for any measurable sets $A,B$.
 This property of a measure is called \textit{monotonicity}.
 But there are further properties which measures may or may not have:
 
-\begin{itemize}[leftmargin=12pt]
+\begin{itemize}[leftmargin=22pt]
 \item[1.]
 If $\mu(A) < \infty$ for each set $A \xeof \salgB$,
 then $\mu$ is called a \textit{finite} measure.
@@ -197,15 +197,16 @@ The measure $\mu$ is called $\sigma$-finite,
 if there is a sequence ${A_n}$ of measurable sets
 such that
 \[
-X = \bigcup_{n \in \N} A_n, \quad A_n \subset A_{n+1}, \quad
-\mu(A_n) < \infty \, \fa n \in \N.
+\quad A_n \subset A_{n+1} \and
+\mu(A_n) < \infty \, \for n \in \N,
+\quad X = \bigcup_{n \in \N} A_n.
 \]
 
 \item[2.]
 A measure $\mu$ is said to be \textit{concentrated} on a measurable set $A$,
-if $\mu(E) \eq 0$ for all sets $E \xeof \salgB$ which are distinct from $A$.
-This is equivalent to the statement
-that $\mu(E) \eq \mu(A \cap E)$ for every $E \xeof \salgB$.
+if $\mu(E) \eq 0$ for all sets $E \xeof \salgB$ being distinct from $A$.
+This is equivalent to say that
+$\mu(E) \eq \mu(A \cap E)$ for every $E \xeof \salgB$.
 
 \item[3.]
 For two measures $\mu,\nu$ on $\salgB$
@@ -225,13 +226,15 @@ is a null set or the subset of a null set.
 
 \section{Signed Measures}
 %------------------------------------------------------------------------------%
-There are several possibilities to extend the notion of a (positive) measure.
-One of them is that of a \textit{signed measure},
-which is characterized by the property
-to take values in the extended real lines
+There are several possibilities to extend the notion of (positive) measure.
+One of them is that of \textit{signed measure},
+which is characterized by the property to take values in the extended real lines
 $(-\infty,\infty] := \R \cup \{\infty\}$
-or
-$[-\infty,\infty) := \R \cup \{-\infty\}$.
+and
+$[-\infty,\infty) := \R \cup \{-\infty\}$,
+respectively.
+
+\subparagraph{}
 In particular,
 for a measurable space $(X,\salgB)$ a set function
 \[
@@ -240,7 +243,7 @@ for a measurable space $(X,\salgB)$ a set function
 \]
 is called a \textit{signed measure},
 if $\mu(\emptyset) \eq 0$ and $\mu$ is countable additive.
-A signed measure is called \textit{finite},
+It is called \textit{finite},
 if it takes values in the real line only.
 
 \paragraph{} %-- Hahn-Jordan composition theorem
@@ -330,10 +333,10 @@ By this way
 we will establish the \textit{Lebesgue integral} for measurable functions,
 which may or may not exist for such a function.
 It turns out
-that the Lebesuge integral has much better behaviour {\wrt}
-certain limit processes than the classical Riemann integral,
+that the Lebesuge integral has much better behaviour
+than the classical Riemann integral {\wrt} certain limit processes,
 which suffers from the drawback
-that the limit function of a sequence of Riemann-integrable functions
+that the limit of a sequence of Riemann-integrable functions
 need not be Riemann-integrable again.
 
 \paragraph{}
@@ -376,11 +379,13 @@ In case of complex-valued functions,
 a function $f \: X \xto \C$ is said to be measurable,
 iff both the real and imaginary part of $f$ are measurable.
 
-\fancyhead[OC]{\small{\textsc{II. Lebesgue Integration}}}
+\newpage
+\thispagestyle{empty}
+\fancyhead[OC]{\small{\textsc{Measure and Integration Theory}}}
 \fancyhead[EC]{\small{\textsc{II. Lebesgue Integration}}}
-%-------------------------------------------------------------------------------
-\part{Lebesgue Integration}
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
+\part{Lebesgue Integration}                                                    %
+%------------------------------------------------------------------------------%
 Integration is a way of assigning a mean value to a given function.
 The basic idea of \textit{Lebesgue integration} is to decomposite
 the range of a function $f \: X \xto \R$ into intervals
@@ -404,7 +409,7 @@ of a measurable set $A$,
 if $\chi(x)=1$ for $x \xeof A$ and $\chi(x)=0$ otherwise.
 We can simply define the Lebesgue-Integral of $\chi_A$ by
 \[
-\int_{X} \chi_A \, d \mu \eqdef \mu(A),
+\int_{\,X} \chi_A \, d \mu \eqdef \mu(A),
 \]
 and the function $\chi_A$ is called \textit{Lebesgue-integrable},
 iff $\mu(A) < \infty$.
@@ -418,8 +423,8 @@ Equivalently,
 a simple function $e$ is a linear combination of characteristic functions,
 and we define the Lebesgue integral for $e$ by the setting
 \[
-\int_{X} e \, d \mu \eqdef
-\sum_{i=1}^m a_i \cdot \int_{X} \chi_{A_i} \, d \mu.
+\int_{\,X} e \, d \mu \eqdef
+\sum_{i=1}^m a_i \cdot \int_{\,X} \chi_{A_i} \, d \mu.
 \]
 If this is a finite value,
 then the simple function $e$ is said to be \textit{Lebesgue-integrable}.
@@ -438,8 +443,9 @@ $e_1 \leq e_2 \leq e_3 \leq \ldots$ and
 $\lim_{n \to \infty} e_n \eq f$ pointwise.
 We define the \textit{Lebesgue integral} of $f$ as follows:
 \[
-\int_{X} f \, d \mu :=
-\sup_{e \in \cal{E}_f} \, \int_{X} e \, d \mu.
+\int_{\,X} f \, d \mu
+\eqdef
+\sup_{e \in \cal{E}_f} \, \int_{\,X} e \, d \mu.
 \]
 If the supremum is a finite number,
 the nonnegative and measurable function $f$ is called
@@ -456,8 +462,8 @@ Then the function $g$ is said to be \textit{Lebesgue-integrable},
 if $f^+$ and $f^-$ are both Lebesgue-integrable,
 and the Lebesgue integral of $g$ is defined according to
 \[
-\int_{X} g \, d \mu \eqdef
-\int_{X} f^+ \, d \mu \, - \, \int_{X} f^- \, d \mu,
+\int_{\,X} g \, d \mu \eqdef
+\int_{\,X} f^+ \, d \mu \, - \, \int_{\,X} f^- \, d \mu,
 \]
 It turns out that a measurable function $g$ is Lebesgue-integrable,
 if and only if the function $\abs{g} := f^+ + f^-$ is Lebesgue-integrable,
@@ -468,7 +474,7 @@ and in this case the function $f$ is said to be \textit{absolutely integrable}.
 The construction of the Lebesgue integral is done now.
 Lebesgue integration enjoys a list of nice properties:
 
-\begin{itemize}[leftmargin=12pt]
+\begin{itemize}[leftmargin=22pt]
 \item[1.]
 If $A \xsubset X$ is a null set,
 the Lebesgue integral has the value $0$ for any measurable function.
@@ -535,13 +541,13 @@ For a fixed measure space $(X,\salgB,\mu)$,
 one can construct a lot of further measures using Lebesgue integration
 by the setting
 \[
-\mu_f(A) \eqdef \int_{\,X} f {\cdot} \chi_A \, d \mu, \quad A \in \salgB,
+\mu_f(A) \eqdef \int_{\,X} f {\cdot} \chi_A \, d \mu \qquad (A \in \salgB),
 \]
 where $f \: X \xto [0,\infty]$ is any nonnegative measurable function.
 If $g$ is another function fullfilling these properties,
 the formula
 \[
-\int_{\,X} g \, d \mu_f \= \int_{\,X} g \cdot f \, d \mu
+\int_{\,X} g \, d \mu_f \= \int_{\,X} g {\cdot} f \, d \mu
 \]
 holds,
 and if $\mu$ is $\sigma$-finite, the identity $\mu_f \eq \mu_g$ is valid,
@@ -598,17 +604,17 @@ yields a sufficient criterion for integrability of a function,
 which is defined by the limit process of a sequence of integrable functions:
 
 \begin{theorem}\label{DOMINATED_CONVERGENCE_THEOREM}
-Suppose that the sequence $(f_n)$ of Lebesgue-integrable functions
+If a sequence $(f_n)$ of Lebesgue-integrable functions
 $f_n \: X \xto \R$ has the property
 \[
-\lim_{n \to \infty} f_n = f \quad \mu \mbox{-almost everywhere}.
+\lim_{n \to \infty} f_n = f \quad \mu \mbox{-almost everywhere}
 \]
-In addition, 
-if there is a Lebesgue-integrable function $g$
-with $\abs{f_n} \leq g$ for all $n \xeof \N$,
-then $f$ is Lebesgue-integrable, too,
-and integration can be commuted with the process of limitation,
-that is
+and there is a Lebesgue-integrable function $g$
+fulfilling $\abs{f_n} \leq g$ for all $n \xeof \N$,
+then $f$ is Lebesgue-integrable,
+too.
+In this case integration can be commuted with taking the limit,
+that is,
 \[
 \int_{\,X} f \, d \mu
 \=
@@ -616,7 +622,7 @@ that is
 \]
 \end{theorem}
 
-\section{Product Spaces}
+\section{Integration on Product Spaces}
 %------------------------------------------------------------------------------%
 The method of constructing a $\sigma$-algebra by given subsets
 of a base set can be used to define a $\sigma$-algebra over the
@@ -673,8 +679,8 @@ the order of integration can be commuted,
 that is,
 if
 \[
-M_1(x) \eqdef \int_{\,X_2} f_x(y) \, d \mu_2,
-\quad \quad
+M_1(x) \eqdef \int_{\,X_2} f_x(y) \, d \mu_2
+\quad \and \quad
 M_2(y) \eqdef \int_{\,X_1} f_y(x) \, d \mu_1,
 \]
 then the following identities hold:
@@ -715,7 +721,9 @@ then $f$ causes by means of the mapping
 \int_{A} f \, d\mu, \quad A \in \salgB
 \]
 an absolutely continuous measure $\nu_f$ {\wrt} $\mu$.
-Thus Lebesgue integrable functions can be regardes as
+
+\subparagraph{}
+Thus Lebesgue integrable functions can be regarded as
 absolutely continuous measures on the measurable space $(X,\salgB)$.
 On the other side,
 the \textit{Radon-Nikodym} \textit{theorem} states that
@@ -761,35 +769,31 @@ such that
 \end{theorem}
 
 \paragraph{}
-We will finish the considerations about absolutely continuous measures
-with the \textsc{Lebesgue} \textit{decomposition theorem}.
-It asserts
-that for a given $\sigma$-finite measure space $(X,\salgB,\mu)$
+We finish with the \textsc{Lebesgue} \textit{decomposition theorem},
+claiming that
+for a given $\sigma$-finite measure space $(X,\salgB,\mu)$
 each complex measure $\nu$ can be represented as the sum
-of an absolutely continuous measure $\nu_c$
-and a singular measure $\nu_s$,
+of an absolutely continuous measure $\nu_c$ and a singular measure $\nu_s$,
 both {\wrt} $\mu$:
 
 \begin{theorem}\label{LEBESGUE_DECOMPOSITION_THEOREM}
 Let $\mu$ be a positive $\sigma$-finite measure
-and $\nu$ a complex measure on the measurable space $(X,\salgB)$.
-Then there is a uniquely defined pair $(\nu_c,\nu_s)$ of complex measures
+and $\nu$ a complex (positive) measure on the measurable space $(X,\salgB)$.
+Then there is a uniquely defined pair $(\nu_c,\nu_s)$
+of complex (positive) measures
 such that
-\[
-\nu = \nu_c + \nu_s, \quad
-\nu_c \ll \mu, \quad
-\nu_s \bot \mu.
-\]
-If the measure $\nu$ is positive,
-then both measures $\nu_c$ and $\nu_s$ are positive,
-too.
+$\nu \eq \nu_c + \nu_s$,
+$\nu_c \ll \mu$ and
+$\nu_s \bot \mu$.
 \end{theorem}
 
-\fancyhead[OC]{\small{\textsc{III. Measures on Locally Compact Spaces}}}
+\newpage
+\thispagestyle{empty}
+\fancyhead[OC]{\small{\textsc{Measure and Integration Theory}}}
 \fancyhead[EC]{\small{\textsc{III. Measures on Locally Compact Spaces}}}
-%-------------------------------------------------------------------------------
-\part{Measures on Locally Compact Spaces}
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
+\part{Measures on Locally Compact Spaces}                                      %
+%------------------------------------------------------------------------------%
 Abstract Measure theory also includes the study of measures
 on topological spaces.
 But these spaces must be assumend
@@ -952,7 +956,7 @@ This measure is called a \textit{Haar measure} on $\topG$.
 \paragraph{}
 The following important examples of Haar measures are known:
 
-\begin{itemize}[leftmargin=12pt]
+\begin{itemize}[leftmargin=22pt]
 \item[1.]
 For the topological groups $(\R^d,+)$ the Haar measure is called the
 \textit{Lebesgue-Borel measure} $\lambda^n$.
@@ -1002,7 +1006,7 @@ there is exactly one positive measure $\LB^d$,
 which adopts for each cube $W \xsubset \Rd$ with border lengths $l_1,\ldots,l_d$
 the value
 \[
-\LB^d(W) \= l_1 \cdot l_2 \cdot \ldots \cdot l_{d-1} \cdot l_d,
+\LB^d(W) \= l_1 {\cdot} l_2 {\cdot} \ldots {\cdot} l_{d-1} {\cdot} l_d,
 \]
 called the \textit{Lebesgue-Borel measure} on the spaces $\Rd$.
 
@@ -1017,8 +1021,7 @@ for each Borel set $B$ and
 each orthogonal transformation $\tau \: \Rd \xto \Rd$,
 in contrary to all other thinkable measures on space $\Rd$.
 
-%------------------------------------------------------------------------------%
-\section{Decomposition of Measures}                                            %
+\section{Decomposition of Measures}
 %------------------------------------------------------------------------------%
 We turn back to Lebesgue's decomposition theorem, 
 now considered for the measurable space $(\R,\Borel{\R})$
@@ -1074,17 +1077,16 @@ forms a linear space denoted $\AC{[a,b]}$.
 %------------------------------------------------------------------------------%
 To the end,
 let us have a look to the question
-how the Lebesgue integral is comparable with the classical
-Riemann integral for ordinary functions $f \: [a,b] \xto \R$.
-For this purpose we will review in brief 
-the setup and the basic
-properties of the Riemannian integral.
+how the Lebesgue integral is comparable with the classical Riemann integral
+for ordinary mappings $f \: [a,b] \xto \R$.
+For this purpose we will review in brief the setup and the basic properties
+of the Riemannian integral.
 
 \subparagraph{}
 To define this concept for a function $f \: [a,b] \xto \R$,
 two auxiliary concepts are required:
 
-\begin{itemize}[leftmargin=12pt]
+\begin{itemize}[leftmargin=22pt]
 \item[1.]
 A \textit{decomposition} $P$ of $[a,b]$ is a sequence of points
 \[
@@ -1097,6 +1099,7 @@ that is
 \[
 \snorm{P} \eqdef \max_{1 \leq i \leq n} \, (x_i-x_{i-1}).
 \]
+
 \item[2.]
 A \textit{tagged} decomposition $P(t_0,\ldots,t_n)$
 of the interval $[a,b]$
@@ -1153,8 +1156,8 @@ for functions defined on a compact interval $[a,b]$:
 \begin{theorem}
 Each R-integrable function $f\:[a,b] \xto \R$
 is Lebesgue integrable {\wrt} the Lebesgue-Borel measure $\LB := \LB^1$.
-In addition,
-for these functions both kinds of integrals coincide, {\ie}
+For these functions both kinds of integrals coincide,
+that is,
 \[
 \int_a^b f(x) \, dx \= \int_{\,[a,b]} f \, d\LB.
 \]
@@ -1168,19 +1171,79 @@ the \textit{product rule},
 the \textit{substitution rule} and
 the \textit{formula of partial integration}.
 
+\paragraph{}
+However,
+the reverse statement of the last theorem does not hold.
+Consider the \textit{Dirichlet function} $d \: \R \xto \R$ defined by
+\[
+d(x) \=
+\begin{cases}[1.2]
+\; 1, \; x \in    \Q, \\
+\; 0, \; x \notin \Q. \\
+\end{cases}
+\]
+The function $d$ is merely Lebesgue-integrable,
+but not Riemann-integrable.
+
+\subparagraph{}
+There is another example showing that
+the improper Riemann integral yields a better result than the Lebesgue integral.
+Consider the function $f \: x \mapsto \sin(x)/x$ for $x \xeof (0,\infty)$:
+it is not Lebesgue-integrable,
+since the functions $f^+$ and $f^-$ are not so.
+But the improper Riemann integral exists,
+that is,
+\[
+\lim_{a \to \infty} \int_0^{a} \frac{\sin(x)}{x} \, dx \, < \, \infty.
+\]
+
 %------------------------------------------------------------------------------%
 %                                 BIBLIOGRAPHY                                 %
 %------------------------------------------------------------------------------%
 \vspace{8mm}
 \begin{thebibliography}{99}
+\begin{small}
+
+\bibitem{Ba} H.\,Bauer:
+\textit{Measure and Integration Theory}.
+deGruyter, 2001.
+
+\bibitem{Co} D.\,Cohn:
+\textit{Measure Theory}.
+Birkhäuser, 2013.
 
 \bibitem{El} J.\,Elstrodt:
 \textit{Ma{\ss} -und Integrationstheorie}.
 Springer Verlag, 2018.
 
+\end{small}
 \end{thebibliography}
 
 %------------------------------------------------------------------------------%
 %                               END OF DOCUMENT                                %
 %------------------------------------------------------------------------------%
 \end{document}
+
+  I. MEASURE SPACES
+     --------------
+  1. Measurable Spaces
+  2. Generators of sigma-Algebras
+  3. Positive Measures
+  4. Signed Measures
+  5. Complex Measures
+
+ II. LEBESGUE INTEGRATION
+     ---------------------
+  1. Measurable Functions
+  2. Setup of the Lebesgue Integral
+  3. Convergence Theorems
+  4. Integration on Product Spaces
+  5. Absolutely Continuous Measures
+
+III. MEASURES ON LOCALLY COMPACT SPACES
+     ----------------------------------
+  1. Regularity of Measures
+  2. Haar Measures
+  3. The Lebesgue-Borel Measure
+  4. Decomposition of Measures
+  5. Comparison of Lebesgue and Riemann Integration

@@ -46,9 +46,10 @@
 
 \fancyhead[OL]{\small{\thepage}}
 \fancyhead[ER]{\small{\thepage}}
-\fancyhead[OC] {\small{\textsc{\Title}}}
+\fancyhead[OC]{\small{\textsc{\Title}}}
 \fancyhead[EC]{\small{\thesection}. \textsc{\sectionname}}
 
+\setcounter{page}{1}
 %------------------------------------------------------------------------------%
 %                                  CONTENT                                     %
 %------------------------------------------------------------------------------%
@@ -83,12 +84,10 @@ the operation $+$ is \textit{commutative} or \textit{Abelian},
 {\ie} $x+y \eq y+x$ for all $x,y \xeof \grpG$.
 \end{itemize}
 
-\setcounter{page}{1}
+\fancyhead[EC]{\small{I. \textsc{Rings and Fields}}}
+\fancyhead[OC]{\small{I. \textsc{Rings and Fields}}}
 %------------------------------------------------------------------------------%
-\fancyhead[EC] {\small{I. \textsc{Rings and Fields}}}
-\fancyhead[OC] {\small{I. \textsc{Rings and Fields}}}
-
-\part{Rings and Fields}
+\part{Rings and Fields}                                                        %
 %------------------------------------------------------------------------------%
 The concepts of \textit{ring} and \textit{field}
 constitute algebraic structures,
@@ -527,11 +526,10 @@ The most well-known example for this construction is the definition
 of the field $\Q$ of rational numbers --
 it is the quotient field of the integrity ring $\Z$.
 
+\fancyhead[EC]{\small{II. \textsc{Linear Spaces and Mappings}}}
+\fancyhead[OC]{\small{II. \textsc{Linear Spaces and Mappings}}}
 %------------------------------------------------------------------------------%
-\fancyhead[EC] {\small{II. \textsc{Linear Spaces and Mappings}}}
-\fancyhead[OC] {\small{II. \textsc{Linear Spaces and Mappings}}}
-
-\part{Linear Spaces and Mappings}
+\part{Linear Spaces and Mappings}                                              %
 %------------------------------------------------------------------------------%
 An Abelian group $(\vecV,+)$ is called a \textit{$\F$-linear space},
 if there is an outer multiplication $\cdot \: \F \times \vecV \xto \vecV$,
@@ -910,11 +908,10 @@ $ \setA^{\bot}$ of $\setA$ by means of
 \{ x \in \vecV: \scalar{x}{y} \eq 0 \fa y \in \setA \}.
 \]
 
+\fancyhead[EC]{\small{III. \textsc{Algebras}}}
+\fancyhead[OC]{\small{III. \textsc{Algebras}}}
 %------------------------------------------------------------------------------%
-\fancyhead[EC] {\small{III. \textsc{Algebras}}}
-\fancyhead[OC] {\small{III. \textsc{Algebras}}}
-
-\part{Algebras}
+\part{Algebras}                                                                %
 %------------------------------------------------------------------------------%
 An \textit{algebra} is a linear space $\algA$,
 whose underlying Abelian group has a ring structure

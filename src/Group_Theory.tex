@@ -27,7 +27,7 @@
 \titlespacing*{\section}{0pt}{ 3pt}{ 3pt}
 
 %------------------------------------------------------------------------------%
-%                                BEGIN OF DOCUMENT                             %
+%                             BEGIN OF DOCUMENT                                %
 %------------------------------------------------------------------------------%
 \begin{document}
 \thispagestyle{empty}
@@ -48,20 +48,19 @@
 %\myfootnote { Latest Version: \today.}
 %\myfootnote { Email: \textit{{\Email}}, Url: \href{\khMath}{\textit{\khMath}}.}
 
-
 %------------------------------------------------------------------------------%
 %                                  CONTENT                                     %
 %------------------------------------------------------------------------------%
-\fancyhead[OC] {\small{\textsc{I. Sets, Relations and Mappings}}}
-\fancyhead[EC] {\small{\textsc{I. Sets, Relations and Mappings}}}
-
 This is an elementary text on the foundations of modern mathematics and
 on \textit{group theory}.
 It should be seen as a preparation for other mathematical
 subjects, which are based on group theory,
 like \textit{linear algebra} and others.
 
-\part{Sets, Relations and Mappings}
+\fancyhead[OC]{\small{\textsc{I. Sets, Relations and Mappings}}}
+\fancyhead[EC]{\small{\textsc{I. Sets, Relations and Mappings}}}
+%------------------------------------------------------------------------------%
+\part{Sets, Relations and Mappings}                                            %
 %------------------------------------------------------------------------------%
 Following the German mathematician \textsc{Georg Cantor} (1845-1918),
 \begin{quotation}
@@ -101,7 +100,7 @@ which forms a superset of the set $\N$.
 In this case we obtain $\N \eq \{i \xeof \Z \: i > 0\}$. 
 
 \section{Set Operations}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 One may define sets by \textit{operations} on further and already defined sets.
 In the following we shall collect the most important concepts, symbols
 and operations dealing with sets:
@@ -176,7 +175,7 @@ The $n$-fold kartesian product of a set $\setM$ with itself is denoted $\setM^n$
 \end{itemize}
 
 \section{Collections of Sets}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 If $\setM$ is any set,
 then the collection $\pot{M} $ consisting of all subsets of $\setM$
 is called the \textit{power set} of $\setM$.
@@ -224,7 +223,7 @@ is meant the collection of sets
 which contains each set being a member in some $\cal{F}_i$.
 
 \section{Relations}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 The concept of \textit{relation} is fundamental in mathematics
 and defined as follows:
 a \textit{relation} between two sets $\setM,N$ is a subset of the 
@@ -244,7 +243,7 @@ an \textit{equivalence relation} on $\setM$ if
 \item[1.] $(x,x) \xeof R$ for all $x \xeof \setM$ \textit{(reflexivity)}.
 \item[2.] $(x,y) \xeof R$ implies $(y,x) \xeof R$ \textit{(symmetry)}.
 \item[3.] $(x,y) \xeof R$ and $(y,z) \xeof R$ implies $(x,z) \xeof R$
-          \textit{(transitivity)}.
+            \textit{(transitivity)}.
 \end{itemize}
 
 \subparagraph{}
@@ -367,7 +366,7 @@ Each set can be well-ordered.
 \end{theorem}
 
 \section{Mappings}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 \textit{Mappings} rsp. \textit{functions} form the most important subclass
 within that of relations and are of fundamental meaning in modern mathematics.
 They are defined as follows:
@@ -545,7 +544,7 @@ $f^{-1}(y) \eq \cross{y}{F}$, $y \xeof \setM$ holds.
 \end{itemize}
 
 \section{Cardinality of Sets}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 The notion of \textit{cardinality} of a set $\setM$ provides information
 on the number of its elements.
 If a set contains finite elements only,
@@ -597,11 +596,10 @@ it owns larger cardinality than $\N$, $\Z$ and $\Q$.
 This fact justifies the following definition:
 each set having same cardinality as $\R$ is called \textit{uncountable}.
 
+\fancyhead[OC]{\small{\textsc{II. Basic Concepts in Group Theory}}}
+\fancyhead[EC]{\small{\textsc{II. Basic Concepts in Group Theory}}}
 %------------------------------------------------------------------------------%
-\fancyhead[OC] {\small{\textsc{II. Basic Concepts in Group Theory}}}
-\fancyhead[EC] {\small{\textsc{II. Basic Concepts in Group Theory}}}
-
-\part{Basic Concepts in Group Theory}
+\part{Basic Concepts in Group Theory}                                          %
 %------------------------------------------------------------------------------%
 Many mathematical objekts coming from different topics
 own the structure of a group.
@@ -612,7 +610,7 @@ the concept of group is the foundation for the definition of more complex
 algebraical structures like rings, moduls, algebras and so on.
 
 \section{Semigroups and Monoids}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 If $\grpH$ is a non-empty set,
 then each mapping $\circ \: \cross{\grpH}{\grpH} \xto \grpH$ is called
 an \textit{inner operation}.
@@ -683,7 +681,7 @@ The unital element is given by the set $\setM$ itself.
 \end{itemize}
 
 \section{Groups}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 An element $y$ of a monoid $\grpG$ is called \textit{inverse}
 to the element $x \xeof \grpG$,
 if $x \circ y \eq y \circ x \eq \1$.
@@ -719,7 +717,7 @@ with addition are groups.
 
 \item[5.]
 The sets $\R^{\times} := \R \setminus \{0\}$
-and      $\C^{\times} := \C \setminus \{0\}$
+and       $\C^{\times} := \C \setminus \{0\}$
 with multiplication are groups.
 
 \item[6.]
@@ -743,8 +741,8 @@ is the complementary set $\setM \setminus A$.
 \end{itemize}
 
 \section{Subgroups}
-%------------------------------------------------------------------------------%
-The concept of \textit{subgroup}.  is of fundamental meaning in group theory.
+%-------------------------------------------------------------------------------
+The concept of \textit{subgroup} is of fundamental meaning in group theory.
 Let $(\grpG,\circ)$ be a group and $\grpU \subset \grpG$ be a subset.
 Then $\grpU$ is called a \textit{subgroup} of $\grpG$,
 if for all $x,y \xeof \grpU$ we have
@@ -816,7 +814,7 @@ if $\grpG$ is finite and $\grpU$ is a subgroup of $\grpG$,
 then $\abs{\grpU} \cdot [G:\grpU] \eq \abs{\grpG} $.
 
 \section{Generating Sets and Free Groups}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 As already mentioned,
 arbitrary intersections of subgroups of a group $\grpG$ are 
 subgroups of $\grpG$.
@@ -874,7 +872,7 @@ such that $F(\setM)$ is free over the image $\iota(\setM)$.
 The group $F(\setM)$ is called the \textit{freely generated} group by $\setM$.
 
 \section{Cyclic Groups}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 If a group $\grpG$ is generated by a singleton $\{g\} \xsubset \grpG$,
 then for each other element $h \xeof \grpG$ there is an integer $z$
 such that $g^z \eq h$.
@@ -928,7 +926,7 @@ as well as torsion-free.
 \end{itemize}
 
 \section{Free Products of Groups}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 Let $A$ a be a finite set,
 which in the following is denoted an \textit{alphabet} and whose elements
 are called \textit{Buchstaben}.
@@ -959,14 +957,14 @@ by concatenating the elements $f_1,f_2 \xeof \grpG_1 \* \grpG_2$.
 
 \subparagraph{}
 For example,
-let $\grpG := \{g_1,g_2,    \ldots\}$ and
-    $\topH := \{h_1,h_2,h_3,\ldots\}$ be groups and
+let $\grpG := \{g_1,g_2,     \ldots\}$ and
+     $\topH := \{h_1,h_2,h_3,\ldots\}$ be groups and
 $f_1 := \{g_1,h_2,g_2\}$, $f_2 := \{g_3,h_3,g_4,h_4\}$
 elements of $\grpG_1 \* \grpG_2$,
 then $f_1 \* f_2$ is the element $\{g_1,h_2,g_2 g_3,h_3,g_4,h_4\}$.
 
 \section{Translation and Conjugation}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 To each element $g$ of a group $\grpG$ there is a natural mapping
 \[
 L_g\: G \xto G, \quad \phi_g(x) := g \circ x, \quad x \in \grpG,
@@ -1024,7 +1022,7 @@ which contains $\grpU$ as a further subgroup.
 Hence we always have $\grpU \subseteq N_{\grpU} \subseteq \grpG$.
 
 \section{Normal Groups}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 Let $\grpG$ be a group.
 Any subgroup $\grpU \subseteq \grpG$ is called \textit{normal}
 and a \textit{normal subgroup} of $\grpG$,
@@ -1086,7 +1084,7 @@ is normal.
 \end{itemize}
 
 \section{Products and Sums of Groups}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 Let $\grpG_1$ and $\grpG_2$ be groups.
 Then the cartesian product $\cross{\grpG_1}{\grpG_2}$
 with component-wise defined operation
@@ -1135,11 +1133,10 @@ since for all $x_1 \xeof \grpG_1, x_2 \xeof \grpG_2$ we have
 $(x_1,\1_2) \bullet (\1_1,x_2) \eq (x_1,x_2) \xeof \grpG_1 \bigoplus \grpG_2$.
 \end{itemize}
 
+\fancyhead[OC]{\small{\textsc{III. Group Homomorphisms}}}
+\fancyhead[EC]{\small{\textsc{III. Group Homomorphisms}}}
 %------------------------------------------------------------------------------%
-\fancyhead[OC] {\small{\textsc{III. Group Homomorphisms}}}
-\fancyhead[EC] {\small{\textsc{III. Group Homomorphisms}}}
-
-\part{Group Homomorphisms}
+\part{Group Homomorphisms}                                                     %
 %------------------------------------------------------------------------------%
 Group homomorphisms are mappings between groups,
 which are compatible with the group operation in each group.
@@ -1171,7 +1168,7 @@ if $\phi$ is bijective ({\ie} a monomorphism and an epimorphism at once),
 then $\phi$ is called an \textit{isomorphism}.
 
 \section{Isomorphisms}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 Two groups $(\grpG_1,\circ)$ and $(\grpG_2,\bullet)$ are said to be
 \textit{isomorphic} to each other
 (notation: $\grpG_1 \cong \grpG_2$),
@@ -1207,8 +1204,8 @@ If $\phi_1 \: \grpG_1 \xto \grpG_2$ and $\phi_2 \: \grpG_2 \xto \grpG_3$
 are homomorphisms,
 then the mapping $\phi_2 \circ \phi_1 \: \grpG_1 \xto \grpG_3$
 is a homomorphism, too,
-and with each isomorphism $\phi      \: \grpG_1 \xto \grpG_2$
-the inverse mapping       $\phi^{-1} \: \grpG_2 \xto \grpG_1$
+and with each isomorphism $\phi       \: \grpG_1 \xto \grpG_2$
+the inverse mapping        $\phi^{-1} \: \grpG_2 \xto \grpG_1$
 is an isomorphism as well.
 Groups together with their homomorphisms form a \textit{category},
 which is usually denote with \textit{(gr)}.
@@ -1223,7 +1220,7 @@ $[\grpU_1 \cup \grpU_2] \eq \grpG$
 and $\grpU_1 \cap \grpU_2 \eq \{ \1 \}$.
 
 \section{The Isomorphism Theorem}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 In the following let $\grpG_1,\grpG_2$ be groups and
 $\phi \: \grpG_1 \xto \grpG_2$ be a group homomorphism.
 Then the \textit{kernel} of $\phi$ is the set of all elements of $\grpG_1$,
@@ -1305,11 +1302,11 @@ where they are a useful tool to compute fundamental groups of topological spaces
 A \textit{short sequence} of the groups $\grpG_1$, $\grpG$ and $\grpG_2$
 is a sequence
 \[
-       \{\1 \}
-       \longrightarrow \grpG_1
-       \stackrel{f}{\longrightarrow} \grpG
-       \stackrel{g}{\longrightarrow} \grpG_2
-       \longrightarrow               \{\1 \}
+        \{\1 \}
+        \longrightarrow \grpG_1
+        \stackrel{f}{\longrightarrow} \grpG
+        \stackrel{g}{\longrightarrow} \grpG_2
+        \longrightarrow                  \{\1 \}
 \]
 with group homomorphisms $f \:\grpG_1 \xto \grpG$ and $g\:\grpG \xto \grpG_2$,
 where $(g \circ f) x \eq \1$ for all $x \xeof \grpG_1$.
@@ -1335,9 +1332,9 @@ $\det(A \cdot B) \eq \det(A) \cdot \det(B) \xeof \{-1,1\}$.
 Then $\OG{n,\R} \eq \SOG{n} \rtimes \Z_2$ holds,
 since $(\{-1,1\},\cdot) \cong (\Z_2,+)$ and the following sequence is exact:
 \[
-       \SOG{n} \,
-       \stackrel{\iota} {\longrightarrow} \, \OG{n} \,
-       \stackrel{\det}  {\longrightarrow} \, \{-1,1\}
+        \SOG{n} \,
+        \stackrel{\iota} {\longrightarrow} \, \OG{n} \,
+        \stackrel{\det}  {\longrightarrow} \, \{-1,1\}
 \]
 \item[2.]
 The group $E_3$ of \textit{Euclidean movements} contains the mappings
@@ -1347,11 +1344,10 @@ Then $E_3$ is the semi-direct product between the subgroup of rotations
 $\OG{3}$ and the subgroup $\R^3$ of translations.
 \end{itemize}
 
+\fancyhead[OC]{\small{\textsc{IV. Abelian Groups}}}
+\fancyhead[EC]{\small{\textsc{IV. Abelian Groups}}}
 %------------------------------------------------------------------------------%
-\fancyhead[OC] {\small{\textsc{IV. Abelian Groups}}}
-\fancyhead[EC] {\small{\textsc{IV. Abelian Groups}}}
-
-\part{Abelian Groups}
+\part{Abelian Groups}                                                          %
 %------------------------------------------------------------------------------%
 Let us repeat that \textit{Abelian groups} are those groups,
 whose group operation is {commutative}.
@@ -1373,7 +1369,7 @@ Hence the theory of Abelian groups is embedded into the theory of
 $\riR$-moduls.
 
 \section{Commutative Monoids}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 If $(\grpA,+)$ rsp. $(\grpA',+)$ are commutative semigroups and
 $\phi \: \grpA \xto \grpA'$ rsp. $\psi \: \grpA \xto \grpA'$
 are group homomorphisms,
@@ -1403,7 +1399,7 @@ homomorphism $\phi\:\grpA \xto \grpA'$
 such that $\phi(s) \eq \alpha(s)$ for $s \xeof S$.
 
 \section{Commutator Groups}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 Each element of the form $aba^{-1}b^{-1} \xeof \grpG$ in a group
 $\grpG$ with $a,b \xeof \grpG$ is called a \textit{commutator} of $\grpG$.
 By means of commutators it is possible to construct for each group $\grpG$
@@ -1431,7 +1427,7 @@ is the only one commutator,
 and $\grpA \eq \grpA^{ab}$ holds.
 
 \section{The Structure Theorem}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 For finitely generated Abelian groups there is a classification theorem,
 which describes the structure of such groups up to isomorphisms.
 It was proved in the recent version by \textsc{Leopold\,Kronecker} (1823-1891)
@@ -1478,7 +1474,7 @@ there is exactly one group homomorphism $\phi \: \cal{F}(\setM) \xto \grpA$
 such that $\phi \circ \iota \eq f$.
 
 \section{Free-Abelian Groups}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 In general, an Abelian group $\grpA$ is called \textit{free-Abelian},
 if there is a subset $\setM$ of $\grpA$
 such that the homomorphism $\phi \: \cal{F}(\setM) \xto \grpA$
@@ -1494,7 +1490,7 @@ The group $\Z$ itself is free-Abelian over the singleton $\{1\} \subset \Z$.
 \end{itemize}
 
 \section{Abelian Groups Generated by Abelian Monoids}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 In some case we there is a constellation,
 where a mathematical item owns the structure of a commutative monoid.
 To apply group theory,
@@ -1613,11 +1609,10 @@ of Abelian groups $\grpA',\grpA,\grpA''$ the sequence
 \]
 is exact, too.
 
+\fancyhead[OC]{\small{\textsc{V. Finite Groups}}}
+\fancyhead[EC]{\small{\textsc{V. Finite Groups}}}
 %------------------------------------------------------------------------------%
-\fancyhead[OC] {\small{\textsc{V. Finite Groups}}}
-\fancyhead[EC] {\small{\textsc{V. Finite Groups}}}
-
-\part{Finite Groups}
+\part{Finite Groups}                                                           %
 %------------------------------------------------------------------------------%
 The group operation of a finite group $\grpG$ can be represented by means of
 a \textit{operation table}:
@@ -1625,12 +1620,12 @@ a \textit{operation table}:
 \paragraph{}
 \centerline{
 \begin{tabular}{l|lllll}
-$\grpG$  &  $e$      & $a$      & $b$      & $c$      & $\ldots$ \\
+$\grpG$  &  $e$       & $a$       & $b$       & $c$       & $\ldots$ \\
 \hline
-$e$      &  $e$      & $a$      & $b$      & $c$      & $\ldots$ \\
-$a$      &  $a$      & $aa$     & $ab$     & $ac$     & $\ldots$ \\
-$b$      &  $b$      & $ba$     & $bb$     & $bc$     & $\ldots$ \\
-$c$      &  $c$      & $ca$     & $cb$     & $cc$     & $\ldots$ \\
+$e$       &  $e$       & $a$       & $b$       & $c$       & $\ldots$ \\
+$a$       &  $a$       & $aa$      & $ab$      & $ac$      & $\ldots$ \\
+$b$       &  $b$       & $ba$      & $bb$      & $bc$      & $\ldots$ \\
+$c$       &  $c$       & $ca$      & $cb$      & $cc$      & $\ldots$ \\
 $\ldots$ &  $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$ \\
 \end{tabular}
 }
@@ -1648,22 +1643,22 @@ $\Z_n$ and given by the following operation tables:
 \begin{tabular}{l|l}
 $\Z_1$ & $0$ \\
 \hline
-$0$    & $0$ \\
+$0$     & $0$ \\
 \end{tabular}
 $\qquad \qquad$
 \begin{tabular}{l|ll}
 $\Z_2$ & $0$ & $1$ \\
 \hline
-$0$    & $0$ & $1$ \\
-$1$    & $1$ & $0$ \\
+$0$     & $0$ & $1$ \\
+$1$     & $1$ & $0$ \\
 \end{tabular}
 $\qquad \qquad$
 \begin{tabular}{l|lll}
 $\Z_3$ & $0$ & $1$ & $2$ \\
 \hline
-$0$    & $0$ & $1$ & $2$ \\
-$1$    & $1$ & $2$ & $0$ \\
-$2$    & $2$ & $0$ & $1$ \\
+$0$     & $0$ & $1$ & $2$ \\
+$1$     & $1$ & $2$ & $0$ \\
+$2$     & $2$ & $0$ & $1$ \\
 \end{tabular}
 }
 
@@ -1678,19 +1673,19 @@ These are the cyclic group $\Z_4$ and
 \begin{tabular}{l|llll}
 $\Z_4$ & $0$ & $1$ & $2$ & $3$ \\
 \hline
-$0$    & $0$ & $1$ & $2$ & $3$ \\
-$1$    & $1$ & $2$ & $3$ & $0$ \\
-$2$    & $2$ & $3$ & $0$ & $1$ \\
-$3$    & $3$ & $0$ & $1$ & $2$ \\
+$0$     & $0$ & $1$ & $2$ & $3$ \\
+$1$     & $1$ & $2$ & $3$ & $0$ \\
+$2$     & $2$ & $3$ & $0$ & $1$ \\
+$3$     & $3$ & $0$ & $1$ & $2$ \\
 \end{tabular}
 $\qquad \qquad$
 \begin{tabular}{l|llll}
 $V_4$  & $0$ & $1$ & $2$ & $3$ \\
 \hline
-$0$    & $0$ & $1$ & $2$ & $3$ \\
-$1$    & $1$ & $0$ & $3$ & $2$ \\
-$2$    & $2$ & $3$ & $0$ & $1$ \\
-$3$    & $3$ & $2$ & $1$ & $0$ \\
+$0$     & $0$ & $1$ & $2$ & $3$ \\
+$1$     & $1$ & $0$ & $3$ & $2$ \\
+$2$     & $2$ & $3$ & $0$ & $1$ \\
+$3$     & $3$ & $2$ & $1$ & $0$ \\
 \end{tabular}
 }
 
@@ -1766,11 +1761,10 @@ $26$ so-called \textit{sporadic} groups.
 \end{itemize}
 \end{theorem}
 
+\fancyhead[OC]{\small{\textsc{VI. Group Actions on Sets}}}
+\fancyhead[EC]{\small{\textsc{VI. Group Actions on Sets}}}
 %------------------------------------------------------------------------------%
-\fancyhead[OC] {\small{\textsc{VI. Group Operations on Sets}}}
-\fancyhead[EC] {\small{\textsc{VI. Group Operations on Sets}}}
-
-\part{Group Operations on Sets}
+\part{Group Actions on Sets}                                                   %
 %------------------------------------------------------------------------------%
 The theory of group operations on sets requires the usage of permutation groups,
 so we shall start with this important class of groups.
@@ -1905,17 +1899,17 @@ The dieder group of degree $n$ has order $\abs{D_n} \eq 2n$.
 For its generating elements $a,b$ we have $a^k \neq Id$ for $1 \leq k < n$
 and $a^n \eq Id$ for $b^2 \eq Id$.
 
-\section{Group Operations}
+\section{Group Actions}
 %-------------------------------------------------------------------------------
 A permutation group $\operatorname{per}(\setM)$ is said
-\textit{to operate on a set $\setM$},
+\textit{to act on a set $\setM$},
 if it is permuting the elements of $\setM$.
 In the same way a subgroup of $\operatorname{per}(\setM)$ is operating
 on the $\setM$.
-The concept of group operation on sets can be formulated
+The concept of group action on sets can be formulated
 in an abstract manner as follows:
 let $(\grpG,\circ)$ be a group and $\setM$ be a set.
-Then the group $\grpG$ is called \textit{operating on $\setM$
+Then the group $\grpG$ is called \textit{acting on $\setM$
 (by left)},
 if ther is a mapping $T \: \cross{\grpG}{\setM} \xto \setM$
 having the properties
@@ -1930,14 +1924,14 @@ for all $g,h \xeof \grpG$ and all $x \xeof \setM$.
 \end{itemize}
 
 \subparagraph{}
-The mapping $T$ is called an \textit{operation} of $\grpG$ on $\setM$.
+The mapping $T$ is called an \textit{action} of $\grpG$ on $\setM$.
 If the operation forms a mapping $T \: \cross{\setM}{\grpG} \xto \setM$,
-then $T$ is called to be \textit{operating from the right} on $\setM$.
+then $T$ is called to be \textit{acting from the right} on $\setM$.
 
 \subparagraph{}
 For any element $T(g,x)$ we briefly write $g \, x$.
-For each fixed element $g \xeof \grpG$ the operation of
-$\grpG$ on $\setM$ gives rise to a mapping $f_g \: \setM \xto \setM$.
+For each fixed element $g \xeof \grpG$ the action of $\grpG$ on $\setM$
+gives rise to a mapping $f_g \: \setM \xto \setM$.
 The mapping $f_g$ is even bijective,
 since
 \[
@@ -1949,15 +1943,15 @@ $f_g \circ f_h \eq f_{gh}$,
 that is,
 $g \xeof \grpG \mapsto f_g$ is a group homomorphism from $\grpG$
 to the group $\operatorname{per}(\setM)$ of permutations on $\setM$.
-Hence any group operation of $\grpG$ on $\setM$ can be seen as
-a group homomorphism $\phi_T \: \grpG \xto \operatorname{per}(\setM)$.
+Hence a group action of $\grpG$ on $\setM$ can be seen
+as a group homomorphism $\phi_T \: \grpG \xto \operatorname{per}(\setM)$.
 
 \section{Effective Operations}
-%------------------------------------------------------------------------------%
-An operation $T$ is called \textit{faithful} rsp. \textit{effective},
+%-------------------------------------------------------------------------------
+A group action $T$ is called \textit{faithful} rsp. \textit{effective},
 if the homomorphism $\phi_T \: \grpG \xto \operatorname{per}(\setM)$
 is injective.
-For an effective operation there is,
+For an effective action there is,
 besides the element $e \xeof \grpG$,
 no further element letting all other elements of $\setM$ unchanged.
 Consider the following examples:
@@ -1965,25 +1959,25 @@ Consider the following examples:
 \begin{itemize}[leftmargin=15pt]
 \item[1.]
 Left translations, right translations and conjugations are
-examples for operations of groups on themselves.
+examples for actions of groups on themselves.
 
 \item[2.]
-The groups $\GL{n,\R} $, $\OG{n} $ and $\SOG{n} $ are operating on $\R^n$.
+The groups $\GL{n,\R} $, $\OG{n} $ and $\SOG{n} $ are acting on $\R^n$.
 \end{itemize}
 
 \section{Orbits}
-%------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------
 If $x \xeof \setM$ is given,
 then by collection together all other elements of $\setM$,
-which are images of group operations applied to $x$,
+which are images of group actions applied to $x$,
 one is led to the notion of \textit{orbit}.
 
 \subparagraph{}
-Let $\grpG$ be a group that is operating on a set $\setM$.
+Let $\grpG$ be a group acting on a set $\setM$.
 Then for $x \xeof \setM$ the set
 $\operatorname{Orb}(x) := \set{g\,x}{g \xeof \grpG} \subseteq \setM$
 is called the \textit{orbit} of $x$ with respect to $\grpG$.
-The orbits of a group operation on $\setM$ form equivalence classes
+The orbits of a group action on $\setM$ form equivalence classes
 of $\setM$ and are generated by the following relation:
 \[
 x \sim y
@@ -1997,29 +1991,29 @@ which assigns to each element $x \xeof \setM$ the corresponding orbit,
 is called the \textit{canonical projection} of $\setM$ on $\setM / \grpG$.
 
 \section{Transitive Operations and Fixpoints}
-%------------------------------------------------------------------------------%
-A group operation $T$ is called \textit{transitive},
+%-------------------------------------------------------------------------------
+A group action $T$ is called \textit{transitive},
 if any pair of elements $x,y \xeof \setM$ can be transmitted into each another
 by an element $g \xeof \grpG$:
 $y \eq g\,x$.
-Hence transitive operations own exactly one orbit in $\setM$.
-The operation is called \textit{simply transitive},
+Hence transitive actions own exactly one orbit in $\setM$.
+The action is called \textit{simply transitive},
 if for each pair $x,y \xeof \setM$
 there is exactly \textit{one} element $g \xeof \grpG$ such that $g\,x \eq y$.
 
 \subparagraph{}
 The elements of a group $\grpG$,
-which let for a given group operation $T \: \cross{T}{\setM} \xto \setM$
+which let for a given group action $T \: \cross{T}{\setM} \xto \setM$
 a given element $x \xeof \setM$ unchanged,
 form a subgroup of $\grpG$.
-Let $\grpG$ a group, $T$ an operation of $\grpG$ on a set $\setM$
+Let $\grpG$ be a group, $T$ be an action of $\grpG$ on a set $\setM$
 and $x \xeof \setM$:
 
 \begin{itemize}[leftmargin=15pt]
 \item[1.]
 The subgroup
 $\grpG_x := \set{g \xeof \grpG}{g\,x \eq x} \subseteq \grpG$ is called
-the \textit{isotropy group} of $x$ with respect to the operation $T$.
+the \textit{isotropy group} of $x$ with respect to the action $T$.
 
 \item[2.]
 An element $x$ is called a \textit{fixpoint} of $T$,
@@ -2027,7 +2021,7 @@ if $g \, x \eq x$ for all $g \xeof \grpG$
 (rsp. $\grpG_x \eq \grpG$).
 
 \item[3.]
-The operation $T$ is called \textit{free},
+The action $T$ is called \textit{free},
 if it does not own any fixpoint.
 \end{itemize}
 
@@ -2046,63 +2040,80 @@ $\grpG_x$ of any element in the orbit:
 $\abs{\operatorname{Orb}(x) } := [\grpG:\grpG_x]$.
 
 \paragraph{}
-The following examples of group operations are known:
+The following examples of group actions are known:
 
 \begin{itemize}[leftmargin=15pt]
 \item[1.]
 Let $\setM \eq \R^2$ and $\grpG$ be the group of rotations
 for elements $x \xeof \setM$ with center $\0 := (0,0)$.
-Then $\grpG$ is operating on $\setM$,
+Then $\grpG$ is acting on $\setM$,
 and the orbits in $\setM$ are the singleton $\{\0\}$
 and all circles with center $\0$.
-The element $\0$ is the only fixpoint of the operation,
-hence the operation is neither transitive nor free.
-The isotropy groups of the operation are $\grpG_x \eq \{ \1 \}$
+The element $\0$ is the only fixpoint of the action,
+hence the action is neither transitive nor free.
+The isotropy groups are $\grpG_x \eq \{ \1 \}$
 for $x \neq \0$ and $\grpG_x \eq \grpG$ for $x \eq \0$.
 
 \item[2.]
-If the operation is restricted to the set $\setM \setminus \{\0\}$,
+If the action is restricted to the set $\setM \setminus \{\0\}$,
 then it does not own fixpoints and therefore is free.
 
 \item[3.]
-The restriction of the operation to the unit circle $\T$
+The restriction of the action to the unit circle $\T$
 is free and transitive.
 \end{itemize}
 
 %------------------------------------------------------------------------------%
-%                               END OF DOCUMENT                                %
+%                                END OF DOCUMENT                               %
 %------------------------------------------------------------------------------%
 \end{document}
 
- \multicolumn{3}{c}{\bf 1. Grundbegriffe der Gruppentheorie}                \\
-1.1 & Halbgruppen und Monoide                                 \dotfill &  1 \\
-1.2 & Gruppen                                                 \dotfill &  2 \\
-1.3 & Untergruppen                                            \dotfill &  2 \\
-1.4 & Erzeugendensysteme und freie Gruppen                    \dotfill &  3 \\
-1.5 & Zyklische Gruppen                                       \dotfill &  4 \\
-1.6 & Worthalbgruppen und freie Produkte von Gruppen          \dotfill &  5 \\ !
-1.7 & Translationen und Konjugationen                         \dotfill &  5 \\
-1.8 & Normale Gruppen                                         \dotfill &  6 \\
-1.9 & Produkte und Summen von Gruppen                         \dotfill &  7 \\
-1.10& Die Gruppenalgebra einer Gruppe                         \dotfill &  7 \\ !
-    &                                                                  &    \\
- \multicolumn{3}{c}{\bf 2. Gruppen-Homomorphismen}                          \\
-2.1 & Homomorphismen und Kerne                                \dotfill &  9 \\
-2.2 & Der Homomorphiesatz der Gruppentheorie                  \dotfill & 10 \\
-2.3 & Automorphismengruppen                                   \dotfill & 10 \\
-2.4 & Exakte Sequenzen von Gruppen                            \dotfill & 11 \\
-    &                                                                  &    \\
- \multicolumn{3}{c}{\bf 3. Operationen von Gruppen auf Mengen}              \\
-3.1 & Permutationsgruppen                                     \dotfill & 12 \\
-3.2 & Die Permutationsgruppe endlicher Mengen                 \dotfill & 12 \\
-3.3 & Gruppenoperationen                                      \dotfill & 13 \\
-3.4 & Orbits                                                  \dotfill & 14 \\
-3.5 & Isotropiegruppen                                        \dotfill & 14 \\
-    &                                                                  &    \\
- \multicolumn{3}{c}{\bf 4. Abelsche Gruppen}                                \\
-4.1 & Kommutative Halbgruppen                                 \dotfill & 16 \\
-4.2 & Kommutatorgruppen                                       \dotfill & 16 \\
-4.3 & Der Struktursatz über endlich erzeugte Abelsche Gruppen \dotfill & 17 \\
-4.4 & Frei-Abelsche Gruppen                                   \dotfill & 17 \\
-4.5 & Die Konstruktion von Gruppen aus kommutativen Monoiden  \dotfill & 17 \\
-4.6 & Das Tensorprodukt Abelscher Gruppen                     \dotfill & 18 \\
+  I. SETS, RELATIONS AND MAPPINGS
+     ----------------------------
+  1. Set Operations
+  2. Collections of Sets
+  3. Relations
+  4. Mappings
+  5. Cardinality of Sets
+
+ II. BASIC CONCEPTS IN GROUP THEORY
+     ------------------------------
+  1. Semigroups and Monoids
+  2. Groups
+  3. Subgroups
+  4. Generating Sets and Free Groups
+  5. Cyclic Groups
+  6. Free Products of Groups
+  7. Translation and Conjugation
+  8. Normal Groups
+  9. Products and Sums of Groups
+
+III. GROUP HOMOMORPHISMS
+     -------------------
+  1. Isomorphisms
+  2. The Isomorphism Theorem
+  3. Automorphism Groups
+  4. Exact Sequences of Groups
+
+ IV. ABELIAN GROUPS
+     --------------
+  1. Commutative Monoids
+  2. Commutator Groups
+  3. The Structure Theorem
+  4. Free-Abelian Groups
+  5. Abelian Groups Generated by Abelian Monoids
+  6. The Tensor Product of Abelian Groups
+
+  V. FINITE GROUPS
+     -------------
+  1. Finite Groups with Small Order
+  2. Classification of Finite Simple Groups
+
+ VI. GROUP ACTIONS ON SETS
+     ---------------------
+  1. Permutation Groups
+  2. The Permutation Group of Finite Sets
+  3. Group Actions
+  4. Effective Operations
+  5. Orbits
+  6. Transitive Operations and Fixpoints
