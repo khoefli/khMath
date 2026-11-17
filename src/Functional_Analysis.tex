@@ -1644,7 +1644,7 @@ Furthermore,
 the spaces $\WN{k,p}{\G}$ form closed linear subspaces
 of the Sobolev spaces $\SobW$.
 Clearly,
-the spaces $\HN{k}{\G} \eqdef \HN{k,2}{\G}$ are Hilbert spaces
+the spaces $\HN{k}{\G} := W^{k,2}{\G}$ are Hilbert spaces
 with inner products and norms as defined for $H^k(\G)$.
 \end{itemize}
 \end{itemize}
@@ -1739,7 +1739,7 @@ For the notion of \textit{reflexive space} we refer to section III.
 \end{tikzpicture}
 }
 
-\footnotesize{Figure \thesection.1:
+\footnotesize{Figure \thepart.1:
               The hierarchy of metric and topological linear spaces}
 \end{center}
 
@@ -2651,7 +2651,7 @@ But $\banX^*$ is at least a Hausdorff space {\wrt} the weak*-topology.
 The main result concerning weak*-topologies in adjoint spaces in the setting
 of normed linear spaces is given by the \textit{Alaoglu theorem}:
 
-\begin{theorem1}\label{IV_ALAOGLU_BOURBAKI_THEOREM}
+\begin{theorem1}\label{III_ALAOGLU_BOURBAKI_THEOREM}
 The closed unit ball
 $B_1(\0) : = \{ f \in \banX^*: \norm{f} \leq 1 \}$ is compact
 {\wrt} the weak*-topology on $\banX^*$.
@@ -2692,7 +2692,7 @@ quoting
 that the representation of positive linear functionals on $\G$
 can just be done by the \textit{Radon measures} on $\G$:
 
-\begin{theorem1}\label{IV_RIESZ-MARKOV_THEOREM_1}
+\begin{theorem1}\label{III_RIESZ-MARKOV_THEOREM_1}
 Let $\phi$ be a positive and continuous linear functional
 on the normed linear space $C_c(\G)$.
 Then there is exactly one Radon measure
@@ -2718,7 +2718,7 @@ for $\mu \xeof \MCR{\G}$.
 The following theorem of \textsc{Riesz-Markov} type
 describes the adjoint space of $C_0(\G)$:
 
-\begin{theorem1}\label{IV_RIESZ_MARKOV-THEOREM_2}
+\begin{theorem1}\label{III_RIESZ_MARKOV-THEOREM_2}
 Let $\phi$ be a complex-valued and continuous linear functional
 defined on the space $C_0(\G)$.
 Then there is exactly one complex Radon measure $\mu$ such that
@@ -2742,7 +2742,7 @@ In fact,
 functions of bounded variation correspond to Radon measures
 on the interval $[a,b]$,
 hence the norm-isomorphism is an immediate consequence
-of theorem \ref{IV_RIESZ-MARKOV_THEOREM_1}.
+of theorem \ref{III_RIESZ-MARKOV_THEOREM_1}.
 
 \item[4.] \textit{The adjoint space of $L^p(X)$.}\\
 If $1 < p <\infty$ and $(X,\salgB,\mu)$ is an ordinary measure space,
@@ -2778,7 +2778,7 @@ that the mapping $\Phi$ is actually surjective,
 so there is a canonical correspondence
 between the elements of $\hilH$ and those of $\hilH_a^*$:
 
-\begin{theorem1}\label{IV_RIESZ_REPRESENTATION_THEOREM}
+\begin{theorem1}\label{III_RIESZ_REPRESENTATION_THEOREM}
 If $\hilH$ is a complex Hilbert space,
 then $\Phi\: \hilH \xto \hilH_a^*$ is bijective and norm-preserving,
 {\ie}
@@ -3166,7 +3166,7 @@ which gives rise to define $\linA^* y^* \eqdef x^*$.
 \paragraph{} %- properties of the adjoint 
 Adjoint operators enjoy a couple of nice properties:
 
-\begin{theorem1}\label{IV_MAIN_THEOREM_ON_ADJOINT_OPERATORS}
+\begin{theorem1}\label{III_MAIN_THEOREM_ON_ADJOINT_OPERATORS}
 Let $\linA\:\domain{\linA} \subset \banX \xto \banY$ be densely defined.
 \begin{itemize}[leftmargin=9mm]
 \item[(a)] The adjoint operator $\linA^*$ is closed.
@@ -3191,7 +3191,7 @@ of $M \subset \banX$ and $N \subset \banX^*$ be defined by
 \end{cases}
 \]
 We then obtain the both fundamental relations
-\begin{equation}\label{IV_ORTHOGONALITY_RELATIONS}
+\begin{equation}\label{III_ORTHOGONALITY_RELATIONS}
 \overline{\range{\linA^*} } \= \kernel{\linA}^{\bot}
 \quad \and \quad
 \overline{\range{\linA} } \= ^{\bot}\kernel{\linA^*}
@@ -3200,7 +3200,7 @@ between the kernels and ranges of the linear operators $\linA$ and $\linA^*$.
 
 \subparagraph{} %- surjectivity of linear operators
 With respect to solvability of the equation $\linA \,x \eq y$,
-the relationships \eqref{IV_ORTHOGONALITY_RELATIONS} imply
+the relationships \eqref{III_ORTHOGONALITY_RELATIONS} imply
 that $\linA$ has dense range in $\banY$ iff $\linA^*$ is injective.
 
 \paragraph{} %- adjoints of continuous linear operators
@@ -3290,7 +3290,7 @@ the operator $\linA_H^*$,
 often called the \textit{Hilbert adjoint} of $\linA$,
 is nothing but the adjoint $\linA^*$ conjugated by the Riesz map,
 that is,
-\begin{equation}\label{IV_ADJOINT_OPERATOR}
+\begin{equation}\label{III_ADJOINT_OPERATOR}
 \linA_H^* \, \eqdef \, \tilde{\Phi}^{-1} \circ \linA^* \circ \tilde{\Phi}.
 \end{equation}
 Hence $\linA_H^*$ constitutes a linear mapping in $\hilH$.
@@ -3298,7 +3298,7 @@ Hence $\linA_H^*$ constitutes a linear mapping in $\hilH$.
 \subparagraph{}
 In case of a real Hilbert space,
 however,
-we may replace $\tilde{\Phi}$ in \eqref{IV_ADJOINT_OPERATOR}
+we may replace $\tilde{\Phi}$ in \eqref{III_ADJOINT_OPERATOR}
 by the \textit{linear} \textsc{Riesz} map $\Phi\:\hilH \xto \hilH^*$,
 so $\linA_H^* := \Phi{-1} \circ \linA^* \circ \Phi$.
 As a rule for the sequel,
@@ -3336,15 +3336,15 @@ Thus we may define $\linA^* y \eqdef y^*$ for $y \xeof \domain{\linA^*}$.
 \subparagraph{}
 Notice that
 the operators $\linA$ and $\linA^*$ are coupled by the formula
-\begin{equation}\label{IV_DEFINITION_OF_ADJOINT_OPERATOR}
+\begin{equation}\label{III_DEFINITION_OF_ADJOINT_OPERATOR}
 \scalar{\linA \,x}{y} \= \scalar{x}{\linA^* y},
 \end{equation}
 where $x \xeof \domain{\linA}$ and $y \xeof \domain{\linA^*}$.
 Moreover,
-equation \eqref{IV_DEFINITION_OF_ADJOINT_OPERATOR} gives rise
+equation \eqref{III_DEFINITION_OF_ADJOINT_OPERATOR} gives rise
 to the following relationships
 between the kernels and ranges of $\linA$ and $\linA^*$,
-which are variants of \eqref{IV_ORTHOGONALITY_RELATIONS}
+which are variants of \eqref{III_ORTHOGONALITY_RELATIONS}
 for operators in Hilbert space:
 \[
 \overline{\range{\linA^*} } \= \kernel{\linA}^{\bot}
@@ -3485,7 +3485,7 @@ we obtain $\Psi \,(\Gamma_{\linA})^{\bot} \eq \Gamma_{\linA^*}$.
 Since $\Gamma_{\linA}$ forms a linear subspace of the Hilbert space
 $\hilH \xtimes \hilH$,
 we have
-\begin{equation}\label{IV_CRITERION_FOR_CLOSABILITY}
+\begin{equation}\label{III_CRITERION_FOR_CLOSABILITY}
 \overline{\Gamma_{\linA}} \=
 (\Gamma_{\linA})^{\bot \bot} \=
 \Psi^2 \, (\Gamma_{\linA})^{\bot \bot} \=
@@ -3496,7 +3496,7 @@ After these preliminaries we are able to prove the claim of the theorem.
 First, if $\linA^*$ is densely defined,
 then $\linA^{**}$ exists and
 $\Psi \,(\Gamma_{\linA})^{\bot} \eq \Gamma_{\linA^*}$
-together with \eqref{IV_CRITERION_FOR_CLOSABILITY} implies
+together with \eqref{III_CRITERION_FOR_CLOSABILITY} implies
 $\Gamma_{\overline{A}} \eq \overline{\Gamma_{\linA}} \eq \Gamma_{\linA^{**}}$.
 
 \subparagraph{}

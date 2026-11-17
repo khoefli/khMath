@@ -42,9 +42,6 @@
 
 \def\Title{Algebraic Topology}
 
-%\centerline{{\textit{Topics in Functional Analysis}}}
-%\vspace{22pt}
-
 \centerline{\large{\textbf{\Title}}}
 \vspace{4pt}
 \centerline{\small{{\textsc{\Author}}}}
@@ -56,7 +53,6 @@
 \fancyhead[OL]{\small{\thepage}}
 \fancyhead[ER]{\small{\thepage}}
 
-%\begin{comment}
 %------------------------------------------------------------------------------%
 %                                  CONTENT                                     %
 %------------------------------------------------------------------------------%
@@ -65,14 +61,14 @@
 %------------------------------------------------------------------------------%
 \part{Categories and Morphisms}
 %------------------------------------------------------------------------------%
-In category theory versucht man, 
-die in verschiedenen mathematischen Disziplinen auftretenden structures
-unter einem vereinheitlichenden Begriffssystem zu erfassen.
+In category theory one attempts to categorize various structures
+appearing in different mathematical areas by a unified system of concepts.
 
 \section{Categories}
 %------------------------------------------------------------------------------%
 A \textit{category} is essentially the collection of mathematical structures
 of the same kind.
+More precisely:
 
 \begin{definition}
 A \textit{category} $\cal{C}$ is a system of mathematical objects $M,N,\ldots$,
@@ -80,208 +76,228 @@ together with sets $\operatorname{Mor}(M,N)$
 for each two objects $M,N$ of $\cal{C}$, 
 whose elements are called the \textit{morphisms} from $M$ to $N$.
 
-Zusätzlich muß gelten:
-for je drei objects $M_1$,$M_2$,$M_3$ von $\cal{C}$ existiert
-eine Zuordnung 
+In addition, it is required that
+for any three objects $M_1$,$M_2$,$M_3$ von $\cal{C}$ there is an assignment
 \[
 \circ: \cross{\operatorname{Mor}(M_1,M_2)}
              {\operatorname{Mor}(M_2,M_3)}
        \to    \operatorname{Mor}(M_1,M_3),
 \]
-die folgende Eigenschaften besitzt:
-\begin{itemize}
+owning the following properties:
+
+\begin{itemize}[leftmargin=22pt]
 \item
 for $f \xeof \operatorname{Mor}(M_1,M_2)$, 
     $g \xeof \operatorname{Mor}(M_2,M_3)$, 
     $h \xeof \operatorname{Mor}(M_1,M_3)$
-gilt
+we have
 \[
-h \circ (g \circ f) \eq (h \circ g) \circ f \quad \mbox{(Assoziativität)}
+h \circ (g \circ f) \eq (h \circ g) \circ f \quad \mbox{(associativity)}
 \]
+
 \item
-es existiert to each Objekt $M$ a morphism
+to each object $M$ there is a morphism
 $\1_M \xeof \operatorname{Mor}(M,M)$ with 
 \[
 \1_M \circ f \eq f \mbox{ and } g \circ \1_M \eq g 
 \]
-for all weiteren objects $N$ and 
-alle Morphismen $f \xeof \operatorname{Mor}(M,N)$ and 
-                $g \xeof \operatorname{Mor}(N,M)$.
+for all other objects $N$ and 
+all morphisms $f \xeof \operatorname{Mor}(M,N)$ and 
+              $g \xeof \operatorname{Mor}(N,M)$.
 \end{itemize}
 \end{definition}
 
-Häufig are the morphisms of a category
-gerade the mappings between zwei objectsn,
-which respect the natural structure of the objects.
-Wir führen hierzu folgende Beispiele an:
+The morphisms of a category are often
+just the mappings between two objects {\wrt} their natural structure.
 
-\begin{examples}
-\begin{itemize}
+\paragraph{}
+Consider the following examples:
+
+\begin{examples} \;
+\begin{itemize}[leftmargin=22pt]
 \item
-The category \textit{(gr)} der groups, 
-bestehend aus den groups and their homomorphisms.
+The category \textit{(gr)} of groups, 
+consisting of the groups and their (group) homomorphisms.
+
 \item
-The category \textit{(ab)} der Abelschen groups, 
-bestehend aus den Abelschen groups and their homomorphisms.
+The category \textit{(ab)} of Abelian groups, 
+consisting of the Abelian groups and their (group) homomorphisms.
+
 \item
-The category \textit{(ri)} der Ringe and their homomorphisms.
+The category \textit{(ri)} of rings and their (ring) homomorphisms.
+
 \item
-The category \textit{$Mod_R$} der $R$-modules over a ring $R$.
-Ihre objects are the $R$-modules,
-and the morphisms are the module-homomorphisms between ihnen.
+The category \textit{$Mod_R$} of $R$-modules over a ring $R$.
+Its objects are the $R$-modules,
+and the morphisms are the module-homomorphisms between them.
+
 \item
-The category \textit{(vec)} der Vektorräume over a field $\F$.
-Ihre objects are the Vektorräume selbst,
-and the Morphismen are the $\F$-linear mappings.
-Ebenso bilden the algebraischen Dualräume der Vektorräume über $\F$
-eine category.
+The category \textit{(vec)} of vector spaces over a field $\F$.
+Their objects are the vector spaces themselves,
+and the morphisms are the $\F$-linear mappings.
+The algebraical dual spaces of the vector spaces over $\F$ form a  category,
+too.
+
 \item
-The category \textit{($Alg_R$)} of $R$-algebras and their homomorphisms.
+The category \textit{($Alg_R$)} of $R$-algebras and their (algebra) homomorphisms.
+
 \item
-The category \textit{(kk)} of chain complexes von $R$-modules and their 
-homomorphisms.
+The category \textit{(kk)} of chain complexes of $R$-moduless
+and their homomorphisms.
+
 \item
 The topological category \textit{(top)}.
-Ihre objects are the topological Räume,
-ihre Morphismen are the continuous mappings between topological Räumen.
+Their objects are topological spaces,
+their morphisms are the continuous mappings between them.
+
 \item
-The category der lokalkompakten topological groups,
+The category of locally compact topological groups,
 whose morphisms are the continuous mappings as well.
+
 \item
-The differentialtopological category \textit{(difftop)},
-bestehend aus den differenzierbaren Mannigfaltigkeiten
-and den differenzierbaren mappings between ihnen.
+The differential-topological category \textit{(difftop)},
+consisting of differentiable manifolds
+and the smooth mappings between them.
+
 \item
-Es gibt categories,
-deren Morphismen \textit{keine} mappings between ihren objectsn sind,
-z.B. the homotopy category \textit{(htop)}. 
-Ihre objects are the topological Räume,
-ihre Morphismen jedoch the homotopy-Klassen $[X,Y]$ der stetiger mappings
-$f:X \to Y$.
+There are categories,
+whose morphisms are \textit{not} mappings between their objects,
+for example the homotopy category \textit{(htop)}. 
+Their objects are the topological spaces,
+but their morphisms are the homotopy classes $[X,Y]$ of continuous mappings
+$f \: X \xto Y$.
 \end{itemize}
 \end{examples}
 
-{\bf Definition 2} (inverser morphism, Isomorphismus).
+{\bf Definition 2} (inverse morphism, isomorphism).
 
-Ein morphism $g \xeof \operatorname{Mor}(N,M)$ heißt zum morphism 
-$f \xeof \operatorname{Mor}(M,N)$ \textit{invers} oder a \textit{inverser morphism},
-if $f \circ g \eq 1_N$ bzw. $g \circ f \eq 1_M$.
+A morphism $g \xeof \operatorname{Mor}(N,M)$ is called \textit{inverse}
+to the morphism $f \xeof \operatorname{Mor}(M,N)$,
+if $f \circ g \eq 1_N$ rsp. $g \circ f \eq 1_M$.
 Those morphisms of a category,
 which own an inverse morphism, 
 are called the \textit{isomorphisms} of the category,
-and in this case the related objects are called \textit{isomorph} to each another.
+and in this case the related objects are called \textit{isomorph} to each other.
 
-\begin{examples}
+\begin{examples} \,
 \begin{itemize}
 \item
-In der topological category \textit{(top)}
-sind zwei topological spaces isomorphic,
-wenn sie homeomorphic zueinander sind. 
+In the topological category \textit{(top)}
+two topological spaces are isomorphic,
+if they are \textit{homeomorphic} to each other. 
+
 \item
-In der differentialtopological category \textit{(difftop)}
-sind zwei Mannigfaltigkeiten isomorph,
-wenn sie zueinander diffeomorph sind. 
+In der differential-topological category \textit{(difftop)}
+two manifolds are isomorphic,
+if they are \textit{diffeomorph} to each other. 
+
 \item
-In der homotopy category \textit{(htop)} are zwei topological Räume
-zueinander isomorph,
-wenn sie homotopie-äquivalent sind.
+In der homotopy category \textit{(htop)} two topological spaces are isomorphic,
+if they are \textit{homotopy-equivalent} to each other.
 \end{itemize}
 \end{examples}
 
-{\bf Definition 3} (Unterkategorie).
+{\bf Definition 3} (subcategory).
 
-Let $\cal{C}$ a category.
-Then heißt $\cal{C}$ a \textit{Unterkategorie}
-einer weiteren category $\cal{D}$,
-if each Objekt von $\cal{C}$ a Objekt von $\cal{D}$ ist
-sowie each morphism $g \xeof \operatorname{Mor}(M,N)$ for objects $M,N$
-von $\cal{C}$ a morphism der objects $M,N$ in $\cal{D}$ ist.
+Let $\cal{C}$ be a category.
+Then $\cal{C}$ is called a \textit{subcategory}
+of a further category $\cal{D}$,
+if each object of $\cal{C}$ is an object of $\cal{D}$
+and each morphism $g \xeof \operatorname{Mor}(M,N)$
+for objects $M,N$ von $\cal{C}$
+is a morphism of the objects $M,N$ in $\cal{D}$.
 
-{\bf Definition 4} (volle Unterkategorie).
+{\bf Definition 4} (full subcategory).
 
-A Unterkategorie $\cal{C}$ von $\cal{D}$ heißt \textit{voll},
-if each morphism von $\cal{D}$ auch a morphism von $\cal{C}$ ist.
+A subcategory $\cal{C}$ of $\cal{D}$ is called \textit{full},
+if each morphism of $\cal{D}$ is a morphism of $\cal{C}$.
 
 \begin{example}
-The category \textit{(ab)} der Abelschen groups is a volle Unterkategorie
-der category \textit{(gr)} der groups.
+The category \textit{(ab)} of Abelian groups is a full subcategory
+of the category \textit{(gr)} of groups.
 \end{example}
 
 \section{Functors}
 %------------------------------------------------------------------------------%
-\textit{functors} are mappings between den objectsn bzw. den Morphismen 
-zweier categories,
-die gewissen Eigenschaften genügen.
+\textit{Functors} are mappings between the objects rsp. the morphisms 
+between two categories fullfilling certain properties:
 
-{\bf Definition 5} (functor).
+{\bf Definition 5} (Functor).
+Let $\cal{C}$ and $\cal{D}$ be categories.
+A \textit{covariant functor} $F$ between $\cal{C}$ and $\cal{D}$ 
+is a mapping,
+which assigns
 
-Seien $\cal{C}$ and $\cal{D}$ zwei categories.
-Ein \textit{kovarianter functor} $F$ between $\cal{C}$ and $\cal{D}$ 
-ist a mapping, the 
 \begin{itemize}
 \item
-each Objekt $M$ von $\cal{C}$ a Objekt $F(M)$ von $\cal{D}$ zuordnet
+to each object $M$ of $\cal{C}$ an object $F(M)$ of $\cal{D}$,
+
 \item
-each $f \xeof \operatorname{Mor}(M_1,M_2)$ a further morphism 
-$f' \xeof \operatorname{Mor}(F(M_1),\F(M_2))$ zuordnet
+to each $f \xeof \operatorname{Mor}(M_1,M_2)$ a further morphism 
+$f' \xeof \operatorname{Mor}(F(M_1),\F(M_2))$
 such that \\
-(a) $F(\1_M) \eq \1_{F(M)}$ \textit{(Identitätsaxiom)}\\
-(b) $F(f \circ g) \eq F(f) \circ F(g)$ \textit{(chainsregel)}.
+(a) $F(\1_M) \eq \1_{F(M)}$ \textit{(identity saxiom)}\\
+(b) $F(f \circ g) \eq F(f) \circ F(g)$ \textit{(chain rule)}.
 \end{itemize}
 
-Ein functor $F$ heißt \textit{kontravariant},
-if $F$ each morphism $f \xeof \operatorname{Mor}(M_1,M_2)$
-a morphism $f' \xeof \operatorname{Mor}(F(M_2),F(M_1))$ zuordnet.
+\subparagraph{}
+A functor $F$ is called \textit{contravariant},
+if it assigns to each morphism $f \xeof \operatorname{Mor}(M_1,M_2)$
+a morphism $f' \xeof \operatorname{Mor}(F(M_2),F(M_1))$.
 
 \begin{examples}
 \begin{itemize}
 \item
-Let $\F$ a Körper and \textit{(vec)} the category der $\F$-Vektorräume
-with den linear Operatoren als Morphismen and $(vec^{\*})$ the category
-der Dualräume von $\F$-Vektorräumen.
+Let $\F$ be a field and \textit{(vec)} be the category of $\F$-vector spaces
+with the linear operators as morphisms
+and $(vec^{\*})$ the category of dual spaces of $\F$-vector spaces.
 Let $F$ be that mapping,
 which assigns to each vector space $V$ its dual space $V^\*$.
-Then each homomorphism $\phi:V \to W$ gives rise to a
-homomorphism $\phi^\*:W^\* \to V^\*$ according to
-$\phi^\* (w^\*) := v^\*$,
-wobei $v^\*(v) := w^\*(\phi(v))$ for all $v \xeof V$.
-Wir definieren $F(\phi) := \phi^\*$.
-Then is $F$ a kontravarianter functor between den categories \textit{(vec)}
+Then each homomorphism $\phi \: V \xto W$ gives rise
+to a homomorphism $\phi^* \: W^* \to V^*$
+according to $\phi^* (w^*) := v^*$,
+where $v^*(v) := w^*(\phi(v))$ for all $v \xeof V$.
+Let us define $F(\phi) := \phi^*$.
+Then $F$ is a contravariant functor between the categories \textit{(vec)}
 and $(vec^{\*})$.
+
 \item
-The \textit{Identitäts-functor}, der each Objekt and each morphism 
-sich selbst zuweist.
+The \textit{identity functor},
+which assigns each object and each morphism to themselves again.
+
 \item
-The \textit{Vergiß-functor} between den categories \textit{(ab)} and \textit{(gr)},
-der each Abelian group sich selbst zuweist,
-jedoch als Objekt in der category \textit{(gr)} der (allgemeinen) groups.
+The \textit{forget functor} between the categories \textit{(ab)} and \textit{(gr)},
+which assigns to each Abelian group this group itself,
+but considered as an object in the category \textit{(gr)} of (general) groups.
 \end{itemize}
 \end{examples}
 
 \section{Natural Transformations}
 %------------------------------------------------------------------------------%
-Let $\cal{C}$ a category and seine $A,B$ zwei objects von $\cal{C}$.
-Ist $\cal{D}$ a weitere category and are $F,G$ functors
-von $\cal{C}$ nach $\cal{D}$,
-so bilden these the objects $A,B$ in the objects $F(A),F(B)$
-bzw. $G(A),G(B)$ der category $\cal{D}$ ab.
-Ferner werden each morphism $\phi$ aus $\operatorname{Mor}(A,B)$
-die Morphismen $F(\phi)$ aus $\operatorname{Mor}(F(A),F(B))$ bzw.
-$G(\phi)$ aus $\operatorname{Mor}(G(A),G(B))$ zugeordnet.
+Let $\cal{C}$ be a category and let $A,B$ be two objects of $\cal{C}$.
+If $\cal{D}$ is a further category and $F,G$ are functors
+from $\cal{C}$ nto $\cal{D}$,
+then they map the objects $A,B$ to the objects $F(A),F(B)$
+rsp. $G(A),G(B)$ of the category $\cal{D}$.
+Moreover,
+to each morphism $\phi$ in $\operatorname{Mor}(A,B)$
+there are assigned the morphisms $F(\phi)$ in $\operatorname{Mor}(F(A),F(B))$ rsp.
+$G(\phi)$ in $\operatorname{Mor}(G(A),G(B))$.
 
-{\bf Definition 6} (natural Transformation, natural Äquivalenz).
+{\bf Definition 6} (natural transformation, natural equivalence).
 
-A \textit{natural Transformation} between $F$ and $G$ is a Familie
-von Morphismen $\eta_A \xeof Mor(F(A),G(A))$ for each $A$ aus $\cal{C}$
+A \textit{natural transformation} between $F$ and $G$ is a family
+of morphisms $\eta_A \xeof Mor(F(A),G(A))$ for each $A$ in $\cal{C}$
 such that
-for all Morphismen $\phi \xeof Mor(A,B)$ gilt:
+for all morphisms $\phi \xeof Mor(A,B)$ we have
 \[
 G(\phi) \circ \eta_A \eq \eta_B \circ F(\phi).
 \]
-The functors $F$, $G$ are called zueinander \textit{natürlich äquivalent},
-if a natural Transformation between ihnen existiert
-and each morphism $\eta_A$ sogar a Isomorphismus ist.
+The functors $F$, $G$ are called \textit{naturally equivalent to each another},
+if there is a natural transformation between them
+and each morphism $\eta_A$ is even an isomorphism.
 
+\subparagraph{}
 If there is a natural transformation between the functors $F$ and $G$,
 then the following diagram is commutative for each morphism $\phi \xeof Mor(A,B)$:
 
@@ -309,13 +325,15 @@ then the following diagram is commutative for each morphism $\phi \xeof Mor(A,B)
 \end{picture}
 
 \begin{example}
-Let $\cal{C}$ the category \textit{(vec)} der $\R$-Vektorräume
-and $\cal{D}$ the category der Bidualräume von $\R$-Vektorräumen.
-Then are the functors $Id:V \mapsto V$ and $Bi:V \mapsto V^{\*\*}$
-natürlich äquivalent.
-The Morphismen $\eta_V$ are hierbei the Einbettungsabbildungen
-$\iota:V \hookrightarrow V^{\*\*}$.
+Let $\cal{C}$ be the category \textit{(vec)} of $\R$-vector spaces
+and $\cal{D}$ the category of bidual spaces of $\R$-vector spaces.
+Then the functors $Id \: V \mapsto V$ and $Bi \: V \mapsto V^{**}$
+are naturally equivalent to each another.
+Here the morphisms $\eta_V$ are the embedding mappings
+$\iota \: V \hookrightarrow V^{**}$.
 \end{example}
+
+\begin{comment}
 
 \fancyhead[C] {\small{\textsc{II. Homotopy and Fundamental Groups}}}
 %------------------------------------------------------------------------------%
@@ -2511,7 +2529,7 @@ H_{\star}(\topX,\Z) \cong H_{\star}(\topY,\Z).
 The reverse statements do not hold.
 since it is possible to give counterexamples for them.
 
-%\end{comment}
+\end{comment}
 %------------------------------------------------------------------------------%
 % close document                                                               %
 %------------------------------------------------------------------------------%
