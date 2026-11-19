@@ -5696,16 +5696,15 @@ is by definition the adjoint of the minimal operator of $\A^{\dag}$
 with domain of definition $\domain{{\linA^{\dag}}_0} \eq \TF$,
 that is,
 $\linA_{max} := ({\linA^{\dag}}_{min})^*$.
-One always has $\linA_{min} \, {\prec} \, \linA_{max}$,
-and often any operator $\linA$ fulfilling
+One always has $\linA_{min} \prec \linA_{max}$,
+and often an operator $\linA$ is called a \textit{realization} of $\A$,
+if
 \[
 \linA_{min} \prec \linA \prec \linA_{max}
 \]
-is called a \textit{realization} of $\A$,
 in opposite to our previously given definition of this concept.
 Using this definition,
-we consider the linear operators $\linA_{min}$ and $\linA_{max}$
-also as realizations of $\A$.
+we consider $\linA_{min}$ and $\linA_{max}$ also as realizations of $\A$.
 
 \paragraph{} %- adjointness theorems
 To the end,
@@ -5738,27 +5737,27 @@ that is,
 ${\linA}^* \eq \linA^{\dag}$.
 \end{theorem}
 
-\subparagraph{} %- adjointness theorem in L^p
+\subparagraph{} %- adjointness theorem in Lebesgue spaces
 A similar result holds in the setting of the spaces $\Lp$ for $1 < p < \infty$.
-Asis quoted in \cite{Pa} by lemma 7.3.4,
-we have 
-${\linA_p}^* \eq {{\linA}^{\dag}}_q$,
-where $q \eq p/(p-1)$ respectively $\frac{1}{p} + \frac{1}{q} \eq 1$
-and both operators
+Lemma 7.3.4 in \cite{Pa} quotes
+that if $q \eq p/(p-1)$ respectively $\frac{1}{p} + \frac{1}{q} \eq 1$,
+then the operators
 \[
+\linA_p:\;
 \begin{cases}[1.2]
 \quad \domain{\linA_p} \eqdef W^{2m,p}(\G) \cap \WN{m,p}{\G},\\
-\quad \linA_p u \eqdef \A\,u \for u \in \domain{\linA_p},\\
+\quad \linA_p \,u \eqdef \A\,u \for u \in \domain{\linA_p},\\
 \end{cases}
 \]
 \[
+{\linA^{\dag}}_q:\;
 \begin{cases}[1.2]
 \quad \domain{{\linA^{\dag}}_q} \eqdef W^{2m,q}(\G) \cap \WN{m,q}{\G},\\
-\quad {\linA^{\dag}}_q u \eqdef \A^{\dag} u
+\quad {\linA^{\dag}}_q \, u \eqdef \A^{\dag} u
       \for u \in \domain{{\linA^{\dag}}_q}.\\
 \end{cases}
 \]
-are densely defined and closed.
+are densely defined, closed and ${\linA_p}^* \eq {{\linA}^{\dag}}_q$ holds.
 
 %-- Gardings's inequality and quasi-coercive Dirichlet forms
 %------------------------------------------------------------------------------%
