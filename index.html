@@ -84,6 +84,7 @@
             <li onclick="displayArticle('textbooks')">Textbooks</li>
             <li onclick="displayArticle('lecture_notes')">Lecture Notes</li>
             <li onclick="displayArticle('research_articles')">Research Articles</li>
+            <li onclick="displayArticle('review_articles')">Review Articles</li>
             <li onclick="displayArticle('my_documents')">my Texts</li>
           </ul>
         </li>
@@ -261,6 +262,7 @@
               <li onclick="displayArticle('textbooks')">Textbooks</li>
               <li onclick="displayArticle('lecture_notes')">Lecture Notes</li>
               <li onclick="displayArticle('research_articles')">Research Articles</li>
+              <li onclick="displayArticle('review_articles')">Review Articles</li>
               <li onclick="displayArticle('my_documents')">my Texts</li>
 
               <li onclick="displayArticle('main_theorems')">Main Theorems</li>
@@ -494,33 +496,59 @@
       <article id="research_articles" class='container'>
         <h2>Research Articles</h2>
         <section>
-          <details open>
-            <summary>This is a list of impressible research articles on functional analysis and its applications:</summary>
-            <ul>
-              <li>
-                <a target="_new"
-                href="https://www.pnas.org/dassets/documents/10.1073/pnas.45.3.365">
-                Estimates and Existence Theorems for Elliptic Boundary Value Problems</a>;
-                by&nbsp;<i>F.&thinsp;E.&thinsp;Browder</i>, 1959.
-              </li>
-              <li>
-                <a href="assets/documents/Estimates_near_the_Boundary_for_Solutions_of_Elliptic_PDEs_Satisfying_General_Boundary_Conditions_I-II.pdf">
-                Estimates near the Boundary for Solutions of Elliptic Partial Differential Equations
-                Satisfying General Boundary Conditions I-II</a>;
-                by&nbsp;<i>S.&thinsp;Agmon, A.&thinsp;Douglis, L.&thinsp;Nirenberg</i>, Part I:&thinsp;1959, Part II:&thinsp;1964.
-              </li>
-              <li>
-                <a href="assets/documents/A_Distribution-Theoretical_Approach_to_Certain_Lebesgue_and_Sobolev_Spaces.pdf">
-                A Distribution-Theoretical Approach to Certain Lebesgue and Sobolev Spaces</a>;
-                by&nbsp;<i>P.&thinsp;Werner</i>, 1970.
-              </li>
-              <li>
-                <a href="assets/documents/Partial_Differential_Equations_in_the_20th_Century.pdf">
-                Partial Differential Equations in the 20<sup>th</sup> Century</a>;
-                by&nbsp;<i>H.&thinsp;Brezis</i>, <i>F.&thinsp;E.&thinsp;Browder</i>, 1997.
-              </li>
-            </ul>
-          </details>
+          This is a list of impressible research articles on functional analysis and its applications:
+          <ul>
+            <li>
+              <a target="_new"
+              href="https://www.pnas.org/dassets/documents/10.1073/pnas.45.3.365">
+              Estimates and Existence Theorems for Elliptic Boundary Value Problems</a>;
+              by&nbsp;<i>F.&thinsp;E.&thinsp;Browder</i>, 1959.
+            </li>
+            <li>
+              <a href="assets/documents/Estimates_near_the_Boundary_for_Solutions_of_Elliptic_PDEs_Satisfying_General_Boundary_Conditions_I-II.pdf">
+              Estimates near the Boundary for Solutions of Elliptic Partial Differential Equations
+              Satisfying General Boundary Conditions I-II</a>;
+              by&nbsp;<i>S.&thinsp;Agmon, A.&thinsp;Douglis, L.&thinsp;Nirenberg</i>, Part I:&thinsp;1959, Part II:&thinsp;1964.
+            </li>
+            <li>
+              <a href="assets/documents/Functional_Analysis_and_Partial_Differential_Equations_I.pdf">
+              Functional Analysis and Partial Differential Equations I</a>;
+              by&nbsp;<i>F.&thinsp;E.&thinsp;Browder</i>, 1959.
+            </li>
+            <li>
+              <a href="assets/documents/Functional_Analysis_and_Partial_Differential_Equations_II.pdf">
+              Functional Analysis and Partial Differential Equations II</a>;
+              by&nbsp;<i>F.&thinsp;E.&thinsp;Browder</i>, 1962.
+            </li>
+            <li>
+              <a href="assets/documents/A_Distribution-Theoretical_Approach_to_Certain_Lebesgue_and_Sobolev_Spaces.pdf">
+              A Distribution-Theoretical Approach to Certain Lebesgue and Sobolev Spaces</a>;
+              by&nbsp;<i>P.&thinsp;Werner</i>, 1970.
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <article id="review_articles" class='container'>
+        <h2>Review Articles</h2>
+        <section>
+          This is a list of review articles on different themes:
+          <ul>
+            <li>
+              <a href="assets/documents/Integration_in_Abstract_Spaces.pdf">
+              Integration in Abstract Spaces</a>;
+              by&nbsp;<i>T.&thinsp;H.&thinsp;Hildebrandt</i>, 1952.
+            </li>
+            <li>
+              <a href="https://projecteuclid.org/journals/bulletin-of-the-american-mathematical-society/volume-64/issue-5/A-survey-of-the-theory-of-spectral-operators/bams/1183522678.pdf">
+              A Survey of the Theory of Spectral Operators</a>;
+              by&nbsp;<i>N.&thinsp;Dunford</i>, 1958.
+            <li>
+              <a href="assets/documents/Partial_Differential_Equations_in_the_20th_Century.pdf">
+              Partial Differential Equations in the 20<sup>th</sup> Century</a>;
+              by&nbsp;<i>H.&thinsp;Brezis</i>, <i>F.&thinsp;E.&thinsp;Browder</i>, 1997.
+            </li>
+          </ul>
         </section>
       </article>
 
@@ -2109,7 +2137,7 @@
 ------------------------------------------------------------------------------->
     <footer id='footer'>
       <hr><hr>
-      © Copyright 2026 by <i>Klaus Höflinger</i> (latest change:&thinsp;17/11/2026).
+      © Copyright 2026 by <i>Klaus Höflinger</i> (latest change:&thinsp;20/11/2026).
       &nbsp;&nbsp;&nbsp;
       <button onclick="displayArticle('home')"     >Home</button>
       <button onclick="displayArticle('about_me')" >About me</button>
