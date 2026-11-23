@@ -157,15 +157,15 @@ and some $d \xeof \N$.
 {
 \begin{tabular}{R{5mm}L{100mm}R{4mm}}
 %------------------------------------------------------------------------------%
- 1. & Continuous Linear Operators                                    \Df &  1 \\
- 2. & Inner Products and Hilbert Spaces                              \Df &  3 \\
- 3. & Closed and Closable Linear Operators                           \Df &  6 \\
- 4. & Adjoint Operators                                              \Df &  9 \\
- 5. & Semi-Fredholm Operators                                        \Df & 10 \\
- 6. & Resolvent Set and Spectrum                                     \Df & 12 \\
- 7. & Compact Linear Operators and Fredholm Operators                \Df & 15 \\
- 8. & Sesquilinear Forms and Associated Operators                    \Df & 18 \\
- 9. & Linear Operator-Differential Equations                         \Df & 20 \\
+ 1. & Continuous Linear Operators                                    \Df &  2 \\
+ 2. & Hilbert Spaces                                                 \Df &  3 \\
+ 3. & Closed and Closable Linear Operators                           \Df &  8 \\
+ 4. & Adjoint Operators                                              \Df & 12 \\
+ 5. & Semi-Fredholm Operators                                        \Df & 13 \\
+ 6. & Resolvent Set and Spectrum                                     \Df & 15 \\
+ 7. & Compact Linear Operators and Fredholm Operators                \Df & 20 \\
+ 8. & Sesquilinear Forms and Associated Operators                    \Df & 24 \\
+ 9. & Linear Operator-Differential Equations                         \Df & 27 \\
 %------------------------------------------------------------------------------%
 \end{tabular}
 }
@@ -180,16 +180,16 @@ and some $d \xeof \N$.
 {
 \begin{tabular}{R{5mm}L{100mm}R{4mm}}
 %------------------------------------------------------------------------------%
-10. & Symmetric and Half-Bounded Operators                           \Df & 25 \\
-11. & The Concept of Self-Adjointness                                \Df & 27 \\
-12. & Self-Adjoint Extensions of Symmetric Operators                 \Df & 28 \\
-13. & Perturbation Theory                                            \Df & 31 \\
-14. & The Spectrum of Symmetric and Self-Adjoint Operators           \Df & 32 \\
-15. & Projection-Valued Measures and Spectral Integrals              \Df & 35 \\
-16. & The Spectral Theorem                                           \Df & 37 \\
-17. & Self-Adjoint Operators with Pure Point Spectrum                \Df & 40 \\
-18. & Evolution Equations Governed by Self-Adjoint Operators         \Df & 41 \\
-19. & Positive Self-Adjoint Operators Generate Semigroups            \Df & 43 \\
+10. & Symmetric and Half-Bounded Operators                           \Df & 33 \\
+11. & The Concept of Self-Adjointness                                \Df & 35 \\
+12. & Self-Adjoint Extensions of Symmetric Operators                 \Df & 37 \\
+13. & Perturbation Theory                                            \Df & 41 \\
+14. & The Spectrum of Symmetric and Self-Adjoint Operators           \Df & 42 \\
+15. & Projection-Valued Measures and Spectral Integrals              \Df & 46 \\
+16. & The Spectral Theorem                                           \Df & 49 \\
+17. & Self-Adjoint Operators with Pure Point Spectrum                \Df & 52 \\
+18. & Evolution Equations Governed by Self-Adjoint Operators         \Df & 54 \\
+19. & Positive Self-Adjoint Operators Generate Semigroups            \Df & 57 \\
 %------------------------------------------------------------------------------%
 \end{tabular}
 }
@@ -204,15 +204,15 @@ and some $d \xeof \N$.
 {
 \begin{tabular}{R{5mm}L{100mm}R{4mm}}
 %------------------------------------------------------------------------------%
-20. & Fourier-Plancherel Transformation                              \Df & 46 \\
-21. & Hilbert-Sobolev Spaces                                         \Df & 47 \\
-22. & Realizations of Linear Partial Differential Operators          \Df & 49 \\
-23. & Formally Self-Adjoint Differential Expressions                 \Df & 50 \\
-24. & The Momentum Operator on Various Intervals                     \Df & 51 \\
-25. & Sturm-Liouville Operators                                      \Df & 53 \\
-26. & The Laplacian in Bounded and Unbounded Domains                 \Df & 54 \\
-27. & {\SCHROEDINGER} Operators                                      \Df & 56 \\
-28. & Strongly Elliptic Linear Differential Operators of Order $2m$  \Df & 58 \\
+20. & Fourier-Plancherel Transformation                              \Df & 60 \\
+21. & Hilbert-Sobolev Spaces                                         \Df & 62 \\
+22. & Realizations of Linear Partial Differential Operators          \Df & 65 \\
+23. & Formally Self-Adjoint Differential Expressions                 \Df & 66 \\
+24. & The Momentum Operator on Various Intervals                     \Df & 68 \\
+25. & Sturm-Liouville Operators                                      \Df & 70 \\
+26. & The Laplacian in Bounded and Unbounded Domains                 \Df & 71 \\
+27. & {\SCHROEDINGER} Operators                                      \Df & 74 \\
+28. & Strongly Elliptic Linear Differential Operators of Order $2m$  \Df & 76 \\
 %------------------------------------------------------------------------------%
 \end{tabular}
 }
@@ -4644,14 +4644,13 @@ In fact, the function $u$ is built up
 as the sum of two spectral operators, namely
 \begin{equation}\label{SPECTRAL_OPERATOR_II}
 u(t)
-\eqdef
+= 
 \linL_t(u_0,u_1)
-\eqdef
+:= 
 \int_{\,0}^{\,\infty} \cos{\sqrt{\lambda}t} \, dP_{\lambda} \, u_0
-\, + \,
++
 \int_{\,0}^{\,\infty} \frac{\sin{\sqrt{\lambda}t}}{\sqrt{\lambda}}
-\, dP_{\lambda} \, u_1
-\quad \quad (t > 0).
+\, dP_{\lambda} \, u_1.
 \end{equation}
 
 \paragraph*{}

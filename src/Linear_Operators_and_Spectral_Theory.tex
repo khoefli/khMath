@@ -2479,7 +2479,7 @@ This section serves as an overview on symmetric and self-adjoint linear
 operators acting in a Hilbert space.
 Let us begin with some remarks on the numerical range.
 
-\subparagraph{} %-- numerical range and external field of regularity
+\subparagraph{} %-- numerical range
 Besides the spectrum $\sigma(\linA)$,
 the \textit{numerical range} $\Theta(\linA)$ plays an important role
 in the general theory of a Hilbert space operator $\linA$ 
@@ -2488,18 +2488,19 @@ and is defined by
 \Theta(\linA) :=
 \{ \scalar{\linA}{x} \: x \xeof \domain{\linA}, \norm{x} \eq 1 \}.
 \]
-It is a well-known fact,
-given by the \textit{Toeplitz-Hausdorff theorem},
+The \textit{Toeplitz-Hausdorff theorem} quotes
 that $\Theta(\linA)$ is a convex set within the complex plane.
-There are relationships between the numerical range and the some kinds
-of spectra of the operator $\linA$.
+
+\subparagraph{} %- relationship between numerical range and some kinds of spectra
+There are relationships between the numerical range
+and some kinds of spectra of the operator $\linA$.
 Indeed,
 we have $\sigma_p(\linA) \xsubset \Theta(\linA)$,
 $\sigma_{ap}(\linA) \xsubset \overline{\Theta(\linA)}$
 and even $\sigma(\linA) \xsubset \Theta(\linA)$ for $\linA \xeof \BO{\hilH}$,
-(see \cite{Ha}, theorem A.23 on p.\,266).
+(for example, see \cite{Ha}, theorem A.23 on p.\,266).
 
-\paragraph{} %- external field of regularity
+\paragraph{} %-- external field of regularity
 Let $\Delta(\linA) := \C \setminus \overline{\Theta(\linA)}$
 be the \textit{external field of regularity} of $\linA$.
 If $\Delta(\linA) \neq \emptyset$,
@@ -2512,28 +2513,33 @@ otherwise it is a half-strip or a half-ray.
 \subparagraph{} %- field of regularity
 For $\zeta \xeof \Delta(\linA)$ we of course have
 $\scalar{\linA x}{x} \neq \zeta$
-for $x \xeof \domain{\linA}$ and $\norm{x} \eq 1$,
-and the following chain of inequalities
+for $x \xeof \domain{\linA}$ and $\norm{x} \eq 1$
+and can derive the following chain of inequalities
 \[
-0 \, < \, \mbox{dist}(\zeta,\linA) \, \leq \,
+0 \, < \, \mbox{dist}(\zeta,\Theta(\linA)) \, \leq \,
 \abs{\scalar{\linA x}{x} - \zeta} \=
 \abs{\scalar{(\linA {-} \zeta)x}{x}} \, \leq \,
-\norm{(\linA {-}\zeta) x}
+\norm{(\linA {-}\zeta) x},
 \]
-is valid,
-where $\mbox{dist}(\zeta,\linA)$ denotes the distance
+where dist$(\zeta,\Theta(\linA))$ is the distance
 between the singleton $\{\zeta\} \xsubset \Delta(\linA)$
-and the set $\overline{\Theta(\linA)}$,
+and the closure of the numerical range $\Theta(\linA)$,
 which in fact is positive,
-since these sets are closed and have empty intersection.
-This implies that for $\zeta \xeof \rho(\linA) \cap \Delta(\linA)$ we have
+since both sets are closed and have empty intersection.
+Clearly,
+each regular value $\zeta \xeof \rho(\linA)$ belongs to $\Delta(\linA)$,
+and the quoted inequalities imply the resolvent estimate
 \[
 \norm{R(\linA,\zeta)} \, \leq \, \frac{1}{\mbox{dist}(\zeta,\Theta(\linA))}.
 \]
-For $\zeta \xeof \Delta(\linA)$
-the operator $\linA {-} \zeta$ is bounded below and
-$\Delta(\linA)$ is a subset of the \textit{field of regularity}
-$\Pi(\linA) := \{\zeta \xeof \C \: \linA {-} \zeta \mbox{ is bounded below}\}$.
+Moreover,
+for $\zeta \xeof \Delta(\linA)$
+the operator $\linA {-} \zeta$ is bounded below,
+thus
+$\Delta(\linA) \xsubset \Pi(\linA)$,
+where
+$\Pi(\linA) := \{\zeta \xeof \C \: \linA {-} \zeta \mbox{ bounded below}\}$
+is the so-called \textit{field of regularity} of $\linA$.
 
 \subsection{} %-- symmetric operators
 %------------------------------------------------------------------------------%
@@ -2580,7 +2586,8 @@ are \textit{orthogonal} to each other.
 
 \subparagraph{} %- A+i and A-i are bounded below
 A useful property of symmetric closed operators is given by the fact
-that the operators $\linA {+} \zeta$ are bounded below for $\im \zeta \neq 0$,
+that the operators $\linA {+} \zeta$ are bounded below
+for all complex values $\zeta$ with $\im \zeta \neq 0$,
 hence they are injective and own closed ranges,
 which implies that they are semi-Fredholm operators
 with $\alpha(\linA {+} \zeta) \eq 0$.
@@ -2594,7 +2601,7 @@ and the both values
 $d_{\pm} := \beta(\linA {\pm} i) \xeof \N_0 \cup \{\infty\}$
 are called the \textit{defect indices} of $\linA$.
 
-\subsection{} %-- spectrum of symmetric operators
+\subparagraph{} %-- spectrum of symmetric operators
 %------------------------------------------------------------------------------%
 Now the decisional question is
 whether the operators $\linA {\pm} i$ are surjective rsp.
@@ -2758,6 +2765,76 @@ self-adjoint
 iff
 the adjoint $\linA^*$ is symmetric, too.
 
+\subsection{} %-- von Neumann's extension theory
+%------------------------------------------------------------------------------%
+We next want to review the \textit{extension theory} for symmetric operators.
+First notice that
+the closure of a symmetric linear operator is not necessarily self-adjoint.
+To ensure self-adjointess of a symmetric operator $\linA$,
+the kernels of both operators $\linA^* \pm i$ are of special interest.
+In fact,
+if these are trivial,
+then $\linA \pm i$ are surjective and
+$\pm i$ are both regular values of $\linA$.
+
+\subparagraph{}
+\textsc{F.\,Riesz} and \textsc{J.\,v.\,Neumann} 
+have developed an extension theory,
+which answers the question
+how a symmetric but not self-adjoint operator can be extended
+to a self-adjoint one.
+Furthermore,
+the uniqueness of such an extension if of fundamental interest.
+
+\subparagraph{}
+Remember again
+that for a densely defined and closed symmetric operator $\linA$
+the relation $\domain{\linA} \xsubset \domain{\linA^*}$ holds.
+But even more is valid,
+since due to \textsc{von\,Neumann} 
+the domain of definition $\domain{\linA^*}$ of the adjoint operator
+can be represented as sum of three complementary subspaces \footnote{
+\,The subspaces $\vecV_1,\vecV_2$ of $\vecV$
+are called a complementary decomposition of $\vecV$
+(notation: $\vecV \eq \vecV_1 \oplus \vecV_2)$,
+if $\scalar{x}{y} \eq 0$ for all $x \xeof \vecV_1$, $y \xeof \vecV_2$
+and $\vecV$ is generated by $\vecV_1 \cup \vecV_2$.}
+:
+\begin{equation}\label{NEUMANN_DECOMPOSITION}
+\domain{\linA^*} \= \domain{\linA} \, \oplus \, \kernel{\linA^*+i}
+                                   \, \oplus \, \kernel{\linA^*-i}.
+\end{equation}
+
+\subparagraph{}
+Like in the analysis of the spectrum of $\linA$,
+the operators $\linA^*+i$ and $\linA^*-i$ and the derived defect indices
+are of special interest.
+One can conclude from \eqref{NEUMANN_DECOMPOSITION}
+that a symmetric and closed linear operator $\linA$
+with defect indices $(n_+,n_-)$ can be extended to a self-adjoint operator
+iff $n_+ \eq n_-$,
+and that this operator is self-adjoint
+iff in addition $n_+ \eq n_- \eq 0$ holds.
+
+\subparagraph{}
+To extend in case of $n_+ \eq n_-$ the symmetric linear operator $\linA$
+to a self-adjoint one,
+it suffices to provide a isometric and linear mapping
+\[
+\linU \: \kernel{\linA^*+i} \to \kernel{\linA^*-i}.
+\]
+Once $\linU$ is available,
+let us define $\linA_s x := \linA x$ for $x \xeof \domain{\linA}$ and
+\[
+\linA_s x \eqdef ix - i \, \linU x \for x \in \kernel{\linA^* + i},
+\]
+which implies that
+$\linA_s$ is symmetric and hence forms a symmetric extension of $\linA$.
+It can be shown that $\linA_s \eq \linA^*$,
+so $\linA_s$ is self-adjoint.
+The set of all self-adjoint extensions is given
+by the set of isometric linear operators as defined above.
+
 \subsection{} %-- perturbation theory of self-adjoint operators
 %------------------------------------------------------------------------------%
 Let us now deal with operators of the form $\linA {+}\linB$,
@@ -2828,7 +2905,7 @@ $\overline{\linA {+} \linB} \eq \overline{\linA} + \overline{\linB}$.
 %------------------------------------------------------------------------------%
 We finally want to mention an important class of symmetric and self-adjoint
 linear operators.
-Remember from \textsc{Lebesgue}'s integration theory
+Recall from \textsc{Lebesgue}'s integration theory
 that for a given measure space $(X,\salgB,\mu)$
 the linear space $L^2(X)$ of measurable and square-integrable functions
 $f\:X \xto \C$ forms a Hilbert space with inner product
