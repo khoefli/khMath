@@ -2096,9 +2096,9 @@ see \cite{Br1}, theorem\,1.1 and theorem\,1.2.
 
 \subsection{} %-- operators bounded below
 %------------------------------------------------------------------------------%
-It is natural to search for further conditions
-that imply normal solvability of operators, and the first of them is
-what is usually called the \textit{bounded-below theorem}.
+It is natural to search for conditions
+that imply normal solvability of operators and can easily be verified.
+The first of them is what is usually called the \textit{bounded-below theorem}.
 
 \subparagraph{} %- bounded-below property
 Let $\banX$ and $\banY$ be Banach spaces.
@@ -2125,11 +2125,22 @@ if $\linA$ is closed,
 then $\range{\linA}$ is a closed set in $\banY$.
 \end{theorem}
 
+\subparagraph{} %- proof of the bounded-below theorem
 Indeed,
 injectivity of the operator $\linA$ can easily proved,
 supposed \eqref{BOUNDED_BELOW_CONDITION} holds,
 and closeness of $\range{\linA}$ is a consequence of sequentially closeness
 of $\linA$.
+
+\subparagraph{} %- field of regularity
+Rather a linear operator $\linA \: \domain{\linA} \xsubset \banX \xto \banX$
+is not bounded below,
+one can study the perturbed operators $\linA{-}\zeta$ for $\zeta \xeof \C$
+for this desired property.
+Hence the set
+$\Pi(\linA) := \{ \zeta \xeof \C \: \linA{-}\zeta \mbox{ is bounded below}\}$
+is called the \textit{field of regularity} of $\linA$.
+We obviously have $\rho(\linA) \xsubset \Pi(\linA)$.
 
 \subsection{} %-- semi-Fredholm operators
 %------------------------------------------------------------------------------%
@@ -2536,10 +2547,8 @@ Moreover,
 for $\zeta \xeof \Delta(\linA)$
 the operator $\linA {-} \zeta$ is bounded below,
 thus
-$\Delta(\linA) \xsubset \Pi(\linA)$,
-where
-$\Pi(\linA) := \{\zeta \xeof \C \: \linA {-} \zeta \mbox{ bounded below}\}$
-is the so-called \textit{field of regularity} of $\linA$.
+$\Delta(\linA) \xsubset \Pi(\linA)$
+($\Pi(\linA)$ is the {field of regularity} of $\linA$ (see section 5).
 
 \subsection{} %-- symmetric operators
 %------------------------------------------------------------------------------%
@@ -6020,9 +6029,9 @@ of the matrices $A(x)$ with $x \xeof \G$.
 %------------------------------------------------------------------------------%
 \subsubsection{V. \TITLEE}
 The variational approach to stationary (and also evolutional)
-boundary value problems provides the concept of weak solution,
-and in this part of the section we want to apply the abstract theory
-boundary value problems governed by strictly elliptic differential operators
+boundary value problems provides the concept of weak solution.
+In this part of the section we want to apply the abstract theory
+to boundary value problems governed by strictly elliptic differential operators
 by quoting the related existence and uniqueness assertions.
 
 \subparagraph{} %- the variational Dirichlet problem
@@ -6039,8 +6048,8 @@ the coefficients $a_{\alpha \beta}$ belong to $L^{\infty}(\G)$
 and the top-order coefficients are uniformly continuous in $\clG$.
 \end{itemize}
 
-\paragraph{} %- homogeneous Dirichlet problem
-It is our first aim to solve the \textit{homogeneous Dirichlet problem}
+\paragraph{} %- weak solution of the homogeneous Dirichlet problem
+It is our aim to solve the \textit{homogeneous Dirichlet problem}
 \[
 \begin{cases}[1.2]
 \; (\A\,u)(x)\= f(x)& (x \xeof \G),\\
@@ -6056,7 +6065,7 @@ the Dirichlet form
 \[
 \DF_{\A}(u,v) \eqdef \scalar{\A \, u}{v} \quad \quad (u,v \in \vecV)
 \]
-is quasi-coercive with some $\lambda_0 \xeof \R$.
+is quasi-coercive with $\lambda_0 \xeof \R$ chosen large enough.
 Then,
 by means of the {Lax-Milgram} theorem,
 we obtain the following \textit{well-posedness theorem}:
@@ -6068,9 +6077,9 @@ For $\lambda \geq \lambda_0$, the variational equation
 \= f(v) \quad (v \xeof \HN{m}{\G})
 \]
 owns for $f \xeof H^{-m}(\G) := \HN{m}{\G}^*$
-a unique solution $u \xeof \HN{m}{\G}$ depending
-continuously on the right-hand side $f$ and
-called the \textit{weak solution} of the homogeneous Dirichlet problem.
+a unique solution $u \xeof \HN{m}{\G}$,
+which continuously depends on $f$ and is called
+the \textit{weak solution} of the homogeneous Dirichlet problem.
 \end{theorem}
 
 %-- the Fredholm property of elliptic operators
@@ -6089,7 +6098,7 @@ It can be seen as a key theorem in the analysis
 of linear-elliptic boundary problems on such domains:
 
 \begin{theorem}\label{RELLICH_EMBEDDING_THEOREM}
-If $\G \xsubset \Rd$ is bounded and owns smooth boundary $\bndG$,
+If $\G \xsubset \Rd$ is bounded and its boundary $\bndG$ is smooth,
 then the continuous embeddings
 $\iota_k \: \HN{k}{\G} \hookrightarrow \Lh$ are compact for all $k \xeof \N$.
 \end{theorem}
@@ -6232,10 +6241,10 @@ for all $t > 0$ and $x \xeof \Rd$
 %-- self-adjoint extensions of half-bounded operators
 %------------------------------------------------------------------------------%
 \subsubsection{VIII. \TITLEH}
-Given a differential expression $\A$,
-Remember the definition of the formally adjoint expression $\A^{\dag}$.
-We then denote a linear differential expression $\A$
-\textit{formally self-adjoint} in case of $\A^{\dag} \eq \A$.
+Given the linear differential expression $\A$,
+remember the definition of the formally adjoint expression $\A^{\dag}$.
+We then denote $\A$ \textit{formally self-adjoint}
+in case of $\A^{\dag} \eq \A$.
 If $\A$ has constant coefficients,
 then $\A$ proves to be formally self-adjoint
 iff
@@ -6376,7 +6385,7 @@ $\hat{u}$ and $\hat{v}$ are related by \textsc{Plancherel}\textit{'s formula}
 $\scalar{u}{v} \eq \scalar{ \hat{u} }{\hat{v} }$.
 Since the mapping $\FT$ is linear and continuous on $C_c^{\infty}(\Rd)$,
 which is a dense subspace of $L^2(\Rd)$,
-it can be extended to an \textit{unitary},
+it can be extended to the \textit{unitary},
 that is,
 a bijective and isometric linear operator
 $\FT_P \: L^2(\Rd) \xto L^2(\Rd)$,
@@ -6483,7 +6492,7 @@ that is,
 \quad M_q u        \eqdef q {\cdot} u \; \for u \in \domain{M_q}   ,\\
 \end{cases}
 \]
-so the operator $\HAM_q$ can be seen as a perturbation
+so the operator $\HAM_q$ can be seen as the perturbation
 of the negative Laplacian by the operator $M_q$.
 
 \paragraph{} %- Schroedinger equation
