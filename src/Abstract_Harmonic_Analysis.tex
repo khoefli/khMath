@@ -59,6 +59,8 @@
 The aim of this article
 is to review some basic concepts of \textit{abstract harmonic analysis},
 the theory of Fourier transformation on locally compact Abelian groups.
+It has important applications in a multiplicity of other mathematical fields,
+like functional analysis, mathematical physics, and others.
 
 \section{Basic Theory of Banach Algebras}
 %------------------------------------------------------------------------------%
@@ -101,7 +103,7 @@ thus a normed algebra is denoted a \textit{Banach algebra},
 if it is complete as a normed linear space.
 
 \subparagraph{} %- the unital Banach algebra of bounded linear operators
-The most prominent example of a non-commutative Banach algebra is given by
+A prominent example of a non-commutative Banach algebra is given by
 the $\C$-algebra $\BO{\banX}$ of bounded linear operators
 $\linA \:\banX \xto \banX$,
 where $\banX$ is a real or complex Banach space.
@@ -111,7 +113,7 @@ and the operator norm $\norm{\linA}$ of $\linA \xeof \BO{\banX}$.
 \paragraph{} %- Gelfand-Mazur theorem
 One of the key results in the theory of complex Banach algebras
 is the \textit{Gelfand-Mazur theorem}
-(see also \cite{VII_Ka}, p.\,14):
+(see also \cite{Ka}, p.\,14):
 
 \begin{theorem1}\label{GELFAND_MAZUR_THEOREM}
 If each element $x \neq 0$ in a complex Banach algebra $\banB$ is invertible,
@@ -157,8 +159,7 @@ so $\GL{\banB} $ forms a topological group,
 when considered in the subset topology of $\banB$.
 
 \paragraph{} %- examples of commutative Banach algebras
-Here are some important examples of commutative Banach algebras
-{\wrt} applications:
+Here are some examples of commutative Banach algebras:
 
 \begin{itemize}[leftmargin=12pt,itemsep=4pt]
 \item[1.]
@@ -168,13 +169,15 @@ as a complex unital Banach algebra in its own right.
 \item[2.]
 For any topological space $\topX$
 the function spaces $C_b(\topX)$ and $C_0(\topX)$,
-both endowed with the supremum norm $\norm{f} := \sup_{x} \abs{f(x)} $.
+both endowed with the \textit{supremum norm}
+$\norm{f} := \sup_{\,x \in \topX} \abs{f(x)} $.
 
 \subparagraph{}
 If $\topX$ is \textit{compact},
 then the function space $C(\topX)$ consisting of continuous functions
 $f\: \topX \xto \C$ forms a Banach algebra,
-which in addition is unital with identity $\1(x) := 1$ for $x \xeof \topX$.
+which in addition is unital with identity mapping
+$\1(x) := 1$ for $x \xeof \topX$.
 
 \item[3.]
 The algebra $L^1(\topG,\Borel{\topG},\mu)$ of Lebesgue-integrable functions
@@ -212,7 +215,7 @@ for all $\nu \xeof \cal{M}^r(\topG)$.
 %------------------------------------------------------------------------------%
 Given the Banach algebras $\banB_1, \banB_2$,
 a linear mapping $\Phi\:\banB_1 \xto \banB_2$
-is denoted a \textit{Banach algebra homomorphism},
+is called a \textit{Banach algebra homomorphism},
 if it preserves multiplication according to 
 \[
 \Phi(x \circ y) \= \Phi(x) \circ \Phi(y)
@@ -223,7 +226,7 @@ $\banB_1$ and $\banB_2$ are said
 to be \textit{isomorphic} to each other, 
 if there is a bijective homomorphism $\Phi \:\banB_1 \xto \banB_2$ fulfilling
 $\norm{\Phi(x)}_{\banB_2} \eq \norm{x}_{\banB_1}$ for all $x \xeof \banB_1$,
-which in this case is called a \textit{Banach algebra isomorphism}
+which is called a \textit{Banach algebra isomorphism} in this case
 (notation: $\banB_1 \cong \banB_2$).
 
 \paragraph{} %- Gelfand representation
@@ -305,10 +308,9 @@ $\norm{ \hat{x} }_{\infty} \leq \norm{x}$ for each $x \xeof \banB$.
 \subparagraph{}
 The Gelfand representation is injective
 iff $\banB$ is a \textit{semisimple} Banach algebra,
-that is,
-if the intersection of all maximal ideals in $\banB$,
+{\ie} the intersection of all maximal ideals in $\banB$,
 called the \textit{Jacobsen radical} of $\banB$,
-is equal to the set $\{0\}$.
+is equal to the set $\{\0\}$.
 
 \section{Generalities on Topological Groups}
 %------------------------------------------------------------------------------%
@@ -546,14 +548,13 @@ $\topG$ is discrete \iff $\topG^*$ is compact.
 \end{itemize}
 
 \paragraph{}
-Finally,
-let us mention
-that it is possible to endow the convolution algebra $L^1(\topG,+,\ast)$
+Let us finally mention
+that it is possible to endow the algebra $L^1(\topG,+,\ast)$
 of any LCA group $\topG$
-with an involutional mapping $* \:L^1(\topG) \xto L^1(\topG)$,
+with an involutional mapping $^* \:L^1(\topG) \xto L^1(\topG)$,
 defined for $f \xeof L^1(\topG)$ by
 \[
-f^*(x) \eqdef \overline{f(-x)}, \quad \quad (x \in \topG).
+f^*(x) \eqdef \overline{f(-x)} \quad \quad (x \in \topG).
 \]
 
 \section{Abstract Fourier Transformation}
@@ -612,11 +613,11 @@ that are already known from the general Gelfand transformation:
 For every $f \xeof L^1(\topG)$ the mapping $\hat{f}$ is continuous on $\topG^*$.
 
 \item[2.]
-the function $\hat{f}$ is vanishing at infinity
-(\textit{Riemann-Lebesgue theorem}),
+the function $\hat{f}$ is vanishing at infinity,
 that is,
 it maps absolutely integrable functions
-to elements of the function space $C_0(\topG^*)$.
+to elements of the function space $C_0(\topG^*)$
+(\textit{Riemann-Lebesgue theorem}).
 
 \item[3.]
 $\FT$ is injective,
@@ -729,7 +730,7 @@ identical on $\topG$.
 
 \subparagraph{}
 Especially for the group $(\R,+)$,
-where even $\R^*$ may be identified with $\R$,
+where $\R^*$ can be identified with $\R$,
 we obtain the inverse Fourier transform of $\hat{f} \xeof L^1(\R)$ according to
 \[
 F(x) \= \int_R \hat{f}(t) \, e^{itx} \, dt, \quad (x \in \R).
@@ -884,7 +885,7 @@ $\FT \: f \xto \hat{f}$ \xeof $C_0(\Rd)$,
 which sends each function $f \xeof L^1(\Rd)$
 to the function $\hat{f} \xeof C_0(\Rd)$,
 called the \textit{Fourier transform} of $f$ and defined by
-\begin{equation}\label{VII_L1_FOURIER_TRANSFORM}
+\begin{equation}\label{L1_FOURIER_TRANSFORM}
 \hat{f}(\xi) \eqdef
 \frac{1}{(2 \pi)^{d/2}}
 \int_{\,\Rd} \, e^{-2 \pi i \scalar{\xi}{x}} \, f(x) \, dx
@@ -946,17 +947,17 @@ and the inner product in $L^2(\Rd)$ is given by
 \[
 \scalar{u}{v} \= \int_{\,\Rd} \, u\,\overline{v} \, dx.
 \]
-If the functions $u,v \: \Rd \xto \C$ are Lebesgue-integrable
-then by definition they belong to the space $L^1(\Rd)$,
+If the functions $u,v \: \Rd \xto \C$ are Lebesgue-integrable,
+then they belong to the space $L^1(\Rd)$ by definition,
 and their \textit{Fourier transforms} are well-defined
-by formula \eqref{VII_L1_FOURIER_TRANSFORM}.
+by formula \eqref{L1_FOURIER_TRANSFORM}.
 
 \subparagraph{}
 However, 
 if is not only a member of $L^1(\Rd)$, 
 but also $u \xeof L^2(\Rd)$,
 we define Fourier transformation a little bit different:
-\begin{equation}\label{VII_L2_FOURIER_TRANSFORM}
+\begin{equation}\label{L2_FOURIER_TRANSFORM}
 \hat{u}(\xi) \eqdef
 \frac{1}{(2 \pi)^{d/2}}
 \int_{\,\Rd} \, e^{-2 \pi i \scalar{\xi}{x}} \, u(x) \, dx.
@@ -989,7 +990,7 @@ or the \textit{$L^2$-Fourier transformation} in $L^2(\Rd)$.
 But in general a function $u \xeof L^2(\Rd)$ is not an element of $L^1(\Rd)$.
 Thus it is not possible to define the $L^2$-Fourier transform $\hat{u}$
 of every $u \xeof L^2(\Rd)$
-by means of formula \eqref{VII_L2_FOURIER_TRANSFORM}.
+by means of formula \eqref{L2_FOURIER_TRANSFORM}.
 However,
 for $u \xeof L^2(\Rd)$ and $R > 0$ the function
 \[
@@ -1013,7 +1014,7 @@ that the mapping $\FT_P$ is well-defined in Hilbert space $L^2(\Rd)$,
 therefore it has also a meaning in the linear subspaces $H^k(\Rd)$
 for $k \xeof \N$.
 We define for each $k \xeof \N$ the real-valued mapping
-\begin{equation}\label{VII_DEFINITION_OF_FUNCTION_P}
+\begin{equation}\label{DEFINITION_OF_FUNCTION_P}
 p_k:x \in \Rd \mapsto (1 + \abs{x} ^{2k})^{1/2}
 \end{equation}
 and the space
@@ -1045,7 +1046,7 @@ from $H^k(\Rd)$ to $\cal{H}^k(\Rd)$, {\ie}
 \subparagraph{}
 In order to extend the definition of the spaces $H^k(\Rd)$
 to indices $s \xeof \R^+$,
-let $p_s$ be defined as in \eqref{VII_DEFINITION_OF_FUNCTION_P}
+let $p_s$ be defined as in \eqref{DEFINITION_OF_FUNCTION_P}
 but with $s > 0$ instead of $k \xeof \N$.
 We define
 \[
@@ -1073,7 +1074,7 @@ Fourier transformation restricted to the Schwartz space $\SRd$
 forms a linear mapping $\FT \:\SRd \xto \SRd$,
 which sends each function $\phi \xeof \SRd$ to a further function
 $\hat{\phi} \xeof \SRd$ according to the well-known formula
-\begin{equation}\label{VII_FOURIER_TRANSFORM_OF_SCHWARTZ_FUNCTION}
+\begin{equation}\label{FOURIER_TRANSFORM_OF_SCHWARTZ_FUNCTION}
 \hat{\phi}(x) \= \FT(\phi)(x) :=
 \frac{1}{(2\pi)^{d/2}}
 \int_{\,\Rd} e^{-i <\xi,x>} \phi(\xi) \, d \xi
@@ -1126,19 +1127,21 @@ the constant function $x \mapsto \frac{1}{\sqrt{2\pi}}$.
 
 % BIBLIOGRAPHY
 %------------------------------------------------------------------------------%
-\vspace{5mm}
+\newpage
+\thispagestyle{empty}
+
 \begin{thebibliography}{99}
 \begin{small}
 
-\bibitem{VII_Ka} E.\,Kaniuth:
+\bibitem{Ka} E.\,Kaniuth:
 \textit{A Course in Commutative Banach Algebras},
 Springer GTM 246, 2009.
 
-\bibitem{VII_Ru} W.\,Rudin:
+\bibitem{Ru} W.\,Rudin:
 \textit{Fourier Analysis on Groups},
 Wiley-Interscience, 1962.
 
-\bibitem{VII_SW} E.\,Stein, G.\,Weiss:
+\bibitem{SW} E.\,Stein, G.\,Weiss:
 \textit{Introduction to Fourier Analysis on Euclidean Spaces},
 Princeton Mathematical Series 32, Princeton University Press, 1971.
 

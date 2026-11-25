@@ -208,12 +208,14 @@ that is,
 \]
 for $x,y \xeof \banX$ and $\lambda \xeof \F$.
 If $\iota$ is even surjective,
-it is said to be a \textit{linear isomorphism}
+then it is said to be a \textit{linear isomorphism}
 between the spaces $\banX$ and\,$\banY$.
 Then \textsc{Banach}\textit{'s isomorphism theorem} claims that
 the inverse mapping $\iota^{-1}$ is also an embedding,
 so $\iota$ and $\iota^{-1}$ both constitute linear homeomorphisms
 between these spaces.
+
+\subparagraph{} %- norm-isomorphisms
 Finally,
 an embedding $\iota$ is denoted a \textit{norm-isomorphism},
 if it is surjective and $\norm{\iota x} \eq \norm{x}$ holds
@@ -372,7 +374,7 @@ Using this notation, the decomposition theorem quotes that
 in the Hilbert space setting every closed subspace $\setA$ is topologically
 complemented by the orthogonal space $\setA^{\bot}$.
 However,
-this assertion is not true in the general Banach space setting.
+this assertion is not true for general Banach spaces.
 
 \item[4.] \textit{Existence of Orthonormal Bases}.
 An orthogonal system $\orthO \xsubset \hilH$ is denoted
@@ -400,7 +402,7 @@ by the formal sum
 \begin{equation}\label{FOURIER_COEFFICIENTS}
 x \= \sum_{e_{\alpha} \in \, \orthO} \, \scalar{x}{e_{\alpha}} \, e_{\alpha}.
 \end{equation}
-The inner products $\scalar{x}{e_{\alpha}}$ are called
+The values $\scalar{x}{e_{\alpha}}$ are called
 the \textit{Fourier coefficients} of $x$ {\wrt} $\orthO$.
 Notice that the right hand side of \eqref{FOURIER_COEFFICIENTS}
 consists of \textit{mostly countable many} non-zero summands,
@@ -414,7 +416,7 @@ In fact,
 it can be shown that
 the following statements are equivalent:
 
-\begin{itemize}[leftmargin=9mm]
+\begin{itemize}[leftmargin=9mm,itemsep=2pt]
 \item[(a)]
 $\orthO$ is an orthonormal base in $\hilH$.
 
@@ -425,8 +427,8 @@ $\scalar{x}{e} \eq 0$ for all $e \xeof \orthO$ implies $x \eq \0$.
 
 \item[(c)]
 $\sum_{\, e_{\alpha} \xeof \orthO} \,
-\abs{ \scalar{x}{e_{\alpha}} } ^2 \eq \norm{x}^2$ for all $x \xeof \hilH$
-(\textit{Parseval}\textit{'s equation}).
+\abs{ \scalar{x}{e_{\alpha}} } ^2 \eq \norm{x}^2$ for $x \xeof \hilH$
+(\textit{Parseval} \textit{equation}).
 \end{itemize}
 
 \paragraph{} %- existence of orthonormal bases
@@ -491,7 +493,7 @@ holds for all $x,y \xeof \domain{\linA}$ and $\lambda,\mu \xeof \F$.
 The space $\banX$ is denoted the \textit{domain space} of $\linA$,
 whereas $\banY$ is said to be the \textit{range space} of $\linA$.
 
-\subparagraph{} %- choices of the domain space
+\paragraph{} %- domains of definition and choices of the domain space
 The domain of definition $\domain{\linA}$ may of course
 coincide with the entire space $\banX$,
 but it is often sufficient to require that 
@@ -3216,8 +3218,8 @@ The linear space consisting of functions having \textit{continuous}
 classical derivatives in $(a,b)$ is denoted $C^1(a,b;\banX)$.
 
 \subparagraph{} %- higher order differentiability of vector-valued functions
-The spaces $C^k(a,b;\banX)$ ($k \xeof \N$) are defined recursively as usual,
-and especially the space $C^{\infty}(a,b;\banX)$ is defined
+The spaces $C^k(a,b;\banX)$ ($k \geq 2$) are defined recursively,
+whereas the space $C^{\infty}(a,b;\banX)$ is defined
 by taking the intersection of all spaces $C^k(a,b;\banX)$ for $k \xeof \N_0$.
 
 \paragraph{} %- initial value problems governed by self-adjoint linear operators
@@ -3225,7 +3227,8 @@ The initial value problems under consideration in this section
 are the homogeneous Cauchy problems of first and second order
 and the abstract {\SCHROEDINGER} equation.
 We notice in advance
-that they can also be studied by semigroup methods (see sections 9,\,10 and 11).
+that these problems can also be studied by semigroup methods
+(see sections 9,\,10 and 11).
 
 \begin{itemize}[leftmargin=12pt,itemsep=2mm,topsep=1mm]
 \item[1.]
@@ -3775,11 +3778,11 @@ if it is solvable and $\linA^{-1}$ is compact.
 \end{itemize}
 
 %------------------------------------------------------------------------------%
-\section{Infinitesimal Generators of Semigroups}                               %
+\section{Infinitesimal Generators of C$_0$-Semigroups}                         %
 %------------------------------------------------------------------------------%
 %-- 
-%--  9. INFINITESIMAL GENERATORS OF SEMIGROUPS
-%--     --------------------------------------
+%--  9. INFINITESIMAL GENERATORS OF C0-SEMIGROUPS
+%--     -----------------------------------------
 This section contains a short outlook to \textit{semigroup theory},
 the subject that deals with families of bounded linear operators
 fulfilling two fundamental features.
@@ -6314,21 +6317,20 @@ in the space $\TF$ of test functions.
 
 \subparagraph{} %- Green's formula for the negative Laplacian
 Using \textsc{Green}'s second formula,
-and due to the boundary condition $\phi(x) \eq 0$ for $x \xeof \partial \G$
-and $\phi \xeof \TF$,
+and due to the property of functions in $\TF$ to have compact support,
 we compute for $\phi,\psi \xeof \TF$
 \[
 \int_{\G} -\Delta \phi \, \overline{\psi} \, dx
-\=
-\sum_{i=1}^n \int_{\G}
+\begin{comment}
+=
+- \sum_{i=1}^n \int_{\G}
 \frac{\partial^2 \phi}{\partial x_i^2} \, \overline{\psi} \, dx
-\]
-\[
-\=
-\sum_{i=1}^n \int_{\G}
-u \, \overline{\frac{\partial^2 \phi}{\partial x_i^2}} \, dx 
-\=
-\int_{\G} \phi \, \overline{\Delta \psi} \, dx,
+=
+- \sum_{i=1}^n \int_{\G}
+\phi \, \overline{\frac{\partial^2 \phi}{\partial x_i^2}} \, dx 
+\end{comment}
+=
+\int_{\G} \phi \, \overline{-\Delta \psi} \, dx,
 \]
 which implies symmetry of the operator $\linA_{-\Delta,0}$.
 Moreover,
@@ -6343,7 +6345,7 @@ we obtain for $\phi \xeof \TF$ the inequality
 \]
 hence $\linA_{-\Delta,0}$ is half-bounded with lower bound $0$
 and fulfills the prerequisites
-to apply the {Friedrichs} extension method.
+to apply \textsc{Friedrichs}' extension method.
 Thus we may quote
 that the operator $\linA_{-\Delta,0}$ owns at least one self-adjoint extension,
 and this assertion is true actually for arbitrary domains $\G \xsubset \Rd$.
@@ -6594,7 +6596,7 @@ then the operator $\HAM_q$ does not own any positive eigen\-value.
 %\newpage
 %\thispagestyle{empty}
 
-\vspace{0mm}
+\vspace{4mm}
 \begin{thebibliography}{99}
 \begin{small}
 
@@ -6750,8 +6752,8 @@ Springer, 1980.
     the discrete spectral theorem
     concepts of solvability for linear equations
 
- 9. INFINITESIMAL GENERATORS OF SEMIGROUPS
-    --------------------------------------
+ 9. INFINITESIMAL GENERATORS OF C0-SEMIGROUPS
+    -----------------------------------------
     strongly continuous semigroups of bounded linear operators
     infinitesimal generators
     well-posedness of first-order Cauchy problems
