@@ -1358,7 +1358,7 @@ In addition,
 we define the \textit{restricted adjoint} $\linB_r$
 of the operator $\linB$ according to $\domain{\linB_r} :=$
 \[
-\{ x \xeof \banX \: \mbox{ there is } y \xeof \banY \mbox{ such that }
+\{ x \xeof \banX \: \mbox{ there is } y \xeof \banY\,\mbox{such that }
 (\linB f)\,x \eq f(y) \fa f \xeof \domain{\linB} \}
 \]
 and $\linB_r \, x := y$.
@@ -1600,9 +1600,11 @@ Then:
 \begin{itemize}[leftmargin=9mm]
 \item[(a)]
 $\rho(\linA)$ is open.
+
 \item[(b)]
 If $\rho(\linA) \neq \emptyset$, then $\linA$ is closed
 (and often denoted \textit{regular}).
+
 \item[(c)]
 If $\linA$ is continuous and everywhere defined in $\banX$,
 then we actually have $\emptyset \neq \rho(\linA) \neq \C$ and
@@ -1888,9 +1890,11 @@ where the \textit{winding number} of $\gamma$ has value $1$.
 This representation of $f(z_0)$ does not depend on the shape of $\gamma$.
 
 \subparagraph{}
-If we consider $z_0 \xeof \C$ as a linear operator
-$Z_0 \: \C \xto \C \xeof \BO{\C}$ defined by
-$Z_0 \,\zeta := z_0 \cdot \zeta$ for $\zeta \xeof \C$,
+If we consider $z_0 \xeof \C$ as an operator
+$Z_0 \: \C \xto \C \xeof \BO{\C}$
+defined by
+$Z_0 \,\zeta := z_0 \cdot \zeta$
+for $\zeta \xeof \C$,
 then the spectrum of $\Z_0$ consists of the single point $z_0$
 and the resolvent adopts the form
 $R(Z_0,\zeta) \eq (\zeta-z_0)^{-1}$.
@@ -1907,7 +1911,7 @@ for the \textit{holomorphic} or \textit{analytic functional calculus}
 in unital and complex Banach algebras like the operator algebra $\BO{\banX}$.
 Let $\linA$ be a bounded linear operator acting in $\banX$
 (so the spectrum $\sigma(\linA)$ is non-emtpy and bounded),
-$\gamma$ be a closed and rectificable path with winding number $1$
+let $\gamma$ be a closed and rectificable path with winding number $1$
 containing $\sigma(\linA)$
 and $f \: \G \xto \C$ be a bounded and analytic function
 defined on an open set $\G \supset \sigma(\linA)$.
@@ -2224,7 +2228,7 @@ an abstract \textit{Schauder estimate},
 one may quote a sufficient condition for $\linA$ to be upper semi-Fredholm,
 which is known as \textit{Peetre}\textit{'s lemma}:
 
-\begin{theorem}\label{PEETRE_THEOREM_II}
+\begin{theorem}\label{PEETRE_THEOREM}
 Let $\banX,\,\banY,\,\banZ$ be three Banach spaces,
 where $\banX$ is compactly embedded into $\banZ$,
 that is,
@@ -2549,8 +2553,8 @@ Moreover,
 for $\zeta \xeof \Delta(\linA)$
 the operator $\linA {-} \zeta$ is bounded below,
 thus
-$\Delta(\linA) \xsubset \Pi(\linA)$
-($\Pi(\linA)$ is the {field of regularity} of $\linA$ (see section 5).
+$\Delta(\linA) \xsubset \Pi(\linA)$,
+where $\Pi(\linA)$ denotes the {field of regularity} of $\linA$.
 
 \subsection{} %-- symmetric operators
 %------------------------------------------------------------------------------%
@@ -2612,11 +2616,14 @@ and the both values
 $d_{\pm} := \beta(\linA {\pm} i) \xeof \N_0 \cup \{\infty\}$
 are called the \textit{defect indices} of $\linA$.
 
-\subparagraph{} %-- spectrum of symmetric operators
+\paragraph{} %-- spectrum of symmetric operators
 %------------------------------------------------------------------------------%
 Now the decisional question is
-whether the operators $\linA {\pm} i$ are surjective rsp.
-the defect indices $d_{\pm}$ of $\linA$ are zero.
+whether the operators $\linA {\pm} i$ are surjective and
+the defect indices $d_{\pm}$ of $\linA$ are zero,
+respectively.
+
+\subparagraph{}
 We can distinguish four possible cases:
 
 \begin{itemize}[leftmargin=14pt]
@@ -2778,7 +2785,7 @@ the adjoint $\linA^*$ is symmetric, too.
 
 \subsection{} %-- von Neumann's extension theory
 %------------------------------------------------------------------------------%
-We next want to review the \textit{extension theory} for symmetric operators.
+We next review the \textit{extension theory} for symmetric operators.
 First notice that
 the closure of a symmetric linear operator is not necessarily self-adjoint.
 To ensure self-adjointess of a symmetric operator $\linA$,
@@ -3894,7 +3901,8 @@ and closed.
 \end{theorem}
 
 Hence the generators of strongly continuous semigroups fit
-into our base class of linear operators considered in section 2.
+into our base class of densely defined and closed linear operators
+considered in section 2.
 
 \subsection{} %-- well-posedness of first order Cauchy problems
 %------------------------------------------------------------------------------%
@@ -4256,10 +4264,10 @@ that if such a number $\zeta_0$ exists,
 then $\linA {-} \zeta$ is surjective even for every $\zeta \xeof (-\infty,0)$,
 so $\zeta_0$ may be replaced by any other number $\zeta < 0$.
 
-\paragraph{} %- dense definiteness and closeness of m-accretive operators
-A m-accretive operator fits into the main class of densely defined and
-closed linear operators,
-as the following theorem shows:
+\subparagraph{} %- dense definiteness and closeness of m-accretive operators
+As the following theorem shows,
+m-accretive operators fit into the class of densely defined and
+closed linear operators:
 
 \begin{theorem}\label{M_ACCRETIVITY_IMPLIES_CLOSENESS}
 Each m-accretive operator $\linA$ is densely defined and closed,
@@ -5334,14 +5342,15 @@ Let $\A$ be a linear partial differential operator of order $k \xeof \N$
 \A(x,u) \eqdef
 \sum_{\abs{\alpha} \leq k} c_{\alpha}(x) \, \PA u.
 \end{equation}
-Then by a \textit{realization} of $\A$ in some
-Banach spaces $\mathbb{E}(\G)$ and $\mathbb{E}(\G)$
-of functions $u \: \G \xto \C$ is meant any linear operator
+in a domain $\G \xsubset \Rd$.
+Then by a \textit{realization} of $\A$ in some Banach spaces
+$\mathbb{E}(\G)$ and $\mathbb{F}(\G)$ of functions $u \: \G \xto \C$
+is meant any linear operator
 \[
 \linA: \domain{\linA} \subset \mathbb{E}(G) \xto \mathbb{F}(G)
 \]
 with domain of definition $\domain{\linA}$.
-The Banach space $\mathbb{E}(\G)$ should at least contain
+The Banach space $\mathbb{E}(\G)$ should contain at least
 the space $\TF$ of test functions\footnote{
 \,The space $\TF$ consists of indefinitely differentiable functions
 having \textit{compact} support
@@ -5353,8 +5362,7 @@ This space plays an out\-standing role in analysis,
 since it lies dense in a multiplicity of other functional spaces.}
 as a dense linear subspace.
 We also require for each $u \xeof \domain{\linA}$ that
-$\A \, u$ is well-defined by
-$\linA u \eq \A \, u$ and of course
+$\A \, u$ is well-defined by $\linA u \eq \A \, u$ and of course
 $\A \, u \xeof \mathbb{F}(\G)$ holds.
 Clearly,
 our first condition means that the set $\domain{\linA}$
@@ -5365,8 +5373,8 @@ the subspace $\domain{\linA}$ lies dense in $\mathbb{E}(\G)$
 and $\linA$ appears as a densely defined operator
 with domain space $\mathbb{E}(\G)$ and range space $\mathbb{F}(\G)$.
 One often choses $\mathbb{F}(\G) \eq \mathbb{E}(\G)$,
-so $\linA$ is an operator purely acting in $\mathbb{E}(\G)$
-and we may apply concepts and results from spectral theory.
+so $\linA$ is an operator purely acting in $\mathbb{E}(\G)$,
+hence concepts and results from spectral theory can be applied.
 
 \paragraph{} %- content of the section
 In the second part of this section we want to present some results
@@ -5377,11 +5385,12 @@ To be precise, we want to point out that
 \item[-] 
 for a linear partial differential expression $\A$
 with differentiable coefficients up to a certain order
-there can be defined densely defined and closable rsp. closed 
-realizations,
-acting either in the {\HOELDER} spaces $C^{k,\gamma}(\G)$
+in a domain $\G \xsubset \Rd$
+there are realizations
+in the {\HOELDER} spaces $C^{k,\gamma}(\G)$
 ($k \xeof \N_0$, $0 < \gamma \leq 1$)
-or in the Lebesgue spaces $\Lp$ ($1 \leq p < \infty$);
+and in the Lebesgue spaces $\Lp$ ($1 \leq p < \infty$),
+which are densely defined, pre-closed or even closed;
 
 \item[-] 
 using \textit{elliptic estimates},
@@ -5396,25 +5405,27 @@ can be supported by that of their adjoints $\linA^*$,
 which are determined by so-called \textit{adjointness theorems};
 
 \item[-] 
-by starting with quasi-coercive sesquilinear forms,
+by starting with quasi-coercive sesquilinear forms
 induced by strongly elliptic differential expressions,
-we can obtain realizations in Hilbert space $\Lh$,
-which prove to be densely defined and closed;
+we can obtain densely defined and closed realizations in Hilbert space $\Lh$;
 
 \item[-] 
-\textit{weak solutions} of elliptic boundary value problems exist and are unique,
-supposed the governing sesquilinear form is the Dirichlet form
-of a strongly elliptic linear differential operator;
+\textit{weak solutions} of elliptic boundary value problems exist
+and are unique,
+supposed the sesquilinear form of the corresponding variational equation
+is the Dirichlet form of a strongly elliptic linear differential operator;
 
+\begin{comment}
 \item[-] 
-the realizations of a regularly elliptic expression $\A$
+realizations of a regularly elliptic expression $\A$
 in Hilbert space $\Lh$ fulfilling homogeneous Dirichlet conditions are Fredholm,
 so the alternative theorem \eqref{FREDHOLM_ALTERNATIVE_THEOREM}
-may be applied to the related boundary value problem $\A \, u \eq f$;
+can be applied to the related boundary value problem $\A \, u \eq f$;
+\end{comment}
 
 \item[-] 
-strongly elliptic expressions give rise to m-accretive and 
-sectorial realizations in Hilbert space $\Lh$,
+strongly elliptic expressions give rise to m-accretive
+and sectorial realizations in Hilbert space $\Lh$,
 so the related parabolic and hyperbolic initial value problem are well-posed;
 
 \item[-] 
@@ -5425,7 +5436,7 @@ give rise to self-adjoint realizations in Hilbert space $\Lh$;
 \subparagraph{}
 This enumeration is of course only a small selection of results,
 but may serve as a good impression
-how functional analysis tools help to get insight into these problems.
+how functional analysis tools can help to verify these quotations.
 Let us now turn to the details of the mentioned assertions:
 
 \def\TITLEA{Realizations in the spaces $C^{\gamma}(\G)$ and $\Lp$.}
@@ -5433,7 +5444,7 @@ Let us now turn to the details of the mentioned assertions:
 \def\TITLEC{Formally adjoint expressions and adjointness theorems.}
 \def\TITLED{{\GARDING}'s inequality and quasi-coercive Dirichlet forms.}
 \def\TITLEE{Weak solutions of elliptic boundary value problems.}
-\def\TITLEF{The Fredholm property of elliptic operators.}
+\def\TITLEF{The Fredholm property of properly elliptic operators.}
 \def\TITLEG{Spectral theory and sectorialness of strongly elliptic operators.}
 \def\TITLEH{Self-adjoint extensions of half-bounded operators.}
 
@@ -5450,8 +5461,8 @@ are usually studied:
 The notation of classical derivative $\PA u$,
 applied to a function $u \: \G \xto \C$,
 leads us to the usage
-of the spaces $C^{\gamma}(\G)$ of \textit{{\HOELDER}-constinuous} functions,
-which constitute Banach spaces when endowed with a suitable norm.
+of the spaces $C^{\gamma}(\G)$ of {\HOELDER}-constinuous functions,
+which are Banach spaces when endowed with suitable norms.
 
 \subparagraph{} %- Hölder continuity
 Preliminary,
@@ -5626,7 +5637,7 @@ as defined in the larger space $H^k(\G)$,
 so it is a Hilbert space as well.
 
 \subparagraph{}
-Finally,
+To the end,
 a realization of a linear differential operator $\A$ of order $k$
 in Lebesgue space $\Lp$ is a linear mapping
 \[
@@ -5750,7 +5761,7 @@ is given by the following theorem
 whose proof uses the presence of the formally adjoint expression $\A^{\dag}$:
 
 \begin{theorem}\label{L2_CLOSABILITY_THEOREM}
-Let the expression $\A$ of order $n$ be given by \eqref{ANY_ORDER_LPDO}
+Let the expression $\A$ of order $k$ be given by \eqref{ANY_ORDER_LPDO}
 with coefficients $c_{\alpha} \xeof C^k(\G)$ for $\abs{\alpha} \leq k$ and
 the linear operator
 \[
@@ -5834,7 +5845,7 @@ ${\linA}^* \eq \linA^{\dag}$.
 
 \subparagraph{} %- adjointness theorem in L^p
 A similar result holds in the setting of the spaces $\Lp$ for $1 < p < \infty$.
-Asis quoted in \cite{Pa} by lemma 7.3.4,
+As is quoted in \cite{Pa} by lemma 7.3.4,
 we have 
 ${\linA_p}^* \eq {{\linA}^{\dag}}_q$,
 where $q \eq p/(p-1)$ respectively $\frac{1}{p} + \frac{1}{q} \eq 1$
@@ -6085,10 +6096,12 @@ which continuously depends on $f$ and is called
 the \textit{weak solution} of the homogeneous Dirichlet problem.
 \end{theorem}
 
-%-- the Fredholm property of elliptic operators
+\begin{comment}
+%-- the Fredholm property of properly elliptic operators
 %------------------------------------------------------------------------------%
 \subsubsection{VI. \TITLEF}
-This statement is properly not correct,
+This statement is only correct,
+if such operators acting in the space $\Lh$ fulfills certain boundary conditions.
 since it only proves to be true for properly elliptic differential operators
 defined in a \textit{bounded} domain $\G \xsubset \Rd$
 and endowed with certain boundary conditions,
@@ -6114,7 +6127,7 @@ The basic approach to investigate the Fredholm property
 of a properly elliptic operator $\A$ in divergence form
 and of order $2m$
 consists of two small changes for the Dirichlet realization $\linA_D$
-having domain of definition $\domain{\linA} \eq H^{2m}(\G) \cap \HN{m}{\G}$:
+having domain of definition $\domain{\linA_D} \eq H^{2m}(\G) \cap \HN{m}{\G}$:
 let us consider the linear operator $\linA_D$ as
 
 \begin{itemize}[leftmargin=9mm]
@@ -6124,26 +6137,31 @@ which is continuous due to the essential boundedness
 of the coefficients $a_{\alpha,\beta}$ in \eqref{LPDO_DIV};
 
 \item[(F-2)]
-the sum $\linA_1 + \linA_2$ of two further linear operators,
+the sum $\linA_D \eq \linA_1 + \linA_2$ of two further linear operators,
 where we shall assume that
-$\linA_1 \: \HN{m}{\G} \xto \Lh$ is the main part 
+$\linA_1 \: \HN{m}{\G} \xto \Lh$ is the main part of $\linA_D$
 having weak derivatives of order $2m$ only,
-whereas $\linA_2 \: \HN{m}{\G} \xto \Lh$ is the part of $\linA_D$
-consisting of weak derivatives with order less than $2m$.
+whereas $\linA_2 \: \HN{m}{\G} \xto \Lh$ is the remaining part of $\linA_D$
+and consists of weak derivatives with order less than $2m$.
+The operator $\linA_2$ is compact,
+since the image is a subset of the space $\HN{1}{\G}$ and the embedding
+of $\HN{1}{\G}$ into $\Lh$ is compact.
 \end{itemize}
 
 \subparagraph{}
 Let $\lambda_0$ be the smallest parameter
-for the Dirichlet form $\DF_{\linA+\lambda_0}$ to be coercive.
-Since
+such that the Dirichlet form $\DF_{\linA+\lambda_0}$ remains coercive.
+Let
 \[
-\linA_D \= (\linA_1 + \lambda_0) \+ (\linA_2 - \lambda_0)
+\linA_D \= (\linA_1 + \lambda_0) \+ (\linA_2 - \lambda_0),
 \]
-and $\linA_2- \lambda_0$ may be seen as a compact perturbation
-of $\linA_1+\lambda_0$,
-which maps $H^m(\G)$ one-to-one onto $\Lh$ and consequently is Fredholm 
-with vanishing index,
-the operator $\linA_D$ is Fredholm again with index $\chi(\linA_D) \eq 0$.
+then $\linA_2- \lambda_0$ may be seen as a compact perturbation
+of $\linA_1+\lambda_0$.
+The operator $\linA_1 + \lambda_0$ maps the space $\HN{m}{\G}$
+one-to-one onto $\Lh$ and consequently is Fredholm with vanishing index,
+which implies
+that the operator $\linA_D$ is Fredholm again with index $\chi(\linA_D) \eq 0$.
+\end{comment}
 
 %-- spectral theory and sectorialness of strongly elliptic operators
 %------------------------------------------------------------------------------%
@@ -6784,5 +6802,6 @@ Springer, 1980.
     formally adjoint expressions and adjointness theorems
     Gardings's inequality and quasi-coercive Dirichlet forms
     weak solutions of elliptic boundary value problems
-    the Fredholm property of elliptic operators
+    the Fredholm property of properly elliptic operators
     spectral theory and sectorialness of strongly elliptic operators
+    Self-adjoint extensions of half-bounded operators
